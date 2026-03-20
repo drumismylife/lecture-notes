@@ -142,12 +142,19 @@ const SITE_DATA = {
   // ── 헬라어 학습 앱 ──────────────────────────────────────────
   greekTools: [
     {
-      name: "헬라어 학습 앱",
+      name: "헬라어 학습앱1",
       icon: "🔤",
       desc: "알파벳 · 플래시카드 · 퀴즈 · 문법 참고",
       href: "output/greek/night_greek_ver2.html",
       isNew: false
-    }
+    },
+  {
+    name: "헬라어 학습앱2",         // ← 새로 추가
+    icon: "📖",
+    desc: "알파벳 발음 · 단어 · 동사변화 오디오 학습",
+    href: "https://drumismylife.github.io/my-greek-app/",
+    isNew: true
+  }
   ],
 
   // ── 관련 자료 ───────────────────────────────────────────────
