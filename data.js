@@ -57,7 +57,9 @@ const SITE_DATA = {
 
     phil: {
       weeks: [
-        { week: 1, title: "기독교철학의 과제와 방법론", date: "2026.03", files: [] },
+        { week: 1, title: "기독교철학의 과제와 방법론", date: "2026.03", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week01.html" }
+          ] },
         { week: 2, title: "신 존재 증명 — 존재론적 논증", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week02.html" }
           ] },
