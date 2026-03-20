@@ -37,8 +37,12 @@ const SITE_DATA = {
 
     min: {
       weeks: [
-        { week: 1, title: "목회자의 정체성과 소명", date: "2026.03", files: [] },
-        { week: 2, title: "설교의 신학적 기초", date: "2026.03", files: [] },
+        { week: 1, title: "오리엔테이션 & 목회의 개념", date: "2026.03.09.", files: [
+          { type: "notes", label: "강의노트", href: "output/목회학/week01.html" }
+        ] },
+        { week: 2, title: "목회란 무엇인가", date: "2026.03.16.", files: [
+          { type: "notes", label: "강의노트", href: "output/목회학/week02.html" }
+        ] },
         { week: 3, title: "예배 신학과 실천", date: "2026.03", files: [] },
         { week: 4, title: "심방과 돌봄 사역", date: "2026.04", files: [] },
         { week: 5, title: "상담 목회 기초", date: "2026.04", files: [] },
@@ -57,18 +61,16 @@ const SITE_DATA = {
 
     phil: {
       weeks: [
-        { week: 1, title: "기독교철학의 과제와 방법론", date: "2026.03", files: [
+        { week: 1, title: "기독교철학의 학습가이드", date: "2026.03.5.", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week01.html" }
           ] },
-        { week: 2, title: "신 존재 증명 — 존재론적 논증", date: "2026.03", files: [
+        { week: 2, title: "종교란 무엇인가", date: "2026.03.10.", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week02.html" }
           ] },
-        { week: 3, title: "신 존재 증명 — 우주론적 논증", date: "2026.03", files: [
+        { week: 3, title: "비트겐슈타인 신앙의 경험과 언어의 의미", date: "2026.03.17.", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week01.html" }
           ] },
-        { week: 4, title: "신 존재 증명 — 목적론적 논증", date: "2026.04", files: [
-            { type: "notes", label: "강의노트", href: "output/기독교철학/week03.html" }
-          ] },
+        { week: 4, title: "신 존재 증명 — 목적론적 논증", date: "2026.04", files: [] },
         { week: 5, title: "악의 문제", date: "2026.04", files: [] },
         { week: 6, title: "종교 언어 — 비트겐슈타인", date: "2026.04", files: [] },
         { week: 7, title: "신앙과 이성의 관계", date: "2026.04", files: [] },
@@ -85,13 +87,13 @@ const SITE_DATA = {
 
     nt: {
       weeks: [
-        { week: 1, title: "마태복음 족보와 탄생 내러티브", date: "2026.03", files: [
+        { week: 1, title: "신구약 중간기 & 수전절", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week01.html" }
           ] },
-        { week: 2, title: "세례 요한과 예수의 세례", date: "2026.03", files: [
+        { week: 2, title: "마태복음 개론 + 신약성서의 세계", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week02.html" }
           ] },
-        { week: 3, title: "산상수훈 I — 팔복", date: "2026.03", files: [
+        { week: 3, title: "신약성서의 세계와 신약의 문헌들", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week03.html" }
           ] },
         { week: 4, title: "산상수훈 II — 율법과 예수", date: "2026.04", files: [] },
@@ -112,15 +114,14 @@ const SITE_DATA = {
     hist: {
       weeks: [
         {
-          week: 1,
-          title: "기독교 교회사 입문",
-          date: "2026.03.06",
-          files: [
+          week: 1, title: "기독교 교회사 입문", date: "2026.03.06", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week01.html" }
           ]
         },
-        { week: 2, title: "기독교 형성과 사도시대 I", date: "2026.03.13", files: [] },
-        { week: 3, title: "사도시대 II — 바울과 이방 선교", date: "2026.03", files: [
+        { week: 2, title: "기독교 형성과 사도시대 I 예수와 유대교의 연관성·분파", date: "2026.03.13", files: [
+          { type: "notes", label: "강의노트", href: "output/교회사/week02.html" }
+        ] },
+        { week: 3, title: "기독교 형성과 사도시대 II", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week03.html" }
           ] },
         { week: 4, title: "박해와 순교 — 로마제국과 교회", date: "2026.04", files: [] },
