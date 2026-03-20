@@ -81,7 +81,9 @@ const SITE_DATA = {
 
     nt: {
       weeks: [
-        { week: 1, title: "마태복음 족보와 탄생 내러티브", date: "2026.03", files: [] },
+        { week: 1, title: "마태복음 족보와 탄생 내러티브", date: "2026.03", files: [
+            { type: "notes", label: "강의노트", href: "output/신약성서I/week01.html" }
+          ] },
         { week: 2, title: "세례 요한과 예수의 세례", date: "2026.03", files: [] },
         { week: 3, title: "산상수훈 I — 팔복", date: "2026.03", files: [] },
         { week: 4, title: "산상수훈 II — 율법과 예수", date: "2026.04", files: [] },
