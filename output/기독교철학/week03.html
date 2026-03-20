@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>기독교철학 — 03주차</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
+  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
+  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
+  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
+.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
+.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
+.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
+.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
+.header h1 span{color:var(--gold);}
+.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
+.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
+.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
+.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
+@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
+.section-icon{font-size:1.1rem;flex-shrink:0;}
+.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
+.section-body{padding:1.4rem;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
+thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
+tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
+tbody tr:hover{background:rgba(212,160,23,.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
+tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
+.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{font-weight:700;color:var(--deep-brown);}
+.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
+.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
+.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
+.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
+.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
+.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+.alert strong{color:var(--rust);}
+.key-points{display:flex;flex-direction:column;gap:.9rem;}
+.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
+.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
+.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
+.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
+.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
+.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
+.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
+.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
+.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
+.note-list{list-style:none;padding:0;}
+.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
+.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
+.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
+.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
+.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.next-week p{font-size:.82rem;opacity:.75;}
+.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
+@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="week-badge">03주차</div>
+    <div class="course-label">한국침례신학대학교 · 기독교철학</div>
+    <h1>기독교철학</h1>
+    
+  </div>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="section">
+  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
+  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>주제</td><td>비트겐슈타인 — 신앙의 경험과 언어의 의미</td></tr><tr><td>부제 (독어)</td><td>Glaube, Sprache und Lebensform</td></tr><tr><td>1교시 내용</td><td>전주 복습: W. C. 스미스의 믿음(Belief)/신앙(Faith) 구분 마무리</td></tr><tr><td>2교시 내용</td><td>비트겐슈타인 핵심 개념 심화 + 크레티앙의 기도 철학</td></tr><tr><td>핵심 원어</td><td>Sprachspiel (언어 게임), Lebensform (삶의 형식), Compassion (컴패션)</td></tr><tr><td>교수 핵심 메시지</td><td>종교는 논리로 증명하는 것이 아니라 삶으로 살아내는 것</td></tr></tbody></table></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📖</span><h2>강의 내용</h2></div>
+  <div class="section-body"><div class="prose"><p><strong>Part 1 — 복습: 윌프레드 캔트웰 스미스(W. C. Smith)의 종교론</strong> 캐나다의 비교종교학자 스미스(1916–2000)는 '종교(Religion)'라는 개념이 역사 속에서 고정된 실체가 아니라 계속 변해온 개념임을 밝히며, <strong>살아있는 신앙(Faith)과 교리적 믿음(Belief)의 구분</strong>을 주장했다. 교수님이 대학 시절 가장 큰 영향을 받은 학자로 소개됨. 스미스는 '종교'를 네 차원으로 분석한다. ① 개인적 신앙(Faith): 초월적 실재를 향한 인격적 신뢰와 헌신으로, 사람마다 다르게 나타나는 살아있는 태도. ② 내적 덕성과 삶: 신앙이 삶의 태도로 드러나는 도덕성. ③ 제도적 체계: 교회·교단·교리 등 구조화된 사회적 전통. ④ 추상적 종교 일반: 서로 다른 종교를 비교 연구하는 학문적 범주. <strong>교수님의 목회적 통찰</strong>: 개인의 살아있는 신앙과 역사적 전통은 서로 긴장 관계를 유지하며 대화해야 한다. 한쪽에 경도되면 — 전통만 강조하면 신앙의 역동성을 잃고, 신앙 경험만 강조하면 방향성을 잃는다. <strong>Part 2 — 비트겐슈타인은 누구인가?</strong> 루트비히 비트겐슈타인(Ludwig Wittgenstein, 1889–1951)은 오스트리아 출신의 분석철학 거장으로 케임브리지 대학 교수를 역임했다. 20세기 서양 철학에서 그를 빼고는 설명이 불가능할 정도로 중요한 인물. 논리실증주의 계열이었으나 후기에는 종교·윤리·예술에 대한 깊은 사유를 남겼다. 부유한 가문의 재산을 전부 처분하고 사회적 약자에게 나눠준 뒤 학자의 길을 걸었다. 친구이자 의사였던 <strong>모리스 드루리(Maurice Drury)</strong>와의 대화는 『문화와 가치(Culture and Value)』에 담겼다. 그가 논리실증주의자이면서도 종교를 중요하게 여긴 이유는 <strong>논리로 설명될 수 없는 영역이 있음을 그가 누구보다 잘 알았기 때문</strong>이다. <strong>Part 3 — 비트겐슈타인의 핵심 개념</strong> ① <strong>언어 게임(Sprachspiel)</strong>: 비트겐슈타인 후기 철학의 핵심 개념. "언어의 의미는 그 언어가 사용되는 맥락(게임의 규칙) 안에서만 이해될 수 있다." 비유: 축구의 '오프사이드'는 축구 규칙 안에서만 의미가 있다. 종교적 언어("구원", "은혜", "하나님이 함께 하신다")는 신앙 공동체의 삶이라는 언어 게임 안에서만 온전한 의미를 가진다. 따라서 종교적 언어를 과학적 명제처럼 검증하려는 것 자체가 잘못된 게임의 규칙을 적용하는 것이다. ② <strong>삶의 형식(Lebensform)</strong>: 언어 게임이 작동하는 배경. 특정 공동체가 공유하는 생활 방식·실천·관습의 총체. 비트겐슈타인은 종교를 하나의 삶의 형식으로 이해한다. 즉, 종교는 이론이나 교리 체계가 아니라 <strong>특정한 방식으로 삶을 살아가는 것</strong>이다. "나는 크리스찬이다"라는 말은 논리적으로 증명되는 것이 아니라 삶을 통해 보여지는 것이며, 종교는 신념 체계(Belief System)가 아니라 <strong>삶의 논리(Logic of Life)</strong>이다. ③ <strong>종교적 언어의 독자성</strong>: 종교적 언어는 사실(Fact)을 기술하는 과학적 언어와 근본적으로 다르다. 과학적 언어는 참/거짓으로 판별 가능하고 정보를 전달하는 반면, 종교적 언어는 삶의 태도를 표현하며 공동체 안에서의 의미와 참여(Participation)를 지향한다. 강의 예시: "하나님이 너와 함께 하신다"는 말은 과학적 진술이 아니라 <strong>고통받는 친구에게 전하는 위로의 행위</strong>이자 관계적·실존적 맥락 안에서의 언어 행위이다. ④ <strong>공감의 층위와 컴패션(Compassion)</strong>: 교수님은 신앙적 언어의 실천을 위해 공감의 단계를 설명하셨다. 피티(Pity, 위에서 내려다보는 동정) → 엠파티(Empathy, 상대 입장이 되어보는 공감) → 심파티(Sympathy, 감정이입) → <strong>컴패션(Compassion, 함께 고통 나눔)</strong>. 컴패션의 어원은 라틴어 com(함께) + passio(고통)이다. 하르마 대학의 리졸라티 교수의 <strong>거울 신경세포(Mirror Neurons)</strong> 연구가 소개되었다: 원숭이가 연구원이 바나나를 집는 장면을 볼 때 원숭이의 뇌가 동일하게 반응한다는 발견. 교수님의 적용: 예수를 진심으로 사랑하는 신앙인은 예수의 아픔에 공명하는 공감력이 커진다. <strong>Part 4 — 기도의 철학: 크레티앙과 본회퍼</strong> 장-루이 크레티앙(Jean-Louis Chrétien, 1952–2019)은 프랑스 가톨릭 현상학 철학자로, 저서 『상처 입은 말(La Parole blessée)』에서 기도를 단순한 소원 성취의 도구가 아니라 <strong>인간 존재 자체가 하나님 앞에 응답하는 실존적 행위</strong>로 이해했다. 기도할수록 자신의 욕망과 한계가 드러나며, 그 상처와 투쟁의 과정이 우리를 변화시킨다. 성경적 예시로 창세기 32장 <strong>야곱의 씨름</strong> — 신과의 씨름은 상처를 입지만 그 상처를 통해 변화되는 기도의 본질을 보여준다. 겟세마네 동산에서의 예수님의 기도도 같은 맥락이다. <strong>디트리히 본회퍼(Bonhoeffer)</strong>의 기도 3단계도 소개됨. 묵상(Meditation, 말씀을 깊이 되뇜) → 내면화(Internalization, 메시지를 나의 실존과 연결) → 삶의 실천(Praxis, 삶으로 연결될 때 진정한 기도). <strong>Part 5 — 비트겐슈타인의 윤리 이해</strong> 비트겐슈타인은 1929년 윤리학 강의에서 윤리를 단순한 규범적 명령이 아니라 <strong>삶의 의미에 대한 탐구</strong>로 이해했다. 핵심 구분: 길(Weg/Way, 삶을 살아가는 방식 그 자체)과 목적(Ziel/Goal, 도달하고자 하는 삶의 의미). 비트겐슈타인은 목적보다 길이 더 중요하다고 봤다. <strong>교수님의 적용</strong>: "가다가 못 간 것이 아니라, 간 만큼 유익하면 됩니다." 윤리는 목적 달성을 위한 수단이 아니라 삶을 살아가는 방식 그 자체이다. 윤리적 명제와 과학적 명제의 차이: 과학적 명제("물은 100도에서 끓는다")는 경험적으로 검증 가능하고 사실을 기술하지만, 윤리적·종교적 명제("정직하게 살아야 한다", "삶은 선물이다")는 검증할 수 없으나 <strong>삶 전체를 바꾸는 힘, 존재를 뒤흔드는 언어</strong>의 힘을 가진다. <strong>법 — 정의 — 사랑의 위계</strong>: 세속 사회는 법이 최상위이지만, 크리스찬에게는 법 위에 정의(Justice), 그 위에 <strong>사랑(Agape)</strong>이 있어야 한다. 성경 예시: 포도원 비유(마태복음 20장) — 아침 9시에 온 일꾼과 오후 3시에 온 일꾼이 같은 삯을 받는 것은 세속적 공평이 아니라 <strong>상황과 필요를 고려하는 하나님의 새로운 차원의 정의</strong>이다. <strong>"말할 수 없는 것에 대해서는 침묵해야 한다"(비트겐슈타인)</strong>: 논리적으로 설명될 수 없는 영역 — 절대적 선, 세계의 의미, 초월적 경험 — 이것들을 굳이 과도한 언어로 설명하려 할 필요가 없다. 때로는 침묵이 더 정직한 태도이다. <strong>Part 6 — 본질주의 vs. 실존주의</strong> 본질주의(Essentialism)는 사물에 고정된 본질이 있다고 보는 입장으로, 서구 전통 철학의 주류이며 신앙에 적용하면 교리적 정의가 모든 사람에게 동일하게 적용된다. 실존주의(Existentialism)는 존재가 본질에 앞선다는 입장으로 개별 경험이 먼저이며, 하나님을 향한 개인의 신앙 경험이 각기 다름을 강조한다. 서구 신학이 오래 본질주의에 경도되어 개인의 신앙 경험을 억압할 위험이 있었음을 교수님은 지적하셨다. <strong>교수님의 성경 읽기 방법론</strong>: 1단계 — 나를 비우기(내가 가진 선입관과 지식을 내려놓고 텍스트가 내게 들려지도록). 2단계 — 학자들의 시선으로 보기(성서학자·철학자들의 해석을 살피되, 결국 나만의 해석이 자연스럽게 형성되도록). "빨간 안경을 끼면 세상이 빨갛게 보이듯, 내 안경을 벗어야 합니다."</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>철학자 / 개념 비교</h2></div>
+  <div class="section-body"><table><thead><tr><th>구분</th><th>믿음 (Belief)</th><th>신앙 (Faith / Fides)</th></tr></thead><tbody><tr><td>성격</td><td>교리·명제가 참임을 동의하는 인지적 행위</td><td>초월적 실재에 대한 인격적 신뢰와 헌신 — 실존적 태도</td></tr><tr><td>연결</td><td>교리 체계, 신조, 조직</td><td>삶 전체로 응답하는 역동적 방식</td></tr><tr><td>문제점</td><td>근대에 지나치게 강조되어 살아있는 신앙이 약화됨</td><td>제도화·교리화되면 신앙 역동성이 축소될 위험</td></tr><tr><td>구분</td><td>과학적 언어</td><td>종교적 언어</td></tr><tr><td>목적</td><td>사실(Fact)을 기술하고 검증함</td><td>삶의 태도와 방식을 표현함</td></tr><tr><td>기준</td><td>참/거짓으로 판별 가능</td><td>공동체 안에서의 의미</td></tr><tr><td>기능</td><td>정보 전달 (Information)</td><td>참여와 관계 형성 (Participation)</td></tr><tr><td>구분</td><td>본질주의 (Essentialism)</td><td>실존주의 (Existentialism)</td></tr><tr><td>기본 입장</td><td>사물에 고정된 본질이 있음</td><td>존재는 본질에 앞섬. 개별 경험이 먼저.</td></tr><tr><td>신앙 적용</td><td>교리적 정의가 모두에게 동일하게 적용</td><td>하나님을 향한 개인 경험이 각기 다름</td></tr><tr><td>문제점</td><td>개인의 신앙 경험을 억압할 위험</td><td>공동체와의 대화 없이 방향을 잃을 위험</td></tr></tbody></table></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>논증 구조</h2></div>
+  <div class="section-body"><div class="prose"><div class="quote-block"><p>종교는 논리로 증명하는 것이 아니라, 삶으로 살아내는 것이다.</p><div class='quote-sub'>— 비트겐슈타인</div></div>
+<div class="callout"><div class="callout-title">💡 언어 게임 논증</div><p>전제 1: 언어의 의미는 그 언어가 사용되는 맥락(게임의 규칙) 안에서만 이해된다. 전제 2: 종교적 언어는 신앙 공동체의 삶(Lebensform)이라는 특정 언어 게임에 속한다. 전제 3: 과학적 언어와 종교적 언어는 서로 다른 언어 게임에 속한다. 결론: 종교적 언어를 과학적 기준으로 검증하려는 시도는 범주 오류(category mistake)이다. 종교의 고유성은 논증이 아니라 삶의 실천에서 드러난다.</p></div>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
+  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>언어 게임(Sprachspiel)과 삶의 형식(Lebensform)</strong><p>종교적 언어는 신앙 공동체의 삶이라는 맥락 안에서만 의미를 가진다. "하나님이 함께 하신다"는 말은 과학적 진술이 아니라 위로의 행위이자 참여의 언어다.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>믿음(Belief) vs. 신앙(Faith) — W. C. 스미스</strong><p>믿음은 교리에 대한 인지적 동의이고, 신앙은 삶 전체로 응답하는 실존적 태도다. 이 둘은 개인의 역동성과 공동체 전통 사이의 긴장 속에서 대화해야 한다.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>기도의 철학 — 크레티앙</strong><p>기도는 소원 목록이 아니라 신 앞에 서는 존재의 자세다. 기도할수록 자신의 욕망과 한계가 드러나며, 그 투쟁의 과정이 우리를 변화시킨다(야곱의 씨름, 겟세마네).</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>컴패션(Compassion)</strong><p>Pity → Empathy → Sympathy → <strong>Compassion(com+passio, 함께 고통 나눔)</strong>. 신앙인의 공감은 예수의 아픔에 공명하는 깊이로 자라야 한다.</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>법 — 정의 — 사랑의 위계</strong><p>크리스찬의 윤리는 법 위에 정의, 정의 위에 사랑(Agape)이다. 포도원 비유의 하나님의 정의는 상황과 필요를 고려하는 새로운 차원의 정의다.</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>"말할 수 없는 것에 대해서는 침묵해야 한다"</strong><p>초월적 영역을 논리적으로 설명하려는 집착을 내려놓는 것. 침묵이 더 정직한 신앙의 태도일 수 있다.</p></div></div><div class="key-point"><div class="key-num">07</div><div class="key-text"><strong>무신론자에게 신앙을 전하는 방법 — 비트겐슈타인식</strong><p>논리적 증명이 아니라 삶으로 보여주는 것. 도덕적·윤리적·경건하고 사랑이 많은 삶의 태도, 즉 크리스찬 공동체의 '언어 게임'이 가장 강력한 전도다.</p></div></div></div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
+  <div class="section-body"><ul class="note-list"><li>프락시스활동지 ④항(비판적 성찰) 포인트: 비트겐슈타인의 언어 게임 프레임은 종교 공동체 내부 해석 기준의 문제를 남긴다 — 공동체 내의 언어 게임이 서로 충돌할 때(예: 성경 해석 갈등) 어떤 기준으로 판단할 것인가?</li><li>본질주의 vs. 실존주의 구분은 중간고사에서 비교 문제로 출제될 가능성이 높음. 각 입장의 신앙 적용과 문제점을 정리해 둘 것.</li><li>W. C. 스미스의 믿음/신앙 구분 + 비트겐슈타인의 언어 게임 + 크레티앙의 기도 철학은 이번 주 강의에서 유기적으로 연결되므로 하나의 흐름으로 묶어서 이해할 것.</li><li>원어 병기 정리: Sprachspiel(언어 게임), Lebensform(삶의 형식), Fides(신앙), La Parole blessée(상처 입은 말), Compassion = com + passio(라틴어).</li><li>4주차 예습: 윌리엄 제임스 『종교 경험의 다양성』 — 비트겐슈타인과의 비교 시각(언어 vs. 경험, 공동체 vs. 개인 심리)으로 읽을 것.</li></ul></div>
+</div>
+  
+</div>
+</body>
+</html>
