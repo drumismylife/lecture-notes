@@ -145,7 +145,7 @@ const SITE_DATA = {
       name: "헬라어 학습 앱",
       icon: "🔤",
       desc: "알파벳 · 플래시카드 · 퀴즈 · 문법 참고",
-      href: "apps/greek-app.html",
+      href: "output/greek/night_greek_ver2.html",
       isNew: false
     }
   ],
