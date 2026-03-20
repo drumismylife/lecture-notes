@@ -87,7 +87,9 @@ const SITE_DATA = {
         { week: 2, title: "세례 요한과 예수의 세례", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week02.html" }
           ] },
-        { week: 3, title: "산상수훈 I — 팔복", date: "2026.03", files: [] },
+        { week: 3, title: "산상수훈 I — 팔복", date: "2026.03", files: [
+            { type: "notes", label: "강의노트", href: "output/신약성서I/week03.html" }
+          ] },
         { week: 4, title: "산상수훈 II — 율법과 예수", date: "2026.04", files: [] },
         { week: 5, title: "기적 이야기 — 마태복음 8-9장", date: "2026.04", files: [] },
         { week: 6, title: "파송 설교 — 마태복음 10장", date: "2026.04", files: [] },
