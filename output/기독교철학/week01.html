@@ -2,116 +2,545 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>기독교철학 — 01주차</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 — 학습 프로젝트 지침서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root {
-  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
-  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
-  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
-  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
-.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
-@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
-.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
-.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
-.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
-.header h1 span{color:var(--gold);}
-.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
-.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
-.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
-.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
-@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
-.section-icon{font-size:1.1rem;flex-shrink:0;}
-.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
-.section-body{padding:1.4rem;}
-table{width:100%;border-collapse:collapse;font-size:.88rem;}
-thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
-thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
-tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
-tbody tr:hover{background:rgba(212,160,23,.06);}
-tbody tr:last-child{border-bottom:none;}
-tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
-tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
-.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
-.prose p:last-child{margin-bottom:0;}
-.prose strong{font-weight:700;color:var(--deep-brown);}
-.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
-.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
-.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
-.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
-.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
-.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
-.alert strong{color:var(--rust);}
-.key-points{display:flex;flex-direction:column;gap:.9rem;}
-.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
-.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
-.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
-.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
-.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
-.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
-.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
-.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
-.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
-.note-list{list-style:none;padding:0;}
-.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
-.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
-.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
-.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
-.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
-.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
-.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
-.next-week p{font-size:.82rem;opacity:.75;}
-.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
-@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+  :root {
+    --violet:       #3d1a6e;
+    --violet-mid:   #5c3296;
+    --violet-light: #e0d2f5;
+    --violet-pale:  #f7f3fd;
+    --violet-dark:  #220d42;
+    --gold:         #b8860b;
+    --gold-light:   #fdf3c8;
+    --rose:         #8b1a3e;
+    --rose-light:   #fde0e9;
+    --gray-50:      #f9fafb;
+    --gray-100:     #f3f4f6;
+    --gray-200:     #e5e7eb;
+    --gray-500:     #6b7280;
+    --gray-700:     #374151;
+    --text:         #1e2333;
+    --white:        #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', sans-serif; font-size: 9pt; line-height: 1.65; color: var(--text); background: #d8cff0; }
+  .page { width: 210mm; min-height: 297mm; margin: 10mm auto; background: var(--white); box-shadow: 0 6px 40px rgba(61,26,110,.18); position: relative; overflow: hidden; }
+
+  .cover { background: linear-gradient(150deg, var(--violet-dark) 0%, var(--violet) 52%, #6e3aaa 100%); padding: 14mm 14mm 11mm; position: relative; overflow: hidden; }
+  .cover::before { content: 'Philosophia Christiana'; position: absolute; right: -4mm; top: 6mm; font-family: 'EB Garamond', serif; font-size: 34pt; font-style: italic; color: rgba(255,255,255,.06); letter-spacing: .03em; white-space: nowrap; }
+  .cover::after { content: ''; position: absolute; bottom: -12mm; left: 26mm; width: 60mm; height: 60mm; border-radius: 50%; background: rgba(184,134,11,.1); }
+  .cover-tag { display: inline-flex; align-items: center; gap: 2mm; background: var(--gold); color: var(--white); font-size: 6.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 2px 10px; border-radius: 2px; margin-bottom: 4mm; }
+  .cover-title { font-family: 'Noto Serif KR', serif; font-size: 22pt; font-weight: 700; color: var(--white); line-height: 1.25; letter-spacing: -.02em; margin-bottom: 2mm; }
+  .cover-latin { font-family: 'EB Garamond', serif; font-size: 13pt; font-style: italic; color: rgba(255,255,255,.7); margin-bottom: 4mm; letter-spacing: .04em; }
+  .cover-sub { font-size: 8.5pt; color: rgba(255,255,255,.75); font-weight: 300; margin-bottom: 6mm; }
+  .cover-pills { display: flex; gap: 3mm; flex-wrap: wrap; }
+  .cover-pill { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); color: rgba(255,255,255,.92); font-size: 7pt; padding: 2px 9px; border-radius: 20px; font-weight: 500; }
+
+  .content { padding: 8mm 12mm 10mm; }
+
+  .sec-head { display: flex; align-items: center; gap: 3mm; margin: 7mm 0 4mm; page-break-after: avoid; }
+  .sec-badge { background: var(--violet); color: var(--white); font-size: 7pt; font-weight: 700; padding: 2px 8px; border-radius: 2px; letter-spacing: .06em; white-space: nowrap; }
+  .sec-title { font-family: 'Noto Serif KR', serif; font-size: 12pt; font-weight: 700; color: var(--violet-dark); }
+  .sec-line { flex: 1; height: 1.5px; background: linear-gradient(to right, var(--violet-mid), transparent); }
+  .sub-head { font-size: 9pt; font-weight: 700; color: var(--violet-mid); margin: 4.5mm 0 2mm; padding-left: 3mm; border-left: 3px solid var(--gold); page-break-after: avoid; }
+
+  .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 4mm; }
+  .info-card { background: var(--violet-pale); border: 1px solid var(--violet-light); border-radius: 5px; padding: 3mm 4mm; text-align: center; }
+  .info-card .label { font-size: 6pt; font-weight: 700; color: var(--violet-mid); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5mm; }
+  .info-card .value { font-size: 9.5pt; font-weight: 700; color: var(--violet-dark); }
+  .info-card .sub { font-size: 6.5pt; color: var(--gray-500); margin-top: .5mm; }
+
+  .alert { border-radius: 5px; padding: 3.5mm 5mm; margin-bottom: 4mm; display: flex; align-items: flex-start; gap: 3mm; }
+  .alert-red { background: #fef2f2; border: 1px solid #fca5a5; }
+  .alert-amber { background: #fffbeb; border: 1px solid #fcd34d; }
+  .alert-icon { font-size: 11pt; line-height: 1; flex-shrink: 0; margin-top: .5mm; }
+  .alert-body { font-size: 7.8pt; line-height: 1.65; }
+  .alert-body strong { font-weight: 700; }
+
+  .prompt-box { background: var(--violet-pale); border: 1.5px solid var(--violet-light); border-radius: 6px; padding: 5mm 6mm; margin-bottom: 4mm; position: relative; }
+  .prompt-box::before { content: '시스템 프롬프트 — 복사하여 프로젝트에 붙여넣기'; display: block; font-size: 6.5pt; font-weight: 700; color: var(--violet-mid); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 3mm; padding-bottom: 2mm; border-bottom: 1px dashed var(--violet-light); }
+  .prompt-text { font-size: 7.8pt; line-height: 1.8; color: var(--text); white-space: pre-wrap; }
+
+  .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 4mm; }
+  .phil-card { border-radius: 6px; padding: 3.5mm 4mm; border: 1px solid var(--violet-light); background: linear-gradient(135deg, var(--violet-pale) 0%, #f5f0fc 100%); position: relative; overflow: hidden; }
+  .phil-card::after { content: attr(data-era); position: absolute; right: 3mm; top: 3mm; font-size: 6pt; color: var(--violet-mid); opacity: .5; font-family: 'EB Garamond', serif; font-style: italic; }
+  .phil-week { font-size: 6pt; font-weight: 700; letter-spacing: .1em; color: var(--gold); text-transform: uppercase; margin-bottom: 1mm; }
+  .phil-name { font-size: 9pt; font-weight: 700; color: var(--violet-dark); margin-bottom: 1.5mm; line-height: 1.3; }
+  .phil-topic { font-size: 7.2pt; color: var(--gray-700); line-height: 1.5; }
+  .phil-keyword { display: inline-block; background: var(--violet-light); color: var(--violet-mid); font-size: 6.2pt; font-weight: 600; padding: 1px 6px; border-radius: 10px; margin-top: 2mm; }
+
+  .week-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5mm; margin-bottom: 4mm; }
+  .week-card { border-radius: 5px; padding: 3mm 3.5mm; border: 1px solid var(--gray-200); background: var(--gray-50); }
+  .week-card.exam { background: #fff8e1; border-color: #fcd34d; }
+  .week-card.active { background: var(--violet-pale); border-color: var(--violet-light); }
+  .week-num { font-size: 6pt; font-weight: 700; letter-spacing: .1em; color: var(--gray-500); margin-bottom: 1.5mm; }
+  .week-card.active .week-num { color: var(--violet-mid); }
+  .week-card.exam .week-num { color: #92400e; }
+  .week-topic { font-size: 7.2pt; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 1.5mm; }
+  .week-hint { font-size: 6.2pt; color: var(--gray-500); line-height: 1.5; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 4mm; font-size: 7.8pt; }
+  th { background: var(--violet); color: var(--white); padding: 2.5mm 3mm; text-align: left; font-weight: 600; font-size: 7.2pt; letter-spacing: .04em; }
+  td { padding: 2.2mm 3mm; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--violet-pale); }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 6.2pt; font-weight: 600; white-space: nowrap; }
+  .tag-v { background: var(--violet-light); color: var(--violet-mid); }
+  .tag-g { background: var(--gold-light); color: #7a4d00; }
+  .tag-r { background: var(--rose-light); color: var(--rose); }
+
+  .chat-wrap { margin-bottom: 4mm; }
+  .bubble { max-width: 88%; border-radius: 10px; padding: 3mm 4mm; margin-bottom: 2mm; font-size: 7.8pt; line-height: 1.65; }
+  .bubble-u { background: var(--violet); color: var(--white); margin-left: auto; border-bottom-right-radius: 3px; }
+  .bubble-a { background: var(--violet-pale); border: 1px solid var(--violet-light); color: var(--text); border-bottom-left-radius: 3px; }
+  .bubble-label { font-size: 6.2pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.5mm; }
+  .bubble-u .bubble-label { color: rgba(255,255,255,.7); text-align: right; }
+  .bubble-a .bubble-label { color: var(--violet-mid); }
+
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 4mm; }
+  .check-box { background: var(--violet-pale); border: 1px solid var(--violet-light); border-radius: 6px; padding: 3.5mm 4mm; }
+  .check-box h4 { font-size: 8pt; font-weight: 700; color: var(--violet-dark); margin-bottom: 2.5mm; padding-bottom: 1.5mm; border-bottom: 1px solid var(--violet-light); }
+  .check-item { display: flex; align-items: flex-start; gap: 2mm; font-size: 7.5pt; line-height: 1.55; margin-bottom: 1.5mm; color: var(--gray-700); }
+  .check-item::before { content: '□'; color: var(--violet-mid); font-size: 8pt; flex-shrink: 0; margin-top: .5mm; }
+
+  .strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 4mm; }
+  .strategy-card { background: linear-gradient(135deg, var(--violet-dark), var(--violet)); border-radius: 7px; padding: 4mm 4.5mm; color: var(--white); }
+  .strategy-num { font-family: 'EB Garamond', serif; font-size: 18pt; color: rgba(255,255,255,.2); line-height: 1; margin-bottom: 1.5mm; font-weight: 700; }
+  .strategy-title { font-size: 8.5pt; font-weight: 700; margin-bottom: 2mm; }
+  .strategy-body { font-size: 7pt; line-height: 1.6; color: rgba(255,255,255,.82); }
+
+  .footer { background: var(--violet-dark); color: rgba(255,255,255,.55); padding: 4mm 12mm; font-size: 6.5pt; display: flex; justify-content: space-between; align-items: center; }
+
+  @media print { body { background: white; } .page { margin: 0; box-shadow: none; } }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="header">
-    <div class="week-badge">01주차</div>
-    <div class="course-label">한국침례신학대학교 · 기독교철학</div>
-    <h1>기독교철학</h1>
-    
+
+  <div class="cover">
+    <div class="cover-tag">📖 Claude Projects 학습 지침서</div>
+    <div class="cover-title">기독교철학</div>
+    <div class="cover-latin">Christian Philosophy — Philosophia Christiana</div>
+    <div class="cover-sub">2026학년도 1학기 &nbsp;·&nbsp; 담당: 심상우 교수 &nbsp;·&nbsp; 교과코드 61083 &nbsp;·&nbsp; 3학점</div>
+    <div class="cover-pills">
+      <span class="cover-pill">화 10·11·12교시</span>
+      <span class="cover-pill">절대평가</span>
+      <span class="cover-pill">프락시스활동지 50% ⚠️</span>
+      <span class="cover-pill">중간 4/21 · 기말 6/9</span>
+      <span class="cover-pill">비트겐슈타인~벤야민 13인</span>
+    </div>
   </div>
-  <div class="ornament">✦ ✦ ✦</div>
-  <div class="section">
-  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
-  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>강의 주제</td><td>종교란 무엇인가? (Quid est Religio?) — 종교론 종합</td></tr><tr><td>핵심 비유</td><td>렘브란트의 자화상 — 텍스트(거울)와 자기 서사(화포)</td></tr><tr><td>수업 구조</td><td>① 프로토콜(리마인드 20분) → ② 이론 강의 → ③ 프락시스 활동</td></tr><tr><td>주요 인물</td><td>후설(Husserl), 루돌프 오토(Otto), 미르치아 엘리아데(Eliade)</td></tr><tr><td>핵심 개념</td><td>종교현상학, 누미노제(Numinose), 성(聖)과 속(俗), 宗敎 한자 어원</td></tr><tr><td>강의 목표</td><td>철학적 방법론으로 종교를 비판적으로 탐구하되, 자기 언어로 자기 서사를 써나가는 것</td></tr><tr><td>특이사항</td><td>AI 생성 문체는 교수가 식별 가능. 과제·활동지는 반드시 자기 언어로 작성할 것</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📖</span><h2>강의 내용</h2></div>
-  <div class="section-body"><div class="prose"><p>### 1. 수업 방법론 — 세 가지 축 이 과목은 세 가지 축으로 진행된다. 첫째, <strong>프로토콜</strong>: 매 수업 전 20분간 이전 내용을 리마인드하며, 기록 없이는 잊는다는 전제 아래 누적적 메모 습관을 형성한다. 둘째, <strong>이론 강의</strong>: 철학자별 이론을 강의 형식으로 다루되, 단순 암기가 아닌 방법론을 익혀 적용하는 것을 목표로 한다. 셋째, <strong>프락시스 활동</strong>: 자신의 생각을 표현하고 타인의 생각을 듣고 이해하는 활동으로, 나와 타자를 더 깊이 알아가는 과정이다. 인원이 많아 매번 진행이 어려울 수 있다. ### 2. 전문인의 학문적 자세 교수는 학문적 전문인의 태도를 명확하게 제시했다. 갖춰야 할 것으로는, <strong>내 주장을 하기 전 반대 주장을 먼저 탐색</strong>하는 것, KCI 논문 등 검증된 자료 2편 이상 확인하는 것, 상대 논거를 조목조목 검토해 반박하는 것, 성경적 근거와 철학적 근거를 함께 세우는 것, 확신이 없을 때 "잠시 멈춤"으로 근거 확인 후 답변하는 것, <strong>내가 틀릴 수도 있다는 가정을 항상 유지</strong>하는 것이 있다. 반면 피해야 할 태도로는, 근거 없는 감정적 반응("이거 싫어"), 자기 경험과 주장만 반복하는 단원적 사고, AI 결과를 그대로 복붙하는 자기 없는 글쓰기, 지나친 절대화, 다름을 이유로 대화 자체를 거부하는 것, 한 번의 경험이 자신을 지배하도록 방치하는 것이 있다. <strong>AI 사용에 대한 당부:</strong> GPT·Claude·Gemini 등의 문체는 교수가 식별 가능하다. AI는 참고 자료로만 활용하고, 과제와 프락시스활동지는 반드시 자기 언어로 작성해야 한다. 조금 모자라더라도 자신의 생각을 쓰는 것이 성장의 증거이며, 신학대학에서 자기를 속이는 것은 하나님 앞에서도 문제라고 교수는 강조했다. ### 3. 기독교철학 강의 6대 목표 이 과목에서 다루는 주제는 넓다. 신존재론·신정론·종교 경험·종교 언어 등 종교철학의 주요 문제를 익히고, 유신론·무신론·불가지론 등 다양한 관점을 철학적으로 탐구한다. 철학적 방법론으로 종교적 신념을 검토하는 연습을 하고, 종교적 신념과 윤리적 가치의 관계를 탐구한다. 아울러 종교와 과학, 세속주의, 종교적 다원주의 등 현대적 주제를 철학적으로 논의하고, 종교적 신념이 사회·문화·정치에 미치는 영향을 탐구한다. ### 4. 텍스트와 자기 인식 — 렘브란트 자화상 비유 이 과목의 핵심 철학은 렘브란트의 자화상 비유로 압축된다. 자신을 화포에 그리려면 <strong>거울</strong>이 필요하듯, 크리스천에게 그 거울은 성경이며 동시에 철학·심리학 텍스트이다. 텍스트 없이는 내가 누구인지 알 수 없다. 렘브란트가 100여 편의 자화상에서 주름과 눈빛을 자기 해석으로 표현했듯, 텍스트를 읽고 나만의 언어로 자기 이야기를 써나가는 것이 이 수업의 핵심 훈련이다. 텍스트는 네 가지를 준다. ① <strong>자기 인식의 1차 열쇠</strong> — 텍스트 앞에 나를 세움으로써 내가 어떤 사람인지 알게 된다. ② <strong>다른 관점에서 세상을 보는 힘</strong> — 칸트·레비나스·니체 등 다양한 시선으로 세계를 바라보는 능력이 생긴다. ③ <strong>비교를 통한 자기 발견</strong> — 공자·예수·플라톤·칸트의 삶과 나의 삶을 비교하면서 자기를 새롭게 인식한다. ④ <strong>존재 가능성의 지평 확장</strong> — 고대와 현대 텍스트의 해석 충돌을 통해 더 넓은 이해의 세계로 나아간다. 10살에 읽은 요한복음과 40살에 읽은 요한복음이 똑같다면 성장하지 않은 것이다. 우리 몸과 정신은 끊임없이 변하며, 텍스트도 다시 읽을 때마다 새롭게 해석되어야 한다. ### 5. 종교철학이란 무엇인가? <strong>신학</strong>은 특정 종교의 교리를 연구·발전시키는 학문인 반면, <strong>종교철학</strong>은 종교의 본질, 신의 존재, 신앙과 이성의 관계, 윤리와 종교의 연결, 사후세계 등을 이성적·비판적 관점에서 탐구하는 학문이다. 특정 종교의 교리를 따르는 것이 아니라는 점에서 신학과 구분된다. 이 수업에서 탐구하는 핵심 질문들은 다음과 같다: 신앙은 이성과 양립할 수 있을까? 종교적 신념이 도덕·윤리에 반드시 필요한가? 모든 종교는 궁극적으로 같은 진리를 향하는가? 세속화된 사회에서도 종교가 중요한 이유는? 무신론도 하나의 종교적 신념으로 볼 수 있을까? ### 6. 종교현상학 — 후설·오토·엘리아데 <strong>종교현상학</strong>은 종교적 경험과 신앙을 기술적·비교적 관점에서 연구하는 학문으로, 종교적 현상을 있는 그대로 분석하고 이해하는 것이 목표다. 세 가지 방법론적 원칙은 ① 방법론적 중립성, ② 본질적 구조 탐색, ③ 성스러운 것과 속된 것의 구분이다. <strong>에드문트 후설(Edmund Husserl)</strong> 은 현상학의 창시자로, 경험을 있는 그대로 기술하는 방법론을 제시했다. 선입견을 괄호 치는(<strong>에포케, epoché</strong>) 방법으로 현상 자체로 돌아가자는 철학의 기초를 놓았다. <strong>루돌프 오토(Rudolf Otto)</strong> 는 종교적 경험을 <strong>누미노제(Numinose)</strong> 개념으로 설명했다. 누미노제란 초월적이고 신비로운 체험으로, 경외(tremendum)와 매혹(fascinans)이 동시에 일어나는 '거룩한 것'의 경험이다. <strong>미르치아 엘리아데(Mircea Eliade)</strong> 는 종교적 경험을 성스러움을 경험하는 과정으로 보았다. 모든 종교는 <strong>성(聖, sacrum)과 속(俗, profanum)</strong> 을 구분하며, 신화와 의식을 통해 이를 표현한다. 성스러움이 세속적 공간에 나타나는 것을 <strong>히에로파니(Hierophany, 성현, 聖顯)</strong> 라고 부른다. ### 7. 宗敎 — 한자 어원 분석 <strong>宗(마루 종)</strong>: 집의 중심이 되는 마루, 높은 곳, 주요한 것. 갓을 쓰고 바라보는 방식에서 확장되어 '근본적인 것', '존경해야 할 대상', '최상의 존재'를 의미한다. <strong>敎(가르칠 교)</strong>: 가르침, 교육, 도덕적 가르침. 확장되면 특정 사상이나 철학을 전파하는 것, 삶의 방식을 이끄는 교훈을 뜻한다. <strong>宗敎</strong> = 최상의 존재에 관한 가르침과 전파. 근본적이고 존경해야 할 대상에 대한 교육과 실천이며, 단순한 믿음이 아니라 삶 전체를 아우르는 체계임을 어원이 보여준다. ---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>철학자 / 개념 비교</h2></div>
-  <div class="section-body"><table><thead><tr><th>구분</th><th>루돌프 오토</th><th>미르치아 엘리아데</th></tr></thead><tbody><tr><td>핵심 개념</td><td>누미노제(Numinose)</td><td>성(聖)과 속(俗), 히에로파니(Hierophany)</td></tr><tr><td>종교 경험의 성격</td><td>경외와 매혹이 동시에 일어나는 내면적 체험</td><td>성스러움이 세계 안에 드러나는 객관적 현현</td></tr><tr><td>초점</td><td>주체의 심리적·신비적 경험</td><td>공간·시간·신화·의식 등 종교 구조 전반</td></tr><tr><td>후설과의 관계</td><td>후설의 현상학적 방법론을 종교에 적용</td><td>비교종교학적 관점에서 현상학적 기술 활용</td></tr><tr><td>신학적 함의</td><td>거룩함은 이성으로 환원 불가능한 초월적 차원</td><td>모든 종교에 공통된 성-속 구분이 기독교에도 적용됨</td></tr><tr><td>구분</td><td>신학</td><td>종교철학</td></tr><tr><td>출발점</td><td>특정 종교의 신앙·계시</td><td>이성적·비판적 탐구</td></tr><tr><td>목적</td><td>교리의 이해와 발전</td><td>종교 자체의 본질 탐구</td></tr><tr><td>방법론</td><td>성경·교회 전통 중심</td><td>철학적 논증과 비교 분석</td></tr><tr><td>교리 전제</td><td>있음 (신앙 우선)</td><td>없음 (방법론적 중립)</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>논증 구조</h2></div>
-  <div class="section-body"><div class="prose"><div class="quote-block"><p>내가 나를 어떻게 그려나갈 것인가</p><div class='quote-sub'>— 성경이라는 거울 앞에 나를 세워 자기 서사를 써나가는 것이 이 과목의 본질이다." — 심상우 교수</div></div>
-<div class="quote-block"><p>[!NOTE] 텍스트와 자기 인식의 순환 논증 | **전제 1**: 자기를 알기 위해서는 자기를 비춰주는 거울(텍스트)이 필요하다. **전제 2**: 텍스트를 읽는 주체는 시간과 경험에 따라 끊임없이 변한다. **전제 3**: 따라서 동일한 텍스트도 다시 읽을 때마다 새로운 의미를 드러낸다. **결론**: 텍스트와 독자는 해석의 순환 속에서 서로를 변화시키며, 이 과정이 곧 자기 형성(self</p><div class='quote-sub'>— formation)이다. — 해석학적 순환의 교육적 적용</div></div>
-<div class="quote-block"><p>[!NOTE] 종교현상학의 방법론적 전제 | **전제 1**: 종교적 경험은 감각·이성으로 완전히 환원되지 않는 고유한 차원을 가진다(오토의 누미노제). **전제 2**: 모든 종교는 성(聖)과 속(俗)의 구분이라는 보편적 구조를 공유한다(엘리아데). **전제 3**: 이 구조는 선입견을 배제하고(에포케) 현상 자체를 기술함으로써 드러난다(후설). **결론**: 종교현상학은 특정 신앙을 전제하지 않고도 종교의 본질적 구조에 접근할 수 있다.</p></div>
-<p>---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
-  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>텍스트는 자기 인식의 거울</strong><p>성경과 철학 텍스트는 단순한 정보 습득 도구가 아니라 나 자신을 비추는 거울이다. 같은 텍스트를 다시 읽을 때 새로운 의미가 열린다면, 그것은 내가 성장했다는 증거다.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>반대 주장을 먼저 이해하는 것이 전문인의 출발</strong><p>교수는 자기 주장을 하기 전 반대 논거를 탐색하라고 강조했다. 이는 단순한 학문적 예의가 아니라, 자신의 주장을 더 견고하게 만들기 위한 필수 과정이다.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>누미노제(Numinose): 경외 + 매혹</strong><p>루돌프 오토의 핵심 개념. 거룩한 것은 두렵고(tremendum) 동시에 끌리는(fascinans) 양가적 체험이다. 기독교 신앙에서 하나님 앞에 서는 경험이 이에 해당한다.</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>성(聖)과 속(俗)의 구분 — 엘리아데</strong><p>모든 종교는 세계를 성스러운 영역과 일상적 영역으로 나눈다. 예배 공간, 안식일, 세례 등 기독교의 많은 실천이 이 구분 위에 서 있다.</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>宗敎 = 최상의 존재에 관한 가르침</strong><p>한자 어원 분석은 종교가 단순한 감정이나 믿음이 아니라, 삶 전체를 아우르는 구조적 체계임을 보여준다. 이는 기독교가 교리·윤리·예배·공동체를 통합하는 방식과 일치한다.</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>AI 글쓰기 경고: 자기 없는 글은 신학적으로도 문제</strong><p>교수는 AI 문체 식별이 가능하다고 명시했다. 프락시스활동지는 완성도보다 자기 목소리가 중요하다. 자기를 속이는 글쓰기는 하나님 앞에서도 정직하지 않은 행위라는 점을 기억할 것.</p></div></div></div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
-  <div class="section-body"><ul class="note-list"><li>교재 구매 확인: 릭켄 『리켄의 종교철학』, 이진남 『종교철학』 — 3주차부터 본격 필요</li><li>"나는 누구인가?"를 한 문단으로 자기 언어로 써보기 (프락시스 훈련의 첫 걸음)</li><li>종교에 대한 나만의 정의를 작성해보기: 한자 어원(宗敎) + 오토·엘리아데의 정의와 비교</li><li>3주차 예습: 비트겐슈타인의 <strong>언어 게임(Sprachspiel)</strong> 개념 사전 탐색, 종교적 언어(기도·찬송·설교)가 일상 언어와 어떻게 다른지 생각해오기</li><li>오늘 강의에서 가장 인상 깊은 한 문장을 직접 메모해두기 (프로토콜 습관 형성)</li><li>후설·오토·엘리아데 세 학자를 비교표에 미리 추가해 두면 시험 대비에 유리함</li></ul></div>
-</div>
-  
+
+  <div class="content">
+
+    <div class="sec-head">
+      <span class="sec-badge">01</span>
+      <span class="sec-title">과목 개요 및 핵심 정보</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">출석</div>
+        <div class="value">10%</div>
+        <div class="sub">화요일 수업</div>
+      </div>
+      <div class="info-card">
+        <div class="label">중간고사</div>
+        <div class="value">20%</div>
+        <div class="sub">4월 21일</div>
+      </div>
+      <div class="info-card">
+        <div class="label">기말고사</div>
+        <div class="value">20%</div>
+        <div class="sub">6월 9일</div>
+      </div>
+      <div class="info-card">
+        <div class="label">프락시스활동지</div>
+        <div class="value" style="color:#991b1b;">50%</div>
+        <div class="sub">매주 화요일 ⚠️</div>
+      </div>
+    </div>
+
+    <div class="alert alert-red">
+      <span class="alert-icon">🚨</span>
+      <div class="alert-body">
+        <strong>5과목 중 가장 높은 비중!</strong> 프락시스활동지가 전체 성적의 50%입니다. 매주 화요일 수업 중 철학자 내용을 작성·발표해야 하며, <strong>결석하면 해당 주 활동지 제출 자체가 불가능</strong>합니다. 출석이 곧 과제 점수입니다.
+      </div>
+    </div>
+
+    <div class="alert alert-amber">
+      <span class="alert-icon">📚</span>
+      <div class="alert-body">
+        <strong>교재 즉시 구매:</strong> 프리도 릭켄 『리켄의 종교철학』(夏雨, 2010) &amp; 이진남 『종교철학』(믿음인, 2009) — 2주차부터 바로 필요합니다.
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-badge">02</span>
+      <span class="sec-title">Claude Projects 시스템 프롬프트</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="prompt-text">당신은 한국침례신학대학교 2026학년도 1학기 「기독교철학」 과목의 학습 도우미입니다.
+
+[과목 기본 정보]
+- 담당: 심상우 교수 / 교과코드 61083 / 3학점 / 화요일 10·11·12교시
+- 평가: 출석 10% | 중간고사 20%(4/21) | 기말고사 20%(6/9) | 프락시스활동지 50%(매주 화요일)
+- 교재: 프리도 릭켄 『리켄의 종교철학』(夏雨, 2010), 이진남 『종교철학』(믿음인, 2009)
+
+[15주 커리큘럼 — 철학자 순서]
+1주(3/3) 오리엔테이션
+2주(3/10) 종교란 무엇인가? — 종교론 종합
+3주(3/17) 비트겐슈타인 — 신앙의 경험과 언어의 의미 (언어 게임)
+4주(3/24) 윌리엄 제임스 — 종교심리학, 신앙과 결단 (실용주의)
+5주(3/31) 존 헨리 뉴먼 — 종교적 신앙과 이성 (동의의 문법)
+6주(4/7) 레비나스 — 계시의 개념과 메시아적 종교 (타자 철학)
+7주(4/14) 슐라이어마허 — 종교의 이해와 감각 (절대의존의 감정)
+8주(4/21) 중간고사
+9주(4/28) 임마뉴엘 칸트 — 순수한 이성 종교와 실천 (도덕 신학)
+10주(5/5) 리쾨르 — 해석학과 신이해, 인간 본성 안의 종교
+11주(5/12) 블레즈 파스칼 — 인간 조건의 해석, 그리스도교 변증
+12주(5/19) 토마스 아퀴나스 — 덕으로서 종교적 신앙과 형이상학
+13주(5/26) 아우구스티누스 — 통찰을 구하는 신앙, 신앙 우선성
+14주(6/2) 발터 벤야민 — 존재론과 약한 메시아니즘, 정치신학
+15주(6/9) 기말고사
+
+[응답 원칙]
+① 프락시스활동지 작성 도움: ①철학자 배경 → ②핵심 주장 → ③기독교적 의의 → ④비판적 성찰 → ⑤목회 적용 순으로 정리
+② 시험 대비: 철학자별 비교표(방법론/종교의 기초/신앙-이성 관계/기독교 접점) 생성
+③ 어려운 철학 개념을 신학적 언어로 풀이 (현상학·해석학·존재론 등)
+④ 원어 핵심 용어는 독일어·프랑스어·라틴어로 병기
+⑤ 한국어로 응답</div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-badge">03</span>
+      <span class="sec-title">13인의 철학자 — 주차별 핵심 카드</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="phil-grid">
+      <div class="phil-card" data-era="분석철학">
+        <div class="phil-week">3주 · 3/17</div>
+        <div class="phil-name">루트비히 비트겐슈타인</div>
+        <div class="phil-topic">언어 게임(Sprachspiel), 종교적 언어의 의미, 신앙 표현의 독자성</div>
+        <span class="phil-keyword">언어철학</span>
+      </div>
+      <div class="phil-card" data-era="프래그머티즘">
+        <div class="phil-week">4주 · 3/24</div>
+        <div class="phil-name">윌리엄 제임스</div>
+        <div class="phil-topic">종교 경험의 다양성, 신비체험의 심리학, 실용주의적 신앙 이해</div>
+        <span class="phil-keyword">종교심리학</span>
+      </div>
+      <div class="phil-card" data-era="가톨릭 신학">
+        <div class="phil-week">5주 · 3/31</div>
+        <div class="phil-name">존 헨리 뉴먼</div>
+        <div class="phil-topic">동의의 문법(Grammar of Assent), 교의 발전론, 신앙과 이성의 관계</div>
+        <span class="phil-keyword">신앙과 이성</span>
+      </div>
+      <div class="phil-card" data-era="유대-현상학">
+        <div class="phil-week">6주 · 4/7</div>
+        <div class="phil-name">에마뉘엘 레비나스</div>
+        <div class="phil-topic">타자의 얼굴(le visage), 메시아적 종교, 계시와 윤리적 책임</div>
+        <span class="phil-keyword">타자철학</span>
+      </div>
+      <div class="phil-card" data-era="낭만주의 신학">
+        <div class="phil-week">7주 · 4/14</div>
+        <div class="phil-name">프리드리히 슐라이어마허</div>
+        <div class="phil-topic">절대 의존의 감정(schlechthinnige Abhängigkeit), 직관과 감각, 종교의 본질</div>
+        <span class="phil-keyword">종교감정론</span>
+      </div>
+      <div class="phil-card" data-era="독일 관념론">
+        <div class="phil-week">9주 · 4/28</div>
+        <div class="phil-name">임마뉘엘 칸트</div>
+        <div class="phil-topic">순수이성 한계 내의 종교, 도덕적 신앙, 실천이성과 신의 요청</div>
+        <span class="phil-keyword">도덕 신학</span>
+      </div>
+      <div class="phil-card" data-era="해석학">
+        <div class="phil-week">10주 · 5/5</div>
+        <div class="phil-name">폴 리쾨르</div>
+        <div class="phil-topic">상징의 해석학, 악의 상징론, 인간 본성 안의 종교 근원</div>
+        <span class="phil-keyword">해석학</span>
+      </div>
+      <div class="phil-card" data-era="기독교 변증">
+        <div class="phil-week">11주 · 5/12</div>
+        <div class="phil-name">블레즈 파스칼</div>
+        <div class="phil-topic">인간의 위대함과 비참함, 파스칼의 내기(pari de Pascal), 그리스도교 변증</div>
+        <span class="phil-keyword">변증적 신앙</span>
+      </div>
+      <div class="phil-card" data-era="스콜라 신학">
+        <div class="phil-week">12주 · 5/19</div>
+        <div class="phil-name">토마스 아퀴나스</div>
+        <div class="phil-topic">덕(virtus)으로서의 종교, 5가지 신존재 증명(quinque viae), 이성과 계시의 조화</div>
+        <span class="phil-keyword">스콜라 신학</span>
+      </div>
+      <div class="phil-card" data-era="교부 신학">
+        <div class="phil-week">13주 · 5/26</div>
+        <div class="phil-name">아우구스티누스</div>
+        <div class="phil-topic">fides quaerens intellectum, 고백록(Confessiones), 신국(Civitas Dei)</div>
+        <span class="phil-keyword">신앙 우선성</span>
+      </div>
+      <div class="phil-card" data-era="비판이론">
+        <div class="phil-week">14주 · 6/2</div>
+        <div class="phil-name">발터 벤야민</div>
+        <div class="phil-topic">약한 메시아적 힘(schwache messianische Kraft), 역사철학 테제, 정치신학</div>
+        <span class="phil-keyword">정치신학</span>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-badge">04</span>
+      <span class="sec-title">15주 학습 로드맵</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="week-grid">
+      <div class="week-card">
+        <div class="week-num">1주 · 3/3</div>
+        <div class="week-topic">오리엔테이션</div>
+        <div class="week-hint">교재 구매, 프락시스 형식 확인</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">2주 · 3/10</div>
+        <div class="week-topic">종교란 무엇인가?</div>
+        <div class="week-hint">첫 활동지 — 형식 숙지 필수</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">3주 · 3/17</div>
+        <div class="week-topic">비트겐슈타인</div>
+        <div class="week-hint">언어 게임 개념 정리</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">4주 · 3/24</div>
+        <div class="week-topic">윌리엄 제임스</div>
+        <div class="week-hint">종교심리학 관점</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">5주 · 3/31</div>
+        <div class="week-topic">존 헨리 뉴먼</div>
+        <div class="week-hint">신앙-이성 관계 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">6주 · 4/7</div>
+        <div class="week-topic">레비나스</div>
+        <div class="week-hint">타자·계시 개념 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">7주 · 4/14</div>
+        <div class="week-topic">슐라이어마허</div>
+        <div class="week-hint">중간 전 마지막 활동지</div>
+      </div>
+      <div class="week-card exam">
+        <div class="week-num">8주 · 4/21</div>
+        <div class="week-topic">⚠️ 중간고사</div>
+        <div class="week-hint">2~7주 철학자 비교 정리</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">9주 · 4/28</div>
+        <div class="week-topic">칸트</div>
+        <div class="week-hint">도덕 신학·실천이성</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">10주 · 5/5</div>
+        <div class="week-topic">리쾨르</div>
+        <div class="week-hint">해석학·상징론 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">11주 · 5/12</div>
+        <div class="week-topic">파스칼</div>
+        <div class="week-hint">변증·인간조건 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">12주 · 5/19</div>
+        <div class="week-topic">아퀴나스</div>
+        <div class="week-hint">스콜라·5증명 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">13주 · 5/26</div>
+        <div class="week-topic">아우구스티누스</div>
+        <div class="week-hint">교부신학·신앙우선 활동지</div>
+      </div>
+      <div class="week-card active">
+        <div class="week-num">14주 · 6/2</div>
+        <div class="week-topic">발터 벤야민</div>
+        <div class="week-hint">마지막 활동지 — 정치신학</div>
+      </div>
+      <div class="week-card exam">
+        <div class="week-num">15주 · 6/9</div>
+        <div class="week-topic">⚠️ 기말고사</div>
+        <div class="week-hint">9~14주 철학자 총정리</div>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-badge">05</span>
+      <span class="sec-title">프락시스활동지 작성 전략 (50%)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="sub-head">매주 작성 권장 구조</div>
+    <table>
+      <tr>
+        <th style="width:16%">항목</th>
+        <th style="width:52%">내용</th>
+        <th style="width:32%">Claude 활용 질문 예시</th>
+      </tr>
+      <tr>
+        <td><span class="tag tag-v">① 철학자 소개</span></td>
+        <td>이름·시대·사상적 배경 1~2문장 요약</td>
+        <td>"비트겐슈타인의 사상적 배경을 2문장으로 요약해줘"</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-v">② 핵심 주장</span></td>
+        <td>해당 주의 주제에 대한 핵심 논지와 원어 개념</td>
+        <td>"언어 게임 이론의 핵심 주장을 설명해줘"</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-g">③ 기독교적 의의</span></td>
+        <td>이 철학자의 사상이 기독교 신학·신앙에 주는 통찰</td>
+        <td>"이 이론의 기독교 신학적 적용과 의의를 설명해줘"</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-r">④ 비판적 성찰</span></td>
+        <td>사상의 한계 또는 다른 철학자와의 비교·대조</td>
+        <td>"슐라이어마허와 칸트의 종교관 차이를 비교해줘"</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-v">⑤ 목회 적용</span></td>
+        <td>설교·상담·목회 현장에서의 실천적 함의</td>
+        <td>"이 철학을 현대 목회와 설교에 어떻게 적용할까?"</td>
+      </tr>
+    </table>
+
+    <div class="sub-head">Claude 대화 예시 — 레비나스 활동지 준비</div>
+    <div class="chat-wrap">
+      <div class="bubble bubble-u">
+        <div class="bubble-label">나의 질문</div>
+        레비나스의 '메시아적 종교' 개념을 기독교 계시론과 연결해서 프락시스활동지 ③항(기독교적 의의)을 작성하도록 도와줘.
+      </div>
+      <div class="bubble bubble-a">
+        <div class="bubble-label">Claude 응답 방향</div>
+        레비나스의 <em>타자(l'Autre)</em> 개념을 먼저 정리할게요. 그는 무한한 타자의 얼굴(le visage) 앞에서 나의 윤리적 책임이 발생한다고 보았습니다. 이는 기독교 계시론에서 하나님이 인간 이해를 초월하여 자신을 드러내심과 구조적으로 유사합니다. ③항에는 "레비나스의 타자-초월 구조는 하나님의 무한한 타자성과 자기계시를 이해하는 데 새로운 언어를 제공한다"고 쓰시면 좋겠습니다. ④항 비판에는 그가 예수 그리스도의 특수성·성육신을 다루지 않는다는 한계를 추가하세요.
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="sec-badge">06</span>
+      <span class="sec-title">시험 대비 — 철학자 비교 정리표</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <table>
+      <tr>
+        <th>철학자</th><th>주요 방법론</th><th>종교의 기초</th><th>신앙-이성</th><th>기독교 신학 접점</th>
+      </tr>
+      <tr>
+        <td><strong>비트겐슈타인</strong></td>
+        <td>분석철학·언어게임</td>
+        <td>언어 공동체 실천</td>
+        <td>신앙은 언어게임 내부</td>
+        <td>예배·기도 언어의 고유성</td>
+      </tr>
+      <tr>
+        <td><strong>윌리엄 제임스</strong></td>
+        <td>실용주의·심리학</td>
+        <td>종교 경험의 효과</td>
+        <td>신앙의 실용적 가치</td>
+        <td>회심·신비체험의 이해</td>
+      </tr>
+      <tr>
+        <td><strong>슐라이어마허</strong></td>
+        <td>낭만주의·감정론</td>
+        <td>절대의존의 감정</td>
+        <td>감정이 신앙의 기초</td>
+        <td>경건주의·부흥운동 신학</td>
+      </tr>
+      <tr>
+        <td><strong>칸트</strong></td>
+        <td>비판철학·도덕론</td>
+        <td>도덕적 요청</td>
+        <td>이성이 신앙 영역 제한</td>
+        <td>도덕 신학·윤리 설교</td>
+      </tr>
+      <tr>
+        <td><strong>아퀴나스</strong></td>
+        <td>스콜라·자연신학</td>
+        <td>이성과 계시 조화</td>
+        <td>신앙과 이성 상보적</td>
+        <td>가톨릭 신학의 근간</td>
+      </tr>
+      <tr>
+        <td><strong>아우구스티누스</strong></td>
+        <td>교부·신플라톤주의</td>
+        <td>신앙이 이해에 선행</td>
+        <td>신앙 우선, 이해는 은혜</td>
+        <td>원죄론·은혜론의 토대</td>
+      </tr>
+    </table>
+
+    <div class="sec-head">
+      <span class="sec-badge">07</span>
+      <span class="sec-title">주간 체크리스트 &amp; 고득점 전략</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="check-grid">
+      <div class="check-box">
+        <h4>🗓️ 월요일 — 사전 준비</h4>
+        <div class="check-item">다음 날 다룰 철학자 배경·생애 파악</div>
+        <div class="check-item">교재 해당 챕터 예독 (20~30분)</div>
+        <div class="check-item">Claude에게 "핵심 주장 요약 + 원어 용어" 질문</div>
+        <div class="check-item">비교표에 해당 철학자 정보 미리 채우기</div>
+      </div>
+      <div class="check-box">
+        <h4>📝 화요일 — 수업 당일 (핵심!)</h4>
+        <div class="check-item">반드시 출석 (결석 = 활동지 0점 위험)</div>
+        <div class="check-item">교수 강의 중 핵심 논점 메모</div>
+        <div class="check-item">수업 후 1시간 내 프락시스활동지 작성·제출</div>
+        <div class="check-item">원어 용어를 활동지에 병기하여 완성도 높이기</div>
+      </div>
+      <div class="check-box">
+        <h4>🔄 수~목 — 복습 및 비교 누적</h4>
+        <div class="check-item">이번 주 철학자를 이전 철학자와 비교 메모</div>
+        <div class="check-item">시험 대비 비교표 업데이트</div>
+        <div class="check-item">어려운 개념 Claude에게 재질문</div>
+      </div>
+      <div class="check-box">
+        <h4>🎯 시험 2주 전 — 최종 정리</h4>
+        <div class="check-item">전체 철학자 키워드 암기 (원어 포함)</div>
+        <div class="check-item">방법론·신앙-이성·기독교 접점 비교표 완성</div>
+        <div class="check-item">Claude에게 예상 시험 문제 생성 요청</div>
+        <div class="check-item">모의 답변 작성 후 피드백 받기</div>
+      </div>
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-num">01</div>
+        <div class="strategy-title">프락시스 절대 미제출 금지</div>
+        <div class="strategy-body">50% 배점이므로 단 2~3회 결석으로도 학점 위험. 불가피 시 사전에 교수님께 연락하고 대안 문의할 것</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">02</div>
+        <div class="strategy-title">철학자 비교가 시험 핵심</div>
+        <div class="strategy-body">중간·기말 모두 "○○와 ○○를 비교하라" 유형 출제 예상. 매주 비교표를 누적 작성하면 시험 직전 따로 공부할 필요 없음</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">03</div>
+        <div class="strategy-title">원어 병기로 학문적 깊이</div>
+        <div class="strategy-body">활동지와 답안에 독일어·프랑스어·라틴어 원어를 괄호로 병기하면 교수님께 좋은 인상. Claude에게 원어 확인 요청 가능</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>기독교철학 · 61083 · 심상우 교수 · 2026-1학기</span>
+    <span>Claude Projects 학습 지침서 v1.0 — 프락시스활동지 50% 절대 유의</span>
+  </div>
 </div>
 </body>
 </html>

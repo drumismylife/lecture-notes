@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 1강 — 오리엔테이션 & 목회의 개념</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #2a5a3a;
+    --accent-light: #e8f2ea;
+    --accent-mid: #c2dbc7;
+    --gold: #b8860b;
+    --gold-light: #fdf8e1;
+    --blue: #1a3a6a;
+    --blue-light: #e8eef8;
+    --red: #8b1a1a;
+    --red-light: #fdeaea;
+    --green: #1a5a2a;
+    --green-light: #e8f5eb;
+    --border: #ccc;
+    --text: #1a1a1a;
+    --page-bg: #f5f5f0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Serif KR', serif;
+    background: var(--page-bg);
+    color: var(--text);
+    font-size: 11pt;
+    line-height: 1.75;
+  }
+
+  /* ── 컨트롤바 ── */
+  .control-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    z-index: 999;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10pt;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .control-bar .title { font-weight: 700; font-size: 11pt; }
+  .control-bar .subtitle { opacity: 0.8; font-size: 9pt; margin-top: 1px; }
+  .btn-print {
+    background: #fff;
+    color: var(--accent);
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    cursor: pointer;
+  }
+  .btn-print:hover { background: var(--accent-light); }
+
+  /* ── 페이지 ── */
+  .pages { margin-top: 52px; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff;
+    margin: 0 auto;
+    padding: 18mm 16mm 16mm;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    page-break-after: always;
+    position: relative;
+  }
+
+  /* ── 페이지 헤더 ── */
+  .page-header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .page-header .course {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8.5pt;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .page-header .lecture-title {
+    font-size: 15pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+  .page-header .meta {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8.5pt;
+    color: #666;
+    text-align: right;
+  }
+
+  /* ── 섹션 제목 ── */
+  h2 {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 8px;
+    margin: 14px 0 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  /* ── 본문 텍스트 ── */
+  p, li {
+    font-size: 10.5pt;
+    line-height: 1.8;
+    color: #222;
+  }
+  ul { padding-left: 1.4em; margin: 4px 0; }
+  li { margin-bottom: 2px; }
+
+  /* ── 구분선 ── */
+  hr { border: none; border-top: 1px solid #ddd; margin: 12px 0; }
+
+  /* ── 표 ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin: 8px 0;
+    break-inside: avoid;
+  }
+  th {
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 9.5pt;
+  }
+  td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+    font-size: 10pt;
+  }
+  tr:nth-child(even) td { background: #f9f9f7; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── 박스 공통 ── */
+  .box {
+    border-radius: 5px;
+    padding: 9px 12px;
+    margin: 8px 0;
+    break-inside: avoid;
+    font-size: 10.5pt;
+  }
+  .box-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 9.5pt;
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  /* ★ 핵심 */
+  .box-key {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+  }
+  .box-key .box-label { color: var(--gold); }
+
+  /* ❓ 질문 */
+  .box-q {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+  }
+  .box-q .box-label { color: var(--blue); }
+
+  /* ⚠ 시험 */
+  .box-exam {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+  }
+  .box-exam .box-label { color: var(--red); }
+
+  /* 📝 메모 */
+  .box-memo {
+    background: var(--green-light);
+    border-left: 4px solid var(--green);
+  }
+  .box-memo .box-label { color: var(--green); }
+
+  /* ✝ 성경 */
+  .box-bible {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+  }
+  .box-bible .box-label { color: var(--gold); }
+
+  /* ── 줄노트 영역 ── */
+  .lined-area {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      #e0e8e2 27px,
+      #e0e8e2 28px
+    );
+    min-height: 56px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    outline: none;
+    font-size: 10.5pt;
+    line-height: 28px;
+    font-family: 'Noto Serif KR', serif;
+    color: #222;
+    width: 100%;
+    margin: 6px 0;
+  }
+
+  /* ── Q&A ── */
+  .qa-block {
+    margin: 8px 0;
+    break-inside: avoid;
+  }
+  .qa-q {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    color: var(--red);
+    font-size: 10pt;
+    margin-bottom: 3px;
+  }
+  .qa-a {
+    background: #f9f9f7;
+    border-left: 3px solid var(--accent-mid);
+    padding: 6px 10px;
+    font-size: 10pt;
+    color: #333;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── 체크리스트 ── */
+  .checklist { list-style: none; padding: 0; margin: 6px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 10.5pt;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px; height: 16px;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── 페이지 번호 ── */
+  .page-num {
+    position: absolute;
+    bottom: 12mm;
+    right: 16mm;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8.5pt;
+    color: #999;
+  }
+
+  /* ── 2단 레이아웃 ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* ── 핵심 번호 배지 ── */
+  .core-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 8px 0;
+    break-inside: avoid;
+  }
+  .core-num {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .core-text strong {
+    display: block;
+    font-size: 10.5pt;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .core-text p { font-size: 10pt; color: #444; margin: 0; }
+
+  /* ── 인쇄 ── */
+  @media print {
+    .control-bar, .btn-print { display: none !important; }
+    .pages { margin-top: 0; padding: 0; gap: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      padding: 15mm 14mm;
+    }
+    body { background: #fff; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 컨트롤바 -->
+<div class="control-bar">
+  <div>
+    <div class="title">목회학 (Pastoral Ministry)</div>
+    <div class="subtitle">1강 — 오리엔테이션 & 목회의 개념</div>
+  </div>
+  <button class="btn-print" onclick="window.print()">🖨 PDF 출력</button>
+</div>
+
+<div class="pages">
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 : 강의 노트
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="course">목회학 · Pastoral Ministry · 1강</div>
+      <div class="lecture-title">오리엔테이션 &amp; 목회의 개념</div>
+    </div>
+    <div class="meta">2026. 03. 09<br>담당 교수 : 이영호</div>
+  </div>
+
+  <!-- 강의 구성 -->
+  <h2>📋 강의 구성 개요</h2>
+  <table>
+    <tr><th>구분</th><th>내용</th></tr>
+    <tr><td><strong>전반부</strong> (중간고사 전)</td><td>목회자란 누구이며 어떻게 준비할 것인가</td></tr>
+    <tr><td><strong>후반부</strong> (중간고사 후)</td><td>교회의 다섯 가지 핵심 기능 — 예배·교제·교육·봉사·전도</td></tr>
+    <tr><td><strong>수업 방식</strong></td><td>강의 + 동영상 강의 2회 (온라인 대체)</td></tr>
+  </table>
+
+  <!-- 교재 -->
+  <h2>📚 교재 및 참고문헌</h2>
+  <ul>
+    <li>김덕수, 『건강한 목회를 통해 세워가는 건강한 교회』, 대서 — <em>자연적 교회 성장</em> 기반</li>
+    <li>양병모, 『유기적 신앙공동체를 위한 목회학』, 침례신학대학출판부, 2018 — 목회자 준비론</li>
+    <li>복음주의 목회학 (복음주의 실천신학회) — 논문 목록 별도 배포 예정</li>
+  </ul>
+
+  <div class="box box-memo">
+    <span class="box-label">📝 교수 메모</span>
+    크리스찬 슈바르츠의 <strong>자연적 교회 성장</strong>: 6대주 1,000여 교회 설문 → 건강한 교회의 8가지 질적 특성 도출. "교회가 건강하면 자연적으로 성장한다."는 패러다임 전환을 가져온 책.
+  </div>
+
+  <!-- 목회자의 축복 -->
+  <h2>🙏 목회자의 두 가지 축복</h2>
+  <div class="box box-key">
+    <span class="box-label">★ 핵심</span>
+    <strong>① 하나님을 깊이 만날 수 있다</strong> — 어떤 직분보다도 하나님과의 깊은 교제가 가능<br>
+    <strong>② 하나님이 하시는 일을 직접 볼 수 있다</strong> — 간절한 기도의 응답을 경험하며 하나님의 선하심을 맛보아 앎
+  </div>
+
+  <!-- 목회학의 위치 -->
+  <h2>🔍 목회학의 위치 (실천신학 내)</h2>
+  <table>
+    <tr><th>신학 분야</th><th>세부 과목</th></tr>
+    <tr><td>성서신학</td><td>구약학, 신약학, 해석학</td></tr>
+    <tr><td>조직신학</td><td>조직신학, 윤리학, 종교철학</td></tr>
+    <tr><td>역사신학</td><td>교회사</td></tr>
+    <tr><td><strong>실천신학</strong></td><td>목회학(개론), 설교학, 교회성장학, 교회행정, 목회상담 등</td></tr>
+  </table>
+  <div class="box box-key">
+    <span class="box-label">★ 핵심</span>
+    목회학 = <strong>실천신학의 개론</strong>. 이론신학을 교회 현장에 적용하는 방법론 전체의 큰 그림을 그리는 과목.
+  </div>
+
+  <!-- 목사의 호칭 -->
+  <h2>🏷 목사의 호칭과 의미</h2>
+  <table>
+    <tr><th>용어</th><th>어원</th><th>의미</th></tr>
+    <tr><td><strong>Pastor</strong> (포이멘 / ποιμήν)</td><td>엡 4:11</td><td>양을 돌보는 목자 — 성도를 가르치고 돌봄</td></tr>
+    <tr><td><strong>Minister</strong></td><td>라틴어 ministrare</td><td>섬기는 사람, 사역 수행자</td></tr>
+    <tr><td><strong>Reverend</strong></td><td>존경의 의미</td><td>목사를 높여 부르는 공식 호칭 (침례교는 잘 쓰지 않음)</td></tr>
+    <tr><td><strong>Chaplain</strong></td><td>—</td><td>병원·군·특수 기관 채플린</td></tr>
+  </table>
+
+  <div class="box box-bible">
+    <span class="box-label">✝ 성경구절</span>
+    <strong>에베소서 4:11</strong> — "그가 어떤 사람은 사도로, 어떤 사람은 선지자로, 어떤 사람은 복음 전하는 자로, 어떤 사람은 <u>목사</u>와 교사로 삼으셨으니" (포이멘 ποιμήν)
+  </div>
+
+  <div class="page-num">1 / 3</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 : 핵심 요약
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="course">목회학 · 1강 — 핵심 요약</div>
+      <div class="lecture-title">목회의 개념 &amp; 정리</div>
+    </div>
+    <div class="meta">2026. 03. 09</div>
+  </div>
+
+  <!-- 목회의 네 가지 개념 -->
+  <h2>🔑 목회의 네 가지 개념 (상호 보완적)</h2>
+
+  <div class="core-item">
+    <div class="core-num">1</div>
+    <div class="core-text">
+      <strong>돌봄의 사역</strong>
+      <p>고통받는 성도를 위로·치유. 힐트너의 <em>목회신학</em>에서 강조. 유럽 국교회 전통 — 정도(전도)보다 돌봄에 집중.</p>
+    </div>
+  </div>
+
+  <div class="core-item">
+    <div class="core-num">2</div>
+    <div class="core-text">
+      <strong>말씀 선포의 사역</strong>
+      <p>다양한 방법(설교·성경공부·일대일 상담 등)으로 하나님의 말씀을 전함. 청교도·신정통 전통 (투나이젠 등).</p>
+    </div>
+  </div>
+
+  <div class="core-item">
+    <div class="core-num">3</div>
+    <div class="core-text">
+      <strong>목사가 수행하는 모든 사역</strong>
+      <p>오딩(Thomas Oden, 『목회신학』)이 협소한 정의를 비판. 자유교회(미국·선교지)에서는 전도·예배·상담 등 모든 역할이 목회.</p>
+    </div>
+  </div>
+
+  <div class="core-item">
+    <div class="core-num">4</div>
+    <div class="core-text">
+      <strong>공동체적 상호 돌봄의 사역</strong>
+      <p>만인 제사장 원리(종교개혁). 목사만이 아닌 전 성도가 서로 돌봄. 가정교회 운동(최용기 목사, 휴스턴).</p>
+    </div>
+  </div>
+
+  <!-- 비교표 -->
+  <h2>📊 목회 개념 비교</h2>
+  <table>
+    <tr><th>관점</th><th>강조점</th><th>배경/신학 전통</th></tr>
+    <tr><td>돌봄</td><td>위로·치유</td><td>유럽 국교회, 힐트너</td></tr>
+    <tr><td>말씀 선포</td><td>설교·가르침</td><td>청교도, 신정통 신학</td></tr>
+    <tr><td>포괄적 사역</td><td>목사의 모든 역할</td><td>자유교회, 오딩</td></tr>
+    <tr><td>공동체적 돌봄</td><td>전 성도의 참여</td><td>종교개혁, 가정교회</td></tr>
+  </table>
+
+  <div class="box box-key">
+    <span class="box-label">★ 핵심 — 네 개념의 관계</span>
+    네 가지 목회 개념은 <strong>상호 배타적이지 않고 상호 보완적</strong>이다. 각 전통과 상황에 따라 강조점이 달라질 뿐, 건강한 목회는 이 모두를 통합한다.
+  </div>
+
+  <!-- 담임목회 준비 -->
+  <h2>🌱 담임목회 준비</h2>
+  <ul>
+    <li>목회는 <strong>교회 현장에서 배운다</strong> — 담임목사의 목회 철학과 사역을 통해 형성</li>
+    <li><strong>한 영혼을 사랑하는 마음</strong>으로 성도를 양육해야 함</li>
+    <li>부교역자 기간(약 10년) → 담임 목회 → 지속적 성장의 경로</li>
+  </ul>
+
+  <!-- 다음 강의 예습 -->
+  <h2>📖 다음 강의 예습 포인트</h2>
+  <ul>
+    <li>양병모, 『유기적 신앙공동체를 위한 목회학』 1장 훑어보기</li>
+    <li>자연적 교회 성장 — <strong>건강한 교회의 8가지 질적 특성</strong> 미리 확인</li>
+    <li>에베소서 4:11–16 본문 읽기 (목사·교사의 역할)</li>
+  </ul>
+
+  <!-- 메모 -->
+  <h2>📝 메모</h2>
+  <div class="lined-area" contenteditable="true" style="min-height:70px;"></div>
+
+  <div class="page-num">2 / 3</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 : 시험 대비
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="course">목회학 · 1강 — 시험 대비</div>
+      <div class="lecture-title">예상 문제 &amp; 과제 체크리스트</div>
+    </div>
+    <div class="meta">2026. 03. 09</div>
+  </div>
+
+  <div class="box box-exam">
+    <span class="box-label">⚠ 시험 출제 예상 포인트</span>
+    목회의 네 가지 개념 / 목사 호칭의 어원과 의미 / 자연적 교회 성장 패러다임 / 실천신학 내 목회학의 위치
+  </div>
+
+  <!-- 객관식 -->
+  <h2>① 객관식 예상 문제</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">Q1. 다음 중 목사를 가리키는 헬라어로 에베소서 4:11에 나오는 용어는?</div>
+    <div class="qa-a">④ ποιμήν (포이멘) — 양치기·목자. ①디다스칼로스(교사) ②케뤽스(전령) ③디아코노스(집사)와 구별</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Q2. 크리스찬 슈바르츠(Christian Schwarz)의 자연적 교회 성장 패러다임의 핵심 명제는?</div>
+    <div class="qa-a">교회가 건강하면 자연적으로 성장한다 — 생명의 관점에서 신적 생명력이 열매를 맺음</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Q3. 목회학이 실천신학 안에서 갖는 위치를 가장 잘 설명한 것은?</div>
+    <div class="qa-a">실천신학의 개론(overview) — 설교학·교회성장학·목회상담 등 실천신학 전 분야의 큰 그림을 그리는 과목</div>
+  </div>
+
+  <!-- 단답형 -->
+  <h2>② 단답형 예상 문제</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">Q4. 목사(Pastor)의 라틴어 어원과 원래 의미를 쓰시오.</div>
+    <div class="qa-a">Pastor — 라틴어 'pascere'(먹이다·기르다)에서 유래. 양을 돌보는 목자로 성도를 가르치고 돌보는 역할.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Q5. 종교개혁의 만인 제사장 원리가 목회 개념에 어떤 영향을 주었는가?</div>
+    <div class="qa-a">목회를 목사만의 전유물이 아닌 <strong>전 성도의 상호 돌봄 사역</strong>으로 확장 — 소그룹·가정교회 운동의 신학적 근거.</div>
+  </div>
+
+  <!-- 서술형 -->
+  <h2>③ 서술형 예상 문제</h2>
+
+  <div class="qa-block">
+    <div class="qa-q">Q6. 목회의 네 가지 개념을 각각 설명하고, 이 개념들의 상호 관계를 논하시오.</div>
+    <div class="qa-a">
+      ① <strong>돌봄</strong>: 힐트너 — 고통받는 성도 위로·치유 (유럽 국교회 전통)<br>
+      ② <strong>말씀 선포</strong>: 청교도·신정통 — 설교·성경교육 등 다양한 방식의 선포<br>
+      ③ <strong>포괄적 사역</strong>: 오딩 — 목사가 행하는 모든 교회 사역<br>
+      ④ <strong>공동체적 돌봄</strong>: 종교개혁·가정교회 — 전 성도의 참여와 상호 돌봄<br>
+      → 네 개념은 배타적이지 않고 <strong>상호 보완</strong>. 건강한 목회는 상황과 맥락에 따라 이 모두를 통합적으로 수행한다.
+    </div>
+  </div>
+
+  <!-- 과제 체크리스트 -->
+  <h2>✅ 과제 &amp; 준비 체크리스트</h2>
+  <ul class="checklist">
+    <li><div class="check-box"></div>교재 구입: 양병모, 『유기적 신앙공동체를 위한 목회학』 (침례신학대학출판부, 2018)</li>
+    <li><div class="check-box"></div>교재 구입: 김덕수, 『건강한 목회를 통해 세워가는 건강한 교회』 (대서)</li>
+    <li><div class="check-box"></div>복음주의 실천신학회 논문 목록 — 교수 배포 후 수령</li>
+    <li><div class="check-box"></div>단톡방 가입 (반장: 오경림) — 강의자료 수령</li>
+    <li><div class="check-box"></div>설문지 제출 완료 확인</li>
+    <li><div class="check-box"></div>엡 4:11 본문 및 포이멘(ποιμήν) 용어 정리</li>
+  </ul>
+
+  <!-- 자유 메모 -->
+  <h2>📝 추가 메모</h2>
+  <div class="lined-area" contenteditable="true" style="min-height:60px;"></div>
+
+  <div class="page-num">3 / 3</div>
+</div>
+
+</div><!-- /pages -->
+</body>
+</html>

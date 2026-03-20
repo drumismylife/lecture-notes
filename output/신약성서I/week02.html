@@ -2,120 +2,1129 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>신약성서I — 02주차</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I — 2주차 강의 정리</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root {
-  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
-  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
-  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
-  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
-.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
-@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
-.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
-.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
-.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
-.header h1 span{color:var(--gold);}
-.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
-.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
-.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
-.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
-@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
-.section-icon{font-size:1.1rem;flex-shrink:0;}
-.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
-.section-body{padding:1.4rem;}
-table{width:100%;border-collapse:collapse;font-size:.88rem;}
-thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
-thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
-tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
-tbody tr:hover{background:rgba(212,160,23,.06);}
-tbody tr:last-child{border-bottom:none;}
-tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
-tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
-.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
-.prose p:last-child{margin-bottom:0;}
-.prose strong{font-weight:700;color:var(--deep-brown);}
-.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
-.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
-.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
-.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
-.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
-.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
-.alert strong{color:var(--rust);}
-.key-points{display:flex;flex-direction:column;gap:.9rem;}
-.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
-.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
-.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
-.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
-.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
-.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
-.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
-.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
-.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
-.note-list{list-style:none;padding:0;}
-.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
-.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
-.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
-.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
-.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
-.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
-.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
-.next-week p{font-size:.82rem;opacity:.75;}
-.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
-@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+  :root {
+    --purple:       #4a1d8a;
+    --purple-mid:   #6b35c2;
+    --purple-light: #e8d9fc;
+    --purple-pale:  #f6f0ff;
+    --purple-dark:  #2e1060;
+    --gold:         #b8860b;
+    --gold-light:   #fdf3c8;
+    --gold-pale:    #fffdf0;
+    --navy:         #1a2f5e;
+    --rose:         #9b2c1a;
+    --rose-light:   #fdddd6;
+    --green:        #1e6b45;
+    --green-light:  #d4edda;
+    --teal:         #0e5a6e;
+    --teal-light:   #cceaf4;
+    --gray-50:      #f9fafb;
+    --gray-100:     #f3f4f6;
+    --gray-200:     #e5e7eb;
+    --gray-500:     #6b7280;
+    --gray-700:     #374151;
+    --text:         #1e2333;
+    --border:       #d5cce8;
+    --white:        #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9pt;
+    line-height: 1.65;
+    color: var(--text);
+    background: #ddd6ef;
+  }
+
+  /* ─── PAGE ─── */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    margin: 10mm auto;
+    background: var(--white);
+    box-shadow: 0 6px 40px rgba(74,29,138,.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: linear-gradient(150deg, var(--purple-dark) 0%, var(--purple) 52%, #7b52d4 100%);
+    padding: 10mm 14mm 9mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: 'Κατὰ Ματθαῖον';
+    position: absolute;
+    right: -4mm; top: 4mm;
+    font-family: 'Crimson Pro', serif;
+    font-size: 36pt;
+    font-style: italic;
+    color: rgba(255,255,255,.07);
+    letter-spacing: .03em;
+    white-space: nowrap;
+  }
+  .cover-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 3mm;
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 4mm;
+  }
+  .cover-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -.02em;
+    margin-bottom: 1.5mm;
+  }
+  .cover-sub {
+    font-size: 8pt;
+    color: rgba(255,255,255,.75);
+    font-weight: 300;
+    margin-bottom: 3mm;
+  }
+  .cover-pills {
+    display: flex;
+    gap: 2mm;
+    flex-wrap: wrap;
+  }
+  .cover-pill {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.28);
+    color: rgba(255,255,255,.92);
+    font-size: 6.5pt;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .cover-pill.hot {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .cover-meta {
+    text-align: right;
+  }
+  .cover-week {
+    font-family: 'Crimson Pro', serif;
+    font-size: 48pt;
+    font-weight: 600;
+    color: rgba(255,255,255,.15);
+    line-height: 1;
+    letter-spacing: -.03em;
+  }
+  .cover-date {
+    font-size: 7pt;
+    color: rgba(255,255,255,.6);
+    text-align: right;
+  }
+
+  /* ─── THREE-COLUMN LAYOUT ─── */
+  .three-col {
+    display: grid;
+    grid-template-columns: 52mm 1fr 52mm;
+    gap: 0;
+    align-items: start;
+  }
+  .col-left, .col-right {
+    padding: 5mm 4mm;
+    background: var(--gray-50);
+    border-right: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    font-size: 7pt;
+    color: var(--gray-700);
+    line-height: 1.6;
+    min-height: 100%;
+  }
+  .col-left { border-left: none; border-right: 1.5px solid var(--border); }
+  .col-right { border-right: none; border-left: 1.5px solid var(--border); }
+  .col-main {
+    padding: 5mm 6mm;
+  }
+
+  /* ─── SIDEBAR BOXES ─── */
+  .side-box {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    padding: 3mm;
+    margin-bottom: 3.5mm;
+    position: relative;
+  }
+  .side-box-title {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 2mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px dashed var(--purple-light);
+  }
+  .side-box.gold-box {
+    background: var(--gold-pale);
+    border-color: #d4a017;
+  }
+  .side-box.gold-box .side-box-title { color: var(--gold); }
+  .side-box.green-box {
+    background: var(--green-light);
+    border-color: var(--green);
+  }
+  .side-box.green-box .side-box-title { color: var(--green); }
+  .side-box.rose-box {
+    background: var(--rose-light);
+    border-color: var(--rose);
+  }
+  .side-box.rose-box .side-box-title { color: var(--rose); }
+  .side-box.teal-box {
+    background: var(--teal-light);
+    border-color: var(--teal);
+  }
+  .side-box.teal-box .side-box-title { color: var(--teal); }
+  .side-box.navy-box {
+    background: #eef1f8;
+    border-color: var(--navy);
+  }
+  .side-box.navy-box .side-box-title { color: var(--navy); }
+  .side-text { font-size: 7pt; line-height: 1.65; }
+  .side-text li { margin-left: 3mm; margin-bottom: 1mm; }
+  .side-text p { margin-bottom: 1.5mm; }
+  .side-verse {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 7pt;
+    color: var(--purple-dark);
+    line-height: 1.7;
+    font-style: italic;
+    background: var(--purple-pale);
+    padding: 2mm;
+    border-radius: 3px;
+    margin-top: 1.5mm;
+  }
+  .side-ref {
+    font-size: 6pt;
+    color: var(--gray-500);
+    text-align: right;
+    margin-top: 1mm;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin: 5mm 0 3mm;
+    page-break-after: avoid;
+  }
+  .sec-badge {
+    background: var(--purple);
+    color: var(--white);
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+  .sec-badge.gold-badge { background: var(--gold); }
+  .sec-badge.rose-badge { background: var(--rose); }
+  .sec-badge.green-badge { background: var(--green); }
+  .sec-badge.teal-badge { background: var(--teal); }
+  .sec-badge.navy-badge { background: var(--navy); }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--purple-dark);
+  }
+  .sec-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, var(--purple-mid), transparent);
+  }
+
+  .sub-head {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--purple-mid);
+    margin: 4mm 0 2mm;
+    padding-left: 2.5mm;
+    border-left: 3px solid var(--gold);
+    page-break-after: avoid;
+  }
+  .sub-head.rose { color: var(--rose); border-left-color: var(--rose); }
+  .sub-head.green { color: var(--green); border-left-color: var(--green); }
+  .sub-head.teal { color: var(--teal); border-left-color: var(--teal); }
+  .sub-head.navy { color: var(--navy); border-left-color: var(--navy); }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    display: flex;
+    gap: 2.5mm;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 3mm 3.5mm;
+    margin-bottom: 3mm;
+  }
+  .callout.info  { background: var(--purple-pale);  border-left: 3px solid var(--purple-mid); }
+  .callout.warn  { background: var(--rose-light);   border-left: 3px solid var(--rose); }
+  .callout.tip   { background: var(--gold-pale);    border-left: 3px solid var(--gold); }
+  .callout.good  { background: var(--green-light);  border-left: 3px solid var(--green); }
+  .callout.teal  { background: var(--teal-light);   border-left: 3px solid var(--teal); }
+  .callout-icon  { font-size: 10pt; flex-shrink: 0; line-height: 1.4; }
+  .callout-body  { flex: 1; }
+  .callout-title { font-size: 7.5pt; font-weight: 700; margin-bottom: 1mm; }
+  .callout.info  .callout-title { color: var(--purple-dark); }
+  .callout.warn  .callout-title { color: var(--rose); }
+  .callout.tip   .callout-title { color: var(--gold); }
+  .callout.good  .callout-title { color: var(--green); }
+  .callout.teal  .callout-title { color: var(--teal); }
+  .callout-text  { font-size: 7pt; color: var(--gray-700); line-height: 1.6; }
+
+  /* ─── VERSE BOX ─── */
+  .verse-box {
+    background: var(--purple-pale);
+    border: 1.5px solid var(--purple-light);
+    border-left: 4px solid var(--purple-mid);
+    border-radius: 4px;
+    padding: 3mm 4mm;
+    margin-bottom: 3mm;
+  }
+  .verse-ref {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--purple-mid);
+    letter-spacing: .06em;
+    margin-bottom: 1.5mm;
+  }
+  .verse-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 8pt;
+    color: var(--purple-dark);
+    line-height: 1.8;
+  }
+
+  /* ─── TABLES ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7pt;
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+  }
+  thead tr { background: var(--purple); color: var(--white); }
+  thead th {
+    padding: 4px 5px;
+    font-weight: 600;
+    font-size: 6.5pt;
+    letter-spacing: .04em;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  td {
+    padding: 3.5px 5px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  tr:nth-child(even) td { background: var(--gray-50); }
+  .td-c { text-align: center; }
+  .hl-gold   td { background: var(--gold-light)   !important; font-weight: 600; }
+  .hl-purple td { background: var(--purple-pale)  !important; font-weight: 600; }
+  .hl-rose   td { background: var(--rose-light)   !important; font-weight: 600; }
+  .hl-green  td { background: var(--green-light)  !important; font-weight: 600; }
+
+  /* ─── FIVE-DISCOURSE GRID ─── */
+  .five-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+  .disc-card {
+    border-radius: 4px;
+    padding: 2.5mm;
+    border-top: 3px solid var(--purple-mid);
+    background: var(--purple-pale);
+  }
+  .disc-card:nth-child(1) { border-top-color: #2563eb; background: #eff6ff; }
+  .disc-card:nth-child(2) { border-top-color: #ea580c; background: #fff7ed; }
+  .disc-card:nth-child(3) { border-top-color: #16a34a; background: #f0fdf4; }
+  .disc-card:nth-child(4) { border-top-color: var(--teal); background: var(--teal-light); }
+  .disc-card:nth-child(5) { border-top-color: var(--rose); background: var(--rose-light); }
+  .disc-num { font-size: 6pt; font-weight: 700; color: var(--gray-500); margin-bottom: 1mm; }
+  .disc-title { font-size: 7.5pt; font-weight: 700; color: var(--text); margin-bottom: 1mm; }
+  .disc-ch { font-size: 6.5pt; color: var(--gray-500); margin-bottom: 1mm; }
+  .disc-body { font-size: 6.5pt; color: var(--gray-700); line-height: 1.55; }
+
+  /* ─── COMMAND COMPARE ─── */
+  .cmd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5mm;
+    margin-bottom: 3mm;
+  }
+  .cmd-card {
+    border-radius: 5px;
+    padding: 3mm;
+    border: 1.5px solid var(--border);
+  }
+  .cmd-card.cmd-gold {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+  }
+  .cmd-card.cmd-purple {
+    background: var(--purple-pale);
+    border-color: var(--purple-mid);
+  }
+  .cmd-label {
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+  }
+  .cmd-gold .cmd-label { color: var(--gold); }
+  .cmd-purple .cmd-label { color: var(--purple-mid); }
+  .cmd-term {
+    font-size: 8.5pt;
+    font-weight: 700;
+    margin-bottom: 1mm;
+    color: var(--text);
+  }
+  .cmd-en { font-size: 7pt; color: var(--gray-500); margin-bottom: 1.5mm; font-style: italic; }
+  .cmd-verse { font-size: 6.5pt; font-weight: 700; color: var(--gray-500); margin-bottom: 1mm; }
+  .cmd-body { font-size: 7pt; color: var(--gray-700); line-height: 1.6; }
+
+  /* ─── INCLUCIO BOX ─── */
+  .inclusio-wrap {
+    border: 1.5px solid var(--purple-mid);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 3mm;
+  }
+  .inclusio-head {
+    background: var(--purple);
+    color: var(--white);
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 2.5mm 4mm;
+    letter-spacing: .06em;
+  }
+  .inclusio-body {
+    display: grid;
+    grid-template-columns: 1fr 40mm 1fr;
+    align-items: center;
+  }
+  .inclusio-side {
+    padding: 3mm 4mm;
+    font-size: 7pt;
+    background: var(--purple-pale);
+  }
+  .inclusio-mid {
+    padding: 3mm 4mm;
+    text-align: center;
+    font-size: 6.5pt;
+    color: var(--gray-500);
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  .inclusio-verse {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 7.5pt;
+    color: var(--purple-dark);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .inclusio-ref { font-size: 6pt; color: var(--purple-mid); font-weight: 700; margin-top: 1mm; font-style: normal; }
+
+  /* ─── HEROD TIMELINE ─── */
+  .herod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+  .herod-card {
+    border-radius: 4px;
+    padding: 2.5mm;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .herod-era { font-size: 5.5pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1mm; }
+  .herod-name { font-size: 8pt; font-weight: 700; color: var(--text); margin-bottom: 1mm; }
+  .herod-role { font-size: 6pt; color: var(--gray-500); }
+  .herod-card.h1 { background: #eff6ff; border-color: #93c5fd; }
+  .herod-card.h1 .herod-era { color: #2563eb; }
+  .herod-card.h2 { background: #fff7ed; border-color: #fdba74; }
+  .herod-card.h2 .herod-era { color: #ea580c; }
+  .herod-card.h3 { background: var(--green-light); border-color: #86efac; }
+  .herod-card.h3 .herod-era { color: var(--green); }
+  .herod-card.h4 { background: var(--purple-pale); border-color: var(--purple-light); }
+  .herod-card.h4 .herod-era { color: var(--purple-mid); }
+
+  /* ─── MINILIST ─── */
+  .mini-list { list-style: none; margin-bottom: 2mm; }
+  .mini-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5mm;
+    font-size: 7.5pt;
+    color: var(--gray-700);
+    padding: 1px 0;
+    line-height: 1.6;
+  }
+  .mini-list li::before {
+    content: '▸';
+    color: var(--purple-mid);
+    flex-shrink: 0;
+    font-size: 6.5pt;
+    margin-top: 1.5px;
+  }
+  .mini-list li.gold::before { color: var(--gold); }
+  .mini-list li.rose::before { color: var(--rose); }
+  .mini-list li.green::before { color: var(--green); }
+  .mini-list li.teal::before { color: var(--teal); }
+
+  /* ─── GREEK TERM ─── */
+  .greek-pill {
+    display: inline-block;
+    background: var(--purple);
+    color: var(--white);
+    font-size: 6pt;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    margin-left: 1mm;
+    vertical-align: middle;
+  }
+  .highlight { color: var(--purple-dark); font-weight: 700; }
+  .emp { color: var(--rose); font-weight: 700; }
+  .tip-text { color: var(--gold); font-weight: 700; }
+
+  /* ─── KEY CONCEPT SUMMARY ─── */
+  .summary-bar {
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid));
+    color: var(--white);
+    border-radius: 5px;
+    padding: 3mm 4mm;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  .summary-icon { font-size: 12pt; flex-shrink: 0; }
+  .summary-title { font-size: 7pt; font-weight: 700; letter-spacing: .06em; opacity: .8; margin-bottom: 1mm; }
+  .summary-list {
+    display: flex;
+    gap: 2.5mm;
+    flex-wrap: wrap;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.3);
+    color: var(--white);
+    font-size: 6.5pt;
+    padding: 1.5px 7px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  /* ─── FOOTER ─── */
+  .doc-footer {
+    background: var(--gray-50);
+    border-top: 1px solid var(--border);
+    padding: 3mm 6mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-l { font-size: 6pt; color: var(--gray-500); }
+  .footer-r { font-size: 6pt; color: var(--purple-mid); font-weight: 600; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 297mm; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A3 landscape; margin: 0; }
+    tr { page-break-inside: avoid; }
+  }
+
+  /* ─── TAG BADGE ─── */
+  .exam-tag {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--white);
+    font-size: 5.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    vertical-align: middle;
+    margin-left: 1.5mm;
+  }
+  .memo-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 5.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    vertical-align: middle;
+    margin-left: 1.5mm;
+  }
+  p { font-size: 7.5pt; line-height: 1.7; margin-bottom: 1.5mm; color: var(--gray-700); }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="header">
-    <div class="week-badge">02주차</div>
-    <div class="course-label">한국침례신학대학교 · 신약성서I</div>
-    <h1>신약성서I</h1>
-    
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-tag">📋 2주차 강의 정리</div>
+    <div class="cover-grid">
+      <div>
+        <div class="cover-title">마태복음 개론 + 신약성서의 세계</div>
+        <div class="cover-sub">신약성서 I · 한철흠 교수 · 한국침례신학대학교 대학원 · 2026학년도 1학기</div>
+        <div class="cover-pills">
+          <span class="cover-pill">실라부스 2주차 : 신약 배경(로마·유대 세계)</span>
+          <span class="cover-pill hot">실제 강의 : 마태복음 먼저 진행 후 배경 이어짐</span>
+          <span class="cover-pill">교재 : 파월, 현대인을 위한 신약개론 (CLC 2014)</span>
+        </div>
+      </div>
+      <div class="cover-meta">
+        <div class="cover-week">02</div>
+        <div class="cover-date">2026년 3월 11일 (수)</div>
+      </div>
+    </div>
   </div>
-  <div class="ornament">✦ ✦ ✦</div>
-  <div class="section">
-  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
-  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>실라부스 주제</td><td>신약 배경 — 로마 세계·유대 세계</td></tr><tr><td>실제 강의 진행</td><td><strong>마태복음 개론을 먼저</strong> 진행 후, 후반부에 신약 배경(로마·헤롯 왕조) 연결</td></tr><tr><td>교재</td><td>파월, 『현대인을 위한 신약개론』 (CLC, 2014)</td></tr><tr><td>비고</td><td>신약 배경은 다음 주(3주차)에 추가 보충 예정</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>본문 분석</h2></div>
-  <div class="section-body"><table><tbody><tr><td>구간</td><td>시작</td><td>끝</td><td>대수</td><td>역사적 의미</td></tr><tr><td>1구간</td><td>아브라함</td><td>다윗</td><td>14대</td><td>약속 → 왕국 성립</td></tr><tr><td>2구간</td><td>다윗</td><td>바벨론 포로</td><td>14대</td><td>왕국 → 심판·포로</td></tr><tr><td>3구간</td><td>바벨론 포로</td><td>예수님</td><td>14대</td><td>포로 → 메시야 성취</td></tr><tr><td>합계</td><td></td><td></td><td><strong>42대</strong></td><td>7×6 / 14×3 — 완전한 역사적 성취</td></tr><tr><td>강화</td><td>제목</td><td>장</td><td>핵심 내용</td></tr><tr><td>①</td><td>산상수훈</td><td>5–7장</td><td>팔복, 율법 해석, 주기도문. 예수님 가르침의 핵심</td></tr><tr><td>②</td><td>제자 파송 강화</td><td>10장</td><td>선교 원칙, 박해 예고, 파송 준비 지침</td></tr><tr><td>③</td><td>천국 비유 강화</td><td>13장</td><td>씨 뿌리는 자, 겨자씨, 누룩, 감추인 보화 등 <strong>7가지 비유</strong></td></tr><tr><td>④</td><td>공동체 강화</td><td>18장</td><td>교회 권징 절차(마 18:15–17), 용서, 형제 관계 윤리</td></tr><tr><td>⑤</td><td>종말론 강화</td><td>24–25장</td><td>소묵시록(감람산 강화). 재림 징조, 열 처녀, 달란트 비유</td></tr><tr><td>#</td><td>증거</td><td>마태복음</td><td>마가복음(비교)</td><td>이유</td></tr><tr><td>①</td><td>유대인 관습 설명</td><td>설명 없음(독자가 이미 앎)</td><td>유대인 관습을 친절하게 설명함</td><td>마태=유대인 독자, 마가=이방인 독자</td></tr><tr><td>②</td><td>하나님 나라 표현</td><td><strong>천국(天國)</strong> 선호 사용</td><td>하나님의 나라 사용</td><td>유대인은 '하나님' 직접 호칭 기피 → '하늘(天)'로 대체</td></tr><tr><td>③</td><td>구약 예언 성취 선포</td><td>약 <strong>12번</strong> "…하심이 성취되었다"</td><td>상대적으로 적음</td><td>구약을 아는 유대인에게 예수님의 메시야됨을 증명</td></tr><tr><td></td><td>지상명령</td><td>지상위임</td></tr><tr><td>영어</td><td>The Great Commandment</td><td>The Great Commission</td></tr><tr><td>본문</td><td>마태복음 22:36–40</td><td>마태복음 28:18–20</td></tr><tr><td>내용</td><td>하나님 사랑 + 이웃 사랑</td><td>제자 삼기(세례·가르침)</td></tr><tr><td>헬라어 명령형</td><td>없음(율법 인용)</td><td><strong>μαθητεύσατε</strong> (제자로 삼으라)</td></tr><tr><td>위치</td><td>본문</td><td>주제</td></tr><tr><td><strong>시작</strong> (마 1:23)</td><td>"그의 이름은 임마누엘이라…하나님이 우리와 함께 계시다"</td><td>예수님의 탄생 = 하나님의 임재</td></tr><tr><td><strong>중간</strong> (마 18:20)</td><td>"두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라"</td><td>공동체 안의 임재</td></tr><tr><td><strong>끝</strong> (마 28:20)</td><td>"볼지어다 내가 세상 끝날까지 너희와 항상 함께 있으리라"</td><td>부활 후에도 지속되는 임재</td></tr><tr><td>시기</td><td>로마 황제</td><td>유대(헤롯) 왕</td><td>관련 성경</td></tr><tr><td>예수님 탄생</td><td>아우구스투스 (Augustus)</td><td><strong>헤롯 대왕</strong> — 베들레헴 유아 학살, 성전 재건 시작</td><td>눅 2:1, 마 2:1</td></tr><tr><td>예수님 사역</td><td>티베리우스 (Tiberius)</td><td><strong>헤롯 안디바</strong> — 세례 요한 처형, 갈릴리·베레아 분봉왕</td><td>눅 3:1, 막 6:14</td></tr><tr><td>초대교회(예루살렘)</td><td>클라우디우스 등</td><td><strong>헤롯 아그리바 1세</strong> — 야고보(요한의 형) 순교, 베드로 투옥</td><td>행 12:1–3</td></tr><tr><td>바울 심문</td><td>네로 등</td><td><strong>헤롯 아그리바 2세</strong> — 바울 심문</td><td>행 25–26장</td></tr><tr><td>단락</td><td>장</td><td>내용</td></tr><tr><td>1부</td><td>1:1–4:16</td><td>예수님은 누구인가? (탄생·세례·시험)</td></tr><tr><td>2부</td><td>4:17–16:20</td><td>이스라엘을 향한 사역</td></tr><tr><td>3부</td><td>16:21–28:20</td><td>예루살렘 여정·수난·부활</td></tr><tr><td>학설</td><td>주요 근거</td><td>비고</td></tr><tr><td><strong>마가 우선설</strong> (Mark Priority)</td><td>①마가의 헬라어가 더 투박 ②예수님 인성·한계를 직접 표현 ③마태·누가가 마가를 수정·보완했다는 논리</td><td>현대 학자 주류(200년 역사)</td></tr><tr><td><strong>마태 우선설</strong> (Matthew Priority)</td><td>어거스틴 이후 19세기까지 교회 전통, 마태복음이 먼저 기록됐다는 교회사 전승</td><td>전통적 입장</td></tr><tr><td>항목</td><td>마태복음</td><td>마가복음</td></tr><tr><td>제자의 믿음</td><td>작은 믿음(ὀλιγόπιστος)</td><td>없는 믿음(직설적)</td></tr><tr><td>깨달음 표현</td><td>"그제서야 깨달으니라"(마 16:12)</td><td>"아직도 깨닫지 못하느냐"(막 8:21)</td></tr><tr><td>예수님 신성</td><td>오해 소지 표현 삭제·수정</td><td>인간적 감정·한계 직접 표현</td></tr><tr><td>종교 지도자</td><td>부정적 묘사 강함(독사의 자식들)</td><td>칭찬받는 서기관도 등장(막 12:28)</td></tr><tr><td>야고보·요한 요청</td><td>어머니가 대신 요청(제자 면을 세움)</td><td>야고보·요한이 직접 요청</td></tr><tr><td>강조점</td><td>예수님의 가르침</td><td>예수님의 행동·이동</td></tr><tr><td>헬라어 수준</td><td>보다 세련됨</td><td>보다 투박하고 직접적</td></tr></tbody></table><div class="prose"><p>### 마태복음 족보 — 14대 × 3구간 (마 1:1–17) 마태복음은 아브라함에서 예수님까지의 족보를 <strong>14대씩 세 구간</strong>으로 제시한다. 이 구조는 단순한 계보 기록이 아니라 <strong>구속사의 흐름</strong>을 신학적으로 압축한 장치다. <strong>왜 14대인가? — 게마트리아(Gematria):</strong> 히브리어에서는 알파벳 각 자음에 숫자 값이 부여된다. '다비드(דָּוִד)'의 세 자음 숫자 합은 ד(4)+ו(6)+ד(4)=<strong>14</strong>다. 마태는 이를 통해 예수님이 <strong>'다윗의 자손 메시야'</strong>임을 독자에게 암시한 것으로 학자들은 추정한다(확증은 없음). 게마트리아는 아라비아 숫자가 없던 고대 세계에서 알파벳으로 숫자를 표기하던 관습에서 비롯된다. 요한계시록의 666도 이 방법으로 해석이 시도된다(네로 카이사르설). <strong>실제로 세면 14대가 안 맞는 문제:</strong> 학자들은 한 이름이 빠져 있다고 지적한다. ①마태의 실수설, ②신학적 의도로 인한 의도적 생략설, ③성령의 영감 안에서의 요약이라는 세 해석이 공존한다.</p>
-<div class="quote-block"><p>아브라함과 다윗의 자손 예수 그리스도의 계보라</p><div class='quote-sub'>— 마태복음 1:1</div></div>
-<p>### 예수님의 3대 사역 (마 4:23 / 9:35) 마태복음에서 예수님의 사역은 <strong>동일한 내용이 두 번 반복</strong>되는 수미상관적 구조로 강조된다(마 4:23 → 마 9:35). 이 비밀번호처럼 외우는 방식으로 <strong>423–935</strong>를 기억하라.</p>
-<div class="quote-block"><p>예수께서 온 갈릴리에 두루 다니사 그들의 회당에서 가르치시며 천국 복음을 전파하시며 백성 중의 모든 병과 모든 약한 것을 고치시니</p><div class='quote-sub'>— 마태복음 4:23</div></div>
-<p>세 사역이 마 9:35에서 동일하게 반복됨으로써 이 구조가 의도적임을 알 수 있다. <strong>교수님의 핵심 통찰 — "33.3점 목회론":</strong> 가르침만 잘해도 33.3점, 선포만 잘해도 33.3점, 치유만 잘해도 33.3점. 예수님은 세 가지를 모두 하셨다. 목회자도 세 가지를 지향할 때 100점짜리 목회가 된다. ### 마태복음 5대 강화 — 新모세오경 구조 마태복음은 예수님의 <strong>긴 설교 5개</strong>로 구성된 독특한 구조를 가진다. 이는 모세가 율법을 다섯 권(모세오경)으로 남긴 것에 대응하여, 예수님을 <strong>새 모세</strong>로 제시하는 편집 신학이다. ### 마태복음이 유대인 독자를 대상으로 함 — 세 가지 증거 ### 지상명령(至上命令) vs 지상위임(地上委任)</p>
-<div class="quote-block"><p>이 두 계명이 온 율법과 선지자의 강령이니라</p><div class='quote-sub'>— 마태복음 22:40</div></div>
-<p>지상위임(마 28:18–20)에서 헬라어 명령형은 <strong>'μαθητεύσατε(제자로 삼으라)'</strong> 하나뿐이다. '가서(πορευθέντες)', '세례 주고', '가르쳐'는 모두 분사 형태다. 따라서 핵심 명령 = <strong>제자 삼기</strong>. <strong>교수님의 핵심 정리 — 지상명령이 지상위임보다 상위 개념:</strong> 사랑(지상명령) ＞ 전도(지상위임). 사랑하는 사람에게 줄 수 있는 최고의 선물이 전도이므로, 지상위임(전도)은 지상명령(사랑)에 포함된다. 바울도 고전 13장에서 사랑 없는 모든 행위는 아무 유익이 없다고 선언한다. 단, 교회 현장에서 "지상명령=전도"라고 가르치는 것도 전적으로 틀린 것은 아님을 함께 기억할 것. ### 마태복음의 수미상관법(Inclusio) — 임마누엘 주제 <strong>수미상관(Inclusio):</strong> 문학 작품의 시작과 끝이 동일한 주제로 연결되는 구조. 마태복음 전체가 <strong>'하나님의 임재(임마누엘)'</strong> 주제로 수미상관을 이룬다.</p>
-<div class="quote-block"><p>볼지어다 내가 세상 끝날까지 너희와 항상 함께 있으리라</p><div class='quote-sub'>— 마태복음 28:20</div></div>
-<p>### 신약성서의 세계 — 로마 황제 & 헤롯 왕조 <strong>핵심 구분:</strong> 바로(Pharaoh)가 이집트 왕의 직함이듯, <strong>카이사르(Caesar)와 아우구스투스(Augustus)는 로마 황제의 칭호(직함)</strong>이지 이름이 아니다. 각 황제의 실명과 함께 기억해야 한다. <strong>신약의 세계 배경 4가지 (전체 틀):</strong> 유대사상(구약·율법·유대교 전통), 로마 세계(정치·법·문화 — 신약 전체가 로마 제국 내 기록), 헬라사상(스토아·플라톤 철학, 헬레니즘 — 행 17장 아레오바고 설교), 기독교 사상(예수님과 사도들의 메시지). 이 주제는 3주차에 더 자세히 다룰 예정. ### 마태복음 구조 보충 (오른쪽 사이드바) <strong>교회(ἐκκλησία) 언급:</strong> 예수님이 '교회'를 직접 언급한 복음서는 마태복음뿐이다(마 16:18 "내가 이 반석 위에 내 교회를 세우리니" / 마 18:17 공동체 강화 중 언급). <strong>베드로의 두각:</strong> 신앙고백, 물 위 걷기, 물고기에서 돈 등 마태복음에서 베드로가 가장 두드러지게 등장한다. ### 율법의 매기(bind)와 풀기(loose) 유대 라비 전통에서 율법 해석 권위를 표현하는 핵심 용어. <strong>매기(bind):</strong> 이 율법은 이 상황에도 적용된다고 선언. <strong>풀기(loose):</strong> 이 율법은 이 특정 상황에는 적용되지 않는다고 선언.</p>
-<div class="quote-block"><p>내가 천국 열쇠를 네게 주리니 네가 땅에서 무엇이든지 매면 하늘에서도 매일 것이요 네가 땅에서 무엇이든지 풀면 하늘에서도 풀리리라</p><div class='quote-sub'>— 마태복음 16:19</div></div>
-<p>예수님은 라비들보다 <strong>더 엄격하게 매기</strong>도 하시고(살인 → 분노·모욕까지, 간음 → 음욕까지), 동시에 <strong>상황에 따라 풀기</strong>도 하셨다(안식일 + 긴급한 치유 / 배고픈 제자). 마 5:17–18 해석상 주의: "내가 율법이나 선지자를 폐하러 온 것이 아니요 완전하게 하려 함이라"는 구절을 근거로 구약 율법 전체를 현재도 문자 그대로 지켜야 한다고 주장하는 것은 과도한 해석이다. 예수님이 안식일 법을 유연하게 적용하신 사례들과 균형 있게 보아야 한다. ### 공관복음 우선성 논쟁 — 시험 대비 중요</p>
-<div class="quote-block"><p>⚠ **교수님 강조:** 시험에 '제일 먼저 기록된 복음서'가 나오면 **마가복음**으로 답하되, 이는 학자들의 유력한 추정임을 함께 기억할 것.</p></div>
-<p>### 마태 vs 마가 편집 관점 비교 ---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>원어 분석</h2></div>
-  <div class="section-body"><table><tbody><tr><td>헬라어</td><td>발음</td><td>의미</td><td>신학적 함의</td></tr><tr><td>διδάσκων</td><td>디다스콘</td><td>가르치는 자</td><td>예수님의 체계적 교육·설명 사역 → 성경 교육, 설교</td></tr><tr><td>κηρύσσων</td><td>케뤼쏜</td><td>선포하는 자</td><td>복음을 공개 선포·전파 → 전도, 선교</td></tr><tr><td>θεραπεύων</td><td>테라퓨온</td><td>치유하는 자</td><td>몸·마음·영의 전인적 치유 → 상담, 치유 사역 (영어 therapy의 어원)</td></tr><tr><td>μαθητεύσατε</td><td>마테튜사테</td><td>제자로 삼으라 (명령형)</td><td>지상위임의 유일한 명령형 동사 — 핵심은 '제자 삼기'</td></tr><tr><td>ὀλιγόπιστος</td><td>올리고피스토스</td><td>작은 믿음(을 가진 자)</td><td>마태복음 제자 묘사의 특징 — 마가의 '믿음 없음'보다 온건</td></tr><tr><td>ἐκκλησία</td><td>에클레시아</td><td>교회, 불려 모인 무리</td><td>예수님이 복음서 중 마태복음에서만 직접 사용(마 16:18, 18:17)</td></tr><tr><td>Inclusio</td><td>—</td><td>수미상관법</td><td>시작과 끝이 같은 주제로 연결되는 문학 구조 — 마태복음 전체의 뼈대</td></tr><tr><td>Gematria</td><td>게마트리아</td><td>수비적 해석</td><td>알파벳에 숫자 값 부여 — '다비드' = 14, 마태 족보의 14대 구조와 연결</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
-  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>족보의 신학</strong><p>14대×3구간=42대는 단순 계보가 아닌 구속사 압축 도식. 게마트리아로 '다윗=14'를 활용해 예수님의 메시야성을 암시함. 실제로 한 이름이 빠진다는 학자 지적이 있으나 해석은 분분함.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>3대 사역 비밀번호 423–935</strong><p>가르침(διδάσκων)·선포(κηρύσσων)·치유(θεραπεύων). 마 4:23과 9:35에 동일하게 반복됨. 교수님 33.3점 목회론: 예수님은 세 가지 모두 하셨음.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>5대 강화 = 新모세오경</strong><p>마태는 5대 강화 구조로 예수님을 새 모세로 제시함. 천국 비유 7개(완전수)는 13장 집중. 마태복음만이 '교회(ἐκκλησία)'를 예수님 발화로 기록함.</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>지상명령 > 지상위임</strong><p>마 22:36–40(사랑=지상명령)이 마 28:18–20(전도=지상위임)의 상위 개념. 사랑이 동기가 되어야 전도가 의미 있음. 지상위임의 유일한 명령형은 μαθητεύσατε(제자 삼으라).</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>수미상관 임마누엘</strong><p>마 1:23(탄생)↔마 18:20(공동체)↔마 28:20(파송). 하나님의 임재가 시작과 끝을 관통하는 마태복음의 핵심 신학.</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>헤롯 4인 구분</strong><p>헤롯 대왕(탄생/유아학살) → 헤롯 안디바(사역/세례요한처형) → 헤롯 아그리바 1세(초대교회/야고보순교) → 헤롯 아그리바 2세(바울심문). 카이사르·아우구스투스는 이름이 아니라 칭호임.</p></div></div></div></div>
-</div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
-  <div class="section-body"><ul class="note-list"><li>3주차에 신약 배경(로마·유대 세계) 보충 강의가 이어지므로 헤롯 왕조 4인 구분을 지금 정확히 정리해 둘 것</li><li>공관복음 우선성 문제(마가 우선설 vs 마태 우선설)는 시험 출제 가능성이 높음 — <strong>시험 답: 마가복음이 먼저</strong>이나, 이는 학자들의 추정임을 함께 기억</li><li>마태복음 주요 암기 사항: 3대 사역(423–935), 5대 강화(5–7장·10·13·18·24–25장), 수미상관(마 1:23↔28:20), 교회 언급(마 16:18, 18:17), 천국(유대인 용어로만 등장)</li><li>용어집 후보 단어 메모: 수미상관(Inclusio), 게마트리아(Gematria), 산상수훈, 지상명령/지상위임, 천국(Kingdom of Heaven), 5대 강화, 메시아 비밀, 마가 우선설</li><li>고전 13:3의 이문(異文) — "불사르게"(καυθήσομαι) vs "자랑하게"(καυχήσωμαι): 사본에 따라 다름. 자랑하는 동기의 헌신은 아무 유익이 없다는 강력한 교훈. 새번역·일부 영어 성경이 이 이문을 반영함.</li><li>율법의 매기(bind)와 풀기(loose) 개념은 마 16:19의 천국 열쇠와 연결지어 정리할 것</li></ul></div>
-</div>
-  
-</div>
+
+  <!-- THREE COLUMN BODY -->
+  <div class="three-col">
+
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <div class="col-left">
+
+      <div class="side-box navy-box">
+        <div class="side-box-title">🗂 실라부스 vs 실제 진행</div>
+        <div class="side-text">
+          <p>이번 수업은 실라부스상 <strong>2주차(로마·유대 세계 배경)</strong>이지만, 교수님은 <strong>마태복음을 먼저 진행</strong>하신 후 신약 배경을 이어서 다루셨습니다.</p>
+          <ul>
+            <li>마태복음 — 2주차 내내 비중 있게 다룸</li>
+            <li>신약 배경(로마·헤롯 왕조) — 후반부에 다룸</li>
+            <li>다음 주에 신약 배경을 더 보충하실 예정</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-box gold-box">
+        <div class="side-box-title">🔢 게마트리아(Gematria)</div>
+        <div class="side-text">
+          <p>히브리어·헬라어·라틴어 등에서 <strong>알파벳 각 글자에 숫자 값을 부여</strong>하여 단어·이름의 수치를 계산하는 방법.</p>
+          <ul>
+            <li>아라비아 숫자가 없던 고대에 알파벳이 숫자를 표기</li>
+            <li>히브리어 <strong>다비드 (דָּוִד)</strong>: ד(4) + ו(6) + ד(4) = <strong>14</strong></li>
+            <li>마태복음의 14대 족보는 이와 연관된 것으로 추정</li>
+            <li>요한계시록 666도 게마트리아로 해석 시도 (네로 카이사르설)</li>
+          </ul>
+          <div class="side-verse">로마자(Roman Numeral)도 알파벳으로 숫자를 나타낸 대표 사례: I=1, V=5, X=10, L=50, C=100, D=500, M=1000</div>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <div class="side-box-title">📖 공관복음 우선성 논쟁</div>
+        <div class="side-text">
+          <p><strong>마가 우선설 (Mark Priority)</strong></p>
+          <ul>
+            <li>현대 학자들의 주류 견해 (200년 역사)</li>
+            <li>마가복음의 헬라어가 더 투박함</li>
+            <li>예수님의 인성·한계를 더 직접적으로 표현</li>
+            <li>마태·누가가 마가를 수정·보완했다는 논리</li>
+          </ul>
+          <p style="margin-top:2mm;"><strong>마태 우선설 (Matthew Priority)</strong></p>
+          <ul>
+            <li>어거스틴 이후 19세기까지 교회 전통</li>
+            <li>마태복음이 먼저 기록됐다는 교회사 전승</li>
+          </ul>
+          <div class="side-verse">⚠ 교수님 강조: 시험 문제에 '제일 먼저 기록된 복음서'가 나오면 마가복음으로 답하되, 이는 학자들의 유력한 추정임을 함께 기억할 것</div>
+        </div>
+      </div>
+
+      <div class="side-box rose-box">
+        <div class="side-box-title">⚠ 번역 이슈 — 고린도전서 13장</div>
+        <div class="side-text">
+          <p><strong>개역개정 고전 13:3</strong></p>
+          <div class="side-verse">내가 내 몸을 불사르게 내줄지라도 사랑이 없으면 내게 아무 유익이 없느니라</div>
+          <p style="margin-top:2mm;"><strong>헬라 원문 유력 이문(異文)</strong></p>
+          <p>"불사르게(καυθήσομαι)" 대신 <strong>"자랑하게(καυχήσωμαι)"</strong>로 읽는 사본이 있음.</p>
+          <div class="side-verse">→ "내가 자랑 삼아 내 몸을 내어줄지라도 사랑이 없으면 아무 유익이 없느니라"</div>
+          <p style="margin-top:1.5mm;">사람에게 보이려는 마음, 자랑하는 동기로 하는 헌신은 아무 유익이 없다는 강력한 교훈. 새번역·영어 성경 일부는 이미 이 이문을 반영.</p>
+        </div>
+      </div>
+
+      <div class="side-box teal-box">
+        <div class="side-box-title">📚 율법 매기와 풀기</div>
+        <div class="side-text">
+          <p>유대 라비 전통에서 율법 해석 권위를 표현하는 용어:</p>
+          <ul>
+            <li><strong>매기(bind):</strong> 이 율법은 이 상황에도 적용된다고 선언</li>
+            <li><strong>풀기(loose):</strong> 이 율법은 이 특정 상황에는 적용되지 않는다고 선언</li>
+          </ul>
+          <p style="margin-top:1.5mm;">예수님은 라비들의 관행보다 더 엄격하게 매기도 하시고(살인 → 분노·모욕까지, 간음 → 음욕까지), 동시에 상황에 따라 풀기도 하심(안식일 + 긴급한 치유·배고픔).</p>
+          <div class="side-verse">마 16:19 "내가 천국 열쇠를 네게 주리니 네가 땅에서 무엇이든지 매면 하늘에서도 매일 것이요 네가 땅에서 무엇이든지 풀면 하늘에서도 풀리리라"</div>
+        </div>
+      </div>
+
+    </div><!-- end col-left -->
+
+    <!-- ═══ MAIN COLUMN ═══ -->
+    <div class="col-main">
+
+      <!-- ①  예수님의 족보 -->
+      <div class="sec-head">
+        <span class="sec-badge">SECTION 01</span>
+        <div class="sec-title">마태복음 족보와 숫자 신학 <span class="exam-tag">시험 유력</span></div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="sub-head">① 예수님의 족보 — 14대 × 3구간</div>
+      <p>마태복음은 아브라함부터 예수님까지의 족보를 <strong>14대씩 3구간</strong>으로 제시합니다. (마 1:1–17)</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>구간</th><th>시작</th><th>끝</th><th>대수</th><th>역사적 의미</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl-purple"><td>1구간</td><td>아브라함</td><td>다윗</td><td>14대</td><td>약속 → 왕국 성립</td></tr>
+          <tr><td>2구간</td><td>다윗</td><td>바벨론 포로</td><td>14대</td><td>왕국 → 심판·포로</td></tr>
+          <tr class="hl-purple"><td>3구간</td><td>바벨론 포로</td><td>예수님</td><td>14대</td><td>포로 → 메시야</td></tr>
+          <tr class="hl-gold"><td colspan="3"><strong>합계</strong></td><td><strong>42대</strong></td><td>7×6 / 14×3 — 완전한 역사적 성취</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <div class="callout-icon">🔢</div>
+        <div class="callout-body">
+          <div class="callout-title">왜 14대인가? — 게마트리아(수비적 해석) <span class="memo-tag">배경지식</span></div>
+          <div class="callout-text">히브리어로 <strong>'다비드(דָּוִד)'</strong>를 구성하는 세 자음의 숫자 값의 합이 <strong>4+6+4=14</strong>입니다. 마태는 이를 통해 예수님이 <strong>'다윗의 자손 메시야'</strong>임을 독자들에게 암시한 것으로 추측됩니다(학자들의 유력한 견해이지만 확증은 없음).</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-icon">❓</div>
+        <div class="callout-body">
+          <div class="callout-title">실제 세면 14대가 안 맞는다?</div>
+          <div class="callout-text">학자들 사이에서 실제로 세어보면 한 이름이 빠져 있다는 지적이 있습니다. 이에 대해 ① 마태의 실수설, ② 의도적 생략설(신학적 목적), ③ 성령의 영감 안에서의 요약이라는 다양한 해석이 공존합니다. 복음주의 입장에서는 성령의 무오성을 전제로 신학적 의도에서의 요약으로 봅니다.</div>
+        </div>
+      </div>
+
+      <!-- ② 마태의 숫자 감각 -->
+      <div class="sub-head">② 마태의 숫자 신학 — 이중 패턴과 7</div>
+      <ul class="mini-list">
+        <li>예수님의 3대 사역 구절: <strong>마 4:23</strong>과 <strong>마 9:35</strong> — 동일 내용 <strong>반복</strong></li>
+        <li>마태복음에 등장하는 쌍(2): 맹인 두 명, 거라사 귀신들린 자 두 명, 나귀와 나귀 새끼 두 마리 등</li>
+        <li>하늘나라 비유: <strong>7번</strong> (13장) — 7은 완전한 수</li>
+        <li>구약 예언 성취 선포: <strong>약 12번</strong></li>
+        <li>이혼에 관한 말씀: <strong>2번</strong> / 표적 요구: <strong>2번</strong> / 바알세불 비난: <strong>2번</strong></li>
+        <li>5대 강화(설교): 마 5–7, 10, 13, 18, 24–25장</li>
+      </ul>
+
+      <!-- ③ 예수님의 3대 사역 -->
+      <div class="sec-head" style="margin-top:5mm;">
+        <span class="sec-badge gold-badge">SECTION 02</span>
+        <div class="sec-title">예수님의 3대 사역 <span class="exam-tag">시험 유력</span></div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="verse-box">
+        <div class="verse-ref">마태복음 4:23 (개역개정)</div>
+        <div class="verse-text">예수께서 온 갈릴리에 두루 다니사 그들의 회당에서 가르치시며 천국 복음을 전파하시며 백성 중의 모든 병과 모든 약한 것을 고치시니</div>
+      </div>
+
+      <div class="verse-box">
+        <div class="verse-ref">마태복음 9:35 (개역개정)</div>
+        <div class="verse-text">예수께서 모든 도시와 마을에 두루 다니사 그들의 회당에서 가르치시며 천국 복음을 전파하시며 모든 병과 모든 약한 것을 고치시니라</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>사역</th><th>헬라어</th><th>영어</th><th>의미</th><th>현대적 적용</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hl-purple">
+            <td><strong>가르치심</strong></td>
+            <td>διδάσκων (디다스콘)</td>
+            <td>Teaching</td>
+            <td>체계적 교육·설명</td>
+            <td>성경 교육, 설교 내용</td>
+          </tr>
+          <tr>
+            <td><strong>선포하심</strong></td>
+            <td>κηρύσσων (케뤼쏜)</td>
+            <td>Preaching</td>
+            <td>복음을 선포·전파</td>
+            <td>복음 전도, 선교</td>
+          </tr>
+          <tr class="hl-purple">
+            <td><strong>고치심</strong></td>
+            <td>θεραπεύων (테라퓨온)</td>
+            <td>Healing</td>
+            <td>몸·마음·영의 치유</td>
+            <td>상담, 치유 사역</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout info">
+        <div class="callout-icon">💡</div>
+        <div class="callout-body">
+          <div class="callout-title">교수님의 핵심 통찰 — 33.3점 목회론</div>
+          <div class="callout-text">가르침만 잘해도 33.3점, 설교(선포)만 잘해도 33.3점, 치유만 잘해도 33.3점. <strong>예수님은 세 가지를 모두 하셨습니다.</strong> 목회자가 세 가지 모두를 지향해야 100점짜리 목회가 됩니다. 치유 능력이 없다면 최소한 좋은 의사를 연결해 주는 것도 하나의 방법입니다.</div>
+        </div>
+      </div>
+
+      <!-- ④ 5대 강화 -->
+      <div class="sec-head" style="margin-top:5mm;">
+        <span class="sec-badge rose-badge">SECTION 03</span>
+        <div class="sec-title">마태복음 5대 강화(설교) <span class="exam-tag">시험 유력</span></div>
+        <div class="sec-line"></div>
+      </div>
+
+      <p>마태복음에는 예수님의 <strong>긴 설교가 5번</strong> 등장합니다. 구약의 모세오경(5권)처럼 예수님의 5대 강화로 구성됩니다.</p>
+
+      <div class="five-grid">
+        <div class="disc-card">
+          <div class="disc-num">강화 ①</div>
+          <div class="disc-title">산상수훈</div>
+          <div class="disc-ch">마태복음 5–7장</div>
+          <div class="disc-body">팔복, 율법 해석, 주기도문 등. 예수님 가르침의 엑기스. <em>'산 위의 설교'</em></div>
+        </div>
+        <div class="disc-card">
+          <div class="disc-num">강화 ②</div>
+          <div class="disc-title">제자 파송 강화</div>
+          <div class="disc-ch">마태복음 10장</div>
+          <div class="disc-body">선교 원칙, 박해 예고, 파송 준비 지침</div>
+        </div>
+        <div class="disc-card">
+          <div class="disc-num">강화 ③</div>
+          <div class="disc-title">천국 비유 강화</div>
+          <div class="disc-ch">마태복음 13장</div>
+          <div class="disc-body">씨 뿌리는 자, 겨자씨, 누룩, 감추인 보화, 그물 등 7개 비유</div>
+        </div>
+        <div class="disc-card">
+          <div class="disc-num">강화 ④</div>
+          <div class="disc-title">공동체 강화</div>
+          <div class="disc-ch">마태복음 18장</div>
+          <div class="disc-body">교회 권징 절차(마 18:15–17), 용서, 형제 관계 윤리</div>
+        </div>
+        <div class="disc-card">
+          <div class="disc-num">강화 ⑤</div>
+          <div class="disc-title">종말론 강화</div>
+          <div class="disc-ch">마태복음 24–25장</div>
+          <div class="disc-body">소묵시록(감람산 강화). 재림의 징조, 열 처녀 비유, 달란트 비유</div>
+        </div>
+      </div>
+
+      <!-- ⑤ 유대인 대상 증거 -->
+      <div class="sec-head" style="margin-top:4mm;">
+        <span class="sec-badge green-badge">SECTION 04</span>
+        <div class="sec-title">마태복음 — 유대인 독자 대상의 세 가지 증거</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th style="width:8mm;">#</th><th style="width:40mm;">증거</th><th>마태복음</th><th>마가복음(비교)</th><th>이유</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hl-purple">
+            <td class="td-c"><strong>①</strong></td>
+            <td>유대인 관습 설명</td>
+            <td>설명 없음 (독자가 이미 앎)</td>
+            <td>유대인 관습을 친절하게 설명</td>
+            <td>마태 = 유대인 독자, 마가 = 이방인 독자</td>
+          </tr>
+          <tr>
+            <td class="td-c"><strong>②</strong></td>
+            <td>하나님 나라 표현</td>
+            <td><strong>천국(天國)</strong> 선호 사용</td>
+            <td>하나님의 나라 사용</td>
+            <td>유대인은 '하나님' 직접 호칭 기피 → 하늘(天)로 대체</td>
+          </tr>
+          <tr class="hl-purple">
+            <td class="td-c"><strong>③</strong></td>
+            <td>구약 예언 성취 선포</td>
+            <td>약 <strong>12번</strong> "…하심이 성취되었다"</td>
+            <td>상대적으로 적음</td>
+            <td>구약을 아는 유대인에게 예수님의 메시야 됨을 증명</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 지상명령 vs 지상위임 -->
+      <div class="sec-head" style="margin-top:4mm;">
+        <span class="sec-badge teal-badge">SECTION 05</span>
+        <div class="sec-title">지상명령 vs 지상위임 <span class="exam-tag">시험 유력</span></div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="cmd-grid">
+        <div class="cmd-card cmd-gold">
+          <div class="cmd-label">The Great Commandment</div>
+          <div class="cmd-term">지상명령 (至上命令)</div>
+          <div class="cmd-en">The Greatest / Most Important Commandment</div>
+          <div class="cmd-verse">마태복음 22:36–40</div>
+          <div class="cmd-body">
+            <strong>예수님의 답변:</strong><br>
+            "네 마음을 다하고 목숨을 다하고 뜻을 다하여 <strong>주 너의 하나님을 사랑하라</strong>. 이것이 크고 첫째 되는 계명이요. 둘째도 그와 같으니 <strong>네 이웃을 네 자신같이 사랑하라</strong>. 이 두 계명이 온 율법과 선지자의 강령이니라."
+            <br><br>
+            → 성경에서 가장 중요한 명령 = <strong>하나님 사랑 + 이웃 사랑</strong>
+          </div>
+        </div>
+        <div class="cmd-card cmd-purple">
+          <div class="cmd-label">The Great Commission</div>
+          <div class="cmd-term">지상위임 (地上委任)</div>
+          <div class="cmd-en">The Great Commission / Great Mandate</div>
+          <div class="cmd-verse">마태복음 28:18–20</div>
+          <div class="cmd-body">
+            <strong>예수님의 위임:</strong><br>
+            "너희는 가서 모든 민족을 <strong>제자로 삼아</strong> 아버지와 아들과 성령의 이름으로 세례를 베풀고 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라."
+            <br><br>
+            헬라어에서 유일한 <strong>명령형</strong>은 "제자로 삼으라(μαθητεύσατε)". 나머지(가서, 세례주고, 가르쳐)는 분사. → 핵심 명령 = <strong>제자 삼기</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <div class="callout-icon">✅</div>
+        <div class="callout-body">
+          <div class="callout-title">교수님의 핵심 정리 — 지상명령이 지상위임보다 상위 개념</div>
+          <div class="callout-text"><strong>사랑(지상명령) ＞ 전도(지상위임)</strong>: 사랑하는 사람을 위해 줄 수 있는 최고의 선물이 전도입니다. 즉, 전도는 사랑의 지극한 표현이므로, 지상위임(전도)은 지상명령(사랑)에 포함됩니다. 바울도 고전 13장에서 사랑 없는 모든 행위는 아무 유익이 없다고 선언합니다. 단, 교회 현장에서 "지상명령=전도"라고 가르치는 것도 전적으로 틀린 것은 아님을 함께 기억하세요.</div>
+        </div>
+      </div>
+
+      <!-- 수미상관 -->
+      <div class="sec-head" style="margin-top:4mm;">
+        <span class="sec-badge navy-badge">SECTION 06</span>
+        <div class="sec-title">마태복음의 수미상관법(Inclusio) — 임마누엘 주제</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="inclusio-wrap">
+        <div class="inclusio-head">📌 수미상관(Inclusio) — 시작과 끝이 같은 주제로 연결되는 문학적 구조</div>
+        <div class="inclusio-body">
+          <div class="inclusio-side">
+            <div class="inclusio-verse">"보라 처녀가 잉태하여 아들을 낳을 것이요 그의 이름은 임마누엘이라 하리라 하셨으니 이를 번역한즉 하나님이 우리와 함께 계시다 함이라"</div>
+            <div class="inclusio-ref">마태복음 1:23 — 시작</div>
+          </div>
+          <div class="inclusio-mid">
+            ↔<br>하나님의 임재<br>(임마누엘)<br>↔<br><small>마 18:20도 참고<br>"두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라"</small>
+          </div>
+          <div class="inclusio-side">
+            <div class="inclusio-verse">"볼지어다 내가 세상 끝날까지 너희와 항상 함께 있으리라 하시니라"</div>
+            <div class="inclusio-ref">마태복음 28:20 — 끝</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 신약 배경 -->
+      <div class="sec-head" style="margin-top:4mm;">
+        <span class="sec-badge rose-badge">SECTION 07</span>
+        <div class="sec-title">신약성서의 세계 — 로마 황제 & 헤롯 왕조 <span class="exam-tag">시험 유력</span></div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-icon">⭐</div>
+        <div class="callout-body">
+          <div class="callout-title">핵심 구분 — 카이사르(Caesar)는 칭호, 이름이 아님!</div>
+          <div class="callout-text">바로(Pharaoh)가 이집트 왕의 직함이듯, <strong>카이사르(Caesar)와 아우구스투스(Augustus)는 로마 황제의 칭호</strong>입니다. 각 시기 황제의 실명을 함께 기억하세요.</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>시기</th><th>로마 황제 (칭호: 카이사르)</th><th>유대 (헤롯) 왕</th><th>관련 성경</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hl-purple"><td><strong>예수님 탄생</strong></td><td>아우구스투스 (Augustus)</td><td><strong>헤롯 대왕</strong> (Herod the Great)</td><td>눅 2:1, 마 2:1</td></tr>
+          <tr><td><strong>예수님 사역</strong></td><td>티베리우스 (Tiberius)</td><td><strong>헤롯 안디바</strong> (Herod Antipas)</td><td>눅 3:1, 막 6:14</td></tr>
+          <tr class="hl-purple"><td><strong>초대교회 (예루살렘)</strong></td><td>클라우디우스 등</td><td><strong>헤롯 아그리바 1세</strong></td><td>행 12:1–3 (야고보 순교)</td></tr>
+          <tr><td><strong>바울 심문</strong></td><td>네로 등</td><td><strong>헤롯 아그리바 2세</strong></td><td>행 25–26장</td></tr>
+        </tbody>
+      </table>
+
+      <div class="herod-grid">
+        <div class="herod-card h1">
+          <div class="herod-era">예수님 탄생</div>
+          <div class="herod-name">헤롯 대왕</div>
+          <div class="herod-role">베들레헴 유아 학살<br>성전 재건 시작</div>
+        </div>
+        <div class="herod-card h2">
+          <div class="herod-era">예수님 사역</div>
+          <div class="herod-name">헤롯 안디바</div>
+          <div class="herod-role">세례 요한 처형<br>갈릴리·베레아 분봉왕</div>
+        </div>
+        <div class="herod-card h3">
+          <div class="herod-era">초대 예루살렘 교회</div>
+          <div class="herod-name">헤롯 아그리바 1세</div>
+          <div class="herod-role">야고보(요한의 형) 순교<br>베드로 투옥</div>
+        </div>
+        <div class="herod-card h4">
+          <div class="herod-era">바울 재판</div>
+          <div class="herod-name">헤롯 아그리바 2세</div>
+          <div class="herod-role">바울 심문<br>(행 25–26장)</div>
+        </div>
+      </div>
+
+      <!-- 핵심 신학 개념 3가지 -->
+      <div class="summary-bar">
+        <div class="summary-icon">⭐</div>
+        <div>
+          <div class="summary-title">오늘의 핵심 신학 개념 3가지</div>
+          <div class="summary-list">
+            <span class="summary-chip">① 수미상관(Inclusio) — 하나님의 임재를 강조하는 마태복음의 문학 구조</span>
+            <span class="summary-chip">② 지상명령(사랑) vs 지상위임(전도) — 사랑이 상위 개념</span>
+            <span class="summary-chip">③ 율법의 매기와 풀기 — 예수님의 역동적 율법 해석 원리</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end col-main -->
+
+    <!-- ═══ RIGHT SIDEBAR ═══ -->
+    <div class="col-right">
+
+      <div class="side-box">
+        <div class="side-box-title">📊 마태 vs 마가 관점 비교</div>
+        <div class="side-text">
+          <table style="font-size:6.5pt; margin-bottom:0;">
+            <thead><tr><th>항목</th><th>마태복음</th><th>마가복음</th></tr></thead>
+            <tbody>
+              <tr class="hl-purple"><td><strong>제자의 믿음</strong></td><td>작은 믿음<br>(ὀλιγόπιστος)</td><td>없는 믿음<br>(직설적 표현)</td></tr>
+              <tr><td><strong>깨달음</strong></td><td>"그제서야 깨달으니라"<br>(마 16:12)</td><td>"아직도 깨닫지 못하느냐"<br>(막 8:21)</td></tr>
+              <tr class="hl-purple"><td><strong>예수님 신성</strong></td><td>오해 소지 표현 삭제·수정</td><td>예수님의 인간적 감정·한계를 직접 표현</td></tr>
+              <tr><td><strong>종교지도자</strong></td><td>부정적 묘사 강함 (독사의 자식들)</td><td>칭찬받는 서기관도 등장 (막 12:28)</td></tr>
+              <tr class="hl-purple"><td><strong>야고보·요한 요청</strong></td><td>어머니가 요청<br>(제자 면을 세움)</td><td>야고보·요한이 직접 요청</td></tr>
+              <tr><td><strong>강조점</strong></td><td>예수님의 가르침</td><td>예수님의 행동·이동</td></tr>
+              <tr class="hl-purple"><td><strong>헬라어 수준</strong></td><td>보다 세련됨</td><td>보다 투박하고 직접적</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="side-box gold-box">
+        <div class="side-box-title">🏛 마태복음의 구조</div>
+        <div class="side-text">
+          <ul>
+            <li><strong>1:1–4:16</strong> — 예수님은 누구인가? (탄생·세례·시험)</li>
+            <li><strong>4:17–16:20</strong> — 이스라엘을 향한 사역</li>
+            <li><strong>16:21–28:20</strong> — 예루살렘 여정·수난·부활</li>
+          </ul>
+          <p style="margin-top:2mm;"><strong>교회 언급:</strong> 예수님이 '교회(ἐκκλησία)'를 직접 언급한 복음서는 마태복음뿐</p>
+          <ul>
+            <li>마 16:18 "내가 이 반석 위에 내 교회를 세우리니"</li>
+            <li>마 18:17 공동체 강화 중 교회 언급</li>
+          </ul>
+          <p style="margin-top:2mm;"><strong>베드로의 두각:</strong> 마태복음에서 베드로가 가장 두드러지게 등장 (신앙고백, 물 위 걷기, 물고기에서 돈 등)</p>
+        </div>
+      </div>
+
+      <div class="side-box rose-box">
+        <div class="side-box-title">⚖ 마 5:17–18 율법 해석</div>
+        <div class="side-text">
+          <div class="side-verse">"내가 율법이나 선지자를 폐하러 온 줄로 생각하지 말라 폐하러 온 것이 아니요 완전하게 하려 함이라 진실로 너희에게 이르노니 천지가 없어지기 전에는 율법의 일점 일획도 결코 없어지지 아니하고 다 이루리라" (마 5:17–18)</div>
+          <p style="margin-top:2mm;"><strong>해석상 주의:</strong> 이 구절을 근거로 구약 율법 전체를 현재도 문자 그대로 지켜야 한다고 주장하는 것은 과도한 해석입니다. 예수님이 동시에 안식일 법을 유연하게 적용하신 사례들과 균형 있게 보아야 합니다.</p>
+          <p><strong>예수님의 율법 해석 패턴:</strong></p>
+          <ul>
+            <li><strong>더 엄격하게 매기:</strong> 살인→분노·모욕까지, 간음→음욕까지</li>
+            <li><strong>상황에 따라 풀기:</strong> 안식일 + 긴급 치유, 배고픈 제자</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-box navy-box">
+        <div class="side-box-title">🌍 신약의 세계 배경 (4가지)</div>
+        <div class="side-text">
+          <ul>
+            <li><strong>유대사상:</strong> 구약·율법·유대교 전통</li>
+            <li><strong>로마 세계:</strong> 로마 제국의 정치·법·문화 (신약 전체가 로마 제국 내에서 기록됨)</li>
+            <li><strong>헬라사상:</strong> 스토아·플라톤 철학, 헬레니즘 문화 (행 17장 아레오바고 설교)</li>
+            <li><strong>기독교 사상:</strong> 예수님과 사도들의 메시지</li>
+          </ul>
+          <p style="margin-top:1.5mm;">다음 주에 신약 배경을 더 자세히 다룰 예정입니다.</p>
+        </div>
+      </div>
+
+      <div class="side-box teal-box">
+        <div class="side-box-title">📋 마태복음 주요 암기 사항</div>
+        <div class="side-text">
+          <ul>
+            <li>족보: 아브라함→다윗→바벨론→예수 (14×3=42대)</li>
+            <li>3대 사역: 마 4:23 / 마 9:35 (비밀번호: <strong>423–935</strong>)</li>
+            <li>5대 강화: 5–7장, 10장, 13장, 18장, 24–25장</li>
+            <li>천국 언급: 마태복음에만 집중적으로 등장</li>
+            <li>교회 언급: 마태복음에만 (마 16:18, 18:17)</li>
+            <li>임마누엘 수미상관: 마 1:23 ↔ 28:20</li>
+            <li>지상명령(사랑): 마 22:36–40</li>
+            <li>지상위임(전도): 마 28:18–20</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <div class="side-box-title">🔑 용어집 후보 단어</div>
+        <div class="side-text">
+          <ul>
+            <li>수미상관 (Inclusio)</li>
+            <li>게마트리아 (Gematria)</li>
+            <li>산상수훈 (Sermon on the Mount)</li>
+            <li>지상명령 / 지상위임</li>
+            <li>천국 (Kingdom of Heaven)</li>
+            <li>5대 강화 (Five Discourses)</li>
+            <li>메시야 비밀 (Messianic Secret)</li>
+            <li>마가 우선설 (Markan Priority)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end col-right -->
+
+  </div><!-- end three-col -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-l">한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 2026학년도 1학기 2주차 (2026.03.12)</div>
+    <div class="footer-r">강의 정리 노트 v1.0 · Claude Projects 기반</div>
+  </div>
+
+</div><!-- end .page -->
 </body>
 </html>

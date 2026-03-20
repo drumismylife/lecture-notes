@@ -2,118 +2,692 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>신약성서I — 03주차</title>
+<title>신약성서 I — 3주차 강의노트</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ────────────────────────────────────────
+   변수
+──────────────────────────────────────── */
 :root {
-  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
-  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
-  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
-  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+  --pp:    #4a1d8a;
+  --pm:    #6b35c2;
+  --pl:    #ede5fc;
+  --pw:    #f7f3ff;
+  --pd:    #2e1060;
+  --gd:    #a07010;
+  --gl:    #fdeea8;
+  --gw:    #fffdf2;
+  --rs:    #8b2318;
+  --rl:    #fce8e5;
+  --gr:    #1a5c38;
+  --grl:   #dff0e8;
+  --tl:    #0c4f60;
+  --tll:   #d0ebf5;
+  --g1:    #f8f7fc;
+  --g2:    #eeebf8;
+  --g5:    #6b6483;
+  --g7:    #3a3352;
+  --bd:    #d8d0ee;
+  --tx:    #1a1625;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
-.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
-@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
-.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
-.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
-.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
-.header h1 span{color:var(--gold);}
-.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
-.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
-.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
-.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
-@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
-.section-icon{font-size:1.1rem;flex-shrink:0;}
-.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
-.section-body{padding:1.4rem;}
-table{width:100%;border-collapse:collapse;font-size:.88rem;}
-thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
-thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
-tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
-tbody tr:hover{background:rgba(212,160,23,.06);}
-tbody tr:last-child{border-bottom:none;}
-tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
-tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
-.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
-.prose p:last-child{margin-bottom:0;}
-.prose strong{font-weight:700;color:var(--deep-brown);}
-.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
-.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
-.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
-.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
-.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
-.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
-.alert strong{color:var(--rust);}
-.key-points{display:flex;flex-direction:column;gap:.9rem;}
-.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
-.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
-.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
-.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
-.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
-.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
-.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
-.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
-.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
-.note-list{list-style:none;padding:0;}
-.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
-.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
-.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
-.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
-.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
-.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
-.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
-.next-week p{font-size:.82rem;opacity:.75;}
-.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
-@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+
+/* ────────────────────────────────────────
+   기반
+──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  background: #dbd5f0;
+  color: var(--tx);
+  font-size: 0;
+}
+
+/* ────────────────────────────────────────
+   페이지
+──────────────────────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 8mm auto;
+  background: #fff;
+  box-shadow: 0 6px 36px rgba(74,29,138,.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 9pt;
+}
+
+.body { padding: 11mm 13mm 8mm; flex: 1; }
+
+/* ────────────────────────────────────────
+   커버
+──────────────────────────────────────── */
+.cover {
+  background: linear-gradient(148deg, var(--pd) 0%, var(--pp) 55%, #7040d0 100%);
+  padding: 12mm 13mm 10mm;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cover::before {
+  content: 'Καινὴ Διαθήκη';
+  position: absolute; right: -2mm; top: 3mm;
+  font-size: 46pt; font-style: italic; font-family: Georgia, serif;
+  color: rgba(255,255,255,.055); white-space: nowrap; pointer-events: none;
+}
+.cover-chip {
+  display: inline-block;
+  background: var(--gd); color: #fff9e0;
+  font-size: 6pt; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; padding: 1.5px 8px; border-radius: 2px;
+  margin-bottom: 3.5mm;
+}
+.cover-week { font-size: 8pt; color: rgba(255,255,255,.55); margin-bottom: 1.5mm; }
+.cover-title {
+  font-size: 21pt; font-weight: 900; color: #fff;
+  line-height: 1.18; letter-spacing: -.025em; margin-bottom: 2.5mm;
+}
+.cover-title em { color: #c4aaee; font-style: normal; }
+.cover-sub { font-size: 7.5pt; color: rgba(255,255,255,.58); line-height: 1.65; margin-bottom: 5mm; }
+.cover-pills { display: flex; flex-wrap: wrap; gap: 2mm; }
+.cpill {
+  font-size: 6.5pt; padding: 2px 7px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.85);
+  background: rgba(255,255,255,.1);
+}
+.cpill.red { background: rgba(139,35,24,.4); border-color: #e06050; color: #ffddd8; font-weight: 700; }
+
+/* ────────────────────────────────────────
+   섹션 헤더
+──────────────────────────────────────── */
+.sh {
+  display: flex; align-items: center; gap: 2.5mm;
+  margin: 6.5mm 0 3.5mm;
+  padding-bottom: 2mm;
+  border-bottom: 2px solid var(--pm);
+  page-break-after: avoid;
+}
+.sh-n {
+  background: var(--pp); color: #fff;
+  font-size: 6pt; font-weight: 700; letter-spacing: .08em;
+  padding: 2px 6px 1px; border-radius: 2px; flex-shrink: 0;
+}
+.sh-t { font-size: 11.5pt; font-weight: 900; color: var(--pd); }
+.sh-badge {
+  margin-left: auto; flex-shrink: 0;
+  background: var(--rs); color: #fff;
+  font-size: 5.5pt; font-weight: 700; padding: 1px 5px; border-radius: 2px;
+}
+
+/* 소제목 */
+.sub {
+  font-size: 8.5pt; font-weight: 700; color: var(--pm);
+  padding-left: 2.5mm; border-left: 3px solid var(--gd);
+  margin: 4mm 0 2mm;
+  page-break-after: avoid;
+}
+
+/* ────────────────────────────────────────
+   콜아웃
+──────────────────────────────────────── */
+.box {
+  border-radius: 4px; padding: 3mm 3.5mm; margin-bottom: 3mm;
+  page-break-inside: avoid;
+  font-size: 8pt; line-height: 1.68;
+}
+.box-h {
+  font-weight: 700; font-size: 7.5pt; margin-bottom: 1.5mm;
+  display: flex; align-items: center; gap: 1.5mm;
+}
+.box p, .box ul { color: var(--g7); }
+.box li { margin-left: 4mm; margin-top: 1mm; }
+.box strong { color: var(--tx); }
+
+.box.info { background: var(--pw); border-left: 3.5px solid var(--pm); }
+.box.info .box-h { color: var(--pd); }
+.box.warn { background: var(--rl); border-left: 3.5px solid var(--rs); }
+.box.warn .box-h { color: var(--rs); }
+.box.tip  { background: var(--gw); border-left: 3.5px solid var(--gd); }
+.box.tip  .box-h { color: var(--gd); }
+.box.good { background: var(--grl); border-left: 3.5px solid var(--gr); }
+.box.good .box-h { color: var(--gr); }
+.box.teal { background: var(--tll); border-left: 3.5px solid var(--tl); }
+.box.teal .box-h { color: var(--tl); }
+
+/* ────────────────────────────────────────
+   표
+──────────────────────────────────────── */
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 7.5pt; margin-bottom: 3.5mm;
+  page-break-inside: avoid;
+}
+thead th {
+  background: var(--pp); color: #fff;
+  padding: 4px 6px; font-size: 7pt; font-weight: 700;
+  text-align: left; border: 1px solid rgba(255,255,255,.12);
+}
+td {
+  padding: 4px 6px; border: 1px solid var(--bd);
+  vertical-align: top; line-height: 1.55;
+}
+tr:nth-child(even) td { background: var(--g1); }
+.tdh { font-weight: 700; color: var(--pd); background: var(--pw) !important; white-space: nowrap; }
+.hl-p td { background: var(--pw) !important; }
+.hl-g td { background: var(--gw) !important; }
+.hl-r td { background: var(--rl) !important; }
+
+/* ────────────────────────────────────────
+   2단 그리드
+──────────────────────────────────────── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 3.5mm; }
+
+/* ────────────────────────────────────────
+   색상 카드
+──────────────────────────────────────── */
+.card {
+  border: 1px solid var(--bd); border-radius: 4px;
+  overflow: hidden; page-break-inside: avoid;
+}
+.card-h {
+  padding: 2.5mm 3mm; font-size: 8pt; font-weight: 700;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+.card-b {
+  padding: 2.5mm 3mm; font-size: 7pt;
+  color: var(--g7); line-height: 1.65; background: #fff;
+}
+.card-b li { margin-left: 3.5mm; margin-top: 0.8mm; }
+.card-b strong { color: var(--tx); }
+
+.c-bl .card-h { background: #dbeafe; color: #1d4ed8; }
+.c-or .card-h { background: #ffedd5; color: #c2410c; }
+.c-gr .card-h { background: #dcfce7; color: #15803d; }
+.c-pp .card-h { background: var(--pw); color: var(--pd); }
+
+/* ────────────────────────────────────────
+   용어 카드
+──────────────────────────────────────── */
+.tc {
+  border: 1.5px solid var(--bd); border-top: 3px solid var(--pm);
+  border-radius: 4px; overflow: hidden; page-break-inside: avoid;
+}
+.tc-h {
+  background: var(--pp); color: #fff;
+  padding: 2.5mm 3mm; display: flex; align-items: baseline; gap: 2mm;
+}
+.tc-n { font-size: 6pt; color: rgba(255,255,255,.55); font-weight: 700; flex-shrink: 0; }
+.tc-name { font-size: 8.5pt; font-weight: 700; }
+.tc-en { font-size: 6.5pt; color: rgba(255,255,255,.55); font-style: italic; margin-left: auto; }
+.tc-b { padding: 2.5mm 3mm; font-size: 7pt; color: var(--g7); line-height: 1.65; background: #fff; }
+.tc-def { font-size: 7.5pt; font-weight: 700; color: var(--pd); margin-bottom: 1.5mm; }
+.tc-b li { margin-left: 3.5mm; margin-top: 0.8mm; }
+.tc-b strong { color: var(--tx); }
+
+/* ────────────────────────────────────────
+   인용구
+──────────────────────────────────────── */
+.qt {
+  background: var(--g2); border-left: 3px solid var(--pm);
+  border-radius: 0 3px 3px 0; padding: 2.5mm 3.5mm;
+  margin: 2mm 0 2.5mm; font-style: italic;
+  font-size: 7.5pt; color: var(--g7); line-height: 1.7;
+  page-break-inside: avoid;
+}
+.qt .src { display: block; margin-top: 1.5mm; font-style: normal; font-size: 6.5pt; font-weight: 700; color: var(--pm); }
+
+/* ────────────────────────────────────────
+   계보 흐름
+──────────────────────────────────────── */
+.flow { display: flex; align-items: center; gap: 0; margin: 2mm 0 3.5mm; }
+.fn {
+  background: var(--pp); color: #fff;
+  padding: 2mm 3.5mm; border-radius: 3px;
+  font-size: 7.5pt; font-weight: 700; white-space: nowrap; flex-shrink: 0;
+  text-align: center;
+}
+.fn small { display: block; font-size: 6pt; color: rgba(255,255,255,.6); font-weight: 400; margin-top: .5mm; }
+.fn.gold { background: var(--gd); color: #fff9e0; }
+.fa {
+  flex: 1; height: 1.5px; background: var(--pl); position: relative; min-width: 5mm;
+}
+.fa::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  border: 4px solid transparent; border-left: 5px solid var(--pl);
+}
+.fl { font-size: 6pt; color: var(--g5); text-align: center; padding: 0 1mm; white-space: nowrap; }
+
+/* ────────────────────────────────────────
+   핵심 개념 배너
+──────────────────────────────────────── */
+.kbanner {
+  background: linear-gradient(135deg, var(--pd) 0%, #5a28b0 100%);
+  border-radius: 5px; padding: 4mm 5mm; margin-top: 4mm;
+  page-break-inside: avoid;
+}
+.kbanner-t {
+  font-size: 7pt; font-weight: 700; color: var(--gl);
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 3mm; padding-bottom: 2mm;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.kbanner-g { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; }
+.ki {
+  background: rgba(255,255,255,.1); border-radius: 3px;
+  padding: 2.5mm 3mm; color: rgba(255,255,255,.92);
+  font-size: 7.5pt; font-weight: 700; text-align: center;
+}
+.ki small { display: block; font-size: 6.5pt; font-weight: 400; color: rgba(255,255,255,.62); margin-top: 1mm; line-height: 1.5; }
+
+/* ────────────────────────────────────────
+   푸터
+──────────────────────────────────────── */
+.footer {
+  padding: 2.5mm 13mm; border-top: 1px solid var(--bd);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.footer-l { font-size: 6pt; color: #9d95b8; }
+.footer-r { font-size: 6pt; color: var(--pm); font-weight: 700; }
+
+/* ────────────────────────────────────────
+   인쇄
+──────────────────────────────────────── */
+@media print {
+  body { background: #fff; }
+  .page {
+    margin: 0; width: 210mm; min-height: 297mm;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+  @page { size: A4; margin: 0; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .sh, .sub { page-break-after: avoid; break-after: avoid; }
+  table, .box, .card, .tc, .kbanner, .qt, .flow { page-break-inside: avoid; break-inside: avoid; }
+}
 </style>
 </head>
 <body>
+
+<!-- ━━━ PAGE 1 ━━━ -->
 <div class="page">
-  <div class="header">
-    <div class="week-badge">03주차</div>
-    <div class="course-label">한국침례신학대학교 · 신약성서I</div>
-    <h1>신약성서I</h1>
-    
+  <div class="cover">
+    <div class="cover-chip">강의노트 · 3주차</div>
+    <div class="cover-week">신약성서 I (61047) &nbsp;·&nbsp; 2026. 3. 19(목) 18:30–20:45 &nbsp;·&nbsp; 한철흠 교수</div>
+    <div class="cover-title">신약성서의 <em>세계</em>와<br>신약의 문헌들</div>
+    <div class="cover-sub">
+      신약의 3대 세계(유대·로마·헬레니즘) · 헤롯 왕조 · 유대 총독 · 로마 종교 ·
+      영지주의 · 수전절 · 바리새인 &amp; 사두개인 · 샴마이 &amp; 힐렐 · 바울서신 · 정경 · 본문비평
+    </div>
+    <div class="cover-pills">
+      <span class="cpill">교재: 파월 신약개론 (CLC, 2014)</span>
+      <span class="cpill">중간고사 4/23</span>
+      <span class="cpill">기말고사 6/11</span>
+      <span class="cpill">용어집 제출 6/4</span>
+      <span class="cpill red">⚠ 시험예고 — 영지주의 · 바리새/사두개인 · 샴마이/힐렐 · 수전절</span>
+    </div>
   </div>
-  <div class="ornament">✦ ✦ ✦</div>
-  <div class="section">
-  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
-  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>강의 제목</td><td>신약성서의 세계 및 신약의 문헌들</td></tr><tr><td>핵심 주제</td><td>신약의 3대 세계 / 헤롯 왕조 / 로마 종교 / 영지주의 / 수전절 / 바리새인·사두개인 / 바울서신 / 본문비평</td></tr><tr><td>시험 출제 예고</td><td>영지주의 2대 특징 / 바리새인 vs 사두개인 / 샴마이·힐렐·가말리엘 계보 / 수전절 유래 / 헤롯 4인 구분</td></tr><tr><td>교재</td><td>파월, 『현대인을 위한 신약개론』 (CLC, 2014)</td></tr><tr><td>중간고사</td><td>4월 23일 (4/23)</td></tr><tr><td>기말고사</td><td>6월 11일 (6/11)</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
+
+  <div class="body">
+
+    <div class="sh"><span class="sh-n">01</span><span class="sh-t">신약을 이해하는 세 가지 세계</span></div>
+
+    <div class="box info">
+      <div class="box-h">🌍 핵심 전제</div>
+      <p>신약성경의 모든 책은 <strong>로마 제국 안에 살던 기독교인들</strong>이 기록했다. 배경에는 유대 세계·로마 세계·헬레니즘이 복합적으로 작용하며, 용어와 개념들이 세 세계의 영향을 동시에 받는다. 우리 일상에 불교·유교 용어가 섞여 있듯, 신약도 다층적 맥락 속에 놓여 있다.</p>
+    </div>
+
+    <table>
+      <thead><tr><th style="width:20mm;">세계</th><th style="width:52mm;">주요 내용</th><th>신약 속 증거</th></tr></thead>
+      <tbody>
+        <tr><td class="tdh">① 유대 세계</td><td>구약·율법·선지자·성전 제도. 예수님도 유대인으로 할례·성전세·절기를 지키심</td><td>구약 인용, 유대 절기(요 10:22), 바리새·사두개인 논쟁</td></tr>
+        <tr><td class="tdh">② 로마 세계</td><td>황제 통치, 총독 제도, 군사·법률 시스템. 아우구스투스 치하 탄생, 빌라도에게 십자가형</td><td>황제 숭배, 동전(티베리우스 초상), 총독 3인, 백부장</td></tr>
+        <tr><td class="tdh">③ 헬레니즘<br><small style="font-weight:400;">(그레코-로만)</small></td><td>알렉산드로스 이후 퍼진 그리스 문화·언어·철학. <strong>링구아 프랑카 = 그리스어</strong></td><td>신약이 헬라어로 기록됨, 바울의 스토아 철학 인용(행 17장), 로고스(요 1장)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box tip">
+      <div class="box-h">💡 헬레니즘이 신약에 끼친 영향 2가지</div>
+      <p><strong>① 언어:</strong> 신약 전체가 헬라어로 기록됨 — 헬레니즘이 없었다면 라틴어로 기록되었을 것<br>
+         <strong>② 철학:</strong> 바울이 아레오바고 설교에서 스토아 철학자의 말을 인용(행 17장) — 제우스를 칭송하는 말을 하나님께 적용하는 선교 전략</p>
+    </div>
+
+    <div class="sh"><span class="sh-n">02</span><span class="sh-t">신약성경의 헤롯들 — 동명이인 구분 필수</span><span class="sh-badge">시험</span></div>
+
+    <div class="g2">
+      <div class="card c-bl">
+        <div class="card-h">① 헤롯 대왕 (Herod the Great)</div>
+        <div class="card-b"><ul>
+          <li>예수님 탄생 당시 유대 왕</li>
+          <li>성전 확대 정비 (종교심이 아닌 건축 취미)</li>
+          <li>동방박사 만남 → 베들레헴 유아 학살 (마 2:1–18)</li>
+        </ul></div>
+      </div>
+      <div class="card c-or">
+        <div class="card-h">② 헤롯 안디바 (Herod Antipas) — 대왕의 아들, 분봉왕</div>
+        <div class="card-b"><ul>
+          <li>조카 헤로디아와 결혼 → 침례 요한에게 질책</li>
+          <li>살로메의 춤 → 침례 요한 참수</li>
+          <li>예수님이 <strong>"여우"</strong>라 지칭 (눅 13:31–33)</li>
+          <li>예수님 체포 시 잠시 심문 (눅 23:6–12)</li>
+        </ul></div>
+      </div>
+      <div class="card c-gr">
+        <div class="card-h">③ 헤롯 아그립바 1세 — 대왕의 손자</div>
+        <div class="card-b"><ul>
+          <li>사도 야고보(요한의 형) 칼로 죽임 (행 12:1–2)</li>
+          <li>베드로 투옥</li>
+          <li>하나님께 영광 돌리지 않다가 <strong>벌레에 먹혀 죽음</strong> (행 12:21–23)</li>
+          <li>사도행전 12장의 "헤롯"</li>
+        </ul></div>
+      </div>
+      <div class="card c-pp">
+        <div class="card-h">④ 헤롯 아그립바 2세 — 아그립바 1세의 아들</div>
+        <div class="card-b"><ul>
+          <li>바울이 그 앞에서 변명·변호 (행 25–26장)</li>
+          <li>사도행전 후반부의 "아그립바"</li>
+          <li>베스도 총독 시절 활동</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="box warn">
+      <div class="box-h">⚠ 유대 총독 3인 — 빌 · 벨 · 베 순서로 암기</div>
+      <p><strong>빌라도 (Pontius Pilate, AD 26–36)</strong> — 예수님 십자가형 선고 &nbsp;|&nbsp;
+         <strong>벨릭스 (Felix, AD 53–60)</strong> — 행 23–25장 &nbsp;|&nbsp;
+         <strong>베스도 (Festus, AD 60–62)</strong> — 행 24–26장<br>
+         바울이 벨릭스와 베스도 앞에서 자신을 변호함.</p>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div class="footer-l">한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 2026학년도 1학기</div>
+    <div class="footer-r">3주차 강의노트 · 1 / 4</div>
+  </div>
 </div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>본문 분석</h2></div>
-  <div class="section-body"><table><tbody><tr><td>세계</td><td>주요 내용</td><td>신약 속 증거</td></tr><tr><td><strong>유대 세계</strong></td><td>구약성경·율법·선지자·성전 제도. 예수님도 유대인으로 할례·성전세·절기를 지키심</td><td>구약 인용, 유대 절기(요 10:22 수전절), 바리새/사두개인 논쟁</td></tr><tr><td><strong>로마 세계</strong></td><td>로마 황제 통치, 총독 제도, 군사·법률 시스템. 예수님은 아우구스투스 치하 탄생, 빌라도에게 십자가형 선고</td><td>황제 숭배, 동전(티베리우스 황제 초상), 총독(빌라도·벨릭스·베스도), 백부장</td></tr><tr><td><strong>헬레니즘 (그레코-로만)</strong></td><td>알렉산드로스 이후 퍼진 그리스 문화·언어·철학. 신약 시대 링구아 프랑카(공용어)가 그리스어</td><td>신약이 헬라어로 기록됨, 바울이 스토아 철학자 인용(행 17장), 로고스 개념(요 1장)</td></tr><tr><td>인물</td><td>정체</td><td>주요 사건</td><td>관련 본문</td></tr><tr><td><strong>① 헤롯 대왕</strong> (Herod the Great)</td><td>예수님 탄생 당시 유대 왕</td><td>예루살렘 성전 확대 정비 / 동방박사 만남 → 베들레헴 유아 학살 / 건축을 좋아했으나 신앙심 아님</td><td>마 2:1–18</td></tr><tr><td><strong>② 헤롯 안디바</strong> (Herod Antipas)</td><td>헤롯 대왕의 아들, 분봉왕</td><td>조카 헤로디아와 결혼 → 침례 요한에게 질책 → 살로메 요청으로 침례 요한 목 베임 / 예수님이 "여우"라 지칭</td><td>눅 13:31–33; 눅 23:6–12</td></tr><tr><td><strong>③ 헤롯 아그립바 1세</strong> (Herod Agrippa I)</td><td>헤롯 대왕의 손자</td><td>사도 야고보(요한의 형제) 칼로 죽임 / 베드로 투옥 / 하나님께 영광 돌리지 않다가 벌레에 먹혀 죽음</td><td>행 12:1–2; 행 12:21–23</td></tr><tr><td><strong>④ 헤롯 아그립바 2세</strong> (Herod Agrippa II)</td><td>아그립바 1세의 아들</td><td>바울이 그 앞에서 변명·변호 / 베스도 총독 시절 활동</td><td>행 25–26장</td></tr><tr><td>총독</td><td>재임 기간</td><td>주요 역할</td><td>기억법</td></tr><tr><td><strong>빌라도</strong> (Pontius Pilate)</td><td>AD 26–36</td><td>예수님 십자가형 선고</td><td>ㅂ → ㄹ받침</td></tr><tr><td><strong>벨릭스</strong> (Felix)</td><td>AD 53–60</td><td>사도행전 23–25장, 바울 재판</td><td>ㅂ → ㄹ받침</td></tr><tr><td><strong>베스도</strong> (Festus)</td><td>AD 60–62</td><td>사도행전 24–26장, 바울 재판</td><td>ㅂ → 받침 없음</td></tr><tr><td>구분</td><td>입장</td><td>논거</td></tr><tr><td><strong>종교적 행사로 보는 입장</strong></td><td>참여 불가 — 우상 숭배</td><td>신앙 정체성의 문제 / 주기철 목사의 신사참배 거부와 같은 맥락 / 요한계시록의 경고</td></tr><tr><td><strong>사회·문화적 행사로 보는 입장</strong></td><td>참여 무방</td><td>이방 신들은 실재하지 않으므로(nothing) 문제없음 / 직능조합(길드) 활동, 사교 모임의 일환 / 바울의 "우상에게 바친 고기" 논의 (고전 8–10장)</td></tr><tr><td>특징</td><td>내용</td><td>성경적 반박</td></tr><tr><td><strong>① 영과 물질의 이원론</strong> (Spirit vs. Matter Dualism)</td><td>영(πνεῦμα)은 선하고, 물질(세상·육체)은 악하다 → 예수님이 실제 육체로 오심을 부인하는 <strong>가현설(Docetism)</strong> 로 귀결 / 세상은 열등한 신 데미우르고스(δημιουργός)가 창조</td><td>요 1:14 "말씀이 육신이 되어" / 요일 4:2–3 "예수께서 육체로 오심을 부인하는 영마다 적그리스도"</td></tr><tr><td><strong>② 지식을 통한 구원</strong> (Salvation through Gnōsis)</td><td>영지(γνῶσις)—신비롭고 비밀스러운 에소테릭 지식—으로 물질 세계에서 해방 / 데미우르고스와 별개의 최고신 존재 주장 / 우월감·비의주의 → 이단 정죄</td><td>요 3:16; 행 16:31 — 구원은 믿음으로</td></tr><tr><td>결과</td><td>내용</td><td>논리</td></tr><tr><td><strong>금욕주의</strong></td><td>육체를 억압하고 금식·절제를 극단화</td><td>"육체는 악하므로 철저히 죽여야 한다"</td></tr><tr><td><strong>방종주의</strong></td><td>육체적 행동이 영혼에 영향 없다며 죄를 방임</td><td>"어차피 물질은 의미 없으니 뭘 해도 상관없다"</td></tr><tr><td>항목</td><td>내용</td></tr><tr><td><strong>박해 주체</strong></td><td>안티오쿠스 4세 에피파네스(Antiochus IV Epiphanes, BC 175–164)</td></tr><tr><td><strong>박해 내용</strong></td><td>예루살렘 성전에 제우스 신상을 세우고 돼지 피를 뿌림</td></tr><tr><td><strong>하누카</strong></td><td>마카비(Maccabees) 전쟁 승리 후 성전 정화·재봉헌 기념 8일 축제 (BC 164)</td></tr><tr><td><strong>신약 관련 구절</strong></td><td>"예루살렘에 수전절이 이르니 때는 겨울이라" (요 10:22) → 요한복음의 역사적 정확성 증거</td></tr><tr><td>비교 항목</td><td>바리새인 (Pharisees)</td><td>사두개인 (Sadducees)</td></tr><tr><td><strong>성경관</strong></td><td>모세오경 + 시가서 + 예언서 + 성문서 전체</td><td><strong>모세오경(토라)만</strong> 정경으로 인정</td></tr><tr><td><strong>구전 율법</strong></td><td>장로들의 전통(구전 율법) 인정 → 미쉬나·탈무드로 발전</td><td>구전 율법 불인정</td></tr><tr><td><strong>사후 세계</strong></td><td>부활·천사·사후 세계 믿음</td><td>부활·천사·사후 세계 <strong>불신</strong></td></tr><tr><td><strong>중심 기관</strong></td><td>회당(Synagogue) 중심, 토라 학습</td><td>성전(Temple) 중심, 제사 직무</td></tr><tr><td><strong>정치 성향</strong></td><td>상대적으로 민중적</td><td>기득권·친로마 성향</td></tr><tr><td><strong>역사적 운명</strong></td><td>AD 70년 예루살렘 멸망 후에도 생존·발전 → 랍비 유대교</td><td>AD 70년 성전 파괴로 <strong>소멸</strong></td></tr><tr><td><strong>어원</strong></td><td>"분리된 자들" 또는 페르시아어 기원설</td><td>대제사장 <strong>사독(Zadok)</strong>의 후손</td></tr><tr><td>인물</td><td>시기</td><td>해석 방식</td><td>대표 일화</td></tr><tr><td><strong>샴마이</strong> (Shammai)</td><td>BC 50 – AD 30</td><td>율법의 <strong>문자적·엄격한 해석</strong> — 융통성 없지만 원칙에 충실</td><td>결혼식에서 신부가 못생겼으면 사실대로 말해야 한다고 주장 / 한 발로 서 있는 동안 율법 설명 요청 → 거절</td></tr><tr><td><strong>힐렐</strong> (Hillel)</td><td>BC 110 – AD 10</td><td>율법의 <strong>자유로운·취지 중심 해석</strong> — 상황과 정신을 고려</td><td>한 발로 서서 율법 전체를 한마디로 요약: "네가 싫은 것을 다른 사람에게 행하지 말라. 나머지는 다 설명이다. 가서 배워라." (cf. 마 7:12 황금률)</td></tr><tr><td><strong>가말리엘</strong> (Gamaliel)</td><td>AD 1세기 전반</td><td>힐렐의 손자, 상대적으로 유연한 해석</td><td>바울의 스승 (행 22:3) / "이 사람들을 상관하지 말라" — 기독교 박해에 중립 입장 (행 5:34–39)</td></tr><tr><td>유형</td><td>서신 목록</td><td>특이사항</td></tr><tr><td><strong>교회에 보낸 편지 (9서)</strong></td><td>로마서 · 고린도전서 · 고린도후서 · 갈라디아서 · 에베소서 · 빌립보서 · 골로새서 · 데살로니가전서 · 데살로니가후서</td><td>로마서가 제일 앞에 오는 이유: 내용의 중요도 때문이 아니라 <strong>분량이 가장 많기 때문</strong></td></tr><tr><td><strong>개인에게 보낸 편지 (4서)</strong></td><td>디모데전서 · 디모데후서 · 디도서 · 빌레몬서</td><td>목회서신(디모데전후·디도서) / 빌레몬서가 가장 짧음</td></tr><tr><td>분류명</td><td>해당 서신</td></tr><tr><td><strong>목회서신</strong></td><td>디모데전서 · 디모데후서 · 디도서</td></tr><tr><td><strong>옥중서신</strong></td><td>에베소서 · 빌립보서 · 골로새서 · 빌레몬서</td></tr><tr><td><strong>일반(공동)서신</strong></td><td>야고보서 · 베드로전후서 · 요한1·2·3서 · 유다서</td></tr><tr><td>원칙</td><td>내용</td><td>근거</td></tr><tr><td><strong>원칙 1: 고사본 우선</strong></td><td>오래된 사본일수록 신뢰도 높음</td><td>필사 과정에서의 오류 누적을 최소화</td></tr><tr><td><strong>원칙 2: 어려운 이문 우선</strong></td><td>어려운 이문(難文)일수록 원문에 가까움</td><td>필사자들이 어려운 부분을 쉽게 바꾸는 경향</td></tr><tr><td><strong>원칙 3: 짧은 이문 우선</strong></td><td>짧은 이문일수록 원문에 가까움</td><td>필사자들이 설명을 덧붙이는 경향</td></tr><tr><td>구분</td><td>정의</td><td>어원</td><td>특징</td></tr><tr><td><strong>석의 (Exegesis)</strong></td><td>텍스트에서 의미를 <strong>꺼내는</strong> 해석</td><td>헬라어 "끌어내다"</td><td>본문이 무엇을 말하는지 객관적으로 탐구 / 역사적·문법적·문학적 방법 사용 / 올바른 성경 해석의 출발점</td></tr><tr><td><strong>자기해석 (Eisegesis)</strong></td><td>자기 생각을 텍스트에 <strong>집어넣는</strong> 해석</td><td>헬라어 "집어넣다"</td><td>자신의 선입견·신학을 본문에 투영 / 어거스틴의 선한 사마리아인 알레고리 해석이 과도하면 이에 해당 / 영지주의의 성경 해석 방식</td></tr></tbody></table><div class="prose"><p>### [A] 신약을 이해하는 세 가지 세계 신약성경은 <strong>로마 제국에 살던 기독교인들</strong>이 기록했다. 그 배경에는 유대·로마·헬레니즘이라는 세 세계가 복합적으로 작용한다. 불교·유교 용어가 우리 일상에 스며든 것처럼, 신약의 용어와 개념들도 이 세 세계의 영향을 동시에 받는다. <strong>[표 1] 신약의 3대 배경 세계</strong></p>
-<div class="quote-block"><p>**그레코</p><div class='quote-sub'>— 로만(Greco-Roman)**: 그리스(Greek)와 로마(Roman)가 합쳐진 표현. 두 문화가 300여 년간 융합되어 신약 시대의 문화적 토대를 형성. 학교에서는 '헬라', 교회에서는 '그리스'로 혼용되지만 같은 개념.</div></div>
-<p>--- ### [B] 신약성경의 헤롯들 — 동명이인 구분 필수 ★시험 <strong>[표 2] 헤롯 4인 비교</strong> <strong>[표 3] 유대 총독 3인 구분 — B·B·F 패턴으로 기억</strong> --- ### [C] 로마의 종교와 초대 기독교인의 갈등 <strong>① 이방 신전 행사 참여 문제</strong> <strong>[표 4] 이방 신전 행사 참여 — 두 가지 시각</strong> <strong>② 황제 숭배 (Imperial Cult)</strong> 황제 숭배는 관점에 따라 전혀 다른 의미를 가졌다. <strong>유대인·기독교인의 시각</strong>에서는 황제를 신으로 섬기는 명백한 우상 숭배였지만, <strong>로마인의 시각</strong>에서는 "국기에 대한 맹세"와 같은 애국적 행위로 종교가 아니었다. 요한계시록의 "사탄의 보좌" (계 2:13)는 이 황제 숭배와 연결될 가능성이 높다. --- ### [D] 영지주의 (Gnosticism) ★시험 출제 예고 1945년 <strong>이집트의 나그함마디(Nag Hammadi)</strong>에서 영지주의 문헌이 다수 발견되어 연구가 폭발적으로 증가했다. 영지주의는 2세기경 출현한 사상으로, 초대교회에 심각한 도전을 가했다. <strong>[표 5] 영지주의 2대 핵심 특징</strong> <strong>[표 6] 영지주의의 윤리적 결과 — 이원론이 낳는 두 가지 극단</strong></p>
-<div class="quote-block"><p>**성경의 올바른 입장:** 영에도 선한 영과 악한 영이 있고, 물질도 하나님을 위해 쓰면 의의 병기가 된다 (롬 6:13). 하나님은 창조 후 "보시기에 좋았더라"라고 선언하셨다 (창 1:31). 구원은 신비한 지식이 아닌 믿음으로 (요 20:30</p><div class='quote-sub'>— 31).</div></div>
-<p>--- ### [E] 수전절 (Hanukkah, 하누카) 유래 ★시험 <strong>[표 7] 수전절 핵심 정보</strong> --- ### [F] 바리새인 vs 사두개인 ★시험 <strong>[표 8] 바리새인과 사두개인 비교</strong> <strong>[표 9] 유명한 바리새인들 — 샴마이·힐렐·가말리엘 ★시험 출제 예고</strong></p>
-<div class="quote-block"><p>**계보 기억법:** 바울 → 가말리엘 → 힐렐 (세 이름 모두 **ㄹ 받침**으로 끝남). 힐렐의 유연한 해석 전통이 손자 가말리엘에게, 다시 제자 바울에게 이어진 것은 바울 신학의 유연성과 무관하지 않다.</p></div>
-<p>--- ### [G] 바울서신과 신약의 문헌들 <strong>[표 10] 바울서신 분류 — 분량(쪽수) 순 정렬</strong> <strong>[표 11] 서신 용도별 분류</strong></p>
-<div class="quote-block"><p>**중요:** 신약의 순서는 내용의 중요도나 기록 연대 순이 아닌 **분량 순서**다. 실제 기록 순서는 바울서신(AD 50년대)이 복음서(AD 70년대 이후)보다 앞선다.</p></div>
-<p>--- ### [H] 정경과 본문비평 <strong>정경(Canon)</strong>의 문자적 의미는 "자" 또는 "기준"으로, 권위 있는 성경 목록을 뜻한다. 정경의 통일성과 다양성에 관해 어거스틴은 이렇게 정리했다: "본질에는 통일(Unity), 비본질에는 자유(Liberty), 모든 것에 사랑(Charity)." 히브리서는 저자가 명시되지 않지만, 내용의 수준이 바울급이라 바울 저작설이 제기된다. <strong>[표 12] 본문비평의 3대 원칙</strong></p>
-<div class="quote-block"><p>**적용 사례:** 마가복음 결말 논쟁</p><div class='quote-sub'>— 16:8에서 끝나는가, 긴 결말(16:9–20)이 원문인가?</div></div>
-<p><strong>[표 13] 석의(Exegesis) vs 자기해석(Eisegesis) — 반드시 구별</strong> ---</p>
-</div></div>
+
+
+<!-- ━━━ PAGE 2 ━━━ -->
+<div class="page">
+  <div class="body">
+
+    <div class="sh"><span class="sh-n">03</span><span class="sh-t">로마의 종교와 초대 기독교인의 갈등</span></div>
+
+    <div class="sub">① 이방 신전 행사 참여 문제</div>
+    <div class="g2">
+      <div class="box warn" style="margin-bottom:0;">
+        <div class="box-h">🚫 종교적 행사로 보는 입장</div>
+        <ul>
+          <li>신전 행사 참여 = 우상 숭배, 타협 불가</li>
+          <li>요한계시록의 경고와 연결</li>
+          <li>주기철 목사의 신사참배 거부와 같은 맥락</li>
+        </ul>
+      </div>
+      <div class="box good" style="margin-bottom:0;">
+        <div class="box-h">✅ 사회적·문화적 행사로 보는 입장</div>
+        <ul>
+          <li>이방 신은 실재하지 않으므로(nothing) 참여 무방</li>
+          <li>직능조합(길드) 활동, 사교 모임의 일환</li>
+          <li>바울의 우상에 바친 고기 논의 (고전 8–10장)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub" style="margin-top:3mm;">② 황제 숭배 (Imperial Cult)</div>
+    <div class="box teal">
+      <div class="box-h">👑 관점에 따라 전혀 다른 의미</div>
+      <p><strong>유대인·기독교인:</strong> 황제를 신으로 섬기는 우상 숭배<br>
+         <strong>로마인:</strong> "국기에 대한 맹세"와 같은 애국적 행위 — 종교가 아님<br><br>
+         요한계시록 <strong>"사탄의 보좌"(계 2:13)</strong>는 황제 숭배 또는 제우스 신전과 연결될 가능성이 높다.
+         초대 기독교인에게 이방 신전 숭배와 황제 숭배 중 어느 것이 더 현실적 압박이었는지는 학자들 사이에 논의 중.</p>
+    </div>
+
+    <div class="sh"><span class="sh-n">04</span><span class="sh-t">영지주의 (Gnosticism)</span><span class="sh-badge">시험 출제 예고</span></div>
+
+    <div class="box warn">
+      <div class="box-h">📚 나그함마디 (Nag Hammadi) — 반드시 암기</div>
+      <p>1945년 <strong>이집트의 나그함마디</strong>에서 영지주의 문헌 다수 발견.
+         2세기경 출현한 사상으로 초대교회에 심각한 도전을 가했다. 이 발견으로 영지주의 연구가 폭발적으로 증가.</p>
+    </div>
+
+    <div class="g2">
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">특 1</span><span class="tc-name">영과 물질의 이원론</span><span class="tc-en">Spirit vs. Matter Dualism</span></div>
+        <div class="tc-b">
+          <div class="tc-def">영(πνεῦμα)은 선하고, 물질(세상·육체)은 악하다</div>
+          <ul>
+            <li><strong>가현설(Docetism):</strong> 예수님은 실제 육체가 아니라 인간처럼 '보였을 뿐'</li>
+            <li><strong>데미우르고스(δημιουργός):</strong> 세상을 창조한 열등하고 악한 신 → 창세기 하나님과 충돌</li>
+            <li><strong>성경 반박:</strong> "말씀이 육신이 되어" (요 1:14)</li>
+            <li><strong>요한서신:</strong> "예수께서 육체로 오심을 부인하는 자마다 적그리스도" (요일 4:2–3)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">특 2</span><span class="tc-name">지식을 통한 구원</span><span class="tc-en">Salvation by Gnōsis (γνῶσις)</span></div>
+        <div class="tc-b">
+          <div class="tc-def">신비롭고 비밀스러운 지식(영지)으로 물질 세계에서 해방</div>
+          <ul>
+            <li>믿음이 아닌 <strong>에소테릭한 비밀 지식</strong>으로 구원받는다고 믿음</li>
+            <li>성경: 믿음으로 구원 (요 3:16; 행 16:31)</li>
+            <li><strong>금욕주의:</strong> 악한 육체를 극단적으로 억압</li>
+            <li><strong>방종주의:</strong> "물질은 의미 없으니 뭘 해도 무방" (극과 극이 만남)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="box good">
+      <div class="box-h">✅ 성경의 올바른 입장</div>
+      <p>영에도 선한 영·악한 영이 있고, 물질도 하나님을 위해 쓰면 <strong>의의 병기</strong>가 된다 (롬 6:13).
+         하나님은 창조 후 <strong>"보시기에 좋았더라"</strong>고 선언하셨다 (창 1:31).
+         구원은 신비한 지식이 아닌 <strong>믿음</strong>으로 (요 20:30–31).</p>
+    </div>
+
+    <div class="sh"><span class="sh-n">05</span><span class="sh-t">수전절 (Hanukkah) 유래</span><span class="sh-badge">시험 (1주차 내용)</span></div>
+
+    <div class="box info">
+      <div class="box-h">🕎 핵심 사항</div>
+      <p><strong>배경:</strong> 안티오쿠스 4세 (Antiochus IV Epiphanes, 175–164 BC)의 박해
+         → 예루살렘 성전에 <strong>제우스 신상</strong>을 세우고 <strong>돼지 피</strong>를 뿌림<br>
+         <strong>하누카:</strong> 마카비 전쟁 승리 후 성전을 정화하고 재봉헌한 것을 기리는 8일 축제 (164 BC)<br>
+         <strong>신약 구절:</strong> "예루살렘에 수전절이 이르니 때는 겨울이라" (요 10:22)</p>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div class="footer-l">한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 2026학년도 1학기</div>
+    <div class="footer-r">3주차 강의노트 · 2 / 4</div>
+  </div>
 </div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">📋</span><h2>원어 분석</h2></div>
-  <div class="section-body"><table><tbody><tr><td>헬라어</td><td>발음</td><td>의미</td><td>신학적 함의</td></tr><tr><td><strong>πνεῦμα</strong></td><td>프뉴마</td><td>영, 바람, 호흡</td><td>영지주의에서 선한 것으로 주장 / 성경에서는 선한 영과 악한 영 모두 존재</td></tr><tr><td><strong>γνῶσις</strong></td><td>그노시스</td><td>지식, 앎</td><td>영지주의의 핵심 — 비밀스러운 구원 지식 / 영지주의(Gnosticism)의 어원</td></tr><tr><td><strong>δημιουργός</strong></td><td>데미우르고스</td><td>장인, 제작자</td><td>영지주의에서 물질 세계를 창조한 열등한 신을 가리키는 용어</td></tr><tr><td><strong>Paracletos</strong></td><td>파라클레토스</td><td>돕는 자, 변호자, 위로자</td><td>요한복음의 성령 호칭 (요 14:16) — 보혜사 / 공관복음에는 없는 요한복음 독점 개념</td></tr><tr><td><strong>Canon</strong></td><td>카논</td><td>자, 기준, 척도</td><td>권위 있는 성경 목록을 가리키는 용어로 발전</td></tr><tr><td><strong>εὐθύς</strong></td><td>에우뒤스</td><td>즉시, 곧</td><td>마가복음의 문체적 특징 — 빠른 전개와 생동감의 표현</td></tr></tbody></table><div class="prose"><p>---</p>
-</div></div>
+
+
+<!-- ━━━ PAGE 3 ━━━ -->
+<div class="page">
+  <div class="body">
+
+    <div class="sh"><span class="sh-n">06</span><span class="sh-t">바리새인 vs. 사두개인</span><span class="sh-badge">시험 출제 예고</span></div>
+
+    <table>
+      <thead><tr><th style="width:24mm;">비교 항목</th><th>바리새인 (Pharisees)</th><th>사두개인 (Sadducees)</th></tr></thead>
+      <tbody>
+        <tr><td class="tdh">성경 범위</td><td>모세오경 + 시가서 + 예언서 + 성문서 <strong>전체</strong></td><td><strong>모세오경(토라)만</strong> 정경으로 인정</td></tr>
+        <tr class="hl-p"><td class="tdh">구전 율법</td><td>장로들의 전통(구전 율법) 인정 → 미쉬나·탈무드</td><td>구전 율법 <strong>불인정</strong></td></tr>
+        <tr><td class="tdh">부활·내세</td><td>부활·천사·사후 세계 <strong>믿음</strong></td><td>부활·천사·사후 세계 <strong>불신</strong></td></tr>
+        <tr class="hl-p"><td class="tdh">중심 기관</td><td>회당(Synagogue) 중심, 토라 학습</td><td>성전(Temple) 중심, 제사 직무</td></tr>
+        <tr><td class="tdh">정치·사회</td><td>상대적으로 민중적</td><td><strong>기득권·친로마</strong>, 대제사장 집안 — 잃을 것이 많아 몸을 사림</td></tr>
+        <tr class="hl-g"><td class="tdh">역사적 운명</td><td>AD 70년 성전 파괴 후에도 <strong>생존</strong> → 랍비 유대교로 발전</td><td>AD 70년 성전 파괴로 <strong>소멸</strong></td></tr>
+        <tr><td class="tdh">어원</td><td>"분리된 자들"</td><td>대제사장 <strong>사독(Zadok)</strong>의 후손</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sh"><span class="sh-n">07</span><span class="sh-t">유명한 바리새인 — 샴마이 · 힐렐 · 가말리엘 · 바울</span><span class="sh-badge">시험 출제 예고</span></div>
+
+    <div class="g2">
+      <div class="card c-pp">
+        <div class="card-h">샴마이 (Shammai, 50 BC–AD 30) — 문자적·엄격한 해석</div>
+        <div class="card-b"><ul>
+          <li>율법의 <strong>문자 그대로</strong>를 고수, 원칙에 충실</li>
+          <li>한 발로 서 있는 동안 율법 설명 요청 → <strong>부지깽이로 내쫓음</strong></li>
+          <li>결혼식 예: 신부가 못생겼으면 못생겼다고 해야 함 (융통성 없음)</li>
+          <li>신앙의 <strong>본질</strong>에서는 샴마이처럼 원칙을 지킬 것</li>
+        </ul></div>
+      </div>
+      <div class="card c-or">
+        <div class="card-h">힐렐 (Hillel, 110 BC–AD 10) — 자유로운·취지 중심 해석</div>
+        <div class="card-b">
+          <ul><li>같은 요청에 율법 전체를 <strong>한마디로 요약</strong>함</li>
+              <li>비본질에서는 힐렐처럼 융통성 있게</li></ul>
+          <div class="qt">"That which is hateful to you, do not do to your fellow. That is the whole Torah; the rest is the explanation; go and learn."
+            <span class="src">— 힐렐 / cf. 마 7:12 황금률 (힐렐: 소극적 하한선 vs. 예수님: 능동적 상한선)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">바울 – 가말리엘 – 힐렐 계보 <small style="font-weight:400;color:var(--g5);">세 이름 모두 'ㄹ' 받침 — 암기에 활용</small></div>
+
+    <div class="flow">
+      <div class="fn gold">힐렐<small>110 BC–AD 10<br>자유로운 해석</small></div>
+      <div class="fa"></div><div class="fl">손자↓</div><div class="fa"></div>
+      <div class="fn">가말리엘<small>바리새인 지도자<br>행 5:34; 22:3</small></div>
+      <div class="fa"></div><div class="fl">스승↓제자</div><div class="fa"></div>
+      <div class="fn">바울<small>사도 / 바리새인<br>빌 3:5</small></div>
+    </div>
+
+    <div class="box tip">
+      <div class="box-h">💡 힐렐 vs. 예수님 황금률 비교</div>
+      <p>힐렐: <strong>"내가 싫은 것을 이웃에게 하지 말라"</strong> — 소극적(하한선), 안 하면 됨<br>
+         예수님: <strong>"대접받고자 하는 대로 남을 대접하라"</strong> (마 7:12) — 적극적(상한선), 좋은 것을 먼저 줘야 함<br>
+         공통점: 이웃의 입장에서 역지사지. 차이점: 예수님의 요구가 훨씬 능동적이고 높은 기준.</p>
+    </div>
+
+    <div class="sh"><span class="sh-n">08</span><span class="sh-t">바울서신과 신약의 문헌들</span></div>
+
+    <table>
+      <thead><tr><th style="width:28mm;">분류</th><th>서신 목록 <small style="font-weight:400;">(분량 순 정렬)</small></th></tr></thead>
+      <tbody>
+        <tr><td class="tdh">교회에 보낸 편지<br><small style="font-weight:400;">(9서)</small></td><td>로마서 · 고린도전서 · 고린도후서 · 갈라디아서 · 에베소서 · 빌립보서 · 골로새서 · 데살로니가전서 · 데살로니가후서</td></tr>
+        <tr class="hl-p"><td class="tdh">개인에게 보낸 편지<br><small style="font-weight:400;">(4서)</small></td><td>디모데전서 · 디모데후서 · 디도서 · 빌레몬서</td></tr>
+        <tr><td class="tdh">목회서신</td><td>디모데전서 · 디모데후서 · 디도서</td></tr>
+        <tr class="hl-p"><td class="tdh">옥중서신</td><td>에베소서 · 빌립보서 · 골로새서 · 빌레몬서</td></tr>
+        <tr><td class="tdh">일반(공동)서신</td><td>야고보서 · 베드로전서 · 베드로후서 · 요한1서 · 요한2서 · 요한3서 · 유다서</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box info">
+      <div class="box-h">📅 중요한 기록 순서</div>
+      <p>성경에서 복음서가 먼저 나오지만, <strong>실제 기록 순서는 바울서신(50년대) → 복음서(70년대 이후)</strong>.
+         로마서가 맨 앞에 있는 이유는 내용이 중요해서가 아니라 <strong>분량(쪽수)이 가장 많기 때문</strong>.
+         대선지자·소선지자 구분도 믿음의 크기가 아닌 기록 분량으로 나눈 것.</p>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div class="footer-l">한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 2026학년도 1학기</div>
+    <div class="footer-r">3주차 강의노트 · 3 / 4</div>
+  </div>
 </div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
-  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>신약의 3대 세계</strong><p>유대·로마·헬레니즘이 복합적으로 작용. 어느 하나만으로는 신약을 이해할 수 없음. 특히 신약이 헬라어로 기록된 것 자체가 헬레니즘 세계의 영향이다.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>헤롯 4인 구분</strong><p>헤롯 대왕(탄생·성전)→안디바(침례 요한)→아그립바 1세(야고보·베드로)→아그립바 2세(바울 변명). 총독도 빌라도→벨릭스→베스도 순서로 기억.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>영지주의 2대 특징</strong><p>①영은 선하고 물질은 악하다(이원론) → 가현설로 귀결 ②지식(γνῶσις)으로 구원. 두 특징 모두 성경의 성육신 신앙·믿음 구원론과 정면 충돌. 나그함마디(이집트, 1945년) 반드시 암기.</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>수전절 유래 요약</strong><p>안티오쿠스 4세의 성전 더럽힘 → 마카비 전쟁 → BC 164년 성전 재봉헌 → 8일 축제 = 하누카. 요한복음 10:22에 역사적으로 언급됨.</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>바리새인·사두개인 핵심 차이</strong><p>구전율법 인정 여부 / 부활·천사 믿음 여부 / 회당 vs 성전 중심 / AD 70년 이후 운명이 갈림 (바리새파 생존 → 랍비 유대교, 사두개파 소멸).</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>바울-가말리엘-힐렐 계보</strong><p>힐렐(유연한 해석) → 손자 가말리엘 → 제자 바울. 세 이름 모두 ㄹ 받침. 바울 신학의 유연성과 연결 가능.</p></div></div><div class="key-point"><div class="key-num">07</div><div class="key-text"><strong>석의 vs 자기해석</strong><p>Exegesis = 꺼내기(본문 중심) / Eisegesis = 집어넣기(해석자 중심). 올바른 성경 해석은 항상 석의에서 출발해야 한다.</p></div></div><div class="key-point"><div class="key-num">08</div><div class="key-text"><strong>신약 문헌 배열 원리</strong><p>성경에서 복음서가 앞에 오지만, 기록 연대는 바울서신(AD 50년대)이 복음서(AD 70년대 이후)보다 앞선다. 배열은 시간 순이 아닌 분량 순.</p></div></div></div></div>
+
+
+<!-- ━━━ PAGE 4 ━━━ -->
+<div class="page">
+  <div class="body">
+
+    <div class="sh"><span class="sh-n">09</span><span class="sh-t">정경 · 본문비평 · 석의 vs. 자기해석</span></div>
+
+    <div class="g2">
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">01</span><span class="tc-name">정경 (Canon)</span><span class="tc-en">"자" 또는 "기준"</span></div>
+        <div class="tc-b">
+          <div class="tc-def">권위 있는 성경 목록 — 통일성과 다양성의 공존</div>
+          <ul>
+            <li>핵심 문제에는 한 목소리, 다양한 관점이 공존</li>
+            <li><strong>히브리서 저자:</strong> 미상. 수준이 바울급이라 바울 저작설 있으나 확실하지 않음</li>
+          </ul>
+          <div class="qt" style="margin-top:2mm;">본질에는 통일(Unity), 비본질에는 자유(Liberty), 모든 것에 사랑(Charity)<span class="src">— 어거스틴</span></div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">02</span><span class="tc-name">본문비평</span><span class="tc-en">Textual Criticism</span></div>
+        <div class="tc-b">
+          <div class="tc-def">어떤 이문(異文)이 원문인지 재구성하는 학문적 작업</div>
+          <ul>
+            <li><strong>원칙 1:</strong> 오래된 사본일수록 원문에 가까움</li>
+            <li><strong>원칙 2:</strong> 어려운 이문일수록 원문 (필사자가 쉽게 바꾸는 경향)</li>
+            <li><strong>원칙 3:</strong> 짧은 이문일수록 원문 (필사자가 설명을 덧붙이는 경향)</li>
+            <li><strong>적용:</strong> 마가복음 결말 논쟁 — 16:8 끝인가, 긴 결말(16:9–20)이 원문인가?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">03</span><span class="tc-name">석의 (Exegesis)</span><span class="tc-en">"끌어내다"</span></div>
+        <div class="tc-b">
+          <div class="tc-def">텍스트에서 의미를 꺼내는 해석 → 올바른 성경 해석</div>
+          <ul>
+            <li>본문이 <strong>무엇을 말하는지</strong> 객관적으로 탐구</li>
+            <li>역사적·문법적·문학적 방법 사용</li>
+            <li>저자의 의도를 파악하는 것이 출발점</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-h"><span class="tc-n">04</span><span class="tc-name">자기해석 (Eisegesis)</span><span class="tc-en">"집어넣다"</span></div>
+        <div class="tc-b">
+          <div class="tc-def">자기 생각을 텍스트에 집어넣는 해석 → 잘못된 해석</div>
+          <ul>
+            <li>자신의 선입견·신학을 본문에 투영</li>
+            <li><strong>예:</strong> 어거스틴의 선한 사마리아인 알레고리 — 사마리아인=그리스도, 여관=교회, 두 데나리온=성례전 (지나치면 문제)</li>
+            <li>영지주의의 성경 해석 방식이기도 함</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh"><span class="sh-n">10</span><span class="sh-t">로마 황제와 로고스 — 보충</span></div>
+
+    <div class="g2">
+      <div class="box teal" style="margin-bottom:0;">
+        <div class="box-h">🏛 예수님 당시 로마 황제</div>
+        <p><strong>카이사르 아우구스투스 (Caesar Augustus):</strong> 예수님 탄생 당시 황제 (눅 2:1)<br>
+           <strong>티베리우스 (Tiberius):</strong> 예수님 공생애 당시 황제 — 티베리우스 초상이 새겨진 동전이 세금 논쟁에 등장 (마 22:15–22)</p>
+      </div>
+      <div class="box teal" style="margin-bottom:0;">
+        <div class="box-h">📖 로고스(λόγος)와 헬레니즘</div>
+        <p>요한복음 "태초에 말씀이 계시니라"(요 1:1)의 <strong>'말씀'(로고스)</strong>은 헬레니즘 철학(스토아파)에서 우주의 이성·원리를 가리키는 개념. 요한은 이 개념을 차용해 예수님을 소개하면서 이방 독자들과 소통함.</p>
+      </div>
+    </div>
+
+    <div class="kbanner">
+      <div class="kbanner-t">⭐ 오늘의 핵심 신학 개념 3가지</div>
+      <div class="kbanner-g">
+        <div class="ki">영지주의<small>이원론(영善·물질惡) + 지식 구원론<br>→ 성육신 부인 = 이단</small></div>
+        <div class="ki">본문비평<small>원문 재구성 3원칙<br>오래·어렵·짧을수록 원문에 가까움</small></div>
+        <div class="ki">석의 vs. 자기해석<small>Exegesis = 끌어내기<br>Eisegesis = 집어넣기</small></div>
+      </div>
+    </div>
+
+    <div class="box warn" style="margin-top:3.5mm;">
+      <div class="box-h">🚨 시험 대비 최종 체크리스트</div>
+      <ul>
+        <li><strong>영지주의 2대 특징:</strong> ① 영은 선하고 물질은 악하다 &nbsp;② 지식(γνῶσις)으로 구원</li>
+        <li><strong>나그함마디:</strong> 이집트 / 1945년 / 영지주의 문헌 발견</li>
+        <li><strong>데미우르고스(δημιουργός):</strong> 영지주의에서 물질 세계를 창조한 열등한 신</li>
+        <li><strong>바리새인 vs. 사두개인:</strong> 구전율법·부활·천사 인정 여부. 사두개인은 모세오경만 인정.</li>
+        <li><strong>샴마이(문자적) → 힐렐(자유로운) → 가말리엘(힐렐의 손자) → 바울(가말리엘의 제자)</strong></li>
+        <li><strong>수전절:</strong> 안티오쿠스 4세 박해 → 마카비 전쟁 승리 → 164 BC 성전 재봉헌 (요 10:22)</li>
+        <li><strong>헤롯 4인:</strong> 대왕(탄생·학살) · 안디바(요한 참수) · 아그립바1세(야고보 순교) · 아그립바2세(바울 재판)</li>
+        <li><strong>바울서신 순서 = 분량 순.</strong> 로마서가 맨 앞인 이유 = 분량이 가장 많기 때문.</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div class="footer-l">한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 2026학년도 1학기</div>
+    <div class="footer-r">3주차 강의노트 · 4 / 4</div>
+  </div>
 </div>
-<div class="section">
-  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
-  <div class="section-body"><ul class="note-list"><li>시험 대비 — 영지주의 2대 특징(이원론·지식 구원)과 나그함마디(이집트, 1945년) 반드시 암기</li><li>시험 대비 — 바리새인 vs 사두개인: 구전율법·부활·천사 인정 여부가 핵심 구분 기준</li><li>시험 대비 — 샴마이(엄격·문자적) / 힐렐(자유·취지 중심) / 가말리엘(힐렐의 손자) / 바울(가말리엘의 제자) 계보 숙지</li><li>시험 대비 — 수전절: 안티오쿠스 4세 → 마카비 전쟁 → BC 164년 성전 재봉헌 (요 10:22)</li><li>시험 대비 — 헤롯 4인·총독 3인의 각각의 역할과 관련 본문 구분</li><li>4주차 예습 — 마태복음 1–7장 통독 (족보, 탄생, 산상수훈 포함)</li><li>4주차 예습 — 마태복음과 누가복음의 족보(마 1장 vs 눅 3장) 차이점 비교 준비</li><li>용어집 후보 메모 — 이번 주 등장 용어: 정경(Canon), 본문비평(Textual Criticism), 석의(Exegesis), 자기해석(Eisegesis), 영지주의(Gnosticism), 가현설(Docetism), 데미우르고스 등</li><li>석의(Exegesis)와 자기해석(Eisegesis)은 한글 뜻풀이("꺼내기" vs "집어넣기")로 내재화할 것</li></ul></div>
-</div>
-  
-</div>
+
 </body>
 </html>
