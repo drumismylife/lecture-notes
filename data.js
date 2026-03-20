@@ -66,7 +66,9 @@ const SITE_DATA = {
         { week: 3, title: "신 존재 증명 — 우주론적 논증", date: "2026.03", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week01.html" }
           ] },
-        { week: 4, title: "신 존재 증명 — 목적론적 논증", date: "2026.04", files: [] },
+        { week: 4, title: "신 존재 증명 — 목적론적 논증", date: "2026.04", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week03.html" }
+          ] },
         { week: 5, title: "악의 문제", date: "2026.04", files: [] },
         { week: 6, title: "종교 언어 — 비트겐슈타인", date: "2026.04", files: [] },
         { week: 7, title: "신앙과 이성의 관계", date: "2026.04", files: [] },
