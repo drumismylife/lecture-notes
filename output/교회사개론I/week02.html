@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>교회사개론I — 02주차</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
+  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
+  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
+  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
+.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
+.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
+.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
+.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
+.header h1 span{color:var(--gold);}
+.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
+.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
+.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
+.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
+@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
+.section-icon{font-size:1.1rem;flex-shrink:0;}
+.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
+.section-body{padding:1.4rem;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
+thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
+tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
+tbody tr:hover{background:rgba(212,160,23,.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
+tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
+.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{font-weight:700;color:var(--deep-brown);}
+.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
+.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
+.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
+.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
+.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
+.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+.alert strong{color:var(--rust);}
+.key-points{display:flex;flex-direction:column;gap:.9rem;}
+.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
+.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
+.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
+.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
+.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
+.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
+.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
+.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
+.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
+.note-list{list-style:none;padding:0;}
+.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
+.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
+.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
+.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
+.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.next-week p{font-size:.82rem;opacity:.75;}
+.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
+@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="week-badge">02주차 · 2026-03-20</div>
+    <div class="course-label">한국침례신학대학교 · 교회사개론I</div>
+    <h1>교회사개론I</h1>
+    
+  </div>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="section">
+  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
+  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>학습 주제</td><td>기독교 형성과 사도시대 (I)</td></tr><tr><td>학습 목표</td><td>예수와 유대교의 연관성 이해, 유대교 분파의 특성 파악</td></tr><tr><td>영상 자료</td><td>유튜브 세계테마여행 — 역사의 땅 이스라엘, 예루살렘</td></tr><tr><td>핵심 성경</td><td>사도행전 2:9–11 / 마태복음 10:5–7 / 15:24 / 요한복음 4:21 / 사도행전 15:19–20</td></tr><tr><td>주요 개념</td><td>디아스포라, 70인역(LXX), 회당, 할례와 침례, 유대교 분파</td></tr></tbody></table></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>역사적 맥락</h2></div>
+  <div class="section-body"><div class="prose"><p>이스라엘의 역사는 BC 722년 북왕국의 앗수르 멸망에서 결정적 전환점을 맞는다. 여로보암의 독립 선언 이후 북왕국은 벧엘과 단에 금송아지를 세우고, 아합왕 때 사마리아로 수도를 옮겨 <strong>바알 신전</strong>을 세우는 등 우상숭배를 거듭했다. 결국 앗수르는 북왕국을 멸망시키고 <strong>흩어짐 정책과 혼혈 정책</strong>을 시행했고, 이것이 사마리아인 문제와 디아스포라의 기원이 된다. BC 586년 남왕국 유다마저 <strong>신바벨론 제국</strong>에 멸망하면서 지도자들이 포로로 끌려간다(바빌론 유수). BC 539년 페르시아(바사) 제국 고레스왕의 귀환 칙령이 내려졌으나 일부만 돌아왔고, 나머지 유대인들은 지중해 전역으로 흩어져 <strong>디아스포라 유대인</strong>을 형성했다. 이들이 가장 많이 모여 산 곳이 <strong>알렉산드리아</strong>였다.</p>
+<div class="quote-block"><p>기독교의 뿌리는 유대교에 있으나, 교회의 새로운 시작은 예수 그리스도로부터이며, 교회를 확산시킨 사람은 사도 바울이다.</p><div class='quote-sub'>— 김태식 교수</div></div>
+<p>바벨론 포로 귀환 이후 이스라엘 백성은 망한 원인을 성찰하며 회개운동을 일으킨다. "율법을 안 지키고 이방신을 섬겼기 때문"이라는 자각 속에서 율법 중심의 <strong>유대교</strong>가 형성된다. 유대교는 고대 이스라엘 왕국 시대에 생긴 것이 아니라 이 귀환 이후의 갱신운동 결과물이다. 디아스포라 유대인들은 예루살렘 성전에 갈 수 없어 각 항구도시마다 <strong>회당(Synagogue)</strong>을 세웠다. 사도 바울의 전도여행은 바로 이 회당 네트워크를 기반으로 이루어졌다. 회당에서 복음을 전하다 쫓겨난 신자들이 <strong>가정교회</strong>를 시작했고, 그중 <strong>안디옥 교회</strong>가 가장 크게 성장했다. 정체성 혼돈 속에서 "우리는 유대인이 아니라 예수 그리스도를 믿는 사람들"이라는 자의식이 안디옥에서 형성되며 <strong>'크리스찬(Χριστιανός)'</strong> 이라는 호칭이 처음 사용된다. 부흥하는 안디옥 교회에서 바나바가 다소에 은거하던 사울을 데려와 동역하면서 제1차 전도여행이 시작된다. 기독교와 유대교의 결별은 두 요인으로 촉발된다. 첫째, 사도 바울이 이방인에게 <strong>할례와 희생제사 없이</strong> 교회 입문을 허락한 것. 공중목욕탕 문화의 로마 사회에서 할례는 사실상 불가능한 요구였다. 둘째, <strong>메시아 견해 차이</strong> — 그리스도인은 메시아가 이미 오셨다고 믿고, 유대인은 아직이라고 믿었다. 예루살렘 공의회(행 15장)에서 야고보의 주도 하에 할례 요구 없이 이방인의 교회 입문을 공식 허락함으로써 기독교는 유대교의 울타리를 넘어 보편 종교로 확장된다.</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>인물 / 사건 연표</h2></div>
+  <div class="section-body"><table><tbody><tr><td>연도</td><td>인물 / 사건</td><td>역사적 의의</td></tr><tr><td>BC 930경</td><td>여로보암, 북왕국 독립 선언·벧엘·단에 금송아지 설치</td><td>북왕국 우상숭배의 시작</td></tr><tr><td>BC 870경</td><td>아합왕, 수도를 사마리아로 이전·바알 신전 건축</td><td>엘리야와의 대결 배경</td></tr><tr><td>BC 722</td><td>북왕국 이스라엘, 앗수르(아시리아)에 멸망</td><td>흩어짐 정책·혼혈 정책 → 사마리아인·디아스포라 기원</td></tr><tr><td>BC 586</td><td>남왕국 유다, 신바벨론에 멸망</td><td>바빌론 유수, 예루살렘 솔로몬 성전 파괴</td></tr><tr><td>BC 539</td><td>페르시아 고레스왕, 귀환 칙령</td><td>일부 귀환(에스라·느헤미야)·다수는 지중해에 잔류 → 디아스포라 확산</td></tr><tr><td>BC 516</td><td>제2성전(스룹바벨 성전) 완성</td><td>사마리아인의 방해 속 재건, 에스라 3–6장</td></tr><tr><td>BC 300–BC 100</td><td>70인역(LXX) 알렉산드리아에서 번역</td><td>히브리어 구약→헬라어 번역, 외경 포함, 디아스포라 필요</td></tr><tr><td>BC 19</td><td>헤롯 대왕, 제3성전 건축 시작</td><td>외형 9년 완성, 내부 AD 63년 완성</td></tr><tr><td>AD 30경</td><td>오순절, 성령 강림·예루살렘 교회 형성</td><td>디아스포라 유대인 전 지중해에서 집결(행 2:9–11)</td></tr><tr><td>AD 40–60경</td><td>바울·바나바, 안디옥 교회 동역·전도여행</td><td>'크리스찬' 호칭 최초 사용, 가정교회 확산</td></tr><tr><td>AD 49경</td><td>예루살렘 공의회(행 15장)</td><td>이방인 할례 불요 결정 → 기독교-유대교 공식 결별</td></tr><tr><td>AD 70</td><td>로마군, 예루살렘 성전 파괴</td><td>모든 분파 소멸, 바리새파만 얌니아에서 존속</td></tr><tr><td>AD 73</td><td>마사다 최후 항전</td><td>열심당·에센파 등 소멸</td></tr><tr><td>AD 90</td><td>얌니아 회의</td><td>바리새파 랍비들, 구약 히브리어 정경 24권(=39권) 확정·70인역 거부</td></tr><tr><td>AD 395</td><td>동서 교회, 신약성경 정경 공식 확정</td><td>2–4세기에 걸친 정경화 과정의 완성</td></tr><tr><td>AD 405</td><td>히에로니무스(제롬), 불가타(Vulgata) 완성</td><td>라틴어 성경·로마 가톨릭 공식 성경</td></tr></tbody></table></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
+  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>디아스포라의 기원과 확산</strong><p>BC 722년(북왕국 멸망)부터 시작. 앗수르의 흩어짐·혼혈 정책 → 사마리아인 발생. BC 586년 남왕국 멸망 후 더 확산. 알렉산드리아에 가장 많이 집중 거주.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>세 언어의 층위</strong><p>구약=히브리어, 예수님 당시 일상=아람어(엘리 엘리 라마 사박다니·달리다굼·에바다), 로마 제국 공용어=헬라어(신약 기록 언어). 디아스포라가 히브리어를 잊어 70인역 탄생.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>70인역(LXX)과 외경 논쟁</strong><p>72명(12지파 × 6명)이 알렉산드리아에서 번역했으나 '70인역'으로 통칭. 외경 포함. 아우구스티누스는 외경 인정 → 가톨릭이 따름(연옥설 근거). 종교개혁가들은 외경 제외 → 개신교 불인정.</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>유대교의 형성</strong><p>고대 이스라엘 왕국 시대의 산물이 아님. 바벨론 포로 귀환 이후 회개운동·갱신운동의 결과로 율법 중심의 유대교 성립. 히브리인(강 건너온 자) ≠ 유대인(바벨론 이후 율법 중심 공동체).</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>회당 → 가정교회 → 지역교회</strong><p>디아스포라 유대인들이 항구도시마다 회당 건립. 바울이 회당 중심으로 복음 전파. 회당에서 쫓겨난 신자들이 가정교회 시작(빌립보·에베소·고린도·로마 교회 등). 안디옥이 최대 규모.</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>유대교 분파 비교 — 일제강점기 독립운동과 유사한 구조</strong><p>사두개파(친로마 협력·부활 부인·모세오경만 인정), 바리새파(율법 엄수·구전율법까지·부활 믿음·AD 70 이후 유일하게 얌니아에서 존속), 에센파(쿰란 사막 공동체·묵시사상·정결의식 발달→침례 기원과 연관·AD 73 마사다 소멸), 열심당(무력투쟁·제자 시몬이 출신), 헤롯파(헤롯 왕족 지지·친로마).</p></div></div><div class="key-point"><div class="key-num">07</div><div class="key-text"><strong>기독교-유대교 결별의 두 축</strong><p>①할례·희생제사 폐지(예루살렘 공의회, 행 15:19–20) ②메시아 견해 차이(이미 오심 vs. 아직). 결별 이후 기독교는 유대교가 갈 수 없던 지중해 전역으로 확장.</p></div></div><div class="key-point"><div class="key-num">08</div><div class="key-text"><strong>산헤드린 공회와 바울</strong><p>회원 자격: 30세 이상 + 자녀 있어야. 바울이 회원이었음(스데반 순교에 투표, 공문 수령). → 바울 결혼 경험 가능성 논쟁('돌싱설').</p></div></div></div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
+  <div class="section-body"><ul class="note-list"><li>다음 주(3주차) 강의 전 사도행전 15장 전체 통독 — 예루살렘 공의회 결정 흐름 파악</li><li>사도 바울의 1·2·3차 전도여행 지도 확인 — 항구도시 중심 경로 숙지</li><li>『성서적 침례론』(레슬리 머레이 저, 임원주 역) 도서관 열람 — 침례 기원 심화 학습</li><li>독서보고서 도서(김태식, 『최근 미 남침례회 주요 논쟁』) 구매 후 독서 시작 준비(5주차부터 본격 독서)</li><li>유대교 분파 5종 핵심 특징 암기 — 중간고사 단답·OX 출제 유력</li></ul></div>
+</div>
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>신약성서I — 01주차</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
+  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
+  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
+  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
+.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
+.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
+.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
+.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
+.header h1 span{color:var(--gold);}
+.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
+.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
+.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
+.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
+@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
+.section-icon{font-size:1.1rem;flex-shrink:0;}
+.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
+.section-body{padding:1.4rem;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
+thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
+tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
+tbody tr:hover{background:rgba(212,160,23,.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
+tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
+.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{font-weight:700;color:var(--deep-brown);}
+.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
+.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
+.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
+.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
+.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
+.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+.alert strong{color:var(--rust);}
+.key-points{display:flex;flex-direction:column;gap:.9rem;}
+.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
+.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
+.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
+.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
+.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
+.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
+.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
+.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
+.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
+.note-list{list-style:none;padding:0;}
+.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
+.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
+.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
+.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
+.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.next-week p{font-size:.82rem;opacity:.75;}
+.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
+@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="week-badge">01주차 · 2026-03-20</div>
+    <div class="course-label">한국침례신학대학교 · 신약성서I</div>
+    <h1>신약성서I</h1>
+    
+  </div>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="section">
+  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
+  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>강의 주제</td><td>신구약 중간기(Intertestamental Period) & 수전절(Ḥănukkāh)</td></tr><tr><td>시간 범위</td><td>BC 400년경(말라기) ~ BC 4년경(예수 탄생) — 약 400년</td></tr><tr><td>핵심 절기</td><td>수전절(하누카) — 마카비 혁명 이후 성전 재봉헌 기념</td></tr><tr><td>신약 연결 본문</td><td>요한복음 10:22~23</td></tr><tr><td>외경 자료</td><td>마카비 1서 4:36~59 / 마카비 2서 10:1~8</td></tr><tr><td>핵심 인물</td><td>안티오쿠스 4세 에피파네스 / 맛다디아스 / 유다 마카비</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>본문 분석</h2></div>
+  <div class="section-body"><table><tbody><tr><td>시기</td><td>지배 세력</td><td>주요 사건</td></tr><tr><td>BC 400~332</td><td>페르시아</td><td>유대 자치 허용, 토라 중심 공동체 형성</td></tr><tr><td>BC 332~323</td><td>알렉산더 대왕</td><td>헬레니즘 문화 강제 유입, 코이네 헬라어 확산</td></tr><tr><td>BC 323~198</td><td>프톨레마이오스(이집트)</td><td>상대적 관용 정책, 70인역(LXX) 번역 시작</td></tr><tr><td><strong>BC 198~164</strong></td><td><strong>셀레우코스(시리아)</strong></td><td><strong>헬레니즘화 강요 → 안티오쿠스 4세의 박해</strong></td></tr><tr><td>BC 164~63</td><td>하스몬 왕조</td><td>마카비 혁명 승리, 유대 독립 왕국 재건</td></tr><tr><td>BC 63~</td><td>로마</td><td>폼페이우스의 예루살렘 정복, 헤롯 왕조 등장</td></tr><tr><td>문헌</td><td>내용</td></tr><tr><td>마카비 1서 4:36~59</td><td>성전 재봉헌과 8일 절기 제정 기록</td></tr><tr><td>마카비 2서 10:1~8</td><td>"빛의 절기"라는 명칭 등장</td></tr><tr><td>요한복음 10:22~23</td><td>신약에서의 유일한 수전절 언급</td></tr></tbody></table><div class="prose"><p>### I. 신구약 중간기 (Intertestamental Period) 구약의 마지막 책 말라기(BC 400년경)로부터 신약의 시작인 예수님 탄생(BC 4년경)까지의 <strong>약 400년간의 공백기</strong>다. 이 시기에는 정경적 계시가 중단되었으나, 유대 민족의 정치·종교·문화는 오히려 격동적으로 전개되었다. 신약성서를 이해하기 위해서는 이 시기의 역사적 흐름을 반드시 파악해야 한다. <strong>역사적 지배 세력의 변천:</strong> 셀레우코스 시대(BC 198~164)가 특히 중요하다. 이 시기의 극심한 박해가 마카비 혁명을 촉발했으며, 이것이 곧 수전절의 기원이 된다. <strong>신학적 의의 — 중간기가 신약에 미친 세 가지 영향:</strong> 첫째, <strong>종파 형성</strong>이다. 회당(시나고그) 제도가 정착되고 바리새파·사두개파·에세네파 등 유대교 주요 종파들이 이 시기에 형성된다. 예수님 당시 이들과의 갈등은 중간기의 역사적 산물이다. 둘째, <strong>묵시 문학의 발전</strong>이다. 다니엘서 전통의 묵시 문학이 박해 시대를 거치며 발전하여, 신약의 종말론적 언어와 사상의 배경이 된다. 셋째, <strong>복음 전파의 인프라 마련</strong>이다. 헬라어의 공용어화(코이네 헬라어)와 로마의 행정·도로 체계 정비는 바울 이후 복음이 지중해 전역으로 확산되는 문화적 기반이 된다.</p>
+<div class="quote-block"><p>말라기 이후 400년은 하나님의 침묵이 아니라 복음을 위한 준비였다.</p><div class='quote-sub'>— 강의 핵심 관점</div></div>
+<p>--- ### II. 수전절(하누카, Ḥănukkāh) 히브리어 <strong>חֲנֻכָּה</strong>는 "봉헌·재헌납"을 의미한다. 마카비 혁명 이후 예루살렘 성전을 재정결·재봉헌한 사건을 기념하는 유대 절기로, <strong>"빛의 절기"</strong>라고도 불리며 8일간 거행된다. <strong>배경 — 안티오쿠스 4세 에피파네스(Ἐπιφανής)의 박해:</strong> 셀레우코스 왕조의 안티오쿠스 4세는 스스로를 "에피파네스"(신의 현현)라 칭했으나, 유대인들은 그를 <strong>"에피마네스"(ἐπιμανής, "미친 자")</strong>라 불렀다. 그의 박해 조치는 다음과 같다: - BC 167년 예루살렘 성전에 <strong>제우스 제단</strong> 설치 및 돼지 제물 강요 - 안식일·할례·토라 소지 <strong>금지령</strong> 선포 - 유대 신앙을 지키는 자 <strong>처형</strong> <strong>마카비 혁명 (BC 167~164):</strong> 제사장 <strong>맛다디아스</strong>와 그의 아들 <strong>유다 마카비(유다 마카베오)</strong>가 시리아 군대에 항거하여 게릴라 전투를 전개했다. BC 164년, 유다 마카비가 예루살렘을 탈환하고 오염된 성전을 <strong>정결케 하여 재봉헌</strong>하였다 — 이것이 수전절의 직접적 기원이다. 탈무드에는 하루치 기름으로 성전 등불이 <strong>8일간</strong> 탔다는 기적 전승이 전해지며, 이것이 8일 절기의 유래가 된다. <strong>신약 성경 근거:</strong></p>
+<div class="quote-block"><p>예루살렘에 수전절이 이르니 때는 겨울이라 예수께서 성전 안 솔로몬 행각에서 다니시니</p><div class='quote-sub'>— 요 10:22~23 (개역개정)</div></div>
+<p>요한복음 10장에서 예수님은 수전절 기간에 성전에 계시며 자신이 <strong>"양의 문"이자 "선한 목자"</strong>임을 선언하신다. 이는 단순한 배경 묘사가 아니라 신학적으로 치밀하게 배치된 장면이다. 성전 재봉헌을 기념하는 바로 그날, 예수님이 성전 행각에 서서 <strong>"나는 선한 목자다"</strong>라고 선언하심으로써 자신이 곧 새 성전(요 2:21)이며 참된 빛(요 8:12)임을 암시하신다. <strong>문헌 근거:</strong></p>
+<div class="quote-block"><p>※ 마카비 1·2서는 **외경(外典)**으로 개신교 정경에는 포함되지 않으나, 신구약 중간기 역사 이해의 **1차 사료**로서 학문적으로 폭넓게 활용된다.</p></div>
+<p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>원어 분석</h2></div>
+  <div class="section-body"><table><tbody><tr><td>헬라어</td><td>발음</td><td>의미</td><td>신학적 함의</td></tr><tr><td>חֲנֻכָּה (히)</td><td>하누카</td><td>봉헌·재헌납</td><td>성전을 다시 드림 → 예수님의 자기 헌신과 연결</td></tr><tr><td>Ἐπιφανής</td><td>에피파네스</td><td>신의 현현</td><td>안티오쿠스의 자기신격화 — 요한복음의 참 로고스와 대비</td></tr><tr><td>ἐπιμανής</td><td>에피마네스</td><td>미친 자</td><td>유대인의 저항적 언어유희</td></tr><tr><td>Ἱστορία</td><td>히스토리아</td><td>역사·탐구</td><td>신약 배경 이해의 방법론적 기초</td></tr><tr><td>κοινή</td><td>코이네</td><td>공통의·공용의</td><td>헬라어 공용어화 → 신약 기록 언어의 배경</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
+  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>400년의 침묵은 준비였다</strong><p>정경적 계시는 중단되었으나, 헬라어 보급·로마 도로망·회당 제도·묵시 문학 발전은 모두 복음이 퍼져나갈 토양을 준비하는 과정이었다. 중간기는 '공백'이 아니라 '섭리적 준비기'다.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>안티오쿠스 박해 → 마카비 혁명 → 수전절 → 요한복음</strong><p>이 역사적 연결고리를 반드시 암기할 것. 요 10:22의 수전절 언급은 단순한 시간 표기가 아니라, 성전 신학·기독론과 연결된 신학적 장치다.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>외경의 학문적 활용</strong><p>마카비 1·2서는 개신교 정경 밖에 있지만, 중간기 역사의 핵심 1차 자료다. 신약학에서는 정경 여부와 무관하게 역사적 배경 이해를 위해 적극 참조한다.</p></div></div></div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
+  <div class="section-body"><div class="prose"><p>- 다음 주(3/12) 주제는 <strong>로마 세계·유대 세계</strong> — 헤롯 대왕·헤롯 안디바·빌라도 등 인물 관계 미리 파악 - 바리새파·사두개파·에세네파의 기본 차이점을 교재로 예습 - 수전절(요 10:22)과 요한복음 성전 신학의 연결 고리를 다음 주 복음서 논의 전까지 정리해두기 - 용어집 후보 단어 메모: <strong>헬레니즘, 코이네 헬라어, 70인역(LXX), 묵시 문학, 하스몬 왕조</strong> ---</p>
+<div class="quote-block"><p>**⭐ 오늘의 핵심 신학 개념 3가지**</p></div>
+<div class="quote-block"><p></p></div>
+<div class="quote-block"><p>1. **헬레니즘(Hellenism)**</p><div class='quote-sub'>— 알렉산더 이후 그리스 문화·언어·사상이 지중해 세계 전역에 퍼진 현상. 코이네 헬라어를 통한 신약 복음 전파의 문화적 토양이 된다.</div></div>
+<div class="quote-block"><p>2. **마카비 혁명(Maccabean Revolt)**</p><div class='quote-sub'>— 이방 권력의 종교 탄압에 맞선 유대 저항 운동. 하스몬 왕조를 낳고 유대 민족주의·묵시 문학 발전의 직접적 계기가 된다.</div></div>
+<div class="quote-block"><p>3. **수전절/하누카(Ḥănukkāh)**</p><div class='quote-sub'>— 성전 재봉헌을 기념하는 절기. 요한복음 10장의 배경으로, 예수님이 참된 성전·선한 목자이심을 선포하시는 신학적 맥락을 제공한다.</div></div>
+</div></div>
+</div>
+  
+</div>
+</body>
+</html>
