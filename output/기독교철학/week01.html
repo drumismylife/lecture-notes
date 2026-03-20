@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>기독교철학 — 01주차</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
+  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
+  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
+  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
+.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
+.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
+.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
+.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
+.header h1 span{color:var(--gold);}
+.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
+.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
+.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
+.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
+@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
+.section-icon{font-size:1.1rem;flex-shrink:0;}
+.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
+.section-body{padding:1.4rem;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
+thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
+tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
+tbody tr:hover{background:rgba(212,160,23,.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
+tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
+.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{font-weight:700;color:var(--deep-brown);}
+.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
+.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
+.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
+.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
+.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
+.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+.alert strong{color:var(--rust);}
+.key-points{display:flex;flex-direction:column;gap:.9rem;}
+.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
+.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
+.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
+.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
+.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
+.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
+.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
+.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
+.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
+.note-list{list-style:none;padding:0;}
+.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
+.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
+.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
+.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
+.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.next-week p{font-size:.82rem;opacity:.75;}
+.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
+@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="week-badge">01주차</div>
+    <div class="course-label">한국침례신학대학교 · 기독교철학</div>
+    <h1>기독교철학</h1>
+    
+  </div>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="section">
+  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
+  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>강의 주제</td><td>종교란 무엇인가? (Quid est Religio?) — 종교론 종합</td></tr><tr><td>핵심 비유</td><td>렘브란트의 자화상 — 텍스트(거울)와 자기 서사(화포)</td></tr><tr><td>수업 구조</td><td>① 프로토콜(리마인드 20분) → ② 이론 강의 → ③ 프락시스 활동</td></tr><tr><td>주요 인물</td><td>후설(Husserl), 루돌프 오토(Otto), 미르치아 엘리아데(Eliade)</td></tr><tr><td>핵심 개념</td><td>종교현상학, 누미노제(Numinose), 성(聖)과 속(俗), 宗敎 한자 어원</td></tr><tr><td>강의 목표</td><td>철학적 방법론으로 종교를 비판적으로 탐구하되, 자기 언어로 자기 서사를 써나가는 것</td></tr><tr><td>특이사항</td><td>AI 생성 문체는 교수가 식별 가능. 과제·활동지는 반드시 자기 언어로 작성할 것</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📖</span><h2>강의 내용</h2></div>
+  <div class="section-body"><div class="prose"><p>### 1. 수업 방법론 — 세 가지 축 이 과목은 세 가지 축으로 진행된다. 첫째, <strong>프로토콜</strong>: 매 수업 전 20분간 이전 내용을 리마인드하며, 기록 없이는 잊는다는 전제 아래 누적적 메모 습관을 형성한다. 둘째, <strong>이론 강의</strong>: 철학자별 이론을 강의 형식으로 다루되, 단순 암기가 아닌 방법론을 익혀 적용하는 것을 목표로 한다. 셋째, <strong>프락시스 활동</strong>: 자신의 생각을 표현하고 타인의 생각을 듣고 이해하는 활동으로, 나와 타자를 더 깊이 알아가는 과정이다. 인원이 많아 매번 진행이 어려울 수 있다. ### 2. 전문인의 학문적 자세 교수는 학문적 전문인의 태도를 명확하게 제시했다. 갖춰야 할 것으로는, <strong>내 주장을 하기 전 반대 주장을 먼저 탐색</strong>하는 것, KCI 논문 등 검증된 자료 2편 이상 확인하는 것, 상대 논거를 조목조목 검토해 반박하는 것, 성경적 근거와 철학적 근거를 함께 세우는 것, 확신이 없을 때 "잠시 멈춤"으로 근거 확인 후 답변하는 것, <strong>내가 틀릴 수도 있다는 가정을 항상 유지</strong>하는 것이 있다. 반면 피해야 할 태도로는, 근거 없는 감정적 반응("이거 싫어"), 자기 경험과 주장만 반복하는 단원적 사고, AI 결과를 그대로 복붙하는 자기 없는 글쓰기, 지나친 절대화, 다름을 이유로 대화 자체를 거부하는 것, 한 번의 경험이 자신을 지배하도록 방치하는 것이 있다. <strong>AI 사용에 대한 당부:</strong> GPT·Claude·Gemini 등의 문체는 교수가 식별 가능하다. AI는 참고 자료로만 활용하고, 과제와 프락시스활동지는 반드시 자기 언어로 작성해야 한다. 조금 모자라더라도 자신의 생각을 쓰는 것이 성장의 증거이며, 신학대학에서 자기를 속이는 것은 하나님 앞에서도 문제라고 교수는 강조했다. ### 3. 기독교철학 강의 6대 목표 이 과목에서 다루는 주제는 넓다. 신존재론·신정론·종교 경험·종교 언어 등 종교철학의 주요 문제를 익히고, 유신론·무신론·불가지론 등 다양한 관점을 철학적으로 탐구한다. 철학적 방법론으로 종교적 신념을 검토하는 연습을 하고, 종교적 신념과 윤리적 가치의 관계를 탐구한다. 아울러 종교와 과학, 세속주의, 종교적 다원주의 등 현대적 주제를 철학적으로 논의하고, 종교적 신념이 사회·문화·정치에 미치는 영향을 탐구한다. ### 4. 텍스트와 자기 인식 — 렘브란트 자화상 비유 이 과목의 핵심 철학은 렘브란트의 자화상 비유로 압축된다. 자신을 화포에 그리려면 <strong>거울</strong>이 필요하듯, 크리스천에게 그 거울은 성경이며 동시에 철학·심리학 텍스트이다. 텍스트 없이는 내가 누구인지 알 수 없다. 렘브란트가 100여 편의 자화상에서 주름과 눈빛을 자기 해석으로 표현했듯, 텍스트를 읽고 나만의 언어로 자기 이야기를 써나가는 것이 이 수업의 핵심 훈련이다. 텍스트는 네 가지를 준다. ① <strong>자기 인식의 1차 열쇠</strong> — 텍스트 앞에 나를 세움으로써 내가 어떤 사람인지 알게 된다. ② <strong>다른 관점에서 세상을 보는 힘</strong> — 칸트·레비나스·니체 등 다양한 시선으로 세계를 바라보는 능력이 생긴다. ③ <strong>비교를 통한 자기 발견</strong> — 공자·예수·플라톤·칸트의 삶과 나의 삶을 비교하면서 자기를 새롭게 인식한다. ④ <strong>존재 가능성의 지평 확장</strong> — 고대와 현대 텍스트의 해석 충돌을 통해 더 넓은 이해의 세계로 나아간다. 10살에 읽은 요한복음과 40살에 읽은 요한복음이 똑같다면 성장하지 않은 것이다. 우리 몸과 정신은 끊임없이 변하며, 텍스트도 다시 읽을 때마다 새롭게 해석되어야 한다. ### 5. 종교철학이란 무엇인가? <strong>신학</strong>은 특정 종교의 교리를 연구·발전시키는 학문인 반면, <strong>종교철학</strong>은 종교의 본질, 신의 존재, 신앙과 이성의 관계, 윤리와 종교의 연결, 사후세계 등을 이성적·비판적 관점에서 탐구하는 학문이다. 특정 종교의 교리를 따르는 것이 아니라는 점에서 신학과 구분된다. 이 수업에서 탐구하는 핵심 질문들은 다음과 같다: 신앙은 이성과 양립할 수 있을까? 종교적 신념이 도덕·윤리에 반드시 필요한가? 모든 종교는 궁극적으로 같은 진리를 향하는가? 세속화된 사회에서도 종교가 중요한 이유는? 무신론도 하나의 종교적 신념으로 볼 수 있을까? ### 6. 종교현상학 — 후설·오토·엘리아데 <strong>종교현상학</strong>은 종교적 경험과 신앙을 기술적·비교적 관점에서 연구하는 학문으로, 종교적 현상을 있는 그대로 분석하고 이해하는 것이 목표다. 세 가지 방법론적 원칙은 ① 방법론적 중립성, ② 본질적 구조 탐색, ③ 성스러운 것과 속된 것의 구분이다. <strong>에드문트 후설(Edmund Husserl)</strong> 은 현상학의 창시자로, 경험을 있는 그대로 기술하는 방법론을 제시했다. 선입견을 괄호 치는(<strong>에포케, epoché</strong>) 방법으로 현상 자체로 돌아가자는 철학의 기초를 놓았다. <strong>루돌프 오토(Rudolf Otto)</strong> 는 종교적 경험을 <strong>누미노제(Numinose)</strong> 개념으로 설명했다. 누미노제란 초월적이고 신비로운 체험으로, 경외(tremendum)와 매혹(fascinans)이 동시에 일어나는 '거룩한 것'의 경험이다. <strong>미르치아 엘리아데(Mircea Eliade)</strong> 는 종교적 경험을 성스러움을 경험하는 과정으로 보았다. 모든 종교는 <strong>성(聖, sacrum)과 속(俗, profanum)</strong> 을 구분하며, 신화와 의식을 통해 이를 표현한다. 성스러움이 세속적 공간에 나타나는 것을 <strong>히에로파니(Hierophany, 성현, 聖顯)</strong> 라고 부른다. ### 7. 宗敎 — 한자 어원 분석 <strong>宗(마루 종)</strong>: 집의 중심이 되는 마루, 높은 곳, 주요한 것. 갓을 쓰고 바라보는 방식에서 확장되어 '근본적인 것', '존경해야 할 대상', '최상의 존재'를 의미한다. <strong>敎(가르칠 교)</strong>: 가르침, 교육, 도덕적 가르침. 확장되면 특정 사상이나 철학을 전파하는 것, 삶의 방식을 이끄는 교훈을 뜻한다. <strong>宗敎</strong> = 최상의 존재에 관한 가르침과 전파. 근본적이고 존경해야 할 대상에 대한 교육과 실천이며, 단순한 믿음이 아니라 삶 전체를 아우르는 체계임을 어원이 보여준다. ---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>철학자 / 개념 비교</h2></div>
+  <div class="section-body"><table><thead><tr><th>구분</th><th>루돌프 오토</th><th>미르치아 엘리아데</th></tr></thead><tbody><tr><td>핵심 개념</td><td>누미노제(Numinose)</td><td>성(聖)과 속(俗), 히에로파니(Hierophany)</td></tr><tr><td>종교 경험의 성격</td><td>경외와 매혹이 동시에 일어나는 내면적 체험</td><td>성스러움이 세계 안에 드러나는 객관적 현현</td></tr><tr><td>초점</td><td>주체의 심리적·신비적 경험</td><td>공간·시간·신화·의식 등 종교 구조 전반</td></tr><tr><td>후설과의 관계</td><td>후설의 현상학적 방법론을 종교에 적용</td><td>비교종교학적 관점에서 현상학적 기술 활용</td></tr><tr><td>신학적 함의</td><td>거룩함은 이성으로 환원 불가능한 초월적 차원</td><td>모든 종교에 공통된 성-속 구분이 기독교에도 적용됨</td></tr><tr><td>구분</td><td>신학</td><td>종교철학</td></tr><tr><td>출발점</td><td>특정 종교의 신앙·계시</td><td>이성적·비판적 탐구</td></tr><tr><td>목적</td><td>교리의 이해와 발전</td><td>종교 자체의 본질 탐구</td></tr><tr><td>방법론</td><td>성경·교회 전통 중심</td><td>철학적 논증과 비교 분석</td></tr><tr><td>교리 전제</td><td>있음 (신앙 우선)</td><td>없음 (방법론적 중립)</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>논증 구조</h2></div>
+  <div class="section-body"><div class="prose"><div class="quote-block"><p>내가 나를 어떻게 그려나갈 것인가</p><div class='quote-sub'>— 성경이라는 거울 앞에 나를 세워 자기 서사를 써나가는 것이 이 과목의 본질이다." — 심상우 교수</div></div>
+<div class="quote-block"><p>[!NOTE] 텍스트와 자기 인식의 순환 논증 | **전제 1**: 자기를 알기 위해서는 자기를 비춰주는 거울(텍스트)이 필요하다. **전제 2**: 텍스트를 읽는 주체는 시간과 경험에 따라 끊임없이 변한다. **전제 3**: 따라서 동일한 텍스트도 다시 읽을 때마다 새로운 의미를 드러낸다. **결론**: 텍스트와 독자는 해석의 순환 속에서 서로를 변화시키며, 이 과정이 곧 자기 형성(self</p><div class='quote-sub'>— formation)이다. — 해석학적 순환의 교육적 적용</div></div>
+<div class="quote-block"><p>[!NOTE] 종교현상학의 방법론적 전제 | **전제 1**: 종교적 경험은 감각·이성으로 완전히 환원되지 않는 고유한 차원을 가진다(오토의 누미노제). **전제 2**: 모든 종교는 성(聖)과 속(俗)의 구분이라는 보편적 구조를 공유한다(엘리아데). **전제 3**: 이 구조는 선입견을 배제하고(에포케) 현상 자체를 기술함으로써 드러난다(후설). **결론**: 종교현상학은 특정 신앙을 전제하지 않고도 종교의 본질적 구조에 접근할 수 있다.</p></div>
+<p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
+  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>텍스트는 자기 인식의 거울</strong><p>성경과 철학 텍스트는 단순한 정보 습득 도구가 아니라 나 자신을 비추는 거울이다. 같은 텍스트를 다시 읽을 때 새로운 의미가 열린다면, 그것은 내가 성장했다는 증거다.</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>반대 주장을 먼저 이해하는 것이 전문인의 출발</strong><p>교수는 자기 주장을 하기 전 반대 논거를 탐색하라고 강조했다. 이는 단순한 학문적 예의가 아니라, 자신의 주장을 더 견고하게 만들기 위한 필수 과정이다.</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>누미노제(Numinose): 경외 + 매혹</strong><p>루돌프 오토의 핵심 개념. 거룩한 것은 두렵고(tremendum) 동시에 끌리는(fascinans) 양가적 체험이다. 기독교 신앙에서 하나님 앞에 서는 경험이 이에 해당한다.</p></div></div><div class="key-point"><div class="key-num">04</div><div class="key-text"><strong>성(聖)과 속(俗)의 구분 — 엘리아데</strong><p>모든 종교는 세계를 성스러운 영역과 일상적 영역으로 나눈다. 예배 공간, 안식일, 세례 등 기독교의 많은 실천이 이 구분 위에 서 있다.</p></div></div><div class="key-point"><div class="key-num">05</div><div class="key-text"><strong>宗敎 = 최상의 존재에 관한 가르침</strong><p>한자 어원 분석은 종교가 단순한 감정이나 믿음이 아니라, 삶 전체를 아우르는 구조적 체계임을 보여준다. 이는 기독교가 교리·윤리·예배·공동체를 통합하는 방식과 일치한다.</p></div></div><div class="key-point"><div class="key-num">06</div><div class="key-text"><strong>AI 글쓰기 경고: 자기 없는 글은 신학적으로도 문제</strong><p>교수는 AI 문체 식별이 가능하다고 명시했다. 프락시스활동지는 완성도보다 자기 목소리가 중요하다. 자기를 속이는 글쓰기는 하나님 앞에서도 정직하지 않은 행위라는 점을 기억할 것.</p></div></div></div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
+  <div class="section-body"><ul class="note-list"><li>교재 구매 확인: 릭켄 『리켄의 종교철학』, 이진남 『종교철학』 — 3주차부터 본격 필요</li><li>"나는 누구인가?"를 한 문단으로 자기 언어로 써보기 (프락시스 훈련의 첫 걸음)</li><li>종교에 대한 나만의 정의를 작성해보기: 한자 어원(宗敎) + 오토·엘리아데의 정의와 비교</li><li>3주차 예습: 비트겐슈타인의 <strong>언어 게임(Sprachspiel)</strong> 개념 사전 탐색, 종교적 언어(기도·찬송·설교)가 일상 언어와 어떻게 다른지 생각해오기</li><li>오늘 강의에서 가장 인상 깊은 한 문장을 직접 메모해두기 (프로토콜 습관 형성)</li><li>후설·오토·엘리아데 세 학자를 비교표에 미리 추가해 두면 시험 대비에 유리함</li></ul></div>
+</div>
+  
+</div>
+</body>
+</html>

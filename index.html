@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.Div 강의 아카이브</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#000;--surface:rgba(255,255,255,0.04);--surface-h:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.1);--border-h:rgba(255,255,255,0.2);
+  --text:#f5f5f7;--text2:rgba(245,245,247,0.56);--text3:rgba(245,245,247,0.3);
+  --gold:#d4a843;--gold-dim:rgba(212,168,67,0.3);
+  --r:18px;--r-sm:12px;--ease:cubic-bezier(0.25,0.46,0.45,0.94)
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:52px;background:rgba(0,0,0,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid rgba(255,255,255,0.12);display:flex;align-items:center}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.nav-logo{font-size:15px;font-weight:500;color:var(--text);white-space:nowrap;flex-shrink:0}
+.nav-logo span{color:var(--gold);font-weight:300}
+.nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:6px 14px;font-size:13px;font-weight:400;color:var(--text2);border-radius:20px;transition:all .2s var(--ease);white-space:nowrap;flex-shrink:0;cursor:pointer}
+.nav-tab:hover{color:var(--text);background:rgba(255,255,255,0.06)}
+.nav-tab.active{color:#fff;background:rgba(255,255,255,0.12);font-weight:500}
+.nav-school{font-size:12px;color:var(--text3);border:.5px solid var(--border);border-radius:20px;padding:5px 12px;transition:all .2s;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:5px}
+.nav-school:hover{color:var(--text2);border-color:var(--border-h)}
+
+/* PAGES */
+.page{display:none;padding-top:52px}
+.page.active{display:block}
+
+/* HERO */
+.hero{min-height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse at center,rgba(212,168,67,.08) 0%,transparent 70%);pointer-events:none}
+.hero-eye{font-size:13px;font-weight:400;color:var(--gold);letter-spacing:.04em;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.hero-eye::before,.hero-eye::after{content:'';display:block;width:24px;height:.5px;background:var(--gold-dim)}
+.hero-h1{font-family:'Noto Serif KR',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:12px}
+.hero-h1 .light{font-weight:300;font-family:-apple-system,sans-serif;font-size:.72em;color:rgba(255,255,255,.45);display:block;margin-top:6px;letter-spacing:.01em}
+.hero-sub{font-size:16px;font-weight:300;color:var(--text2);line-height:1.6;max-width:460px;margin:16px auto 0}
+
+/* SECTION */
+.divider{height:.5px;background:var(--border);max-width:1200px;margin:0 auto}
+.section{max-width:1200px;margin:0 auto;padding:64px 24px}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;height:.5px;background:var(--border)}
+
+/* COURSE GRID */
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ctile{background:var(--surface);padding:32px 28px;cursor:pointer;position:relative;overflow:hidden;transition:background .3s var(--ease);display:flex;flex-direction:column}
+.ctile:hover{background:var(--surface-h)}
+.ctile:nth-child(1){border-radius:var(--r) 0 0 0}
+.ctile:nth-child(3){border-radius:0 var(--r) 0 0}
+.ctile:nth-child(4){border-radius:0 0 0 var(--r)}
+.ctile:nth-child(5){border-radius:0 0 var(--r) 0}
+.ctile.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:32px}
+.ctile.wide .tc{flex:1}
+.tacc{width:3px;height:28px;border-radius:2px;margin-bottom:20px;transition:height .3s var(--ease)}
+.ctile:hover .tacc{height:36px}
+.tcode{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.ttitle{font-family:'Noto Serif KR',serif;font-size:1.25rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:4px}
+.teng{font-size:12px;color:var(--text3);margin-bottom:16px;font-style:italic}
+.tdesc{font-size:13px;color:var(--text2);line-height:1.7;flex:1}
+.tfoot{margin-top:24px;display:flex;align-items:center;justify-content:space-between}
+.tprog{font-size:12px;color:var(--text3)}
+.tprog strong{color:var(--text2);font-weight:500}
+.tcaret{font-size:18px;color:var(--text3);transition:transform .25s var(--ease),color .2s}
+.ctile:hover .tcaret{transform:translateX(4px);color:var(--text2)}
+.tapps{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.tapp-chip{font-size:11px;color:rgba(157,133,199,.8);border:.5px solid rgba(157,133,199,.3);border-radius:20px;padding:3px 10px;white-space:nowrap}
+.ag{background:#9d85c7}.am{background:#5b9abf}.ap{background:#68a87a}.an{background:#bf6b60}.ah{background:#b89d5a}
+
+/* DETAIL */
+.cdpage{min-height:100vh}
+.dhero{padding:60px 24px 40px;max-width:1200px;margin:0 auto;display:flex;align-items:flex-end;gap:20px;border-bottom:.5px solid var(--border)}
+.back-pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);background:var(--surface);border:.5px solid var(--border);border-radius:20px;padding:7px 16px;transition:all .2s;flex-shrink:0;margin-bottom:4px}
+.back-pill:hover{background:var(--surface-h);color:var(--text)}
+.dsup{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.dtitle{font-family:'Noto Serif KR',serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:4px}
+.ddesc{font-size:14px;color:var(--text2);line-height:1.7;max-width:600px}
+.dbody{max-width:1200px;margin:0 auto;padding:0 24px 80px}
+
+/* TOOLS */
+.trow{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;margin:40px 0 32px;border-radius:var(--r-sm);overflow:hidden}
+.ttile{background:var(--surface);padding:24px 22px;display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--text);transition:background .2s}
+.ttile:hover{background:var(--surface-h)}
+.tico{width:42px;height:42px;border-radius:10px;background:rgba(157,133,199,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.tname{font-size:14px;font-weight:500;color:#fff;margin-bottom:2px}
+.tnote{font-size:12px;color:var(--text3);line-height:1.5}
+.tnew{font-size:9px;font-weight:600;background:rgba(157,133,199,.25);color:#c4adf5;padding:2px 6px;border-radius:4px;margin-left:5px;vertical-align:middle}
+
+/* WEEKS */
+.wlist{display:flex;flex-direction:column;gap:1px;border-radius:var(--r-sm);overflow:hidden}
+.witem{background:var(--surface);overflow:hidden}
+.wtog{width:100%;display:flex;align-items:center;padding:16px 22px;gap:16px;background:none;border:none;text-align:left;color:var(--text);cursor:pointer;transition:background .18s}
+.wtog:hover{background:rgba(255,255,255,.03)}
+.wnum{font-size:11px;color:var(--text3);width:28px;flex-shrink:0}
+.wtxt{flex:1;font-size:14px;font-weight:400}
+.wdate{font-size:12px;color:var(--text3);flex-shrink:0}
+.wbadge{font-size:10px;padding:2px 8px;border-radius:10px;flex-shrink:0;font-weight:500}
+.wb-done{background:rgba(104,168,122,.18);color:#7bc994}
+.wb-partial{background:rgba(212,168,67,.15);color:#d4a843}
+.wb-empty{background:rgba(255,255,255,.05);color:var(--text3)}
+.wchev{font-size:10px;color:var(--text3);flex-shrink:0;transition:transform .2s var(--ease)}
+.witem.open .wchev{transform:rotate(90deg)}
+.wbody{display:none;padding:12px 22px 16px 66px;background:rgba(0,0,0,.2);border-top:.5px solid var(--border);flex-wrap:wrap;gap:8px}
+.witem.open .wbody{display:flex}
+.fchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);border:.5px solid var(--border);border-radius:20px;padding:6px 14px;background:var(--surface);transition:all .18s;text-decoration:none}
+.fchip:hover{background:var(--surface-h);border-color:var(--border-h);color:var(--text)}
+.nof{font-size:12px;color:var(--text3);font-style:italic}
+
+/* RESOURCES */
+.rhero{padding:60px 24px 48px;border-bottom:.5px solid var(--border)}
+.rhero-in{max-width:1200px;margin:0 auto}
+.rhero h2{font-family:'Noto Serif KR',serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:6px}
+.rhero p{font-size:14px;color:var(--text2)}
+.rgrp{max-width:1200px;margin:0 auto;padding:40px 24px 0}
+.rgrp:last-child{padding-bottom:80px}
+.rglbl{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.rglbl::after{content:'';flex:1;height:.5px;background:var(--border)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;border-radius:var(--r-sm);overflow:hidden}
+.rcard{background:var(--surface);padding:22px;display:flex;gap:14px;text-decoration:none;color:var(--text);transition:background .2s}
+.rcard:hover{background:var(--surface-h)}
+.rico{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;border:.5px solid var(--border)}
+.rname{font-size:13.5px;font-weight:500;color:#fff;margin-bottom:3px}
+.rdesc{font-size:12px;color:var(--text2);line-height:1.6}
+.rtag{display:inline-block;margin-top:7px;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500}
+.tag-greek{background:rgba(157,133,199,.2);color:#c4adf5}
+.tag-bible{background:rgba(191,107,96,.2);color:#e0958d}
+.tag-hist{background:rgba(184,157,90,.2);color:#d4b96e}
+.tag-gen{background:rgba(91,154,191,.2);color:#8ac4e0}
+.tag-yt{background:rgba(200,60,60,.2);color:#e87878}
+.tag-tool{background:rgba(255,255,255,.08);color:var(--text2)}
+.tag-phil{background:rgba(104,168,122,.2);color:#7bc994}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--border);padding:28px 24px}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3);gap:12px;flex-wrap:wrap}
+.flinks{display:flex;gap:18px}
+.flinks a{color:var(--text3);transition:color .15s}
+.flinks a:hover{color:var(--text2)}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.page.active .ctile,.page.active .ttile,.page.active .rcard{animation:fadeUp .4s var(--ease) both}
+.ctile:nth-child(1){animation-delay:.05s}.ctile:nth-child(2){animation-delay:.10s}.ctile:nth-child(3){animation-delay:.15s}.ctile:nth-child(4){animation-delay:.20s}.ctile:nth-child(5){animation-delay:.22s}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .cgrid{grid-template-columns:1fr 1fr}
+  .ctile:nth-child(1){border-radius:var(--r) 0 0 0}
+  .ctile:nth-child(2){border-radius:0 var(--r) 0 0}
+  .ctile:nth-child(3){border-radius:0}
+  .ctile:nth-child(4){border-radius:0 0 0 var(--r)}
+  .ctile:nth-child(5){border-radius:0 0 var(--r) 0}
+  .ctile.wide{grid-column:span 2;flex-direction:column;gap:0}
+}
+@media(max-width:600px){
+  .cgrid{grid-template-columns:1fr;border-radius:var(--r);overflow:hidden}
+  .ctile,.ctile.wide{grid-column:span 1;border-radius:0!important}
+  .nav-tabs{display:none}
+  .hero-h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">M.Div <span>Archive</span></div>
+    <div class="nav-tabs">
+      <div class="nav-tab active" data-page="home">전체 과목</div>
+      <div class="nav-tab" data-page="greek">헬라어 I</div>
+      <div class="nav-tab" data-page="min">목회학</div>
+      <div class="nav-tab" data-page="phil">기독교철학</div>
+      <div class="nav-tab" data-page="nt">신약성서 I</div>
+      <div class="nav-tab" data-page="hist">교회사개론 I</div>
+      <div class="nav-tab" data-page="resources">관련 자료</div>
+    </div>
+    <a class="nav-school" href="https://www.kbtus.ac.kr" target="_blank" rel="noopener">
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      한침신
+    </a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-eye">한국침례신학대학교 대학원 · 2026 Spring</div>
+    <h1 class="hero-h1">강의 아카이브<span class="light">M.Div Lecture Archive</span></h1>
+    <p class="hero-sub">5개 과목 · 주차별 강의노트 · 헬라어 학습 앱</p>
+  </section>
+  <div class="divider"></div>
+  <section class="section">
+    <div class="sec-label">2026학년도 1학기 수업 과목</div>
+    <div class="cgrid" id="cgrid"></div>
+  </section>
+</div>
+
+<!-- GREEK -->
+<div id="page-greek" class="page cdpage">
+  <div class="dhero"><button class="back-pill" onclick="showPage('home')">← 전체 과목</button>
+    <div><div class="dsup">LANG 101 · Koine Greek I</div><div class="dtitle">헬라어 I</div>
+    <div class="ddesc">코이네 그리스어 기초 문법. 알파벳부터 동사 변화까지, 신약 원문 독해를 위한 언어 기반을 다진다.</div></div>
+  </div>
+  <div class="dbody">
+    <div class="sec-label" style="margin-top:40px">헬라어 학습 앱</div>
+    <div class="trow" id="greek-tools"></div>
+    <div class="sec-label">주차별 강의 자료</div>
+    <div class="wlist" id="weeks-greek"></div>
+  </div>
+</div>
+
+<!-- MIN -->
+<div id="page-min" class="page cdpage">
+  <div class="dhero"><button class="back-pill" onclick="showPage('home')">← 전체 과목</button>
+    <div><div class="dsup">MIN 201 · Pastoral Ministry</div><div class="dtitle">목회학</div>
+    <div class="ddesc">목회자의 정체성과 소명, 설교·예배·심방·상담의 실천 신학적 기초를 다룬다.</div></div>
+  </div>
+  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-min"></div></div>
+</div>
+
+<!-- PHIL -->
+<div id="page-phil" class="page cdpage">
+  <div class="dhero"><button class="back-pill" onclick="showPage('home')">← 전체 과목</button>
+    <div><div class="dsup">PHIL 301 · Christian Philosophy</div><div class="dtitle">기독교철학</div>
+    <div class="ddesc">Friedo Ricken의 Religionsphilosophie를 중심으로 종교철학의 핵심 논제를 탐구한다.</div></div>
+  </div>
+  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-phil"></div></div>
+</div>
+
+<!-- NT -->
+<div id="page-nt" class="page cdpage">
+  <div class="dhero"><button class="back-pill" onclick="showPage('home')">← 전체 과목</button>
+    <div><div class="dsup">NT 401 · New Testament I</div><div class="dtitle">신약성서 I</div>
+    <div class="ddesc">공관복음 개론, 마태복음의 신학적 구조와 기독론, 편집비평적 관점에서의 분석.</div></div>
+  </div>
+  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-nt"></div></div>
+</div>
+
+<!-- HIST -->
+<div id="page-hist" class="page cdpage">
+  <div class="dhero"><button class="back-pill" onclick="showPage('home')">← 전체 과목</button>
+    <div><div class="dsup">HIST 201 · Church History I</div><div class="dtitle">교회사개론 I</div>
+    <div class="ddesc">초대교회부터 종교개혁까지, 기독교 역사의 흐름과 신학적 사건들을 개괄한다.</div></div>
+  </div>
+  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-hist"></div></div>
+</div>
+
+<!-- RESOURCES -->
+<div id="page-resources" class="page">
+  <div class="rhero"><div class="rhero-in"><h2>관련 자료</h2>
+    <p>학습에 유용한 웹사이트·유튜브·도구 모음 — data.js의 resources 배열에 항목을 추가해 업데이트하세요.</p></div>
+  </div>
+  <div id="resources-body"></div>
+</div>
+
+<footer><div class="foot-in">
+  <span>© 2026 M.Div Archive · 한국침례신학대학교 대학원</span>
+  <div class="flinks">
+    <a href="https://www.kbtus.ac.kr" target="_blank">학교 홈페이지</a>
+    <a href="https://github.com/drumismylife/mdiv-notes" target="_blank">GitHub</a>
+  </div>
+</div></footer>
+
+<script src="data.js"></script>
+<script>
+const CMETA={greek:{code:'LANG 101',title:'헬라어 I',eng:'Koine Greek I',acc:'ag',desc:'코이네 그리스어 기초 문법. 알파벳부터 동사 변화까지, 신약 원문 독해를 위한 언어 기반.',hasApps:true},min:{code:'MIN 201',title:'목회학',eng:'Pastoral Ministry',acc:'am',desc:'목회자의 정체성·소명, 설교·예배·심방·상담의 실천 신학적 기초.'},phil:{code:'PHIL 301',title:'기독교철학',eng:'Christian Philosophy',acc:'ap',desc:'Ricken의 Religionsphilosophie를 중심으로 종교철학의 핵심 논제를 탐구.'},nt:{code:'NT 401',title:'신약성서 I',eng:'New Testament I',acc:'an',desc:'공관복음 개론, 마태복음 신학 구조와 기독론, 편집비평적 분석.'},hist:{code:'HIST 201',title:'교회사개론 I',eng:'Church History I',acc:'ah',desc:'초대교회부터 종교개혁까지, 기독교 역사의 흐름과 신학적 사건들.'}};
+const FMETA={notes:{icon:'📄',label:'강의노트'},summary:{icon:'📌',label:'핵심요약'},exam:{icon:'📝',label:'시험대비'},handout:{icon:'📋',label:'핸드아웃'},text:{icon:'📖',label:'텍스트'},other:{icon:'🔗',label:'자료'}};
+
+function bClass(f){if(!f||!f.length)return 'wb-empty';const h=t=>f.some(x=>x.type===t);return(h('notes')&&h('summary'))?'wb-done':'wb-partial'}
+function bLabel(f){if(!f||!f.length)return'—';return bClass(f)==='wb-done'?'완료':'일부'}
+
+function renderGrid(){
+  const g=document.getElementById('cgrid');
+  const ids=['greek','min','phil','nt','hist'];
+  g.innerHTML=ids.map((id,i)=>{
+    const m=CMETA[id];const c=SITE_DATA.courses[id];
+    const done=c.weeks.filter(w=>w.files&&w.files.length>0).length;
+    const isWide=(i===ids.length-1)&&(ids.length%3===2);
+    const apps=(m.hasApps&&SITE_DATA.greekTools)?`<div class="tapps">${SITE_DATA.greekTools.map(t=>`<span class="tapp-chip">${t.name}</span>`).join('')}</div>`:'';
+    return`<div class="ctile${isWide?' wide':''}" onclick="showPage('${id}')"><div class="tc">
+      <div class="tacc ${m.acc}"></div>
+      <div class="tcode">${m.code}</div>
+      <div class="ttitle">${m.title}</div>
+      <div class="teng">${m.eng}</div>
+      <div class="tdesc">${m.desc}${apps}</div>
+      <div class="tfoot"><span class="tprog"><strong>${done}</strong> / ${c.weeks.length} 주차</span><span class="tcaret">›</span></div>
+    </div></div>`;
+  }).join('');
+}
+
+function renderWeeks(id){
+  const el=document.getElementById('weeks-'+id);if(!el)return;
+  el.innerHTML=SITE_DATA.courses[id].weeks.map((w,i)=>{
+    const bc=bClass(w.files);const bl=bLabel(w.files);
+    const fh=(w.files&&w.files.length>0)?w.files.map(f=>{const fm=FMETA[f.type]||FMETA.other;return`<a class="fchip" href="${f.href}" target="_blank">${fm.icon} ${f.label||fm.label}</a>`;}).join(''):`<span class="nof">아직 등록된 자료가 없습니다.</span>`;
+    return`<div class="witem" id="wi-${id}-${w.week}" style="animation-delay:${i*.025}s">
+      <button class="wtog" onclick="toggleW('${id}','${w.week}')">
+        <span class="wnum">W${String(w.week).padStart(2,'0')}</span>
+        <span class="wtxt">${w.title}</span>
+        ${w.date?`<span class="wdate">${w.date}`:''}
+        <span class="wbadge ${bc}">${bl}</span>
+        <span class="wchev">▶</span>
+      </button>
+      <div class="wbody">${fh}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderTools(){
+  const el=document.getElementById('greek-tools');if(!el||!SITE_DATA.greekTools)return;
+  el.innerHTML=SITE_DATA.greekTools.map(t=>`<a class="ttile" href="${t.href}" target="_blank"><div class="tico">${t.icon}</div><div><div class="tname">${t.name}${t.isNew?'<span class="tnew">NEW</span>':''}</div><div class="tnote">${t.desc}</div></div></a>`).join('');
+}
+
+function renderResources(){
+  const el=document.getElementById('resources-body');if(!el||!SITE_DATA.resources)return;
+  el.innerHTML=SITE_DATA.resources.map(g=>`<div class="rgrp"><div class="rglbl">${g.label}</div><div class="rgrid">${g.items.map(r=>`<a class="rcard" href="${r.href}" target="_blank" rel="noopener"><div class="rico">${r.icon}</div><div><div class="rname">${r.name}</div><div class="rdesc">${r.desc}</div><span class="rtag tag-${r.tag}">${r.tagLabel}</span></div></a>`).join('')}</div></div>`).join('');
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  const btn=document.querySelector(`.nav-tab[data-page="${id}"]`);
+  if(btn)btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleW(cid,w){document.getElementById(`wi-${cid}-${w}`).classList.toggle('open');}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  if(typeof SITE_DATA==='undefined')return;
+  renderGrid();
+  Object.keys(SITE_DATA.courses).forEach(id=>renderWeeks(id));
+  renderTools();renderResources();
+  document.querySelectorAll('.nav-tab[data-page]').forEach(btn=>{
+    btn.addEventListener('click',()=>showPage(btn.dataset.page));
+  });
+});
+</script>
+</body>
+</html>
