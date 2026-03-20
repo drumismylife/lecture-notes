@@ -152,7 +152,7 @@ const SITE_DATA = {
     name: "헬라어 학습앱2",         // ← 새로 추가
     icon: "📖",
     desc: "알파벳 발음 · 단어 · 동사변화 오디오 학습",
-    href: "https://drumismylife.github.io/my-greek-app/",
+    href: "https://drumismylife.github.io/greek-study/",
     isNew: true
   }
   ],
