@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{COURSE}} — {{WEEK}}</title>
+  <link rel="stylesheet" href="../../template/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <header>
+      <h1>{{COURSE}}</h1>
+      <div class="meta">
+        <span>{{WEEK}}</span>
+        <span>{{DATE}}</span>
+      </div>
+    </header>
+
+    <main>
+
+      <section id="keywords">
+        <h2>핵심 단어 / 용어</h2>
+        <div class="keyword-list">
+          {{KEYWORDS}}
+        </div>
+      </section>
+
+      <section id="content">
+        <h2>강의 내용</h2>
+        <div class="prose">
+          {{CONTENT}}
+        </div>
+      </section>
+
+      <section id="notes">
+        <h2>시사점 / 준비사항</h2>
+        <ul class="note-list">
+          {{NOTES}}
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>{{COURSE}} · {{WEEK}} · {{DATE}}</footer>
+
+  </div>
+</body>
+</html>
