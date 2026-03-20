@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>헬라어 I — 학습 앱</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=IM+Fell+English:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+:root {
+  --navy:#1B2A4A; --navy-mid:#2C3E6B; --navy-lt:#3D5490;
+  --gold:#C9A84C; --gold-lt:#F0D080; --gold-pale:#FBF3DC;
+  --cream:#F5F0E8; --white:#FFFFFF;
+  --gray:#8A9BB0; --gray-lt:#D8DDED;
+  --red:#C0392B; --green:#2E7D52; --accent:#4A90D9;
+  --shadow:0 4px 24px rgba(27,42,74,.13);
+  --shadow-lg:0 8px 40px rgba(27,42,74,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--navy);min-height:100vh;overflow-x:hidden}
+.top-nav{background:var(--navy);padding:0 16px;display:flex;align-items:center;height:52px;position:sticky;top:0;z-index:100;border-bottom:2.5px solid var(--gold)}
+.logo{font-family:'IM Fell English',serif;font-size:20px;color:var(--gold-lt);letter-spacing:1px;flex:1}
+.logo span{color:var(--gray);font-size:11px;font-family:'Noto Sans KR';font-weight:300;margin-left:6px}
+.tts-status{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--gray)}
+.tts-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.tts-dot.off{background:var(--gray-lt)}
+.bottom-tab{position:fixed;bottom:0;left:0;right:0;background:var(--navy);display:flex;border-top:2.5px solid var(--gold);z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 4px;gap:3px;cursor:pointer;border:none;background:none;color:var(--gray);font-family:'Noto Sans KR';font-size:9.5px;font-weight:400;transition:color .2s,background .2s}
+.tab-btn.active{color:var(--gold-lt);background:rgba(201,168,76,.1)}
+.tab-btn svg{width:21px;height:21px}
+.main{padding:14px 14px 88px;max-width:680px;margin:0 auto}
+.screen{display:none}.screen.active{display:block}
+/* HOME */
+.home-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:18px;padding:22px 20px;color:#fff;margin-bottom:14px;position:relative;overflow:hidden}
+.home-hero::before{content:'Αα';font-family:'IM Fell English',serif;font-size:88px;color:rgba(255,255,255,.055);position:absolute;right:10px;top:-8px;line-height:1;pointer-events:none}
+.home-hero h1{font-family:'Noto Serif KR';font-size:21px;font-weight:700;margin-bottom:3px}
+.home-hero p{font-size:12px;color:var(--gold-lt);font-weight:300}
+.prog-wrap{margin-top:13px}
+.prog-lbl{display:flex;justify-content:space-between;font-size:10.5px;color:var(--gold-lt);margin-bottom:4px}
+.prog-bar{height:5px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:var(--gold);border-radius:3px;transition:width .4s}
+.sec-title{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin:18px 0 9px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mode-card{background:#fff;border-radius:14px;padding:15px 13px;cursor:pointer;box-shadow:var(--shadow);border:2px solid transparent;transition:border-color .2s,transform .15s;display:flex;flex-direction:column;gap:5px}
+.mode-card:hover{border-color:var(--gray-lt)}
+.mode-card:active{transform:scale(.97)}
+.mode-card.fc{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%)}
+.mode-card.qz{background:linear-gradient(135deg,#1a3a5c 0%,#234778 100%)}
+.mode-card.wr{background:linear-gradient(135deg,#1e3d2f 0%,#2a5440 100%)}
+.mode-card.mt{background:linear-gradient(135deg,#3d2a1a 0%,#5c3e25 100%)}
+.mode-icon{font-size:28px;line-height:1;margin-bottom:2px}
+.mode-name{font-size:13px;font-weight:700;color:#fff}
+.mode-desc{font-size:10px;color:rgba(255,255,255,.6);line-height:1.4}
+.mode-badge{font-size:9px;font-weight:700;color:var(--gold-lt);background:rgba(201,168,76,.18);padding:2px 8px;border-radius:20px;align-self:flex-start;margin-top:3px}
+.alpha-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.alpha-tile{background:#fff;border-radius:11px;padding:9px 5px;text-align:center;box-shadow:0 2px 8px rgba(27,42,74,.08);cursor:pointer;border:2px solid transparent;transition:all .15s;min-width:0}
+.alpha-tile:hover{border-color:var(--gold-lt);background:var(--gold-pale)}
+.alpha-tile:active{transform:scale(.95);border-color:var(--gold)}
+.alpha-tile .ac{font-family:'IM Fell English',serif;font-size:clamp(16px,3vw,22px);color:var(--navy);line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alpha-tile .an{font-size:clamp(7px,1.2vw,8.5px);color:var(--gray);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alpha-tile .ap{font-size:clamp(8px,1.4vw,9.5px);color:var(--accent);font-weight:600}
+@media(max-width:400px){.alpha-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:560px){.alpha-grid{grid-template-columns:repeat(8,1fr)}}
+@media(min-width:700px){.alpha-grid{grid-template-columns:repeat(12,1fr)}}
+.verb-table{background:#fff;border-radius:13px;overflow:hidden;box-shadow:var(--shadow)}
+.verb-row{display:grid;grid-template-columns:72px 1fr 1fr;border-bottom:1px solid var(--gray-lt)}
+.verb-row:last-child{border-bottom:none}
+.verb-row.hdr{background:var(--navy)}
+.vcell{padding:10px 11px;font-size:12.5px;display:flex;align-items:center}
+.verb-row.hdr .vcell{color:var(--gold-lt);font-weight:700;font-size:10px;letter-spacing:.8px}
+.vcell.lbl{color:var(--gray);font-size:10.5px;font-weight:600}
+.vcell.grk{font-family:'IM Fell English',serif;font-size:17px;color:var(--navy);font-weight:700}
+.verb-row:nth-child(even){background:var(--cream)}
+/* FLASHCARD */
+.fc-top{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.cat-scroll{display:flex;gap:6px;overflow-x:auto;flex:1;padding-bottom:2px;scrollbar-width:none}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-btn{padding:5px 11px;border-radius:20px;border:2px solid var(--gray-lt);background:#fff;font-size:11.5px;font-weight:500;color:var(--gray);cursor:pointer;transition:all .15s;font-family:'Noto Sans KR';white-space:nowrap;flex-shrink:0}
+.cat-btn.active{border-color:var(--navy);background:var(--navy);color:var(--gold-lt)}
+.fc-count{font-size:11px;color:var(--gray);white-space:nowrap}
+.card-area{perspective:1200px;height:270px;cursor:pointer;margin-bottom:14px;user-select:none}
+.card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .48s cubic-bezier(.4,0,.2,1)}
+.card-inner.flipped{transform:rotateY(180deg)}
+.card-face{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;box-shadow:var(--shadow-lg)}
+.card-front{background:linear-gradient(145deg,var(--navy) 0%,var(--navy-mid) 100%)}
+.card-back{background:#fff;transform:rotateY(180deg);border:2px solid var(--gray-lt)}
+.clbl{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.card-back .clbl{color:var(--gray)}
+.cgrk{font-family:'IM Fell English',serif;font-size:52px;color:var(--gold-lt);line-height:1.1;text-align:center}
+.croman{font-size:14px;color:rgba(255,255,255,.42);margin-top:5px;font-style:italic}
+.cmean{font-size:23px;font-weight:700;color:var(--navy);font-family:'Noto Serif KR';margin-bottom:7px;text-align:center;line-height:1.3}
+.ceng{font-size:12px;color:var(--gray);font-style:italic;text-align:center}
+.cextra{font-size:11px;color:var(--accent);margin-top:7px}
+.chint{font-size:10.5px;color:var(--gold);margin-top:3px}
+.audio-btn{position:absolute;top:13px;right:13px;width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;transition:all .18s;z-index:10}
+.card-front .audio-btn{background:rgba(255,255,255,.15);color:#fff}
+.card-front .audio-btn:active,.card-front .audio-btn:hover{background:rgba(255,255,255,.28)}
+.card-back .audio-btn{background:var(--gold-pale);color:var(--navy)}
+.card-back .audio-btn:active{background:var(--gold-lt)}
+.audio-btn.playing{animation:pulse .6s ease-out}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}100%{box-shadow:0 0 0 10px rgba(201,168,76,0)}}
+.flip-hint{text-align:center;font-size:10.5px;color:var(--gray);margin-top:2px}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:13px}
+.fc-nav button{width:50px;height:50px;border-radius:50%;border:none;cursor:pointer;font-size:20px;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.fc-nav button:active{transform:scale(.92)}
+.btn-prev{background:#fff;color:var(--navy);box-shadow:var(--shadow)}
+.btn-next{background:var(--navy);color:var(--gold-lt);box-shadow:var(--shadow)}
+.btn-shuf{background:var(--gold);color:var(--navy);box-shadow:var(--shadow);font-size:16px}
+/* QUIZ */
+.qtype-row{display:flex;gap:7px;margin-bottom:12px}
+.qtype-btn{flex:1;padding:7px;border-radius:10px;border:2px solid var(--gray-lt);background:#fff;font-size:11px;font-weight:600;color:var(--gray);cursor:pointer;transition:all .15s;font-family:'Noto Sans KR';text-align:center}
+.qtype-btn.active{border-color:var(--navy);background:var(--navy);color:var(--gold-lt)}
+.quiz-hdr{display:flex;justify-content:space-between;margin-bottom:8px}
+.qscore{font-size:12px;color:var(--gray)}.qscore span{font-weight:700;color:var(--navy)}
+.qprog{height:5px;background:var(--gray-lt);border-radius:3px;margin-bottom:16px;overflow:hidden}
+.qprog-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--accent));border-radius:3px;transition:width .4s}
+.quiz-card{background:#fff;border-radius:18px;padding:22px 18px;box-shadow:var(--shadow-lg);margin-bottom:13px;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.qq-label{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:7px}
+.qq-greek{font-family:'IM Fell English',serif;font-size:44px;color:var(--navy);line-height:1.1}
+.qq-text{font-size:17px;color:var(--navy);font-weight:600}
+.quiz-card .audio-btn{background:var(--gold-pale);color:var(--navy)}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.opt-btn{padding:13px 9px;border-radius:12px;border:2px solid var(--gray-lt);background:#fff;font-size:14px;font-weight:500;color:var(--navy);cursor:pointer;transition:all .15s;font-family:'IM Fell English',serif;line-height:1.2;min-height:52px;display:flex;align-items:center;justify-content:center;text-align:center}
+.opt-btn.kr{font-family:'Noto Sans KR';font-size:12.5px}
+.opt-btn:active{transform:scale(.97)}
+.opt-btn.correct{background:#E8F5EE;border-color:var(--green);color:var(--green);font-weight:700}
+.opt-btn.wrong{background:#FDECEC;border-color:var(--red);color:var(--red)}
+.opt-btn.reveal{background:#E8F5EE;border-color:var(--green);color:var(--green)}
+.qresult{padding:11px 14px;border-radius:11px;font-size:12.5px;font-weight:600;text-align:center;margin-bottom:9px;display:none}
+.qresult.correct{background:#E8F5EE;color:var(--green);display:block}
+.qresult.wrong{background:#FDECEC;color:var(--red);display:block}
+.btn-nextq{width:100%;padding:13px;border-radius:12px;background:var(--navy);color:var(--gold-lt);border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR';display:none}
+.btn-nextq.show{display:block}
+.result-panel{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow-lg);text-align:center;display:none}
+.result-panel.show{display:block}
+.res-emoji{font-size:46px;margin-bottom:9px}
+.res-title{font-size:21px;font-weight:700;color:var(--navy);font-family:'Noto Serif KR';margin-bottom:5px}
+.res-sub{font-size:13px;color:var(--gray);margin-bottom:18px}
+.res-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+.stat-box{background:var(--cream);border-radius:11px;padding:13px}
+.stat-num{font-size:27px;font-weight:700;color:var(--navy)}
+.stat-lbl{font-size:10.5px;color:var(--gray)}
+.btn-retry{width:100%;padding:13px;border-radius:12px;background:var(--navy);color:var(--gold-lt);border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR'}
+/* WRITING */
+.wtabs{display:flex;gap:7px;margin-bottom:12px}
+.wtab{flex:1;padding:7px;border-radius:10px;border:2px solid var(--gray-lt);background:#fff;font-size:11px;font-weight:600;color:var(--gray);cursor:pointer;transition:all .15s;font-family:'Noto Sans KR';text-align:center}
+.wtab.active{border-color:var(--navy);background:var(--navy);color:var(--gold-lt)}
+.writing-card{background:#fff;border-radius:18px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}
+.wprompt{text-align:center;margin-bottom:14px}
+.wlabel{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:7px}
+.wchar{font-family:'IM Fell English',serif;font-size:60px;color:var(--navy);line-height:1.1;cursor:pointer;word-break:break-all}
+.wname{font-size:13px;color:var(--gray);margin-top:3px}
+.wpron{font-size:12.5px;color:var(--accent);font-weight:600}
+canvas.wcanvas{display:block;background:#F8F6F2;border-radius:12px;border:2px solid var(--gray-lt);width:100%;touch-action:none;cursor:crosshair}
+.canvas-ctrls{display:flex;gap:7px;margin-top:9px}
+.cbtn{flex:1;padding:9px;border-radius:10px;border:2px solid var(--gray-lt);background:#fff;font-size:11.5px;font-weight:600;color:var(--navy);cursor:pointer;font-family:'Noto Sans KR';transition:all .15s}
+.cbtn.primary{background:var(--navy);color:var(--gold-lt);border-color:var(--navy)}
+.cbtn:active{transform:scale(.97)}
+.stroke-info{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap;align-items:center}
+.sbadge{font-size:10.5px;background:var(--gold-pale);color:var(--navy);padding:3px 9px;border-radius:20px;font-weight:600}
+.audio-inline{background:none;border:1.5px solid var(--gold);border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:var(--navy);cursor:pointer;font-family:'Noto Sans KR';transition:background .15s}
+.audio-inline:active{background:var(--gold-pale)}
+.wnav{display:flex;gap:9px}
+.wnavbtn{flex:1;padding:11px;border-radius:12px;border:none;font-size:13.5px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR';transition:all .15s}
+.wnavbtn:active{transform:scale(.97)}
+.wnavbtn.prev{background:#fff;color:var(--navy);box-shadow:var(--shadow)}
+.wnavbtn.next{background:var(--navy);color:var(--gold-lt)}
+/* MATCH */
+.match-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.mscore{font-size:12.5px;color:var(--gray)}.mscore span{font-weight:700;color:var(--navy)}
+.mreset{padding:5px 13px;border-radius:20px;background:var(--navy);color:var(--gold-lt);border:none;font-size:11.5px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR'}
+.match-cols{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:6px}
+.mclbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;text-align:center}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.mitem{padding:12px 8px;border-radius:12px;border:2px solid var(--gray-lt);background:#fff;font-weight:600;cursor:pointer;transition:all .15s;text-align:center;min-height:50px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(27,42,74,.07)}
+.mitem.greek{font-family:'IM Fell English',serif;font-size:19px;color:var(--navy)}
+.mitem.meaning{font-family:'Noto Sans KR';font-size:12px;color:var(--navy)}
+.mitem.selected{border-color:var(--gold);background:var(--gold-pale)}
+.mitem.matched{background:#E8F5EE;border-color:var(--green);color:var(--green);pointer-events:none;opacity:.7}
+.mitem.wflash{background:#FDECEC;border-color:var(--red);animation:flash .35s}
+@keyframes flash{0%,100%{opacity:1}50%{opacity:.4}}
+@media(min-width:480px){.cgrk{font-size:62px}}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <div class="logo">Κοινή <span>헬라어 I · 2주차</span></div>
+  <div class="tts-status">
+    <div class="tts-dot off" id="tts-dot"></div>
+    <span id="tts-lbl" style="font-size:10px;color:var(--gray)">TTS 준비중</span>
+  </div>
+</div>
+
+<div class="main">
+  <!-- HOME -->
+  <div class="screen active" id="screen-home">
+    <div class="home-hero">
+      <h1>헬라어 학습 앱</h1>
+      <p>알파벳 · 어휘 68개 · 변화형 · 성경구절 · 🔊 발음</p>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>오늘 학습 진도</span><span id="hp-pct">0%</span></div>
+        <div class="prog-bar"><div class="prog-fill" id="hp-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="sec-title">학습 모드</div>
+    <div class="mode-grid">
+      <div class="mode-card fc" onclick="goTab('flashcard')">
+        <div class="mode-icon">🃏</div>
+        <div class="mode-name">플래시카드</div>
+        <div class="mode-desc">카드 뒤집기 · 🔊 발음 재생</div>
+        <div class="mode-badge">알파벳 · 어휘 · 변화형</div>
+      </div>
+      <div class="mode-card qz" onclick="goTab('quiz')">
+        <div class="mode-icon">📝</div>
+        <div class="mode-name">빈칸 퀴즈</div>
+        <div class="mode-desc">4지선다 · 동사 변화형</div>
+        <div class="mode-badge">퀴즈</div>
+      </div>
+      <div class="mode-card wr" onclick="goTab('writing')">
+        <div class="mode-icon">✏️</div>
+        <div class="mode-name">따라 쓰기</div>
+        <div class="mode-desc">손글씨 직접 연습</div>
+        <div class="mode-badge">필기 연습</div>
+      </div>
+      <div class="mode-card mt" onclick="goTab('match')">
+        <div class="mode-icon">🔗</div>
+        <div class="mode-name">매칭 게임</div>
+        <div class="mode-desc">헬라어 ↔ 뜻 연결</div>
+        <div class="mode-badge">매칭</div>
+      </div>
+    </div>
+    <div class="sec-title">알파벳 참조 (탭하면 발음 재생)</div>
+    <div class="alpha-grid" id="alpha-ref"></div>
+    <div class="sec-title">λύω 현재 능동태 직설법</div>
+    <div class="verb-table">
+      <div class="verb-row hdr"><div class="vcell"></div><div class="vcell">단수</div><div class="vcell">복수</div></div>
+      <div class="verb-row"><div class="vcell lbl">1인칭</div><div class="vcell grk">λύω</div><div class="vcell grk">λύομεν</div></div>
+      <div class="verb-row"><div class="vcell lbl">2인칭</div><div class="vcell grk">λύεις</div><div class="vcell grk">λύετε</div></div>
+      <div class="verb-row"><div class="vcell lbl">3인칭</div><div class="vcell grk">λύει</div><div class="vcell grk">λύουσι</div></div>
+    </div>
+  </div>
+
+  <!-- FLASHCARD -->
+  <div class="screen" id="screen-flashcard">
+    <div class="fc-top">
+      <div class="cat-scroll" id="fc-cats"></div>
+      <div class="fc-count" id="fc-count">1/1</div>
+    </div>
+    <div class="card-area" id="fc-area" onclick="flipCard(event)">
+      <div class="card-inner" id="fc-inner">
+        <div class="card-face card-front">
+          <button class="audio-btn" id="ab-front" onclick="event.stopPropagation();speakCard('front')" title="발음">🔊</button>
+          <div class="clbl">GREEK</div>
+          <div class="cgrk" id="fc-fg">λύω</div>
+          <div class="croman" id="fc-fr"></div>
+        </div>
+        <div class="card-face card-back">
+          <button class="audio-btn" id="ab-back" onclick="event.stopPropagation();speakCard('back')" title="발음">🔊</button>
+          <div class="clbl">MEANING</div>
+          <div class="cmean" id="fc-bm">풀다</div>
+          <div class="ceng" id="fc-be"></div>
+          <div class="cextra" id="fc-bx"></div>
+          <div class="chint" id="fc-bh"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flip-hint">카드 탭 → 뒤집기 &nbsp;·&nbsp; 🔊 → 발음 듣기</div>
+    <div class="fc-nav">
+      <button class="btn-prev" onclick="fcPrev()">←</button>
+      <button class="btn-shuf" onclick="fcShuffle()">🔀</button>
+      <button class="btn-next" onclick="fcNext()">→</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="screen-quiz">
+    <div class="qtype-row" id="qtype-row">
+      <button class="qtype-btn active" onclick="setQType('gr2kr',this)">헬라어→뜻</button>
+      <button class="qtype-btn" onclick="setQType('kr2gr',this)">뜻→헬라어</button>
+      <button class="qtype-btn" onclick="setQType('conj',this)">변화형</button>
+    </div>
+    <div class="quiz-hdr">
+      <div class="qscore">점수 <span id="qs">0</span>/<span id="qt">10</span></div>
+      <div class="qscore">문제 <span id="qc">1</span>/10</div>
+    </div>
+    <div class="qprog"><div class="qprog-fill" id="qpf" style="width:0%"></div></div>
+    <div class="quiz-card" id="qcard">
+      <button class="audio-btn" id="q-audio" onclick="speakQuiz()" style="top:12px;right:12px">🔊</button>
+      <div class="qq-label" id="qqlbl">GREEK → 뜻</div>
+      <div class="qq-greek" id="qqtext">λύω</div>
+    </div>
+    <div class="quiz-opts" id="qopts"></div>
+    <div class="qresult" id="qresult"></div>
+    <button class="btn-nextq" id="btn-nq" onclick="nextQ()">다음 →</button>
+    <div class="result-panel" id="qres-panel">
+      <div class="res-emoji" id="re">🎉</div>
+      <div class="res-title" id="rt">훌륭합니다!</div>
+      <div class="res-sub" id="rs"></div>
+      <div class="res-stats">
+        <div class="stat-box"><div class="stat-num" id="rn">0</div><div class="stat-lbl">정답</div></div>
+        <div class="stat-box"><div class="stat-num" id="ra">0%</div><div class="stat-lbl">정확도</div></div>
+      </div>
+      <button class="btn-retry" onclick="restartQuiz()">다시 풀기</button>
+    </div>
+  </div>
+
+  <!-- WRITING -->
+  <div class="screen" id="screen-writing">
+    <div class="wtabs">
+      <button class="wtab active" onclick="setWMode('alpha',this)">알파벳</button>
+      <button class="wtab" onclick="setWMode('vocab',this)">어휘</button>
+      <button class="wtab" onclick="setWMode('conj',this)">변화형</button>
+      <button class="wtab" onclick="setWMode('bible',this)">성경구절</button>
+    </div>
+    <div class="writing-card">
+      <div class="wprompt">
+        <div class="wlabel" id="wlbl">알파벳 · 보고 따라 쓰기</div>
+        <div class="wchar" id="wchar" onclick="speakWriting()" title="탭하여 발음 듣기">λ</div>
+        <div class="wname" id="wname">lambda — λ/Λ</div>
+        <div class="wpron" id="wpron">[르]</div>
+      </div>
+      <canvas class="wcanvas" id="wcanvas" height="200"></canvas>
+      <div class="stroke-info" id="sinfo"></div>
+      <div class="canvas-ctrls">
+        <button class="cbtn" onclick="clearCanvas()">지우기</button>
+        <button class="cbtn" onclick="undoCanvas()">되돌리기</button>
+        <button class="cbtn primary" onclick="nextW()">다음 →</button>
+      </div>
+    </div>
+    <div class="wnav">
+      <button class="wnavbtn prev" onclick="prevW()">← 이전</button>
+      <button class="wnavbtn next" onclick="nextW()">다음 →</button>
+    </div>
+  </div>
+
+  <!-- MATCH -->
+  <div class="screen" id="screen-match">
+    <div class="match-hdr">
+      <div class="mscore">매칭 <span id="ms">0</span>/<span id="mto">8</span></div>
+      <button class="mreset" onclick="resetMatch()">🔄 새 문제</button>
+    </div>
+    <div class="match-cols"><div class="mclbl">헬라어</div><div class="mclbl">뜻</div></div>
+    <div class="match-grid" id="mgrid"></div>
+    <div class="result-panel" id="mres">
+      <div class="res-emoji">🏆</div>
+      <div class="res-title">완벽합니다!</div>
+      <div class="res-sub">모든 쌍 매칭 완료!</div>
+      <button class="btn-retry" onclick="resetMatch()" style="margin-top:10px">다시 하기</button>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-tab">
+  <button class="tab-btn active" id="tab-home" onclick="goTab('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>홈
+  </button>
+  <button class="tab-btn" id="tab-flashcard" onclick="goTab('flashcard')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/></svg>플래시카드
+  </button>
+  <button class="tab-btn" id="tab-quiz" onclick="goTab('quiz')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>퀴즈
+  </button>
+  <button class="tab-btn" id="tab-writing" onclick="goTab('writing')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>따라쓰기
+  </button>
+  <button class="tab-btn" id="tab-match" onclick="goTab('match')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>매칭
+  </button>
+</div>
+
+<script>
+// ── TTS ──────────────────────────────────────
+let greekVoice=null, koVoice=null, ttsReady=false;
+function initTTS(){
+  if(!window.speechSynthesis) return;
+  const load=()=>{
+    const vs=speechSynthesis.getVoices();
+    greekVoice=vs.find(v=>v.lang==='el-GR')||vs.find(v=>v.lang.startsWith('el'))||vs.find(v=>v.lang==='en-US'&&v.default)||vs.find(v=>v.lang==='en-US')||null;
+    koVoice=vs.find(v=>v.lang==='ko-KR')||vs.find(v=>v.lang.startsWith('ko'))||null;
+    ttsReady=vs.length>0;
+    if(ttsReady){
+      document.getElementById('tts-dot').classList.remove('off');
+      document.getElementById('tts-lbl').textContent=greekVoice&&greekVoice.lang.startsWith('el')?'🇬🇷 그리스어 음성':'🔊 발음 사용 가능';
+    }
+  };
+  speechSynthesis.onvoiceschanged=load; load();
+}
+function speak(text,isGreek=true,rate=0.8){
+  if(!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  if(isGreek&&greekVoice) u.voice=greekVoice;
+  if(!isGreek&&koVoice) u.voice=koVoice;
+  u.lang=isGreek?(greekVoice?greekVoice.lang:'el-GR'):'ko-KR';
+  u.rate=rate; u.pitch=1.0;
+  speechSynthesis.speak(u);
+}
+function pulseBtn(id){const el=document.getElementById(id);if(!el)return;el.classList.add('playing');setTimeout(()=>el.classList.remove('playing'),700);}
+initTTS();
+
+// ── DATA ────────────────────────────────────
+const ALPHABET=[
+  {g:'Αα',name:'alpha',  pron:'아',       roman:'a'},
+  {g:'Ββ',name:'beta',   pron:'β',        roman:'b'},
+  {g:'Γγ',name:'gamma',  pron:'γ',        roman:'g'},
+  {g:'Δδ',name:'delta',  pron:'δ',        roman:'d'},
+  {g:'Εε',name:'epsilon',pron:'에(단)',   roman:'e'},
+  {g:'Ζζ',name:'zeta',   pron:'즈',       roman:'z'},
+  {g:'Ηη',name:'eta',    pron:'에(장)',   roman:'ē'},
+  {g:'Θθ',name:'theta',  pron:'쓰(기식)',roman:'th'},
+  {g:'Ιι',name:'iota',   pron:'이',       roman:'i'},
+  {g:'Κκ',name:'kappa',  pron:'ㅋ',       roman:'k'},
+  {g:'Λλ',name:'lambda', pron:'르',       roman:'l'},
+  {g:'Μμ',name:'mu',     pron:'므',       roman:'m'},
+  {g:'Νν',name:'nu',     pron:'ν',        roman:'n'},
+  {g:'Ξξ',name:'xi',     pron:'크스',    roman:'x'},
+  {g:'Οο',name:'omicron',pron:'오(단)',  roman:'o'},
+  {g:'Ππ',name:'pi',     pron:'π',        roman:'p'},
+  {g:'Ρρ',name:'rho',    pron:'르',       roman:'r'},
+  {g:'Σσ/ς',name:'sigma',pron:'스',      roman:'s'},
+  {g:'Ττ',name:'tau',    pron:'ㅌ',       roman:'t'},
+  {g:'Υυ',name:'upsilon',pron:'위',       roman:'y'},
+  {g:'Φφ',name:'phi',    pron:'프(순경음)',roman:'ph'},
+  {g:'Χχ',name:'chi',    pron:'크(기식)', roman:'ch'},
+  {g:'Ψψ',name:'psi',    pron:'프스',    roman:'ps'},
+  {g:'Ωω',name:'omega',  pron:'오(장)',  roman:'ō'},
+];
+const DIPHTHONGS=[
+  {g:'αι',pron:'아이',ex:'αἰτεῖ',  mem:'아이디어의 "아이"'},
+  {g:'ει',pron:'에이',ex:'εἰρήνη', mem:'eight의 "에이"'},
+  {g:'οι',pron:'오이',ex:'οἶκος',  mem:'오이지의 "오이"'},
+  {g:'αυ',pron:'아우',ex:'αὐτός',  mem:'아우디(Audi)'},
+  {g:'ευ',pron:'유',  ex:'εὐ-',    mem:'EU(유럽연합)'},
+  {g:'ου',pron:'우',  ex:'οὗτος',  mem:'수프 ου → "우"'},
+];
+// Full vocabulary from PPT slides 4-7 + sentences + Bible
+const VOCAB=[
+  // 동사
+  {g:'λύω',        kr:'풀다, 해방하다',      eng:'to loose/free',      cat:'동사', hint:'lysis'},
+  {g:'βλέπω',      kr:'보다',                eng:'to see',             cat:'동사', hint:''},
+  {g:'γράφω',      kr:'쓰다',                eng:'to write',           cat:'동사', hint:'graph'},
+  {g:'λαμβάνω',    kr:'취하다, 받다',        eng:'to take/receive',    cat:'동사', hint:''},
+  {g:'πιστεύω',    kr:'믿다',                eng:'to believe',         cat:'동사', hint:'pistis'},
+  {g:'ἀκούω',      kr:'듣다',                eng:'to hear',            cat:'동사', hint:'acoustic'},
+  {g:'γινώσκω',    kr:'알다',                eng:'to know',            cat:'동사', hint:'gnosis'},
+  {g:'διδάσκω',    kr:'가르치다',            eng:'to teach',           cat:'동사', hint:'Didache'},
+  {g:'λέγω',       kr:'말하다',              eng:'to say',             cat:'동사', hint:'logos'},
+  {g:'θεραπεύω',   kr:'치료하다',            eng:'to heal',            cat:'동사', hint:'therapy'},
+  {g:'ἐγείρω',     kr:'일으키다',            eng:'to raise',           cat:'동사', hint:''},
+  {g:'βαπτίζω',    kr:'침례를 주다',         eng:'to baptize',         cat:'동사', hint:'baptize'},
+  {g:'ἔχω',        kr:'가지고 있다',         eng:'to have',            cat:'동사', hint:''},
+  {g:'σῴζω',       kr:'구원하다 / 치료하다', eng:'to save / to heal',  cat:'동사', hint:'★ 뜻 두 가지!'},
+  {g:'ἔρχομαι',    kr:'오다, 가다',          eng:'to come/go',         cat:'동사', hint:'디포넌트'},
+  {g:'μένω',       kr:'머물다, 거하다',      eng:'to remain/abide',    cat:'동사', hint:''},
+  {g:'φαίνω',      kr:'비치다, 나타나다',    eng:'to shine/appear',    cat:'동사', hint:'요 1:5'},
+  {g:'καταλαμβάνω',kr:'이해하다 / 이기다',   eng:'to comprehend/seize',cat:'동사', hint:'요 1:5'},
+  {g:'ποιέω',      kr:'만들다, 하다',        eng:'to make/do',         cat:'동사', hint:''},
+  {g:'καλέω',      kr:'부르다',              eng:'to call',            cat:'동사', hint:'마 5:9'},
+  {g:'πέμπω',      kr:'보내다',              eng:'to send',            cat:'동사', hint:'고전 4:17'},
+  // 명사
+  {g:'λόγος',      kr:'말씀',               eng:'word/logos',          cat:'명사', hint:'logos'},
+  {g:'θεός',       kr:'하나님',             eng:'God',                 cat:'명사', hint:'theology'},
+  {g:'κόσμος',     kr:'세상',               eng:'world/cosmos',        cat:'명사', hint:'cosmos=질서'},
+  {g:'ἄνθρωπος',   kr:'사람',               eng:'human',               cat:'명사', hint:'anthropology'},
+  {g:'ἀπόστολος',  kr:'사도',               eng:'apostle',             cat:'명사', hint:'보냄받은자'},
+  {g:'νόμος',      kr:'율법',               eng:'law',                 cat:'명사', hint:'nomo-'},
+  {g:'ἀδελφός',    kr:'형제',               eng:'brother',             cat:'명사', hint:'Philadelphia'},
+  {g:'υἱός',       kr:'아들',               eng:'son',                 cat:'명사', hint:''},
+  {g:'ζωή',        kr:'생명',               eng:'life',                cat:'명사', hint:'zoo'},
+  {g:'φῶς',        kr:'빛',                 eng:'light',               cat:'명사', hint:'photo-'},
+  {g:'δῶρον',      kr:'선물',               eng:'gift',                cat:'명사', hint:''},
+  {g:'καί',        kr:'그리고',             eng:'and',                 cat:'접속사', hint:'가장 흔한 접속사'},
+  {g:'δοῦλος',     kr:'종, 노예',           eng:'slave/servant',       cat:'명사', hint:''},
+  {g:'θάνατος',    kr:'죽음',               eng:'death',               cat:'명사', hint:'thanatology'},
+  {g:'ψυχή',       kr:'영혼, 목숨',         eng:'soul/life',           cat:'명사', hint:'psychology'},
+  {g:'ἐκκλησία',   kr:'교회, 모임',         eng:'church/assembly',     cat:'명사', hint:'ecclesiology'},
+  {g:'δόξα',       kr:'영광',               eng:'glory',               cat:'명사', hint:'doxology'},
+  {g:'παραβολή',   kr:'비유',               eng:'parable',             cat:'명사', hint:'parable'},
+  {g:'καρδία',     kr:'마음, 심장',         eng:'heart',               cat:'명사', hint:'cardiology'},
+  {g:'εἰρήνη',     kr:'평화, 평강',         eng:'peace',               cat:'명사', hint:'shalom'},
+  {g:'βασιλεία',   kr:'왕국, 나라',         eng:'kingdom',             cat:'명사', hint:'Basilica'},
+  {g:'ἱερόν',      kr:'성전',               eng:'temple',              cat:'명사', hint:''},
+  {g:'μαθητής',    kr:'제자',               eng:'disciple',            cat:'명사', hint:''},
+  {g:'προφήτης',   kr:'선지자',             eng:'prophet',             cat:'명사', hint:'prophecy'},
+  {g:'οἶκος',      kr:'집',                 eng:'house/home',          cat:'명사', hint:'economy'},
+  {g:'σκοτία',     kr:'어둠',               eng:'darkness',            cat:'명사', hint:'요 1:5'},
+  {g:'ἀρχή',       kr:'처음, 시작',         eng:'beginning',           cat:'명사', hint:'요 1:1'},
+  {g:'κύριος',     kr:'주님, 주인',         eng:'Lord/master',         cat:'명사', hint:'Kyrios'},
+  {g:'τέκνον',     kr:'아이, 자녀',         eng:'child',               cat:'명사', hint:''},
+  {g:'ὥρα',        kr:'시간, 때',           eng:'hour/time',           cat:'명사', hint:''},
+  {g:'ἄρτος',      kr:'떡, 빵',             eng:'bread',               cat:'명사', hint:'요 6:35'},
+  {g:'θύρα',       kr:'문',                 eng:'door',                cat:'명사', hint:'요 10:7'},
+  {g:'ποιμήν',     kr:'목자',               eng:'shepherd',            cat:'명사', hint:'요 10:11'},
+  {g:'ἀνάστασις',  kr:'부활',               eng:'resurrection',        cat:'명사', hint:'요 11:25'},
+  {g:'ὁδός',       kr:'길',                 eng:'way/road',            cat:'명사', hint:'요 14:6'},
+  {g:'ἀλήθεια',    kr:'진리',               eng:'truth',               cat:'명사', hint:'요 14:6'},
+  {g:'ἄμπελος',    kr:'포도나무',           eng:'vine',                cat:'명사', hint:'요 15:1'},
+  {g:'εὐαγγέλιον', kr:'복음',               eng:'gospel/good news',    cat:'명사', hint:'evangelical'},
+  // 형용사
+  {g:'ἀγαθός',     kr:'좋은, 착한',         eng:'good',                cat:'형용사', hint:''},
+  {g:'κακός',      kr:'나쁜',               eng:'bad/evil',            cat:'형용사', hint:'kakophony'},
+  {g:'καλός',      kr:'좋은, 아름다운',     eng:'beautiful/good',      cat:'형용사', hint:'calligraphy'},
+  {g:'μικρός',     kr:'작은, 적은',         eng:'small/little',        cat:'형용사', hint:'micro-'},
+  {g:'νεκρός',     kr:'죽은',               eng:'dead',                cat:'형용사', hint:'necro-'},
+  {g:'δίκαιος',    kr:'옳은, 의로운',       eng:'righteous/just',      cat:'형용사', hint:''},
+  {g:'μακάριος',   kr:'복받은',             eng:'blessed',             cat:'형용사', hint:'마 5:9'},
+  {g:'ἀληθινός',   kr:'참된',               eng:'true/genuine',        cat:'형용사', hint:'요 15:1'},
+  // 전치사/부사
+  {g:'εἰς',        kr:'~안으로, ~를 향해',  eng:'into/toward',         cat:'전치사', hint:'eisegesis'},
+  {g:'ἐκ / ἐξ',    kr:'~밖으로, ~로부터',  eng:'out of/from',         cat:'전치사', hint:'exegesis'},
+  {g:'ἐν',         kr:'~안에, ~로',         eng:'in/by/with',          cat:'전치사', hint:''},
+  {g:'πρός',       kr:'~에게로, ~함께',     eng:'to/toward/with',      cat:'전치사', hint:'요 1:1'},
+  {g:'διά',        kr:'~때문에, ~통하여',   eng:'through/because of',  cat:'전치사', hint:'고전 4:17'},
+  {g:'οὐ / οὐκ',   kr:'아니다 (부정)',      eng:'not',                 cat:'부사', hint:'요 1:5'},
+  {g:'ὅτι',        kr:'왜냐하면, ~라고',    eng:'because/that',        cat:'접속사', hint:'마 5:9'},
+];
+
+const CONJ_ACT=[
+  {g:'λύω',     kr:'나는 푼다',   person:'1인칭 단수'},
+  {g:'λύεις',   kr:'너는 푼다',   person:'2인칭 단수'},
+  {g:'λύει',    kr:'그는 푼다',   person:'3인칭 단수'},
+  {g:'λύομεν',  kr:'우리는 푼다', person:'1인칭 복수'},
+  {g:'λύετε',   kr:'너희는 푼다', person:'2인칭 복수'},
+  {g:'λύουσι',  kr:'그들은 푼다', person:'3인칭 복수'},
+];
+const CONJ_PASS=[
+  {g:'λύομαι',  kr:'나는 풀린다',   person:'1단 수/중'},
+  {g:'λύῃ',     kr:'너는 풀린다',   person:'2단 수/중'},
+  {g:'λύεται',  kr:'그는 풀린다',   person:'3단 수/중'},
+  {g:'λυόμεθα', kr:'우리는 풀린다', person:'1복 수/중'},
+  {g:'λύεσθε',  kr:'너희는 풀린다', person:'2복 수/중'},
+  {g:'λύονται', kr:'그들은 풀린다', person:'3복 수/중'},
+];
+const CONJ_EIMI=[
+  {g:'εἰμί',     kr:'나는 ~이다',   person:'1단 현재'},
+  {g:'εἶ',       kr:'너는 ~이다',   person:'2단 현재'},
+  {g:'ἐστί(ν)',  kr:'그는 ~이다',   person:'3단 현재'},
+  {g:'ἐσμέν',    kr:'우리는 ~이다', person:'1복 현재'},
+  {g:'ἐστέ',     kr:'너희는 ~이다', person:'2복 현재'},
+  {g:'εἰσί(ν)', kr:'그들은 ~이다', person:'3복 현재'},
+];
+const BIBLE=[
+  {g:'Ἐν ἀρχῇ ἦν ὁ λόγος',                           kr:'태초에 말씀이 있었다',          hint:'요 1:1'},
+  {g:'ὁ λόγος ἦν πρὸς τὸν θεόν',                     kr:'말씀이 하나님과 함께 있었다',   hint:'요 1:1'},
+  {g:'θεὸς ἦν ὁ λόγος',                               kr:'말씀은 하나님이었다',           hint:'요 1:1'},
+  {g:'τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει',                   kr:'빛이 어둠 속에서 비친다',      hint:'요 1:5'},
+  {g:'Ἐγώ εἰμι ὁ ἄρτος τῆς ζωῆς',                    kr:'나는 생명의 떡이다',           hint:'요 6:35'},
+  {g:'Ἐγώ εἰμι τὸ φῶς τοῦ κόσμου',                   kr:'나는 세상의 빛이다',           hint:'요 8:12'},
+  {g:'Ἐγώ εἰμι ἡ θύρα τῶν προβάτων',                 kr:'나는 양의 문이다',             hint:'요 10:7'},
+  {g:'Ἐγώ εἰμι ὁ ποιμὴν ὁ καλός',                    kr:'나는 선한 목자이다',           hint:'요 10:11'},
+  {g:'Ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή',               kr:'나는 부활이요 생명이다',       hint:'요 11:25'},
+  {g:'Ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή',     kr:'나는 길이요 진리요 생명이다',  hint:'요 14:6'},
+  {g:'Ἐγώ εἰμι ἡ ἄμπελος ἡ ἀληθινή',                 kr:'나는 참 포도나무이다',         hint:'요 15:1'},
+  {g:'μακάριοι οἱ εἰρηνοποιοί',                       kr:'화평케 하는 자는 복이 있다',   hint:'마 5:9'},
+  {g:'Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ',            kr:'예수 그리스도의 복음의 시작',  hint:'막 1:1'},
+];
+
+// ── FLASHCARD ────────────────────────────────
+const FC_CATS=[
+  {key:'vocab-all',label:'전체 어휘'},
+  {key:'동사',     label:'동사'},
+  {key:'명사',     label:'명사'},
+  {key:'형용사',   label:'형용사'},
+  {key:'전치사',   label:'전치사/부사'},
+  {key:'alpha',    label:'알파벳'},
+  {key:'diph',     label:'이중모음'},
+  {key:'conj-act', label:'현재능동'},
+  {key:'conj-pass',label:'현재수동'},
+  {key:'conj-eimi',label:'εἰμί'},
+  {key:'bible',    label:'성경구절'},
+];
+let fcCat='vocab-all', fcDeck=[], fcIdx=0, fcFlipped=false;
+
+function buildFcCats(){
+  const r=document.getElementById('fc-cats');
+  r.innerHTML='';
+  FC_CATS.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='cat-btn'+(c.key===fcCat?' active':'');
+    b.textContent=c.label;
+    b.onclick=()=>{fcCat=c.key;initFC();buildFcCats();};
+    r.appendChild(b);
+  });
+}
+function makeDeck(cat){
+  if(cat==='alpha') return ALPHABET.map(a=>({greek:a.g,roman:a.roman,meaning:`${a.name} [${a.pron}]`,eng:`발음: ${a.pron} / 로마자: ${a.roman}`,extra:'',hint:'알파벳'}));
+  if(cat==='diph')  return DIPHTHONGS.map(d=>({greek:d.g,roman:d.pron,meaning:`${d.pron}`,eng:d.mem,extra:`예) ${d.ex}`,hint:'이중모음'}));
+  if(cat==='conj-act')  return CONJ_ACT.map(c=>({greek:c.g,roman:c.person,meaning:c.kr,eng:c.person,extra:'',hint:'현재 능동태'}));
+  if(cat==='conj-pass') return CONJ_PASS.map(c=>({greek:c.g,roman:c.person,meaning:c.kr,eng:c.person,extra:'',hint:'현재 수/중간태'}));
+  if(cat==='conj-eimi') return CONJ_EIMI.map(c=>({greek:c.g,roman:c.person,meaning:c.kr,eng:c.person,extra:'',hint:'εἰμί'}));
+  if(cat==='bible') return BIBLE.map(b=>({greek:b.g,roman:b.hint,meaning:b.kr,eng:b.hint,extra:'',hint:b.hint}));
+  const src=cat==='vocab-all'?VOCAB:VOCAB.filter(v=>v.cat===cat);
+  return src.map(v=>({greek:v.g,roman:'',meaning:v.kr,eng:v.eng,extra:v.hint||'',hint:v.cat}));
+}
+function initFC(){fcFlipped=false;fcIdx=0;fcDeck=makeDeck(fcCat);renderFC();}
+function renderFC(){
+  const c=fcDeck[fcIdx];
+  document.getElementById('fc-fg').textContent=c.greek;
+  document.getElementById('fc-fr').textContent=c.roman||'';
+  document.getElementById('fc-bm').textContent=c.meaning;
+  document.getElementById('fc-be').textContent=c.eng||'';
+  document.getElementById('fc-bx').textContent=c.extra?'💡 '+c.extra:'';
+  document.getElementById('fc-bh').textContent=c.hint?'['+c.hint+']':'';
+  document.getElementById('fc-count').textContent=(fcIdx+1)+'/'+fcDeck.length;
+  fcFlipped=false;
+  document.getElementById('fc-inner').classList.remove('flipped');
+}
+function flipCard(e){if(e&&e.target.closest('.audio-btn'))return;fcFlipped=!fcFlipped;document.getElementById('fc-inner').classList.toggle('flipped',fcFlipped);}
+function speakCard(side){
+  const c=fcDeck[fcIdx];
+  if(side==='front'){pulseBtn('ab-front');speak(c.greek,true);}
+  else{pulseBtn('ab-back');speak(c.meaning,false,0.9);}
+}
+function fcNext(){fcIdx=(fcIdx+1)%fcDeck.length;renderFC();}
+function fcPrev(){fcIdx=(fcIdx-1+fcDeck.length)%fcDeck.length;renderFC();}
+function fcShuffle(){for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}fcIdx=0;renderFC();}
+
+// ── QUIZ ─────────────────────────────────────
+let qType='gr2kr',qPool=[],qIdx=0,qScore=0,qAnswered=false,qCurGreek='';
+function setQType(t,btn){qType=t;document.querySelectorAll('.qtype-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');initQuiz();}
+function initQuiz(){
+  const base=qType==='conj'?[...CONJ_ACT,...CONJ_PASS,...CONJ_EIMI]:shuffle([...VOCAB]).slice(0,40);
+  qPool=shuffle(base).slice(0,10);
+  qIdx=0;qScore=0;qAnswered=false;
+  document.getElementById('qres-panel').classList.remove('show');
+  document.getElementById('qopts').style.display='grid';
+  document.getElementById('qcard').style.display='flex';
+  document.getElementById('qtype-row').style.display='flex';
+  renderQ();
+}
+function renderQ(){
+  if(qIdx>=qPool.length){showQResult();return;}
+  qAnswered=false;
+  const q=qPool[qIdx];
+  document.getElementById('qc').textContent=qIdx+1;
+  document.getElementById('qs').textContent=qScore;
+  document.getElementById('qpf').style.width=(qIdx/qPool.length*100)+'%';
+  document.getElementById('qresult').className='qresult';
+  document.getElementById('btn-nq').classList.remove('show');
+  let qTxt='',qLbl='';
+  if(qType==='gr2kr'){qTxt=q.g||q.greek;qLbl='GREEK → 뜻';document.getElementById('qqtext').className='qq-greek';}
+  else if(qType==='kr2gr'){qTxt=q.kr||q.meaning;qLbl='뜻 → 헬라어';document.getElementById('qqtext').className='qq-text';}
+  else{qTxt=q.g||q.greek;qLbl='변화형 → 인칭/뜻';document.getElementById('qqtext').className='qq-greek';}
+  document.getElementById('qqlbl').textContent=qLbl;
+  document.getElementById('qqtext').textContent=qTxt;
+  qCurGreek=q.g||q.greek||'';
+  const pool=qType==='conj'?[...CONJ_ACT,...CONJ_PASS,...CONJ_EIMI]:VOCAB;
+  const oKey=qType==='kr2gr'?'g':'kr';
+  const getV=x=>x[oKey]||x.kr||x.meaning||'';
+  const correct=getV(q);
+  const wrong=shuffle(pool.filter(v=>getV(v)!==correct));
+  const opts=shuffle([correct,...wrong.slice(0,3).map(getV)]);
+  const oc=document.getElementById('qopts');
+  oc.innerHTML='';
+  const isGrOpt=qType==='kr2gr'||qType==='conj';
+  opts.forEach(opt=>{
+    const btn=document.createElement('button');
+    btn.className='opt-btn'+(isGrOpt?'':' kr');
+    btn.textContent=opt;
+    btn.onclick=()=>answerQ(opt,correct,btn);
+    oc.appendChild(btn);
+  });
+}
+function speakQuiz(){pulseBtn('q-audio');speak(qCurGreek,true);}
+function answerQ(chosen,correct,btn){
+  if(qAnswered)return;
+  qAnswered=true;sessionTotal++;
+  const ok=chosen===correct;
+  if(ok){qScore++;btn.classList.add('correct');document.getElementById('qresult').textContent='✅ 정답!';document.getElementById('qresult').className='qresult correct';sessionCorrect++;speak(qCurGreek,true);}
+  else{btn.classList.add('wrong');document.getElementById('qresult').textContent='❌ 오답 — 정답: '+correct;document.getElementById('qresult').className='qresult wrong';document.querySelectorAll('.opt-btn').forEach(b=>{if(b.textContent===correct)b.classList.add('reveal');});}
+  document.getElementById('btn-nq').classList.add('show');
+}
+function nextQ(){qIdx++;renderQ();}
+function showQResult(){
+  document.getElementById('qopts').style.display='none';
+  document.getElementById('qcard').style.display='none';
+  document.getElementById('qtype-row').style.display='none';
+  document.getElementById('qresult').className='qresult';
+  document.getElementById('btn-nq').classList.remove('show');
+  const acc=Math.round(qScore/qPool.length*100);
+  document.getElementById('rn').textContent=qScore;
+  document.getElementById('ra').textContent=acc+'%';
+  document.getElementById('re').textContent=acc>=80?'🎉':acc>=60?'👍':'📖';
+  document.getElementById('rt').textContent=acc>=80?'훌륭합니다!':acc>=60?'잘 하고 있어요!':'다시 복습해봐요';
+  document.getElementById('rs').textContent=qScore+' / '+qPool.length+' 정답';
+  document.getElementById('qres-panel').classList.add('show');
+  updateProg();
+}
+function restartQuiz(){document.getElementById('qopts').style.display='grid';document.getElementById('qcard').style.display='flex';document.getElementById('qtype-row').style.display='flex';document.getElementById('qres-panel').classList.remove('show');initQuiz();}
+
+// ── WRITING ──────────────────────────────────
+let wMode='alpha',wIdx=0,wData=[],wCtx,wDrw=false,wHist=[],wLX=0,wLY=0;
+function setWMode(m,btn){wMode=m;wIdx=0;document.querySelectorAll('.wtab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');initWriting();}
+function buildWData(){
+  if(wMode==='alpha') return ALPHABET.map(a=>({char:a.g,name:`${a.name} — ${a.g}`,pron:`[${a.pron}]`,lbl:'알파벳'}));
+  if(wMode==='conj')  return [...CONJ_ACT,...CONJ_PASS,...CONJ_EIMI].map(c=>({char:c.g,name:c.kr,pron:`[${c.person}]`,lbl:'변화형'}));
+  if(wMode==='bible') return BIBLE.map(b=>({char:b.g,name:b.kr,pron:`[${b.hint}]`,lbl:'성경구절'}));
+  return VOCAB.map(v=>({char:v.g,name:v.kr,pron:`[${v.eng}]`,lbl:'어휘'}));
+}
+function initWriting(){wData=buildWData();renderWP();initCanvas();}
+function renderWP(){
+  const d=wData[wIdx];
+  document.getElementById('wlbl').textContent=d.lbl+' · 보고 따라 쓰기';
+  document.getElementById('wchar').textContent=d.char;
+  document.getElementById('wname').textContent=d.name;
+  document.getElementById('wpron').textContent=d.pron;
+  document.getElementById('sinfo').innerHTML=`<span class="sbadge">${wIdx+1} / ${wData.length}</span><button class="audio-inline" onclick="speakWriting()">🔊 발음 듣기</button>`;
+}
+function speakWriting(){speak(wData[wIdx].char,true);}
+function initCanvas(){
+  const cv=document.getElementById('wcanvas');
+  const w=cv.offsetWidth||320,dpr=window.devicePixelRatio||1;
+  cv.width=w*dpr;cv.height=200*dpr;cv.style.height='200px';
+  wCtx=cv.getContext('2d');wCtx.scale(dpr,dpr);
+  wCtx.strokeStyle='#1B2A4A';wCtx.lineWidth=3.5;wCtx.lineCap='round';wCtx.lineJoin='round';
+  wHist=[];drawGuides();
+  cv.onmousedown=e=>{wDrw=true;const p=gPos(e,cv);wLX=p.x;wLY=p.y;wCtx.beginPath();wCtx.moveTo(wLX,wLY);saveH();};
+  cv.onmousemove=e=>{if(!wDrw)return;const p=gPos(e,cv);wCtx.lineTo(p.x,p.y);wCtx.stroke();wLX=p.x;wLY=p.y;};
+  cv.onmouseup=cv.onmouseleave=()=>wDrw=false;
+  cv.ontouchstart=e=>{e.preventDefault();wDrw=true;const p=gPos(e,cv);wLX=p.x;wLY=p.y;wCtx.beginPath();wCtx.moveTo(wLX,wLY);saveH();};
+  cv.ontouchmove=e=>{e.preventDefault();if(!wDrw)return;const p=gPos(e,cv);wCtx.lineTo(p.x,p.y);wCtx.stroke();wLX=p.x;wLY=p.y;};
+  cv.ontouchend=()=>wDrw=false;
+}
+function gPos(e,cv){const r=cv.getBoundingClientRect();if(e.touches)return{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top};return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function drawGuides(){const cv=document.getElementById('wcanvas'),w=cv.offsetWidth;wCtx.save();wCtx.strokeStyle='#E0DDD6';wCtx.lineWidth=1;wCtx.setLineDash([5,5]);[50,100,150].forEach(y=>{wCtx.beginPath();wCtx.moveTo(0,y);wCtx.lineTo(w,y);wCtx.stroke();});wCtx.beginPath();wCtx.moveTo(w/2,0);wCtx.lineTo(w/2,200);wCtx.stroke();wCtx.restore();wCtx.setLineDash([]);}
+function saveH(){const cv=document.getElementById('wcanvas');wHist.push(wCtx.getImageData(0,0,cv.width,cv.height));if(wHist.length>20)wHist.shift();}
+function clearCanvas(){const cv=document.getElementById('wcanvas');wCtx.clearRect(0,0,cv.offsetWidth,200);wHist=[];drawGuides();}
+function undoCanvas(){const cv=document.getElementById('wcanvas');wHist.pop();if(wHist.length>0)wCtx.putImageData(wHist[wHist.length-1],0,0);else{wCtx.clearRect(0,0,cv.offsetWidth,200);drawGuides();}}
+function nextW(){wIdx=(wIdx+1)%wData.length;renderWP();clearCanvas();}
+function prevW(){wIdx=(wIdx-1+wData.length)%wData.length;renderWP();clearCanvas();}
+
+// ── MATCH ────────────────────────────────────
+let mLeft=[],mRight=[],mSel=null,mSide=null,mScore=0;
+function initMatch(){mScore=0;document.getElementById('mres').classList.remove('show');buildMatch();}
+function buildMatch(){
+  const pool=shuffle([...VOCAB]).slice(0,8);
+  mLeft=shuffle(pool.map(v=>({g:v.g,kr:v.kr,matched:false})));
+  mRight=shuffle(pool.map(v=>({g:v.g,kr:v.kr,matched:false})));
+  mScore=0;mSel=null;mSide=null;
+  document.getElementById('mto').textContent=pool.length;
+  document.getElementById('ms').textContent=0;
+  renderMatch();
+}
+function renderMatch(){
+  const grid=document.getElementById('mgrid');grid.innerHTML='';
+  mLeft.forEach((l,i)=>{
+    const r=mRight[i];
+    const ld=mke('mitem greek'+(l.matched?' matched':''),l.g,i,'left');
+    const rd=mke('mitem meaning'+(r.matched?' matched':''),r.kr,i,'right');
+    grid.appendChild(ld);grid.appendChild(rd);
+  });
+}
+function mke(cls,txt,idx,side){
+  const el=document.createElement('div');
+  el.className=cls;el.textContent=txt;
+  if(!cls.includes('matched'))el.onclick=()=>onMC(idx,side,el);
+  return el;
+}
+function onMC(idx,side,el){
+  if(mSel===null){mSel=idx;mSide=side;el.classList.add('selected');return;}
+  if(side===mSide){document.querySelectorAll('.mitem.selected').forEach(e=>e.classList.remove('selected'));mSel=idx;mSide=side;el.classList.add('selected');return;}
+  const li=side==='left'?idx:mSel,ri=side==='right'?idx:mSel;
+  if(mLeft[li].g===mRight[ri].g){
+    mLeft[li].matched=true;mRight[ri].matched=true;mScore++;
+    document.getElementById('ms').textContent=mScore;
+    speak(mLeft[li].g,true);
+    sessionCorrect++;sessionTotal++;
+  } else {
+    document.querySelectorAll('.mitem.selected').forEach(e=>{e.classList.add('wflash');setTimeout(()=>e.classList.remove('wflash'),400);});
+    sessionTotal++;
+  }
+  document.querySelectorAll('.mitem.selected').forEach(e=>e.classList.remove('selected'));
+  mSel=null;mSide=null;renderMatch();
+  if(mScore===mLeft.length){setTimeout(()=>{document.getElementById('mres').classList.add('show');updateProg();},450);}
+}
+function resetMatch(){document.getElementById('mres').classList.remove('show');buildMatch();}
+
+// ── ALPHA REF ────────────────────────────────
+// 알파벳 음가 → TTS용 한국어 발음 매핑
+// koVoice로 음가(아/에/이 등)만 짧게 읽어줌
+const ALPHA_KO_SOUND = {
+  'Αα':'아','Ββ':'브','Γγ':'그','Δδ':'드','Εε':'에','Ζζ':'즈',
+  'Ηη':'에','Θθ':'스','Ιι':'이','Κκ':'크','Λλ':'르','Μμ':'므',
+  'Νν':'느','Ξξ':'크스','Οο':'오','Ππ':'프','Ρρ':'르','Σσ/ς':'스',
+  'Ττ':'트','Υυ':'위','Φφ':'프','Χχ':'크','Ψψ':'프스','Ωω':'오',
+};
+
+function speakAlphaTile(a){
+  // 1) 한국어 음가를 koVoice로 읽음
+  const koSound = ALPHA_KO_SOUND[a.g] || a.pron;
+  if(!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(koSound);
+  if(koVoice) u.voice = koVoice;
+  u.lang = 'ko-KR';
+  u.rate = 0.85;
+  u.pitch = 1.0;
+  speechSynthesis.speak(u);
+}
+
+function buildAlphaRef(){
+  const g=document.getElementById('alpha-ref');
+  ALPHABET.forEach(a=>{
+    const t=document.createElement('div');t.className='alpha-tile';
+    t.innerHTML=`<div class="ac">${a.g}</div><div class="an">${a.name}</div><div class="ap">[${a.pron}]</div>`;
+    t.onclick=()=>speakAlphaTile(a);
+    g.appendChild(t);
+  });
+}
+buildAlphaRef();
+
+// ── NAV & PROGRESS ───────────────────────────
+let sessionCorrect=0,sessionTotal=0;
+function goTab(tab){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('screen-'+tab).classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+  if(tab==='flashcard'&&fcDeck.length===0){initFC();buildFcCats();}
+  if(tab==='quiz')initQuiz();
+  if(tab==='writing')initWriting();
+  if(tab==='match')initMatch();
+}
+function updateProg(){const p=sessionTotal>0?Math.min(100,Math.round(sessionCorrect/sessionTotal*100)):0;document.getElementById('hp-pct').textContent=p+'%';document.getElementById('hp-fill').style.width=p+'%';}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+// INIT
+initFC();buildFcCats();
+</script>
+</body>
+</html>

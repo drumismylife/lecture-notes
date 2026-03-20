@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>교회사 — 03주차</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --ink:#1a1208; --parchment:#f5f0e8; --warm-white:#faf7f2;
+  --gold:#b8860b; --gold-light:#d4a017; --gold-pale:#f0e4b8;
+  --rust:#8b3a1a; --deep-brown:#3d2008; --mid-brown:#6b3f1a;
+  --border:#c8a96e; --shadow:rgba(61,32,8,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--parchment);background-image:radial-gradient(ellipse at 20% 10%,rgba(184,134,11,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(139,58,26,.05) 0%,transparent 50%);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh;padding:2rem 1rem 4rem;}
+.page{max-width:860px;margin:0 auto;opacity:0;animation:pageReveal .8s ease forwards;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.header{text-align:center;padding:3rem 2rem 2.5rem;position:relative;margin-bottom:.5rem;}
+.header::before,.header::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;width:60%;}
+.course-label{font-family:'Noto Serif KR',serif;font-size:.78rem;font-weight:600;letter-spacing:.3em;color:var(--mid-brown);text-transform:uppercase;margin-bottom:.8rem;}
+.header h1{font-family:'Noto Serif KR',serif;font-size:2.2rem;font-weight:900;color:var(--deep-brown);line-height:1.3;margin-bottom:.6rem;}
+.header h1 span{color:var(--gold);}
+.header-meta{font-size:.82rem;color:var(--mid-brown);font-weight:300;letter-spacing:.05em;}
+.week-badge{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'Noto Serif KR',serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:.3rem 1rem;border-radius:2px;margin-bottom:1rem;}
+.section{background:var(--warm-white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.6rem;overflow:hidden;box-shadow:0 2px 12px var(--shadow);opacity:0;animation:sectionIn .6s ease forwards;}
+.section:nth-child(1){animation-delay:.1s}.section:nth-child(2){animation-delay:.2s}.section:nth-child(3){animation-delay:.3s}.section:nth-child(4){animation-delay:.4s}.section:nth-child(5){animation-delay:.5s}.section:nth-child(6){animation-delay:.6s}
+@keyframes sectionIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-header{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,var(--deep-brown) 0%,var(--mid-brown) 100%);color:var(--gold-pale);}
+.section-icon{font-size:1.1rem;flex-shrink:0;}
+.section-header h2{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;}
+.section-body{padding:1.4rem;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;}
+thead tr{background:var(--gold-pale);border-bottom:2px solid var(--gold);}
+thead th{padding:.6rem 1rem;text-align:left;font-family:'Noto Serif KR',serif;font-weight:700;color:var(--deep-brown);font-size:.82rem;letter-spacing:.05em;}
+tbody tr{border-bottom:1px solid #e8dcc8;transition:background .15s;}
+tbody tr:hover{background:rgba(212,160,23,.06);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:.65rem 1rem;color:var(--ink);line-height:1.55;vertical-align:top;}
+tbody td:first-child{font-weight:600;color:var(--mid-brown);font-size:.84rem;}
+.prose p{font-size:.9rem;line-height:1.8;color:var(--ink);margin-bottom:.9rem;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{font-weight:700;color:var(--deep-brown);}
+.prose em{color:var(--mid-brown);font-style:normal;font-weight:500;}
+.callout{border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(240,228,184,.35),rgba(240,228,184,.1));padding:1rem 1.2rem;border-radius:0 4px 4px 0;margin-top:1rem;}
+.callout-title{font-family:'Noto Serif KR',serif;font-size:.82rem;font-weight:700;color:var(--rust);margin-bottom:.5rem;letter-spacing:.05em;}
+.callout p{font-size:.88rem;line-height:1.7;color:var(--ink);}
+.alert{display:flex;gap:.8rem;align-items:flex-start;background:rgba(139,58,26,.06);border:1px solid rgba(139,58,26,.25);border-radius:4px;padding:.9rem 1.1rem;margin-top:1rem;font-size:.87rem;line-height:1.65;}
+.alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+.alert strong{color:var(--rust);}
+.key-points{display:flex;flex-direction:column;gap:.9rem;}
+.key-point{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--parchment);border-radius:4px;border:1px solid #ddd0b0;transition:transform .15s,box-shadow .15s;}
+.key-point:hover{transform:translateX(3px);box-shadow:-3px 0 0 var(--gold),0 2px 8px var(--shadow);}
+.key-num{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;flex-shrink:0;min-width:2rem;opacity:.7;}
+.key-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--deep-brown);margin-bottom:.25rem;font-family:'Noto Serif KR',serif;}
+.key-text p{font-size:.84rem;line-height:1.65;color:#4a3820;}
+.quote-block{border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.4rem;background:rgba(248,243,232,.6);position:relative;margin-bottom:1rem;}
+.quote-block::before{content:'C';font-family:'Noto Serif KR',serif;font-size:4rem;color:var(--gold);opacity:.3;position:absolute;top:-.5rem;left:.8rem;line-height:1;}
+.quote-block p{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:600;color:var(--deep-brown);line-height:1.7;padding-left:1.5rem;}
+.quote-sub{font-size:.82rem;color:var(--mid-brown);padding-left:1.5rem;margin-top:.4rem;}
+.note-list{list-style:none;padding:0;}
+.note-list li{padding:.75rem 1rem .75rem 2.4rem;margin-bottom:.5rem;background:#f0f4fa;border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;font-size:.88rem;line-height:1.65;position:relative;}
+.note-list li::before{content:'→';position:absolute;left:.8rem;color:#4a6fa5;font-weight:700;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.keyword-tag{display:inline-block;background:var(--deep-brown);color:var(--gold-pale);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.25rem .75rem;border-radius:2px;letter-spacing:.04em;}
+.next-week{text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--deep-brown),var(--mid-brown));border-radius:4px;color:var(--gold-pale);margin-bottom:1.6rem;}
+.next-week .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem;}
+.next-week h3{font-family:'Noto Serif KR',serif;font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.next-week p{font-size:.82rem;opacity:.75;}
+.ornament{text-align:center;color:var(--gold);font-size:1.1rem;letter-spacing:.5rem;margin:.2rem 0;opacity:.5;}
+@media(max-width:600px){.header h1{font-size:1.6rem;}tbody td:first-child{white-space:normal;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="week-badge">03주차</div>
+    <div class="course-label">한국침례신학대학교 · 교회사</div>
+    <h1>교회사</h1>
+    
+  </div>
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="section">
+  <div class="section-header"><span class="section-icon">📚</span><h2>강의 핵심 정보</h2></div>
+  <div class="section-body"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>커버 범위</td><td>2장 초대 기독교의 세계 + 3장 기독교의 창시자 + 4장 예루살렘과 그 너머</td></tr><tr><td>주요 교재 페이지</td><td>11p(2장) · 13–14p(로마 종교) · 19p(4장) · 28p(2차 유대 항전) · 126–127p(성만찬 논쟁)</td></tr><tr><td>지난 주 리마인드</td><td>열심당 = 열혈당 = 혁명당 / 유대-기독교 분리의 직접 계기: AD 70 예루살렘 함락</td></tr><tr><td>특이 사항</td><td>다음 주 토요일 한국교회사학회·보금지 역사신학회 공동학회(서울) — 틴데일 번역 성경 500주년 기념</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>역사적 맥락</h2></div>
+  <div class="section-body"><table><tbody><tr><td>종교 유형</td><td>내용</td><td>기독교와의 관계</td></tr><tr><td>국가숭배(황제숭배)</td><td>로마 제국의 위대함 = 신들에 대한 헌신</td><td>유대인·기독교인에게 큰 걸림돌</td></tr><tr><td>동방종교 (디오니소스·오르페우스)</td><td>이원론 — 물질/육체는 악, 정신/영은 선</td><td>플라톤 이데아 → 기독교 정신 → 데카르트까지 영향</td></tr><tr><td>대모(大母) 숭배</td><td>풍요여신 — 다산과 풍요, 신들·인간·짐승의 어머니</td><td>구약의 여신 숭배와 연결</td></tr><tr><td>미트라교 (페르시아 기원)</td><td>태양신 숭배, 선악 이원론, 사후 심판 강조</td><td>12제자·동정녀 탄생 등 유사 요소 → 자유주의 신학자들: 기독교가 미트라 영향 받았다고 주장</td></tr><tr><td>관점</td><td>내용</td></tr><tr><td>초자연적(문자적) 해석</td><td>공관복음을 그대로 수용, 기적을 사실로 받아들임</td></tr><tr><td>합리주의적(자연주의적) 해석</td><td>인간의 이성으로 설명 가능한 것만 수용</td></tr><tr><td>신화적 해석</td><td>공관복음은 역사가 아닌 신앙 공동체의 고백(D. 슈트라우스, 1835)</td></tr></tbody></table><div class="prose"><p>### [지난 주 마무리] 새로운 분파와 유대-기독교 분리 기독교와 다른 유대교 분파 사이의 <strong>가장 큰 차이는 종말론적 기대</strong>였다. 다른 분파들은 메시아를 미래에 기다렸고, 기독교인들은 예수가 이미 오신 메시아라고 고백했다. <strong>사도 바울</strong>은 "율법의 행위가 아니라 하나님의 은혜와 신자의 신앙으로 구원이 주어진다"고 선포하면서 기독교의 신학적 독자성을 확립했다. 할례와 희생제사를 요구하지 않고 이방인을 받아들이기 시작하면서 유대인들은 기독교를 점차 자신들과 다른 집단으로 인식하게 되었다. <strong>AD 70년 예루살렘 함락</strong> 때 기독교인들은 예수님의 말씀("군대가 포위하거든 산으로 도망가라")을 따라 도피했고, 이후 유대교는 기독교인들의 회당 출입을 공식적으로 차단했다. 이것이 두 종교의 완전한 분리를 가져온 결정적 사건이었다.</p>
+<div class="quote-block"><p>안식일이 사람을 위해 있는 것이냐, 사람이 안식일을 위해 있는 것이냐</p><div class='quote-sub'>— 예수님의 율법 이해</div></div>
+<p>--- ### 2장. 초대 기독교의 세계 복음의 전파 경로는 일반적으로 알려진 것과 다르다. <strong>유럽이 오히려 나중</strong>이었다. 초창기 복음은 북아프리카·소아시아·요르단·시리아·인도 방향으로 먼저 퍼졌다. 당나라 시대(7–9세기)에 이미 <strong>실크로드(비단길)</strong>를 통해 복음이 중국까지 전해졌는데, 이것이 바로 <strong>경교(景敎, 네스토리안)</strong>다. '경(景)'은 '밝을 경', 즉 빛의 종교를 의미한다. 당시 우리나라는 삼한·발해·신라 시대였으며, 신라 사람들이 당나라 무역 과정에서 경교를 접촉했다는 증거가 경주 유물(돌 십자가, 경교 십자가 양식의 유물 등)로 남아 있다. 최근 경교 연구로 박사학위를 받은 교회사학자도 등장하고 있다. --- ### 1. 로마 사회의 구조 <strong>대외적 상황</strong>: 로마는 정복한 속국이 황제를 인정하는 한 그 나라의 종교와 왕을 인정해 주었다(판테온에 정복지 신들을 수용). 단, <strong>사형선고권</strong>은 총독에게 있었다. 바울이 로마로 간 것도, 예수님의 십자가 처형도 이 구조 때문이었다(빌라도 총독). <strong>대내적 상황</strong>: 1세기 로마 사회는 현재의 미국 사회와 유사했다 — 세계주의, 혼합 민족, 헬레니즘 전파, 수많은 신들, 부의 불균형, 귀족제. 문자 해독률은 <strong>5% 미만</strong>이었다. --- ### 2. 로마의 종교 <strong>콘스탄티누스와 주일 제정</strong>: 콘스탄티누스 황제는 미트라 숭배자였으며, 죽기 직전에 침례를 받았다(당시 침례 후 지은 죄는 순교 외에 용서받을 길이 없다고 믿었기 때문). 321년 부활절 논쟁에서 유대인 달력 대신 로마 달력을 채택하고, <strong>Sunday(태양신 축제일)</strong>를 법정 공휴일로 지정했다. 기독교인들이 "주일(主日)"이라 부르는 이유가 여기 있다.</p>
+<div class="quote-block"><p>가이사의 것은 가이사에게, 하나님의 것은 하나님에게</p><div class='quote-sub'>— 황제숭배에 대한 예수님의 응답</div></div>
+<p>--- ### 3. 종교로서의 철학들 <strong>스토아 철학</strong> (제논 → 세네카 → 에픽테투스 → 마르쿠스 아우렐리우스): 우주 만물을 운영하는 이성적 실체를 <strong>로고스(Logos)</strong>라 불렀다. 자연의 섭리를 따르는 삶을 행복으로 여겼고, 물질·육체를 악한 것으로 보았다. 이 이원론적 세계관이 기독교 신학으로 유입되면서 <strong>무로부터의 창조(creatio ex nihilo)</strong> 교리와 하나님의 불변성·전지성 강조로 이어졌다.</p>
+<div class="quote-block"><p>이에 대한 비판으로 20세기 후반 등장한 것이 **열린신론(Open Theism)**</p><div class='quote-sub'>— 구약의 하나님은 인간의 반응에 따라 계획을 수정하시는 분이라는 주장</div></div>
+<p><strong>영지주의 (Gnosticism) 특징</strong>: - 형이상학적 이원론 — 물질은 악, 영은 선 - 전능하신 하나님은 물질을 직접 창조할 수 없으므로 <strong>데미우르고스(Demiurge, 조물주)</strong>를 통해 창조했다고 주장 - 구원은 육체가 아니라 신비한 <strong>지식(gnosis)</strong>으로만 가능 - <strong>가현설(Docetism)</strong> — 예수님은 실제 육체를 입지 않고 그렇게 보였을 뿐이라는 주장 - 쿰란 공동체의 생활 방식(금욕, 정결의식)과 깊은 연관 1945년 발견된 나그 함마디(Nag Hammadi) 문서들(도마복음서·진리복음서 등)이 대표적 영지주의 외경이다. <strong>에피쿠로스 학파</strong>: 감각적 쾌락을 거부하고 정신적 쾌락·영혼의 평화를 추구. 후대 영국 경험론과 공리주의 윤리설에 영향. <strong>정리</strong>: 당시 주류 철학들은 거의 모두 <strong>금욕주의</strong>였다. 이 분위기가 중세까지 교회에 영향을 주었으며, 어거스틴의 『고백록』은 이 금욕주의적 회개의 대표 사례다. --- ### 3장. 기독교의 창시자 예수의 생애 해석에는 세 가지 관점이 있다: 슈트라우스는 "신화화된 공관복음의 껍질을 벗기면 진짜 역사적 예수를 발견할 수 있다"고 주장했다 — 이것이 <strong>역사적 예수 탐구 운동</strong>의 시작이다. 그러나 150년이 지난 지금까지 성공하지 못했다(슈바이처도 동일 결론). <strong>예수 탄생 관련 주요 사실</strong>: - 예수님은 AD 1년이 아니라 <strong>BC 6년 또는 4년</strong> 경 탄생 (헤롯 대왕의 사망 연도 기준) - <strong>12월 25일 성탄절</strong>은 AD 335년부터 로마 제국에서 지정 (동지 전후 날짜, 동방 기독교는 1월 6일 기념) - 예수님의 사역은 <strong>침례 요한</strong>과 함께 시작되었다 - 예수님 승천 후에도 예수파와 요한파가 공존했다 (행 19:1–7 — 에베소의 요한 침례만 받은 제자 12명) - 침례의 유래에 대해서는 <strong>쿰란 공동체의 정결의식</strong>에서 왔을 것이라는 학설이 유력 (네슬리 머레이/임원주 역, 『성서적 침례론』, 검과 흑손, 2006) - 예수님은 메시아 왕이 아닌 <strong>고난받는 종</strong>으로 오셨다 <strong>예수님의 율법 이해</strong>: - 율법: 결과를 강조 ("살인하지 말라") - 예수님: 동기·근원을 강조 ("화내지 말라, 음욕을 품지도 말라") --- ### 4장. 예루살렘과 그 너머 초기 기독교의 주요 거점 도시: <strong>예루살렘 · 안디옥 · 다마스쿠스 · 가이사랴 · 알렉산드리아</strong> <strong>예루살렘 교회의 내부 갈등</strong>: - <strong>헬라파</strong> — 그리스어(헬라어) 사용 유대인 (디아스포라 출신) - <strong>히브리파</strong> — 아람어 사용 유대인 (팔레스타인 현지) - 행 6:1 — 과부들의 구호 음식 분배에서 차별 발생 - 스데반은 헬라파와 관련된 인물로, 히브리파로부터 율법·성전 도전 혐의로 고발당함 <strong>사도행전 15장 — 예루살렘 공의회</strong>: 할례 요구 없이 이방인을 교회로 받아들이는 문제를 둘러싼 논쟁. 베드로 → 바나바·바울의 보고 → <strong>야고보(예수의 동생)의 최종 결정</strong>으로 진행되었다. 결론: 할례·희생제사 없이 교인이 될 수 있되, ①우상에 바친 음식 금지 ②음행 금지 ③목매어 죽인 것과 피 금지. 의사결정 방식은 <strong>집단 지도 체제</strong> (사도들과 장로들 전체 협의 → 대표자 선포) — 쿰란 공동체의 방식과 유사하다. <strong>언어 발전 흐름</strong>: - 초대: 헬라어(그리스어) 중심 → 히랍 교부들 먼저 등장 (이레네우스 등) - 3세기~: 라틴어 확산 → 라틴 교부 등장 (터툴리안, 어거스틴) - 중세: 라틴어가 공통어로 확립 - 15–16세기: 영어 발전 (틴데일 성경 번역 등) <strong>2차 유대 항전 (AD 132–135, 바르 코크바 반란)</strong>: 하드리아누스 황제가 반란 진압 후 단행한 조치: 1. 예루살렘을 로마식 도시 <strong>아일리아 카피톨리나</strong>로 재건, 유대인 흔적 말소 2. 유대인 전원 추방 3. 지역명을 <strong>팔레스타인(Palaestina)</strong>으로 개칭 이후 1,800년간 유대인의 정치적 독립 시도는 없었고, 1948년 5월 14일 이스라엘 독립 선언 → 1차 중동전쟁(1949)으로 이어진다. ---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">📋</span><h2>인물 / 사건 연표</h2></div>
+  <div class="section-body"><table><tbody><tr><td>연도</td><td>인물 / 사건</td><td>역사적 의의</td></tr><tr><td>BC 6/4년경</td><td>예수 탄생</td><td>헤롯 대왕 재위 중 → AD 1년 설은 오류</td></tr><tr><td>AD 30년경</td><td>침례 요한 사역 시작 → 예수 공생애</td><td>요한파와 예수파의 공존</td></tr><tr><td>AD 70</td><td>예루살렘 함락</td><td>기독교-유대교 최종 분리</td></tr><tr><td>AD 132–135</td><td>바르 코크바 반란 (2차 유대 항전)</td><td>유대 나라 소멸, 팔레스타인 명칭 등장</td></tr><tr><td>AD 321</td><td>콘스탄티누스, Sunday 공휴일 지정</td><td>주일 제도의 기원</td></tr><tr><td>AD 335</td><td>12월 25일 성탄절 제정</td><td>동지 전후 날짜로 선택</td></tr><tr><td>AD 1945</td><td>나그 함마디 문서 발견</td><td>영지주의 외경 실물 확인</td></tr><tr><td>AD 1948</td><td>이스라엘 독립 선언</td><td>1,800년 만의 정치적 독립</td></tr></tbody></table><div class="prose"><p>---</p>
+</div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">🔑</span><h2>핵심 포인트</h2></div>
+  <div class="section-body"><div class="key-points"><div class="key-point"><div class="key-num">01</div><div class="key-text"><strong>종말론적 기대의 차이</strong><p>유대교 분파 = 메시아 미래 기대 / 기독교 = 예수가 이미 오신 메시아 → 이것이 분리의 핵심 원인</p></div></div><div class="key-point"><div class="key-num">02</div><div class="key-text"><strong>로마 종교와 기독교의 관계</strong><p>미트라교(태양신)·동방 이원론이 초대 기독교 신학 형성에 영향 → 주일 제정, 무로부터의 창조, 금욕주의 등으로 흡수됨</p></div></div><div class="key-point"><div class="key-num">03</div><div class="key-text"><strong>예루살렘 공의회의 의미</strong><p>할례 없이 이방인 수용 결정 = 기독교가 유대교의 한 분파에서 독립적 종교로 나아가는 신학적 전환점</p></div></div></div></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="section-icon">✏️</span><h2>시사점 / 준비사항</h2></div>
+  <div class="section-body"><ul class="note-list"><li>28페이지 2차 유대 항전(바르 코크바) 내용 숙지 — 팔레스타인 명칭의 역사적 기원으로 시험 출제 가능성 높음</li><li>사도행전 6장·15장·19장 본문 직접 읽고 헬라파/히브리파 갈등, 예루살렘 공의회 결정문 확인</li><li>성만찬 논쟁 4가지 입장 정리 — 교재 126–127페이지 (화체설·공재설·영적 임재설·기념설)</li><li>경교(景敎) 관련 인터넷 검색 — "경주 경교 흔적" 검색 시 돌 십자가·유물 확인 가능</li><li>열린신론(Open Theism) 개념 메모 — 교수님 저서(2025) 독서보고서 주제와 연결될 수 있음</li></ul></div>
+</div>
+  
+</div>
+</body>
+</html>
