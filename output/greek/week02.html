@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 2주차 강의노트</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark: #083a48;
+    --teal: #0e5a6e;
+    --teal-mid: #1a7f9a;
+    --teal-light: #cceaf4;
+    --teal-pale: #f0fafd;
+    --gold: #b8860b;
+    --gold-light: #fdf3c8;
+    --rose: #9b2c1a;
+    --rose-light: #fdddd6;
+    --green: #1e6b45;
+    --green-light: #d4edda;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --text: #1e2333;
+    --border: #b8dde8;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    color: var(--text);
+    background: #daeaf0;
+    padding: 10mm 0;
+  }
+
+  .page {
+    width: 210mm;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 4px 32px rgba(14,90,110,.18);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #2aa8c8 100%);
+    padding: 10mm 12mm 8mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: 'Κοινὴ Ἑλληνική';
+    position: absolute;
+    right: -2mm;
+    bottom: -3mm;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 28pt;
+    color: rgba(255,255,255,.07);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .badge.week {
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
+    color: rgba(255,255,255,.9);
+  }
+  .header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .header-greek {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 6px;
+  }
+  .header-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+  }
+  .pill {
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.88);
+    font-size: 7pt;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  /* ── CONTENT ── */
+  .content { padding: 8mm 12mm 12mm; }
+
+  /* Section heading */
+  .sec {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin: 8mm 0 4mm;
+  }
+  .sec-badge {
+    background: var(--teal);
+    color: #fff;
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--teal-dark);
+    white-space: nowrap;
+  }
+  .sec-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, var(--teal-mid), transparent);
+  }
+
+  /* Sub heading */
+  .sub {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--teal-mid);
+    margin: 5mm 0 2.5mm;
+    padding-left: 3mm;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* Callout */
+  .callout {
+    display: flex;
+    gap: 3mm;
+    border-radius: 5px;
+    padding: 3mm 4mm;
+    margin-bottom: 3mm;
+  }
+  .callout.info  { background: var(--teal-pale); border-left: 3px solid var(--teal-mid); }
+  .callout.warn  { background: var(--rose-light); border-left: 3px solid var(--rose); }
+  .callout.tip   { background: var(--gold-light); border-left: 3px solid var(--gold); }
+  .callout.good  { background: var(--green-light); border-left: 3px solid var(--green); }
+  .callout-icon  { font-size: 11pt; flex-shrink: 0; line-height: 1.5; }
+  .callout-body  { flex: 1; }
+  .callout-title { font-size: 8pt; font-weight: 700; margin-bottom: 1mm; }
+  .callout.info  .callout-title { color: var(--teal-dark); }
+  .callout.warn  .callout-title { color: var(--rose); }
+  .callout.tip   .callout-title { color: var(--gold); }
+  .callout.good  .callout-title { color: var(--green); }
+  .callout-text  { font-size: 7.5pt; color: var(--gray-700); line-height: 1.65; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    margin-bottom: 3mm;
+  }
+  thead tr { background: var(--teal); color: #fff; }
+  thead th {
+    padding: 4px 7px;
+    font-weight: 600;
+    font-size: 7.5pt;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  td {
+    padding: 4px 7px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  tr:nth-child(even) td { background: var(--gray-50); }
+  .td-c { text-align: center; }
+  .td-b { font-weight: 700; }
+  .hl-gold td { background: var(--gold-light) !important; font-weight: 600; }
+  .hl-teal td { background: var(--teal-pale) !important; font-weight: 600; }
+
+  /* Greek font */
+  .gk {
+    font-family: 'Crimson Pro', 'Noto Serif', serif;
+    font-size: 11pt;
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+  .gk-sm {
+    font-family: 'Crimson Pro', 'Noto Serif', serif;
+    font-size: 9.5pt;
+    color: var(--teal-dark);
+  }
+
+  /* Pronunciation note */
+  .pron {
+    color: var(--gray-500);
+    font-size: 7.5pt;
+    font-style: italic;
+  }
+
+  /* Alphabet grid */
+  .alpha-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2mm;
+    margin-bottom: 4mm;
+  }
+  .alpha-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2mm;
+    text-align: center;
+    background: var(--teal-pale);
+  }
+  .alpha-letter {
+    font-family: 'Crimson Pro', serif;
+    font-size: 14pt;
+    color: var(--teal-dark);
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+  }
+  .alpha-name {
+    font-size: 6.5pt;
+    color: var(--teal-mid);
+    font-weight: 700;
+    display: block;
+    margin-top: 1px;
+  }
+  .alpha-pron {
+    font-size: 6pt;
+    color: var(--gray-500);
+    display: block;
+  }
+
+  /* Diphthong grid */
+  .diph-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+  .diph-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5mm 3mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    background: var(--gold-light);
+    border-color: #e6c87a;
+  }
+  .diph-gk {
+    font-family: 'Crimson Pro', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 18mm;
+  }
+  .diph-info {
+    font-size: 7.5pt;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .diph-info strong { color: var(--teal-dark); }
+
+  /* Breathing mark box */
+  .breath-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 3mm;
+  }
+  .breath-card {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .breath-head {
+    padding: 2mm 4mm;
+    font-size: 8pt;
+    font-weight: 700;
+    color: #fff;
+  }
+  .breath-head.rough { background: var(--rose); }
+  .breath-head.smooth { background: var(--teal-mid); }
+  .breath-body {
+    padding: 3mm 4mm;
+    font-size: 8pt;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  /* Accent boxes */
+  .accent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5mm;
+    margin-bottom: 3mm;
+  }
+  .accent-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3mm;
+    text-align: center;
+  }
+  .accent-symbol {
+    font-family: 'Crimson Pro', serif;
+    font-size: 22pt;
+    color: var(--teal-dark);
+    line-height: 1.1;
+    display: block;
+  }
+  .accent-name {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--teal-mid);
+    display: block;
+    margin-top: 1mm;
+  }
+  .accent-desc {
+    font-size: 7pt;
+    color: var(--gray-500);
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* Vocab section */
+  .vocab-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm;
+    margin-bottom: 3mm;
+  }
+  .vocab-item {
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+    padding: 1.5mm 2.5mm;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--gray-50);
+    font-size: 8pt;
+  }
+  .vocab-gk {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11pt;
+    color: var(--teal-dark);
+    font-weight: 600;
+    min-width: 30mm;
+    white-space: nowrap;
+  }
+  .vocab-pron {
+    color: var(--gray-500);
+    font-size: 7pt;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .vocab-meaning {
+    color: var(--gray-700);
+    font-size: 8pt;
+    margin-left: auto;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Verb paradigm small */
+  .paradigm-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 3mm;
+  }
+  .paradigm-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .paradigm-head {
+    background: var(--teal);
+    color: #fff;
+    padding: 2mm 3mm;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
+  .paradigm-sub {
+    font-size: 6pt;
+    opacity: .8;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    display: block;
+  }
+  .paradigm-body table { margin: 0; font-size: 7.5pt; }
+  .paradigm-body thead tr { background: rgba(14,90,110,.15); }
+  .paradigm-body thead th { color: var(--teal-dark); padding: 3px 5px; }
+  .paradigm-body td { padding: 3px 5px; }
+
+  /* Insight professor box */
+  .prof-box {
+    background: linear-gradient(135deg, #fffbf0, #fff8e8);
+    border: 1px solid #e8d5a0;
+    border-left: 4px solid var(--gold);
+    border-radius: 5px;
+    padding: 3mm 4mm;
+    margin-bottom: 3mm;
+    font-size: 7.5pt;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+  .prof-box-title {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.5mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+
+  /* Etymology box */
+  .etym-row {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin-bottom: 1.5mm;
+    font-size: 7.5pt;
+    flex-wrap: wrap;
+  }
+  .etym-gk {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10pt;
+    color: var(--teal-dark);
+    font-weight: 700;
+    background: var(--teal-pale);
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--teal-light);
+    white-space: nowrap;
+  }
+  .etym-arrow { color: var(--gray-500); font-size: 9pt; }
+  .etym-eng {
+    color: var(--teal-mid);
+    font-weight: 600;
+  }
+  .etym-mean { color: var(--gray-700); }
+
+  /* Verb endings row */
+  .ending-row {
+    display: flex;
+    align-items: stretch;
+    gap: 2mm;
+    margin-bottom: 1.5mm;
+    font-size: 8pt;
+  }
+  .ending-person {
+    background: var(--teal);
+    color: #fff;
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 2mm 3mm;
+    border-radius: 3px;
+    min-width: 14mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .ending-sg, .ending-pl {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2mm;
+    text-align: center;
+    background: var(--gray-50);
+    font-size: 7.5pt;
+    color: var(--gray-700);
+  }
+  .ending-sg strong, .ending-pl strong {
+    display: block;
+    font-family: 'Crimson Pro', serif;
+    font-size: 11pt;
+    color: var(--teal-dark);
+    line-height: 1.2;
+  }
+  .ending-sg .en-label, .ending-pl .en-label {
+    font-size: 6.5pt;
+    color: var(--gray-500);
+  }
+
+  /* Memorize box */
+  .memo-box {
+    background: var(--teal-dark);
+    color: #fff;
+    border-radius: 6px;
+    padding: 4mm 5mm;
+    margin-top: 6mm;
+  }
+  .memo-title {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .memo-items {
+    display: flex;
+    gap: 3mm;
+    flex-wrap: wrap;
+  }
+  .memo-item {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 4px;
+    padding: 2.5mm 4mm;
+    flex: 1;
+    min-width: 40mm;
+    text-align: center;
+  }
+  .memo-num {
+    font-size: 7pt;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1mm;
+    display: block;
+  }
+  .memo-gk {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13pt;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 1mm;
+  }
+  .memo-ko {
+    font-size: 7pt;
+    color: rgba(255,255,255,.65);
+    display: block;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 7mm;
+    padding-top: 3mm;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-l { font-size: 6.5pt; color: var(--gray-500); }
+  .footer-r { font-size: 6.5pt; color: var(--teal-mid); font-weight: 600; }
+
+  /* Next week */
+  .next-box {
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    background: var(--teal-pale);
+    border: 1px solid var(--teal-light);
+    border-radius: 5px;
+    padding: 3mm 4mm;
+    margin-top: 5mm;
+    font-size: 7.5pt;
+    color: var(--teal-dark);
+  }
+  .next-label {
+    background: var(--teal);
+    color: #fff;
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* Utility */
+  .mt-2 { margin-top: 2mm; }
+  .mb-2 { margin-bottom: 2mm; }
+  .text-sm { font-size: 7.5pt; color: var(--gray-700); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-meta">
+      <span class="badge">헬라어 I</span>
+      <span class="badge week">2주차 강의노트</span>
+    </div>
+    <h1>알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초</h1>
+    <div class="header-greek">New Testament Greek I — Κοινὴ Ἑλληνική</div>
+    <div class="header-pills">
+      <span class="pill">📅 2026년 3월 23일 (월)</span>
+      <span class="pill">🎓 한철흠 교수</span>
+      <span class="pill">⏰ 13–14교시 · 1강의실</span>
+      <span class="pill">📚 교재: 박창환 역편 『신약성서 헬라어 교본』</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 0: 강의 핵심 정보 -->
+    <div class="sec">
+      <span class="sec-badge">핵심 정보</span>
+      <span class="sec-title">이번 주 핵심 요약</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <table>
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="td-b">주제</td><td>알파벳 복습 + 이중모음(12개) + 숨표(거친·연한) + 악센트 3종 + 동사 1인칭~3인칭 어미 소개</td></tr>
+        <tr><td class="td-b">핵심 동사</td><td><span class="gk-sm">λύω</span> (루오) — 풀다 | 현재 능동태 직설법 인칭 어미: <span class="gk-sm">-ω, -εις, -ει, -ομεν, -ετε, -ουσι</span></td></tr>
+        <tr><td class="td-b">교수 강조</td><td>동사 어미 오(ω)=나, 에이스(εις)=너, 에이(ει)=그/그것 — 매주 백지 복습 필수!</td></tr>
+        <tr><td class="td-b">특이 사항</td><td>악센트(강세)는 2학기 권영주 교수님 수업에서 심화 학습 — 이번 학기는 강세 위치만 인식</td></tr>
+      </tbody>
+    </table>
+
+    <!-- SECTION 1: 알파벳 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 01</span>
+      <span class="sec-title">알파벳 24자 복습 — Τὸ Ἀλφάβητον</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">📌</div>
+      <div class="callout-body">
+        <div class="callout-title">알파벳 암기 팁 (교수님 강조)</div>
+        <div class="callout-text">
+          어떻게 외우든 상관없어요. <strong>"뭐로 가도 서울만 가면 돼."</strong> 자음 모양과 한글 자음을 연결하는 잔머리도 OK! 
+          단, <strong>σ/ς(시그마)</strong>는 단어 끝에 올 때 <strong>ς</strong>로, 그 외에는 <strong>σ</strong>로 씁니다.
+          대문자는 2학기에 학습합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="alpha-grid">
+      <div class="alpha-card">
+        <span class="alpha-letter">Α α</span>
+        <span class="alpha-name">알파</span>
+        <span class="alpha-pron">(Alpha) — 아</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Β β</span>
+        <span class="alpha-name">베타</span>
+        <span class="alpha-pron">(Bēta) — 브</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Γ γ</span>
+        <span class="alpha-name">감마</span>
+        <span class="alpha-pron">(Gamma) — 그</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Δ δ</span>
+        <span class="alpha-name">델타</span>
+        <span class="alpha-pron">(Delta) — 드</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ε ε</span>
+        <span class="alpha-name">엡실론</span>
+        <span class="alpha-pron">(Epsilon) — 에</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ζ ζ</span>
+        <span class="alpha-name">제타</span>
+        <span class="alpha-pron">(Zēta) — 즈</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Η η</span>
+        <span class="alpha-name">에타</span>
+        <span class="alpha-pron">(Ēta) — 에(장음)</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Θ θ</span>
+        <span class="alpha-name">세타</span>
+        <span class="alpha-pron">(Thēta) — 뜨</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ι ι</span>
+        <span class="alpha-name">이오타</span>
+        <span class="alpha-pron">(Iōta) — 이</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Κ κ</span>
+        <span class="alpha-name">카파</span>
+        <span class="alpha-pron">(Kappa) — 크</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Λ λ</span>
+        <span class="alpha-name">람다</span>
+        <span class="alpha-pron">(Lambda) — 르</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Μ μ</span>
+        <span class="alpha-name">뮤</span>
+        <span class="alpha-pron">(Mu) — 므</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ν ν</span>
+        <span class="alpha-name">뉴</span>
+        <span class="alpha-pron">(Nu) — 느 <span style="font-size:5.5pt;color:#6b7280;">※ 니은을 45° 기울인 모양</span></span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ξ ξ</span>
+        <span class="alpha-name">크시</span>
+        <span class="alpha-pron">(Xi) — 크스</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ο ο</span>
+        <span class="alpha-name">오미크론</span>
+        <span class="alpha-pron">(Omikron) — 오(단음)</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Π π</span>
+        <span class="alpha-name">파이</span>
+        <span class="alpha-pron">(Pi) — 프</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ρ ρ</span>
+        <span class="alpha-name">로</span>
+        <span class="alpha-pron">(Rhō) — 르(굴림)</span>
+      </div>
+      <div class="alpha-card" style="background:#fef0f0;">
+        <span class="alpha-letter" style="color:var(--rose);">Σ σ/ς</span>
+        <span class="alpha-name" style="color:var(--rose);">시그마</span>
+        <span class="alpha-pron">σ 단어 중간, ς 단어 끝</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Τ τ</span>
+        <span class="alpha-name">타우</span>
+        <span class="alpha-pron">(Tau) — 트</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Υ υ</span>
+        <span class="alpha-name">윕실론</span>
+        <span class="alpha-pron">(Ypsilon) — 위</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Φ φ</span>
+        <span class="alpha-name">피</span>
+        <span class="alpha-pron">(Phi) — 프/f음</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Χ χ</span>
+        <span class="alpha-name">키</span>
+        <span class="alpha-pron">(Chi) — 흐(키읔)</span>
+      </div>
+      <div class="alpha-card">
+        <span class="alpha-letter">Ψ ψ</span>
+        <span class="alpha-name">프시</span>
+        <span class="alpha-pron">(Psi) — 프스</span>
+      </div>
+      <div class="alpha-card" style="background:#eef8fb;">
+        <span class="alpha-letter" style="color:var(--teal);">Ω ω</span>
+        <span class="alpha-name" style="color:var(--teal);">오메가</span>
+        <span class="alpha-pron">(Ōmega) — 오(장음)</span>
+      </div>
+    </div>
+
+    <div class="prof-box">
+      <div class="prof-box-title">🎙️ 교수님 유익한 설명들</div>
+      <strong>ν(뉴):</strong> 니은(ㄴ)을 오른쪽으로 45도 기울이면 ν — 모양으로 외우세요.<br>
+      <strong>ξ(크시):</strong> 두 번 꺾이니까 발음도 두 개(크+스)가 들어간다.<br>
+      <strong>ο(오미크론) vs ω(오메가):</strong> 오미크론(mikro = 작은)은 작은 오, 오메가(mega = 큰)는 큰 오. 요한계시록에서 예수님이 "나는 알파와 오메가"라고 하심.<br>
+      <strong>σ/ς(시그마):</strong> ς(단어 끝) 꼭지부터 먼저 쓰거나 위에서 아래로 — 어떻게 써도 무방하나, 단어 끝 위치 구분이 핵심.<br>
+      <strong>ρ(로):</strong> 영어 r처럼 생겼지만 발음은 굴리는 'ㄹ' (이탈리아어식 트릴)<br>
+      <strong>χ(키):</strong> 크리스토스(Χριστός)의 첫 글자 — "X-mas"의 X는 안티가 아니라 크리스토스의 첫 자!
+    </div>
+
+    <!-- SECTION 2: 이중모음 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 02</span>
+      <span class="sec-title">이중모음 — Δίφθογγοι (디프통고이)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <div class="callout-title">이중모음 발음 원칙</div>
+        <div class="callout-text">두 모음을 <strong>빠르게 연결</strong>하여 발음. 단독 모음 두 개가 아니라 하나의 모음처럼 처리.</div>
+      </div>
+    </div>
+
+    <div class="diph-grid">
+      <div class="diph-card">
+        <div class="diph-gk">αι</div>
+        <div class="diph-info"><strong>아이</strong><br>예: αἴ → 아이<br>영어 <em>aisle</em></div>
+      </div>
+      <div class="diph-card">
+        <div class="diph-gk">ει</div>
+        <div class="diph-info"><strong>에이</strong><br>예: εἰς (에이스)<br>영어 <em>eight</em></div>
+      </div>
+      <div class="diph-card">
+        <div class="diph-gk">οι</div>
+        <div class="diph-info"><strong>오이</strong><br>예: οἴκος<br>영어 <em>oil</em></div>
+      </div>
+      <div class="diph-card">
+        <div class="diph-gk">αυ</div>
+        <div class="diph-info"><strong>아우</strong><br>예: αὐτός (아우토스)<br>→ <em>Audi</em> 어원!</div>
+      </div>
+      <div class="diph-card">
+        <div class="diph-gk">ευ</div>
+        <div class="diph-info"><strong>에우→유</strong><br>EU(유럽) 어원<br>εὐαγγέλιον(에우앙겔리온)</div>
+      </div>
+      <div class="diph-card">
+        <div class="diph-gk">ου</div>
+        <div class="diph-info"><strong>우</strong><br>예: οὗτος (후토스)<br>긴 우 발음</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <div class="callout-title">교수님 강조: 장단음 구분</div>
+        <div class="callout-text">
+          <strong>η(에타)</strong>는 ε(엡실론)의 장음 버전 / <strong>ω(오메가)</strong>는 ο(오미크론)의 장음 버전.<br>
+          고대에는 길이 차이가 있었으나 현실적으로 이미 사본에서도 혼용됨 — 의미 파악이 더 중요!
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: 숨표 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 03</span>
+      <span class="sec-title">숨표 — Πνεύματα (프뉴마타)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="breath-grid">
+      <div class="breath-card">
+        <div class="breath-head rough">᾿ 연한 숨표 (Soft Breathing / ψιλόν)</div>
+        <div class="breath-body">
+          <strong>모양:</strong> ᾿ (왼쪽으로 굽은 쉼표 모양)<br>
+          <strong>기능:</strong> 표시만 있을 뿐 발음에 영향 없음 — <strong>무시</strong><br>
+          <strong>예시:</strong> <span class="gk-sm">ἀκούω</span> (아쿠오) — 듣다<br>
+          <span class="gk-sm">εἰς</span> (에이스) — 안으로<br>
+          모음·이중모음 시작 단어에 <strong>항상</strong> 붙음
+        </div>
+      </div>
+      <div class="breath-card">
+        <div class="breath-head rough" style="background:var(--rose);">῾ 거친 숨표 (Rough Breathing / δασύ)</div>
+        <div class="breath-body">
+          <strong>모양:</strong> ῾ (오른쪽으로 굽은 쉼표 모양)<br>
+          <strong>기능:</strong> 앞에 <strong>'ㅎ' 발음 추가</strong><br>
+          <strong>예시:</strong> <span class="gk-sm">ἁ</span> → <strong>하</strong><br>
+          <span class="gk-sm">εἷς</span> (헤이스) — 하나 (남성)<br>
+          <span class="gk-sm">ἡ</span> (헤) — 정관사 여성 단수<br>
+          <span class="gk-sm">ὁ</span> (호) — 정관사 남성 단수
+        </div>
+      </div>
+    </div>
+
+    <div class="prof-box">
+      <div class="prof-box-title">🎙️ 교수님: 아가페(ἀγάπη)의 숨표</div>
+      <span class="gk-sm">ἀγάπη</span> — 연한 숨표(᾿)가 있으므로 그냥 <strong>'아'</strong>가페. 거친 숨표였으면 <strong>'하'</strong>가페가 됐을 것.<br>
+      <span class="gk-sm">εἷς</span>(헤이스, 하나)처럼 거친 숨표(῾)가 있으면 앞에 ㅎ 소리 추가 → <strong>헤이스</strong>.
+    </div>
+
+    <!-- SECTION 4: 악센트 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 04</span>
+      <span class="sec-title">악센트 — Τόνοι (토노이)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ️</div>
+      <div class="callout-body">
+        <div class="callout-title">이번 학기 방침 (교수님 지침)</div>
+        <div class="callout-text">
+          악센트 세부 규칙(얼티마·파에눌티마·안티파에눌티마)은 <strong>2학기(권영주 교수님)</strong>에 심화 학습.
+          이번 학기는 <strong>예각 악센트(ˊ) 위치만 인식</strong>하고 영어처럼 강세 표시 정도로 이해.
+        </div>
+      </div>
+    </div>
+
+    <div class="accent-grid">
+      <div class="accent-card" style="background:var(--teal-pale); border-color:var(--teal-light);">
+        <span class="accent-symbol" style="color:var(--teal-dark);">ά</span>
+        <span class="accent-name" style="color:var(--teal-mid);">예각 악센트</span>
+        <span class="accent-desc">Acute — ˊ<br>"올라가는" 강세<br>가장 일반적</span>
+      </div>
+      <div class="accent-card" style="background:#f5f0fa; border-color:#d5bfef;">
+        <span class="accent-symbol" style="color:#6b36a8;">ὰ</span>
+        <span class="accent-name" style="color:#6b36a8;">무덤 악센트</span>
+        <span class="accent-desc">Grave — ˋ<br>"내려가는" 강세<br>문장 중간에 등장</span>
+      </div>
+      <div class="accent-card" style="background:var(--gold-light); border-color:#e6c87a;">
+        <span class="accent-symbol" style="color:var(--gold);">ᾶ</span>
+        <span class="accent-name" style="color:var(--gold);">원형 악센트</span>
+        <span class="accent-desc">Circumflex — ˆ<br>"올랐다 내려오는"<br>장음 모음에만</span>
+      </div>
+    </div>
+
+    <!-- SECTION 5: 신규 어휘 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 05</span>
+      <span class="sec-title">신규 어휘 — 동사 / 명사 / 형용사</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="sub">동사 (Verbs) — -ω 로 끝남 → 1인칭 단수 "나는 ~한다"</div>
+    <div class="vocab-2col">
+      <div class="vocab-item">
+        <span class="vocab-gk">λύω</span>
+        <span class="vocab-pron">(루오)</span>
+        <span class="vocab-meaning">풀다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἀκούω</span>
+        <span class="vocab-pron">(아쿠오)</span>
+        <span class="vocab-meaning">듣다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">βλέπω</span>
+        <span class="vocab-pron">(블레포)</span>
+        <span class="vocab-meaning">보다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">γινώσκω</span>
+        <span class="vocab-pron">(기노스코)</span>
+        <span class="vocab-meaning">알다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">γράφω</span>
+        <span class="vocab-pron">(그라포)</span>
+        <span class="vocab-meaning">쓰다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">διδάσκω</span>
+        <span class="vocab-pron">(디다스코)</span>
+        <span class="vocab-meaning">가르치다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">λαμβάνω</span>
+        <span class="vocab-pron">(람바노)</span>
+        <span class="vocab-meaning">취하다, 받다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">λέγω</span>
+        <span class="vocab-pron">(레고)</span>
+        <span class="vocab-meaning">말하다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">πιστεύω</span>
+        <span class="vocab-pron">(피스튜오)</span>
+        <span class="vocab-meaning">믿다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">θεραπεύω</span>
+        <span class="vocab-pron">(테라퓨오)</span>
+        <span class="vocab-meaning">치료하다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἐγείρω</span>
+        <span class="vocab-pron">(에게이로)</span>
+        <span class="vocab-meaning">일으키다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">βαπτίζω</span>
+        <span class="vocab-pron">(밥티조)</span>
+        <span class="vocab-meaning">침례를 주다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἔχω</span>
+        <span class="vocab-pron">(에코)</span>
+        <span class="vocab-meaning">가지고 있다</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">σῴζω</span>
+        <span class="vocab-pron">(소조)</span>
+        <span class="vocab-meaning">구원하다 / 치료하다 ⭐</span>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-icon">⭐</div>
+      <div class="callout-body">
+        <div class="callout-title">σῴζω (소조) — 이번 강의 최중요 어휘!</div>
+        <div class="callout-text">
+          <strong>두 가지 뜻:</strong> ① 구원하다(영적 구원) ② 치료하다(육적 치유)<br>
+          ▸ 예수님이 환자를 고치신 후 "네 믿음이 너를 σέσωκέν"이라 하심 → 영어성경은 대부분 "healed(치료했다)"로 번역<br>
+          ▸ 빌립보 간수가 "내가 어떻게 하면 σωθήσομαι?"라고 물은 것 → 영적 구원보다 <strong>당장의 위기 탈출</strong> 의미일 수 있음<br>
+          ▸ <strong>시험 답안:</strong> "구원하다 / 치료하다" 둘 다 써야 점수! 하나만 쓰면 감점!
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">명사 (Nouns) — -ος(오스) 로 끝나면 남성 명사</div>
+    <div class="vocab-2col">
+      <div class="vocab-item">
+        <span class="vocab-gk">λόγος</span>
+        <span class="vocab-pron">(로고스)</span>
+        <span class="vocab-meaning">말씀 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">θεός</span>
+        <span class="vocab-pron">(테오스)</span>
+        <span class="vocab-meaning">하나님, 신 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">κόσμος</span>
+        <span class="vocab-pron">(코스모스)</span>
+        <span class="vocab-meaning">세상, 우주 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">νόμος</span>
+        <span class="vocab-pron">(노모스)</span>
+        <span class="vocab-meaning">율법 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἄνθρωπος</span>
+        <span class="vocab-pron">(안트로포스)</span>
+        <span class="vocab-meaning">사람 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἀπόστολος</span>
+        <span class="vocab-pron">(아포스톨로스)</span>
+        <span class="vocab-meaning">사도 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">υἱός</span>
+        <span class="vocab-pron">(휘오스)</span>
+        <span class="vocab-meaning">아들 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ἀδελφός</span>
+        <span class="vocab-pron">(아델포스)</span>
+        <span class="vocab-meaning">형제 (남)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">ζωή</span>
+        <span class="vocab-pron">(조에)</span>
+        <span class="vocab-meaning">생명 (여)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">φῶς</span>
+        <span class="vocab-pron">(포스)</span>
+        <span class="vocab-meaning">빛 (중)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">δῶρον</span>
+        <span class="vocab-pron">(도론)</span>
+        <span class="vocab-meaning">선물 (중)</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">καί</span>
+        <span class="vocab-pron">(카이)</span>
+        <span class="vocab-meaning">그리고 (접속사)</span>
+      </div>
+    </div>
+
+    <div class="sub">형용사 (Adjectives)</div>
+    <div class="vocab-2col">
+      <div class="vocab-item">
+        <span class="vocab-gk">ἀγαθός</span>
+        <span class="vocab-pron">(아가토스)</span>
+        <span class="vocab-meaning">좋은, 착한</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">κακός</span>
+        <span class="vocab-pron">(카코스)</span>
+        <span class="vocab-meaning">나쁜</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">καλός</span>
+        <span class="vocab-pron">(칼로스)</span>
+        <span class="vocab-meaning">좋은, 아름다운</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">μικρός</span>
+        <span class="vocab-pron">(미크로스)</span>
+        <span class="vocab-meaning">작은, 적은</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">νεκρός</span>
+        <span class="vocab-pron">(네크로스)</span>
+        <span class="vocab-meaning">죽은</span>
+      </div>
+      <div class="vocab-item">
+        <span class="vocab-gk">δίκαιος</span>
+        <span class="vocab-pron">(디카이오스)</span>
+        <span class="vocab-meaning">옳은, 의로운</span>
+      </div>
+    </div>
+
+    <!-- SECTION 6: 동사 어미 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 06</span>
+      <span class="sec-title">동사 어미 입문 — 현재 능동태 직설법</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout good">
+      <div class="callout-icon">✅</div>
+      <div class="callout-body">
+        <div class="callout-title">핵심 규칙: -ω 로 끝나면 주어는 "나"</div>
+        <div class="callout-text">
+          스페인어·이탈리아어·라틴어도 <strong>-o 로 끝나면 1인칭 단수(나)</strong>. 헬라어도 동일!<br>
+          <strong>λύ-ω</strong>(루오) = "나는 푼다" | <strong>πιστεύ-ω</strong>(피스튜오) = "나는 믿는다"<br>
+          반대로 어미로 주어를 알 수 있으므로 헬라어는 주어 대명사를 별도로 안 써도 OK.
+        </div>
+      </div>
+    </div>
+
+    <div class="paradigm-wrap">
+      <div class="paradigm-card">
+        <div class="paradigm-head">
+          현재 능동태 직설법 — <span class="gk-sm" style="color:#cceaf4;">λύω</span> (루오, 풀다)
+          <span class="paradigm-sub">Present Active Indicative</span>
+        </div>
+        <div class="paradigm-body">
+          <table>
+            <thead><tr><th>인칭</th><th>단수</th><th>번역</th><th>복수</th><th>번역</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="td-b" style="color:var(--teal-dark);">1인칭</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">ω</strong></span> (루오)</td>
+                <td class="text-sm">나는 푼다</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">ομεν</strong></span> (루오멘)</td>
+                <td class="text-sm">우리는 푼다</td>
+              </tr>
+              <tr>
+                <td class="td-b" style="color:var(--teal-dark);">2인칭</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">εις</strong></span> (루에이스)</td>
+                <td class="text-sm">너는 푼다</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">ετε</strong></span> (루에테)</td>
+                <td class="text-sm">너희는 푼다</td>
+              </tr>
+              <tr>
+                <td class="td-b" style="color:var(--teal-dark);">3인칭</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">ει</strong></span> (루에이)</td>
+                <td class="text-sm">그/그녀는 푼다</td>
+                <td><span class="gk-sm">λύ<strong style="color:var(--rose);">ουσι</strong></span> (루우시)</td>
+                <td class="text-sm">그들은 푼다</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">어미 암기표 — 어미(빨간색)를 외우세요!</div>
+
+    <div class="ending-row">
+      <div class="ending-person">1인칭<br>단수</div>
+      <div class="ending-sg">
+        <strong style="color:var(--rose);">-ω</strong>
+        <span class="en-label">나는</span>
+      </div>
+      <div class="ending-person">1인칭<br>복수</div>
+      <div class="ending-pl">
+        <strong style="color:var(--rose);">-ομεν</strong>
+        <span class="en-label">우리는</span>
+      </div>
+    </div>
+    <div class="ending-row">
+      <div class="ending-person">2인칭<br>단수</div>
+      <div class="ending-sg">
+        <strong style="color:var(--rose);">-εις</strong>
+        <span class="en-label">너는</span>
+      </div>
+      <div class="ending-person">2인칭<br>복수</div>
+      <div class="ending-pl">
+        <strong style="color:var(--rose);">-ετε</strong>
+        <span class="en-label">너희는</span>
+      </div>
+    </div>
+    <div class="ending-row">
+      <div class="ending-person">3인칭<br>단수</div>
+      <div class="ending-sg">
+        <strong style="color:var(--rose);">-ει</strong>
+        <span class="en-label">그/그녀/그것은</span>
+      </div>
+      <div class="ending-person">3인칭<br>복수</div>
+      <div class="ending-pl">
+        <strong style="color:var(--rose);">-ουσι(ν)</strong>
+        <span class="en-label">그들은</span>
+      </div>
+    </div>
+
+    <!-- SECTION 7: 어원 인사이트 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 07</span>
+      <span class="sec-title">어원 인사이트 — 영어 속 헬라어</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">🔗</div>
+      <div class="callout-body">
+        <div class="callout-title">교수님: 영어 어휘의 70% 이상이 헬라어·라틴어 어원</div>
+        <div class="callout-text">미국 학생들은 헬라어 배울 때 어휘가 익숙해서 쉽지만, 우리는 의식적으로 연결해야 해요. 연결하면 오히려 훨씬 오래 기억됩니다!</div>
+      </div>
+    </div>
+
+    <div class="etym-row"><span class="etym-gk">γράφω (그라포)</span><span class="etym-arrow">→</span><span class="etym-eng">graph, photograph</span><span class="etym-mean">— 쓰다, 그리다</span></div>
+    <div class="etym-row"><span class="etym-gk">γινώσκω (기노스코)</span><span class="etym-arrow">→</span><span class="etym-eng">gnosis, agnostic</span><span class="etym-mean">— 알다</span></div>
+    <div class="etym-row"><span class="etym-gk">διδάσκω (디다스코)</span><span class="etym-arrow">→</span><span class="etym-eng">didache, didactic</span><span class="etym-mean">— 가르치다</span></div>
+    <div class="etym-row"><span class="etym-gk">θεραπεύω (테라퓨오)</span><span class="etym-arrow">→</span><span class="etym-eng">therapy</span><span class="etym-mean">— 치료하다</span></div>
+    <div class="etym-row"><span class="etym-gk">ἀκούω (아쿠오)</span><span class="etym-arrow">→</span><span class="etym-eng">acoustic</span><span class="etym-mean">— 듣다 (어쿠스틱 기타!)</span></div>
+    <div class="etym-row"><span class="etym-gk">φῶς (포스)</span><span class="etym-arrow">→</span><span class="etym-eng">photo, phosphorus</span><span class="etym-mean">— 빛</span></div>
+    <div class="etym-row"><span class="etym-gk">κόσμος (코스모스)</span><span class="etym-arrow">→</span><span class="etym-eng">cosmos, cosmetics</span><span class="etym-mean">— 질서 → 세상 / 화장(무질서에 질서 부여)</span></div>
+    <div class="etym-row"><span class="etym-gk">ἄνθρωπος (안트로포스)</span><span class="etym-arrow">→</span><span class="etym-eng">anthropology</span><span class="etym-mean">— 사람 (인류학)</span></div>
+    <div class="etym-row"><span class="etym-gk">ἀπόστολος (아포스톨로스)</span><span class="etym-arrow">→</span><span class="etym-eng">apostle</span><span class="etym-mean">— 보냄받은 자, 사도</span></div>
+    <div class="etym-row"><span class="etym-gk">καλός (칼로스)</span><span class="etym-arrow">→</span><span class="etym-eng">calligraphy</span><span class="etym-mean">— 아름다운 (캘리그라피 = 아름다운 글씨)</span></div>
+    <div class="etym-row"><span class="etym-gk">μικρός (미크로스)</span><span class="etym-arrow">→</span><span class="etmt-arrow"></span><span class="etym-eng">micro, microscope</span><span class="etym-mean">— 작은</span></div>
+    <div class="etym-row"><span class="etym-gk">πιστεύω (피스튜오)</span><span class="etym-arrow">→</span><span class="etym-eng">pistis (faith)</span><span class="etym-mean">— 믿다 (믿음 = πίστις 피스티스)</span></div>
+
+    <!-- SECTION 8: 성경 어휘 특강 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 08</span>
+      <span class="sec-title">성경 어휘 특강 — 중요 용어들</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <table>
+      <thead><tr><th>헬라어</th><th>음가</th><th>뜻</th><th>교수님 설명</th></tr></thead>
+      <tbody>
+        <tr class="hl-teal">
+          <td><span class="gk-sm">Χριστός</span></td>
+          <td>크리스토스</td>
+          <td>그리스도, 기름부음 받은 자</td>
+          <td>X-mas의 X = χ(키) = 크리스토스의 첫 글자. 反기독교 표현이 아님!</td>
+        </tr>
+        <tr>
+          <td><span class="gk-sm">Ἰησοῦς</span></td>
+          <td>이에수스</td>
+          <td>예수</td>
+          <td>우리말 "예수"가 오히려 원음에 더 가까움. 미국식 "지저스"는 변형</td>
+        </tr>
+        <tr class="hl-gold">
+          <td><span class="gk-sm">εἰσ-ήγησις</span></td>
+          <td>에이스에게시스</td>
+          <td>자기해석(eisegesis)</td>
+          <td>εἰς = 안으로 → 자기 생각을 본문 안으로 집어넣는 것</td>
+        </tr>
+        <tr class="hl-gold">
+          <td><span class="gk-sm">ἐξ-ήγησις</span></td>
+          <td>엑세게시스</td>
+          <td>석의(exegesis)</td>
+          <td>ἐκ = 밖으로 → 본문이 말하는 것을 밖으로 끄집어내는 것</td>
+        </tr>
+        <tr>
+          <td><span class="gk-sm">ἰχθύς</span></td>
+          <td>익투스</td>
+          <td>물고기</td>
+          <td>Ι(이에수스)Χ(크리스토스)Θ(테우)Υ(휘오스)Σ(소테르) — 예수 그리스도 하나님의 아들 구세주의 이니셜리즘. 초대교회 암호!</td>
+        </tr>
+        <tr class="hl-teal">
+          <td><span class="gk-sm">Ἐγώ εἰμι</span></td>
+          <td>에고 에이미</td>
+          <td>나는 ~이다</td>
+          <td>요한복음 7개 "나는 ~이다" 말씀의 공식 표현. εἰμί는 be동사.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SECTION 9: 준비사항 -->
+    <div class="sec">
+      <span class="sec-badge">SECTION 09</span>
+      <span class="sec-title">시사점 및 다음 주 준비사항</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-icon">📋</div>
+      <div class="callout-body">
+        <div class="callout-title">다음 주(3주차 · 3/30) 예습 사항</div>
+        <div class="callout-text">
+          <strong>주제:</strong> 현재 능동태 직설법 + 현재 수동태 직설법 + 중간태 의미 + 현재 중간태 직설법<br>
+          <strong>예습 포인트:</strong> ① 이번 주 어미 6개(-ω, -εις, -ει, -ομεν, -ετε, -ουσι) 백지 암기<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;② λύω 현재 능동태 변화표 6개 인칭 모두 외우기<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;③ 이번 주 어휘 14개 동사 발음+뜻 암기
+        </div>
+      </div>
+    </div>
+
+    <div class="next-box">
+      <span class="next-label">NEXT ▶</span>
+      <span><strong>3주차 (3/30):</strong> 현재 능동·수동·중간태 직설법 — λύω 세 가지 태(Voice) 변화표 학습 시작</span>
+    </div>
+
+    <!-- MEMORIZE BOX -->
+    <div class="memo-box">
+      <div class="memo-title">⭐ 오늘 암기 필수 형태 3가지</div>
+      <div class="memo-items">
+        <div class="memo-item">
+          <span class="memo-num">① 동사 어미 — 1인칭 단수</span>
+          <span class="memo-gk">-ω</span>
+          <span class="memo-ko">"오(ω)로 끝나면 주어는 나" — λύω = 나는 푼다</span>
+        </div>
+        <div class="memo-item">
+          <span class="memo-num">② 핵심 어휘 — 두 뜻 필수</span>
+          <span class="memo-gk">σῴζω</span>
+          <span class="memo-ko">소조 = 구원하다 / 치료하다 (시험 둘 다 써야 정답!)</span>
+        </div>
+        <div class="memo-item">
+          <span class="memo-num">③ 거친 숨표 발음</span>
+          <span class="memo-gk">ἡ / ὁ / εἷς</span>
+          <span class="memo-ko">헤 / 호 / 헤이스 — ῾ 있으면 앞에 ㅎ 추가!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-l">한국침례신학대학교 · 헬라어 I · 한철흠 교수 · 2026학년도 1학기</div>
+      <div class="footer-r">2주차 강의노트 — 2026.03.23</div>
+    </div>
+
+  </div><!-- .content -->
+</div><!-- .page -->
+</body>
+</html>

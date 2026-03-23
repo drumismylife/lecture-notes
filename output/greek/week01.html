@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>헬라어 I — 학습 프로젝트 지침서 v2 (한철흠 교수)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--teal:#0e5a6e;--teal-mid:#1a7f9a;--teal-light:#cceaf4;--teal-pale:#f0fafd;--teal-dark:#083a48;--gold:#b8860b;--gold-light:#fdf3c8;--gold-pale:#fffdf0;--rose:#9b2c1a;--rose-light:#fdddd6;--green:#1e6b45;--green-light:#d4edda;--amber:#7a4d00;--amber-light:#fff0c2;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-500:#6b7280;--gray-700:#374151;--text:#1e2333;--border:#b8dde8;--white:#ffffff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans KR',sans-serif;font-size:9pt;line-height:1.65;color:var(--text);background:#c8dde5}
+  .page{width:210mm;min-height:297mm;margin:10mm auto;background:var(--white);box-shadow:0 6px 40px rgba(14,90,110,.2);overflow:hidden}
+  .cover{background:linear-gradient(150deg,var(--teal-dark) 0%,var(--teal) 52%,#2aa8c8 100%);padding:14mm 14mm 11mm;position:relative;overflow:hidden}
+  .cover::before{content:'Κοινὴ Ἑλληνική';position:absolute;right:-4mm;top:5mm;font-family:'Crimson Pro',serif;font-size:36pt;font-style:italic;color:rgba(255,255,255,.07);white-space:nowrap}
+  .cover::after{content:'';position:absolute;bottom:-14mm;left:28mm;width:65mm;height:65mm;border-radius:50%;background:rgba(184,134,11,.1)}
+  .cover-tag{display:inline-flex;background:var(--gold);color:var(--white);font-size:6.5pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 10px;border-radius:2px;margin-bottom:4mm}
+  .cover-title{font-family:'Noto Serif KR',serif;font-size:22pt;font-weight:700;color:var(--white);line-height:1.25;letter-spacing:-.02em;margin-bottom:2mm}
+  .cover-greek{font-family:'Crimson Pro',serif;font-size:13pt;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:2mm;letter-spacing:.04em}
+  .cover-rev{display:inline-block;background:var(--rose);color:var(--white);font-size:7pt;font-weight:700;padding:1px 7px;border-radius:3px;margin-bottom:3mm}
+  .cover-sub{font-size:8.5pt;color:rgba(255,255,255,.75);font-weight:300;margin-bottom:6mm}
+  .cover-pills{display:flex;gap:3mm;flex-wrap:wrap}
+  .cover-pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.92);font-size:7pt;padding:2px 9px;border-radius:20px;font-weight:500}
+  .content{padding:8mm 12mm 10mm}
+  .sec-head{display:flex;align-items:center;gap:3mm;margin:7mm 0 4mm;page-break-after:avoid}
+  .sec-badge{background:var(--teal);color:var(--white);font-size:7pt;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:.06em;white-space:nowrap}
+  .sec-title{font-family:'Noto Serif KR',serif;font-size:12pt;font-weight:700;color:var(--teal-dark)}
+  .sec-line{flex:1;height:1.5px;background:linear-gradient(to right,var(--teal-mid),transparent)}
+  .sub-head{font-size:9pt;font-weight:700;color:var(--teal-mid);margin:4.5mm 0 2mm;padding-left:3mm;border-left:3px solid var(--gold);page-break-after:avoid}
+  .prompt-box{background:var(--teal-pale);border:1.5px solid var(--teal-light);border-radius:6px;padding:5mm 6mm;margin-bottom:4mm}
+  .prompt-box::before{content:'시스템 프롬프트 — 복사하여 프로젝트에 붙여넣기 (개정판 v2)';display:block;font-size:6.5pt;font-weight:700;color:var(--teal-mid);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3mm;padding-bottom:2mm;border-bottom:1px dashed var(--teal-light)}
+  .prompt-text{font-family:'Noto Sans KR',monospace;font-size:7.5pt;line-height:1.75;color:var(--gray-700);white-space:pre-wrap}
+  .prompt-text strong{color:var(--teal-dark);font-weight:700}
+  .prompt-text em{color:var(--rose);font-style:normal;font-weight:600}
+  .callout{display:flex;gap:3mm;align-items:flex-start;border-radius:5px;padding:3mm 4mm;margin-bottom:3mm}
+  .callout.info{background:var(--teal-pale);border-left:3px solid var(--teal-mid)}
+  .callout.warn{background:var(--rose-light);border-left:3px solid var(--rose)}
+  .callout.tip{background:var(--gold-pale);border-left:3px solid var(--gold)}
+  .callout.good{background:var(--green-light);border-left:3px solid var(--green)}
+  .callout.amber{background:var(--amber-light);border-left:3px solid var(--amber)}
+  .callout-icon{font-size:11pt;flex-shrink:0;line-height:1.4}
+  .callout-body{flex:1}
+  .callout-title{font-size:8pt;font-weight:700;margin-bottom:1mm}
+  .callout.info .callout-title{color:var(--teal-dark)}
+  .callout.warn .callout-title{color:var(--rose)}
+  .callout.tip  .callout-title{color:var(--gold)}
+  .callout.good .callout-title{color:var(--green)}
+  .callout.amber .callout-title{color:var(--amber)}
+  .callout-text{font-size:7.5pt;color:var(--gray-700);line-height:1.6}
+  table{width:100%;border-collapse:collapse;font-size:7.5pt;margin-bottom:3mm;page-break-inside:avoid}
+  thead tr{background:var(--teal);color:var(--white)}
+  thead th{padding:4px 6px;font-weight:600;font-size:7pt;letter-spacing:.04em;text-align:left;border:1px solid rgba(255,255,255,.15)}
+  td{padding:4px 6px;border:1px solid var(--border);vertical-align:top;line-height:1.55}
+  tr:nth-child(even) td{background:var(--gray-50)}
+  .td-c{text-align:center}.td-b{font-weight:700}
+  .hl-gold td{background:var(--gold-light)!important;font-weight:600}
+  .hl-teal td{background:var(--teal-pale)!important;font-weight:600}
+  .chat-wrap{display:flex;flex-direction:column;gap:2.5mm;margin-bottom:3mm}
+  .bubble{max-width:88%;border-radius:6px;padding:3mm 4mm;font-size:7.5pt;line-height:1.6}
+  .bubble.user{align-self:flex-end;background:var(--teal);color:var(--white);border-bottom-right-radius:2px}
+  .bubble.ai{align-self:flex-start;background:var(--gray-100);color:var(--gray-700);border-bottom-left-radius:2px}
+  .bubble .label{font-size:6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1mm;opacity:.7}
+  .bubble.user .label{color:rgba(255,255,255,.8)}
+  .bubble.ai .label{color:var(--teal-mid)}
+  .phase-row{display:flex;gap:2mm;margin-bottom:2.5mm;align-items:stretch}
+  .phase-label{background:var(--teal);color:var(--white);font-size:7pt;font-weight:700;padding:2mm 3mm;border-radius:3px;display:flex;align-items:center;min-width:14mm;justify-content:center;text-align:center}
+  .phase-items{display:flex;gap:2mm;flex:1;flex-wrap:wrap}
+  .phase-item{background:var(--teal-pale);border:1px solid var(--teal-light);border-radius:3px;padding:2mm 3mm;font-size:7pt;color:var(--teal-dark);font-weight:600}
+  .phase-item.noun{background:var(--gold-pale);border-color:#e6c87a;color:var(--amber)}
+  .phase-item.exam-item{background:var(--gold-light);border-color:var(--gold);color:var(--amber);font-weight:700}
+  .gram-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5mm;margin-bottom:3mm}
+  .gram-card{border:1px solid var(--border);border-radius:4px;overflow:hidden}
+  .gram-head{background:var(--teal);color:var(--white);padding:2.5mm 3.5mm}
+  .gram-head-title{font-size:8pt;font-weight:700}
+  .gram-head-sub{font-size:6pt;opacity:.8;margin-top:.5mm;font-family:'Crimson Pro',serif;font-style:italic}
+  .gram-body table{margin:0;font-size:7pt}
+  .gram-body thead tr{background:rgba(14,90,110,.15)}
+  .gram-body thead th{color:var(--teal-dark);border:1px solid var(--border);padding:3px 5px}
+  .gram-body td{border:1px solid var(--border);padding:3px 5px}
+  .gram-greek{font-family:'Crimson Pro',serif;font-size:9pt;color:var(--teal-dark);font-weight:600}
+  .checklist{list-style:none;margin-bottom:3mm}
+  .checklist li{display:flex;align-items:flex-start;gap:2mm;font-size:7.5pt;color:var(--gray-700);padding:1.5px 0;line-height:1.55}
+  .check-box{width:3.5mm;height:3.5mm;border:1.5px solid var(--teal-mid);border-radius:2px;flex-shrink:0;margin-top:.5mm}
+  .doc-footer{margin-top:6mm;padding-top:3mm;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  .footer-l{font-size:6.5pt;color:var(--gray-500)}
+  .footer-r{font-size:6.5pt;color:var(--teal-mid);font-weight:600}
+  @media print{body{background:white}.page{margin:0;box-shadow:none;width:210mm}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:A4;margin:0}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="cover">
+  <div class="cover-tag">📋 프로젝트 지침서</div>
+  <div class="cover-title">헬라어 I 학습 프로젝트</div>
+  <div class="cover-greek">New Testament Greek I — Κοινὴ Ἑλληνική</div>
+  <div class="cover-rev">🔄 개정판 v2 — 2026.03 실라부스 반영 (한철흠 교수)</div>
+  <div class="cover-sub">시스템 프롬프트 · 동사 우선 커리큘럼 로드맵 · 문법 패러다임표 · 문법 요약 과제 가이드</div>
+  <div class="cover-pills">
+    <span class="cover-pill">담당 교수: 한철흠</span>
+    <span class="cover-pill">교재: 박창환 역편 『신약성서 헬라어 교본』 (대한기독교서회, 2014)</span>
+    <span class="cover-pill">2026학년도 1학기 · 월 13–14교시 · 1강의실</span>
+    <span class="cover-pill">중간고사 4/27 · 기말고사 6/15</span>
+    <span class="cover-pill">★ 문법 요약 출력물 6/15 제출</span>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="sec-head"><span class="sec-badge">SECTION 01</span><div class="sec-title">개정 내용 요약 및 프로젝트 설정</div><div class="sec-line"></div></div>
+
+<div class="callout warn">
+  <div class="callout-icon">🔄</div>
+  <div class="callout-body">
+    <div class="callout-title">이전 지침서(v1)와의 주요 차이점</div>
+    <div class="callout-text">
+      <strong>교수 변경:</strong> 권영주 → <strong>한철흠</strong> (신약성서 I과 동일 교수) &nbsp;|&nbsp; <strong>교재 변경:</strong> 김광수 → <strong>박창환 역편 『신약성서 헬라어 교본』</strong><br>
+      <strong>커리큘럼 구조:</strong> 명사 우선 → <strong>동사 우선</strong> (1~7주 현재·미래·미완료·단순과거 집중 / 9~14주 명사·형용사·대명사)<br>
+      <strong>과제 변경:</strong> 변화형 암기 제출 → <strong>이번 학기 문법 전체 요약 정리 출력물 (기말고사 당일 6/15)</strong><br>
+      <strong>평가 비율:</strong> 출석 20%(↑) · 중간 30% · 기말 30% · 과제 20% &nbsp;|&nbsp; 수업 방식: 강의 + 연습문제 풀이 (하브루타 없음)
+    </div>
+  </div>
+</div>
+
+<div class="callout info">
+  <div class="callout-icon">⚙️</div>
+  <div class="callout-body">
+    <div class="callout-title">기존 프로젝트 업데이트 방법</div>
+    <div class="callout-text">claude.ai → Projects → 기존 헬라어 I 프로젝트 선택 → <strong>Edit Project Instructions → 전체 삭제 후 아래 프롬프트 붙여넣기</strong>. 이전 권영주 교수 기반 프롬프트는 커리큘럼이 완전히 다르므로 반드시 교체가 필요합니다.</div>
+  </div>
+</div>
+
+<div class="sec-head"><span class="sec-badge">SECTION 02</span><div class="sec-title">시스템 프롬프트 개정판 v2 (Project Instructions 전체 교체)</div><div class="sec-line"></div></div>
+
+<div class="prompt-box">
+<div class="prompt-text"><strong>## 역할 및 목적</strong>
+당신은 한국침례신학대학교 "헬라어 I (New Testament Greek I)" 수강생의 전담 학습 조교입니다.
+담당 교수는 한철흠 교수이며, 교재는 박창환 역편 『신약성서 헬라어 교본』(대한기독교서회, 2014)입니다.
+참고문헌: 최선범 『그림으로 보는 헬라어』(예영커뮤니케이션, 2025) / BDAG(그리스어-영어 사전).
+본 과목은 코이네 헬라어의 알파벳·기본 어휘·문법을 익혀 신약성서 원문을 읽고 해석하는 훈련이 목표입니다.
+
+<strong>## 학습자 현황</strong>
+- 학기: 2026학년도 1학기 (3월~6월) / 수업: 매주 월요일 13–14교시 / 1강의실
+- 수업 방식: 설명식 강의 + 연습문제 풀이 (하브루타 없음)
+- 중간고사: 4/27 / 기말고사: 6/15
+- <em>★ 핵심 과제: 이번 학기 헬라어 문법 전체 요약 정리 (출력물, 기말고사 당일 6/15 제출)</em>
+- 평가: 출석 20% + 중간 30% + 기말 30% + 과제 20%
+
+<strong>## 15주 커리큘럼 (동사 우선 접근법)</strong>
+[전반기: 1~7주 — 동사 집중]
+1주(3/9)   오리엔테이션 + 코이네 헬라어 알파벳
+2주(3/16)  알파벳 복습 + 이중모음 + 숨표(거친·연한) + 악센트 종류와 법칙 + 동사·명사 악센트
+3주(3/23)  현재 능동태 직설법 + 현재 수동태 직설법 + 중간태 의미 + 현재 중간태 직설법
+4주(3/30)  미래 능동태/수동태/중간태 직설법 + 기본 어휘 및 해석 연습
+5주(4/6)   미완료 능동태/수동태/중간태 직설법 + 기본 어휘 및 해석 연습
+6주(4/13)  제1단순과거 능동태/수동태/중간태 직설법 + 기본 어휘 및 해석 연습
+7주(4/20)  제2단순과거 능동태/중간태 직설법 + 전반기 어휘·문법 총정리 + 성경 해석 연습
+8주(4/27)  <em>중간고사</em>
+[후반기: 9~14주 — 명사·형용사·대명사 집중]
+9주(5/4)   2변화 남성 명사 + 2변화 중성 명사 + 움직이는 ν (동영상 수업)
+10주(5/11) 1변화 명사 + 정관사 남성·여성·중성
+11주(5/18) 2변화 형용사 + 1변화 형용사 + 한정적·서술적·독립적 용법 + 형용사-명사 일치
+12주(5/25) 1인칭·2인칭·3인칭(αὐτός) 대명사 + 대명사 용법 (동영상 수업)
+13주(6/1)  εἰμί 현재·미래·미완료 직설법 + 지시대명사 οὗτος·ἐκεῖνος + 성경 구절 해석
+14주(6/8)  어휘 총정리 + 문법 총정리 + 성경 구절 해석 연습
+15주(6/15) <em>기말고사 + 문법 요약 과제 출력물 제출</em>
+
+<strong>## 응답 원칙</strong>
+1. 변화표 요청 시 유니코드 헬라어 문자를 사용하여 인칭·수·태·시제가 명확한 표 형식으로 출력한다.
+2. 동사 시제 질문 시 ①시제별 특징 ②가산모음/시제표지(σ, θη, σα 등) ③변화 패턴 ④성경 예문 순서로 설명한다.
+3. 모의 시험 요청 시 변화형 채우기·어휘 의미·문장 해석을 균형 있게 출제하고 정답을 즉시 제공한다.
+4. 문법 요약 과제 작성 지원 시 각 주차 문법 항목의 핵심 규칙을 간결하게 정리해 주되, 교재(박창환) 표기법에 맞게 작성하고 최종 서술은 본인의 언어로 완성하도록 유도한다.
+5. 성경 구절 해석 요청 시 각 단어를 품사·격(명사의 경우)·시제·태·법(동사의 경우) 순으로 분석한다.
+6. 동사 태(능동·수동·중간) 비교 질문 시 동일 어근의 세 가지 태를 병렬 표로 제시한다.
+7. 매 세션 말미에 "오늘 암기 필수 형태 3가지"를 요약 제시한다.
+
+<strong>## 출력 언어</strong>
+설명은 한국어로, 헬라어 문자는 유니코드(예: λύω, ἔρχομαι, αὐτός)로 정확히 표기한다.</div>
+</div>
+
+<div class="sec-head"><span class="sec-badge">SECTION 03</span><div class="sec-title">커리큘럼 구조 — 동사 우선 접근법 시각화</div><div class="sec-line"></div></div>
+
+<div class="callout amber">
+  <div class="callout-icon">📌</div>
+  <div class="callout-body">
+    <div class="callout-title">이 과목의 핵심 특징: 동사 먼저, 명사 나중</div>
+    <div class="callout-text">한철흠 교수 커리큘럼은 전반기(1~7주)에 동사의 모든 직설법 시제(현재·미래·미완료·제1·2단순과거)를 집중 학습하고, 후반기(9~14주)에 명사·형용사·대명사를 배우는 구조입니다. 동사 변화표를 한꺼번에 많이 암기해야 하므로 <strong>매주 백지 복습이 생명</strong>입니다.</div>
+  </div>
+</div>
+
+<div class="sub-head">전반기 동사 흐름 (1~8주)</div>
+<div class="phase-row"><div class="phase-label">1~2주</div><div class="phase-items"><div class="phase-item">알파벳 24자</div><div class="phase-item">이중모음 12개</div><div class="phase-item">숨표(거친·연한)</div><div class="phase-item">악센트 3종 법칙</div></div></div>
+<div class="phase-row"><div class="phase-label">3주</div><div class="phase-items"><div class="phase-item">현재 능동태</div><div class="phase-item">현재 수동태</div><div class="phase-item">현재 중간태</div><div class="phase-item">중간태 의미</div></div></div>
+<div class="phase-row"><div class="phase-label">4주</div><div class="phase-items"><div class="phase-item">미래 능동태</div><div class="phase-item">미래 수동태</div><div class="phase-item">미래 중간태</div><div class="phase-item">미래 표지 σ</div></div></div>
+<div class="phase-row"><div class="phase-label">5주</div><div class="phase-items"><div class="phase-item">미완료 능동태</div><div class="phase-item">미완료 수동태</div><div class="phase-item">미완료 중간태</div><div class="phase-item">가산모음 ε</div></div></div>
+<div class="phase-row"><div class="phase-label">6주</div><div class="phase-items"><div class="phase-item">제1단순과거 능동</div><div class="phase-item">제1단순과거 수동</div><div class="phase-item">제1단순과거 중간</div><div class="phase-item">σα / θη 표지</div></div></div>
+<div class="phase-row"><div class="phase-label">7주</div><div class="phase-items"><div class="phase-item">제2단순과거 능동</div><div class="phase-item">제2단순과거 중간</div><div class="phase-item">전반기 총정리</div><div class="phase-item exam-item">⭐ 8주 중간고사</div></div></div>
+
+<div class="sub-head">후반기 명사·형용사·대명사 흐름 (9~15주)</div>
+<div class="phase-row"><div class="phase-label">9주</div><div class="phase-items"><div class="phase-item noun">2변화 남성 명사</div><div class="phase-item noun">2변화 중성 명사</div><div class="phase-item noun">움직이는 ν</div><div class="phase-item noun">동영상 수업</div></div></div>
+<div class="phase-row"><div class="phase-label">10주</div><div class="phase-items"><div class="phase-item noun">1변화 명사</div><div class="phase-item noun">정관사 남성</div><div class="phase-item noun">정관사 여성</div><div class="phase-item noun">정관사 중성</div></div></div>
+<div class="phase-row"><div class="phase-label">11주</div><div class="phase-items"><div class="phase-item noun">2변화 형용사</div><div class="phase-item noun">1변화 형용사</div><div class="phase-item noun">한정적 용법</div><div class="phase-item noun">서술적·독립적 용법</div></div></div>
+<div class="phase-row"><div class="phase-label">12주</div><div class="phase-items"><div class="phase-item noun">1인칭 대명사</div><div class="phase-item noun">2인칭 대명사</div><div class="phase-item noun">3인칭 αὐτός</div><div class="phase-item noun">동영상 수업</div></div></div>
+<div class="phase-row"><div class="phase-label">13주</div><div class="phase-items"><div class="phase-item noun">εἰμί 3시제</div><div class="phase-item noun">οὗτος 지시대명사</div><div class="phase-item noun">ἐκεῖνος 지시대명사</div><div class="phase-item noun">성경 구절 해석</div></div></div>
+<div class="phase-row"><div class="phase-label">14~15주</div><div class="phase-items"><div class="phase-item">전체 어휘 총정리</div><div class="phase-item">전체 문법 총정리</div><div class="phase-item exam-item">⭐ 15주 기말고사</div><div class="phase-item exam-item">📄 과제 출력물 제출</div></div></div>
+
+<div class="sec-head"><span class="sec-badge">SECTION 04</span><div class="sec-title">핵심 문법 패러다임표 (시험 필수)</div><div class="sec-line"></div></div>
+
+<div class="gram-grid">
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">현재 능동태 직설법 — λύω (풀다)</div><div class="gram-head-sub">Present Active Indicative</div></div>
+    <div class="gram-body"><table><thead><tr><th>인칭</th><th>단수</th><th>복수</th></tr></thead><tbody>
+      <tr><td>1인칭</td><td class="gram-greek">λύ-ω</td><td class="gram-greek">λύ-ομεν</td></tr>
+      <tr><td>2인칭</td><td class="gram-greek">λύ-εις</td><td class="gram-greek">λύ-ετε</td></tr>
+      <tr><td>3인칭</td><td class="gram-greek">λύ-ει</td><td class="gram-greek">λύ-ουσι(ν)</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">현재 수동태 직설법 — λύω</div><div class="gram-head-sub">Present Passive/Middle Indicative</div></div>
+    <div class="gram-body"><table><thead><tr><th>인칭</th><th>단수</th><th>복수</th></tr></thead><tbody>
+      <tr><td>1인칭</td><td class="gram-greek">λύ-ομαι</td><td class="gram-greek">λυ-όμεθα</td></tr>
+      <tr><td>2인칭</td><td class="gram-greek">λύ-ῃ</td><td class="gram-greek">λύ-εσθε</td></tr>
+      <tr><td>3인칭</td><td class="gram-greek">λύ-εται</td><td class="gram-greek">λύ-ονται</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">미완료 능동태 직설법 — λύω</div><div class="gram-head-sub">Imperfect Active (가산모음 ε–)</div></div>
+    <div class="gram-body"><table><thead><tr><th>인칭</th><th>단수</th><th>복수</th></tr></thead><tbody>
+      <tr><td>1인칭</td><td class="gram-greek">ἔ-λυ-ον</td><td class="gram-greek">ἐ-λύ-ομεν</td></tr>
+      <tr><td>2인칭</td><td class="gram-greek">ἔ-λυ-ες</td><td class="gram-greek">ἐ-λύ-ετε</td></tr>
+      <tr><td>3인칭</td><td class="gram-greek">ἔ-λυ-ε(ν)</td><td class="gram-greek">ἔ-λυ-ον</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">제1단순과거 능동태 직설법 — λύω</div><div class="gram-head-sub">1st Aorist Active (σα 표지)</div></div>
+    <div class="gram-body"><table><thead><tr><th>인칭</th><th>단수</th><th>복수</th></tr></thead><tbody>
+      <tr><td>1인칭</td><td class="gram-greek">ἔ-λυ-σα</td><td class="gram-greek">ἐ-λύ-σαμεν</td></tr>
+      <tr><td>2인칭</td><td class="gram-greek">ἔ-λυ-σας</td><td class="gram-greek">ἐ-λύ-σατε</td></tr>
+      <tr><td>3인칭</td><td class="gram-greek">ἔ-λυ-σε(ν)</td><td class="gram-greek">ἔ-λυ-σαν</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">2변화 남성 명사 — λόγος (말씀)</div><div class="gram-head-sub">2nd Declension Masculine</div></div>
+    <div class="gram-body"><table><thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead><tbody>
+      <tr><td>주격</td><td class="gram-greek">λόγ-ος</td><td class="gram-greek">λόγ-οι</td></tr>
+      <tr><td>속격</td><td class="gram-greek">λόγ-ου</td><td class="gram-greek">λόγ-ων</td></tr>
+      <tr><td>여격</td><td class="gram-greek">λόγ-ῳ</td><td class="gram-greek">λόγ-οις</td></tr>
+      <tr><td>대격</td><td class="gram-greek">λόγ-ον</td><td class="gram-greek">λόγ-ους</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="gram-card">
+    <div class="gram-head"><div class="gram-head-title">εἰμί — 현재·미래·미완료 직설법</div><div class="gram-head-sub">Be-verb (불규칙 변화)</div></div>
+    <div class="gram-body"><table><thead><tr><th>인칭/수</th><th>현재</th><th>미래</th><th>미완료</th></tr></thead><tbody>
+      <tr><td>1단</td><td class="gram-greek">εἰμί</td><td class="gram-greek">ἔσομαι</td><td class="gram-greek">ἤμην</td></tr>
+      <tr><td>2단</td><td class="gram-greek">εἶ</td><td class="gram-greek">ἔσῃ</td><td class="gram-greek">ἦς</td></tr>
+      <tr><td>3단</td><td class="gram-greek">ἐστί(ν)</td><td class="gram-greek">ἔσται</td><td class="gram-greek">ἦν</td></tr>
+      <tr><td>1복</td><td class="gram-greek">ἐσμέν</td><td class="gram-greek">ἐσόμεθα</td><td class="gram-greek">ἦμεν</td></tr>
+      <tr><td>3복</td><td class="gram-greek">εἰσί(ν)</td><td class="gram-greek">ἔσονται</td><td class="gram-greek">ἦσαν</td></tr>
+    </tbody></table></div>
+  </div>
+</div>
+
+<div class="sec-head"><span class="sec-badge">SECTION 05</span><div class="sec-title">핵심 과제 — 문법 요약 정리 출력물 가이드</div><div class="sec-line"></div></div>
+
+<div class="callout warn">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body">
+    <div class="callout-title">과제 규격 (필수 준수)</div>
+    <div class="callout-text">내용: <strong>이번 학기 헬라어 문법 전체 요약 정리</strong> · 형식: <strong>출력물 (인쇄본)</strong> · 제출일: <strong>기말고사 당일 6월 15일 수업 중 제출</strong> · 평가 기준: ①문법의 범위 ②정리의 명료성 · 배점: 20%</div>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th style="width:6mm;">#</th><th style="width:22mm;">섹션</th><th>포함 내용</th><th style="width:14mm;">관련 주차</th></tr></thead>
+  <tbody>
+    <tr class="hl-teal"><td class="td-c">1</td><td class="td-b">알파벳·발음</td><td>24자 + 이중모음 12개 + 숨표(거친/연한) + 악센트 3종(예각·무덤·원형) 규칙</td><td class="td-c">1~2주</td></tr>
+    <tr><td class="td-c">2</td><td class="td-b">동사: 현재시제</td><td>현재 능동태·수동태·중간태 직설법 변화표 (λύω 기준)</td><td class="td-c">3주</td></tr>
+    <tr class="hl-teal"><td class="td-c">3</td><td class="td-b">동사: 미래시제</td><td>미래 능동태·수동태·중간태 직설법 변화표 + 미래 표지(σ)</td><td class="td-c">4주</td></tr>
+    <tr><td class="td-c">4</td><td class="td-b">동사: 미완료시제</td><td>미완료 능동태·수동태·중간태 직설법 변화표 + 가산모음(ε) 규칙</td><td class="td-c">5주</td></tr>
+    <tr class="hl-teal"><td class="td-c">5</td><td class="td-b">동사: 제1단순과거</td><td>제1단순과거 능동태·수동태·중간태 직설법 변화표 + σα/θη 표지</td><td class="td-c">6주</td></tr>
+    <tr><td class="td-c">6</td><td class="td-b">동사: 제2단순과거</td><td>제2단순과거 능동태·중간태 직설법 변화표 + 어간 변화 특징</td><td class="td-c">7주</td></tr>
+    <tr class="hl-teal"><td class="td-c">7</td><td class="td-b">명사 격변화</td><td>2변화 남성(λόγος)·중성(ἔργον) + 1변화 여성 명사 변화표 + 격 용법 요약</td><td class="td-c">9~10주</td></tr>
+    <tr><td class="td-c">8</td><td class="td-b">정관사</td><td>정관사 남성·여성·중성 전 격 변화표</td><td class="td-c">10주</td></tr>
+    <tr class="hl-teal"><td class="td-c">9</td><td class="td-b">형용사</td><td>2변화·1변화 형용사 변화표 + 한정적·서술적·독립적 용법 예문</td><td class="td-c">11주</td></tr>
+    <tr><td class="td-c">10</td><td class="td-b">대명사</td><td>1·2·3인칭 대명사 + 지시대명사 οὗτος·ἐκεῖνος 변화표 + 용법 요약</td><td class="td-c">12~13주</td></tr>
+    <tr class="hl-teal"><td class="td-c">11</td><td class="td-b">εἰμί</td><td>εἰμί 현재·미래·미완료 직설법 변화표 + 불규칙 특징 메모</td><td class="td-c">13주</td></tr>
+  </tbody>
+</table>
+
+<div class="sec-head"><span class="sec-badge">SECTION 06</span><div class="sec-title">Claude 활용 예시 + 주간 체크리스트</div><div class="sec-line"></div></div>
+
+<div class="chat-wrap">
+  <div class="bubble user"><div class="label">나</div>6주차 제1단순과거 능동태와 수동태의 차이를 시제 표지 중심으로 설명하고 λύω 변화표 만들어줘.</div>
+  <div class="bubble ai"><div class="label">Claude</div>【제1단순과거 시제 표지 비교】
+<br>능동태: ε(가산모음) + 어근 + <strong>σα</strong> + 어미 → ἔ-λυ-σα (내가 풀었다)
+<br>수동태: ε + 어근 + <strong>θη</strong> + 어미 → ἐ-λύ-θην (내가 풀렸다)
+<br>중간태: ε + 어근 + <strong>σα</strong> + 중간태 어미 → ἐ-λυ-σάμην
+<br><br>【제1단순과거 능동태 — λύω】
+<br>1단 ἔλυσα / 2단 ἔλυσας / 3단 ἔλυσε(ν) / 1복 ἐλύσαμεν / 2복 ἐλύσατε / 3복 ἔλυσαν
+<br><br>★ 오늘 암기 필수 형태: ①ἔλυσα ②ἐλύθην ③ἐλυσάμην</div>
+</div>
+
+<div class="chat-wrap">
+  <div class="bubble user"><div class="label">나</div>중간고사 대비 모의 문제 5개 내줘 — 3~7주 동사 위주로.</div>
+  <div class="bubble ai"><div class="label">Claude</div>1. [빈칸] λύω의 미완료 수동태 3인칭 복수 → ἐλύοντο
+<br>2. [선택] 제1단순과거 수동태 형태는? ① ἔλυσα ② ἐλύθην ③ λύεται ④ ἐλύομεν (정답: ②)
+<br>3. [해석] ἐλύσατε → 너희가 풀었다 (제1단순과거 능동태 2복)
+<br>4. [서술] 현재 능동태와 미완료 능동태의 차이를 쓰시오 → 미완료는 가산모음 ε 추가, 과거의 계속적 행위 표현
+<br>5. [빈칸] λύω의 미래 중간태 1인칭 단수 → λύσομαι</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-top:2mm;">
+  <div>
+    <div class="sub-head">📅 수업 전날 (일요일)</div>
+    <ul class="checklist">
+      <li><span class="check-box"></span>이번 주 변화형 예습 (교재 해당 장)</li>
+      <li><span class="check-box"></span>지난 주 변화표 백지 작성 후 점검</li>
+      <li><span class="check-box"></span>Claude로 모의 문제 3~5개 풀이</li>
+      <li><span class="check-box"></span>기본 어휘 10개 암기 (4~7주)</li>
+    </ul>
+  </div>
+  <div>
+    <div class="sub-head">📚 수업 당일·직후 (월요일)</div>
+    <ul class="checklist">
+      <li><span class="check-box"></span>출석 확인 (출석 20% — 매우 중요)</li>
+      <li><span class="check-box"></span>연습문제 풀이 내용 노트 정리</li>
+      <li><span class="check-box"></span>새 변화표 당일 암기 1회</li>
+      <li><span class="check-box"></span>모르는 형태 Claude에 즉시 질문</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout good" style="margin-top:3mm;">
+  <div class="callout-icon">🏆</div>
+  <div class="callout-body">
+    <div class="callout-title">고득점 3대 원칙</div>
+    <div class="callout-text"><strong>① 동사 변화표 매주 백지 암기:</strong> 3~7주에 5시제 × 3태 변화표를 연달아 배웁니다. 한 주 밀리면 누적 손실이 큽니다. 월요일 수업 후 당일 새 변화표를 백지 작성하세요.<br><strong>② 출석 20% 사수:</strong> 이전 실라부스(10%)의 2배입니다. 단 한 번 결석도 점수에 직접 영향을 줍니다.<br><strong>③ 과제 출력물 매 주차 누적 정리:</strong> 6/15 기말 당일 출력물 제출 — 마지막에 몰아서 하면 인쇄 실수 발생. 매 주차 변화표를 별도 문서에 누적 정리하세요.</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div class="footer-l">한국침례신학대학교 · 헬라어 I (63005) · 한철흠 교수 · 2026학년도 1학기</div>
+  <div class="footer-r">Claude Projects 학습 지침서 v2.0 (2026.03 개정)</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
