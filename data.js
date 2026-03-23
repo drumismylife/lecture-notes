@@ -12,14 +12,18 @@ const SITE_DATA = {
       weeks: [
         {
           week: 1,
-          title: "알파벳과 발음 규칙",
-          date: "2026.03",
+          title: "수업커리큘럼 및 학습 전략",
+          date: "2026.03.09",
           files: [
-            // { type: "notes", label: "강의노트", href: "output/헬라어/week01.html" }
+             { type: "notes", label: "강의노트", href: "output/greek/week01.html" }
           ]
         },
-        { week: 2, title: "명사 변화 I — 제2변화", date: "2026.03", files: [] },
-        { week: 3, title: "명사 변화 II — 제1변화", date: "2026.03", files: [] },
+        { week: 2, title: "알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초", date: "2026.03.16", files: [
+          { type: "notes", label: "강의노트", href: "output/greek/week02.html" }
+        ] },
+        { week: 3, title: "현재 능동태 · 수동태 · 중간태 직설법 / 미래 시제 맛보기", date: "2026.03.23", files: [
+          { type: "notes", label: "강의노트", href: "output/greek/week03.html" }
+        ] },
         { week: 4, title: "형용사 변화", date: "2026.04", files: [] },
         { week: 5, title: "전치사와 격", date: "2026.04", files: [] },
         { week: 6, title: "동사 기초 — 현재 능동태", date: "2026.04", files: [] },
