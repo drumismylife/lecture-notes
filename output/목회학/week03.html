@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 3주차 | 목회와 목회자</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-light: #4a3f35;
+    --ink-faint: #8a7a6a;
+    --paper: #faf7f2;
+    --paper-warm: #f5f0e8;
+    --paper-mid: #ece5d8;
+    --accent: #8b3a2a;
+    --accent-gold: #c9973a;
+    --accent-light: #e8c4a0;
+    --rule: #d4c9b8;
+    --highlight: #f0e6c8;
+    --green: #3a6b4a;
+    --blue-ink: #2a3f6b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Subtle paper texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        var(--rule) 39px,
+        var(--rule) 40px
+      );
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  .notebook-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 40px 28px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .notebook-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-gold) 50%, var(--accent) 100%);
+  }
+  .header-eyebrow {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+  }
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(250,247,242,0.7);
+  }
+  .meta-label {
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+  }
+
+  /* ── FRONTMATTER BOX ── */
+  .frontmatter {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent-gold);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .frontmatter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 32px;
+  }
+  .fm-row { display: flex; gap: 8px; }
+  .fm-key {
+    color: var(--accent);
+    font-weight: 700;
+    min-width: 70px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding-top: 2px;
+  }
+  .fm-val { color: var(--ink-light); }
+  .frontmatter-divider {
+    border: none;
+    border-top: 1px dashed var(--rule);
+    margin: 12px 0;
+  }
+  .next-week-box {
+    background: var(--highlight);
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 8px;
+    font-size: 12px;
+  }
+  .next-week-box strong { color: var(--accent); }
+
+  /* ── SECTION TITLES ── */
+  .section {
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .section:nth-child(2) { animation-delay: 0.05s; }
+  .section:nth-child(3) { animation-delay: 0.1s; }
+  .section:nth-child(4) { animation-delay: 0.15s; }
+  .section:nth-child(5) { animation-delay: 0.2s; }
+  .section:nth-child(6) { animation-delay: 0.25s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .section-heading-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--rule) 100%);
+  }
+  .section-heading h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    padding: 4px 0;
+  }
+
+  /* ── INFO TABLE ── */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+  }
+  .info-table tr:not(:last-child) {
+    border-bottom: 1px solid var(--rule);
+  }
+  .info-table td {
+    padding: 9px 14px;
+    vertical-align: top;
+  }
+  .info-table td:first-child {
+    font-weight: 700;
+    color: var(--ink-faint);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 120px;
+    background: var(--paper-mid);
+    white-space: nowrap;
+  }
+
+  /* ── CONTENT CARD ── */
+  .content-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .content-card p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+  .content-card p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  /* ── BLOCKQUOTE ── */
+  .quote-block {
+    border-left: 3px solid var(--accent-gold);
+    margin: 14px 0;
+    padding: 12px 18px;
+    background: var(--highlight);
+  }
+  .quote-block p {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 4px !important;
+  }
+  .quote-source {
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SUB SECTION ── */
+  .sub-heading {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-ink);
+    margin: 16px 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  /* ── TIMELINE (시대별 역할) ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--rule);
+    margin-left: 12px;
+    padding-left: 0;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 13.5px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--accent-gold);
+  }
+  .tl-era {
+    min-width: 100px;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 12px;
+  }
+  .tl-role { color: var(--ink-light); }
+
+  /* ── ROLE GRID (성경적 기원) ── */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .role-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent-gold);
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .role-card-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .role-card-desc {
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  /* ── APPROACH LIST (목회 현장 접근) ── */
+  .approach-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .approach-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 12px 16px;
+  }
+  .approach-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+    min-width: 28px;
+    margin-top: 2px;
+  }
+  .approach-body { flex: 1; }
+  .approach-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .approach-desc { font-size: 13px; color: var(--ink-light); }
+
+  /* ── TOOLS GRID (목회의 도구) ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .tool-item {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 14px 16px;
+    border-left: 3px solid var(--green);
+  }
+  .tool-title {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+  .tool-desc { font-size: 12.5px; color: var(--ink-light); line-height: 1.7; }
+
+  /* ── CHURCH SIZE TABLE ── */
+  .size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .size-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .size-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .size-table tr:nth-child(even) td { background: var(--paper-warm); }
+  .size-table tr:last-child td { border-bottom: none; }
+  .size-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  /* ── PRO/CON ── */
+  .procon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .pro-box, .con-box {
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+  }
+  .pro-box { border-top: 3px solid var(--green); background: #f4faf6; }
+  .con-box { border-top: 3px solid var(--accent); background: #faf4f2; }
+  .box-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pro-box .box-label { color: var(--green); }
+  .con-box .box-label { color: var(--accent); }
+  .box-item {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .box-item::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+  .pro-box .box-item::before { color: var(--green); }
+  .con-box .box-item::before { color: var(--accent); }
+
+  /* ── LEADERSHIP GRID ── */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .leadership-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--blue-ink);
+    padding: 12px 14px;
+  }
+  .lc-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--blue-ink);
+    margin-bottom: 5px;
+  }
+  .lc-desc { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+
+  /* ── KEY POINTS ── */
+  .key-points {
+    counter-reset: key-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .key-point {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    counter-increment: key-counter;
+  }
+  .key-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--paper-mid);
+    line-height: 1;
+    min-width: 36px;
+    text-align: center;
+    -webkit-text-stroke: 1px var(--accent-gold);
+  }
+  .key-body { flex: 1; background: var(--paper-warm); border: 1px solid var(--rule); padding: 12px 16px; }
+  .key-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+  .key-desc { font-size: 13px; color: var(--ink-light); line-height: 1.7; }
+
+  /* ── NOTE CALLOUT ── */
+  .note-callout {
+    background: var(--highlight);
+    border: 1px solid var(--accent-gold);
+    border-left: 4px solid var(--accent-gold);
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .note-callout-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .note-callout p { color: var(--ink-light); line-height: 1.7; }
+
+  /* ── PREP LIST ── */
+  .prep-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .prep-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--ink-light);
+    padding: 8px 12px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+  }
+  .prep-icon {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .note-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  .footer-stamp {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+
+  /* Divider */
+  .ruled-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 20px 0;
+  }
+
+  @media (max-width: 600px) {
+    .frontmatter-grid { grid-template-columns: 1fr; }
+    .procon-grid { grid-template-columns: 1fr; }
+    .leadership-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .role-grid { grid-template-columns: repeat(2, 1fr); }
+    .notebook-header { padding: 24px 20px 20px; }
+    .header-title { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="notebook-header">
+    <div class="header-eyebrow">한국침례신학대학교 대학원 · 2026학년도 1학기</div>
+    <div class="header-title">목회와 목회자</div>
+    <div class="header-sub">역할·사명·적절한 목회 방법</div>
+    <div class="header-meta">
+      <div class="meta-item"><span class="meta-label">과목</span> 목회학 (63117)</div>
+      <div class="meta-item"><span class="meta-label">교수</span> 이영호 교수</div>
+      <div class="meta-item"><span class="meta-label">주차</span> 3주차</div>
+      <div class="meta-item"><span class="meta-label">일자</span> 2026. 03. 23 (월)</div>
+      <div class="meta-item"><span class="meta-label">장소</span> 1강의실 · 11–13교시</div>
+    </div>
+  </div>
+
+  <!-- FRONTMATTER -->
+  <div class="frontmatter">
+    <div class="frontmatter-grid">
+      <div class="fm-row"><span class="fm-key">course</span><span class="fm-val">목회학</span></div>
+      <div class="fm-row"><span class="fm-key">week</span><span class="fm-val">3주차</span></div>
+      <div class="fm-row"><span class="fm-key">date</span><span class="fm-val">2026-03-23</span></div>
+      <div class="fm-row"><span class="fm-key">professor</span><span class="fm-val">이영호 교수</span></div>
+      <div class="fm-row"><span class="fm-key">schedule</span><span class="fm-val">월요일 11–13교시</span></div>
+      <div class="fm-row"><span class="fm-key">credit</span><span class="fm-val">3학점</span></div>
+    </div>
+    <hr class="frontmatter-divider">
+    <div class="next-week-box">
+      <strong>📌 다음 주차 (4주차 · 3/30)</strong> — 목회자의 소명 : 부름받은 하나님의 종<br>
+      <span style="font-size:12px;color:#5a4a3a;margin-top:4px;display:block;">▸ 예습: 소명의 성경적 근거 / 교재 해당 챕터 예독 권장</span>
+    </div>
+  </div>
+
+  <!-- 1. 강의 핵심 정보 -->
+  <div class="section">
+    <div class="section-heading">
+      <h2>§ 강의 핵심 정보</h2>
+      <div class="section-heading-line"></div>
+    </div>
+    <table class="info-table">
+      <tr><td>학습 목표</td><td>목회자의 역할과 목회자 자신에게 맞는 <strong>적절한 목회 방법</strong>이 무엇인지 이해한다</td></tr>
+      <tr><td>핵심 명제</td><td><strong>"목회는 다양한 방식이 있다"</strong> — 본질은 같지만 현장·구성원·목회자에 따라 달라짐</td></tr>
+      <tr><td>교수 정의</td><td><strong>"목회는 하나님을 만난 사람이 하나님을 만나게 하는 것"</strong></td></tr>
+      <tr><td>참고 논문</td><td>양현표, "목회의 개념" — 『21세기 목회학 총론』 pp.25–39 / "상황적 리더십의 목회적 적용" / "작은 교회 특징에 따른 목회 리더십"</td></tr>
+      <tr><td>추천 도서</td><td>허용석 목사, 『교회로 자라난 아이들』 — <em>개척 목회의 헌신과 믿음의 결단 사례</em></td></tr>
+    </table>
+  </div>
+
+  <!-- 2. 강의 내용 -->
+  <div class="section">
+    <div class="section-heading">
+      <h2>§ 강의 내용</h2>
+      <div class="section-heading-line"></div>
+    </div>
+
+    <div class="content-card">
+      <p>
+        목회는 획일화된 방법이 아니다. 신학교에서 배우는 이론과 실제 목회 현장은 다를 수 있으며, 내가 섬기는 교회에서의 목회 방식만이 유일한 정답이 아님을 인식해야 한다. <strong>목회 철학</strong>은 목회의 방향을 결정하고, <strong>목회 방법</strong>은 그 실행 수단이다. 목회자가 은혜받은 방식이 곧 그의 목회 유형이 된다.
+      </p>
+      <p>
+        오늘 강의의 핵심 전제: <strong>본질은 같지만</strong>, 지역·교인 구성·목회자 역량에 따라 목회는 달라진다. 이를 이해하지 못하면 목회 현장에서 혼란을 겪게 된다.
+      </p>
+    </div>
+
+    <div class="quote-block">
+      <p>"목회란 부르신 곳에서 할 일을 하는 것이다. 하나님이 가라 하시는 곳에서, 하라 하시는 일을 할 때 '세상 끝날까지 너희와 함께 하리라'는 약속이 성취된다."</p>
+      <span class="quote-source">— 이영호 교수 (마태복음 28:19-20 적용)</span>
+    </div>
+
+    <!-- 시대별 역할 -->
+    <div class="sub-heading">① 목사의 시대별 주된 역할</div>
+    <div class="content-card">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-era">초대교회</span><span class="tl-role"><strong>교사 + 목자</strong> — 가르치고 돌보는 이중 역할</span></div>
+        <div class="tl-item"><span class="tl-era">중세</span><span class="tl-role"><strong>제사장</strong> — 의식(성례)의 집행자 중심</span></div>
+        <div class="tl-item"><span class="tl-era">종교개혁</span><span class="tl-role"><strong>설교자</strong> — 오직 성경, 말씀 선포 강조 (청교도: 성경 연구 + 교리 교육)</span></div>
+        <div class="tl-item"><span class="tl-era">복음주의</span><span class="tl-role"><strong>전도자</strong> — 무디, 빌리 그레이엄 등 전도 운동</span></div>
+        <div class="tl-item"><span class="tl-era">20세기</span><span class="tl-role"><strong>종(봉사자)</strong> — 섬김과 헌신의 리더십 강조</span></div>
+      </div>
+    </div>
+
+    <!-- 성경적 기원 -->
+    <div class="sub-heading">② 목사 직분의 성경적 기원</div>
+    <div class="content-card">
+      <div class="role-grid">
+        <div class="role-card">
+          <div class="role-card-title">제사장</div>
+          <div class="role-card-desc">의식 집행<br>예배 주관</div>
+        </div>
+        <div class="role-card">
+          <div class="role-card-title">선지자</div>
+          <div class="role-card-desc">하나님 말씀<br>연구·선포</div>
+        </div>
+        <div class="role-card">
+          <div class="role-card-title">지혜자</div>
+          <div class="role-card-desc">성도의<br>상담자</div>
+        </div>
+        <div class="role-card">
+          <div class="role-card-title">목자</div>
+          <div class="role-card-desc">양 떼를<br>돌봄</div>
+        </div>
+        <div class="role-card">
+          <div class="role-card-title">봉사자</div>
+          <div class="role-card-desc">Minister<br>섬기는 자</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:12.5px;color:var(--ink-faint);">
+        ※ 이 모든 역할이 '목사'라는 이름 아래 통합되어 있음. 목회자는 한 사람이 다 감당해야 하는 매우 포괄적인 직분.
+      </div>
+    </div>
+
+    <!-- 목회의 유형 -->
+    <div class="sub-heading">③ 목회의 유형 — "내가 은혜받은 방법으로 목회한다"</div>
+    <div class="content-card">
+      <p>목회 유형은 목회자가 어떤 방법으로 은혜를 받았는지에 따라 형성된다. 한국 대표적 유형:</p>
+      <table class="info-table" style="margin-top:8px;">
+        <tr><td>개혁주의 전통</td><td>박영선, 김남준, 피영민 — <strong>예배·설교 중심</strong></td></tr>
+        <tr><td>복음주의 부흥</td><td>유기성, 이동원 — <strong>공감 설교 통한 부흥</strong></td></tr>
+        <tr><td>성령 체험 중심</td><td>성경 능력 체험·치유 목회</td></tr>
+        <tr><td>제자훈련</td><td>옥한흠, 하용조, 최영기, 김양재 — <strong>소그룹·훈련 중심</strong></td></tr>
+        <tr><td>개척·이머징</td><td>허용석, 신재철(만화방교회) — <strong>상황 맞춤 창의적 목회</strong></td></tr>
+      </table>
+    </div>
+
+    <!-- 목회 현장 접근 -->
+    <div class="sub-heading">④ 목회 현장에 어떻게 접근해야 하는가</div>
+    <div class="content-card">
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-num">1</div>
+          <div class="approach-body">
+            <div class="approach-title">소명감과 사명감</div>
+            <div class="approach-desc">부르신 곳에서 할 일이 있다. 웨슬레: "세상에서 가장 최고는 하나님이 우리와 함께하심을 경험하는 것"</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">2</div>
+          <div class="approach-body">
+            <div class="approach-title">주어진 목회 현장에 맞는 목회 준비</div>
+            <div class="approach-desc">현장 분석 → 목회 철학·방법 개발. 농촌/도시, 신도시/구도시, 연령층, 교인 특성 파악. 계획 수립 → 실행.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">3</div>
+          <div class="approach-body">
+            <div class="approach-title">배우는 자세</div>
+            <div class="approach-desc">현장에서 끊임없이 배우고 성장하는 겸손한 태도 유지</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">4</div>
+          <div class="approach-body">
+            <div class="approach-title">주어진 자원의 최대 활용</div>
+            <div class="approach-desc">인적·물적·재정적 자원을 최대한 활용. 어느 교회든 항상 부족함을 느끼지만, 있는 자원으로 최선을 다함.</div>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">5</div>
+          <div class="approach-body">
+            <div class="approach-title">목회 현장을 즐거워하는 마음</div>
+            <div class="approach-desc">감사, 최선, 회중 존중. 성도는 목사가 이 현장을 즐거워하는지 싫어하는지 안다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"하나님께 믿음을 보이는 사람에게 하나님이 역사해 주신다. 내려놓을 수 있는가? 내려놓으면 하나님이 책임지신다."</p>
+      <span class="quote-source">— 이영호 교수 (허용석 목사 사례 인용)</span>
+    </div>
+
+    <!-- 목회의 도구 -->
+    <div class="sub-heading">⑤ 목회의 도구 (양현표, 『21세기 목회학 총론』)</div>
+    <div class="content-card">
+      <div class="tools-grid">
+        <div class="tool-item">
+          <div class="tool-title">① 목사 자신의 영성 (경건성)</div>
+          <div class="tool-desc">하나님과의 친밀한 관계, 말씀 묵상, 기도, 성령충만. <em>성도는 하나님을 만난 영적 감화력을 가진 목사를 따른다.</em></div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-title">② 기도</div>
+          <div class="tool-desc">예수님의 기도 본, 사도들의 기도와 말씀에 전무, 바울의 기도(딤전 2:1). 기도 없이는 목회 불가.</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-title">③ 성경에 기초한 교회론</div>
+          <div class="tool-desc">교회는 친목단체가 아님. 교회론이 부정확하면 친목단체가 됨. 목회 원리·방법은 교회론과 직결.</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-title">④ 일반 학문 활용 (신중하게)</div>
+          <div class="tool-desc">심리학, 인류학, 경영학 → <strong>반드시 신학화(神學化) 과정</strong>이 필요. 세속 원리를 그대로 도입하면 안 됨.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 목회의 내용 -->
+    <div class="sub-heading">⑥ 목회의 내용</div>
+    <div class="content-card">
+      <table class="info-table">
+        <tr><td>목양의 목회</td><td><strong>예배, 소그룹</strong>(교제·양육·돌봄), <strong>교육, 전도, 봉사</strong> — 2026 목회 트렌드: 단순한 목회, 비전을 분명히</td></tr>
+        <tr><td>관리의 목회</td><td>행정 — 인적·물적 자원의 효율적 배치, 시간 관리. 목회와 행정은 분리가 아닌 통합.</td></tr>
+      </table>
+    </div>
+
+    <!-- 교회 규모 -->
+    <div class="sub-heading">⑦ 교회 규모에 따른 분류 (한국교회성장연구소)</div>
+    <div class="content-card">
+      <table class="size-table">
+        <thead>
+          <tr><th>분류</th><th>규모</th><th>목회자에게 요구하는 상</th><th>특이사항</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="size-badge">소형</span></td>
+            <td>100명 미만</td>
+            <td><strong>아버지</strong> — 따뜻한 돌봄, 목양 중심</td>
+            <td>멘토링 중심 지도력</td>
+          </tr>
+          <tr>
+            <td><span class="size-badge" style="background:var(--blue-ink)">중소형</span></td>
+            <td>100–300명</td>
+            <td><strong>행정가</strong> — 우선순위 정하고 추진</td>
+            <td>소그룹 활성화 시기</td>
+          </tr>
+          <tr>
+            <td><span class="size-badge" style="background:var(--green)">중형</span></td>
+            <td>500–1,000명</td>
+            <td><strong>행정가 + 비전리더</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><span class="size-badge" style="background:var(--accent-gold);color:var(--ink)">중대형</span></td>
+            <td>1,000–2,000명</td>
+            <td><strong>비전리더</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><span class="size-badge" style="background:#333">대형</span></td>
+            <td>2,000명 이상</td>
+            <td><strong>한방 목회</strong> — 주일 설교 한방이 핵심</td>
+            <td>시험 출제 예상</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note-callout" style="margin-top:12px;">
+        <div class="note-callout-label">⚠ 교수 강조</div>
+        <p>규모 외 추가 고려 요소: <strong>(1) 교회의 역사 (2) 교인의 특성 (3) 목회자의 역량 (4) 지역과 교회 문화</strong></p>
+      </div>
+    </div>
+
+    <!-- 작은교회 장단점 -->
+    <div class="sub-heading">⑧ 작은 교회 장단점</div>
+    <div class="content-card">
+      <div class="procon-grid">
+        <div class="pro-box">
+          <div class="box-label">✦ 장점</div>
+          <div class="box-item">성도 간의 친밀한 교제</div>
+          <div class="box-item">소속감과 책임감</div>
+          <div class="box-item">구성원 간 의사소통 용이</div>
+          <div class="box-item">활동성 높음</div>
+        </div>
+        <div class="con-box">
+          <div class="box-label">✦ 단점</div>
+          <div class="box-item">헌금에 대한 부담</div>
+          <div class="box-item">새신자 정착의 어려움</div>
+          <div class="box-item">부족한 교회 시설</div>
+          <div class="box-item">다양하지 못한 프로그램</div>
+          <div class="box-item">다음 세대 프로그램 부족</div>
+        </div>
+      </div>
+      <div class="note-callout" style="margin-top:12px;">
+        <div class="note-callout-label">핵심</div>
+        <p>작은 교회는 <strong>설교 중심보다 목양 중심</strong>이 더 적합. 단, 설교가 불필요한 것이 아님. 코로나 이후 살아남은 강소형 교회의 3대 집중 사역: <strong>예배 · 교육 · 교제</strong>, 비전을 분명히.</p>
+      </div>
+    </div>
+
+    <!-- 21세기 핵심 리더십 -->
+    <div class="sub-heading">⑨ 21세기에 요구되는 핵심 리더십</div>
+    <div class="content-card">
+      <div class="leadership-grid">
+        <div class="leadership-card">
+          <div class="lc-title">유능하고 균형 잡힌 리더십</div>
+          <div class="lc-desc">목표 성취와 관계 유지를 동시에 고려. 성도와 목회자의 목표가 다름을 인식.</div>
+        </div>
+        <div class="leadership-card">
+          <div class="lc-title">관계 민감적 리더십</div>
+          <div class="lc-desc">친밀한 대인관계 기술과 갈등 관리 능력. 소그룹, 일대일 관계, 의리 목회.</div>
+        </div>
+        <div class="leadership-card">
+          <div class="lc-title">비전의 리더십</div>
+          <div class="lc-desc">교회 본질을 향한 실현 능력. 비전이 선명할 때 동의하는 성도가 모임.</div>
+        </div>
+        <div class="leadership-card">
+          <div class="lc-title">상황 민감적 리더십</div>
+          <div class="lc-desc">교인들의 준비 정도와 상황을 이해하고 움직임. 멘토링 중심 동반자 리더십.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 소형 교회 제안 -->
+    <div class="sub-heading">⑩ 소형 교회 목회자를 위한 제안 (랜디포프)</div>
+    <div class="content-card">
+      <table class="info-table">
+        <tr><td>①</td><td>교회·지역·목회자 자신에 대한 분석과 이해</td></tr>
+        <tr><td>②</td><td>성도와의 친밀한 관계 형성</td></tr>
+        <tr><td>③</td><td>평신도 지도자 양성</td></tr>
+        <tr><td>④</td><td>교회의 자아상 강화 (우리 교회만의 자랑거리)</td></tr>
+        <tr><td>⑤</td><td>건강한 재무 구조의 확립 → 하나님의 역사하심이 필요</td></tr>
+        <tr><td>핵심</td><td><strong>멘토링 중심 지도력</strong> — 가르침을 넘어 동반자 리더십, 꿈을 응원하고 영적 색깔을 함께 찾음</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. 현장 적용 -->
+  <div class="section">
+    <div class="section-heading">
+      <h2>§ 현장 적용</h2>
+      <div class="section-heading-line"></div>
+    </div>
+    <div class="content-card">
+      <p>
+        신학교에서 배운 이론이 실제 목회 현장과 다를 수 있음을 인정하고, 부임하는 교회의 역사·교인 특성·지역 문화를 먼저 철저히 분석해야 한다. 허용석 목사처럼 <strong>믿음의 결단</strong>으로 세상적 안정(교목직)을 내려놓을 때 하나님이 역사하신다. 개척 상황에서는 화려한 프로그램이 아니라 <strong>예배·교육·교제의 본질</strong>에 집중하고, 비전을 분명히 할 때 그 비전에 동의하는 성도가 모이게 된다.
+      </p>
+      <div class="note-callout">
+        <div class="note-callout-label">현장 원리 | 설교 준비</div>
+        <p>교수 제안: <strong>월·화·수 — 본문의 서기(본문 연구·아웃라인)</strong> → 목·금 — 적용·현대적 해석. 성경에 대한 깊은 이해가 쌓이면 설교 준비가 설레는 경험이 됨.</p>
+      </div>
+      <div class="note-callout">
+        <div class="note-callout-label">현장 원리 | 일반 학문의 신학화</div>
+        <p>심리학·경영학 원리를 목회에 도입할 때 반드시 <strong>신학화(神學化) 과정</strong>이 선행되어야 함. 세속 원리를 그대로 교회에 이식하면 안 됨.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 핵심 포인트 -->
+  <div class="section">
+    <div class="section-heading">
+      <h2>§ 핵심 포인트 (시험 대비)</h2>
+      <div class="section-heading-line"></div>
+    </div>
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-num">1</div>
+        <div class="key-body">
+          <div class="key-title">목회의 다양성과 본질의 통일성</div>
+          <div class="key-desc">목회의 형태와 방법은 현장마다 다르지만, 본질("하나님을 만난 사람이 하나님을 만나게 함")은 동일. 목회자 자신이 은혜받은 방법이 목회 유형을 형성.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="key-num">2</div>
+        <div class="key-body">
+          <div class="key-title">시대별 목회자의 주된 역할 (5단계)</div>
+          <div class="key-desc">초대교회(교사·목자) → 중세(제사장) → 종교개혁(설교자) → 복음주의(전도자) → 20세기(종). 이 모든 역할이 현대 목사직에 통합되어 있음.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="key-num">3</div>
+        <div class="key-body">
+          <div class="key-title">교회 규모별 목회자상 — 대형교회는 "한방 목회"</div>
+          <div class="key-desc">소형교회: 아버지상(목양). 중소형: 행정가. 대형교회: 주일 설교 "한방"이 핵심. 규모 외 역사·교인특성·목회자 역량·지역문화를 함께 고려해야.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="key-num">4</div>
+        <div class="key-body">
+          <div class="key-title">목회의 4대 도구 (양현표)</div>
+          <div class="key-desc">① 목사 자신의 영성 ② 기도 ③ 성경에 기초한 교회론 ④ 일반 학문(신학화 필수). 영성과 학문이 결합될 때 "품격 있는 목회" 가능.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="key-num">5</div>
+        <div class="key-body">
+          <div class="key-title">코로나 이후 강소형 교회의 3대 집중 사역</div>
+          <div class="key-desc"><strong>예배 · 교육 · 교제</strong>에 집중하고 나머지를 과감히 줄임. 비전을 분명히 함. → 작지만 강하고 생명력 있는 교회.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="key-num">6</div>
+        <div class="key-body">
+          <div class="key-title">믿음의 결단과 목회 — 내려놓음의 신학</div>
+          <div class="key-desc">허용석 목사 사례: 안정된 교목직을 내려놓을 때 하나님이 역사하심. "하나님께 믿음을 보여야 한다 = 자기희생·권리 포기" → 하나님이 책임지심.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 시사점 / 준비사항 -->
+  <div class="section">
+    <div class="section-heading">
+      <h2>§ 시사점 / 준비사항</h2>
+      <div class="section-heading-line"></div>
+    </div>
+    <div class="prep-list">
+      <div class="prep-item"><div class="prep-icon"></div><span>📚 추천 도서 확인: 허용석 목사 『교회로 자라난 아이들』 구입·독서 권장</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>📄 교재 예독: 교재 해당 챕터(목회자의 소명) 미리 읽어오기</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>🔍 논문 검색: 양현표 "상황적 리더십의 목회적 적용" / "작은 교회 특징에 따른 목회 리더십" — 무료 다운로드 가능</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>✍️ 과제① 독후감 대비: 옥한흠 『이것이 목회의 본질이다』 — 오늘 강의의 목회 철학 관점으로 읽기</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>✍️ 과제② 소논문 준비 자료: 오늘 강의 "현대 목회 트렌드(코로나 이후 강소형 교회)" 내용 활용 가능</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>🗓 중간고사(4/20) 대비: 시대별 목회자 역할 5단계 / 교회 규모별 목회자상 / 목회 4대 도구 / 소형교회 목회 특성 암기</span></div>
+      <div class="prep-item"><div class="prep-icon"></div><span>💭 자기 성찰 과제: "나는 어떤 유형의 목회자가 될 것인가? 내가 은혜받은 방법은 무엇인가?"</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="note-footer">
+    <div>
+      <div class="footer-stamp">목회학 · 3주차</div>
+      <div style="margin-top:4px;">한국침례신학대학교 대학원 · 이영호 교수</div>
+    </div>
+    <div style="text-align:right;">
+      <div>2026. 03. 23 (월)</div>
+      <div style="margin-top:4px;color:var(--accent-gold);">중간고사 D-28 · 4/20</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
