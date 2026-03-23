@@ -43,7 +43,9 @@ const SITE_DATA = {
         { week: 2, title: "목회란 무엇인가", date: "2026.03.16.", files: [
           { type: "notes", label: "강의노트", href: "output/목회학/week02.html" }
         ] },
-        { week: 3, title: "예배 신학과 실천", date: "2026.03", files: [] },
+        { week: 3, title: "목회와 목회자", date: "2026.03.23.", files: [
+          { type: "notes", label: "강의노트", href: "output/목회학/week03.html" }
+        ] },
         { week: 4, title: "심방과 돌봄 사역", date: "2026.04", files: [] },
         { week: 5, title: "상담 목회 기초", date: "2026.04", files: [] },
         { week: 6, title: "교회 행정과 리더십", date: "2026.04", files: [] },
