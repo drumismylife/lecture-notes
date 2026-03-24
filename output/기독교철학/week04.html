@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 4주차 — 비트겐슈타인 · 윌리엄 제임스</title>
+<style>
+  :root {
+    --bg:        #12100e;
+    --card:      #1c1814;
+    --subcard:   #252018;
+    --amber:     #c49a3c;
+    --amber-lt:  #e8c97a;
+    --sage:      #8aab8a;
+    --terra:     #c96b5a;
+    --green:     #5a8a6a;
+    --text:      #ede8df;
+    --muted:     #9e9688;
+    --border:    #2e2a22;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  /* ── 커버 ── */
+  .cover {
+    background: linear-gradient(150deg, #0e0c0a 0%, #1a1510 50%, #201a10 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: 'Philosophia Christiana';
+    position: absolute; right: -10px; top: 16px;
+    font-size: 64px; font-style: italic;
+    color: rgba(196,154,60,.06);
+    font-family: Georgia, serif;
+    white-space: nowrap; pointer-events: none;
+    letter-spacing: .03em;
+  }
+  .cover-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .pill {
+    background: rgba(196,154,60,.12);
+    border: 1px solid rgba(196,154,60,.3);
+    color: var(--amber-lt);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .08em;
+    padding: 3px 12px; border-radius: 20px;
+  }
+  .pill.red { background: rgba(201,107,90,.12); border-color: rgba(201,107,90,.3); color: var(--terra); }
+  .cover-title {
+    font-size: 28px; font-weight: 700;
+    color: var(--text); line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .cover-title span { color: var(--amber); }
+  .cover-sub { font-size: 13px; color: var(--muted); }
+
+  /* ── 탭 ── */
+  .tab-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,16,14,.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 0; padding: 0 40px;
+  }
+  .tab-btn {
+    background: none; border: none;
+    color: var(--muted); font-size: 13px; font-weight: 600;
+    cursor: pointer; padding: 14px 20px;
+    border-bottom: 2px solid transparent;
+    transition: all .2s; letter-spacing: .04em;
+  }
+  .tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
+  .tab-btn:hover:not(.active) { color: var(--text); }
+
+  /* ── 탭 콘텐츠 ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 레이아웃 ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 36px 40px 64px; }
+
+  /* ── 섹션 헤더 ── */
+  .sec-head {
+    display: flex; align-items: center; gap: 12px;
+    margin: 40px 0 20px;
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-num {
+    background: var(--amber); color: #12100e;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: .12em; padding: 3px 10px;
+    border-radius: 2px; white-space: nowrap;
+  }
+  .sec-title {
+    font-size: 18px; font-weight: 700;
+    color: var(--text); letter-spacing: -.01em;
+  }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+  /* ── 사상가 카드 ── */
+  .thinker-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    position: relative; overflow: hidden;
+  }
+  .thinker-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--amber);
+  }
+  .thinker-name {
+    font-size: 20px; font-weight: 700;
+    color: var(--amber); margin-bottom: 2px;
+  }
+  .thinker-dates { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+  .thinker-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-bottom: 14px;
+  }
+  .thinker-field { }
+  .thinker-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--muted); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .thinker-val { font-size: 13px; color: var(--text); line-height: 1.6; }
+  .thinker-claim {
+    background: var(--subcard);
+    border-radius: 6px; padding: 14px 16px;
+    font-size: 13px; line-height: 1.7; color: var(--text);
+    margin-bottom: 10px;
+  }
+  .thinker-faith {
+    font-size: 12.5px; color: var(--sage);
+    padding-left: 14px; border-left: 2px solid var(--sage);
+    line-height: 1.65;
+  }
+
+  /* ── 개념 카드 ── */
+  .concept-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .concept-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--text); margin-bottom: 6px;
+  }
+  .concept-origin {
+    font-family: 'Courier New', monospace;
+    font-size: 12px; color: var(--amber-lt);
+    margin-bottom: 10px;
+  }
+  .concept-body { font-size: 13px; line-height: 1.75; color: var(--text); }
+
+  /* ── 교수설명 블록 ── */
+  .prof-block {
+    background: #1a1a14;
+    border-left: 2px solid var(--muted);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px; margin-bottom: 12px;
+  }
+  .prof-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--muted); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .prof-body {
+    font-size: 13px; font-style: italic;
+    color: #cec9bf; line-height: 1.75;
+  }
+
+  /* ── 핵심명제 ── */
+  .keystone {
+    background: #2a2010;
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px; margin-bottom: 10px;
+    font-size: 14px; font-weight: 600;
+    color: var(--amber-lt); line-height: 1.6;
+  }
+
+  /* ── 비교 카드 ── */
+  .compare-wrap {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .compare-col { background: var(--card); padding: 20px 22px; }
+  .compare-name {
+    font-size: 15px; font-weight: 700;
+    color: var(--amber); margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-row { margin-bottom: 12px; }
+  .compare-axis {
+    font-size: 10px; font-weight: 700;
+    color: var(--muted); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .compare-val { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+  /* ── 시험 배지 ── */
+  .exam-card {
+    background: #2d1a16;
+    border: 1px solid var(--terra);
+    border-radius: 6px; padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .exam-badge {
+    background: var(--terra); color: #fff;
+    font-size: 9px; font-weight: 800;
+    letter-spacing: .1em; padding: 3px 8px;
+    border-radius: 3px; white-space: nowrap;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .exam-text { font-size: 13.5px; color: #e8b8b0; line-height: 1.65; }
+
+  /* ── 활동지 카드 ── */
+  .activity-card {
+    background: #1a2a1e;
+    border: 1px solid var(--green);
+    border-radius: 8px; padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .activity-badge {
+    display: inline-block;
+    background: var(--green); color: #fff;
+    font-size: 9px; font-weight: 800;
+    letter-spacing: .1em; padding: 3px 10px;
+    border-radius: 3px; margin-bottom: 10px;
+  }
+  .activity-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--sage); margin-bottom: 10px;
+  }
+  .activity-content {
+    font-size: 13px; color: #b8d4b8;
+    line-height: 1.7; margin-bottom: 12px;
+  }
+  .activity-q-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--sage); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .activity-q {
+    font-size: 13.5px; color: var(--text);
+    font-weight: 600; line-height: 1.65;
+    padding-left: 12px;
+    border-left: 2px solid var(--sage);
+  }
+
+  /* ── 구분선 ── */
+  .divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── 태그 ── */
+  .tag {
+    display: inline-block;
+    background: rgba(196,154,60,.12);
+    border: 1px solid rgba(196,154,60,.25);
+    color: var(--amber-lt);
+    font-size: 11px; padding: 2px 9px;
+    border-radius: 12px; margin: 2px 3px 2px 0;
+  }
+
+  /* ── 하단 핵심명제 요약 ── */
+  .summary-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--amber);
+    border-radius: 8px; padding: 24px 28px;
+    margin-top: 48px;
+  }
+  .summary-title {
+    font-size: 12px; font-weight: 700;
+    color: var(--amber); letter-spacing: .12em;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .summary-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .summary-num {
+    background: var(--amber); color: #12100e;
+    font-size: 11px; font-weight: 800;
+    width: 22px; height: 22px;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .summary-text {
+    font-size: 13.5px; font-weight: 600;
+    color: var(--amber-lt); line-height: 1.6;
+  }
+
+  /* ── 인쇄 ── */
+  @media print {
+    body { background: white; color: #1a1a1a; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; }
+    .cover { background: #f5f0e8 !important; }
+    .cover::before { display: none; }
+    .thinker-card, .concept-card, .compare-col,
+    .activity-card, .exam-card, .prof-block,
+    .keystone, .summary-box {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      page-break-inside: avoid;
+    }
+    .cover-title span { color: #8a6a1a; }
+    .content { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║           커버               ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="cover">
+  <div class="cover-meta">
+    <span class="pill">기독교철학 · 61083</span>
+    <span class="pill">4주차 · 2026-03-24</span>
+    <span class="pill">심상우 교수</span>
+    <span class="pill red">중간고사 D-4주 · 4/21</span>
+  </div>
+  <div class="cover-title">
+    <span>비트겐슈타인</span> 문화적 가치와 철학<br>
+    종교적 근본행위 · <span>윌리엄 제임스</span>
+  </div>
+  <div class="cover-sub">Wittgenstein — Kultur und Wert &nbsp;·&nbsp; William James — The Will to Believe</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║           탭 바              ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('note', this)">강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary', this)">핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('compare', this)">비교표</button>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!--  TAB 1 · 강의노트                  -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-note" class="tab-panel active">
+<div class="content">
+
+  <!-- PART 1 헤더 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 1</span>
+    <span class="sec-title">비트겐슈타인 — 문화적 가치와 철학</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 사상가 카드 -->
+  <div class="thinker-card">
+    <div class="thinker-name">루트비히 비트겐슈타인</div>
+    <div class="thinker-dates">Ludwig Wittgenstein &nbsp;|&nbsp; 1889–1951</div>
+    <div class="thinker-grid">
+      <div class="thinker-field">
+        <div class="thinker-label">시대 · 사조</div>
+        <div class="thinker-val">20세기 분석철학 / 언어철학</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">주요 저작</div>
+        <div class="thinker-val">『논리철학논고』(Tractatus, 1921)<br>『철학적 탐구』(Philosophische Untersuchungen, 1953)</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">핵심 개념</div>
+        <div class="thinker-val">언어게임 (Sprachspiel)<br>삶의 형식 (Lebensform)<br>말할 수 없는 것 (das Unsagbare)</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">사상 전환</div>
+        <div class="thinker-val">전기: 언어-세계 대응 (그림 이론)<br>후기: 언어 사용과 삶의 실천 강조</div>
+      </div>
+    </div>
+    <div class="thinker-claim">
+      종교는 이론이나 명제 체계가 아니라 <strong>삶의 태도이자 언어의 실천</strong>이다. 신앙은 논리로 정당화되는 명제가 아니라 삶 속에서 실천되고 나타나는 형식이다. "하나님은 나를 보신다"는 말은 사실 기술이 아니라 삶의 태도를 표현하는 것이다.
+    </div>
+    <div class="thinker-faith">
+      <strong>기독교 접점:</strong> 예수는 윤리적 교사가 아니라 인간 내면의 전적 변화를 요구하는 인물이다. 아무리 훌륭한 가르침도 삶의 변화 없이는 아무 소용이 없다. 신앙인은 논증이 아니라 삶으로 신앙을 보여줘야 한다.
+    </div>
+  </div>
+
+  <!-- 톨스토이 세 은사 -->
+  <div class="prof-block">
+    <div class="prof-label">📖 강의 예화 — 톨스토이 「세 은사 (Three Hermits)」</div>
+    <div class="prof-body">
+      세 은둔자는 단순한 기도를 드렸지만 깊은 신앙을 가졌다. 주교가 정식 기도문을 가르치려 했으나 은둔자들은 금세 잊어버렸고, 그들은 배를 달려와 다시 가르쳐 달라고 했다. 주교는 깨달았다 — 그들은 이미 충분히 깊은 신앙을 가졌다고. <em>"이전처럼 기도하라."</em>
+      <br><br>
+      톨스토이의 메시지: 종교 형식보다 내면의 믿음이 더 중요하다. 학문은 형식과 체계를 만들지만 신앙은 늘 그것을 넘어선다. → 마태복음 6:7~8 — 형식적 반복이 아닌 하나님을 신뢰하는 진실한 마음.
+    </div>
+  </div>
+
+  <!-- 신앙과 지식의 구분 -->
+  <div class="concept-card">
+    <div class="concept-title">신앙 · 열정 · 지혜 — 비트겐슈타인과 키르케고르의 공명</div>
+    <div class="concept-body">
+      <strong>비트겐슈타인:</strong> 신앙은 구원에 대한 갈망이므로 지성의 사안이 될 수 없다. 신앙이란 설명할 수 없는 것을 말하지 않으면서 실천하는 행위이다.<br><br>
+      <strong>키르케고르 (Søren Kierkegaard):</strong> 신앙은 <span class="tag">열정 (Leidenschaft)</span> 이다. 이성이나 논리로 설명할 수 없는 실존적 결단의 문제. 아브라함의 이삭 봉헌 <span class="tag">아케다 (עֲקֵידָה)</span>이 전형적 사례 — 이해할 수는 없지만 열정적으로 믿고 순종하는 행위.<br><br>
+      <strong>레비나스의 반전:</strong> 철학(Philosophia)은 "지혜를 사랑함"이라 했지만, 레비나스는 이를 뒤집어 <em>"사랑을 위한 지혜"</em>가 필요하다고 요청한다.<br><br>
+      <strong>공통 통찰:</strong> 신앙은 설명이 아니라 살아내는 것이다. 비트겐슈타인에게 신앙은 논리로 정당화되는 명제가 아니라 삶 속에 실천되는 형식이고, 키르케고르에게 신앙은 전 존재를 거는 실존적 열정이다.
+    </div>
+  </div>
+
+  <!-- 세계는 사실의 총체 -->
+  <div class="concept-card">
+    <div class="concept-title">세계는 사실들의 총체 <span style="color:var(--muted);font-weight:400;font-size:12px;">— 초기 비트겐슈타인</span></div>
+    <div class="concept-origin">독: Die Welt ist die Gesamtheit der Tatsachen, nicht der Dinge.</div>
+    <div class="concept-body">
+      세계는 단순히 사물의 나열이 아니라, 사물들 사이의 관계와 상태 — 즉 <strong>사실(Tatsache)</strong>들의 집합이다. 중요한 것은 '무엇이 있는가'가 아니라 <strong>'무엇이 어떻게 관계 맺고 있는가'</strong>이다.<br><br>
+      예: "컵이 책상 위에 놓여 있다" / "고양이가 소파에서 자고 있다" — 이것이 세계다. 단순한 목록이 아니라 관계의 집합.
+    </div>
+  </div>
+
+  <!-- 말할 수 있는 것과 말할 수 없는 것 -->
+  <div class="concept-card">
+    <div class="concept-title">말할 수 있는 것과 말할 수 없는 것</div>
+    <div class="concept-origin">독: Wovon man nicht sprechen kann, darüber muss man schweigen. (말할 수 없는 것에 대해서는 침묵해야 한다)</div>
+    <div class="concept-body">
+      철학의 임무는 형이상학적 명제들의 무의미성을 드러내는 것이다. 윤리·신·아름다움·삶의 의미는 언어로 명확히 표현될 수 없다. 그러나 그것이 존재하지 않는다는 뜻이 아니다 — 언어의 한계가 오히려 <strong>초월적인 것의 존재를 가리킨다.</strong><br><br>
+      <strong>사다리 비유 (Leiter-Gleichnis):</strong> 철학은 우리를 데려다 주는 수단이다. 목적지에 오르고 나면 그 사다리(철학 자체)도 내려놓아야 한다. 철학은 스스로를 해소하는 활동이다.<br><br>
+      <strong>신학적 함의:</strong> 신, 무한, 윤리 — 이것들은 내 이해의 범주 안에 가둘 수 없다. 내가 이해한 신을 나의 범주 안에 가두면 우상이 될 수 있다.
+    </div>
+  </div>
+
+  <!-- 색견본 비유 -->
+  <div class="concept-card">
+    <div class="concept-title">신(神)과 색견본 비유 — 경험 안에서의 신 인식</div>
+    <div class="concept-body">
+      색이 무엇인지 알기 위해서는 개념 설명만이 아니라 <strong>색견본(Farbmuster)</strong>이 필요하다. 빨강을 나노미터로 설명해도 그 사람이 빨강을 아는 것은 아니다. 직접 보아야 한다.<br><br>
+      마찬가지로, 신이 무엇인지도 기도·용서·감사·회심이라는 <strong>삶의 맥락</strong>에서만 이해될 수 있다. "초월적 존재, 전능한 창조자"라는 설명만으로는 불충분하다.<br><br>
+      <strong>핵심 명제:</strong> <em>"내가 신이 무엇인지 안다면, 나는 신이 있다는 것을 아는 것이다. 그분이 존재하지 않는다면 그분이 무엇인지 말할 수 있는 방법도 없다."</em>
+    </div>
+  </div>
+
+  <!-- 회심과 삶의 변화 -->
+  <div class="concept-card">
+    <div class="concept-title">회심과 삶의 변화 — 존재 방식의 전환</div>
+    <div class="concept-body">
+      기독교가 말하는 것은 모든 훌륭한 가르침이 아무 소용이 없다는 것이다. 단순한 윤리적 교훈이나 규칙으로는 인간이 근본적으로 변하지 않는다.<br><br>
+      진정한 변화는 <strong>존재 방식의 전환</strong>이다. 교육이나 설득이 아니라 실존적 고백·절망·참회를 통해서만 가능하다. 삶의 고통과 절망을 통과한 이후에야 진정한 회심이 가능하다.<br><br>
+      <strong>심리학적 주:</strong> 회심 후에도 습관의 약 80%는 그대로 유지된다. 따라서 회심 이후 <strong>환경과 습관을 함께 바꾸지 않으면</strong> 여전히 이전 패턴을 따르게 된다. 의지적 노력과 함께 생활 패턴의 재설정이 필요하다.
+    </div>
+  </div>
+
+  <!-- 핵심명제 PART 1 -->
+  <div class="keystone">① 종교적 언어는 과학적 명제가 아니라 삶의 태도와 실천을 표현한다 — 비트겐슈타인</div>
+  <div class="keystone">② 신앙은 논리나 지혜로 소유되는 것이 아니라, 전 존재를 거는 실존적 열정이다 — 키르케고르</div>
+  <div class="keystone">③ 말할 수 없는 것은 침묵해야 하지만, 그것은 삶으로 보여줄 수 있다 — 비트겐슈타인</div>
+
+  <hr class="divider">
+
+  <!-- PART 2 헤더 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 2</span>
+    <span class="sec-title">종교적 근본행위 — 윌리엄 제임스</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 사상가 카드 -->
+  <div class="thinker-card">
+    <div class="thinker-name">윌리엄 제임스</div>
+    <div class="thinker-dates">William James &nbsp;|&nbsp; 1842–1910</div>
+    <div class="thinker-grid">
+      <div class="thinker-field">
+        <div class="thinker-label">시대 · 사조</div>
+        <div class="thinker-val">19~20세기 미국 실용주의 (Pragmatism) / 종교심리학</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">주요 저작</div>
+        <div class="thinker-val">『종교 경험의 다양성』<br>(The Varieties of Religious Experience, 1902)</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">핵심 개념</div>
+        <div class="thinker-val">실용주의 (Pragmatism)<br>종교 경험 (religious experience)<br>신앙의 결단 (Will to Believe)</div>
+      </div>
+      <div class="thinker-field">
+        <div class="thinker-label">비교 참조</div>
+        <div class="thinker-val">루돌프 오토 (Rudolf Otto): 종교 경험의 현상학적 탐구 — 누미노제 (das Numinose)</div>
+      </div>
+    </div>
+    <div class="thinker-claim">
+      종교의 진짜 힘은 <strong>삶을 변혁시키는 경험</strong>에 있다. 교리의 논리적 타당성보다, 그것이 내 삶에 어떤 변화를 가져오는가가 핵심이다. 철학적 신학과 교리 체계는 보조 도구일 뿐이며, 종교의 중심은 언제나 구체적으로 살아가는 개인의 경험이다.
+    </div>
+    <div class="thinker-faith">
+      <strong>기독교 접점:</strong> 신앙은 단순한 머리의 동의가 아니라 결단을 수반하는 실존적 행위이다. 벧전 3:15 — "너희 속에 있는 소망에 관한 이유를 묻는 자에게 대답할 것을 항상 준비하라." 신앙인은 자신의 삶에서 경험한 하나님의 위로와 희망의 이유를 설명할 수 있어야 한다.
+    </div>
+  </div>
+
+  <!-- 실용주의 진리관 -->
+  <div class="concept-card">
+    <div class="concept-title">실용주의적 진리관 (Pragmatic Truth)</div>
+    <div class="concept-origin">그리스어: πρᾶγμα (pragma) — 행위·결과 / 영: Pragmatism</div>
+    <div class="concept-body">
+      진리는 고정된 관념이 아니라 <strong>삶 속에서 검증되고 드러나는 것</strong>이다. 어떤 믿음이 유용하다는 것은 단순한 개인적 만족이 아니라, 삶 전체에서 그것이 어떻게 작동하고 지속되는지를 통해 확인된다.<br><br>
+      예: 하나님이 나를 용서하신다는 믿음 → 죄책감에서 벗어나 다시 살아갈 용기를 얻음 → 이 믿음은 실용적 진리로서 의미가 있다. 논리적으로 증명되지 않더라도, 삶의 효과성으로 그 가치가 있다.
+    </div>
+  </div>
+
+  <!-- 신앙의 결단 -->
+  <div class="concept-card">
+    <div class="concept-title">신앙의 결단 (The Will to Believe)</div>
+    <div class="concept-body">
+      삶의 어떤 문제들은 충분한 증거가 확보되기 전에 <strong>결단이 필요하다.</strong> 중립에 머무르면 신앙의 실천적 효과를 영영 경험할 수 없다. 믿음은 현실을 창조하는 능동적 결단이다.<br><br>
+      <strong>비판 (합리주의자·무신론자):</strong> 믿고 싶은 것을 믿는 것은 결국 주관적 편의에 의한 자기합리화 아닌가? 진리의 기준을 허무는 것 아닌가?<br><br>
+      <strong>제임스의 응답:</strong> 진리는 삶 전체에서 작동하고 지속되는지를 통해 검증된다. 고등 종교일수록 자기 유익을 넘어, 타인 사랑·공동체적 영성으로 확장된다. 그것이 기준이다.
+    </div>
+  </div>
+
+  <!-- 합리주의 비판 -->
+  <div class="concept-card">
+    <div class="concept-title">합리주의 종교 이해 비판 — 삶과 동떨어진 철학</div>
+    <div class="concept-body">
+      <strong>계몽주의 이후 전통:</strong> 종교를 형이상학적 체계 안에 가두려 함. 칸트의 도덕론적 신 존재 증명, 헤겔의 절대정신 등. 이 전통은 종교를 논리적 틀 안에서 완전히 설명하려 했다.<br><br>
+      <strong>제임스의 비판:</strong> 그런 시도는 삶과 동떨어져 있다. 사람들은 <em>논리 때문에</em> 신을 믿는 것이 아니라, <em>삶의 위기 속의 실제 경험 때문에</em> 신을 믿게 된다.<br><br>
+      <em>"종교는 삶의 정점에서 오는 감정의 흐름이다. 이를 개념으로 설명하는 철학은 그 생명력을 잃어버렸다."</em> — 제임스의 요지
+    </div>
+  </div>
+
+  <!-- 조르주 르메트르 -->
+  <div class="prof-block">
+    <div class="prof-label">🔭 강의 보충 — 조르주 르메트르 (Georges Lemaître, 1894–1966)</div>
+    <div class="prof-body">
+      벨기에 천체물리학자이자 가톨릭 사제. 빅뱅 이론의 원형인 '원시 원자 가설'을 제안. 그는 과학적 연구가 신학적 주장을 정당화하거나 대체하는 목적이 아님을 명확히 했다.<br><br>
+      <em>"과학은 하늘이 어떻게 움직이는지를 말해주고, 종교는 하늘로 어떻게 가야 하는지를 말해준다."</em><br><br>
+      → 과학과 신앙은 영역이 다르며 충돌하지 않는다. 종교철학은 그 경계와 상호작용을 물어야 한다.
+    </div>
+  </div>
+
+  <!-- 핵심명제 PART 2 -->
+  <div class="keystone">④ 종교의 진짜 힘은 삶을 변혁시키는 경험에 있다 — 고통 속 위로, 절망 속 희망, 윤리적 새 삶 (윌리엄 제임스)</div>
+  <div class="keystone">⑤ 신앙의 결단은 증거를 기다리는 것이 아니라 믿음으로 뛰어드는 능동적 행위이다 (제임스)</div>
+  <div class="keystone">⑥ 고등 종교일수록 자기 유익을 넘어 사랑·정의·공동체를 지향한다 (제임스)</div>
+
+  <hr class="divider">
+
+  <!-- 활동지 -->
+  <div class="sec-head">
+    <span class="sec-num">활동지</span>
+    <span class="sec-title">프락시스 활동지 — 실천 언어로 전환</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-badge">PRAXIS</div>
+    <div class="activity-title">삶이 바뀌어야 한다 — 회심과 습관의 재설정</div>
+    <div class="activity-content">
+      비트겐슈타인은 단순한 교리적 동의가 아닌 존재 방식의 변화를 요구한다. 회심 이후에도 습관의 대부분은 유지되므로, 환경과 습관을 함께 바꾸는 의지적 노력이 필요하다. 진짜 회개는 인간을 더 깊이 겸손하게 만들고, 타인의 고통에 더 민감하게 한다.
+    </div>
+    <div class="activity-q-label">실천 질문</div>
+    <div class="activity-q">나는 회심 이후 구체적으로 어떤 환경과 습관을 바꾸었는가? 설교 사역에서 청중에게 '삶의 변화'를 어떻게 요청하고 있는가?</div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-badge">PRAXIS</div>
+    <div class="activity-title">종교 경험의 유용성과 진정성 — 제임스</div>
+    <div class="activity-content">
+      제임스에게 종교의 핵심은 삶을 변혁시키는 경험이다. 교리의 논리적 완벽성보다 그것이 실제로 삶을 바꾸는지가 기준이다. 고통 속 위로, 절망 속 희망, 윤리적 새 삶 — 이것이 종교의 진짜 힘이다.
+    </div>
+    <div class="activity-q-label">실천 질문</div>
+    <div class="activity-q">나의 신앙 경험 중 실제로 삶을 변화시킨 구체적 사건은 무엇인가? 그것을 목회 현장에서 어떻게 나눌 수 있는가?</div>
+  </div>
+
+  <!-- 오늘 핵심명제 요약 -->
+  <div class="summary-box">
+    <div class="summary-title">🔑 오늘 핵심 명제 3가지</div>
+    <div class="summary-item">
+      <div class="summary-num">1</div>
+      <div class="summary-text">종교적 언어는 사실 기술이 아니라 삶의 태도를 표현한다. 신앙인은 논증이 아니라 삶으로 신앙을 보여줘야 한다. (비트겐슈타인)</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">2</div>
+      <div class="summary-text">신앙은 충분한 증거를 기다리는 것이 아니라 삶의 위기 속에서 전 존재를 거는 결단이며, 그 진리성은 삶 전체에서 작동하는지로 검증된다. (키르케고르·제임스)</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">3</div>
+      <div class="summary-text">고등 종교일수록 자기 유익을 넘어 타인 사랑·공동체적 영성·정의 실천으로 확장된다. 이것이 종교 경험의 진정성 기준이다. (제임스)</div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+</div><!-- /tab-note -->
+
+
+<!-- ══════════════════════════════════ -->
+<!--  TAB 2 · 핵심정리                  -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-summary" class="tab-panel">
+<div class="content">
+
+  <div class="sec-head">
+    <span class="sec-num">핵심명제</span>
+    <span class="sec-title">시험 대비 핵심 명제 목록</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="keystone">① 종교는 이론 체계가 아니라 삶의 태도이자 언어의 실천이다 — 비트겐슈타인 (Lebensform)</div>
+  <div class="keystone">② 신앙은 논리로 정당화되는 명제가 아니라 삶 속에서 실천되고 나타나는 형식이다 — 비트겐슈타인</div>
+  <div class="keystone">③ 신앙은 전 존재를 거는 실존적 열정이다. 아케다(עֲקֵידָה)가 그 전형이다 — 키르케고르 (Leidenschaft)</div>
+  <div class="keystone">④ 말할 수 없는 것은 침묵해야 하지만, 그것은 삶으로 보여줄 수 있다 — 비트겐슈타인 (das Unsagbare)</div>
+  <div class="keystone">⑤ 신은 색견본처럼 삶의 경험 안에서만 인식될 수 있다 — 비트겐슈타인</div>
+  <div class="keystone">⑥ 종교의 진짜 힘은 삶을 변혁시키는 경험 — 고통 속 위로·절망 속 희망·윤리적 새 삶 — 윌리엄 제임스</div>
+  <div class="keystone">⑦ 진리는 고정된 것이 아니라 삶 속에서 검증되고 드러나는 것이다 — 실용주의 (Pragmatism)</div>
+  <div class="keystone">⑧ 신앙의 결단은 증거를 기다리는 것이 아니라 능동적으로 뛰어드는 행위이다 — 제임스 (Will to Believe)</div>
+
+  <hr class="divider">
+
+  <div class="sec-head">
+    <span class="sec-num">시험</span>
+    <span class="sec-title">출제 예상 항목</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-badge">시험 예상</div>
+    <div class="exam-text">비트겐슈타인의 '삶의 형식(Lebensform)' 개념을 설명하고, 이것이 종교적 신앙 언어에 어떻게 적용되는지 서술하라.</div>
+  </div>
+  <div class="exam-card">
+    <div class="exam-badge">시험 예상</div>
+    <div class="exam-text">비트겐슈타인이 말하는 "말할 수 있는 것과 말할 수 없는 것"의 구분을 설명하고, 그것이 신학적으로 어떤 함의를 갖는지 논하라.</div>
+  </div>
+  <div class="exam-card">
+    <div class="exam-badge">시험 예상</div>
+    <div class="exam-text">윌리엄 제임스의 실용주의적 진리관(Pragmatic Truth)을 설명하고, 그에 대한 비판과 제임스의 응답을 서술하라.</div>
+  </div>
+  <div class="exam-card">
+    <div class="exam-badge">시험 예상</div>
+    <div class="exam-text">제임스의 '신앙의 결단(Will to Believe)' 개념의 의미, 그 신학적 가치와 한계를 논하라.</div>
+  </div>
+  <div class="exam-card">
+    <div class="exam-badge">비교 예상</div>
+    <div class="exam-text">비트겐슈타인과 윌리엄 제임스의 신앙 이해를 방법론·종교의 기초·신앙-이성 관계·기독교 접점의 네 축으로 비교하라.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-head">
+    <span class="sec-num">용어집</span>
+    <span class="sec-title">핵심 원어 용어</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-body" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div><span class="tag">Sprachspiel</span> 언어게임 (비트겐슈타인)</div>
+      <div><span class="tag">Lebensform</span> 삶의 형식 (비트겐슈타인)</div>
+      <div><span class="tag">das Unsagbare</span> 말할 수 없는 것 (비트겐슈타인)</div>
+      <div><span class="tag">Leidenschaft</span> 열정 (키르케고르)</div>
+      <div><span class="tag">עֲקֵידָה</span> 아케다 — 이삭 봉헌 (키르케고르)</div>
+      <div><span class="tag">Pragmatism</span> 실용주의 (제임스)</div>
+      <div><span class="tag">Will to Believe</span> 신앙의 결단 (제임스)</div>
+      <div><span class="tag">das Numinose</span> 누미노제 (루돌프 오토)</div>
+    </div>
+  </div>
+
+</div>
+</div><!-- /tab-summary -->
+
+
+<!-- ══════════════════════════════════ -->
+<!--  TAB 3 · 비교표                    -->
+<!-- ══════════════════════════════════ -->
+<div id="tab-compare" class="tab-panel">
+<div class="content">
+
+  <div class="sec-head">
+    <span class="sec-num">비교표</span>
+    <span class="sec-title">비트겐슈타인 vs 윌리엄 제임스</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="compare-col">
+      <div class="compare-name">비트겐슈타인 (Wittgenstein)</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">언어 분석 / 삶의 형식 탐구 / 언어게임의 구조 해명</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">삶의 태도와 언어 실천. 종교는 이론 체계가 아니라 살아가는 특정 방식이다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">신앙은 이성 논증의 대상이 아니다. 말할 수 없는 것은 침묵하고 삶으로 보여준다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">신앙의 자율성. 삶으로 증명하는 신앙. 회심은 존재 방식의 전환이다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">핵심 텍스트</div>
+        <div class="compare-val">『철학적 탐구』 / 『문화와 가치 (Vermischte Bemerkungen)』</div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-name">윌리엄 제임스 (William James)</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">종교심리학 / 실용주의 경험론 / 개인의 주관적 종교 경험 분석</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">개인의 주관적 종교 경험. 삶을 변혁시키는 실제 체험이 종교의 핵심이다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">결과의 유용성과 삶의 변화로 판단. 증거 이전에 결단이 필요하다 (Will to Believe).</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">회심 경험의 실재성. 신앙의 결단. 삶이 변화되는 경험이 신앙의 진정성 기준이다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">핵심 텍스트</div>
+        <div class="compare-val">『종교 경험의 다양성 (The Varieties of Religious Experience)』</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-head">
+    <span class="sec-num">공통점</span>
+    <span class="sec-title">두 사상가의 깊은 공명</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-body">
+      두 사상가는 <strong>신앙은 설명이 아니라 살아내는 것이라는 점</strong>에서 깊이 통한다.<br><br>
+      비트겐슈타인에게 신앙은 논리로 정당화되는 명제가 아니라 삶 속에서 실천되고 나타나는 형식이고, 제임스에게 신앙은 논리적 체계가 아니라 삶을 변혁시키는 실존적 경험이다. 둘 다 <strong>추상적 교리 체계보다 살아 있는 경험과 실천</strong>을 강조한다는 점에서 동일한 방향을 가리킨다.<br><br>
+      차이점: 비트겐슈타인은 언어와 삶의 형식에 집중하고, 제임스는 심리적·실용적 효과에 집중한다.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-head">
+    <span class="sec-num">3주차 연결</span>
+    <span class="sec-title">지난 주 개념과의 연결 — 비교 누적</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap" style="grid-template-columns: repeat(3,1fr);">
+    <div class="compare-col">
+      <div class="compare-name" style="font-size:13px;">3주 · 비트겐슈타인<br><span style="color:var(--muted);font-size:11px;">언어게임·삶의 형식</span></div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙의 본질</div>
+        <div class="compare-val" style="font-size:12px;">삶의 태도와 언어 실천. 말하지 않고 보여준다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교 언어</div>
+        <div class="compare-val" style="font-size:12px;">고유한 언어게임. 과학 언어로 환원 불가.</div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-name" style="font-size:13px;">4주 · 제임스<br><span style="color:var(--muted);font-size:11px;">실용주의·종교경험</span></div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙의 본질</div>
+        <div class="compare-val" style="font-size:12px;">삶을 변혁시키는 경험. 결단을 통해 시작된다.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교 언어</div>
+        <div class="compare-val" style="font-size:12px;">심리적·실존적 경험의 기술. 삶의 유용성으로 검증.</div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-name" style="font-size:13px;">다음 5주 · 뉴먼<br><span style="color:var(--muted);font-size:11px;">동의의 문법</span></div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙의 본질</div>
+        <div class="compare-val" style="font-size:12px;">이성과 신앙의 조화. 동의(assent)의 구조 분석.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교 언어</div>
+        <div class="compare-val" style="font-size:12px;">교리 발전론. 신앙 언어의 역사성과 이성적 구조.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- /tab-compare -->
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

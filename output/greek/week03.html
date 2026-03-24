@@ -4,708 +4,631 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>헬라어 I — 3주차 강의노트</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1c1c2e;
-    --ink-mid: #3a3a5c;
-    --ink-light: #6b6b8a;
-    --teal: #0e6e73;
-    --teal-mid: #1a9199;
-    --teal-light: #d0f0f2;
-    --teal-pale: #f2fbfc;
-    --gold: #b07d12;
-    --gold-light: #fdf3d0;
-    --gold-pale: #fffdf5;
-    --rose: #8b2635;
-    --rose-light: #fce8ea;
-    --green: #1a5e3a;
-    --green-light: #e0f2e9;
-    --border: #dde8ea;
-    --bg: #f8fafb;
-    --white: #ffffff;
-    --rule: #c8d8db;
-  }
+/* ── Design System ── */
+:root {
+  --bg: #0d1117;
+  --card: #161b27;
+  --subcard: #1e2538;
+  --gold: #c9a84c;
+  --greek: #f0d080;
+  --blue: #7c9ed9;
+  --red: #e07b6a;
+  --red-bg: #3d1a1a;
+  --green: #6fcf97;
+  --green-bg: #1a2d1a;
+  --text: #e8eaf0;
+  --muted: #9ba3b8;
+  --hint: #6b7490;
+  --border: #2a3050;
+  --white: #ffffff;
+}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink);
-    background: var(--bg);
-    padding: 24px 16px 60px;
-  }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  padding: 24px 16px 60px;
+}
 
-  .page {
-    max-width: 860px;
-    margin: 0 auto;
-  }
+.page { max-width: 900px; margin: 0 auto; }
 
-  /* ── Header ── */
-  .header {
-    background: var(--teal);
-    border-radius: 12px;
-    padding: 28px 32px 24px;
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::after {
-    content: 'λύω';
-    position: absolute;
-    right: 24px; top: 12px;
-    font-family: 'Libre Baskerville', serif;
-    font-style: italic;
-    font-size: 72px;
-    color: rgba(255,255,255,0.07);
-    pointer-events: none;
-  }
-  .header-meta {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
-  }
-  .meta-pill {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.9);
-    font-size: 11px;
-    font-weight: 500;
-    padding: 2px 10px;
-    border-radius: 20px;
-  }
-  .header h1 {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.3;
-    margin-bottom: 4px;
-  }
-  .header-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.72);
-  }
+/* ── Cover ── */
+.cover {
+  background: linear-gradient(135deg, #0e2a3a 0%, #0d1b2e 50%, #161b27 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px 32px 26px;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::after {
+  content: 'λύω';
+  position: absolute; right: 28px; top: 16px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic; font-size: 80px;
+  color: rgba(201,168,76,0.07);
+  pointer-events: none;
+}
+.cover-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.cover-pill {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-size: 11px; font-weight: 600;
+  padding: 2px 10px; border-radius: 20px;
+}
+.cover h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--white); line-height: 1.3; margin-bottom: 4px;
+}
+.cover-sub { font-size: 13px; color: var(--muted); }
 
-  /* ── Section ── */
-  .section {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 18px;
-    overflow: hidden;
-  }
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 18px;
-    border-bottom: 1px solid var(--border);
-    background: var(--teal-pale);
-  }
-  .section-badge {
-    background: var(--teal);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 2px 8px;
-    border-radius: 3px;
-  }
-  .section-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--teal);
-  }
-  .section-body {
-    padding: 18px 20px;
-  }
+/* ── Tab nav ── */
+.tab-nav {
+  display: flex; gap: 2px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px 10px 0 0;
+  padding: 8px 12px 0;
+  margin-top: 18px;
+  border-bottom: none;
+}
+.tab-btn {
+  padding: 8px 16px;
+  font-size: 12px; font-weight: 600;
+  color: var(--hint);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+  user-select: none;
+  border-radius: 4px 4px 0 0;
+  background: none; border-top: none; border-left: none; border-right: none;
+}
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-btn:hover:not(.active) { color: var(--muted); }
 
-  /* ── Info grid ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-  }
-  .info-card {
-    background: var(--teal-pale);
-    border: 1px solid var(--teal-light);
-    border-radius: 7px;
-    padding: 10px 14px;
-  }
-  .info-label { font-size: 10px; font-weight: 700; color: var(--teal-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
-  .info-value { font-size: 13px; color: var(--ink); font-weight: 500; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
 
-  /* ── Vocab table ── */
-  .vocab-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  .vocab-table thead tr {
-    background: var(--teal);
-  }
-  .vocab-table thead th {
-    color: #fff;
-    text-align: left;
-    padding: 7px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-  .vocab-table tbody tr:nth-child(even) td { background: var(--teal-pale); }
-  .vocab-table td {
-    padding: 7px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  .greek {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 15px;
-    color: var(--teal);
-    font-weight: 700;
-  }
-  .romanize {
-    font-size: 11px;
-    color: var(--ink-light);
-    font-style: italic;
-  }
-  .meaning { font-weight: 500; }
+/* ── Section wrapper ── */
+.tab-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0 0 10px 10px;
+  padding: 24px 22px;
+}
 
-  /* ── Callout ── */
-  .callout {
-    display: flex; gap: 10px; align-items: flex-start;
-    border-radius: 7px; padding: 12px 14px; margin-bottom: 14px;
-  }
-  .callout.teal { background: var(--teal-pale); border-left: 3px solid var(--teal-mid); }
-  .callout.gold { background: var(--gold-pale); border-left: 3px solid var(--gold); }
-  .callout.rose { background: var(--rose-light); border-left: 3px solid var(--rose); }
-  .callout.green { background: var(--green-light); border-left: 3px solid var(--green); }
-  .callout-icon { font-size: 16px; line-height: 1.4; flex-shrink: 0; }
-  .callout-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
-  .callout.teal .callout-title { color: var(--teal); }
-  .callout.gold .callout-title { color: var(--gold); }
-  .callout.rose .callout-title { color: var(--rose); }
-  .callout.green .callout-title { color: var(--green); }
-  .callout-text { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+/* ── Section head ── */
+.sec {
+  margin-bottom: 28px;
+}
+.sec:last-child { margin-bottom: 0; }
+.sec-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.sec-badge {
+  background: var(--gold);
+  color: #0d1117;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; font-weight: 700; color: var(--gold);
+}
 
-  /* ── Paradigm tabs ── */
-  .tabs {
-    display: flex; gap: 0; border-bottom: 2px solid var(--teal-light); margin-bottom: 16px; flex-wrap: wrap;
-  }
-  .tab {
-    padding: 8px 16px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--ink-light);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.15s;
-    user-select: none;
-  }
-  .tab.active { color: var(--teal); border-bottom-color: var(--teal); }
-  .tab:hover:not(.active) { color: var(--teal-mid); }
+/* ── Grammar rule block ── */
+.gram-rule {
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px;
+  background: #1e2010;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+}
+.gram-rule-title {
+  font-size: 12px; font-weight: 700; color: var(--gold);
+  margin-bottom: 5px;
+}
+.gram-rule-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.gram-rule-body strong { color: var(--text); }
 
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
+/* ── Teacher quote ── */
+.teacher-quote {
+  background: var(--subcard);
+  border-left: 3px solid var(--blue);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+.teacher-quote::before {
+  content: '교수님 — ';
+  color: var(--blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
 
-  /* ── Paradigm table ── */
-  .paradigm-wrap {
-    overflow-x: auto;
-  }
-  .para-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    min-width: 380px;
-  }
-  .para-table thead tr { background: var(--ink); }
-  .para-table thead th {
-    color: rgba(255,255,255,0.9);
-    padding: 7px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-align: center;
-  }
-  .para-table thead th:first-child { text-align: left; }
-  .para-table td {
-    padding: 8px 12px;
-    border: 1px solid var(--border);
-    text-align: center;
-    vertical-align: middle;
-  }
-  .para-table td:first-child {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ink-mid);
-    background: var(--bg);
-    min-width: 80px;
-  }
-  .para-table tr:nth-child(even) td:not(:first-child) { background: #fafcfc; }
-  .gk {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 15px;
-    color: var(--teal);
-    font-weight: 700;
-    display: block;
-    line-height: 1.3;
-  }
-  .rom {
-    font-size: 10px;
-    color: var(--ink-light);
-    font-style: italic;
-    display: block;
-  }
-  .eng {
-    font-size: 11px;
-    color: var(--ink-mid);
-    display: block;
-  }
+/* ── Tip box ── */
+.tip-box {
+  background: #2a2210;
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 8px;
+  font-size: 13px; color: var(--greek);
+}
+.tip-box::before {
+  content: '암기팁 — ';
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
 
-  /* ── Ending summary ── */
-  .ending-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-  @media (max-width: 560px) { .ending-grid { grid-template-columns: 1fr; } }
+/* ── Exam badge ── */
+.exam-list { display: flex; flex-direction: column; gap: 6px; }
+.exam-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--red-bg);
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  padding: 7px 12px;
+  font-size: 12px; color: var(--text);
+}
+.exam-badge {
+  background: var(--red);
+  color: #fff;
+  font-size: 9px; font-weight: 700;
+  padding: 1px 6px; border-radius: 2px;
+  white-space: nowrap; flex-shrink: 0;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
 
-  .ending-card {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .ending-card-head {
-    padding: 8px 14px;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex; gap: 8px; align-items: center;
-  }
-  .ending-card.active-head .ending-card-head { background: var(--teal); color: #fff; }
-  .ending-card.passive-head .ending-card-head { background: var(--rose); color: #fff; }
-  .ending-table {
-    width: 100%; border-collapse: collapse; font-size: 12px;
-  }
-  .ending-table thead tr { background: var(--bg); }
-  .ending-table thead th { padding: 5px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-mid); border-bottom: 1px solid var(--border); text-align: center; }
-  .ending-table td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: center; }
-  .ending-table tr:last-child td { border-bottom: none; }
-  .ending-table td:first-child { text-align: left; font-size: 11px; color: var(--ink-mid); font-weight: 500; }
-  .end-gk {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 14px;
-    font-weight: 700;
-  }
-  .ending-card.active-head .end-gk { color: var(--teal); }
-  .ending-card.passive-head .end-gk { color: var(--rose); }
+/* ── Assignment badge ── */
+.assign-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--green-bg);
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  padding: 7px 12px;
+  font-size: 12px; color: var(--text);
+  margin-bottom: 6px;
+}
+.assign-badge {
+  background: var(--green);
+  color: #0d1117;
+  font-size: 9px; font-weight: 700;
+  padding: 1px 6px; border-radius: 2px;
+  white-space: nowrap; flex-shrink: 0;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+.assign-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.assign-body strong { color: var(--text); }
 
-  /* ── Verb drill grid ── */
-  .drill-intro {
-    font-size: 13px; color: var(--ink-mid); margin-bottom: 14px;
-  }
-  .verb-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 14px;
-  }
-  .verb-card {
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    overflow: hidden;
-  }
-  .verb-card-head {
-    background: var(--ink);
-    color: #fff;
-    padding: 10px 14px;
-    display: flex; align-items: baseline; gap: 10px;
-  }
-  .verb-lemma {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .verb-lemma-rom { font-size: 11px; color: rgba(255,255,255,0.55); font-style: italic; }
-  .verb-meaning { font-size: 12px; color: rgba(255,255,255,0.8); margin-left: auto; }
-  .verb-card-body {
-    padding: 0;
-  }
-  .verb-form-table {
-    width: 100%; border-collapse: collapse; font-size: 12px;
-  }
-  .verb-form-table thead tr { background: var(--teal-pale); }
-  .verb-form-table thead th {
-    padding: 5px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
-    color: var(--teal); border-bottom: 1px solid var(--teal-light); text-align: center;
-  }
-  .verb-form-table thead th:first-child { text-align: left; }
-  .verb-form-table td {
-    padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle;
-  }
-  .verb-form-table tr:last-child td { border-bottom: none; }
-  .verb-form-table td:first-child { text-align: left; font-size: 11px; color: var(--ink-light); font-weight: 500; width: 70px; }
-  .vf-gk { font-family: 'Libre Baskerville', serif; font-size: 13px; color: var(--teal); font-weight: 700; display: block; }
-  .vf-rom { font-size: 10px; color: var(--ink-light); font-style: italic; display: block; }
-  .vf-meaning { font-size: 10px; color: var(--ink-mid); display: block; }
+/* ── Ending comparison grid ── */
+.ending-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+@media (max-width: 560px) { .ending-grid { grid-template-columns: 1fr; } }
 
-  /* passive tab color override */
-  .passive-tab { color: var(--rose) !important; }
-  .passive-tab.active { border-bottom-color: var(--rose) !important; }
+.ending-card { border-radius: 7px; overflow: hidden; }
+.ending-card-head {
+  padding: 8px 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+}
+.ending-card.act .ending-card-head { background: #0e3040; color: var(--blue); }
+.ending-card.pas .ending-card-head { background: var(--red-bg); color: var(--red); }
+.ending-table {
+  width: 100%; border-collapse: collapse;
+}
+.ending-table tr { border-bottom: 1px solid var(--border); }
+.ending-table tr:last-child { border-bottom: none; }
+.ending-table td {
+  padding: 7px 12px; font-size: 12px;
+  background: var(--subcard);
+}
+.ending-table td:first-child { color: var(--hint); width: 90px; font-size: 11px; }
+.ending-table td:nth-child(2) {
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px; font-weight: 700;
+}
+.ending-card.act .ending-table td:nth-child(2) { color: var(--blue); }
+.ending-card.pas .ending-table td:nth-child(2) { color: var(--red); }
+.ending-table td:nth-child(3) { color: var(--hint); font-size: 11px; font-style: italic; }
+.ending-table td:nth-child(4) { color: var(--muted); font-size: 11px; }
 
-  /* ── Notes ── */
-  .note-list { list-style: none; }
-  .note-list li {
-    display: flex; gap: 10px; align-items: flex-start;
-    padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px;
-  }
-  .note-list li:last-child { border-bottom: none; }
-  .note-num {
-    background: var(--teal);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  strong { color: var(--teal); }
-  em { color: var(--rose); font-style: normal; font-weight: 600; }
+/* ── Paradigm table ── */
+.para-wrap { overflow-x: auto; margin-bottom: 4px; }
+.para-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px; min-width: 480px;
+}
+.para-table thead tr { background: var(--subcard); }
+.para-table thead th {
+  padding: 8px 12px; text-align: center;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.07em; color: var(--hint);
+  border-bottom: 1px solid var(--border);
+}
+.para-table thead th:first-child { text-align: left; }
+.para-table td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+  text-align: center; vertical-align: middle;
+}
+.para-table tr:last-child td { border-bottom: none; }
+.para-table td:first-child {
+  text-align: left; font-size: 11px; color: var(--hint); width: 100px;
+}
+.gk {
+  font-family: 'Crimson Pro', serif;
+  font-size: 17px; font-weight: 700; color: var(--greek);
+  display: block; line-height: 1.3;
+}
+.rom { font-size: 10px; color: var(--hint); font-style: italic; display: block; }
+.ko { font-size: 11px; color: var(--muted); display: block; }
 
-  /* ── Memory box ── */
-  .memory-box {
-    background: linear-gradient(135deg, var(--teal) 0%, #1a9199 100%);
-    border-radius: 10px;
-    padding: 18px 22px;
-    color: #fff;
-    margin-bottom: 18px;
-  }
-  .memory-title {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    opacity: 0.75; margin-bottom: 12px;
-  }
-  .memory-items { display: flex; gap: 12px; flex-wrap: wrap; }
-  .memory-item {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 7px;
-    padding: 8px 14px;
-    text-align: center;
-    min-width: 120px;
-  }
-  .memory-item-gk {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 17px;
-    font-weight: 700;
-    display: block;
-  }
-  .memory-item-rom { font-size: 10px; opacity: 0.65; font-style: italic; display: block; }
-  .memory-item-ko { font-size: 11px; opacity: 0.85; margin-top: 2px; display: block; }
+/* ── Verb tabs ── */
+.verb-tab-nav {
+  display: flex; gap: 0; margin-bottom: 0;
+  border-bottom: 1px solid var(--border);
+}
+.verb-tab-btn {
+  padding: 6px 14px;
+  font-size: 11px; font-weight: 600;
+  color: var(--hint); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+  background: none; border-top: none; border-left: none; border-right: none;
+  user-select: none;
+}
+.verb-tab-btn.act-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+.verb-tab-btn.pas-tab.active { color: var(--red); border-bottom-color: var(--red); }
+.verb-tab-btn:hover:not(.active) { color: var(--muted); }
+.verb-tab-panel { display: none; }
+.verb-tab-panel.active { display: block; }
 
-  /* ── footer ── */
-  .footer {
-    text-align: center; font-size: 11px; color: var(--ink-light);
-    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule);
-  }
+/* ── Verb card ── */
+.verb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+@media (max-width: 640px) { .verb-grid { grid-template-columns: 1fr; } }
 
-  /* Tab script */
-  .tabs-wrapper { margin-bottom: 0; }
+.verb-card {
+  background: var(--subcard);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.verb-card-head {
+  background: #0e1c2e;
+  padding: 10px 14px;
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+}
+.vlemma {
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px; font-weight: 700; color: var(--greek);
+}
+.vrom { font-size: 11px; color: var(--hint); font-style: italic; }
+.vko { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+.vform-table { width: 100%; border-collapse: collapse; }
+.vform-table tr { border-bottom: 1px solid var(--border); }
+.vform-table tr:last-child { border-bottom: none; }
+.vform-table td { padding: 6px 12px; font-size: 12px; vertical-align: middle; }
+.vform-table td:first-child { color: var(--hint); font-size: 11px; width: 80px; flex-shrink: 0; }
+.vf-gk {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px; font-weight: 700;
+  display: block; line-height: 1.25;
+}
+.vf-rom { font-size: 10px; color: var(--hint); font-style: italic; display: block; }
+.vf-ko { font-size: 10px; color: var(--muted); display: block; }
+.act-color { color: var(--blue); }
+.pas-color { color: var(--red); }
+
+/* ── Memory box ── */
+.memory-box {
+  background: linear-gradient(135deg, #1a2e1a, #1e2538);
+  border: 1px solid var(--green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 24px;
+}
+.memory-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--green); text-transform: uppercase; margin-bottom: 12px;
+}
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.memory-item {
+  background: rgba(111,207,151,0.08);
+  border: 1px solid rgba(111,207,151,0.2);
+  border-radius: 6px;
+  padding: 8px 12px; text-align: center;
+}
+.m-gk {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px; font-weight: 700; color: var(--greek);
+  display: block; line-height: 1.2;
+}
+.m-rom { font-size: 10px; color: var(--hint); font-style: italic; display: block; }
+.m-ko { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+
+/* ── Flashcard ── */
+.flash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.flash-card {
+  background: var(--subcard);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  min-height: 90px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+.flash-card:hover { border-color: var(--gold); }
+.flash-front { display: block; }
+.flash-back { display: none; }
+.flash-card.flipped .flash-front { display: none; }
+.flash-card.flipped .flash-back { display: block; }
+.flash-gk {
+  font-family: 'Crimson Pro', serif;
+  font-size: 22px; font-weight: 700; color: var(--greek);
+  display: block; line-height: 1.2;
+}
+.flash-rom { font-size: 11px; color: var(--hint); font-style: italic; display: block; margin-top: 3px; }
+.flash-ko { font-size: 13px; color: var(--text); display: block; margin-bottom: 4px; font-weight: 600; }
+.flash-pos { font-size: 11px; color: var(--muted); display: block; }
+.flash-hint { font-size: 10px; color: var(--hint); margin-top: 6px; }
+
+/* ── Divider ── */
+.divider {
+  border: none; border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center; font-size: 11px; color: var(--hint);
+  margin-top: 28px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
 </style>
 </head>
 <body>
 <div class="page">
 
-<!-- ── HEADER ── -->
-<div class="header">
-  <div class="header-meta">
-    <span class="meta-pill">3주차 (3/23)</span>
-    <span class="meta-pill">한철흠 교수</span>
-    <span class="meta-pill">헬라어 I</span>
-    <span class="meta-pill">월 13–14교시</span>
+<!-- ── COVER ── -->
+<div class="cover">
+  <div class="cover-pills">
+    <span class="cover-pill">헬라어 I</span>
+    <span class="cover-pill">3주차 · 2026-03-23</span>
+    <span class="cover-pill">한철흠 교수</span>
+    <span class="cover-pill">월 13–14교시</span>
   </div>
   <h1>현재 능동태 · 수동태 · 중간태 직설법</h1>
-  <div class="header-sub">Present Active · Passive · Middle Indicative — λύω 기준 변화표</div>
+  <div class="cover-sub">Present Active · Passive · Middle Indicative — λύω 기준 변화표 + 주요 동사 분해</div>
 </div>
 
-<!-- ── 강의 핵심 정보 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">01</span>
-    <span class="section-title">강의 핵심 정보</span>
-  </div>
-  <div class="section-body">
-    <div class="info-grid">
-      <div class="info-card"><div class="info-label">주제</div><div class="info-value">현재 능동태 · 수동태 · 중간태 직설법</div></div>
-      <div class="info-card"><div class="info-label">다음 주 (4주차 3/30)</div><div class="info-value">미래 능동태/수동태/중간태 직설법</div></div>
-      <div class="info-card"><div class="info-label">핵심 동사</div><div class="info-value">λύω 기준 어미 암기 → 다른 동사에 적용</div></div>
-      <div class="info-card"><div class="info-label">시험 범위</div><div class="info-value">중간태는 현재·미완료에서 수동태와 동일 (시험 제외)</div></div>
+<!-- ── TAB NAV ── -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showMain('note')">강의노트</button>
+  <button class="tab-btn" onclick="showMain('core')">핵심정리</button>
+  <button class="tab-btn" onclick="showMain('card')">암기카드</button>
+</div>
+
+<!-- ════════════════════════════════════
+     탭 1 — 강의노트
+════════════════════════════════════ -->
+<div class="tab-body">
+<div class="tab-panel active" id="panel-note">
+
+  <!-- 01 직설법 개념 -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-badge">01</span>
+      <span class="sec-title">현재 직설법(Present Indicative)이란?</span>
     </div>
-  </div>
-</div>
-
-<!-- ── 신규 어휘 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">02</span>
-    <span class="section-title">신규 어휘 — 수업 사용 동사 전체</span>
-  </div>
-  <div class="section-body">
-    <table class="vocab-table">
-      <thead>
-        <tr><th>원형</th><th>음가</th><th>뜻</th><th>수업 메모</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><span class="greek">λύω</span></td><td><span class="romanize">뤼오</span></td><td class="meaning">풀다, 묶인 것을 풀다</td><td>기본 변화 모델 동사</td></tr>
-        <tr><td><span class="greek">πιστεύω</span></td><td><span class="romanize">피스튜오</span></td><td class="meaning">믿다</td><td>수업 반복 연습 동사</td></tr>
-        <tr><td><span class="greek">θεραπεύω</span></td><td><span class="romanize">테라퓨오</span></td><td class="meaning">치료하다</td><td>수동태 연습 예시</td></tr>
-        <tr><td><span class="greek">σῴζω</span></td><td><span class="romanize">소조</span></td><td class="meaning">구원하다, 치료하다</td><td>미래 수동태 예시로 사용</td></tr>
-        <tr><td><span class="greek">βαπτίζω</span></td><td><span class="romanize">밥티조</span></td><td class="meaning">침례를 주다</td><td>수동태 = 침례를 받다</td></tr>
-        <tr><td><span class="greek">ἐγείρω</span></td><td><span class="romanize">에게이로</span></td><td class="meaning">일으키다, 살리다</td><td>예수께서 죽은 자를 일으킬 때</td></tr>
-        <tr><td><span class="greek">λαμβάνω</span></td><td><span class="romanize">람바노</span></td><td class="meaning">취하다, 받다</td><td>수업 연습 동사</td></tr>
-        <tr><td><span class="greek">γράφω</span></td><td><span class="romanize">그라포</span></td><td class="meaning">쓰다</td><td>수업 연습 동사</td></tr>
-        <tr><td><span class="greek">διδάσκω</span></td><td><span class="romanize">디다스코</span></td><td class="meaning">가르치다</td><td>수동태 = 가르침을 받다(배우다)</td></tr>
-        <tr><td><span class="greek">ἔχω</span></td><td><span class="romanize">에코</span></td><td class="meaning">가지고 있다</td><td>수업 연습 동사</td></tr>
-        <tr><td><span class="greek">ἀκούω</span></td><td><span class="romanize">아쿠오</span></td><td class="meaning">듣다</td><td>읽기 연습 단어</td></tr>
-        <tr><td><span class="greek">γινώσκω</span></td><td><span class="romanize">기노스코</span></td><td class="meaning">알다</td><td>읽기 연습 단어</td></tr>
-        <tr><td><span class="greek">λέγω</span></td><td><span class="romanize">레고</span></td><td class="meaning">말하다</td><td>읽기 연습 단어</td></tr>
-        <tr><td><span class="greek">βλέπω</span></td><td><span class="romanize">블레포</span></td><td class="meaning">보다</td><td>읽기 연습 단어</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- ── 어미 통합 정리 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">03</span>
-    <span class="section-title">어미 통합 정리 — 현재 능동태 vs 수동태/중간태</span>
-  </div>
-  <div class="section-body">
-
-    <div class="callout teal">
-      <div class="callout-icon">💡</div>
-      <div class="callout-body">
-        <div class="callout-title">어미 암기법 — 교수님 설명</div>
-        <div class="callout-text">
-          <strong>능동태 핵심:</strong> -ω(나) / -εις(너) / -ει(그) / -ομεν(우리) / -ετε(너희) / -ουσι(그들)<br>
-          <strong>수동태 핵심:</strong> -ομαι(나) / -ῃ(너) / -εται(그) / -ομεθα(우리) / -εσθε(너희) / -ονται(그들)<br>
-          <strong>수동태 특징:</strong> 이오타(ι)가 들어가거나, 특히 <em>-ται / -θε / -νται</em>로 끝나는 형태에 주목!
-        </div>
+    <div class="gram-rule">
+      <div class="gram-rule-title">정의</div>
+      <div class="gram-rule-body">
+        직설법(Indicative)은 <strong>지금 실제로 일어나는 사실</strong>을 진술하는 서법입니다.<br>
+        "할 수도 있고 안 할 수도 있는 것"이 아니라 실제로 하는 행위를 나타냅니다.<br>
+        해석: <strong>"나는 풀다"</strong> 또는 <strong>"나는 풀고 있다"</strong> — 두 가지 모두 가능.
       </div>
+    </div>
+    <div class="teacher-quote">"할 수도 있고 안 할 수도 있는 게 아니라 실제로 하는 거예요. 직설법이란 말은 지금 한다는 뜻이에요."</div>
+    <div class="teacher-quote">"동사 어미는 인칭 대명사를 포함한다 — 별도 주어 불필요."</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 02 어미 통합 정리 -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-badge">02</span>
+      <span class="sec-title">어미 통합 정리 — 능동태 vs 수동태/중간태</span>
     </div>
 
     <div class="ending-grid">
-      <!-- 능동태 어미 -->
-      <div class="ending-card active-head">
+      <div class="ending-card act">
         <div class="ending-card-head">⚡ 능동태 어미 (Active Endings)</div>
         <table class="ending-table">
-          <thead><tr><th>인칭/수</th><th>어미</th><th>음가</th><th>주어</th></tr></thead>
-          <tbody>
-            <tr><td>1인칭 단수</td><td><span class="end-gk">-ω</span></td><td>-오</td><td>나</td></tr>
-            <tr><td>2인칭 단수</td><td><span class="end-gk">-εις</span></td><td>-에이스</td><td>너/당신</td></tr>
-            <tr><td>3인칭 단수</td><td><span class="end-gk">-ει</span></td><td>-에이</td><td>그/그녀/그것</td></tr>
-            <tr><td>1인칭 복수</td><td><span class="end-gk">-ομεν</span></td><td>-오멘</td><td>우리</td></tr>
-            <tr><td>2인칭 복수</td><td><span class="end-gk">-ετε</span></td><td>-에테</td><td>너희</td></tr>
-            <tr><td>3인칭 복수</td><td><span class="end-gk">-ουσι(ν)</span></td><td>-우시(ν)</td><td>그들</td></tr>
-          </tbody>
+          <tr><td>1단 (나)</td><td>-ω</td><td>-오</td><td>나</td></tr>
+          <tr><td>2단 (너)</td><td>-εις</td><td>-에이스</td><td>너/당신</td></tr>
+          <tr><td>3단 (그)</td><td>-ει</td><td>-에이</td><td>그/그녀</td></tr>
+          <tr><td>1복 (우리)</td><td>-ομεν</td><td>-오멘</td><td>우리</td></tr>
+          <tr><td>2복 (너희)</td><td>-ετε</td><td>-에테</td><td>너희</td></tr>
+          <tr><td>3복 (그들)</td><td>-ουσι(ν)</td><td>-우시(ν)</td><td>그들</td></tr>
         </table>
       </div>
-
-      <!-- 수동태/중간태 어미 -->
-      <div class="ending-card passive-head">
-        <div class="ending-card-head">🔄 수동태/중간태 어미 (Passive/Middle Endings)</div>
+      <div class="ending-card pas">
+        <div class="ending-card-head">🔄 수동태/중간태 어미 (Passive/Middle)</div>
         <table class="ending-table">
-          <thead><tr><th>인칭/수</th><th>어미</th><th>음가</th><th>주어</th></tr></thead>
-          <tbody>
-            <tr><td>1인칭 단수</td><td><span class="end-gk">-ομαι</span></td><td>-오마이</td><td>나</td></tr>
-            <tr><td>2인칭 단수</td><td><span class="end-gk">-ῃ</span></td><td>-에</td><td>너/당신</td></tr>
-            <tr><td>3인칭 단수</td><td><span class="end-gk">-εται</span></td><td>-에타이</td><td>그/그녀/그것</td></tr>
-            <tr><td>1인칭 복수</td><td><span class="end-gk">-ομεθα</span></td><td>-오메타</td><td>우리</td></tr>
-            <tr><td>2인칭 복수</td><td><span class="end-gk">-εσθε</span></td><td>-에스테</td><td>너희</td></tr>
-            <tr><td>3인칭 복수</td><td><span class="end-gk">-ονται</span></td><td>-온타이</td><td>그들</td></tr>
-          </tbody>
+          <tr><td>1단 (나)</td><td>-ομαι</td><td>-오마이</td><td>나</td></tr>
+          <tr><td>2단 (너)</td><td>-ῃ</td><td>-에</td><td>너/당신</td></tr>
+          <tr><td>3단 (그)</td><td>-εται</td><td>-에타이</td><td>그/그녀</td></tr>
+          <tr><td>1복 (우리)</td><td>-ομεθα</td><td>-오메타</td><td>우리</td></tr>
+          <tr><td>2복 (너희)</td><td>-εσθε</td><td>-에스테</td><td>너희</td></tr>
+          <tr><td>3복 (그들)</td><td>-ονται</td><td>-온타이</td><td>그들</td></tr>
         </table>
       </div>
     </div>
 
-    <div class="callout rose">
-      <div class="callout-icon">⚠️</div>
-      <div class="callout-body">
-        <div class="callout-title">교수님 강조 — 가장 헷갈리는 형태</div>
-        <div class="callout-text">
-          <strong>2인칭 단수(너):</strong> 능동태 <span class="greek" style="font-size:13px">-εις</span>(에이스) vs 수동태 <span class="greek" style="font-size:13px">-ῃ</span>(에) — 이 둘이 시험에서 가장 많이 틀린다!<br>
-          <strong>1인칭 복수(우리):</strong> 능동태 <span class="greek" style="font-size:13px">-ομεν</span>(오멘) vs 수동태 <span class="greek" style="font-size:13px">-ομεθα</span>(오메타) — 오메타가 더 길다는 걸 기억!
+    <div class="tip-box">능동 1단 <strong>-ω(오)</strong> vs 수동 1단 <strong>-ομαι(오마이)</strong> — 수동이 더 길다!</div>
+    <div class="tip-box">능동 1복 <strong>-ομεν(오멘)</strong> vs 수동 1복 <strong>-ομεθα(오메타)</strong> — 수동이 더 길다!</div>
+    <div class="tip-box">가장 헷갈리는 2단: 능동 <strong>-εις(에이스)</strong> vs 수동 <strong>-ῃ(에)</strong> — 이 둘이 시험 핵심!</div>
+    <div class="tip-box">수동태 식별법: <strong>이오타(ι)가 들어가거나 -ται / -εσθε / -ονται</strong>로 끝나면 수동태!</div>
+
+    <div class="teacher-quote">"이요타로 끝나거나 -ται, -θε, -νται 보이면 수동태."</div>
+    <div class="teacher-quote">"보며 외우는 거랑 쓰는 건 달라 — 반드시 종이에 써서 확인하세요."</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 03 중간태 -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-badge">03</span>
+      <span class="sec-title">중간태(Middle Voice) 정리</span>
+    </div>
+    <div class="gram-rule">
+      <div class="gram-rule-title">중간태란?</div>
+      <div class="gram-rule-body">
+        주어의 동작이 <strong>주어 자신에게 영향을 미칠 때</strong> 사용합니다 (셀프 액션).<br>
+        예: λύομαι = "나는 나 자신을 풀다 / 나를 위해 풀다"<br>
+        <strong>현재·미완료 시제</strong>에서는 수동태와 형태가 완전히 동일 → 문맥으로만 구별.<br>
+        미래 시제에서는 수동태와 중간태 형태가 달라집니다.
+      </div>
+    </div>
+    <div class="teacher-quote">"중간태는 지가 셀프로 영향을 미치는 거예요. 현재는 수동태와 중간태가 똑같아요."</div>
+    <div class="teacher-quote">"중간태는 시험에 안 낸다 — 현재·미완료에서 수동태와 형태 동일, 번역이 너무 힘들어서."</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 04 λύω 변화표 -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-badge">04</span>
+      <span class="sec-title">λύω (뤼오 — 풀다) 현재 완전 변화표</span>
+    </div>
+
+    <div style="background:var(--subcard); border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:4px;">
+      <div class="verb-tab-nav" id="lyoo-nav">
+        <button class="verb-tab-btn act-tab active" onclick="showVerb('lyoo','act')">능동태 (Active)</button>
+        <button class="verb-tab-btn pas-tab" onclick="showVerb('lyoo','pas')">수동태 (Passive)</button>
+      </div>
+      <div style="padding:14px;">
+        <div class="verb-tab-panel active" id="lyoo-act">
+          <div class="para-wrap">
+            <table class="para-table">
+              <thead><tr><th>인칭/수</th><th>형태</th><th>음가</th><th>해석</th></tr></thead>
+              <tbody>
+                <tr><td>1인칭 단수</td><td><span class="gk">λύω</span><span class="rom">뤼오</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ω</td><td class="ko">나는 풀다 / 나는 풀고 있다</td></tr>
+                <tr><td>2인칭 단수</td><td><span class="gk">λύεις</span><span class="rom">뤼에이스</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + εις</td><td class="ko">너는 풀다</td></tr>
+                <tr><td>3인칭 단수</td><td><span class="gk">λύει</span><span class="rom">뤼에이</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ει</td><td class="ko">그는 풀다</td></tr>
+                <tr><td>1인칭 복수</td><td><span class="gk">λύομεν</span><span class="rom">뤼오멘</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ομεν</td><td class="ko">우리는 풀다</td></tr>
+                <tr><td>2인칭 복수</td><td><span class="gk">λύετε</span><span class="rom">뤼에테</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ετε</td><td class="ko">너희는 풀다</td></tr>
+                <tr><td>3인칭 복수</td><td><span class="gk">λύουσι(ν)</span><span class="rom">뤼우시(ν)</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ουσι</td><td class="ko">그들은 풀다</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="verb-tab-panel" id="lyoo-pas">
+          <div class="para-wrap">
+            <table class="para-table">
+              <thead><tr><th>인칭/수</th><th>형태</th><th>음가</th><th>해석</th></tr></thead>
+              <tbody>
+                <tr><td>1인칭 단수</td><td><span class="gk">λύομαι</span><span class="rom">뤼오마이</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ομαι</td><td class="ko">나는 풀리다</td></tr>
+                <tr><td>2인칭 단수</td><td><span class="gk">λύῃ</span><span class="rom">뤼에</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ῃ</td><td class="ko">너는 풀리다</td></tr>
+                <tr><td>3인칭 단수</td><td><span class="gk">λύεται</span><span class="rom">뤼에타이</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + εται</td><td class="ko">그는 풀리다</td></tr>
+                <tr><td>1인칭 복수</td><td><span class="gk">λυόμεθα</span><span class="rom">뤼오메타</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ομεθα</td><td class="ko">우리는 풀리다</td></tr>
+                <tr><td>2인칭 복수</td><td><span class="gk">λύεσθε</span><span class="rom">뤼에스테</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + εσθε</td><td class="ko">너희는 풀리다</td></tr>
+                <tr><td>3인칭 복수</td><td><span class="gk">λύονται</span><span class="rom">뤼온타이</span></td><td style="font-size:11px;color:var(--hint);">어간 λύ + ονται</td><td class="ko">그들은 풀리다</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 중간태 설명 -->
-    <div class="callout gold">
-      <div class="callout-icon">📌</div>
-      <div class="callout-body">
-        <div class="callout-title">중간태(Middle Voice) — 현재는 수동태와 동일, 시험 제외</div>
-        <div class="callout-text">
-          중간태 = 주어가 <strong>자신에게 영향을 미치는</strong> 행동 (셀프 액션).<br>
-          <strong>현재 시제</strong>에서는 중간태 어미 = 수동태 어미 (완전히 동일).<br>
-          문맥으로 구분해야 하며, <em>이번 학기 시험에는 중간태 해석 출제 안 함</em>.
-        </div>
-      </div>
+  <hr class="divider">
+
+  <!-- 05 주요 동사 분해 -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-badge">05</span>
+      <span class="sec-title">주요 동사별 변화 분해 — 수업 연습 동사 10개</span>
     </div>
+    <p style="font-size:12px;color:var(--hint);margin-bottom:14px;">각 카드의 능동(A)·수동(P) 탭을 클릭해서 확인하세요. 어간만 바뀌고 어미 패턴은 동일합니다.</p>
 
-  </div>
-</div>
-
-<!-- ── λύω 완전 변화표 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">04</span>
-    <span class="section-title">λύω (뤼오 — 풀다) 완전 변화표</span>
-  </div>
-  <div class="section-body">
-    <div class="tabs-wrapper">
-      <div class="tabs" id="tab-lyoo">
-        <div class="tab active" onclick="showTab('lyoo','active')">능동태 (Active)</div>
-        <div class="tab passive-tab" onclick="showTab('lyoo','passive')">수동태 (Passive)</div>
-      </div>
-
-      <div class="tab-content active" id="lyoo-active">
-        <div class="paradigm-wrap">
-          <table class="para-table">
-            <thead><tr><th>인칭/수</th><th>형태</th><th>음가</th><th>뜻</th></tr></thead>
-            <tbody>
-              <tr><td>1인칭 단수</td><td><span class="gk">λύω</span><span class="rom">뤼오</span></td><td>어간 λύ + ω</td><td class="eng">나는 풀다 / 나는 풀고 있다</td></tr>
-              <tr><td>2인칭 단수</td><td><span class="gk">λύεις</span><span class="rom">뤼에이스</span></td><td>어간 λύ + εις</td><td class="eng">너는 풀다</td></tr>
-              <tr><td>3인칭 단수</td><td><span class="gk">λύει</span><span class="rom">뤼에이</span></td><td>어간 λύ + ει</td><td class="eng">그는 풀다</td></tr>
-              <tr><td>1인칭 복수</td><td><span class="gk">λύομεν</span><span class="rom">뤼오멘</span></td><td>어간 λύ + ομεν</td><td class="eng">우리는 풀다</td></tr>
-              <tr><td>2인칭 복수</td><td><span class="gk">λύετε</span><span class="rom">뤼에테</span></td><td>어간 λύ + ετε</td><td class="eng">너희는 풀다</td></tr>
-              <tr><td>3인칭 복수</td><td><span class="gk">λύουσι(ν)</span><span class="rom">뤼우시(ν)</span></td><td>어간 λύ + ουσι</td><td class="eng">그들은 풀다</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="tab-content" id="lyoo-passive">
-        <div class="paradigm-wrap">
-          <table class="para-table">
-            <thead><tr><th>인칭/수</th><th>형태</th><th>음가</th><th>뜻</th></tr></thead>
-            <tbody>
-              <tr><td>1인칭 단수</td><td><span class="gk">λύομαι</span><span class="rom">뤼오마이</span></td><td>어간 λύ + ομαι</td><td class="eng">나는 풀리다</td></tr>
-              <tr><td>2인칭 단수</td><td><span class="gk">λύῃ</span><span class="rom">뤼에</span></td><td>어간 λύ + ῃ</td><td class="eng">너는 풀리다</td></tr>
-              <tr><td>3인칭 단수</td><td><span class="gk">λύεται</span><span class="rom">뤼에타이</span></td><td>어간 λύ + εται</td><td class="eng">그는 풀리다</td></tr>
-              <tr><td>1인칭 복수</td><td><span class="gk">λυόμεθα</span><span class="rom">뤼오메타</span></td><td>어간 λύ + ομεθα</td><td class="eng">우리는 풀리다</td></tr>
-              <tr><td>2인칭 복수</td><td><span class="gk">λύεσθε</span><span class="rom">뤼에스테</span></td><td>어간 λύ + εσθε</td><td class="eng">너희는 풀리다</td></tr>
-              <tr><td>3인칭 복수</td><td><span class="gk">λύονται</span><span class="rom">뤼온타이</span></td><td>어간 λύ + ονται</td><td class="eng">그들은 풀리다</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── 주요 동사별 분해 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">05</span>
-    <span class="section-title">주요 동사별 변화 분해 — 수업 연습 동사</span>
-  </div>
-  <div class="section-body">
-    <div class="callout teal">
-      <div class="callout-icon">📚</div>
-      <div class="callout-body">
-        <div class="callout-title">사용 방법</div>
-        <div class="callout-text">각 카드의 <strong>능동태(A)</strong>와 <strong>수동태(P)</strong>를 나란히 보며 어미 패턴을 확인하세요. 어간만 바뀌고 어미는 동일합니다.</div>
-      </div>
-    </div>
-
-    <div class="verb-grid">
+    <div class="verb-grid" id="verb-grid">
 
       <!-- πιστεύω -->
       <div class="verb-card">
         <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">πιστεύω</div>
-            <div class="verb-lemma-rom">피스튜오</div>
-          </div>
-          <div class="verb-meaning">믿다</div>
+          <span class="vlemma">πιστεύω</span>
+          <span class="vrom">피스튜오</span>
+          <span class="vko">믿다</span>
         </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">πιστεύω</span><span class="vf-rom">피스튜오</span><span class="vf-meaning">나는 믿다</span></td>
-                <td><span class="vf-gk">πιστεύομαι</span><span class="vf-rom">피스튜오마이</span><span class="vf-meaning">나는 믿음받다</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">πιστεύεις</span><span class="vf-rom">피스튜에이스</span><span class="vf-meaning">너는 믿다</span></td>
-                <td><span class="vf-gk">πιστεύῃ</span><span class="vf-rom">피스튜에</span><span class="vf-meaning">너는 믿음받다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">πιστεύει</span><span class="vf-rom">피스튜에이</span><span class="vf-meaning">그는 믿다</span></td>
-                <td><span class="vf-gk">πιστεύεται</span><span class="vf-rom">피스튜에타이</span><span class="vf-meaning">그는 믿음받다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">πιστεύομεν</span><span class="vf-rom">피스튜오멘</span><span class="vf-meaning">우리는 믿다</span></td>
-                <td><span class="vf-gk">πιστευόμεθα</span><span class="vf-rom">피스튜오메타</span><span class="vf-meaning">우리는 믿음받다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">πιστεύετε</span><span class="vf-rom">피스튜에테</span><span class="vf-meaning">너희는 믿다</span></td>
-                <td><span class="vf-gk">πιστεύεσθε</span><span class="vf-rom">피스튜에스테</span><span class="vf-meaning">너희는 믿음받다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">πιστεύουσι</span><span class="vf-rom">피스튜우시</span><span class="vf-meaning">그들은 믿다</span></td>
-                <td><span class="vf-gk">πιστεύονται</span><span class="vf-rom">피스튜온타이</span><span class="vf-meaning">그들은 믿음받다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-nav" id="pistuo-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('pistuo','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('pistuo','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="pistuo-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">πιστεύω</span><span class="vf-rom">피스튜오</span><span class="vf-ko">나는 믿다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">πιστεύεις</span><span class="vf-rom">피스튜에이스</span><span class="vf-ko">너는 믿다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">πιστεύει</span><span class="vf-rom">피스튜에이</span><span class="vf-ko">그는 믿다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">πιστεύομεν</span><span class="vf-rom">피스튜오멘</span><span class="vf-ko">우리는 믿다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">πιστεύετε</span><span class="vf-rom">피스튜에테</span><span class="vf-ko">너희는 믿다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">πιστεύουσι(ν)</span><span class="vf-rom">피스튜우시</span><span class="vf-ko">그들은 믿다</span></td></tr>
           </table>
         </div>
-      </div>
-
-      <!-- σῴζω -->
-      <div class="verb-card">
-        <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">σῴζω</div>
-            <div class="verb-lemma-rom">소조</div>
-          </div>
-          <div class="verb-meaning">구원하다/치료하다</div>
-        </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">σῴζω</span><span class="vf-rom">소조</span><span class="vf-meaning">나는 구원한다</span></td>
-                <td><span class="vf-gk">σῴζομαι</span><span class="vf-rom">소조마이</span><span class="vf-meaning">나는 구원받다</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">σῴζεις</span><span class="vf-rom">소제이스</span><span class="vf-meaning">너는 구원한다</span></td>
-                <td><span class="vf-gk">σῴζῃ</span><span class="vf-rom">소제</span><span class="vf-meaning">너는 구원받다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">σῴζει</span><span class="vf-rom">소제이</span><span class="vf-meaning">그는 구원한다</span></td>
-                <td><span class="vf-gk">σῴζεται</span><span class="vf-rom">소제타이</span><span class="vf-meaning">그는 구원받다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">σῴζομεν</span><span class="vf-rom">소조멘</span><span class="vf-meaning">우리는 구원한다</span></td>
-                <td><span class="vf-gk">σῳζόμεθα</span><span class="vf-rom">소조메타</span><span class="vf-meaning">우리는 구원받다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">σῴζετε</span><span class="vf-rom">소제테</span><span class="vf-meaning">너희는 구원한다</span></td>
-                <td><span class="vf-gk">σῴζεσθε</span><span class="vf-rom">소제스테</span><span class="vf-meaning">너희는 구원받다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">σῴζουσι</span><span class="vf-rom">소주시</span><span class="vf-meaning">그들은 구원한다</span></td>
-                <td><span class="vf-gk">σῴζονται</span><span class="vf-rom">소존타이</span><span class="vf-meaning">그들은 구원받다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-panel" id="pistuo-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">πιστεύομαι</span><span class="vf-rom">피스튜오마이</span><span class="vf-ko">나는 믿음을 받다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">πιστεύῃ</span><span class="vf-rom">피스튜에</span><span class="vf-ko">너는 믿음을 받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">πιστεύεται</span><span class="vf-rom">피스튜에타이</span><span class="vf-ko">그는 믿음을 받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">πιστευόμεθα</span><span class="vf-rom">피스튜오메타</span><span class="vf-ko">우리는 믿음을 받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">πιστεύεσθε</span><span class="vf-rom">피스튜에스테</span><span class="vf-ko">너희는 믿음을 받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">πιστεύονται</span><span class="vf-rom">피스튜온타이</span><span class="vf-ko">그들은 믿음을 받다</span></td></tr>
           </table>
         </div>
       </div>
@@ -713,41 +636,65 @@
       <!-- θεραπεύω -->
       <div class="verb-card">
         <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">θεραπεύω</div>
-            <div class="verb-lemma-rom">테라퓨오</div>
-          </div>
-          <div class="verb-meaning">치료하다</div>
+          <span class="vlemma">θεραπεύω</span>
+          <span class="vrom">테라퓨오</span>
+          <span class="vko">치료하다</span>
         </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">θεραπεύω</span><span class="vf-rom">테라퓨오</span><span class="vf-meaning">나는 치료한다</span></td>
-                <td><span class="vf-gk">θεραπεύομαι</span><span class="vf-rom">테라퓨오마이</span><span class="vf-meaning">나는 치료받다</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">θεραπεύεις</span><span class="vf-rom">테라퓨에이스</span><span class="vf-meaning">너는 치료한다</span></td>
-                <td><span class="vf-gk">θεραπεύῃ</span><span class="vf-rom">테라퓨에</span><span class="vf-meaning">너는 치료받다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">θεραπεύει</span><span class="vf-rom">테라퓨에이</span><span class="vf-meaning">그는 치료한다</span></td>
-                <td><span class="vf-gk">θεραπεύεται</span><span class="vf-rom">테라퓨에타이</span><span class="vf-meaning">그는 치료받다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">θεραπεύομεν</span><span class="vf-rom">테라퓨오멘</span><span class="vf-meaning">우리는 치료한다</span></td>
-                <td><span class="vf-gk">θεραπευόμεθα</span><span class="vf-rom">테라퓨오메타</span><span class="vf-meaning">우리는 치료받다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">θεραπεύετε</span><span class="vf-rom">테라퓨에테</span><span class="vf-meaning">너희는 치료한다</span></td>
-                <td><span class="vf-gk">θεραπεύεσθε</span><span class="vf-rom">테라퓨에스테</span><span class="vf-meaning">너희는 치료받다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">θεραπεύουσι</span><span class="vf-rom">테라퓨우시</span><span class="vf-meaning">그들은 치료한다</span></td>
-                <td><span class="vf-gk">θεραπεύονται</span><span class="vf-rom">테라퓨온타이</span><span class="vf-meaning">그들은 치료받다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-nav" id="thera-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('thera','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('thera','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="thera-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">θεραπεύω</span><span class="vf-rom">테라퓨오</span><span class="vf-ko">나는 치료한다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">θεραπεύεις</span><span class="vf-rom">테라퓨에이스</span><span class="vf-ko">너는 치료한다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">θεραπεύει</span><span class="vf-rom">테라퓨에이</span><span class="vf-ko">그는 치료한다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">θεραπεύομεν</span><span class="vf-rom">테라퓨오멘</span><span class="vf-ko">우리는 치료한다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">θεραπεύετε</span><span class="vf-rom">테라퓨에테</span><span class="vf-ko">너희는 치료한다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">θεραπεύουσι(ν)</span><span class="vf-rom">테라퓨우시</span><span class="vf-ko">그들은 치료한다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="thera-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">θεραπεύομαι</span><span class="vf-rom">테라퓨오마이</span><span class="vf-ko">나는 치료받다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">θεραπεύῃ</span><span class="vf-rom">테라퓨에</span><span class="vf-ko">너는 치료받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">θεραπεύεται</span><span class="vf-rom">테라퓨에타이</span><span class="vf-ko">그는 치료받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">θεραπευόμεθα</span><span class="vf-rom">테라퓨오메타</span><span class="vf-ko">우리는 치료받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">θεραπεύεσθε</span><span class="vf-rom">테라퓨에스테</span><span class="vf-ko">너희는 치료받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">θεραπεύονται</span><span class="vf-rom">테라퓨온타이</span><span class="vf-ko">그들은 치료받다</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- σῴζω -->
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="vlemma">σῴζω</span>
+          <span class="vrom">소조</span>
+          <span class="vko">구원하다/치료하다</span>
+        </div>
+        <div class="verb-tab-nav" id="sozo-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('sozo','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('sozo','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="sozo-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">σῴζω</span><span class="vf-rom">소조</span><span class="vf-ko">나는 구원한다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">σῴζεις</span><span class="vf-rom">소제이스</span><span class="vf-ko">너는 구원한다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">σῴζει</span><span class="vf-rom">소제이</span><span class="vf-ko">그는 구원한다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">σῴζομεν</span><span class="vf-rom">소조멘</span><span class="vf-ko">우리는 구원한다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">σῴζετε</span><span class="vf-rom">소제테</span><span class="vf-ko">너희는 구원한다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">σῴζουσι(ν)</span><span class="vf-rom">소주시</span><span class="vf-ko">그들은 구원한다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="sozo-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">σῴζομαι</span><span class="vf-rom">소조마이</span><span class="vf-ko">나는 구원받다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">σῴζῃ</span><span class="vf-rom">소제</span><span class="vf-ko">너는 구원받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">σῴζεται</span><span class="vf-rom">소제타이</span><span class="vf-ko">그는 구원받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">σῳζόμεθα</span><span class="vf-rom">소조메타</span><span class="vf-ko">우리는 구원받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">σῴζεσθε</span><span class="vf-rom">소제스테</span><span class="vf-ko">너희는 구원받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">σῴζονται</span><span class="vf-rom">소존타이</span><span class="vf-ko">그들은 구원받다</span></td></tr>
           </table>
         </div>
       </div>
@@ -755,83 +702,32 @@
       <!-- βαπτίζω -->
       <div class="verb-card">
         <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">βαπτίζω</div>
-            <div class="verb-lemma-rom">밥티조</div>
-          </div>
-          <div class="verb-meaning">침례를 주다</div>
+          <span class="vlemma">βαπτίζω</span>
+          <span class="vrom">밥티조</span>
+          <span class="vko">침례를 주다</span>
         </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">βαπτίζω</span><span class="vf-rom">밥티조</span><span class="vf-meaning">나는 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτίζομαι</span><span class="vf-rom">밥티조마이</span><span class="vf-meaning">나는 침례받다</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">βαπτίζεις</span><span class="vf-rom">밥티제이스</span><span class="vf-meaning">너는 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτίζῃ</span><span class="vf-rom">밥티제</span><span class="vf-meaning">너는 침례받다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">βαπτίζει</span><span class="vf-rom">밥티제이</span><span class="vf-meaning">그는 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτίζεται</span><span class="vf-rom">밥티제타이</span><span class="vf-meaning">그는 침례받다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">βαπτίζομεν</span><span class="vf-rom">밥티조멘</span><span class="vf-meaning">우리는 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτιζόμεθα</span><span class="vf-rom">밥티조메타</span><span class="vf-meaning">우리는 침례받다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">βαπτίζετε</span><span class="vf-rom">밥티제테</span><span class="vf-meaning">너희는 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτίζεσθε</span><span class="vf-rom">밥티제스테</span><span class="vf-meaning">너희는 침례받다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">βαπτίζουσι</span><span class="vf-rom">밥티주시</span><span class="vf-meaning">그들은 침례를 준다</span></td>
-                <td><span class="vf-gk">βαπτίζονται</span><span class="vf-rom">밥티존타이</span><span class="vf-meaning">그들은 침례받다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-nav" id="bapti-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('bapti','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('bapti','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="bapti-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">βαπτίζω</span><span class="vf-rom">밥티조</span><span class="vf-ko">나는 침례를 준다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">βαπτίζεις</span><span class="vf-rom">밥티제이스</span><span class="vf-ko">너는 침례를 준다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">βαπτίζει</span><span class="vf-rom">밥티제이</span><span class="vf-ko">그는 침례를 준다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">βαπτίζομεν</span><span class="vf-rom">밥티조멘</span><span class="vf-ko">우리는 침례를 준다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">βαπτίζετε</span><span class="vf-rom">밥티제테</span><span class="vf-ko">너희는 침례를 준다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">βαπτίζουσι(ν)</span><span class="vf-rom">밥티주시</span><span class="vf-ko">그들은 침례를 준다</span></td></tr>
           </table>
         </div>
-      </div>
-
-      <!-- διδάσκω -->
-      <div class="verb-card">
-        <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">διδάσκω</div>
-            <div class="verb-lemma-rom">디다스코</div>
-          </div>
-          <div class="verb-meaning">가르치다</div>
-        </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">διδάσκω</span><span class="vf-rom">디다스코</span><span class="vf-meaning">나는 가르친다</span></td>
-                <td><span class="vf-gk">διδάσκομαι</span><span class="vf-rom">디다스코마이</span><span class="vf-meaning">나는 배우다(가르침받다)</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">διδάσκεις</span><span class="vf-rom">디다스케이스</span><span class="vf-meaning">너는 가르친다</span></td>
-                <td><span class="vf-gk">διδάσκῃ</span><span class="vf-rom">디다스케</span><span class="vf-meaning">너는 배우다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">διδάσκει</span><span class="vf-rom">디다스케이</span><span class="vf-meaning">그는 가르친다</span></td>
-                <td><span class="vf-gk">διδάσκεται</span><span class="vf-rom">디다스케타이</span><span class="vf-meaning">그는 배우다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">διδάσκομεν</span><span class="vf-rom">디다스코멘</span><span class="vf-meaning">우리는 가르친다</span></td>
-                <td><span class="vf-gk">διδασκόμεθα</span><span class="vf-rom">디다스코메타</span><span class="vf-meaning">우리는 배우다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">διδάσκετε</span><span class="vf-rom">디다스케테</span><span class="vf-meaning">너희는 가르친다</span></td>
-                <td><span class="vf-gk">διδάσκεσθε</span><span class="vf-rom">디다스케스테</span><span class="vf-meaning">너희는 배우다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">διδάσκουσι</span><span class="vf-rom">디다스쿠시</span><span class="vf-meaning">그들은 가르친다</span></td>
-                <td><span class="vf-gk">διδάσκονται</span><span class="vf-rom">디다스콘타이</span><span class="vf-meaning">그들은 배우다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-panel" id="bapti-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">βαπτίζομαι</span><span class="vf-rom">밥티조마이</span><span class="vf-ko">나는 침례를 받다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">βαπτίζῃ</span><span class="vf-rom">밥티제</span><span class="vf-ko">너는 침례를 받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">βαπτίζεται</span><span class="vf-rom">밥티제타이</span><span class="vf-ko">그는 침례를 받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">βαπτιζόμεθα</span><span class="vf-rom">밥티조메타</span><span class="vf-ko">우리는 침례를 받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">βαπτίζεσθε</span><span class="vf-rom">밥티제스테</span><span class="vf-ko">너희는 침례를 받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">βαπτίζονται</span><span class="vf-rom">밥티존타이</span><span class="vf-ko">그들은 침례를 받다</span></td></tr>
           </table>
         </div>
       </div>
@@ -839,194 +735,385 @@
       <!-- ἐγείρω -->
       <div class="verb-card">
         <div class="verb-card-head">
-          <div>
-            <div class="verb-lemma">ἐγείρω</div>
-            <div class="verb-lemma-rom">에게이로</div>
-          </div>
-          <div class="verb-meaning">일으키다, 살리다</div>
+          <span class="vlemma">ἐγείρω</span>
+          <span class="vrom">에게이로</span>
+          <span class="vko">일으키다/살리다</span>
         </div>
-        <div class="verb-card-body">
-          <table class="verb-form-table">
-            <thead><tr><th>인칭</th><th>능동태 (A)</th><th>수동태 (P)</th></tr></thead>
-            <tbody>
-              <tr><td>1단 (나)</td>
-                <td><span class="vf-gk">ἐγείρω</span><span class="vf-rom">에게이로</span><span class="vf-meaning">나는 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγείρομαι</span><span class="vf-rom">에게이로마이</span><span class="vf-meaning">나는 일으킴받다</span></td>
-              </tr>
-              <tr><td>2단 (너)</td>
-                <td><span class="vf-gk">ἐγείρεις</span><span class="vf-rom">에게이레이스</span><span class="vf-meaning">너는 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγείρῃ</span><span class="vf-rom">에게이레</span><span class="vf-meaning">너는 일으킴받다</span></td>
-              </tr>
-              <tr><td>3단 (그)</td>
-                <td><span class="vf-gk">ἐγείρει</span><span class="vf-rom">에게이레이</span><span class="vf-meaning">그는 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγείρεται</span><span class="vf-rom">에게이레타이</span><span class="vf-meaning">그는 일으킴받다</span></td>
-              </tr>
-              <tr><td>1복 (우리)</td>
-                <td><span class="vf-gk">ἐγείρομεν</span><span class="vf-rom">에게이로멘</span><span class="vf-meaning">우리는 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγειρόμεθα</span><span class="vf-rom">에게이로메타</span><span class="vf-meaning">우리는 일으킴받다</span></td>
-              </tr>
-              <tr><td>2복 (너희)</td>
-                <td><span class="vf-gk">ἐγείρετε</span><span class="vf-rom">에게이레테</span><span class="vf-meaning">너희는 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγείρεσθε</span><span class="vf-rom">에게이레스테</span><span class="vf-meaning">너희는 일으킴받다</span></td>
-              </tr>
-              <tr><td>3복 (그들)</td>
-                <td><span class="vf-gk">ἐγείρουσι</span><span class="vf-rom">에게이루시</span><span class="vf-meaning">그들은 일으킨다</span></td>
-                <td><span class="vf-gk">ἐγείρονται</span><span class="vf-rom">에게이론타이</span><span class="vf-meaning">그들은 일으킴받다</span></td>
-              </tr>
-            </tbody>
+        <div class="verb-tab-nav" id="egei-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('egei','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('egei','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="egei-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">ἐγείρω</span><span class="vf-rom">에게이로</span><span class="vf-ko">나는 일으킨다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">ἐγείρεις</span><span class="vf-rom">에게이레이스</span><span class="vf-ko">너는 일으킨다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">ἐγείρει</span><span class="vf-rom">에게이레이</span><span class="vf-ko">그는 일으킨다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">ἐγείρομεν</span><span class="vf-rom">에게이로멘</span><span class="vf-ko">우리는 일으킨다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">ἐγείρετε</span><span class="vf-rom">에게이레테</span><span class="vf-ko">너희는 일으킨다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">ἐγείρουσι(ν)</span><span class="vf-rom">에게이루시</span><span class="vf-ko">그들은 일으킨다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="egei-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">ἐγείρομαι</span><span class="vf-rom">에게이로마이</span><span class="vf-ko">나는 일으킴을 받다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">ἐγείρῃ</span><span class="vf-rom">에게이레</span><span class="vf-ko">너는 일으킴을 받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">ἐγείρεται</span><span class="vf-rom">에게이레타이</span><span class="vf-ko">그는 일으킴을 받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">ἐγειρόμεθα</span><span class="vf-rom">에게이로메타</span><span class="vf-ko">우리는 일으킴을 받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">ἐγείρεσθε</span><span class="vf-rom">에게이레스테</span><span class="vf-ko">너희는 일으킴을 받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">ἐγείρονται</span><span class="vf-rom">에게이론타이</span><span class="vf-ko">그들은 일으킴을 받다</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- λαμβάνω -->
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="vlemma">λαμβάνω</span>
+          <span class="vrom">람바노</span>
+          <span class="vko">취하다/받다</span>
+        </div>
+        <div class="verb-tab-nav" id="lamb-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('lamb','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('lamb','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="lamb-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">λαμβάνω</span><span class="vf-rom">람바노</span><span class="vf-ko">나는 취하다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">λαμβάνεις</span><span class="vf-rom">람바네이스</span><span class="vf-ko">너는 취하다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">λαμβάνει</span><span class="vf-rom">람바네이</span><span class="vf-ko">그는 취하다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">λαμβάνομεν</span><span class="vf-rom">람바노멘</span><span class="vf-ko">우리는 취하다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">λαμβάνετε</span><span class="vf-rom">람바네테</span><span class="vf-ko">너희는 취하다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">λαμβάνουσι(ν)</span><span class="vf-rom">람바누시</span><span class="vf-ko">그들은 취하다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="lamb-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">λαμβάνομαι</span><span class="vf-rom">람바노마이</span><span class="vf-ko">나는 받아지다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">λαμβάνῃ</span><span class="vf-rom">람바네</span><span class="vf-ko">너는 받아지다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">λαμβάνεται</span><span class="vf-rom">람바네타이</span><span class="vf-ko">그는 받아지다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">λαμβανόμεθα</span><span class="vf-rom">람바노메타</span><span class="vf-ko">우리는 받아지다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">λαμβάνεσθε</span><span class="vf-rom">람바네스테</span><span class="vf-ko">너희는 받아지다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">λαμβάνονται</span><span class="vf-rom">람바논타이</span><span class="vf-ko">그들은 받아지다</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- γράφω -->
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="vlemma">γράφω</span>
+          <span class="vrom">그라포</span>
+          <span class="vko">쓰다</span>
+        </div>
+        <div class="verb-tab-nav" id="grafo-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('grafo','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('grafo','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="grafo-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">γράφω</span><span class="vf-rom">그라포</span><span class="vf-ko">나는 쓴다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">γράφεις</span><span class="vf-rom">그라페이스</span><span class="vf-ko">너는 쓴다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">γράφει</span><span class="vf-rom">그라페이</span><span class="vf-ko">그는 쓴다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">γράφομεν</span><span class="vf-rom">그라포멘</span><span class="vf-ko">우리는 쓴다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">γράφετε</span><span class="vf-rom">그라페테</span><span class="vf-ko">너희는 쓴다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">γράφουσι(ν)</span><span class="vf-rom">그라푸시</span><span class="vf-ko">그들은 쓴다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="grafo-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">γράφομαι</span><span class="vf-rom">그라포마이</span><span class="vf-ko">나는 씌어지다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">γράφῃ</span><span class="vf-rom">그라페</span><span class="vf-ko">너는 씌어지다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">γράφεται</span><span class="vf-rom">그라페타이</span><span class="vf-ko">그는 씌어지다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">γραφόμεθα</span><span class="vf-rom">그라포메타</span><span class="vf-ko">우리는 씌어지다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">γράφεσθε</span><span class="vf-rom">그라페스테</span><span class="vf-ko">너희는 씌어지다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">γράφονται</span><span class="vf-rom">그라폰타이</span><span class="vf-ko">그들은 씌어지다</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- διδάσκω -->
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="vlemma">διδάσκω</span>
+          <span class="vrom">디다스코</span>
+          <span class="vko">가르치다</span>
+        </div>
+        <div class="verb-tab-nav" id="dida-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('dida','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('dida','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="dida-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">διδάσκω</span><span class="vf-rom">디다스코</span><span class="vf-ko">나는 가르친다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">διδάσκεις</span><span class="vf-rom">디다스케이스</span><span class="vf-ko">너는 가르친다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">διδάσκει</span><span class="vf-rom">디다스케이</span><span class="vf-ko">그는 가르친다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">διδάσκομεν</span><span class="vf-rom">디다스코멘</span><span class="vf-ko">우리는 가르친다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">διδάσκετε</span><span class="vf-rom">디다스케테</span><span class="vf-ko">너희는 가르친다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">διδάσκουσι(ν)</span><span class="vf-rom">디다스쿠시</span><span class="vf-ko">그들은 가르친다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="dida-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">διδάσκομαι</span><span class="vf-rom">디다스코마이</span><span class="vf-ko">나는 가르침을 받다 (배우다)</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">διδάσκῃ</span><span class="vf-rom">디다스케</span><span class="vf-ko">너는 가르침을 받다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">διδάσκεται</span><span class="vf-rom">디다스케타이</span><span class="vf-ko">그는 가르침을 받다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">διδασκόμεθα</span><span class="vf-rom">디다스코메타</span><span class="vf-ko">우리는 가르침을 받다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">διδάσκεσθε</span><span class="vf-rom">디다스케스테</span><span class="vf-ko">너희는 가르침을 받다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">διδάσκονται</span><span class="vf-rom">디다스콘타이</span><span class="vf-ko">그들은 가르침을 받다</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- ἔχω -->
+      <div class="verb-card">
+        <div class="verb-card-head">
+          <span class="vlemma">ἔχω</span>
+          <span class="vrom">에코</span>
+          <span class="vko">가지고 있다</span>
+        </div>
+        <div class="verb-tab-nav" id="echo-nav">
+          <button class="verb-tab-btn act-tab active" onclick="showVerb('echo','act')">능동</button>
+          <button class="verb-tab-btn pas-tab" onclick="showVerb('echo','pas')">수동</button>
+        </div>
+        <div class="verb-tab-panel active" id="echo-act">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk act-color">ἔχω</span><span class="vf-rom">에코</span><span class="vf-ko">나는 가지고 있다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk act-color">ἔχεις</span><span class="vf-rom">에케이스</span><span class="vf-ko">너는 가지고 있다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk act-color">ἔχει</span><span class="vf-rom">에케이</span><span class="vf-ko">그는 가지고 있다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk act-color">ἔχομεν</span><span class="vf-rom">에코멘</span><span class="vf-ko">우리는 가지고 있다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk act-color">ἔχετε</span><span class="vf-rom">에케테</span><span class="vf-ko">너희는 가지고 있다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk act-color">ἔχουσι(ν)</span><span class="vf-rom">에쿠시</span><span class="vf-ko">그들은 가지고 있다</span></td></tr>
+          </table>
+        </div>
+        <div class="verb-tab-panel" id="echo-pas">
+          <table class="vform-table">
+            <tr><td>1단</td><td><span class="vf-gk pas-color">ἔχομαι</span><span class="vf-rom">에코마이</span><span class="vf-ko">나는 붙잡히다</span></td></tr>
+            <tr><td>2단</td><td><span class="vf-gk pas-color">ἔχῃ</span><span class="vf-rom">에케</span><span class="vf-ko">너는 붙잡히다</span></td></tr>
+            <tr><td>3단</td><td><span class="vf-gk pas-color">ἔχεται</span><span class="vf-rom">에케타이</span><span class="vf-ko">그는 붙잡히다</span></td></tr>
+            <tr><td>1복</td><td><span class="vf-gk pas-color">ἐχόμεθα</span><span class="vf-rom">에코메타</span><span class="vf-ko">우리는 붙잡히다</span></td></tr>
+            <tr><td>2복</td><td><span class="vf-gk pas-color">ἔχεσθε</span><span class="vf-rom">에케스테</span><span class="vf-ko">너희는 붙잡히다</span></td></tr>
+            <tr><td>3복</td><td><span class="vf-gk pas-color">ἔχονται</span><span class="vf-rom">에콘타이</span><span class="vf-ko">그들은 붙잡히다</span></td></tr>
           </table>
         </div>
       </div>
 
     </div><!-- /verb-grid -->
   </div>
-</div>
 
-<!-- ── 강의 내용 요약 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">06</span>
-    <span class="section-title">강의 내용 요약</span>
+  <!-- 암기 필수 박스 -->
+  <div class="memory-box">
+    <div class="memory-title">⭐ 오늘 암기 필수 형태 — 능동 3 + 수동 3</div>
+    <div class="memory-grid">
+      <div class="memory-item"><span class="m-gk">λύω</span><span class="m-rom">뤼오</span><span class="m-ko">나는 풀다 (능동 1단)</span></div>
+      <div class="memory-item"><span class="m-gk">λύεις</span><span class="m-rom">뤼에이스</span><span class="m-ko">너는 풀다 (능동 2단)</span></div>
+      <div class="memory-item"><span class="m-gk">λύουσι</span><span class="m-rom">뤼우시</span><span class="m-ko">그들은 풀다 (능동 3복)</span></div>
+      <div class="memory-item"><span class="m-gk">λύομαι</span><span class="m-rom">뤼오마이</span><span class="m-ko">나는 풀리다 (수동 1단)</span></div>
+      <div class="memory-item"><span class="m-gk">λύῃ</span><span class="m-rom">뤼에</span><span class="m-ko">너는 풀리다 (수동 2단)</span></div>
+      <div class="memory-item"><span class="m-gk">λύονται</span><span class="m-rom">뤼온타이</span><span class="m-ko">그들은 풀리다 (수동 3복)</span></div>
+    </div>
   </div>
-  <div class="section-body">
 
-    <div class="callout teal">
-      <div class="callout-icon">📖</div>
-      <div class="callout-body">
-        <div class="callout-title">현재 직설법(Present Indicative)이란?</div>
-        <div class="callout-text">
-          <strong>직설법(Indicative)</strong>은 실제로 일어나는 사실을 진술하는 서법입니다. "할 수도 있고 안 할 수도 있는 것"이 아니라 <em>지금 실제로 하고 있는 행위</em>를 나타냅니다. 현재 시제는 "나는 풀다" 또는 "나는 풀고 있다" 두 가지로 해석 가능합니다.
-        </div>
+</div><!-- /panel-note -->
+
+
+<!-- ════════════════════════════════════
+     탭 2 — 핵심정리
+════════════════════════════════════ -->
+<div class="tab-panel" id="panel-core">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-badge">문법</span><span class="sec-title">현재 능동태 어미 6개</span></div>
+    <div class="exam-list">
+      <div class="exam-item"><span class="exam-badge">시험</span>단수: <strong style="color:var(--blue);font-family:'Crimson Pro',serif;font-size:16px"> -ω / -εις / -ει</strong> &nbsp;(오 / 에이스 / 에이)</div>
+      <div class="exam-item"><span class="exam-badge">시험</span>복수: <strong style="color:var(--blue);font-family:'Crimson Pro',serif;font-size:16px"> -ομεν / -ετε / -ουσι(ν)</strong> &nbsp;(오멘 / 에테 / 우시)</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-badge">문법</span><span class="sec-title">현재 수동태/중간태 어미 6개</span></div>
+    <div class="exam-list">
+      <div class="exam-item"><span class="exam-badge">시험</span>단수: <strong style="color:var(--red);font-family:'Crimson Pro',serif;font-size:16px"> -ομαι / -ῃ / -εται</strong> &nbsp;(오마이 / 에 / 에타이)</div>
+      <div class="exam-item"><span class="exam-badge">시험</span>복수: <strong style="color:var(--red);font-family:'Crimson Pro',serif;font-size:16px"> -ομεθα / -εσθε / -ονται</strong> &nbsp;(오메타 / 에스테 / 온타이)</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-badge">시험</span><span class="sec-title">시험 출제 포인트</span></div>
+    <div class="exam-list">
+      <div class="exam-item"><span class="exam-badge">시험</span>2인칭 단수 구별 — 능동 <strong style="color:var(--blue)">-εις(에이스)</strong> vs 수동 <strong style="color:var(--red)">-ῃ(에)</strong></div>
+      <div class="exam-item"><span class="exam-badge">시험</span>주어진 형태의 인칭·수·태 판별 (예: λύεται → 현재 수동태 3인칭 단수)</div>
+      <div class="exam-item"><span class="exam-badge">시험</span>수동태 식별: 이오타(ι) 포함 또는 -ται / -εσθε / -ονται 어미</div>
+      <div class="exam-item"><span class="exam-badge">제외</span>중간태 해석 — 현재 시제 한정으로 시험 출제 없음</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-badge">과제</span><span class="sec-title">기말 과제 (6/15 제출) — 해당 항목</span></div>
+    <div class="assign-item">
+      <span class="assign-badge">과제</span>
+      <div class="assign-body">
+        <strong>현재 능동태 직설법 어미표</strong><br>
+        어간 + 연결모음(ο/ε) + 인칭어미<br>
+        단수 -ω / -εις / -ει &nbsp;|&nbsp; 복수 -ομεν / -ετε / -ουσι(ν)
       </div>
     </div>
-
-    <div class="callout rose">
-      <div class="callout-icon">🔄</div>
-      <div class="callout-body">
-        <div class="callout-title">수동태 해석 원칙</div>
-        <div class="callout-text">
-          수동태는 <strong>주어가 행동을 당하는</strong> 형태입니다.<br>
-          <strong>λύω(풀다) → λύομαι(풀리다)</strong> / <strong>σῴζω(구원하다) → σῴζομαι(구원받다)</strong><br>
-          수동태는 능동태보다 해석이 복잡하고 어미도 더 길어 어렵지만, <em>어미 패턴 자체는 동일</em>하므로 λύω 하나만 완벽히 외우면 모든 동사에 적용됩니다.<br>
-          교수님: <em>"수동태를 안 쓰는 게 좋은 글이지만, 성경에는 많다. 그래서 꼭 알아야 한다."</em>
-        </div>
+    <div class="assign-item">
+      <span class="assign-badge">과제</span>
+      <div class="assign-body">
+        <strong>현재 수동태/중간태 직설법 어미표</strong><br>
+        어간 + 연결모음 + 수동형 어미<br>
+        단수 -ομαι / -ῃ / -εται &nbsp;|&nbsp; 복수 -ομεθα / -εσθε / -ονται
       </div>
     </div>
-
-    <div class="callout gold">
-      <div class="callout-icon">⚖️</div>
-      <div class="callout-body">
-        <div class="callout-title">중간태(Middle Voice) 핵심 정리</div>
-        <div class="callout-text">
-          중간태 = 주어가 <strong>자신을 위해 또는 자신에게 영향을 미치는</strong> 행동.<br>
-          예: "나는 스스로 풀다(자기 자신을 풀다)"의 뉘앙스.<br>
-          <strong>현재·미완료</strong>에서는 수동태 어미와 완전히 동일 → 문맥으로 구분.<br>
-          <em>이번 학기 시험에 중간태 해석은 출제되지 않습니다.</em>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── 핵심 포인트 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">07</span>
-    <span class="section-title">핵심 포인트 3가지</span>
-  </div>
-  <div class="section-body">
-    <ul class="note-list">
-      <li>
-        <div class="note-num">1</div>
-        <div><strong>λύω 하나로 모든 동사 정복</strong> — 어간만 바꾸면 된다. λύω의 어미를 완벽히 암기하면 πιστεύω, σῴζω, θεραπεύω 등 모든 동사에 동일하게 적용된다.</div>
-      </li>
-      <li>
-        <div class="note-num">2</div>
-        <div><strong>수동태 식별 키 — 이오타(ι) 또는 -ται, -θε, -νται</strong> — 수동태 어미에는 이오타가 들어가거나(-ῃ, -εται, -εσθε, -ονται) 특유의 구조가 있다. "이오타 보이면 수동태!"</div>
-      </li>
-      <li>
-        <div class="note-num">3</div>
-        <div><strong>눈 감고 암기, 손으로 쓰며 확인</strong> — 보며 외우는 것과 쓰는 것은 다르다. 눈 감고 6개 어미를 말할 수 있어야 하고, 종이에 써서 확인해야 진짜 암기다.</div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- ── 오늘 암기 필수 ── -->
-<div class="memory-box">
-  <div class="memory-title">⭐ 오늘 암기 필수 형태 6가지</div>
-  <div class="memory-items">
-    <div class="memory-item">
-      <span class="memory-item-gk">λύω</span>
-      <span class="memory-item-rom">뤼오</span>
-      <span class="memory-item-ko">나는 풀다 (능동 1단)</span>
-    </div>
-    <div class="memory-item">
-      <span class="memory-item-gk">λύεις</span>
-      <span class="memory-item-rom">뤼에이스</span>
-      <span class="memory-item-ko">너는 풀다 (능동 2단)</span>
-    </div>
-    <div class="memory-item">
-      <span class="memory-item-gk">λύουσι</span>
-      <span class="memory-item-rom">뤼우시</span>
-      <span class="memory-item-ko">그들은 풀다 (능동 3복)</span>
-    </div>
-    <div class="memory-item">
-      <span class="memory-item-gk">λύομαι</span>
-      <span class="memory-item-rom">뤼오마이</span>
-      <span class="memory-item-ko">나는 풀리다 (수동 1단)</span>
-    </div>
-    <div class="memory-item">
-      <span class="memory-item-gk">λύῃ</span>
-      <span class="memory-item-rom">뤼에</span>
-      <span class="memory-item-ko">너는 풀리다 (수동 2단)</span>
-    </div>
-    <div class="memory-item">
-      <span class="memory-item-gk">λύονται</span>
-      <span class="memory-item-rom">뤼온타이</span>
-      <span class="memory-item-ko">그들은 풀리다 (수동 3복)</span>
-    </div>
-  </div>
-</div>
-
-<!-- ── 준비 사항 ── -->
-<div class="section">
-  <div class="section-head">
-    <span class="section-badge">08</span>
-    <span class="section-title">다음 주 준비사항 (4주차 3/30)</span>
-  </div>
-  <div class="section-body">
-    <div class="callout green">
-      <div class="callout-icon">📅</div>
-      <div class="callout-body">
-        <div class="callout-title">다음 주 주제: 미래 능동태 / 수동태 / 중간태 직설법</div>
-        <div class="callout-text">
-          ① 이번 주 배운 현재 능동태/수동태 어미 6개씩을 <strong>백지에 써서</strong> 완전히 암기할 것.<br>
-          ② 미래 시제 표지 <strong>σ (시그마)</strong>를 어간과 어미 사이에 삽입하는 규칙 예습.<br>
-          ③ 수업 자료 슬라이드 "미래 능동태 직설법" 미리 읽어올 것.<br>
-          ④ λύω → 미래: <strong>λύσω</strong>(뤼소)로 σ가 추가됨을 미리 확인.
-        </div>
+    <div class="assign-item">
+      <span class="assign-badge">과제</span>
+      <div class="assign-body">
+        <strong>중간태와 수동태 형태 구별 원칙</strong><br>
+        현재·미완료 시제에서 중간태 = 수동태 형태 동일<br>
+        문맥으로만 의미 판별 가능
       </div>
     </div>
   </div>
-</div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-badge">TIP</span><span class="sec-title">암기팁 모음</span></div>
+    <div class="tip-box" style="margin-bottom:6px;">-ω로 끝나면 무조건 1인칭 단수 현재 능동태!</div>
+    <div class="tip-box" style="margin-bottom:6px;">수동 어미는 능동보다 항상 더 길다 — 오 → 오마이, 오멘 → 오메타</div>
+    <div class="tip-box" style="margin-bottom:6px;">이오타(ι) 보이면 수동태 신호! (-ῃ, -εται, -εσθε, -ονται)</div>
+    <div class="tip-box">보며 외우는 것 ≠ 쓰는 것 — 반드시 종이에 직접 써서 확인!</div>
+  </div>
+
+</div><!-- /panel-core -->
+
+
+<!-- ════════════════════════════════════
+     탭 3 — 암기카드
+════════════════════════════════════ -->
+<div class="tab-panel" id="panel-card">
+  <p style="font-size:12px;color:var(--hint);margin-bottom:16px;">카드를 클릭하면 뜻이 보입니다.</p>
+  <div class="flash-grid">
+
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">λύω</span><span class="flash-rom">뤼오</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">풀다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">λύομαι</span><span class="flash-rom">뤼오마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">풀리다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">πιστεύω</span><span class="flash-rom">피스튜오</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">믿다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">πιστεύομαι</span><span class="flash-rom">피스튜오마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">믿음을 받다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">θεραπεύω</span><span class="flash-rom">테라퓨오</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">치료하다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">θεραπεύομαι</span><span class="flash-rom">테라퓨오마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">치료받다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">σῴζω</span><span class="flash-rom">소조</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">구원하다 / 치료하다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">σῴζομαι</span><span class="flash-rom">소조마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">구원받다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">βαπτίζω</span><span class="flash-rom">밥티조</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">침례를 주다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">βαπτίζομαι</span><span class="flash-rom">밥티조마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">침례를 받다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">ἐγείρω</span><span class="flash-rom">에게이로</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">일으키다 / 살리다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">ἐγείρομαι</span><span class="flash-rom">에게이로마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">일으킴을 받다</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">λαμβάνω</span><span class="flash-rom">람바노</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">취하다 / 받다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">γράφω</span><span class="flash-rom">그라포</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">쓰다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">διδάσκω</span><span class="flash-rom">디다스코</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">가르치다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">διδάσκομαι</span><span class="flash-rom">디다스코마이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">가르침을 받다 (배우다)</span><span class="flash-pos">동사 · 현재 수동 1단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk">ἔχω</span><span class="flash-rom">에코</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">가지고 있다</span><span class="flash-pos">동사 · 현재 능동 1단</span></div>
+    </div>
+    <!-- 어미 카드 -->
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk" style="color:var(--blue)">-ω / -εις / -ει</span><span class="flash-rom">오 / 에이스 / 에이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">능동태 단수 어미</span><span class="flash-pos">1단 / 2단 / 3단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk" style="color:var(--blue)">-ομεν / -ετε / -ουσι</span><span class="flash-rom">오멘 / 에테 / 우시</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">능동태 복수 어미</span><span class="flash-pos">1복 / 2복 / 3복</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk" style="color:var(--red)">-ομαι / -ῃ / -εται</span><span class="flash-rom">오마이 / 에 / 에타이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">수동태 단수 어미</span><span class="flash-pos">1단 / 2단 / 3단</span></div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-front"><span class="flash-gk" style="color:var(--red)">-ομεθα / -εσθε / -ονται</span><span class="flash-rom">오메타 / 에스테 / 온타이</span><span class="flash-hint">탭하여 확인</span></div>
+      <div class="flash-back"><span class="flash-ko">수동태 복수 어미</span><span class="flash-pos">1복 / 2복 / 3복</span></div>
+    </div>
+
+  </div><!-- /flash-grid -->
+</div><!-- /panel-card -->
+
+</div><!-- /tab-body -->
 
 <div class="footer">
-  한국침례신학대학교 · 헬라어 I · 한철흠 교수 · 3주차 (2026.03.23) · Claude 강의노트
+  한국침례신학대학교 · 헬라어 I · 한철흠 교수 · 3주차 (2026.03.23) · greek_week3_v2.html
 </div>
 
 </div><!-- /page -->
 
 <script>
-function showTab(group, which) {
-  const contents = document.querySelectorAll(`#${group}-active, #${group}-passive`);
-  const tabs = document.querySelectorAll(`#tab-${group} .tab`);
-  contents.forEach(c => c.classList.remove('active'));
-  tabs.forEach(t => t.classList.remove('active'));
-  document.getElementById(`${group}-${which}`).classList.add('active');
-  const idx = which === 'active' ? 0 : 1;
-  tabs[idx].classList.add('active');
+function showMain(which) {
+  ['note','core','card'].forEach(id => {
+    document.getElementById('panel-'+id).classList.remove('active');
+  });
+  document.getElementById('panel-'+which).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.remove('active');
+  });
+  const idx = ['note','core','card'].indexOf(which);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+}
+
+function showVerb(group, which) {
+  const act = document.getElementById(group+'-act');
+  const pas = document.getElementById(group+'-pas');
+  const nav = document.getElementById(group+'-nav');
+  if (!act || !pas || !nav) return;
+  act.classList.remove('active');
+  pas.classList.remove('active');
+  document.getElementById(group+'-'+which).classList.add('active');
+  nav.querySelectorAll('.verb-tab-btn').forEach(btn => btn.classList.remove('active'));
+  const idx = which === 'act' ? 0 : 1;
+  nav.querySelectorAll('.verb-tab-btn')[idx].classList.add('active');
 }
 </script>
 </body>
