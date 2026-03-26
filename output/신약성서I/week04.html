@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I — 4주차 강의노트</title>
+<style>
+  :root {
+    --bg:        #150f1a;
+    --card:      #1e1526;
+    --subcard:   #261c30;
+    --accent:    #9b7fc7;
+    --bible:     #c4a8e8;
+    --lavender:  #b8a8d4;
+    --exam:      #c96b5a;
+    --term:      #7ab87a;
+    --teal:      #5ab8b8;
+    --gold:      #c9a84c;
+    --text:      #ede8f5;
+    --muted:     #9e96aa;
+    --border:    rgba(155,127,199,0.18);
+    --border2:   rgba(155,127,199,0.30);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #0e0814 0%, #1a0f2e 50%, #0f1820 100%);
+    border-bottom: 1px solid var(--border2);
+    padding: 22px 28px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'Kainen Diatheken';
+    position: absolute;
+    right: -8px; top: 8px;
+    font-size: 36px;
+    font-style: italic;
+    color: rgba(155,127,199,0.06);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 9px; border-radius: 20px; }
+  .badge-week  { background: var(--accent); color: #fff; }
+  .badge-date  { background: rgba(155,127,199,0.15); color: var(--lavender); border: 1px solid var(--border2); }
+  .badge-exam  { background: rgba(201,107,90,0.18); color: var(--exam); border: 1px solid rgba(201,107,90,0.35); }
+  .badge-term  { background: rgba(122,184,122,0.15); color: var(--term); border: 1px solid rgba(122,184,122,0.3); }
+  .header-title { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.3; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .header-sub { font-size: 11.5px; color: var(--muted); }
+  .header-sub span { color: var(--lavender); }
+
+  .tab-bar {
+    display: flex;
+    background: #100c18;
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    gap: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .tab-btn {
+    background: none; border: none; color: var(--muted);
+    font-size: 11.5px; font-weight: 600; padding: 11px 16px; cursor: pointer;
+    border-bottom: 2.5px solid transparent; transition: all 0.18s;
+    letter-spacing: 0.04em; font-family: inherit; white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--lavender); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .tab-content { display: none; padding: 22px 24px 40px; max-width: 920px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  .sec-head { display: flex; align-items: center; gap: 10px; margin: 28px 0 14px; }
+  .sec-head:first-child { margin-top: 4px; }
+  .sec-num {
+    font-size: 9px; font-weight: 800; letter-spacing: 0.12em; color: var(--accent);
+    background: rgba(155,127,199,0.1); border: 1px solid var(--border2);
+    padding: 2px 7px; border-radius: 3px; white-space: nowrap;
+  }
+  .sec-title { font-size: 13.5px; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border2), transparent); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+
+  .term-card { border: 1px solid var(--border); border-radius: 7px; overflow: hidden; margin-bottom: 10px; }
+  .term-head {
+    background: rgba(155,127,199,0.12); border-bottom: 1px solid var(--border);
+    padding: 9px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .term-name { font-size: 13px; font-weight: 800; color: var(--accent); }
+  .term-en   { font-size: 10px; color: var(--muted); font-style: italic; }
+  .term-body { background: var(--card); padding: 12px 14px; }
+  .term-def  { font-size: 12.5px; color: var(--text); margin-bottom: 9px; line-height: 1.65; }
+  .term-rows { display: flex; flex-direction: column; gap: 5px; }
+  .term-row  { display: flex; gap: 8px; font-size: 11.5px; }
+  .term-lbl  { color: var(--accent); font-weight: 700; white-space: nowrap; min-width: 68px; }
+  .term-val  { color: var(--muted); flex: 1; }
+  .term-val b { color: var(--text); font-weight: 600; }
+
+  .theo-card {
+    border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0; background: var(--card); padding: 12px 14px; margin-bottom: 10px;
+  }
+  .theo-title { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .theo-row   { margin-bottom: 7px; font-size: 12px; }
+  .theo-lbl   { color: var(--lavender); font-weight: 700; font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 2px; }
+  .theo-val   { color: var(--muted); line-height: 1.65; }
+  .theo-val b { color: var(--text); font-weight: 600; }
+
+  .prof-note {
+    background: rgba(90,184,184,0.06); border-left: 3px solid var(--teal);
+    border-radius: 0 6px 6px 0; padding: 10px 13px; margin-bottom: 10px; font-size: 11.5px;
+  }
+  .prof-note .label { font-size: 9.5px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+  .prof-note .body  { color: var(--muted); font-style: italic; line-height: 1.7; }
+  .prof-note b { color: var(--text); font-style: normal; font-weight: 700; }
+
+  .exam-box {
+    background: rgba(201,107,90,0.08); border: 1.5px solid rgba(201,107,90,0.35);
+    border-radius: 7px; padding: 12px 14px; margin-bottom: 10px;
+  }
+  .exam-box .label { font-size: 9.5px; font-weight: 800; color: var(--exam); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 7px; }
+  .exam-box .body  { color: var(--muted); font-size: 12px; line-height: 1.75; }
+  .exam-box .body b { color: var(--text); font-weight: 700; }
+  .exam-box .body em { color: var(--exam); font-style: normal; font-weight: 600; }
+
+  .table-wrap { overflow-x: auto; margin: 8px 0 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  thead tr { background: rgba(155,127,199,0.15); }
+  th { padding: 8px 10px; text-align: left; color: var(--accent); font-weight: 700; font-size: 10.5px; letter-spacing: 0.05em; border-bottom: 1px solid var(--border2); }
+  td { padding: 8px 10px; color: var(--muted); border-bottom: 1px solid var(--border); vertical-align: top; }
+  td b { color: var(--text); font-weight: 700; }
+  td em { color: var(--exam); font-style: normal; font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(155,127,199,0.04); }
+
+  .memo-card {
+    background: rgba(201,164,76,0.07); border: 1px solid rgba(201,164,76,0.25);
+    border-radius: 7px; padding: 12px 14px; margin-bottom: 10px; font-size: 12px;
+  }
+  .memo-card .label { font-size: 9.5px; font-weight: 800; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .memo-card .body  { color: var(--muted); line-height: 1.7; }
+  .memo-card .body b { color: var(--text); }
+
+  .struct-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-bottom: 10px; }
+  .struct-item { background: var(--subcard); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .struct-item .s-num  { font-size: 10px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .struct-item .s-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .struct-item .s-det  { font-size: 10.5px; color: var(--muted); line-height: 1.55; }
+
+  .ulc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+  .ulc-item { background: var(--subcard); border: 1px solid var(--border); border-radius: 6px; padding: 11px 13px; text-align: center; }
+  .ulc-item .u-en   { font-size: 15px; font-weight: 800; color: var(--accent); margin-bottom: 3px; }
+  .ulc-item .u-kr   { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .ulc-item .u-desc { font-size: 10.5px; color: var(--muted); line-height: 1.55; }
+
+  .discussion-block { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
+  .discussion-head { background: rgba(155,127,199,0.12); padding: 10px 14px; font-size: 12px; font-weight: 800; color: var(--accent); border-bottom: 1px solid var(--border); }
+  .q-list { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .q-item { font-size: 12px; }
+  .q-num  { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent); color: #fff; font-size: 9.5px; font-weight: 800; border-radius: 50%; margin-right: 7px; }
+  .q-text { color: var(--text); font-weight: 600; }
+  .q-point { margin-top: 4px; margin-left: 27px; font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+  .core-wrap { background: rgba(155,127,199,0.06); border: 1px solid var(--border2); border-radius: 8px; padding: 14px 16px; margin-top: 30px; }
+  .core-title { font-size: 10.5px; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .core-grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .core-item  { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .core-num   { font-size: 9.5px; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+  .core-text  { font-size: 11px; color: var(--text); font-weight: 600; line-height: 1.55; }
+  .core-sub   { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+  @media print {
+    .tab-bar { display: none !important; }
+    .tab-content { display: block !important; }
+    body { background: white; color: #1a1a2e; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 12mm; }
+    .term-card, .exam-box, .card, .theo-card { page-break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .tab-content { padding: 16px 14px 32px; }
+    .ulc-grid, .core-grid { grid-template-columns: 1fr; }
+    .struct-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">
+    <span class="badge badge-week">신약성서 I</span>
+    <span class="badge badge-date">4주차 · 2026-03-26 (목)</span>
+    <span class="badge badge-exam">중간 4/23</span>
+    <span class="badge badge-term">용어집 6/4</span>
+  </div>
+  <div class="header-title">신약 27권 구조 · 정경 · 본문비평 · 석의</div>
+  <div class="header-sub">담당: <span>한철흠 교수</span> · 한국침례신학대학교 대학원 · 교재: 파월 신약개론(CLC, 2014)</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary',this)">📋 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('havruta',this)">🗣️ 하브루타</button>
+</div>
+
+<!-- TAB 1: 강의노트 -->
+<div class="tab-content active" id="tab-notes">
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 01</span>
+    <span class="sec-title">신약 27권 분류 체계</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="struct-grid">
+    <div class="struct-item">
+      <div class="s-num">① 사복음서 (4권)</div>
+      <div class="s-name">공관복음 + 요한복음</div>
+      <div class="s-det">마태·마가·누가(공관) + 요한</div>
+    </div>
+    <div class="struct-item">
+      <div class="s-num">② 사도행전 (1권)</div>
+      <div class="s-name">독립 카테고리</div>
+      <div class="s-det">누가복음의 속편, 초대교회 역사. "독고다이"</div>
+    </div>
+    <div class="struct-item">
+      <div class="s-num">③ 바울서신 (13권)</div>
+      <div class="s-name">로마서 ~ 빌레몬서</div>
+      <div class="s-det">목회서신 + 옥중서신 포함</div>
+    </div>
+    <div class="struct-item">
+      <div class="s-num">④ 히브리서 (1권)</div>
+      <div class="s-name" style="color:var(--gold)">분류 애매 — "깍두기"</div>
+      <div class="s-det">저자 불명(바울설·아볼로설). 바울서신 또는 일반서신 어느 쪽도 가능</div>
+    </div>
+    <div class="struct-item">
+      <div class="s-num">⑤ 일반서신 (7권)</div>
+      <div class="s-name">공동서신 (Catholic Epistles)</div>
+      <div class="s-det">야고보서, 베드로전·후서, 요한일·이·삼서, 유다서</div>
+    </div>
+    <div class="struct-item">
+      <div class="s-num">⑥ 요한계시록 (1권)</div>
+      <div class="s-name" style="color:var(--gold)">독립 — "독고다이"</div>
+      <div class="s-det">예언서, 어느 그룹에도 속하지 않음</div>
+    </div>
+  </div>
+
+  <div class="memo-card">
+    <div class="label">📊 27권 합산</div>
+    <div class="body">4(복음서) + 1(행전) + 13(바울) + 1(히브리) + 7(일반) + 1(계시록) = <b>27권</b></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <div><span class="term-name">목회서신</span><span class="term-en" style="margin-left:8px">Pastoral Epistles</span></div>
+      <span class="badge badge-exam">시험</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">목회자에게 주어진 편지. 에베소 교회의 디모데, 크레테섬의 디도에게 보낸 3권</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">수록 서신</span><span class="term-val"><b>디모데전서, 디모데후서, 디도서</b></span></div>
+        <div class="term-row"><span class="term-lbl">암기법</span><span class="term-val"><b style="color:var(--exam)">"디디딘"</b> — 디모데전서 · 디모데후서 · 디도서</span></div>
+        <div class="term-row"><span class="term-lbl">수신자</span><span class="term-val">디모데(에베소 교회) · 디도(크레테섬)</span></div>
+        <div class="term-row"><span class="term-lbl">특이사항</span><span class="term-val">디모데후서: <b>바울의 마지막 편지</b>, 옥중서신에도 해당 → 목회서신으로 분류</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <div><span class="term-name">옥중서신</span><span class="term-en" style="margin-left:8px">Prison Epistles</span></div>
+      <span class="badge badge-exam">시험</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">바울이 감옥에서 기록한 편지. 핵심 4권 (+디모데후서)</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">핵심 4권</span><span class="term-val"><b>에베소서, 골로새서, 빌립보서, 빌레몬서</b></span></div>
+        <div class="term-row"><span class="term-lbl">암기법</span><span class="term-val"><b style="color:var(--exam)">"에골빌빌"</b> — 감옥에 가면 어른이나 애나 골골대고 빌빌린다</span></div>
+        <div class="term-row"><span class="term-lbl">시험 팁</span><span class="term-val">4권만 써도 되고, 디모데후서 추가해 5권 써도 정답</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">일반서신 / 공동서신</span>
+      <span class="term-en">General / Catholic Epistles</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">특정 개인·교회가 아닌 교회 전체를 향한 편지 7권</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">포함 서신</span><span class="term-val"><b>야고보서, 베드로전·후서, 요한일·이·삼서, 유다서</b></span></div>
+        <div class="term-row"><span class="term-lbl">영어 명칭</span><span class="term-val">General Epistles / <b>Catholic Epistles</b> (Catholic = 보편적·우주적, 로마 가톨릭 아님)</span></div>
+        <div class="term-row"><span class="term-lbl">히브리서</span><span class="term-val">일반서신에 넣기도, 바울서신에 넣기도 → 교재 기준 미포함</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 02</span>
+    <span class="sec-title">정경 · 위경 · 외경</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">정경 · 외경 · 위경</span>
+      <span class="term-en">Canon / Apocrypha / Pseudepigrapha</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">신약 27권의 공인 성경(정경)과 그에 들지 못한 문서들</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">정경 (正經)</span><span class="term-val">κανών(자·기준) 어원. 기준을 충족한 공인 성경 27권(구약 포함 66권)</span></div>
+        <div class="term-row"><span class="term-lbl">외경 (外經)</span><span class="term-val">정경 밖 문서. 성령 영감 부족·사도적 기원 불분명 등으로 제외</span></div>
+        <div class="term-row"><span class="term-lbl">위경 (僞經)</span><span class="term-val">타인 이름 도용한 가짜 저자 문서 (예: 베드로가 아닌 자가 "베드로의 이름으로" 씀)</span></div>
+        <div class="term-row"><span class="term-lbl">관계</span><span class="term-val">위경 → 외경의 주요 이유 중 하나. 저자 사칭 = <b>의미 유사하나 권위가 달라짐</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 03</span>
+    <span class="sec-title">통일성과 다양성 · 어거스틴 명언</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="theo-card">
+    <div class="theo-title">성경의 통일성과 다양성</div>
+    <div class="theo-row">
+      <div class="theo-lbl">정의</div>
+      <div class="theo-val">성경은 핵심 문제에서 <b>한 목소리(통일성)</b>를 내면서도, 독자·상황·강조점에 따른 <b>다양한 관점(다양성)</b>을 동시에 담음</div>
+    </div>
+    <div class="theo-row">
+      <div class="theo-lbl">예시</div>
+      <div class="theo-val">로마서(믿음 강조) vs 야고보서(행함 강조) — 모순이 아닌 강조점의 차이<br>마태복음(유대인) vs 마가복음(이방인) — 본질은 동일, 관점이 다름</div>
+    </div>
+    <div class="theo-row">
+      <div class="theo-lbl">주의</div>
+      <div class="theo-val">진보: "성경에 모순 있다"(다양성 과장) ↔ 보수: "다 똑같다"(다양성 무시) → 둘 다 경계</div>
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 시험 출제 예상 — 어거스틴 명언 (Unity · Liberty · Charity)</div>
+    <div class="body">
+      <em>"본질적인 문제에서는 Unity(통일), 비본질적인 문제에서는 Liberty(자유), 모든 문제에서는 Charity(사랑)"</em><br><br>
+      <b>주의:</b> 어거스틴 발언 여부는 학계 논란 있음 / 비본질의 "자유"는 <b>상대방의 자유</b>
+    </div>
+  </div>
+
+  <div class="ulc-grid">
+    <div class="ulc-item">
+      <div class="u-en">Unity</div>
+      <div class="u-kr">통일성</div>
+      <div class="u-desc">본질적 문제<br>(구원·기독론 등)</div>
+    </div>
+    <div class="ulc-item">
+      <div class="u-en">Liberty</div>
+      <div class="u-kr">자유</div>
+      <div class="u-desc">비본질적 문제<br>상대방의 자유 인정</div>
+    </div>
+    <div class="ulc-item">
+      <div class="u-en">Charity</div>
+      <div class="u-kr">사랑</div>
+      <div class="u-desc">모든 문제<br>본질·비본질 상관없이</div>
+    </div>
+  </div>
+
+  <div class="prof-note">
+    <div class="label">교수 설명</div>
+    <div class="body">본질/비본질의 경계 기준이 사람마다 달라 적용이 쉽지 않음. 원칙은 모두 동의하지만 개별 사안(세례 vs 침례, 예배 시간, 악기 사용 등)에서 갈릴 수 있다. <b>본질에서는 목숨 걸고 하나가 되고, 비본질에서는 상대방에게 자유를 주어야 한다.</b></div>
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 04</span>
+    <span class="sec-title">본문비평 (Textual Criticism)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">본문비평</span>
+      <span class="term-en">Textual Criticism</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">수천 개의 필사 사본 중 어떤 이문(異文)이 원문에 가장 가까운지를 재구성하는 학문적 작업</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">배경</span><span class="term-val">신약 원본 없음. 5,000개 이상의 필사 사본만 현존. 사본마다 이문(異文) 발생</span></div>
+        <div class="term-row"><span class="term-lbl">이문(異文)</span><span class="term-val">사본마다 달라지는 단어·구·절·단락. 필사 실수·의도적 수정·첨가 등이 원인</span></div>
+        <div class="term-row"><span class="term-lbl">경향</span><span class="term-val">후대로 올수록 사본이 <b>두꺼워지는</b> 경향 (첨가 경향 > 삭제 경향)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 시험 핵심 — 본문비평 3원칙 (암기: "오·어·짧")</div>
+    <div class="body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>원칙</th><th>원문 가능성 높은 쪽</th><th>이유</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>① 사본 연대</td><td><b>오래된</b> 사본</td><td>필사 횟수 적을수록 오류 누적이 적음</td></tr>
+            <tr><td>② 표현 난이도</td><td><b>어려운</b> 이문</td><td>필사자가 어려운 표현을 쉽게 바꾸는 경향</td></tr>
+            <tr><td>③ 분량</td><td><b>짧은</b> 이문</td><td>보탤 때 죄의식이 적어 첨가 경향이 강함</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-note">
+    <div class="label">KJV vs NIV·ESV</div>
+    <div class="body"><b>영어성경의 나이 ≠ 참고한 헬라어 사본의 나이.</b> KJV(1611년)는 상대적으로 후대 사본 사용. 이후 더 오래된 헬라어 사본 발견 → NIV·ESV는 오래된 사본 기준 번역. 본문비평 관점에서는 NIV·ESV가 원문에 더 가까울 가능성. 단, KJV가 하나님 말씀으로 쓰임 받은 것은 부정하지 않음.</div>
+  </div>
+
+  <div class="card" style="font-size:12px; color:var(--muted); line-height:1.75;">
+    <div style="font-size:11px; font-weight:800; color:var(--accent); margin-bottom:8px;">📌 마가복음 결말 문제 (막 16:9-20)</div>
+    <b style="color:var(--text)">가장 오래된 사본:</b> 16장 8절에서 끝남 → "여자들이 무서워 아무 말도 하지 못하더라"<br>
+    <b style="color:var(--text)">후대 사본:</b> 9-20절 추가 → 멋진 마무리<br><br>
+    본문비평 3원칙 적용 → 8절 결말 = 오래된 + 어려운 + 짧은 → <b style="color:var(--exam)">원문일 가능성 높음</b><br>
+    요한복음 7:53-8:11(간음한 여인)도 동일한 이유로 원문에 없었을 가능성.<br>
+    ※ 비본질적 문제 — 어느 쪽을 믿어도 무방
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 05</span>
+    <span class="sec-title">석의 vs 자기해석 · 역사비평</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">석의 vs 자기해석</span>
+      <span class="term-en">Exegesis vs Eisegesis</span>
+    </div>
+    <div class="term-body">
+      <div class="term-rows">
+        <div class="term-row">
+          <span class="term-lbl">석의 (釋義)</span>
+          <span class="term-val"><b>ex-(밖으로)</b> → 텍스트에서 의미를 끄집어내는 해석. 바람직한 방향</span>
+        </div>
+        <div class="term-row">
+          <span class="term-lbl">자기해석</span>
+          <span class="term-val"><b>eis-(안으로)</b> → 자기 생각·경험·교리를 텍스트 안으로 집어넣는 해석. 경계해야 함</span>
+        </div>
+        <div class="term-row">
+          <span class="term-lbl">원칙</span>
+          <span class="term-val">신학도 성경에서 나왔지만, <b>성경 위에 있을 수 없음</b>. 신학이 성경 아래에 있어야 함</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-note">
+    <div class="label">역사비평 (Historical Criticism)</div>
+    <div class="body">본문의 역사적 배경(정치·사회·문화·종교)을 분석해 원래 의미를 파악하는 방법. <b>성경 비판이 아님.</b> 예: 티베리우스 황제의 동전 글귀를 알아야 "가이사의 것은 가이사에게" 본문을 제대로 설교할 수 있음. 역사비평 = 석의를 돕는 도구.</div>
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-num">BLOCK 06</span>
+    <span class="sec-title">마틴 켈러 (Martin Kähler)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 시험 90% 출제 예상</div>
+    <div class="body">
+      <em style="font-size:13.5px;">"마가복음은 확장된 서론을 가지고 있는 수난 이야기다"</em><br>
+      <span style="font-size:11px; color:var(--muted)">A Passion Narrative with an Extended Introduction</span><br><br>
+      · 마가복음의 <b>핵심 = 수난(십자가) 이야기</b><br>
+      · 공생애 기적·가르침·귀신 축출 = <b>수난 이야기를 향한 긴 서론</b><br><br>
+      <b>교수님 견해:</b> 수난 내러티브가 핵심이라는 점 100% 동의. 다만 나머지를 "단순 서론"으로만 보기엔 각 사건의 신학적 의미가 있어 아쉬움.
+    </div>
+  </div>
+
+  <div class="core-wrap">
+    <div class="core-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="core-grid">
+      <div class="core-item">
+        <div class="core-num">01</div>
+        <div class="core-text">본문비평 3원칙</div>
+        <div class="core-sub">오래된 · 어려운 · 짧은 이문이 원문일 가능성 높음</div>
+      </div>
+      <div class="core-item">
+        <div class="core-num">02</div>
+        <div class="core-text">Unity · Liberty · Charity</div>
+        <div class="core-sub">본질=통일 / 비본질=자유 / 전체=사랑</div>
+      </div>
+      <div class="core-item">
+        <div class="core-num">03</div>
+        <div class="core-text">석의 vs 자기해석</div>
+        <div class="core-sub">Exegesis(꺼냄) vs Eisegesis(집어넣음)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB 2: 핵심정리 -->
+<div class="tab-content" id="tab-summary">
+
+  <div class="sec-head">
+    <span class="sec-num">시험 · 암기</span>
+    <span class="sec-title">핵심 암기 항목</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 목회서신</div>
+    <div class="body">
+      <em>"디디딘"</em> = <b>디모데전서 + 디모데후서 + 디도서</b><br>
+      · 디모데 → <b>에베소 교회</b> 목회 / 디도 → <b>크레테섬</b> 목회<br>
+      · 디모데후서 = 바울의 <b>마지막 편지</b>이자 옥중서신에도 해당
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 옥중서신</div>
+    <div class="body">
+      <em>"에골빌빌"</em> = <b>에베소서 + 골로새서 + 빌립보서 + 빌레몬서</b><br>
+      (+디모데후서 포함 5권으로 써도 정답)
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 본문비평 3원칙 ("오·어·짧")</div>
+    <div class="body">
+      ① <b>오래된</b> 사본일수록 원문 가능성 높음<br>
+      ② <b>어려운</b> 이문일수록 원문 가능성 높음<br>
+      ③ <b>짧은</b> 이문일수록 원문 가능성 높음
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 어거스틴 명언</div>
+    <div class="body">
+      본질 → <b>Unity(통일)</b> / 비본질 → <b>Liberty(자유, 상대방의 자유)</b> / 모두 → <b>Charity(사랑)</b>
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="label">⭐ 마틴 켈러 (Martin Kähler) — 90% 출제</div>
+    <div class="body">
+      <em>"마가복음은 <b>확장된 서론을 가지고 있는 수난 이야기</b>다"</em>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:24px;">
+    <span class="sec-num">용어집 후보</span>
+    <span class="sec-title">이번 주 용어집 추천 항목 <span class="badge badge-term" style="vertical-align:middle;">6/4 제출</span></span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">정경</span>
+      <span class="term-en">Canon — κανών</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">기준(자)을 충족한 공인된 신·구약 성경 66권(신약 27권)</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">계 22:18-19 (더하거나 빼지 말라)</span></div>
+        <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">외경(정경 밖)·위경(저자 사칭)과 구별. 사도적 기원·성령 영감이 정경 기준</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">본문비평</span>
+      <span class="term-en">Textual Criticism</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">여러 필사 사본 중 어떤 이문(異文)이 원문에 가까운지 재구성하는 학문</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">막 16:9-20 / 요 7:53-8:11 / 막 9:29 (기도와 금식)</span></div>
+        <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">신약 사본 5,000개 이상. 오래된·어려운·짧은 이문이 원문 가능성 높음</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name">석의</span>
+      <span class="term-en">Exegesis</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">텍스트에서 의미를 끄집어내는(밖으로 꺼내는) 해석. 바람직한 성경 해석 방향</div>
+      <div class="term-rows">
+        <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">전반적 성경 해석학 원리</span></div>
+        <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">Eisegesis(자기해석, 안으로 집어넣음)와 대비. 역사비평도 석의를 위한 도구</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TAB 3: 하브루타 -->
+<div class="tab-content" id="tab-havruta">
+
+  <div class="sec-head">
+    <span class="sec-num">하브루타</span>
+    <span class="sec-title">수업 전 토론 준비</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="discussion-block">
+    <div class="discussion-head">💬 토론 주제 1 — 본문비평과 성경의 권위</div>
+    <div class="q-list">
+      <div class="q-item">
+        <span class="q-num">1</span><span class="q-text">본문비평은 성경의 권위를 약화시키는가, 아니면 강화하는 도구인가?</span>
+        <div class="q-point">논점: 원문에 더 가까이 가는 도구 vs 이문의 존재 자체가 "불완전성" 주장의 빌미 / 중요한 교리에는 이문이 없음</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span><span class="q-text">마가복음 16장 결말(8절 vs 9-20절)에 대해 어떤 입장을 취할 것인가?</span>
+        <div class="q-point">논점: 본문비평 원칙(오래된·짧은·어려운) vs 전통 텍스트 수용 / 비본질적 문제로 볼 수 있는가 / 설교에 어떤 영향을 미치는가</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">3</span><span class="q-text">KJV와 NIV의 차이를 성도들에게 어떻게 설명할 것인가?</span>
+        <div class="q-point">논점: 영어성경의 번역 연도 vs 참고 헬라어 사본의 나이 / 교인들의 KJV 선호를 존중하면서 학문적 설명을 어떻게 병행할 것인가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion-block">
+    <div class="discussion-head">💬 토론 주제 2 — 통일성, 자유, 사랑 (어거스틴 명언 적용)</div>
+    <div class="q-list">
+      <div class="q-item">
+        <span class="q-num">1</span><span class="q-text">현재 한국 교회에서 "본질"과 "비본질"의 경계가 모호해진 사례는 무엇인가?</span>
+        <div class="q-point">논점: 예배 음악, 세례/침례 방식, 예배 시간, 교단 교리 / 어떤 기준으로 본질을 구분할 것인가</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span><span class="q-text">비본질적 문제에서 "자유"를 강조하면 어떤 위험이 생기는가?</span>
+        <div class="q-point">논점: 종교다원주의로 흐를 위험 / 구원의 문제는 절대 비본질이 될 수 없음 / "자유"의 한계선은 어디인가</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">3</span><span class="q-text">나의 설교/목회에서 석의를 방해하는 자기해석의 요소는 무엇인가?</span>
+        <div class="q-point">논점: 개인 경험, 교단 교리, 설교 습관 / 완전한 객관성이 가능한가 / 성령의 조명과 학문적 방법을 어떻게 통합할 것인가</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">4</span><span class="q-text">마틴 켈러의 명언이 마가복음 설교에 주는 구체적 함의는 무엇인가?</span>
+        <div class="q-point">논점: 기적·치유·가르침 본문을 수난 이야기의 "서론"으로 접근할 때 설교가 어떻게 달라지는가 / 십자가 중심 설교와 치유 설교의 균형</div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">5</span><span class="q-text">저자 논쟁(히브리서, 목회서신)이 성경의 권위에 미치는 영향을 어떻게 볼 것인가?</span>
+        <div class="q-point">논점: 의미는 거의 동일하나 권위가 달라짐 / 보수 vs 진보 신학의 입장 차이 / 목회 현장에서 성도들에게 어떻게 설명할 것인가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="core-wrap">
+    <div class="core-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="core-grid">
+      <div class="core-item">
+        <div class="core-num">01</div>
+        <div class="core-text">본문비평 3원칙</div>
+        <div class="core-sub">오래된 · 어려운 · 짧은 이문이 원문일 가능성 높음</div>
+      </div>
+      <div class="core-item">
+        <div class="core-num">02</div>
+        <div class="core-text">Unity · Liberty · Charity</div>
+        <div class="core-sub">본질=통일 / 비본질=자유 / 전체=사랑</div>
+      </div>
+      <div class="core-item">
+        <div class="core-num">03</div>
+        <div class="core-text">석의 vs 자기해석</div>
+        <div class="core-sub">Exegesis(꺼냄) vs Eisegesis(집어넣음)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
