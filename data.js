@@ -127,16 +127,17 @@ const SITE_DATA = {
         {
           week: 1, title: "기독교 교회사 입문", date: "2026.03.06", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week01.html" }
-          ]
-        },
-        { week: 2, title: "기독교 형성과 사도시대 I 예수와 유대교의 연관성·분파", date: "2026.03.13", files: [
+          ] },
+         { week: 2, title: "기독교 형성과 사도시대 I 예수와 유대교의 연관성·분파", date: "2026.03.13", files: [
           { type: "notes", label: "강의노트", href: "output/교회사/week02.html" }
         ] },
-        { week: 3, title: "기독교 형성과 사도시대 II", date: "2026.03", files: [
+        { week: 3, title: "기독교 형성과 사도시대 II", date: "2026.03.20", files: [
             { type: "notes", label: "강의노트1", href: "output/교회사/week03.html" },
             { type: "notes", label: "강의노트2", href: "output/교회사/week03b.html" }
           ] },
-        { week: 4, title: "박해와 순교 — 로마제국과 교회", date: "2026.04", files: [] },
+        { week: 4, title: "예루살렘과 그 너머 & 사도 바울", date: "2026.03.27", files: [
+	   { type: "notes", label: "강의노트1", href: "output/교회사/week03.html" }
+	] },
         { week: 5, title: "초대 교부들의 신학", date: "2026.04", files: [] },
         { week: 6, title: "교회 회의와 교리 형성", date: "2026.04", files: [] },
         { week: 7, title: "수도원 운동과 중세 교회", date: "2026.04", files: [] },
