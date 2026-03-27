@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 4주차: 예루살렘과 그 너머 & 사도바울의 선교</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --bg:          #14100a;
+    --card:        #1e1710;
+    --subcard:     #261e14;
+    --accent:      #c4955a;
+    --papyrus:     #d4a870;
+    --text-main:   #f0ebe0;
+    --text-sub:    #a09070;
+    --text-hint:   #6b5a40;
+    --border:      #3a2e1e;
+    --badge-ox:    #7ab87a;
+    --badge-sa:    #7aaad4;
+    --badge-ya:    #c49a3c;
+    --badge-si:    #c96b5a;
+    --era-apostle: #2563eb;
+    --era-catholic:#9b2c1a;
+    --era-roman:   #7a4d00;
+    --era-med:     #4a1d8a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9pt;
+    line-height: 1.7;
+    color: var(--text-main);
+    background: var(--bg);
+  }
+
+  /* ── TAB ── */
+  .tab-bar {
+    display: flex;
+    gap: 2px;
+    background: #0c0904;
+    padding: 6px 12px 0;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .tab-btn {
+    padding: 7px 18px;
+    border: none;
+    background: #1e1710;
+    color: var(--text-sub);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    border-top: 2px solid transparent;
+    letter-spacing: .04em;
+    transition: all .2s;
+  }
+  .tab-btn.active {
+    background: var(--card);
+    color: var(--accent);
+    border-top-color: var(--accent);
+  }
+  .tab-panel { display: none; padding: 16px 14px 30px; }
+  .tab-panel.active { display: block; }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: linear-gradient(135deg, #1a1008 0%, #2a1c0c 60%, #1e1408 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 14px 16px 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: 'Historia Ecclesiae';
+    position: absolute;
+    right: -6px; top: 4px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 30pt;
+    font-style: italic;
+    color: rgba(196,149,90,.06);
+    white-space: nowrap;
+    letter-spacing: .04em;
+  }
+  .hd-week {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--papyrus);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .hd-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15pt;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+  }
+  .hd-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .hd-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+  .pill {
+    background: rgba(196,149,90,.12);
+    border: 1px solid rgba(196,149,90,.3);
+    color: var(--text-sub);
+    font-size: 6.5pt;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── SECTION HEAD ── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 8px;
+  }
+  .sec-badge {
+    background: var(--accent);
+    color: #14100a;
+    font-size: 6.5pt;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--papyrus);
+  }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--accent), transparent); }
+
+  .sub-head {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 10px 0 5px;
+    padding-left: 8px;
+    border-left: 3px solid var(--papyrus);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .card.accent { border-left: 3px solid var(--accent); }
+  .card.papyrus { border-left: 3px solid var(--papyrus); }
+  .card.blue { border-left: 3px solid #5a9fd4; }
+  .card.green { border-left: 3px solid var(--badge-ox); }
+  .card.red { border-left: 3px solid var(--badge-si); }
+
+  /* ── EVENT CARD ── */
+  .event-card {
+    background: var(--subcard);
+    border-left: 3px solid var(--papyrus);
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-bottom: 7px;
+  }
+  .event-year {
+    display: inline-block;
+    background: var(--papyrus);
+    color: #14100a;
+    font-size: 7pt;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    letter-spacing: .04em;
+  }
+  .event-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 3px;
+  }
+  .event-body {
+    font-size: 8pt;
+    color: var(--text-sub);
+    line-height: 1.65;
+  }
+
+  /* ── PERSON CARD ── */
+  .person-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .person-head {
+    background: linear-gradient(90deg, #2a1c0c, #1e1710);
+    border-bottom: 1px solid var(--border);
+    padding: 7px 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .person-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .person-date {
+    font-family: 'Crimson Pro', serif;
+    font-size: 8.5pt;
+    color: var(--text-hint);
+    font-style: italic;
+  }
+  .person-body { padding: 8px 10px; }
+  .p-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--papyrus);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+  .p-content {
+    font-size: 8pt;
+    color: var(--text-sub);
+    line-height: 1.6;
+    padding-left: 4px;
+  }
+  .p-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 6px 0;
+  }
+
+  /* ── CITY CARD ── */
+  .city-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .city-card {
+    background: var(--subcard);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 8px 10px;
+    border-top: 2.5px solid var(--papyrus);
+  }
+  .city-name {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--papyrus);
+    margin-bottom: 4px;
+  }
+  .city-name span {
+    font-family: 'Crimson Pro', serif;
+    font-size: 8pt;
+    color: var(--text-hint);
+    font-style: italic;
+    margin-left: 4px;
+  }
+  .city-body {
+    font-size: 7.8pt;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+  .city-body li { margin-left: 10px; margin-bottom: 2px; }
+
+  /* ── PROFESSOR QUOTE ── */
+  .prof-quote {
+    background: #1a1408;
+    border-left: 2px solid var(--text-hint);
+    border-radius: 0 4px 4px 0;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    font-style: italic;
+    color: var(--text-hint);
+    font-size: 8pt;
+    line-height: 1.7;
+  }
+  .prof-quote .label {
+    font-style: normal;
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--text-hint);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.8pt;
+    margin-bottom: 8px;
+  }
+  thead tr { background: #2a1c0c; }
+  thead th {
+    color: var(--accent);
+    padding: 5px 7px;
+    text-align: left;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: .05em;
+    border: 1px solid var(--border);
+  }
+  td {
+    padding: 4px 7px;
+    border: 1px solid var(--border);
+    color: var(--text-sub);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+  .td-b { font-weight: 700; color: var(--text-main); }
+  .td-g { color: var(--badge-ox); font-weight: 700; }
+  .td-r { color: var(--badge-si); font-weight: 700; }
+
+  /* ── COMPARE ── */
+  .compare-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .cmp-card {
+    background: var(--subcard);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .cmp-head {
+    background: #2a1c0c;
+    padding: 6px 10px;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+  }
+  .cmp-body { padding: 8px 10px; }
+  .cmp-axis {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--papyrus);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+  .cmp-val {
+    font-size: 8pt;
+    color: var(--text-sub);
+    line-height: 1.6;
+    padding-left: 4px;
+  }
+
+  /* ── OX CARD ── */
+  .ox-card {
+    background: var(--subcard);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+  .ox-badge {
+    display: inline-block;
+    background: var(--badge-ox);
+    color: #0a1a0a;
+    font-size: 6pt;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 3px;
+    letter-spacing: .08em;
+    margin-bottom: 5px;
+  }
+  .sa-badge {
+    display: inline-block;
+    background: var(--badge-sa);
+    color: #0a0f1a;
+    font-size: 6pt;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 3px;
+    letter-spacing: .08em;
+    margin-bottom: 5px;
+  }
+  .ya-badge {
+    display: inline-block;
+    background: var(--badge-ya);
+    color: #1a1200;
+    font-size: 6pt;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 3px;
+    letter-spacing: .08em;
+    margin-bottom: 5px;
+  }
+  .q-text {
+    font-size: 8.5pt;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+  .toggle-btn {
+    background: rgba(196,149,90,.12);
+    border: 1px solid rgba(196,149,90,.25);
+    color: var(--accent);
+    font-size: 7pt;
+    padding: 3px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .toggle-btn:hover { background: rgba(196,149,90,.22); }
+  .ans-box {
+    display: none;
+    margin-top: 7px;
+    padding: 7px 9px;
+    background: rgba(196,149,90,.07);
+    border-radius: 4px;
+    border: 1px solid rgba(196,149,90,.15);
+  }
+  .ans-box .ans-mark {
+    font-size: 16pt;
+    font-weight: 900;
+    margin-bottom: 3px;
+  }
+  .ans-mark.o { color: var(--badge-ox); }
+  .ans-mark.x { color: var(--badge-si); }
+  .ans-text {
+    font-size: 8pt;
+    color: var(--text-sub);
+    line-height: 1.65;
+  }
+  .model-ans {
+    display: none;
+    margin-top: 7px;
+    padding: 7px 9px;
+    background: rgba(122,170,212,.07);
+    border-radius: 4px;
+    border: 1px solid rgba(122,170,212,.2);
+  }
+  .model-ans .ans-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--badge-sa);
+    letter-spacing: .06em;
+    margin-bottom: 3px;
+  }
+  .model-ans .ans-text { color: var(--text-sub); }
+  .model-ya { 
+    display: none;
+    margin-top: 7px;
+    padding: 7px 9px;
+    background: rgba(196,154,60,.07);
+    border-radius: 4px;
+    border: 1px solid rgba(196,154,60,.2);
+  }
+  .model-ya .ans-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--badge-ya);
+    letter-spacing: .06em;
+    margin-bottom: 3px;
+  }
+
+  /* ── TIMELINE (Tab3) ── */
+  .timeline-wrap { position: relative; padding-left: 20px; }
+  .timeline-wrap::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--text-hint));
+  }
+  .tl-item { position: relative; margin-bottom: 14px; }
+  .tl-dot {
+    position: absolute;
+    left: -17px;
+    top: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+  }
+  .tl-dot.apostle { border-color: var(--era-apostle); background: rgba(37,99,235,.2); }
+  .tl-year {
+    display: inline-block;
+    background: var(--papyrus);
+    color: #14100a;
+    font-size: 6.5pt;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    letter-spacing: .04em;
+  }
+  .tl-event { font-size: 8.5pt; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+  .tl-person {
+    display: inline-block;
+    background: rgba(196,149,90,.12);
+    border: 1px solid rgba(196,149,90,.25);
+    color: var(--accent);
+    font-size: 6.5pt;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin: 2px 3px 2px 0;
+  }
+  .tl-desc { font-size: 7.8pt; color: var(--text-sub); line-height: 1.6; margin-top: 3px; }
+  .tl-era-label {
+    font-size: 7pt;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .tl-era-label.apostle { background: rgba(37,99,235,.15); color: #6090e0; border: 1px solid rgba(37,99,235,.3); }
+
+  /* ── KEY POINTS ── */
+  .keypoints {
+    background: linear-gradient(135deg, #1e1710, #261e0a);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 14px;
+  }
+  .kp-title {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .06em;
+    margin-bottom: 7px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .kp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 8pt;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+  .kp-num {
+    background: var(--accent);
+    color: #14100a;
+    font-size: 6.5pt;
+    font-weight: 800;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin-bottom: 7px;
+  }
+  .callout.tip  { background: rgba(196,149,90,.08); border-left: 3px solid var(--accent); }
+  .callout.warn { background: rgba(201,107,90,.08); border-left: 3px solid var(--badge-si); }
+  .callout.info { background: rgba(122,170,212,.08); border-left: 3px solid var(--badge-sa); }
+  .callout-icon { font-size: 12pt; flex-shrink: 0; line-height: 1.4; }
+  .callout-body { flex: 1; }
+  .callout-title { font-size: 8pt; font-weight: 700; margin-bottom: 2px; }
+  .callout.tip  .callout-title { color: var(--accent); }
+  .callout.warn .callout-title { color: var(--badge-si); }
+  .callout.info .callout-title { color: var(--badge-sa); }
+  .callout-text { font-size: 8pt; color: var(--text-sub); line-height: 1.6; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #222; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: avoid; }
+    .card, .event-card, .person-card, .ox-card { page-break-inside: avoid; }
+    .ans-box, .model-ans, .model-ya { display: block !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 15mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="hd-week">교회사개론 I · 4주차 · 2026-03-27</div>
+  <div class="hd-title">예루살렘과 그 너머 & 사도바울의 선교</div>
+  <div class="hd-subtitle">Jerusalem and Beyond · The Mission of Paul the Apostle</div>
+  <div class="hd-pills">
+    <span class="pill">담당: 김태식 교수</span>
+    <span class="pill">사도시대 30–100 AD</span>
+    <span class="pill">제4–5장 (강의안)</span>
+    <span class="pill">★ 중간고사 4/24</span>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('note',this)">📜 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('key',this)">⭐ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('tl',this)">🗓 연대기</button>
+</div>
+
+<!-- ============================
+     TAB 1 · 강의노트
+     ============================ -->
+<div id="tab-note" class="tab-panel active">
+
+  <!-- 1. 개요 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 01</span>
+    <div class="sec-title">초대교회 전파의 주요 목적과 배경</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card accent">
+    <div class="sub-head" style="margin-top:0;">핵심 질문: 어떻게 기독교는 유대교의 고향을 넘어 세계로 퍼졌는가?</div>
+    <div style="font-size:8.5pt; color:var(--text-sub); line-height:1.7;">
+      초대 기독교 역사의 주요 서술 목적은 기독교가 유대교의 본거지 팔레스틴을 떠나 로마제국 전역과 그 이상으로 확장된 과정을 설명하는 것이다. 그 핵심 요인은 <strong style="color:var(--accent)">사도 바울을 비롯한 여러 사람들에 의해 기독교와 유대교를 묶었던 사슬이 끊어진 것</strong>이다.
+    </div>
+  </div>
+
+  <div class="card papyrus">
+    <div style="font-size:8pt; font-weight:700; color:var(--papyrus); margin-bottom:5px;">초기 기독교 전파의 주요 거점 도시</div>
+    <div style="font-size:8pt; color:var(--text-sub); line-height:1.7;">
+      사마리아(행 8:4–25) → 가자~가이사랴(행 8:26–40) → 다마스커스(행 9:25; 갈 1:17) → 갈릴리(막 16:7) → 시리아 안디옥(행 11:18–13:3)<br>
+      <span style="color:var(--accent);">★ 예루살렘 + 안디옥이 초기 기독교 전파에 가장 큰 역할</span>
+    </div>
+  </div>
+
+  <!-- 2. 예루살렘 공동체 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 02</span>
+    <div class="sec-title">예루살렘 공동체와 다양성</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="cmp-card">
+      <div class="cmp-head">🇮🇱 히브리파 (Hebrews)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">언어</div>
+        <div class="cmp-val">팔레스틴 아람어 사용 (행 6:1)</div>
+        <div class="cmp-axis">특징</div>
+        <div class="cmp-val">유대 전통·율법·성전 신앙에 충실</div>
+        <div class="cmp-axis">대표 인물</div>
+        <div class="cmp-val">예수의 형제 야고보 — 바리새인들에게도 존경받음 (갈 2:12)</div>
+        <div class="cmp-axis">권력 구조</div>
+        <div class="cmp-val">교회 내 더 강한 발언권 보유</div>
+      </div>
+    </div>
+    <div class="cmp-card">
+      <div class="cmp-head">🌍 헬라파 (Hellenists)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">언어</div>
+        <div class="cmp-val">그리스어 사용 유대인 (행 6:1)</div>
+        <div class="cmp-axis">특징</div>
+        <div class="cmp-val">율법·성전 비판적 — 스테반(행 6:13–14; 7:51–53)</div>
+        <div class="cmp-axis">비난 세력</div>
+        <div class="cmp-val">구레네·알렉산드리아·길리기아·아시아 출신 유대인 (행 6:9)</div>
+        <div class="cmp-axis">결과</div>
+        <div class="cmp-val">교회 내 소외 → 분산 후 복음 확산 원동력</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">🏛️</div>
+    <div class="callout-body">
+      <div class="callout-title">예루살렘 공동체의 구조 — 쿰란(에센파)과의 유사성</div>
+      <div class="callout-text">베드로·야고보·요한 = 바울이 부른 "세 기둥"(갈 2:9). 사도들+제사장들 그룹이 쿰란처럼 공동 의사결정. 일종의 공산사회적 나눔(행 2:44–45; 4:32). 일곱 집사 임명 = 초기 집사 제도 시작이자 이방인 선교 상징화(행 6장).</div>
+    </div>
+  </div>
+
+  <!-- 3. 흩어짐과 팽창 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 03</span>
+    <div class="sec-title">흩어짐과 팽창 — 주요 거점 도시 분석</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="label">📢 교수 강조 — 핍박의 역설적 기능</div>
+    "핍박이 가해지지 않았더라면 기독교와 유대교의 단절은 더욱 천천히 진행되었을 것으로 추측한다." (행 8:1–27) 돌격대장 다소의 사울(사도바울)의 핍박이 오히려 복음을 사방으로 흩어 전파시키는 결과를 낳았다.
+  </div>
+
+  <div class="city-grid">
+    <div class="city-card">
+      <div class="city-name">다마스커스 <span>Damascus / 다메섹</span></div>
+      <ul class="city-body">
+        <li>구약 아람의 수도 → 현재 시리아 수도</li>
+        <li>핍박 전에도 이미 기독교 전파 (행 9:2)</li>
+        <li>에센파 유대인들 다수 거주</li>
+        <li>동방 기독교(에데사) 전파 교두보 역할</li>
+        <li>회당이 디아스포라 믿음의 핵심 본거지</li>
+      </ul>
+    </div>
+    <div class="city-card">
+      <div class="city-name">사마리아 <span>Samaria</span></div>
+      <ul class="city-body">
+        <li>BC 890년경 이스라엘 북왕국 수도</li>
+        <li>BC 722년 앗수르에 멸망 → 혼혈 정책 (느 10:30)</li>
+        <li>헬라파 빌립에 의해 복음화 (행 8:43)</li>
+        <li>시몬 마구스(Simon Magus) → 초기 이단의 시작</li>
+        <li>영지주의자 바실리데스 사마리아 출신</li>
+      </ul>
+    </div>
+    <div class="city-card">
+      <div class="city-name">가이사랴 <span>Caesarea</span></div>
+      <ul class="city-body">
+        <li>헤롯 대왕이 재건 — Caesar Augustus에 헌정</li>
+        <li>팔레스틴 행정 수도</li>
+        <li>백부장 고넬료 → 이방인 최초 개종 (행 10:1–2)</li>
+        <li>바울 선교여행 핵심 기항지</li>
+        <li>AD 70·135년 이후 학문 중심: 오리겐, 팜필루스, 유세비우스</li>
+      </ul>
+    </div>
+    <div class="city-card">
+      <div class="city-name">안디옥 <span>Antioch</span></div>
+      <ul class="city-body">
+        <li>예루살렘 다음 기독교 팽창 최중요 도시</li>
+        <li>"그리스도인(Christian)"이라 불린 최초의 곳 (행 11:26)</li>
+        <li>지중해 세계와 동방 연결 무역 센터</li>
+        <li>BC 64 로마 시리아 속주 수도</li>
+        <li>바울-바나바 선교 여행 후원 교회 (행 13:3–4)</li>
+        <li>할례 없이 이방인 수용 논쟁의 중심</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. 예루살렘 공의회 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 04</span>
+    <div class="sec-title">예루살렘 공의회와 이방인 수용 문제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">행 15장 — 예루살렘 공의회</div>
+    <div class="event-title">핵심 논쟁: 할례 없이 이방인을 교회로 받을 수 있는가?</div>
+    <div class="event-body">
+      유대에서 내려온 자들: "모세의 관례대로 할례를 받지 않으면 구원을 얻을 수 없다"(행 15:1)<br>
+      바울·바나바 측: 이방인들에게 할례 불요구<br>
+      <strong style="color:var(--accent)">최종 판결 — 야고보(예수의 동생, 행 15:19):</strong><br>
+      "이방 사람들을 괴롭히지 말라" → 다만 4가지 준수 요구 (행 15:20)
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sub-head" style="margin-top:0;">이방인에게 요구한 4가지 규정 (행 15:20, 29)</div>
+    <table>
+      <thead><tr><th>규정</th><th>내용</th><th>현대적 배경</th></tr></thead>
+      <tbody>
+        <tr><td class="td-b">① 우상에 바친 음식</td><td>이방신 신전 제물 육류 금지</td><td>당시 신전 제물 고기가 싸게 시장에 유통 — 고전 8–10장 논쟁 배경</td></tr>
+        <tr><td class="td-b">② 음행</td><td>성적 부도덕 금지</td><td>헬라 문화의 성적 자유로움과 충돌</td></tr>
+        <tr><td class="td-b">③ 목매어 죽인 것</td><td>비(非)코셔 방식으로 도살된 고기</td><td>코셔(Kosher)·할랄(Halal) — 현대에도 유대교·이슬람에서 준수</td></tr>
+        <tr><td class="td-b">④ 피</td><td>피 채 먹는 것 금지</td><td>순대·육회·선지 등 — 유대교 정결 규정의 핵심</td></tr>
+      </tbody>
+    </table>
+    <div class="prof-quote" style="margin-top:6px; margin-bottom:0;">
+      <div class="label">📢 교수 설명</div>
+      "왜 하필 이 4가지만인지에 대해서는 정확한 배경을 모른다. 다만 고린도 교회 사례(고전 8–10장)에서도 우상 제물·음행 문제가 동일하게 등장하는 것을 보면, 헬라 문화권 이방인 공동체에서 가장 빈번하게 발생한 갈등이었을 것으로 추측한다."
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">✂️</div>
+    <div class="callout-body">
+      <div class="callout-title">유아세례 논쟁과 할례 — 침례교 입장</div>
+      <div class="callout-text">구약 할례(이스라엘 백성 됨의 표시) → 일부 교단: 유아세례로 대체. 장로교 목사 대부분: "유아세례가 구원을 의미하지 않으며, 부모의 신앙 양육 헌신 표현". 침례교 입장: 유아세례 반대 — 신앙 고백한 자에게만 침례(1609년 첫 침례교 원리). 침례교는 유아헌신식(헌아식)은 인정하되, 할례 대체로서의 유아세례는 비성서적으로 본다.</div>
+    </div>
+  </div>
+
+  <!-- 5. 사도 바울의 선교 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 05</span>
+    <div class="sec-title">사도 바울의 선교 — 기독교의 재창설자</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <div class="person-name">사도 바울 (Paul the Apostle)</div>
+      <div class="person-date">다소(Tarsus) 출생 · 약 AD 66년 순교</div>
+    </div>
+    <div class="person-body">
+      <div class="p-label">신학적 정체성</div>
+      <div class="p-content">이방인의 사도 (롬 11:13; 15:16). 할례나 율법 준수 없이 이방인을 수용하는 신학적 근거·전략·추진력 제공. 일부 자유주의 신학자: "기독교 재창설자(refounder)" — 예수를 신격화하고 기독교를 조직한 인물로 주장. 보수 신학: 그러나 예수 그리스도께서 교회를 세우셨고 바울은 그 사명을 수행한 것.</div>
+      <div class="p-divider"></div>
+      <div class="p-label">세 가지 유산 (바울의 트리플 정체성)</div>
+      <div class="p-content">
+        🏛️ <strong>로마 시민권</strong> — 정치적 유산 (행 22:25–28)<br>
+        🏙️ <strong>다소 시민권</strong> — 사회문화적 유산 (길리기아 헬레니즘 환경)<br>
+        ✡️ <strong>유대인</strong> — 종교적 유산 (가말리엘 문하, 바리새파, 빌 3:5)
+      </div>
+      <div class="p-divider"></div>
+      <div class="p-label">사도직 논란</div>
+      <div class="p-content">이 당시 사도 조건: 예수를 직접 보았거나 사역에 동참 + 예루살렘 공동체의 사도적 인도. 바울은 둘 다 없어 논란 → 그러나 "그리스도 자신이 자격을 주심"(롬 1:1; 고전 1:1) 주장. 고린도 교인들은 그를 사도로 인정(고전 9:2).</div>
+      <div class="p-divider"></div>
+      <div class="p-label">혼인 여부 (학계 논쟁)</div>
+      <div class="p-content">산헤드린 공의회 회원 조건: 30세 이상 + 기혼 + 자녀 양육 경험. 스테반 순교 찬동(행 22:20; 26:10) 당시 공문(권한)을 소지 → 공의회 회원이었을 가능성 시사. 대부분 학자: 바울이 결혼했을 것이며 나중에 개종 후 이별(돌싱)이 되었을 것으로 추정. 단, 결론은 불확실.</div>
+    </div>
+  </div>
+
+  <!-- 바울의 목회 방침 -->
+  <div class="sub-head">바울의 목회 방침 — "모든 사람에게 모든 것이"</div>
+
+  <div class="card green">
+    <div style="font-family:'Crimson Pro',serif; font-size:10pt; font-style:italic; color:var(--text-sub); margin-bottom:6px;">"나는 어느 누구에게도 얽매이지 않는 자유로운 몸이지만 많은 사람을 얻으려고 스스로 모든 사람의 종이 되었습니다." — 고전 9:19</div>
+    <div style="font-size:8pt; color:var(--text-sub); line-height:1.7;">
+      • <strong style="color:var(--accent)">유대인에게</strong>: 유대인처럼 (정결의식 비용 부담, 안식일 활용) — 유대인을 얻기 위해<br>
+      • <strong style="color:var(--accent)">이방인에게</strong>: 율법 없이 사는 사람처럼 — 이방인을 얻기 위해<br>
+      • <strong style="color:var(--accent)">믿음 약한 자에게</strong>: 약한 자처럼 — 약한 자를 얻기 위해<br>
+      <span style="color:var(--badge-ya);">→ 비난을 감수하면서도 "복음의 복에 동참"하기 위한 선교 전략 (고전 9:23)</span>
+    </div>
+  </div>
+
+  <!-- 바울의 선교 여행 -->
+  <div class="sub-head">바울의 3차 전도 여행 요약</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>여행</th><th>동행</th><th>주요 경로</th><th>핵심 내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-b">1차</td>
+        <td>바나바 (초반 인도) → 바울 (이후 인도)</td>
+        <td>키프로스·밤필리아·비시디아·루가오니아·길리기아</td>
+        <td>할례 없이 이방인 수용 — 갈라디아 교회 혼란 야기</td>
+      </tr>
+      <tr>
+        <td class="td-b">2차</td>
+        <td>실라 대동 (마가 요한 거절로)</td>
+        <td>가이사라·안디옥·소아시아 도시들·에베소</td>
+        <td>에베소 여신 아르테미스 논쟁, 아볼로(행 18:24), 브리스길라·아굴라</td>
+      </tr>
+      <tr>
+        <td class="td-b">3차</td>
+        <td>—</td>
+        <td>예루살렘→로마 (해안 경로)</td>
+        <td>로마 도착 AD 62년경, 스페인 방문 전승 (불확실), AD 66년 참수</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 6. 유대인 항쟁 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 06</span>
+    <div class="sec-title">유대인 항쟁과 기독교 분리의 완결</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="cmp-card">
+      <div class="cmp-head">🔥 제1차 유대인 항쟁 (AD 66–70)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">배경</div>
+        <div class="cmp-val">총독 플로루스의 성전 창고 약탈 → 대규모 학살 → 열심당원 마사다 공격</div>
+        <div class="cmp-axis">전개</div>
+        <div class="cmp-val">베스파시안 파견 → 아들 티투스가 마무리 → AD 70년 예루살렘 성 함락</div>
+        <div class="cmp-axis">결과</div>
+        <div class="cmp-val">예루살렘 멸망 · 성전 파괴 · 회당 중심으로 재편 · 유대인 대학살·포로</div>
+        <div class="cmp-axis">기독교 반응</div>
+        <div class="cmp-val">눅 21:20–24에 따라 펠라(Pella, 요르단 지역)로 피신 → "에비온파(Ebionites, 가난한 자들)"로 존속</div>
+        <div class="cmp-axis">의의</div>
+        <div class="cmp-val"><strong style="color:var(--badge-si)">AD 70년 = 사도시대의 종말</strong> / 유대교–기독교 분열 완결</div>
+      </div>
+    </div>
+    <div class="cmp-card">
+      <div class="cmp-head">⚔️ 제2차 유대인 항쟁 (AD 132–135)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">배경</div>
+        <div class="cmp-val">하드리안 황제의 할례 금지 · 예루살렘 로마화 · 주피터 신전 건축 시도</div>
+        <div class="cmp-axis">지도자</div>
+        <div class="cmp-val">바르 코크바(Bar Kochba) — "별의 아들" (민 24:17) 메시아로 여겨짐</div>
+        <div class="cmp-axis">전개</div>
+        <div class="cmp-val">게릴라전 → 예루살렘 3년 해방 → 율리우스 세베루스 진압 → 베타르 요새 함락</div>
+        <div class="cmp-axis">결과</div>
+        <div class="cmp-val">① 예루살렘 → 아이리아 카피톨리나(Aelia Capitolina)로 개명·로마화<br>② 유대인 예루살렘 추방·출입 금지<br>③ 유대 지역 → <strong style="color:var(--badge-si)">팔레스타인(Palestine)</strong>으로 개명</div>
+        <div class="cmp-axis">역사적 의의</div>
+        <div class="cmp-val">이후 1800년간 유대인 정치적 독립 불가 → 1948년 이스라엘 건국</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 헤롯 가문 -->
+  <div class="sub-head">헤롯 가문 4대 정리 (시험 필수)</div>
+
+  <table>
+    <thead>
+      <tr><th>인물</th><th>연도</th><th>주요 행적</th><th>성경 연결</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-b">헤롯 대제<br><span style="font-size:7pt;color:var(--text-hint);">Herod the Great</span></td>
+        <td>BC 73–4년</td>
+        <td>베들레헴 유아 학살 / 성전 재건 / 10명의 아내</td>
+        <td>마 2:16 (유아 학살)</td>
+      </tr>
+      <tr>
+        <td class="td-b">헤롯 안티파스<br><span style="font-size:7pt;color:var(--text-hint);">Herod Antipas</span></td>
+        <td>BC 20–AD 39년</td>
+        <td>이복동생 빌립의 아내 헤로디아와 재혼 → 침례 요한 참수 / 예수 재판</td>
+        <td>마 14:11–12 / 막 6:17–28</td>
+      </tr>
+      <tr>
+        <td class="td-b">헤롯 아그립바 1세<br><span style="font-size:7pt;color:var(--text-hint);">Herod Agrippa I</span></td>
+        <td>BC 10–AD 44년</td>
+        <td>야고보(세베대의 아들) 순교 / 베드로 투옥 / 벌레에 먹혀 죽음</td>
+        <td>행 12장</td>
+      </tr>
+      <tr>
+        <td class="td-b">헤롯 아그립바 2세<br><span style="font-size:7pt;color:var(--text-hint);">Herod Agrippa II</span></td>
+        <td>AD 27–94년</td>
+        <td>바울의 심판관 (행 26장) / 헤롯 왕가 마지막</td>
+        <td>행 25–26장</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 핵심 포인트 -->
+  <div class="keypoints">
+    <div class="kp-title">⭐ 오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="kp-item">
+      <div class="kp-num">1</div>
+      <div><strong style="color:var(--accent)">핍박이 전파를 가속했다:</strong> 스테반 순교 이후 흩어진 제자들이 다마스커스·사마리아·가이사랴·안디옥으로 퍼지며 기독교가 팔레스틴을 넘어 세계 종교로 발전하였다. 사도바울의 핍박 활동 자체가 아이러니하게도 기독교를 더 넓은 세계에 알리는 계기가 되었다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">2</div>
+      <div><strong style="color:var(--accent)">할례 논쟁이 기독교의 독자성을 확립했다:</strong> 예루살렘 공의회(행 15장)에서 이방인에게 할례를 요구하지 않기로 결정한 것은 기독교가 유대교의 한 분파에서 독립된 보편 종교로 전환되는 결정적 사건이었다. 안디옥에서 처음으로 "그리스도인(Christian)"이라는 독자적 정체성이 생겨난 것도 이 맥락이다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">3</div>
+      <div><strong style="color:var(--accent)">AD 70년은 단순한 역사 사건이 아닌 신학적 전환점이다:</strong> 예루살렘 멸망은 성전 중심 유대교의 종말이자 사도시대의 종료를 의미한다. 기독교인들의 펠라 피신은 기독교가 유대교와 완전히 분리되는 상징적 계기가 되었으며, 이후 교회는 회당 대신 가정 모임과 독자적 예배 형태로 발전해 나갔다.</div>
+    </div>
+  </div>
+
+</div><!-- /tab-note -->
+
+<!-- ============================
+     TAB 2 · 핵심정리
+     ============================ -->
+<div id="tab-key" class="tab-panel">
+
+  <div class="sec-head">
+    <span class="sec-badge">OX</span>
+    <div class="sec-title">OX 문제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- OX 1 -->
+  <div class="ox-card">
+    <span class="ox-badge">O / X</span>
+    <div class="q-text">1. 안디옥은 예루살렘 다음으로 초기 기독교 확장에 가장 중요한 도시였으며, "그리스도인(Christian)"이라는 명칭이 처음 사용된 곳이다.</div>
+    <button class="toggle-btn" onclick="toggleAns(this)">정답 보기</button>
+    <div class="ans-box">
+      <div class="ans-mark o">O</div>
+      <div class="ans-text">행 11:26. 안디옥에서 바울·바나바가 1년간 가르치면서 이방인 개종자들이 폭발적으로 증가했고, 이때 처음으로 "그리스도인"이라는 독자적 정체성이 생겨났다.</div>
+    </div>
+  </div>
+
+  <!-- OX 2 -->
+  <div class="ox-card">
+    <span class="ox-badge">O / X</span>
+    <div class="q-text">2. AD 70년 예루살렘 함락 당시 기독교인들은 유대인들과 함께 로마에 맞서 무력으로 저항하였다.</div>
+    <button class="toggle-btn" onclick="toggleAns(this)">정답 보기</button>
+    <div class="ans-box">
+      <div class="ans-mark x">X</div>
+      <div class="ans-text">눅 21:20–24의 예수의 경고에 따라 기독교인들은 로마군이 예루살렘을 에워쌀 때 요단강 동편 펠라(Pella)로 피신하였다. 이를 경건한 유대인들은 배반 행위로 간주하여 기독교인들의 회당 출입을 금지시켰다.</div>
+    </div>
+  </div>
+
+  <!-- OX 3 -->
+  <div class="ox-card">
+    <span class="ox-badge">O / X</span>
+    <div class="q-text">3. 사도 바울은 스스로를 "이방인의 사도"라 불렀으나, 이방인을 수용하는 신학적 근거를 처음으로 제시한 사람은 바울이 아닌 다른 사람이었다.</div>
+    <button class="toggle-btn" onclick="toggleAns(this)">정답 보기</button>
+    <div class="ans-box">
+      <div class="ans-mark o">O</div>
+      <div class="ans-text">할례 없이 이방인을 수용하는 사상은 바울이 처음 시작한 것이 아니다. 그러나 바울이 이 일의 신학적 근거 제공, 이방인 선교 전략 수립, 추진력을 제공한 핵심 인물이었다. 강의안에도 "비록 사도 바울에 의해 시작되지는 않았으나"라고 명시되어 있다.</div>
+    </div>
+  </div>
+
+  <!-- OX 4 -->
+  <div class="ox-card">
+    <span class="ox-badge">O / X</span>
+    <div class="q-text">4. 제2차 유대인 항쟁(AD 132–135)의 결과로 유대 지역의 이름이 "팔레스타인"으로 바뀌었다.</div>
+    <button class="toggle-btn" onclick="toggleAns(this)">정답 보기</button>
+    <div class="ans-box">
+      <div class="ans-mark o">O</div>
+      <div class="ans-text">하드리안 황제가 반란 재발을 막기 위해: ① 예루살렘을 아이리아 카피톨리나로 개명·로마식 재건 ② 유대인 추방 및 출입 금지 ③ 유대 지역 이름을 "팔레스타인(Palestine)"으로 변경. 이후 1800년간 유대인의 정치적 독립이 불가능해졌다.</div>
+    </div>
+  </div>
+
+  <!-- OX 5 -->
+  <div class="ox-card">
+    <span class="ox-badge">O / X</span>
+    <div class="q-text">5. 헤롯 안티파스는 예수의 재판과 침례 요한의 처형 모두에 관여하였다.</div>
+    <button class="toggle-btn" onclick="toggleAns(this)">정답 보기</button>
+    <div class="ans-box">
+      <div class="ans-mark o">O</div>
+      <div class="ans-text">헤롯 안티파스: 이복 동생 빌립의 아내 헤로디아와 재혼 → 침례 요한 비판 → 생일 잔치에서 헤로디아의 딸 살로메의 요청으로 침례 요한 참수(마 14장). 또한 빌라도가 예수를 갈릴리 출신이라며 안티파스에게 보내 재판시켰다(눅 23:6–12).</div>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:14px;">
+    <span class="sec-badge">단답</span>
+    <div class="sec-title">단답형 문제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 단답 1 -->
+  <div class="ox-card">
+    <span class="sa-badge">단답형</span>
+    <div class="q-text">Q1. 예루살렘 초기 공동체에서 아람어를 사용하던 그룹과 헬라어를 사용하던 그룹을 각각 무엇이라 불렀는가?</div>
+    <button class="toggle-btn" onclick="toggleSa(this)">정답 보기</button>
+    <div class="model-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">아람어 사용 그룹 = <strong>히브리파(Hebrews)</strong> / 헬라어 사용 그룹 = <strong>헬라파(Hellenists)</strong> (행 6:1). 히브리파가 교회 내 더 강한 발언권을 가졌으며, 헬라파는 상대적으로 소외되었다.</div>
+    </div>
+  </div>
+
+  <!-- 단답 2 -->
+  <div class="ox-card">
+    <span class="sa-badge">단답형</span>
+    <div class="q-text">Q2. 사도 바울이 자신의 정체성을 요약한 구절(고전 9:22)의 핵심 내용을 한 문장으로 서술하시오.</div>
+    <button class="toggle-btn" onclick="toggleSa(this)">정답 보기</button>
+    <div class="model-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">"나는 모든 종류의 사람에게 모든 것이 다 되었다"(고전 9:22b). 유대인에게는 유대인처럼, 이방인에게는 이방인처럼, 믿음이 약한 자에게는 약한 자처럼 — 복음을 위해 비난을 감수하고 그들을 얻기 위해 행동했다.</div>
+    </div>
+  </div>
+
+  <!-- 단답 3 -->
+  <div class="ox-card">
+    <span class="sa-badge">단답형</span>
+    <div class="q-text">Q3. 예루살렘 공의회(행 15장)에서 이방인에게 요구한 4가지 규정을 모두 쓰시오.</div>
+    <button class="toggle-btn" onclick="toggleSa(this)">정답 보기</button>
+    <div class="model-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">① 우상에게 바쳐진 더러운 음식 금지 ② 음행 금지 ③ 목매어 죽인 것 금지 ④ 피 먹는 것 금지 (행 15:20, 29)</div>
+    </div>
+  </div>
+
+  <!-- 단답 4 -->
+  <div class="ox-card">
+    <span class="sa-badge">단답형</span>
+    <div class="q-text">Q4. "그리스도인(Christian)"이라는 명칭이 처음 사용된 도시와 성경 근거 구절은?</div>
+    <button class="toggle-btn" onclick="toggleSa(this)">정답 보기</button>
+    <div class="model-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">도시: <strong>안디옥(Antioch)</strong> / 근거: 행 11:26 — "제자들은 안디옥에서 처음으로 그리스도인이라 불리게 되었다."</div>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:14px;">
+    <span class="sec-badge">약술</span>
+    <div class="sec-title">약술형 문제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 약술 1 -->
+  <div class="ox-card">
+    <span class="ya-badge">약술형</span>
+    <div class="q-text">Q1. AD 70년 예루살렘 함락이 기독교–유대교 분리에 미친 역할을 설명하시오.</div>
+    <button class="toggle-btn" onclick="toggleYa(this)">모범 답안 뼈대 보기</button>
+    <div class="model-ya">
+      <div class="ans-label">모범 답안 방향</div>
+      <div class="ans-text">
+        ① <strong>배경</strong>: AD 66년 열심당원 반란 → 로마의 강경 진압 → AD 70년 티투스에 의한 예루살렘 성·성전 파괴<br>
+        ② <strong>기독교인의 반응</strong>: 눅 21:20–24에 따라 펠라로 피신 (무력 저항 불참) → 유대인들 = 배반 행위로 간주 → 회당 출입 금지<br>
+        ③ <strong>신학적 결과</strong>: 성전 중심 유대교 붕괴 → 회당 중심으로 재편 / 기독교는 독자적 정체성 확립 → 유대교와의 최종 분리<br>
+        ④ <strong>역사적 의의</strong>: AD 70년 = 사도시대의 종말을 상징하는 전환점
+      </div>
+    </div>
+  </div>
+
+  <!-- 약술 2 -->
+  <div class="ox-card">
+    <span class="ya-badge">약술형</span>
+    <div class="q-text">Q2. 사도 바울이 이방인 선교에 있어서 할례 문제를 어떻게 처리했는지, 그 신학적 근거와 실천적 결과를 서술하시오.</div>
+    <button class="toggle-btn" onclick="toggleYa(this)">모범 답안 뼈대 보기</button>
+    <div class="model-ya">
+      <div class="ans-label">모범 답안 방향</div>
+      <div class="ans-text">
+        ① <strong>배경</strong>: 유대교 공동체는 이방인 개종 시 할례·희생제사 요구 → 이방인에게 큰 장벽<br>
+        ② <strong>바울의 입장</strong>: 할례 불요구 → 침례를 통한 공동체 입문 → 갈라디아 교회 혼란 야기 (갈 3장)<br>
+        ③ <strong>예루살렘 공의회 결과</strong>: 야고보의 판결 (행 15:19) — 할례·희생제사 폐지, 4가지 규정만 준수<br>
+        ④ <strong>신학적 의의</strong>: 기독교가 유대교 분파에서 보편적 세계 종교로 전환되는 결정적 계기. 유아세례 논쟁(할례 대체론)의 역사적 기원이기도 함
+      </div>
+    </div>
+  </div>
+
+  <!-- 인물 비교 -->
+  <div class="sec-head" style="margin-top:14px;">
+    <span class="sec-badge">비교</span>
+    <div class="sec-title">인물·개념 비교 — 침례요한파 vs 예수파</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="cmp-card">
+      <div class="cmp-head">세례 요한의 제자들 (침례요한파)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">침례 이해</div>
+        <div class="cmp-val">회개 침례 (물 침례)</div>
+        <div class="cmp-axis">메시아관</div>
+        <div class="cmp-val">세례 요한을 예수보다 우월한 존재로 여기는 경향 (요한이 예수에게 침례를 줌)</div>
+        <div class="cmp-axis">금식 실천</div>
+        <div class="cmp-val">정기적으로 금식 (마 9:14)</div>
+        <div class="cmp-axis">지속 기간</div>
+        <div class="cmp-val">사도 바울 시대까지 존속 (행 19:1–7) — 에베소에서 요한 침례만 받은 제자 12명 발견</div>
+      </div>
+    </div>
+    <div class="cmp-card">
+      <div class="cmp-head">예수 그리스도의 제자들 (예수파)</div>
+      <div class="cmp-body">
+        <div class="cmp-axis">침례 이해</div>
+        <div class="cmp-val">성령 침례 (성령의 임재)</div>
+        <div class="cmp-axis">메시아관</div>
+        <div class="cmp-val">예수를 하나님의 아들·메시아로 고백</div>
+        <div class="cmp-axis">금식 실천</div>
+        <div class="cmp-val">금식하지 않음 (신랑과 함께할 때 금식 불필요 — 마 9:15)</div>
+        <div class="cmp-axis">지속 기간</div>
+        <div class="cmp-val">AD 70년 이후에도 독자적 공동체로 발전 → 기독교</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-key -->
+
+<!-- ============================
+     TAB 3 · 연대기
+     ============================ -->
+<div id="tab-tl" class="tab-panel">
+
+  <div class="sec-head">
+    <span class="sec-badge">연대기</span>
+    <div class="sec-title">사도시대 — 예루살렘에서 세계로 (누적 타임라인)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <span class="tl-era-label apostle">🕊️ 사도시대 · Apostolic Age · 30–100 AD</span>
+  </div>
+
+  <div class="timeline-wrap">
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 30년경</div>
+      <div class="tl-event">오순절 — 예루살렘 교회 형성</div>
+      <span class="tl-person">베드로</span><span class="tl-person">성령 강림</span>
+      <div class="tl-desc">마가 다락방에 모인 120명의 제자들. 각국에서 온 디아스포라 유대인들 3,000명 회심. 예루살렘 교회는 히브리파·헬라파의 다양성을 내포한 채 출발.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 33–36년경</div>
+      <div class="tl-event">스테반 순교 → 핍박과 흩어짐</div>
+      <span class="tl-person">스테반</span><span class="tl-person">사울(바울)</span><span class="tl-person">빌립</span>
+      <div class="tl-desc">헬라파 스테반이 율법·성전 도전 → 산헤드린에 의해 돌에 맞아 순교 (최초의 순교자). 사울이 핍박 주도 → 제자들 사마리아·가이사랴·안디옥으로 흩어짐. 빌립이 사마리아를 복음화 (행 8장).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 35년경</div>
+      <div class="tl-event">다소의 사울 다마스커스 도상 회심</div>
+      <span class="tl-person">사울 → 바울</span>
+      <div class="tl-desc">부활하신 예수와의 만남 (행 9장). 아라비아 사막 3년 → 예루살렘(베드로·야고보 면담) → 고향 다소로 귀환. 바나바가 다소에서 바울을 찾아 안디옥으로 데려감 (행 11:25–26).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 41년경</div>
+      <div class="tl-event">야고보(세베대의 아들) 순교</div>
+      <span class="tl-person">헤롯 아그립바 1세</span><span class="tl-person">야고보</span>
+      <div class="tl-desc">팔레스틴 왕 헤롯 아그립바 1세의 명에 의해 처형. 예루살렘 교회는 핵심 지도자를 잃음 (행 12:1–5).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 46–48년</div>
+      <div class="tl-event">바울 1차 전도 여행</div>
+      <span class="tl-person">바울</span><span class="tl-person">바나바</span>
+      <div class="tl-desc">안디옥 교회 후원 → 키프로스·밤필리아·비시디아·루가오니아. 갈라디아 교회 설립 → 할례 없이 이방인 수용 → 갈라디아 교회 혼란 발생.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 48–49년경</div>
+      <div class="tl-event">예루살렘 공의회 — 이방인 수용 결정</div>
+      <span class="tl-person">야고보(예수의 형제)</span><span class="tl-person">베드로</span><span class="tl-person">바울</span><span class="tl-person">바나바</span>
+      <div class="tl-desc">핵심 결정: 이방인에게 할례·희생제사 불요구. 4가지 규정만 준수 (행 15:20). 야고보의 최종 판결. 기독교의 보편 종교로의 전환을 공식화.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 49–52년</div>
+      <div class="tl-event">바울 2차 전도 여행</div>
+      <span class="tl-person">바울</span><span class="tl-person">실라</span><span class="tl-person">아볼로</span><span class="tl-person">브리스길라·아굴라</span>
+      <div class="tl-desc">에베소 — 아르테미스 여신 논쟁. 고린도 교회 설립. 데살로니가·빌립보·갈라디아 교회들. 에베소에서 요한의 침례만 아는 제자 12명 발견 (행 18:25; 19:1–7).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 62년경</div>
+      <div class="tl-event">야고보(예수의 동생) 순교</div>
+      <span class="tl-person">야고보</span>
+      <div class="tl-desc">유대 대제사장의 명에 의해 살해. 예루살렘 교회 지도자를 잃음. 유대인 성전 건축 완성(AD 64)으로 수천 명 실직 → 사회 불안 고조.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 62년경</div>
+      <div class="tl-event">바울 로마 도착 · 순교</div>
+      <span class="tl-person">바울</span>
+      <div class="tl-desc">로마 도착 → 스페인 방문 전승 (불확실) → AD 66년 로마에서 참수. 네로 황제의 기독교 박해 시기.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 66–70년</div>
+      <div class="tl-event">제1차 유대인 항쟁 — 예루살렘 함락</div>
+      <span class="tl-person">베스파시안</span><span class="tl-person">티투스</span>
+      <div class="tl-desc">총독 플로루스의 성전 창고 약탈 → 반란. 로마의 명장 베스파시안·티투스에 의해 진압. AD 70년 예루살렘 성·성전 파괴. 기독교인들은 펠라로 피신 ("에비온파"). 사도시대 종결.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot apostle"></div>
+      <div class="tl-year">AD 132–135년</div>
+      <div class="tl-event">제2차 유대인 항쟁 (바르 코크바 반란)</div>
+      <span class="tl-person">바르 코크바</span><span class="tl-person">하드리안 황제</span>
+      <div class="tl-desc">바르 코크바(別의 아들) — 게릴라전으로 예루살렘 3년 해방. 율리우스 세베루스에 의해 진압 → 베타르 요새 함락. 결과: 예루살렘 → 아이리아 카피톨리나 / 유대 지역 → "팔레스타인" 개명. 이후 1800년간 유대인 정치적 독립 불가.</div>
+    </div>
+
+  </div>
+
+  <div class="callout info" style="margin-top:12px;">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body">
+      <div class="callout-title">연대기 누적 안내</div>
+      <div class="callout-text">이 탭은 매 주차마다 새로운 항목이 추가되어 학기 전체 교회사 흐름을 한눈에 볼 수 있도록 설계되어 있습니다. 현재는 1–4주차(사도시대) 내용이 누적되어 있습니다. 기말고사 전에는 사도시대→가톨릭시대→로마제국시대→중세까지의 전체 타임라인이 완성됩니다.</div>
+    </div>
+  </div>
+
+</div><!-- /tab-tl -->
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleAns(btn) {
+    const box = btn.nextElementSibling;
+    const visible = box.style.display === 'block';
+    box.style.display = visible ? 'none' : 'block';
+    btn.textContent = visible ? '정답 보기' : '정답 숨기기';
+  }
+
+  function toggleSa(btn) {
+    const box = btn.nextElementSibling;
+    const visible = box.style.display === 'block';
+    box.style.display = visible ? 'none' : 'block';
+    btn.textContent = visible ? '정답 보기' : '정답 숨기기';
+  }
+
+  function toggleYa(btn) {
+    const box = btn.nextElementSibling;
+    const visible = box.style.display === 'block';
+    box.style.display = visible ? 'none' : 'block';
+    btn.textContent = visible ? '모범 답안 뼈대 보기' : '답안 숨기기';
+  }
+</script>
+</body>
+</html>
