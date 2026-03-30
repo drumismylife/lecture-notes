@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 4주차 — 목회자의 소명 & 목회와 목회자(2)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg-page: #0f1a12;
+    --bg-card: #172018;
+    --bg-subcard: #1e2a20;
+    --bg-field: #1a2a1a;
+    --green-main: #7ab87a;
+    --green-soft: #a8d4a8;
+    --green-dim: #4a8a4a;
+    --green-border: #2a3e2a;
+    --cream: #d4c9a8;
+    --cream-dim: #b8ad90;
+    --text-main: #e8ede8;
+    --text-sub: #9aaa9a;
+    --text-muted: #6a7a6a;
+    --red-exam: #c96b5a;
+    --red-exam-bg: #2d1a16;
+    --amber-task: #c49a3c;
+    --amber-task-bg: #2a2010;
+    --scripture: #a8d4a8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  .doc-header {
+    background: linear-gradient(135deg, #0a1209 0%, #172018 60%, #1e2d1c 100%);
+    border-bottom: 1px solid var(--green-border);
+    padding: 36px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(122,184,122,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .meta-badge {
+    background: var(--bg-subcard);
+    border: 1px solid var(--green-border);
+    color: var(--text-sub);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  .meta-badge.highlight {
+    border-color: var(--green-dim);
+    color: var(--green-main);
+  }
+  .doc-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .doc-subtitle {
+    color: var(--text-sub);
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  /* ── 탭 ── */
+  .tab-bar {
+    display: flex;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--green-border);
+    padding: 0 40px;
+    gap: 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--text-muted);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 14px 20px 12px;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+    letter-spacing: 0.03em;
+  }
+  .tab-btn:hover { color: var(--text-sub); }
+  .tab-btn.active {
+    color: var(--green-main);
+    border-bottom-color: var(--green-main);
+  }
+
+  /* ── 컨텐츠 래퍼 ── */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 40px 80px;
+  }
+
+  /* ── 섹션 구분 ── */
+  .section-divider {
+    display: flex; align-items: center; gap: 14px;
+    margin: 40px 0 24px;
+  }
+  .section-divider .label {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-main);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .section-divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--green-dim), transparent);
+  }
+
+  /* ── [원칙] 블록 ── */
+  .principle-block {
+    border-left: 3px solid var(--green-main);
+    background: var(--bg-card);
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
+  }
+  .principle-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .principle-title::before {
+    content: '원칙';
+    background: var(--green-main);
+    color: #0f1a12;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+  .principle-core {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background: rgba(122,184,122,0.06);
+    border-radius: 3px;
+  }
+  .principle-desc {
+    color: var(--text-sub);
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .principle-bible {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green-soft);
+    padding-top: 8px;
+    border-top: 1px solid var(--green-border);
+  }
+
+  /* ── [성경] 블록 ── */
+  .bible-block {
+    background: var(--bg-subcard);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .bible-header {
+    background: rgba(122,184,122,0.08);
+    padding: 10px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--green-border);
+  }
+  .bible-badge {
+    background: var(--green-dim);
+    color: #0f1a12;
+    font-size: 9px; font-weight: 700;
+    padding: 2px 6px; border-radius: 2px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .bible-ref {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .bible-body { padding: 14px 18px; }
+  .bible-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--scripture);
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: rgba(168,212,168,0.05);
+    border-radius: 3px;
+    line-height: 1.7;
+  }
+  .bible-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--green-border);
+  }
+  .bible-row-item label {
+    display: block;
+    font-size: 10px;
+    color: var(--green-main);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .bible-row-item p {
+    font-size: 12px;
+    color: var(--text-sub);
+  }
+  .bible-apply { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--green-border); }
+  .bible-apply label {
+    display: block;
+    font-size: 10px; color: var(--cream-dim);
+    font-weight: 600; letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .bible-apply p { font-size: 12px; color: var(--text-main); }
+
+  /* ── [목회자상] 카드 ── */
+  .pastor-card {
+    background: var(--bg-card);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .pastor-header {
+    background: linear-gradient(to right, rgba(122,184,122,0.1), transparent);
+    padding: 12px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--green-border);
+  }
+  .pastor-icon {
+    width: 32px; height: 32px;
+    background: rgba(122,184,122,0.12);
+    border: 1px solid var(--green-dim);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .pastor-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--cream);
+  }
+  .pastor-body {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .pastor-item { }
+  .pastor-item label {
+    display: inline-block;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #0f1a12;
+    background: var(--green-main);
+    padding: 2px 7px; border-radius: 2px;
+    margin-bottom: 5px;
+  }
+  .pastor-item p {
+    font-size: 12px; color: var(--text-sub);
+    line-height: 1.65;
+  }
+
+  /* ── [사역] 블록 ── */
+  .ministry-block {
+    background: var(--bg-subcard);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .ministry-header {
+    padding: 10px 18px;
+    background: rgba(74,138,74,0.12);
+    border-bottom: 1px solid var(--green-border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ministry-badge {
+    font-size: 9px; font-weight: 700;
+    padding: 2px 7px; border-radius: 2px;
+    letter-spacing: 0.08em;
+  }
+  .ministry-badge.worship { background: #3a6a7a; color: #b0dde8; }
+  .ministry-badge.group   { background: #3a5a3a; color: var(--green-soft); }
+  .ministry-badge.leadership { background: #4a4a2a; color: #d4d4a0; }
+  .ministry-badge.default { background: var(--green-dim); color: #0f1a12; }
+  .ministry-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--cream);
+  }
+  .ministry-body {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .ministry-item label {
+    display: block; font-size: 10px;
+    color: var(--green-main); font-weight: 600;
+    letter-spacing: 0.08em; margin-bottom: 4px;
+  }
+  .ministry-item p { font-size: 12px; color: var(--text-sub); }
+
+  /* ── [현장] 블록 ── */
+  .field-block {
+    background: var(--bg-field);
+    border-left: 3px solid var(--green-dim);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
+  }
+  .field-title {
+    font-size: 13px; font-weight: 600;
+    color: var(--green-soft);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .field-title::before {
+    content: '현장';
+    background: var(--green-dim);
+    color: #0f1a12;
+    font-size: 9px; font-weight: 700;
+    padding: 2px 6px; border-radius: 2px;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 14px;
+    align-items: start;
+  }
+  .field-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--green-dim);
+    letter-spacing: 0.1em;
+    padding-top: 1px;
+  }
+  .field-val { font-size: 12px; color: var(--text-sub); }
+
+  /* ── [교재] 블록 ── */
+  .textbook-block {
+    background: var(--bg-card);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .textbook-author {
+    display: inline-block;
+    background: rgba(122,184,122,0.15);
+    border: 1px solid var(--green-dim);
+    color: var(--green-main);
+    font-size: 10px; font-weight: 600;
+    padding: 3px 10px; border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .textbook-claim {
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 12.5px;
+    line-height: 1.7;
+    border-left: 2px solid var(--green-dim);
+    padding-left: 12px;
+    margin-bottom: 6px;
+  }
+  .textbook-source {
+    font-size: 10px; color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── [교수설명] 블록 ── */
+  .lecture-block {
+    background: linear-gradient(to right, rgba(122,184,122,0.04), transparent);
+    border-left: 2px solid var(--green-dim);
+    padding: 12px 18px;
+    margin-bottom: 14px;
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+  .lecture-label {
+    display: inline-block;
+    font-style: normal;
+    background: var(--bg-subcard);
+    border: 1px solid var(--green-border);
+    color: var(--green-main);
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  /* ── [성찰] 블록 ── */
+  .reflect-block {
+    background: #1e261e;
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .reflect-label {
+    font-size: 11px; font-weight: 600;
+    color: var(--green-main);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .reflect-label::before { content: '🌿'; }
+  .reflect-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .reflect-list li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 12.5px; color: var(--scripture);
+  }
+  .reflect-list li::before {
+    content: '?';
+    background: rgba(168,212,168,0.12);
+    color: var(--green-main);
+    border-radius: 50%;
+    width: 18px; height: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── [시험] 블록 ── */
+  .exam-block {
+    background: var(--red-exam-bg);
+    border: 1px solid var(--red-exam);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .exam-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--red-exam);
+    color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 10px; border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .exam-badge::before { content: '★'; font-size: 9px; }
+  .exam-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .exam-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .exam-list li {
+    font-size: 12px; color: #e8c0b8;
+    display: flex; gap: 8px;
+  }
+  .exam-list li::before {
+    content: attr(data-n);
+    color: var(--red-exam);
+    font-weight: 700; font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 16px;
+  }
+
+  /* ── [과제] 블록 ── */
+  .task-block {
+    background: var(--amber-task-bg);
+    border: 1px solid var(--amber-task);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .task-badge {
+    display: inline-block;
+    background: var(--amber-task);
+    color: #0f1a12;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 10px; border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .task-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 600;
+    color: #e8d89a;
+    margin-bottom: 10px;
+  }
+  .task-section {
+    margin-bottom: 10px;
+  }
+  .task-section label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: var(--amber-task); letter-spacing: 0.08em; margin-bottom: 4px;
+  }
+  .task-section p, .task-section li {
+    font-size: 12px; color: #c8b870;
+  }
+  .task-section ul { list-style: none; }
+  .task-section ul li::before { content: '→ '; color: var(--amber-task); }
+
+  /* ── 핵심원칙 3가지 ── */
+  .core-three {
+    margin-top: 48px;
+    background: linear-gradient(135deg, #12201a 0%, #172018 100%);
+    border: 1px solid var(--green-dim);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+  .core-three-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .core-three-title::before {
+    content: '✦';
+    color: var(--green-main);
+    font-size: 16px;
+  }
+  .core-three-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .core-item {
+    text-align: center;
+    padding: 16px 12px;
+    background: rgba(122,184,122,0.05);
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+  }
+  .core-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px; font-weight: 400;
+    color: rgba(122,184,122,0.25);
+    display: block; line-height: 1;
+    margin-bottom: 10px;
+  }
+  .core-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .core-desc {
+    font-size: 11px; color: var(--text-sub);
+    line-height: 1.6;
+  }
+
+  /* ── 2열 레이아웃 ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* ── 인쇄 ── */
+  @media print {
+    body { background: var(--bg-page) !important; }
+    .tab-bar { display: none !important; }
+    .tab-content { display: block !important; }
+    .tab-content:not(:first-child) { margin-top: 48px; }
+    .content-wrap { padding: 24px; max-width: 100%; }
+    .doc-header { padding: 24px; }
+    .core-three-grid { grid-template-columns: repeat(3,1fr); }
+    .two-col { grid-template-columns: 1fr 1fr; }
+    .ministry-body { grid-template-columns: repeat(4,1fr); }
+    * { font-size: 11pt !important; }
+    .doc-title { font-size: 16pt !important; }
+    .principle-title, .bible-ref, .pastor-title, .ministry-name,
+    .exam-title, .task-title { font-size: 12pt !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<div class="doc-header">
+  <div class="header-meta">
+    <span class="meta-badge highlight">목회학</span>
+    <span class="meta-badge">4주차</span>
+    <span class="meta-badge">2026-03-30</span>
+    <span class="meta-badge">이영호 교수</span>
+    <span class="meta-badge">중간고사 D-21 (4/20)</span>
+  </div>
+  <div class="doc-title">목회자의 소명 &amp; 목회와 목회자(2)</div>
+  <div class="doc-subtitle">부름받은 종의 정체성 · 건강한 교회 · 이머징 교회 · 세이비어 교회 모델</div>
+</div>
+
+<!-- ── 탭바 ── -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(1)">🎯 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(2)">⛪ 현장적용</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     탭 1 : 강의노트 (전체)
+══════════════════════════════════════ -->
+<div class="tab-content active" id="tab0">
+<div class="content-wrap">
+
+  <!-- § 소명의 중요성 -->
+  <div class="section-divider">
+    <span class="label">Ⅰ. 소명의 중요성</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">소명의 출발점</div>
+    <div class="principle-core">목회는 하나님의 부르심에 대한 응답에서 시작된다</div>
+    <div class="principle-desc">
+      스펄전 — "소명에 대한 깊은 확신을 갖기 전에는 사역에 뛰어들어서는 안 된다."<br>
+      칼빈 — "교회의 참된 목회자로 인정받고자 한다면, 목사 자신만이 알 수 있는 <strong style="color:var(--cream)">은밀한 소명</strong>을 고려해야 한다."<br>
+      <span style="color:var(--text-muted); font-size:12px;">※ 목회자 30% 이상이 소명을 의심한 경험 있음 — 주 원인: 사역의 어려움, 경제적 문제, 이중직 문제</span>
+    </div>
+    <div class="principle-bible">📖 출 3:1–12 · 딤전 3:1 · 빌 2:13</div>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">소명 확인의 4요소 — 제임스 조지</div>
+    <div class="principle-core">소명은 하나님께서 나를 선택하셨다는 확신이다</div>
+    <div class="principle-desc">
+      ① 사역지가 주어지는 상황<br>
+      ② 리더십에 필요한 능력 소유 — 은사(선천적) + 훈련(후천적)<br>
+      ③ 사역에 대한 갈망 — 힘들어도 하고 싶은 마음<br>
+      ④ <strong style="color:var(--cream)">도덕적 온전함</strong>으로 주어진 생활 유형 — 거룩하게 살고 싶은 마음 (가장 중요)
+    </div>
+    <div class="principle-bible">📖 딤전 3:1 "감독의 직분을 얻으려 함은 선한 일을 사모하는 것"</div>
+  </div>
+
+  <!-- § 부름받은 자의 특징 -->
+  <div class="section-divider">
+    <span class="label">Ⅱ. 부름받은 자의 특징</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="two-col">
+    <div class="bible-block">
+      <div class="bible-header">
+        <span class="bible-badge">성경</span>
+        <span class="bible-ref">출 3:1–12 (모세)</span>
+      </div>
+      <div class="bible-body">
+        <div class="bible-text">"모세야 모세야 … 네 발에서 신을 벗으라"</div>
+        <div class="bible-row">
+          <div class="bible-row-item">
+            <label>해석</label>
+            <p>신 벗기 = 룻기의 기업 무를 권리 포기. 자신의 권리를 내려놓으라는 명령</p>
+          </div>
+          <div class="bible-row-item">
+            <label>적용</label>
+            <p>목회자는 일과 삶의 균형을 누릴 권리를 일정 부분 내려놓을 자세가 필요</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bible-block">
+      <div class="bible-header">
+        <span class="bible-badge">성경</span>
+        <span class="bible-ref">마 17:1–9 (변화산)</span>
+      </div>
+      <div class="bible-body">
+        <div class="bible-text">"베드로가 … 우리가 여기 있는 것이 좋사오니"</div>
+        <div class="bible-row">
+          <div class="bible-row-item">
+            <label>해석</label>
+            <p>신비만 추구하면 신비주의로 흐름. 예수님은 산 아래 현실로 내려가심</p>
+          </div>
+          <div class="bible-row-item">
+            <label>적용</label>
+            <p><strong style="color:var(--cream)">신비와 삶의 균형</strong> — 은밀한 소명 체험 + 일상 현장으로의 내려옴</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">부름받은 자의 4가지 공통 특징</div>
+    <div class="principle-core">부르심의 주도권은 언제나 하나님께 있다</div>
+    <div class="principle-desc">
+      ① 주도권이 하나님께 있다 — 하나님께서 먼저 찾아오신다<br>
+      ② 사람들은 자신의 무능함을 알았다 — "내가 누구이기에"<br>
+      ③ 하나님께서 용기를 주셨다 — "너는 할 수 있다"<br>
+      ④ 믿음의 반응을 보였다 — 할 수 없다 하다가도 결국 응답함
+    </div>
+    <div class="principle-bible">📖 출 3:11 (모세) · 사 6:8 (이사야) · 요 1:42 (베드로) · 행 9장 (바울)</div>
+  </div>
+
+  <!-- § 소명 확인 방법 -->
+  <div class="section-divider">
+    <span class="label">Ⅲ. 부르심 확인 방법 5가지</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="two-col">
+    <div class="bible-block">
+      <div class="bible-header">
+        <span class="bible-badge">성경</span>
+        <span class="bible-ref">딤전 3:1 — 갈망</span>
+      </div>
+      <div class="bible-body">
+        <div class="bible-text">"감독의 직분을 얻으려 함은 선한 일을 사모하는 것이라"</div>
+        <div class="bible-apply">
+          <label>적용</label>
+          <p>힘들어도 하고 싶은 마음(갈망)이 꺼지지 않는다면 그것이 부르심의 증거</p>
+        </div>
+      </div>
+    </div>
+    <div class="bible-block">
+      <div class="bible-header">
+        <span class="bible-badge">성경</span>
+        <span class="bible-ref">빌 2:13 — 마음의 소원</span>
+      </div>
+      <div class="bible-body">
+        <div class="bible-text">"자기의 기쁘신 뜻을 위하여 너희에게 소원을 두고 행하게 하시나니"</div>
+        <div class="bible-apply">
+          <label>적용</label>
+          <p>목회에 대한 내적 소원 자체가 하나님께서 심어주신 것일 수 있음</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">부르심 확인 5가지 체크리스트</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px 20px;">
+      <div class="field-row" style="grid-column:1/-1; grid-template-columns:120px 1fr;">
+        <span class="field-label">① 불만족</span>
+        <span class="field-val">현재 하는 일에 대한 불만족 — 더 의미있는 일을 하고 싶은 갈망</span>
+      </div>
+      <div class="field-row" style="grid-template-columns:120px 1fr;">
+        <span class="field-label">② 갈망</span>
+        <span class="field-val">힘들어도 하고 싶은 마음 (딤전 3:1)</span>
+      </div>
+      <div class="field-row" style="grid-template-columns:120px 1fr;">
+        <span class="field-label">③ 공동체 확인</span>
+        <span class="field-val">신앙공동체의 인정 — 안수 / 사무처리 결의</span>
+      </div>
+      <div class="field-row" style="grid-template-columns:120px 1fr;">
+        <span class="field-label">④ 마음의 소원</span>
+        <span class="field-val">내가 그 일을 하고 싶은 마음 (빌 2:13)</span>
+      </div>
+      <div class="field-row" style="grid-template-columns:120px 1fr;">
+        <span class="field-label">⑤ 영혼 관심</span>
+        <span class="field-val">사람의 영혼에 관심이 있는가 — 사람을 세우고 살리는 은사</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- § 소명의 유익과 경계 -->
+  <div class="section-divider">
+    <span class="label">Ⅳ. 소명의 유익 &amp; 경계해야 할 것</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="two-col">
+    <div class="principle-block">
+      <div class="principle-title">소명의 3가지 유익</div>
+      <div class="principle-desc">
+        ① 어려움을 이겨나가는 힘이 된다<br>
+        ② 건강함을 유지해준다 — 교만·자기만족의 위험에서 자유케 함<br>
+        ③ 목회 효율성을 향상시킨다 — 늘 새롭게 하고 싶은 마음
+      </div>
+    </div>
+    <div class="principle-block">
+      <div class="principle-title">소명에서 경계해야 할 것</div>
+      <div class="principle-desc">
+        ① 영적 교만, 자만심, 우월의식 → 겸손으로 극복<br>
+        ② 경쟁심과 질투심<br>
+        ③ 직업으로의 전락 — 소명을 생계 수단, 지위 획득 수단으로 보는 것<br>
+        <span style="color:var(--text-muted)">침례교 목회관: 겸손·섬김·직분 의식</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- § 목회자상 -->
+  <div class="section-divider">
+    <span class="label">Ⅴ. 목회자 상 — 직분인가, 성직인가</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="lecture-block">
+    <span class="lecture-label">교수 강조</span><br>
+    "침례교회는 목회자를 성직보다 특수한 직분으로 보는 경향이 있다. 직분이라고 생각하는 목회자는 권위를 빼고, 성직이라 생각하면 권위를 세운다. 권위는 목에 힘을 줄 때가 아니라 힘을 빼고 섬길 때 주어지는 것이다. — 침례교 목회관은 겸손·섬김·직분 의식"
+  </div>
+
+  <div class="pastor-card">
+    <div class="pastor-header">
+      <div class="pastor-icon">🌿</div>
+      <div class="pastor-title">소명받은 목회자의 자질</div>
+    </div>
+    <div class="pastor-body">
+      <div class="pastor-item">
+        <label>소명</label>
+        <p>하나님의 은밀한 부르심에 대한 확신 / 헨리 블랙가비 — "아무도 목회를 스스로 선택할 수 없다"</p>
+      </div>
+      <div class="pastor-item">
+        <label>자질</label>
+        <p>영혼에 대한 관심 / 가르침·목양·행정(다스림)의 은사 / 도덕적 온전함</p>
+      </div>
+      <div class="pastor-item">
+        <label>영성</label>
+        <p>하나님과의 깊고 친밀한 관계를 통해 소명을 지속적으로 새롭게 함</p>
+      </div>
+      <div class="pastor-item">
+        <label>리더십</label>
+        <p>권위는 힘이 아닌 섬김으로 드러남 / 침례교 직분관 — 가운보다 삶으로</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- § 건강한 교회 -->
+  <div class="section-divider">
+    <span class="label">Ⅵ. 건강한 교회론</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="textbook-block">
+    <span class="textbook-author">크리스티안 슈바르츠 — NCD (자연적 교회 성장)</span>
+    <div class="textbook-claim">"교회 성장의 원인을 교회의 건강에서 찾는다. 건강하면 자연적으로 성장한다."</div>
+    <div class="textbook-source">『자연적 교회 성장』 — 교재 김덕수 교수 서문에서도 NCD를 기초로 언급</div>
+  </div>
+
+  <div class="ministry-block">
+    <div class="ministry-header">
+      <span class="ministry-badge default">NCD</span>
+      <span class="ministry-name">8가지 건강 요소</span>
+    </div>
+    <div style="padding:14px 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px;">
+      <div style="font-size:12px; color:var(--text-sub);">① 사역자를 세우는 지도력</div>
+      <div style="font-size:12px; color:var(--text-sub);">② 은사중심적 사역</div>
+      <div style="font-size:12px; color:var(--text-sub);">③ 열정적 영성</div>
+      <div style="font-size:12px; color:var(--text-sub);">④ 기능적 조직</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑤ 영감 있는 예배</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑥ 전인적 소그룹</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑦ 필요중심적 전도</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑧ 사랑의 관계</div>
+    </div>
+  </div>
+
+  <div class="textbook-block">
+    <span class="textbook-author">마크 데버 — 건강한 교회의 9가지 특징</span>
+    <div class="textbook-claim">"교인의 자격을 높이면 앞문이 높아지고, 앞문이 높아지면 뒷문도 자동으로 높아진다. 상호 언약 관계 — 들어오는 사람도 헌신하고, 있는 사람도 헌신한다."</div>
+    <div class="textbook-source">마크 데버, 『건강한 교회의 9가지 특징』 (부흥과 개혁사) — 개혁주의 침례교 목회 모델</div>
+  </div>
+
+  <div style="background:var(--bg-subcard); border:1px solid var(--green-border); border-radius:4px; padding:14px 18px; margin-bottom:14px;">
+    <div style="font-size:12px; color:var(--green-main); font-weight:600; letter-spacing:0.06em; margin-bottom:10px;">9가지 특징</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+      <div style="font-size:12px; color:var(--text-sub);">① 강해설교</div>
+      <div style="font-size:12px; color:var(--text-sub);">② 성경신학</div>
+      <div style="font-size:12px; color:var(--text-sub);">③ 복음의 성경적 이해</div>
+      <div style="font-size:12px; color:var(--text-sub);">④ 회심의 성경적 이해</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑤ 전도의 성경적 이해</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑥ 교인 자격 (상호 서약)</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑦ 교회 징계</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑧ 제자훈련·영적 성장</div>
+      <div style="font-size:12px; color:var(--text-sub);">⑨ 성경적 교회 리더십</div>
+    </div>
+  </div>
+
+  <!-- § 이머징 교회 -->
+  <div class="section-divider">
+    <span class="label">Ⅶ. 이머징 교회 (Emerging Church)</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="lecture-block">
+    <span class="lecture-label">교수 강조</span><br>
+    "방법만 다른 게 아니라 본질에 더 가까운 교회를 하고 싶다는 것이다. 예수님을 닮아가는 삶 — 진짜 제자의 삶. 제자훈련 코스를 통과한 사람이 아니라, 예수님을 닮아가는 사람이 제자다."
+  </div>
+
+  <div style="background:var(--bg-subcard); border:1px solid var(--green-border); border-radius:4px; padding:14px 18px; margin-bottom:14px;">
+    <div style="font-size:12px; color:var(--green-main); font-weight:600; margin-bottom:10px;">레너드 스윗 — 미래교회가 갖춰야 할 4가지</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div style="font-size:12px; color:var(--text-sub);">① 경험하고 느끼는 교회</div>
+      <div style="font-size:12px; color:var(--text-sub);">② 참여하고 상호작용하는 교회</div>
+      <div style="font-size:12px; color:var(--text-sub);">③ 이미지와 은유로 사고하는 교회</div>
+      <div style="font-size:12px; color:var(--text-sub);">④ 관계가 살아있는 공동체</div>
+    </div>
+    <div style="margin-top:10px; font-size:11px; color:var(--text-muted);">다양한 형태: 카페교회 · 도서관교회 · 태권도장교회 · 공동생활 공동체 등</div>
+  </div>
+
+  <!-- § 세이비어 교회 -->
+  <div class="section-divider">
+    <span class="label">Ⅷ. 세이비어 교회 (Saviour Church)</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="textbook-block">
+    <span class="textbook-author">유성준 — 세이비어 교회 이야기</span>
+    <div class="textbook-claim">"1947년 고든 코스비 목사 설립. 150명의 정회원으로 미국에서 가장 영향력 있는 교회를 이루었음. 짠맛이 확실하게 나는 교회."</div>
+    <div class="textbook-source">유성준, 『세이비어 교회 이야기』 (신앙과 지성사)</div>
+  </div>
+
+  <div class="pastor-card">
+    <div class="pastor-header">
+      <div class="pastor-icon">⛪</div>
+      <div class="pastor-title">4대 사역철학</div>
+    </div>
+    <div class="pastor-body">
+      <div class="pastor-item">
+        <label>소명</label>
+        <p>우리 모두는 하나님께 받은 은사로 무엇인가를 하도록 부름받았다</p>
+      </div>
+      <div class="pastor-item">
+        <label>은사</label>
+        <p>교회 공동체는 성도가 은사를 발견하고 사용할 수 있도록 도와야 한다</p>
+      </div>
+      <div class="pastor-item">
+        <label>내적·외적 여정</label>
+        <p>내적 여정(매일 묵상·기도) + 외적 여정(사역을 위한 헌신)</p>
+      </div>
+      <div class="pastor-item">
+        <label>공동체</label>
+        <p>구성원들이 동등하게 헌신하며 서로 책임적인 존재가 되도록 격려</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">세이비어 교회 정회원 입교 조건 (8가지)</div>
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <div class="field-row"><span class="field-label">①</span><span class="field-val">매일 1시간 성경 읽고 기도 (미이행 시 회원권 박탈)</span></div>
+      <div class="field-row"><span class="field-label">②</span><span class="field-val">2~3년 소요 — 그리스도인의 삶을 위한 학교 + 서번트 리더십 학교 훈련</span></div>
+      <div class="field-row"><span class="field-label">③</span><span class="field-val">온전한 십일조 헌금</span></div>
+      <div class="field-row"><span class="field-label">④</span><span class="field-val">소그룹 미션 그룹 매주 참석</span></div>
+      <div class="field-row"><span class="field-label">⑤</span><span class="field-val">은사별 지역사회 자원봉사 참여</span></div>
+      <div class="field-row"><span class="field-label">⑥</span><span class="field-val">연 1회 3박 4일 침묵 영성수련회 참석 (데이스프링 침묵 수양관)</span></div>
+      <div class="field-row"><span class="field-label">⑦</span><span class="field-val">영적 자서전을 쓰고 공동체에 발표</span></div>
+      <div class="field-row"><span class="field-label">⑧</span><span class="field-val">교인 자격을 1년에 한 번 갱신</span></div>
+    </div>
+  </div>
+
+  <div class="lecture-block">
+    <span class="lecture-label">교수 강조</span><br>
+    "앞문을 높이면 뒷문은 자동으로 높아진다. 세이비어 교회는 정회원이 150명을 넘은 적이 없지만 미국에서 가장 영향력 있는 교회였다. 짠맛을 강하게 했더니 짠맛을 원하는 사람들이 왔다."
+  </div>
+
+  <!-- 핵심 원칙 3가지 -->
+  <div class="core-three">
+    <div class="core-three-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-three-grid">
+      <div class="core-item">
+        <span class="core-num">01</span>
+        <div class="core-text">소명은 포기하지 않는 힘이다</div>
+        <div class="core-desc">힘들어도 하고 싶은 갈망, 나만이 알 수 있는 은밀한 하나님과의 만남이 목회를 지탱한다</div>
+      </div>
+      <div class="core-item">
+        <span class="core-num">02</span>
+        <div class="core-text">건강이 먼저, 성장은 따라온다</div>
+        <div class="core-desc">NCD — 교회가 건강하면 자연적으로 성장한다. 앞문을 높이면 뒷문도 높아진다</div>
+      </div>
+      <div class="core-item">
+        <span class="core-num">03</span>
+        <div class="core-text">내적 여정 없이 외적 사역은 없다</div>
+        <div class="core-desc">세이비어 교회 — 매일의 묵상과 기도(내적 여정) 없이는 지역사회 사역(외적 여정)도 없다</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content-wrap -->
+</div><!-- /tab0 -->
+
+<!-- ══════════════════════════════════════
+     탭 2 : 핵심정리 (원칙 + 시험 + 목회자상)
+══════════════════════════════════════ -->
+<div class="tab-content" id="tab1">
+<div class="content-wrap">
+
+  <div class="section-divider">
+    <span class="label">★ 시험 예상 항목 (중간고사 4/20)</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="exam-block">
+    <span class="exam-badge">중간고사 예상 ①</span>
+    <div class="exam-title">소명 확인 방법 5가지</div>
+    <ul class="exam-list">
+      <li data-n="①">불만족 — 현재 하는 일에 대한 불만족 / 더 의미있는 일에 대한 갈망</li>
+      <li data-n="②">갈망 — 힘들어도 하고 싶은 마음 (딤전 3:1)</li>
+      <li data-n="③">신앙공동체의 확인 — 안수 / 공동체의 인정 (책망받지 않는 자)</li>
+      <li data-n="④">마음의 소원 — 내가 그 일을 하고 싶은 마음 (빌 2:13)</li>
+      <li data-n="⑤">영혼에 대한 관심 — 사람을 세우고 살리는 일에 은사가 있는가</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <span class="exam-badge">중간고사 예상 ②</span>
+    <div class="exam-title">제임스 조지의 소명 4요소</div>
+    <ul class="exam-list">
+      <li data-n="①">사역지가 주어지는 상황</li>
+      <li data-n="②">리더십에 필요한 능력 소유 (은사 + 훈련)</li>
+      <li data-n="③">사역에 대한 갈망</li>
+      <li data-n="④">도덕적 온전함으로 주어진 생활 유형 ← 가장 중요</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <span class="exam-badge">중간고사 예상 ③</span>
+    <div class="exam-title">소명의 3가지 중요성</div>
+    <ul class="exam-list">
+      <li data-n="①">어려움을 이겨나가는 힘</li>
+      <li data-n="②">건강함 유지 — 교만·자기만족의 위험에서 자유케 함</li>
+      <li data-n="③">목회 효율성 향상 — 새롭게 목회하고 싶은 마음 유지</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <span class="exam-badge">중간고사 예상 ④</span>
+    <div class="exam-title">NCD 8가지 건강 요소 (크리스티안 슈바르츠)</div>
+    <ul class="exam-list">
+      <li data-n="①">사역자를 세우는 지도력</li>
+      <li data-n="②">은사중심적 사역</li>
+      <li data-n="③">열정적 영성</li>
+      <li data-n="④">기능적 조직</li>
+      <li data-n="⑤">영감 있는 예배</li>
+      <li data-n="⑥">전인적 소그룹</li>
+      <li data-n="⑦">필요중심적 전도</li>
+      <li data-n="⑧">사랑의 관계</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <span class="exam-badge">중간고사 예상 ⑤</span>
+    <div class="exam-title">세이비어 교회 4대 사역철학 (고든 코스비)</div>
+    <ul class="exam-list">
+      <li data-n="①">소명 — 하나님께 받은 은사로 무엇인가를 하도록 부름받음</li>
+      <li data-n="②">은사 — 교회 공동체는 은사 발견을 도와야 한다</li>
+      <li data-n="③">내적·외적 여정 — 매일 묵상·기도(내) + 사역 헌신(외)</li>
+      <li data-n="④">공동체 — 동등한 헌신과 상호 책임</li>
+    </ul>
+  </div>
+
+  <div class="section-divider">
+    <span class="label">핵심 원칙 요약</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">소명의 출발점</div>
+    <div class="principle-core">목회는 하나님의 부르심에 대한 응답에서 시작된다</div>
+    <div class="principle-desc">스펄전 — "소명에 대한 깊은 확신 전에는 사역에 뛰어들지 말라" / 칼빈 — "은밀한 소명을 고려하라"</div>
+    <div class="principle-bible">📖 출 3:1–12 · 딤전 3:1 · 빌 2:13</div>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">건강한 교회의 자연적 성장</div>
+    <div class="principle-core">교회가 건강하면 자연적으로 성장한다 (NCD)</div>
+    <div class="principle-desc">크리스티안 슈바르츠 — 교회 성장의 패러다임을 바꾼 책. 8가지 건강 요소가 갖춰지면 성장은 결과로 따라온다</div>
+    <div class="principle-bible">📖 엡 4:12 "성도를 온전하게 하여 봉사의 일을 하게 함"</div>
+  </div>
+
+  <div class="section-divider">
+    <span class="label">목회자상</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="pastor-card">
+    <div class="pastor-header">
+      <div class="pastor-icon">✦</div>
+      <div class="pastor-title">소명받은 목회자</div>
+    </div>
+    <div class="pastor-body">
+      <div class="pastor-item">
+        <label>소명</label>
+        <p>은밀한 부르심 확신 / 헨리 블랙가비: "아무도 목회를 스스로 선택할 수 없다"</p>
+      </div>
+      <div class="pastor-item">
+        <label>자질</label>
+        <p>영혼 관심 / 가르침·목양·행정 은사 / 도덕적 온전함</p>
+      </div>
+      <div class="pastor-item">
+        <label>영성</label>
+        <p>하나님과의 친밀한 관계 / 소명을 지속적으로 새롭게 함</p>
+      </div>
+      <div class="pastor-item">
+        <label>리더십</label>
+        <p>섬김의 권위 / 침례교 직분관 / 신비와 삶의 균형</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="task-block">
+    <span class="task-badge">과제①</span>
+    <div class="task-title">옥한흠 독후감 작성 틀</div>
+    <div class="task-section">
+      <label>저자 핵심 주장</label>
+      <ul><li>목회의 본질은 예수님을 닮아가는 제자를 세우는 것</li><li>프로그램이 아닌 삶으로 보여주는 제자훈련</li></ul>
+    </div>
+    <div class="task-section">
+      <label>비판적 분석</label>
+      <ul><li>강점: 목회자 정체성을 예수님 중심으로 재정립</li><li>한계 질문: 대형교회 모델이 소규모·개척교회에도 적용 가능한가?</li></ul>
+    </div>
+    <div class="task-section">
+      <label>목회 적용</label>
+      <ul><li>나의 현장에서 '예수님을 닮아가는 제자'는 어떤 모습인가?</li><li>청소년 사역에서 소명을 어떻게 전수할 것인가?</li></ul>
+    </div>
+  </div>
+
+</div>
+</div><!-- /tab1 -->
+
+<!-- ══════════════════════════════════════
+     탭 3 : 현장적용 (현장 + 사역 + 성찰)
+══════════════════════════════════════ -->
+<div class="tab-content" id="tab2">
+<div class="content-wrap">
+
+  <div class="section-divider">
+    <span class="label">현장 적용 시나리오</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">소명 의심이 올 때</div>
+    <div class="field-row"><span class="field-label">상황</span><span class="field-val">사역의 어려움, 경제적 압박, 결실 없는 목회가 계속될 때 — 설문 결과 목회자 30% 이상 소명을 흔들린 경험 있음</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">진단</span><span class="field-val">소명의 의심은 신앙의 실패가 아니라 현실의 무게. 그러나 소명 없이 시작하면 어려울 때 결국 포기하게 됨</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">실천</span><span class="field-val">① 영적으로 자신을 건강하게 만들고 하나님 앞에 머물러 있어라 ② 선배 목회자들과 상담하라 ③ 현재의 위치에서 하나님의 인도하심을 받아라</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">이중직 목회 판단 기준</div>
+    <div class="field-row"><span class="field-label">상황</span><span class="field-val">개척 초기 또는 소규모 사역지에서 경제적 자립이 어려울 때 — "하나님의 일을 하면 하나님이 채워주신다" vs 현실적 어려움</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">진단</span><span class="field-val">이중직은 소명의 타협이 아닐 수 있음. 과거 교단의 이중직 금지 정책이 은사 있는 사역자를 막은 사례가 있음</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">실천</span><span class="field-val">교회가 풀타임 사역을 감당할 수 있는 환경이 되면 내려놓을 결단을 준비하되, 그 전까지는 현장에서 하나님의 인도를 받으며 사역</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">세이비어 교회 모델 — 기존 교회 적용</div>
+    <div class="field-row"><span class="field-label">상황</span><span class="field-val">교회 헌신도가 낮고 뒷문이 계속 열려있는 교회 / 소그룹이 있으나 깊이가 없는 경우</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">진단</span><span class="field-val">앞문을 높이면 뒷문은 자동으로 높아진다 — 헌신의 기준을 높일수록 공동체의 밀도가 높아짐</span></div>
+    <div style="height:8px;"></div>
+    <div class="field-row"><span class="field-label">실천</span><span class="field-val">내적 여정(렉시오 디비나·영성 일기·큐티) + 외적 여정(은사별 지역봉사) + 함께하는 여정(소그룹 상호 책임 구조) 단계적 적용</span></div>
+  </div>
+
+  <!-- 사역 방법론 -->
+  <div class="section-divider">
+    <span class="label">사역 방법론</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="ministry-block">
+    <div class="ministry-header">
+      <span class="ministry-badge group">사역</span>
+      <span class="ministry-name">소그룹 — 전인적 소그룹</span>
+    </div>
+    <div class="ministry-body">
+      <div class="ministry-item"><label>목적</label><p>전인적 성장 + 사랑의 관계 형성 + 상호 책임</p></div>
+      <div class="ministry-item"><label>핵심 원리</label><p>터놓고 이야기할 수 있는 영적 가족 공동체 / 소속감 제공</p></div>
+      <div class="ministry-item"><label>방법</label><p>미션 그룹 형태 — 봉사+영적 성장+나눔의 사역을 소그룹 단위로 묶음</p></div>
+      <div class="ministry-item"><label>성경 근거</label><p>요 13:34–35 서로 사랑하라 — 요한복음의 교회론</p></div>
+    </div>
+  </div>
+
+  <div class="ministry-block">
+    <div class="ministry-header">
+      <span class="ministry-badge leadership">사역</span>
+      <span class="ministry-name">리더십 — 사역자를 세우는 지도력</span>
+    </div>
+    <div class="ministry-body">
+      <div class="ministry-item"><label>목적</label><p>성도를 사역자로 세우는 지도력</p></div>
+      <div class="ministry-item"><label>핵심 원리</label><p>권위는 힘이 아닌 섬김으로. 은사 발견 → 사역 배치 → 성도 전체를 사역자로</p></div>
+      <div class="ministry-item"><label>방법</label><p>은사 발견 도구 활용 / 소그룹 리더 양성 / 부교역자 노동권 보호</p></div>
+      <div class="ministry-item"><label>성경 근거</label><p>엡 4:12 "성도를 온전하게 하여 봉사의 일을 하게 함"</p></div>
+    </div>
+  </div>
+
+  <!-- 성찰 -->
+  <div class="section-divider">
+    <span class="label">자기 성찰 질문</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="reflect-block">
+    <div class="reflect-label">소명 · 영성 · 자기관리 성찰 질문</div>
+    <ul class="reflect-list">
+      <li>나는 목회를 소명으로 하는가, 아니면 직업으로 하는가?</li>
+      <li>나만이 알고 있는 하나님과의 은밀한 부르심의 경험이 있는가?</li>
+      <li>나는 사람의 영혼에 진심으로 관심이 있는가?</li>
+      <li>힘들어도 이 일을 하고 싶은 갈망이 여전히 살아있는가?</li>
+      <li>나는 어떤 교회를 꿈꾸고 있는가?</li>
+      <li>나는 목회자로서 어떤 권리를 기꺼이 내려놓을 수 있는가?</li>
+      <li>나의 내적 여정(묵상·기도)은 외적 사역을 감당할 만큼 깊은가?</li>
+    </ul>
+  </div>
+
+  <!-- 핵심 원칙 3가지 -->
+  <div class="core-three">
+    <div class="core-three-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-three-grid">
+      <div class="core-item">
+        <span class="core-num">01</span>
+        <div class="core-text">소명은 포기하지 않는 힘이다</div>
+        <div class="core-desc">힘들어도 하고 싶은 갈망, 나만이 알 수 있는 은밀한 하나님과의 만남이 목회를 지탱한다</div>
+      </div>
+      <div class="core-item">
+        <span class="core-num">02</span>
+        <div class="core-text">건강이 먼저, 성장은 따라온다</div>
+        <div class="core-desc">NCD — 건강하면 자연적으로 성장한다. 앞문을 높이면 뒷문도 높아진다</div>
+      </div>
+      <div class="core-item">
+        <span class="core-num">03</span>
+        <div class="core-text">내적 여정 없이 외적 사역은 없다</div>
+        <div class="core-desc">세이비어 — 매일의 묵상·기도 없이는 지역사회 사역도 없다</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- /tab2 -->
+
+<script>
+  function switchTab(n) {
+    document.querySelectorAll('.tab-content').forEach((t,i) => {
+      t.classList.toggle('active', i === n);
+    });
+    document.querySelectorAll('.tab-btn').forEach((b,i) => {
+      b.classList.toggle('active', i === n);
+    });
+  }
+</script>
+</body>
+</html>

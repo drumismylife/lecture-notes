@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 4주차 · 직설법 변화표 총정리</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b27;
+  --subcard: #1e2538;
+  --gold: #c9a84c;
+  --gold-dim: #a07c30;
+  --gold-pale: rgba(201,168,76,.07);
+  --greek: #f0d080;
+  --blue: #7c9ed9;
+  --blue-dim: rgba(124,158,217,.12);
+  --red: #e07b6a;
+  --red-bg: #3d1a1a;
+  --green: #6fcf97;
+  --green-bg: #1a2d1a;
+  --purple: #b48ef0;
+  --purple-bg: rgba(180,142,240,.08);
+  --text: #e8eaf0;
+  --text-sub: #9ba3b8;
+  --hint: #6b7490;
+  --border: #2a3050;
+  --teal: #0e5a6e;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg); color: var(--text);
+  font-size: 14px; line-height: 1.7; min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: linear-gradient(135deg, #0a0f1a 0%, #0d1a2e 40%, #0e2a35 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 26px 32px 20px; position: relative; overflow: hidden;
+}
+.site-header::before {
+  content: 'Κοινὴ Ἑλληνική';
+  position: absolute; right: -10px; top: 8px;
+  font-family: 'Crimson Pro', serif; font-style: italic; font-size: 52px;
+  color: rgba(201,168,76,.06); white-space: nowrap; pointer-events: none;
+}
+.header-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; padding: 2px 10px; border-radius: 3px; text-transform: uppercase;
+}
+.badge-week  { background: var(--teal); color: #fff; }
+.badge-exam  { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+.badge-task  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+.badge-gold  { background: rgba(201,168,76,.15); color: var(--gold); border: 1px solid var(--gold-dim); }
+.badge-noexam { background: rgba(180,142,240,.12); color: var(--purple); border: 1px solid rgba(180,142,240,.3); }
+
+.header-title {
+  font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 700;
+  color: #fff; margin-bottom: 3px; letter-spacing: -.02em;
+}
+.header-subtitle {
+  font-family: 'Crimson Pro', serif; font-style: italic; font-size: 14px;
+  color: rgba(255,255,255,.5); margin-bottom: 12px;
+}
+.header-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.11);
+  color: rgba(255,255,255,.6); font-size: 11px; padding: 2px 10px; border-radius: 20px;
+}
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex; background: #0a0e1a;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100; overflow-x: auto;
+}
+.tab-btn {
+  padding: 11px 20px; background: none; border: none;
+  color: var(--text-sub); cursor: pointer; white-space: nowrap;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 500;
+  border-bottom: 2px solid transparent; transition: all .2s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── MAIN ── */
+.tab-panel { display: none; padding: 26px 24px 64px; max-width: 980px; margin: 0 auto; }
+.tab-panel.active { display: block; animation: fadeIn .25s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+/* ── SECTION HEAD ── */
+.sec-head {
+  display: flex; align-items: center; gap: 10px;
+  margin: 30px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.sec-head:first-child { margin-top: 0; }
+.sec-icon { font-size: 17px; }
+.sec-title { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 700; color: var(--gold); }
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+.sec-badge-noexam {
+  font-size: 10px; font-weight: 700; letter-spacing: .07em;
+  padding: 2px 8px; border-radius: 3px; text-transform: uppercase;
+  background: rgba(180,142,240,.12); color: var(--purple); border: 1px solid rgba(180,142,240,.28);
+}
+
+/* ── PARADIGM TABLE ── */
+.para-wrap { margin-bottom: 22px; overflow-x: auto; }
+.para-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 6px; color: var(--blue);
+}
+.para-label.passive { color: var(--red); }
+.para-label.future  { color: var(--green); }
+.para-label.aorist  { color: var(--gold); }
+.para-label.middle  { color: var(--purple); }
+
+table.pt {
+  width: 100%; border-collapse: collapse; font-size: 13px; min-width: 500px;
+}
+.pt thead tr { background: var(--subcard); }
+.pt thead th {
+  padding: 7px 10px; text-align: left; border: 1px solid var(--border);
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-sub);
+}
+.pt td { padding: 0; border: 1px solid var(--border); vertical-align: top; }
+.pt td.person { padding: 8px 10px; color: var(--text-sub); font-size: 12px; background: var(--subcard); white-space: nowrap; }
+.cell { padding: 6px 10px; }
+.cell-greek { font-family: 'Crimson Pro', serif; font-size: 17px; color: var(--greek); font-weight: 600; line-height: 1.3; }
+.cell-roman { font-size: 10px; color: var(--hint); font-family: 'Crimson Pro', serif; font-style: italic; line-height: 1.4; }
+.cell-ko    { font-size: 11px; color: var(--text-sub); line-height: 1.4; margin-top: 1px; }
+
+/* row highlight by voice */
+.pt tr.active-row td   { background: rgba(124,158,217,.05); }
+.pt tr.passive-row td  { background: rgba(224,123,106,.04); }
+.pt tr.future-row td   { background: rgba(111,207,151,.04); }
+.pt tr.aorist-row td   { background: rgba(201,168,76,.05); }
+.pt tr.middle-row td   { background: rgba(180,142,240,.04); }
+
+/* marker tag */
+.marker {
+  display: inline-block; font-size: 9px; font-weight: 700;
+  padding: 1px 5px; border-radius: 2px; margin-left: 3px; vertical-align: middle;
+  font-family: 'Noto Sans KR', sans-serif; letter-spacing: .04em;
+}
+.m-s   { background: rgba(201,168,76,.18); color: var(--gold); }
+.m-th  { background: rgba(224,123,106,.18); color: var(--red); }
+.m-e   { background: rgba(124,158,217,.18); color: var(--blue); }
+.m-om  { background: rgba(111,207,151,.15); color: var(--green); }
+.m-ths { background: rgba(224,123,106,.22); color: var(--red); }
+.m-mid { background: rgba(180,142,240,.18); color: var(--purple); }
+
+/* ── CALLOUT ── */
+.callout {
+  border-radius: 6px; padding: 12px 15px; margin-bottom: 12px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.callout-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+.callout-body { flex: 1; }
+.callout-title { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+.callout-text  { font-size: 12.5px; color: var(--text-sub); line-height: 1.7; }
+.callout-text strong { color: var(--text); font-weight: 600; }
+.callout-text .gr { font-family: 'Crimson Pro', serif; color: var(--greek); font-size: 15px; }
+.callout.tip  { background: rgba(201,168,76,.06); border-left: 3px solid var(--gold); }
+.callout.tip  .callout-title { color: var(--gold); }
+.callout.warn { background: rgba(224,123,106,.08); border-left: 3px solid var(--red); }
+.callout.warn .callout-title { color: var(--red); }
+.callout.info { background: rgba(124,158,217,.07); border-left: 3px solid var(--blue); }
+.callout.info .callout-title { color: var(--blue); }
+.callout.purple { background: var(--purple-bg); border-left: 3px solid var(--purple); }
+.callout.purple .callout-title { color: var(--purple); }
+
+/* ── EXAM BOX ── */
+.exam-box {
+  background: var(--red-bg); border: 1px solid var(--red);
+  border-radius: 8px; padding: 14px 16px; margin-bottom: 12px;
+}
+.exam-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.exam-title  { font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: .07em; text-transform: uppercase; }
+.exam-date   { font-size: 11px; color: rgba(224,123,106,.55); margin-left: auto; }
+.exam-list   { list-style: none; }
+.exam-list li {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 5px 0; border-bottom: 1px solid rgba(224,123,106,.1);
+  font-size: 12.5px; color: var(--text-sub);
+}
+.exam-list li:last-child { border-bottom: none; }
+.exam-list .num {
+  background: rgba(224,123,106,.2); color: var(--red);
+  font-size: 10px; font-weight: 700; min-width: 18px; height: 18px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.exam-list .gr { font-family: 'Crimson Pro', serif; color: var(--greek); font-size: 15px; }
+.exam-list strong { color: var(--text); font-weight: 600; }
+
+/* ── TASK BOX ── */
+.task-box {
+  background: var(--green-bg); border: 1px solid var(--green);
+  border-radius: 8px; padding: 12px 15px; margin-bottom: 12px;
+}
+.task-title { font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+.task-text  { font-size: 12.5px; color: var(--text-sub); line-height: 1.7; }
+.task-text strong { color: var(--text); }
+
+/* ── MUST KNOW ── */
+.must-know {
+  background: linear-gradient(135deg, rgba(201,168,76,.1), rgba(201,168,76,.03));
+  border: 1px solid rgba(201,168,76,.28); border-radius: 8px;
+  padding: 16px 20px; margin-top: 30px;
+}
+.must-know-title {
+  font-size: 11px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px;
+}
+.must-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+@media(max-width:560px) { .must-list { grid-template-columns: 1fr; } }
+.must-item {
+  background: rgba(0,0,0,.3); border-radius: 6px; padding: 10px 12px;
+  border: 1px solid rgba(201,168,76,.14);
+}
+.must-num   { font-size: 10px; color: var(--gold-dim); font-weight: 700; margin-bottom: 3px; }
+.must-greek { font-family: 'Crimson Pro', serif; font-size: 19px; color: var(--greek); font-weight: 600; }
+.must-ko    { font-size: 11px; color: var(--text-sub); margin-top: 2px; }
+
+/* ── SUMMARY TABLE (핵심정리탭) ── */
+table.summary {
+  width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px;
+}
+.summary thead tr { background: var(--subcard); }
+.summary thead th {
+  padding: 7px 10px; border: 1px solid var(--border);
+  font-size: 10px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--text-sub); text-align: left;
+}
+.summary td { padding: 7px 10px; border: 1px solid var(--border); vertical-align: middle; }
+.summary td.gr { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--greek); font-weight: 600; }
+.summary td.sub { color: var(--text-sub); font-size: 11px; }
+.summary td.ko  { color: var(--text-sub); font-size: 12px; }
+.summary tr.h-active  td { background: rgba(124,158,217,.06); }
+.summary tr.h-passive td { background: rgba(224,123,106,.05); }
+.summary tr.h-aorist  td { background: rgba(201,168,76,.06); }
+.summary tr.h-middle  td { background: rgba(180,142,240,.05); }
+
+/* flash cards */
+.flash-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
+@media(max-width:560px) { .flash-grid { grid-template-columns: repeat(2,1fr); } }
+.flash-card { aspect-ratio: 1.6/1; perspective: 600px; cursor: pointer; }
+.flash-inner {
+  width:100%; height:100%;
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d; position: relative;
+}
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+.flash-front, .flash-back {
+  position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:8px; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:12px; text-align:center;
+}
+.flash-front { background: var(--card); border: 1px solid var(--border); }
+.flash-back  { background: var(--subcard); border: 1px solid var(--gold-dim); transform: rotateY(180deg); }
+.f-greek  { font-family:'Crimson Pro',serif; font-size:22px; color:var(--greek); font-weight:600; margin-bottom:2px; }
+.f-roman  { font-size:10px; color:var(--hint); font-style:italic; font-family:'Crimson Pro',serif; }
+.f-hint   { font-size:10px; color:var(--hint); margin-top:auto; }
+.f-mean   { font-size:14px; color:var(--text); font-weight:700; margin-bottom:3px; }
+.f-pos    { font-size:10px; color:var(--text-sub); }
+
+@media print {
+  .tab-bar { display:none; }
+  .tab-panel { display:block !important; padding:16px; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="header-meta">
+    <span class="badge badge-week">4주차</span>
+    <span class="badge badge-gold">2026-03-30</span>
+    <span class="badge badge-exam">중간고사 4/27</span>
+    <span class="badge badge-task">과제 6/15 제출</span>
+  </div>
+  <div class="header-title">직설법 변화표 총정리</div>
+  <div class="header-subtitle">Indicative Mood — 현재 · 미래 · 단순과거 · 중간태</div>
+  <div class="header-pills">
+    <span class="pill">담당: 한철흠 교수</span>
+    <span class="pill">교재: 박창환 역편 『신약성서 헬라어 교본』</span>
+    <span class="pill">기본동사: λύω (풀다)</span>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(event,'note')">📋 변화표</button>
+  <button class="tab-btn" onclick="switchTab(event,'exam')">🚨 시험포인트</button>
+  <button class="tab-btn" onclick="switchTab(event,'flash')">🃏 암기카드</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 1 — 변화표
+══════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-note">
+
+  <!-- 1. 현재 능동태 -->
+  <div class="sec-head">
+    <span class="sec-icon">🔵</span>
+    <span class="sec-title">① 현재 능동태 직설법</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">시제 표지</div>
+      <div class="callout-text">별도 표지 없음 — 어간 + 연결모음(ο/ε) + 인칭어미 &nbsp;|&nbsp; 번역: <strong>"~한다 / ~하고 있다"</strong> (두 가지 모두 가능)</div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label">현재 능동태 (Present Active Indicative) — λύω</div>
+    <table class="pt">
+      <thead>
+        <tr>
+          <th style="width:80px">인칭/수</th>
+          <th>헬라어</th>
+          <th>한글 발음</th>
+          <th>해석</th>
+          <th>어미</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύω</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 푼다 / 풀고 있다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ω</div></div></td>
+        </tr>
+        <tr class="active-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύεις</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에이스</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 푼다 / 풀고 있다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-εις</div></div></td>
+        </tr>
+        <tr class="active-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύει</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그/그녀/그것은 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ει</div></div></td>
+        </tr>
+        <tr class="active-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύομεν</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오멘</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ομεν</div></div></td>
+        </tr>
+        <tr class="active-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύετε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ετε</div></div></td>
+        </tr>
+        <tr class="active-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύουσι(ν)</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼우시(ν)</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ουσι(ν)</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. 미래 능동태 -->
+  <div class="sec-head">
+    <span class="sec-icon">🟢</span>
+    <span class="sec-title">② 미래 능동태 직설법</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">시제 표지 — <span style="font-family:'Crimson Pro',serif;color:var(--greek);font-size:16px;">σ</span></div>
+      <div class="callout-text">어간 + <strong>σ</strong>(시그마) + 인칭어미 &nbsp;|&nbsp; 번역: <strong>"~할 것이다"</strong><br>
+      현재 능동 어미에 σ만 삽입 → <span style="font-family:'Crimson Pro',serif;color:var(--greek)">λύ<b>σ</b>ω / λύ<b>σ</b>εις / λύ<b>σ</b>ει …</span></div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label future">미래 능동태 (Future Active Indicative) — λύω <span class="marker m-s">σ 표지</span></div>
+    <table class="pt">
+      <thead>
+        <tr>
+          <th style="width:80px">인칭/수</th>
+          <th>헬라어</th>
+          <th>한글 발음</th>
+          <th>해석</th>
+          <th>어미</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="future-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύ<b style="color:var(--gold)">σ</b>ω</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼소</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σω</div></div></td>
+        </tr>
+        <tr class="future-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύσεις</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세이스</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σεις</div></div></td>
+        </tr>
+        <tr class="future-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύσει</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σει</div></div></td>
+        </tr>
+        <tr class="future-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύσομεν</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼소멘</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σομεν</div></div></td>
+        </tr>
+        <tr class="future-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύσετε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σετε</div></div></td>
+        </tr>
+        <tr class="future-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύσουσι(ν)</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼수시(ν)</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σουσι(ν)</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. 현재 수동태 -->
+  <div class="sec-head">
+    <span class="sec-icon">🔴</span>
+    <span class="sec-title">③ 현재 수동태 직설법</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">현재 수동태 = 현재 중간태 — 형태 동일</div>
+      <div class="callout-text">어간 + <strong>-ομαι</strong> 계열 어미 &nbsp;|&nbsp; 번역: <strong>"~된다 / ~을 받는다"</strong><br>
+      중간태와 형태가 같으므로 문맥으로 구별 (시험: 수동태 번역 중심)</div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label passive">현재 수동태/중간태 (Present Passive/Middle Indicative) — λύω <span class="marker m-om">-ομαι 어미</span></div>
+    <table class="pt">
+      <thead>
+        <tr>
+          <th style="width:80px">인칭/수</th>
+          <th>헬라어</th>
+          <th>한글 발음</th>
+          <th>해석 (수동태)</th>
+          <th>어미</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="passive-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύ<b style="color:var(--red)">ομαι</b></div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오마이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 풀린다 / 풀림을 받는다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ομαι</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύῃ</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 풀린다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ῃ</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύεται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 풀린다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-εται</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυόμεθα</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오메타</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 풀린다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-όμεθα</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύεσθε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에스테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 풀린다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-εσθε</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύονται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼온타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 풀린다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ονται</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. 미래 수동태 -->
+  <div class="sec-head">
+    <span class="sec-icon">🔶</span>
+    <span class="sec-title">④ 미래 수동태 직설법</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🚨</div>
+    <div class="callout-body">
+      <div class="callout-title">교수님 직접 언급 — "미래 수동태는 꼭 시험에 낼 거예요"</div>
+      <div class="callout-text">현재 수동태 어미에 <strong>θησ-</strong> 삽입 &nbsp;|&nbsp; 번역: <strong>"~될 것이다 / ~을 받을 것이다"</strong><br>
+      발음이 어렵지만 반드시 암기 — <span class="gr">λυθήσομαι</span> (뤼데소마이)</div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label passive">미래 수동태 (Future Passive Indicative) — λύω <span class="marker m-ths">θησ 표지</span></div>
+    <table class="pt">
+      <thead>
+        <tr>
+          <th style="width:80px">인칭/수</th>
+          <th>헬라어</th>
+          <th>한글 발음</th>
+          <th>해석</th>
+          <th>표지</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="passive-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λυ<b style="color:var(--red)">θήσ</b>ομαι</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데소마이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θήσ+ομαι</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λυθήσῃ</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데세</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θήσ+ῃ</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λυθήσεται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데세타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θήσ+εται</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυθησόμεθα</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데소메타</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θησ+όμεθα</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυθήσεσθε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데세스테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θήσ+εσθε</div></div></td>
+        </tr>
+        <tr class="passive-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυθήσονται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼데손타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 풀릴 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">θήσ+ονται</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 단순과거 능동태 -->
+  <div class="sec-head">
+    <span class="sec-icon">🟡</span>
+    <span class="sec-title">⑤ 단순과거 능동태 직설법 (부정과거)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">시제 표지 — <span style="font-family:'Crimson Pro',serif;color:var(--greek);font-size:16px;">ε + σα</span></div>
+      <div class="callout-text">앞에 가산모음 <strong>ε</strong> + 어간 + <strong>σα</strong> &nbsp;|&nbsp; 번역: <strong>"~했다"</strong> (단순 완료된 과거)<br>
+      미완료(ε만)와 구별: σα가 있으면 → 단순과거 확정</div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label aorist">단순과거 능동태 (Aorist Active Indicative) — λύω <span class="marker m-e">ε 가산모음</span><span class="marker m-s">σα 표지</span></div>
+    <table class="pt">
+      <thead>
+        <tr>
+          <th style="width:80px">인칭/수</th>
+          <th>헬라어</th>
+          <th>한글 발음</th>
+          <th>해석</th>
+          <th>어미</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="aorist-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek"><b style="color:var(--blue)">ἔ</b>λυ<b style="color:var(--gold)">σα</b></div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼사</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σα</div></div></td>
+        </tr>
+        <tr class="aorist-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">ἔλυσας</div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼사스</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σας</div></div></td>
+        </tr>
+        <tr class="aorist-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">ἔλυσε(ν)</div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼센</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σε(ν)</div></div></td>
+        </tr>
+        <tr class="aorist-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">ἐλύσαμεν</div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼사멘</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σαμεν</div></div></td>
+        </tr>
+        <tr class="aorist-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">ἐλύσατε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼사테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σατε</div></div></td>
+        </tr>
+        <tr class="aorist-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">ἔλυσαν</div></div></td>
+          <td><div class="cell"><div class="cell-ko">엘뤼산</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 풀었다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-σαν</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 6. 중간태 (시험 제외) -->
+  <div class="sec-head">
+    <span class="sec-icon">🟣</span>
+    <span class="sec-title">⑥ 중간태 직설법</span>
+    <div class="sec-line"></div>
+    <span class="sec-badge-noexam">시험 제외</span>
+  </div>
+
+  <div class="callout purple">
+    <div class="callout-icon">📘</div>
+    <div class="callout-body">
+      <div class="callout-title">중간태 개념 — 교수님: "시험에 안 낸다"</div>
+      <div class="callout-text">
+        <strong>의미:</strong> 주어의 동작이 주어 자신에게 영향을 미칠 때 사용 ("나를 위해 / 나 스스로 ~하다")<br>
+        <strong>현재·미완료:</strong> 수동태와 형태 완전히 동일 → 문맥으로 구별<br>
+        <strong>미래 중간태:</strong> 수동태와 형태 다름 (미래 능동 어미에 중간태 어미 결합)
+      </div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label middle">현재 중간태 — λύω (현재 수동태와 형태 동일) <span class="marker m-mid">시험 제외</span></div>
+    <table class="pt">
+      <thead>
+        <tr><th style="width:80px">인칭/수</th><th>헬라어</th><th>한글 발음</th><th>해석 (중간태)</th><th>어미</th></tr>
+      </thead>
+      <tbody>
+        <tr class="middle-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύομαι</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오마이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 나를 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ομαι</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύῃ</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 너를 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ῃ</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύεται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 자신을 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-εται</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυόμεθα</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼오메타</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 우리를 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-όμεθα</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύεσθε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼에스테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 너희를 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-εσθε</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύονται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼온타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 자신들을 위해 푼다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">-ονται</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-label middle">미래 중간태 — λύω (미래 수동태와 형태 다름) <span class="marker m-mid">시험 제외</span></div>
+    <table class="pt">
+      <thead>
+        <tr><th style="width:80px">인칭/수</th><th>헬라어</th><th>한글 발음</th><th>해석</th><th>표지</th></tr>
+      </thead>
+      <tbody>
+        <tr class="middle-row"><td class="person">1인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύ<b style="color:var(--purple)">σ</b>ομαι</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼소마이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">나는 나를 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+ομαι</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">2인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύσῃ</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너는 너를 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+ῃ</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">3인칭 단수</td>
+          <td><div class="cell"><div class="cell-greek">λύσεται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그는 자신을 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+εται</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">1인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λυσόμεθα</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼소메타</div></div></td>
+          <td><div class="cell"><div class="cell-ko">우리는 우리를 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+όμεθα</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">2인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύσεσθε</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼세스테</div></div></td>
+          <td><div class="cell"><div class="cell-ko">너희는 너희를 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+εσθε</div></div></td>
+        </tr>
+        <tr class="middle-row"><td class="person">3인칭 복수</td>
+          <td><div class="cell"><div class="cell-greek">λύσονται</div></div></td>
+          <td><div class="cell"><div class="cell-ko">뤼손타이</div></div></td>
+          <td><div class="cell"><div class="cell-ko">그들은 자신들을 위해 풀 것이다</div></div></td>
+          <td><div class="cell"><div class="cell-roman">σ+ονται</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 과제 박스 -->
+  <div class="task-box">
+    <div class="task-title">📄 과제 연계 — 기말 문법 요약 출력물 (6/15 제출)</div>
+    <div class="task-text">
+      위 변화표 전체가 과제 출력물의 핵심 내용입니다. 매 주차 변화표를 별도 문서에 누적 정리하고, 마지막에 몰아서 하면 인쇄 실수 발생 가능 — <strong>지금부터 주차별로 쌓아두세요.</strong>
+    </div>
+  </div>
+
+  <!-- 오늘 암기 필수 3 -->
+  <div class="must-know">
+    <div class="must-know-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="must-list">
+      <div class="must-item">
+        <div class="must-num">① 미래 수동태 1단</div>
+        <div class="must-greek">λυθήσομαι</div>
+        <div class="must-ko">뤼데소마이 · 나는 풀릴 것이다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">② 단순과거 능동 1단</div>
+        <div class="must-greek">ἔλυσα</div>
+        <div class="must-ko">엘뤼사 · 나는 풀었다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">③ 현재 수동태 1단</div>
+        <div class="must-greek">λύομαι</div>
+        <div class="must-ko">뤼오마이 · 나는 풀린다</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-note -->
+
+<!-- ══════════════════════════════════════════
+     TAB 2 — 시험포인트
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-exam">
+
+  <div class="sec-head">
+    <span class="sec-icon">🚨</span>
+    <span class="sec-title">시험 출제 범위 — 교수님 언급 기반</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">📢</div>
+    <div class="callout-body">
+      <div class="callout-title">교수님 핵심 발언</div>
+      <div class="callout-text">
+        "7~80%, 어쩌면 8~90%는 <strong>번역</strong>으로 낸다" &nbsp;|&nbsp; "미래 수동태는 <strong>꼭</strong> 시험에 낼 거예요" &nbsp;|&nbsp;
+        "현재 능동태 어미 <strong>헷갈렸어요 — 요거를 많이 낼 것 같아요</strong>" &nbsp;|&nbsp;
+        악센트 쓰지 말 것 &nbsp;|&nbsp; 중간태·미래 중간태 시험 제외
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <span style="font-size:16px">🚨</span>
+      <span class="exam-title">시험 1 — 현재 능동태 어미 6형태</span>
+      <span class="exam-date">중간고사 4/27</span>
+    </div>
+    <ul class="exam-list">
+      <li><span class="num">1</span><div>어미 암기: <span class="gr">-ω / -εις / -ει / -ομεν / -ετε / -ουσι(ν)</span></div></li>
+      <li><span class="num">2</span><div>빈칸 채우기 형태 출제 가능 — <strong>백지에 6형태 쓸 수 있어야 함</strong></div></li>
+      <li><span class="num">3</span><div>헷갈리기 쉬운 것: 3단 <span class="gr">λύει</span> vs 2단 <span class="gr">λύεις</span> (스 있고 없고)</div></li>
+    </ul>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <span style="font-size:16px">🚨</span>
+      <span class="exam-title">시험 2 — 미래 수동태 직설법 (교수님 "꼭 낼 것")</span>
+      <span class="exam-date">중간고사 4/27</span>
+    </div>
+    <ul class="exam-list">
+      <li><span class="num">1</span><div>표지 <span class="gr">θησ</span>를 현재 수동 어미 앞에 삽입: <span class="gr">λυ<b>θήσ</b>ομαι</span></div></li>
+      <li><span class="num">2</span><div>1단 <span class="gr">λυθήσομαι</span> (뤼데소마이) = "나는 풀릴 것이다" 반드시 암기</div></li>
+      <li><span class="num">3</span><div>미래 중간태 <span class="gr">λύσομαι</span>와 혼동 주의 — θησ 있으면 수동, 없으면 중간</div></li>
+    </ul>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <span style="font-size:16px">🚨</span>
+      <span class="exam-title">시험 3 — 단순과거 σα 어미 식별 & 번역</span>
+      <span class="exam-date">중간고사 4/27 · 기말 6/15</span>
+    </div>
+    <ul class="exam-list">
+      <li><span class="num">1</span><div>2가지 표지 동시 확인: <strong>앞에 ε(가산모음) + 어간 뒤에 σα</strong></div></li>
+      <li><span class="num">2</span><div>어미 6형태: <span class="gr">σα / σας / σε(ν) / σαμεν / σατε / σαν</span></div></li>
+      <li><span class="num">3</span><div><strong>미완료 구별:</strong> ε만 있고 σα 없으면 → 미완료 (과거 진행)</div></li>
+    </ul>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <span style="font-size:16px">📝</span>
+      <span class="exam-title">시험 4 — 번역 (전체 문제의 7~90%)</span>
+      <span class="exam-date">중간고사 4/27 · 기말 6/15</span>
+    </div>
+    <ul class="exam-list">
+      <li><span class="num">1</span><div><span class="gr">ἐπιστεύσαμεν</span> → <strong>우리가 믿었다</strong> (단순과거 능동 1복)</div></li>
+      <li><span class="num">2</span><div><span class="gr">ἐσώθησαν</span> → <strong>그들이 구원받았다</strong> (단순과거 수동 3복)</div></li>
+      <li><span class="num">3</span><div><span class="gr">σωθήσεται</span> → <strong>그가 구원받을 것이다</strong> (미래 수동 3단)</div></li>
+      <li><span class="num">4</span><div><span class="gr">ἐθεράπευσεν</span> → <strong>그가 치료하였다</strong> (단순과거 능동 3단)</div></li>
+      <li><span class="num">5</span><div><span class="gr">βαπτίσει</span> → <strong>그가 침례를 줄 것이다</strong> (미래 능동 3단)</div></li>
+    </ul>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-header">
+      <span style="font-size:16px">⚠️</span>
+      <span class="exam-title">시험 5 — ε 보유 동사 주의 (현재에도 ε)</span>
+      <span class="exam-date">함정 문제 주의</span>
+    </div>
+    <ul class="exam-list">
+      <li><span class="num">1</span><div><span class="gr">ἔχω</span> (에코) = <strong>가지고 있다</strong> — 현재시제인데 ε로 시작 → 과거 아님</div></li>
+      <li><span class="num">2</span><div><span class="gr">ἐγείρω</span> (에게이로) = <strong>일으키다</strong> — 현재시제인데 ε 포함</div></li>
+      <li><span class="num">3</span><div>판별법: ε만 보지 말고 <strong>σα 표지 추가 확인</strong> 필수</div></li>
+    </ul>
+  </div>
+
+  <div class="callout purple">
+    <div class="callout-icon">🟣</div>
+    <div class="callout-body">
+      <div class="callout-title">시험 제외 확정 항목</div>
+      <div class="callout-text">
+        <strong>중간태</strong> 전체 (현재·미완료·미래) &nbsp;|&nbsp;
+        <strong>미래 중간태</strong> &nbsp;|&nbsp;
+        <strong>악센트</strong> 표기 &nbsp;|&nbsp;
+        <strong>헬라어 직접 쓰기</strong> (기껏해야 한두 문제 수준)
+      </div>
+    </div>
+  </div>
+
+  <div class="must-know">
+    <div class="must-know-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="must-list">
+      <div class="must-item">
+        <div class="must-num">① 미래 수동태 1단</div>
+        <div class="must-greek">λυθήσομαι</div>
+        <div class="must-ko">뤼데소마이 · 나는 풀릴 것이다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">② 단순과거 능동 1단</div>
+        <div class="must-greek">ἔλυσα</div>
+        <div class="must-ko">엘뤼사 · 나는 풀었다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">③ 현재 수동태 1단</div>
+        <div class="must-greek">λύομαι</div>
+        <div class="must-ko">뤼오마이 · 나는 풀린다</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-exam -->
+
+<!-- ══════════════════════════════════════════
+     TAB 3 — 암기카드
+══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-flash">
+
+  <div class="sec-head">
+    <span class="sec-icon">🃏</span>
+    <span class="sec-title">시제 표지 암기카드 — 클릭하면 뒤집힙니다</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="flash-grid">
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">λύω</div><div class="f-roman">lýō</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">나는 푼다</div><div class="f-pos">현재 능동태 1인칭 단수</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">λύσω</div><div class="f-roman">lýsō</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">나는 풀 것이다</div><div class="f-pos">미래 능동태 1인칭 단수 · σ 표지</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">λύομαι</div><div class="f-roman">lýomai</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">나는 풀린다</div><div class="f-pos">현재 수동태 1인칭 단수 · -ομαι</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">λυθήσομαι</div><div class="f-roman">lythḗsomai</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">나는 풀릴 것이다</div><div class="f-pos">미래 수동태 1인칭 단수 · θησ 표지</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">ἔλυσα</div><div class="f-roman">élusa</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">나는 풀었다</div><div class="f-pos">단순과거 능동태 1인칭 단수 · ε+σα</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">ἔλυσαν</div><div class="f-roman">élusan</div><div class="f-hint">시제·태·인칭?</div></div>
+        <div class="flash-back"><div class="f-mean">그들은 풀었다</div><div class="f-pos">단순과거 능동태 3인칭 복수 · σαν</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">ἐπίστευσαν</div><div class="f-roman">epísteúsan</div><div class="f-hint">번역?</div></div>
+        <div class="flash-back"><div class="f-mean">그들이 믿었다</div><div class="f-pos">πιστεύω 단순과거 능동 3복</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">σωθήσεται</div><div class="f-roman">sōthḗsetai</div><div class="f-hint">번역?</div></div>
+        <div class="flash-back"><div class="f-mean">그가 구원받을 것이다</div><div class="f-pos">σῴζω 미래 수동태 3단 · θήσεται</div></div>
+      </div>
+    </div>
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front"><div class="f-greek">ἔχω</div><div class="f-roman">ékhō</div><div class="f-hint">주의: 시제는?</div></div>
+        <div class="flash-back"><div class="f-mean">가지고 있다 (현재!)</div><div class="f-pos">⚠️ ε 있어도 현재 — σα 없으면 과거 아님</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="must-know">
+    <div class="must-know-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="must-list">
+      <div class="must-item">
+        <div class="must-num">① 미래 수동태 1단</div>
+        <div class="must-greek">λυθήσομαι</div>
+        <div class="must-ko">뤼데소마이 · 나는 풀릴 것이다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">② 단순과거 능동 1단</div>
+        <div class="must-greek">ἔλυσα</div>
+        <div class="must-ko">엘뤼사 · 나는 풀었다</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">③ 현재 수동태 1단</div>
+        <div class="must-greek">λύομαι</div>
+        <div class="must-ko">뤼오마이 · 나는 풀린다</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-flash -->
+
+<script>
+function switchTab(e, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>

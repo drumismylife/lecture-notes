@@ -24,7 +24,9 @@ const SITE_DATA = {
         { week: 3, title: "현재 능동태 · 수동태 · 중간태 직설법 / 미래 시제 맛보기", date: "2026.03.23", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week03.html" }
         ] },
-        { week: 4, title: "형용사 변화", date: "2026.04", files: [] },
+        { week: 4, title: "복습 & 미래 시제 & 과거 기본", date: "2026.03.30.", files: [
+	  { type: "notes", label: "강의노트", href: "output/greek/week04.html" }
+	] },
         { week: 5, title: "전치사와 격", date: "2026.04", files: [] },
         { week: 6, title: "동사 기초 — 현재 능동태", date: "2026.04", files: [] },
         { week: 7, title: "동사 — 미완료 과거", date: "2026.04", files: [] },
@@ -50,7 +52,9 @@ const SITE_DATA = {
         { week: 3, title: "목회와 목회자", date: "2026.03.23.", files: [
           { type: "notes", label: "강의노트", href: "output/목회학/week03.html" }
         ] },
-        { week: 4, title: "심방과 돌봄 사역", date: "2026.04", files: [] },
+        { week: 4, title: "목회자의 소명 & 목회와 목회자(2)", date: "2026.03.30", files: [
+	  { type: "notes", label: "강의노트", href: "output/목회학/week04.html" }
+	] },
         { week: 5, title: "상담 목회 기초", date: "2026.04", files: [] },
         { week: 6, title: "교회 행정과 리더십", date: "2026.04", files: [] },
         { week: 7, title: "교육 목회", date: "2026.04", files: [] },
