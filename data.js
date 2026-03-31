@@ -15,16 +15,12 @@ const SITE_DATA = {
           title: "수업커리큘럼 및 학습 전략",
           date: "2026.03.09",
           files: [
-             { type: "notes", label: "강의노트", href: "output/greek/week01.html" },
-             // PDF 파일 추가 예시:
-             // { type: "pdf", label: "강의노트 PDF", href: "output/greek/week01.pdf" },
-             // 음성 파일 추가 예시:
-             // { type: "audio", label: "강의 음성", href: "output/greek/week01.mp3" }
+             { type: "notes", label: "강의노트", href: "output/greek/week01.html" }
           ]
         },
         { week: 2, title: "알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초", date: "2026.03.16", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week02.html" },
-	  { type: "pdf", label: "헬라어I_노트정리(홍한나)PDF", href: "output/greek/week02b.pdf" },
+          { type: "pdf", label: "헬라어I_노트정리(홍한나)PDF", href: "output/greek/week02b.pdf" }
         ] },
         { week: 3, title: "현재 능동태 · 수동태 · 중간태 직설법 / 미래 시제 맛보기", date: "2026.03.23", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week03.html" }
@@ -148,7 +144,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트2", href: "output/교회사/week03b.html" }
           ] },
         { week: 4, title: "예루살렘과 그 너머 & 사도 바울", date: "2026.03.27", files: [
-	   { type: "notes", label: "강의노트1", href: "output/교회사/week04.html" }	   
+	   { type: "notes", label: "강의노트", href: "output/교회사/week04.html" }
 	] },
         { week: 5, title: "초대 교부들의 신학", date: "2026.04", files: [] },
         { week: 6, title: "교회 회의와 교리 형성", date: "2026.04", files: [] },
@@ -175,41 +171,40 @@ const SITE_DATA = {
       isNew: false
     },
   {
-    name: "헬라어 학습앱2",         // ← 새로 추가
+    name: "헬라어 학습앱2",
     icon: "📖",
     desc: "알파벳 발음 · 단어 · 동사변화 오디오 학습",
     href: "https://drumismylife.github.io/greek-study/",
     isNew: true
   },
-{
-    name: "헬라어 현재-수동 외우기 노래1",         // ← 새로 추가
+  {
+    name: "헬라어 현재-수동 외우기 노래1",
     icon: "🎶",
     desc: "현재-수동 외우기 노래",
     href: "output/greek/현재-수동1.mp3",
     isNew: true
   },
-{
-    name: "헬라어 현재-수동 외우기 노래2",         // ← 새로 추가
+  {
+    name: "헬라어 현재-수동 외우기 노래2",
     icon: "🎶",
     desc: "현재-수동 외우기 노래",
     href: "output/greek/현재-수동2.mp3",
     isNew: true
   },
-{
-    name: "헬라어 미래-수동 외우기 노래1",         // ← 새로 추가
+  {
+    name: "헬라어 미래-수동 외우기 노래1",
     icon: "🎶",
     desc: "미래-수동 외우기 노래",
     href: "output/greek/미래-수동1.mp3",
     isNew: true
   },
-{
-    name: "헬라어 미래-수동 외우기 노래2",         // ← 새로 추가
+  {
+    name: "헬라어 미래-수동 외우기 노래2",
     icon: "🎶",
     desc: "미래-수동 외우기 노래",
     href: "output/greek/미래-수동2.mp3",
     isNew: true
-  },
-
+  }
   ],
 
   // ── 관련 자료 ───────────────────────────────────────────────
