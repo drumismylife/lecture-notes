@@ -23,14 +23,15 @@ const SITE_DATA = {
           ]
         },
         { week: 2, title: "알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초", date: "2026.03.16", files: [
-          { type: "notes", label: "강의노트", href: "output/greek/week02.html" }
+          { type: "notes", label: "강의노트", href: "output/greek/week02.html" },
 	  { type: "pdf", label: "헬라어I_노트정리(홍한나)PDF", href: "output/greek/week02b.pdf" },
         ] },
         { week: 3, title: "현재 능동태 · 수동태 · 중간태 직설법 / 미래 시제 맛보기", date: "2026.03.23", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week03.html" }
         ] },
         { week: 4, title: "복습 & 미래 시제 & 과거 기본", date: "2026.03.30.", files: [
-	  { type: "notes", label: "강의노트", href: "output/greek/week04.html" }
+	  { type: "notes", label: "강의노트", href: "output/greek/week04.html" },
+	  { type: "audio", label: "현재수동노래1", href: "output/greek/현재-수동1.mp3" }
 	] },
         { week: 5, title: "전치사와 격", date: "2026.04", files: [] },
         { week: 6, title: "동사 기초 — 현재 능동태", date: "2026.04", files: [] },
