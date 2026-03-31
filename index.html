@@ -114,6 +114,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .witem.open .wbody{display:flex}
 .fchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#c8c5be;border:.5px solid rgba(255,255,255,0.18);border-radius:20px;padding:6px 14px;background:rgba(255,255,255,0.07);transition:all .18s;text-decoration:none}
 .fchip:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);color:#f0eee8}
+.chip-pdf{color:#f4a27a;border-color:rgba(244,162,122,0.35);background:rgba(244,162,122,0.08)}
+.chip-pdf:hover{background:rgba(244,162,122,0.18);border-color:rgba(244,162,122,0.6);color:#f9c4a8}
+.chip-audio{color:#7ac4f4;border-color:rgba(122,196,244,0.35);background:rgba(122,196,244,0.08)}
+.chip-audio:hover{background:rgba(122,196,244,0.18);border-color:rgba(122,196,244,0.6);color:#aadcf9}
+.chip-notes{color:#c8c5be;border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.07)}
 .nof{font-size:12px;color:#7a7670;font-style:italic}
 
 /* RESOURCES */
@@ -274,7 +279,7 @@ footer{border-top:.5px solid var(--border);padding:28px 24px}
 <script src="data.js"></script>
 <script>
 const CMETA={greek:{code:'LANG 101',title:'헬라어 I',eng:'Koine Greek I',acc:'ag',desc:'코이네 그리스어 기초 문법. 알파벳부터 동사 변화까지, 신약 원문 독해를 위한 언어 기반.',hasApps:true},min:{code:'MIN 201',title:'목회학',eng:'Pastoral Ministry',acc:'am',desc:'목회자의 정체성·소명, 설교·예배·심방·상담의 실천 신학적 기초.'},phil:{code:'PHIL 301',title:'기독교철학',eng:'Christian Philosophy',acc:'ap',desc:'Ricken의 Religionsphilosophie를 중심으로 종교철학의 핵심 논제를 탐구.'},nt:{code:'NT 401',title:'신약성서 I',eng:'New Testament I',acc:'an',desc:'공관복음 개론, 마태복음 신학 구조와 기독론, 편집비평적 분석.'},hist:{code:'HIST 201',title:'교회사개론 I',eng:'Church History I',acc:'ah',desc:'초대교회부터 종교개혁까지, 기독교 역사의 흐름과 신학적 사건들.'}};
-const FMETA={notes:{icon:'📄',label:'강의노트'},summary:{icon:'📌',label:'핵심요약'},exam:{icon:'📝',label:'시험대비'},handout:{icon:'📋',label:'핸드아웃'},text:{icon:'📖',label:'텍스트'},other:{icon:'🔗',label:'자료'}};
+const FMETA={notes:{icon:'📄',label:'강의노트',chip:'chip-notes'},summary:{icon:'📌',label:'핵심요약',chip:'chip-notes'},exam:{icon:'📝',label:'시험대비',chip:'chip-notes'},handout:{icon:'📋',label:'핸드아웃',chip:'chip-notes'},text:{icon:'📖',label:'텍스트',chip:'chip-notes'},pdf:{icon:'📕',label:'PDF',chip:'chip-pdf'},audio:{icon:'🎧',label:'음성',chip:'chip-audio'},other:{icon:'🔗',label:'자료',chip:''}};
 
 function bClass(f){if(!f||!f.length)return 'wb-empty';const h=t=>f.some(x=>x.type===t);return(h('notes')&&h('summary'))?'wb-done':'wb-partial'}
 function bLabel(f){if(!f||!f.length)return'—';return bClass(f)==='wb-done'?'완료':'일부'}
@@ -302,7 +307,7 @@ function renderWeeks(id){
   const el=document.getElementById('weeks-'+id);if(!el)return;
   el.innerHTML=SITE_DATA.courses[id].weeks.map((w,i)=>{
     const bc=bClass(w.files);const bl=bLabel(w.files);
-    const fh=(w.files&&w.files.length>0)?w.files.map(f=>{const fm=FMETA[f.type]||FMETA.other;return`<a class="fchip" href="${f.href}" target="_blank">${fm.icon} ${f.label||fm.label}</a>`;}).join(''):`<span class="nof">아직 등록된 자료가 없습니다.</span>`;
+    const fh=(w.files&&w.files.length>0)?w.files.map(f=>{const fm=FMETA[f.type]||FMETA.other;return`<a class="fchip ${fm.chip||''}" href="${f.href}" target="_blank">${fm.icon} ${f.label||fm.label}</a>`;}).join(''):`<span class="nof">아직 등록된 자료가 없습니다.</span>`;
     return`<div class="witem" id="wi-${id}-${w.week}" style="animation-delay:${i*.025}s">
       <button class="wtog" onclick="toggleW('${id}','${w.week}')">
         <span class="wnum">W${String(w.week).padStart(2,'0')}</span>
