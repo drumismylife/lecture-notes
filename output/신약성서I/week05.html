@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I — 마가복음 강의노트</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #150f1a;
+  --card:        #1e1526;
+  --subcard:     #261c30;
+  --border:      #3a2d4a;
+  --purple:      #9b7fc7;
+  --purple-dark: #6b52a0;
+  --purple-pale: #2a1f3d;
+  --bible:       #c4a8e8;
+  --lavender:    #b8a8d4;
+  --gold:        #c9a84c;
+  --gold-pale:   #2a2010;
+  --exam:        #c96b5a;
+  --exam-pale:   #2d1a16;
+  --term:        #7ab87a;
+  --term-pale:   #162216;
+  --teacher:     #6b5a8a;
+  --bg-compare:  #1e1a2a;
+  --bg-back:     #1c1528;
+  --text:        #ede8f5;
+  --text-sub:    #9e96aa;
+  --white:       #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 9.5pt;
+  line-height: 1.7;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: linear-gradient(135deg, #1a0d2e 0%, #2d1060 50%, #1a0d2e 100%);
+  padding: 10mm 12mm 8mm;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--purple-dark);
+}
+.doc-header::before {
+  content: 'Κατὰ Μᾶρκον';
+  position: absolute; right: 8mm; top: 4mm;
+  font-family: 'Crimson Pro', serif;
+  font-size: 36pt; font-style: italic;
+  color: rgba(155,127,199,.08);
+  white-space: nowrap;
+}
+.h-tag {
+  display: inline-flex; align-items: center; gap: 2mm;
+  background: var(--purple-dark);
+  color: var(--white);
+  font-size: 6.5pt; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 2px 10px; border-radius: 2px;
+  margin-bottom: 3mm;
+}
+.h-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20pt; font-weight: 700;
+  color: var(--white);
+  line-height: 1.2; margin-bottom: 2mm;
+}
+.h-greek {
+  font-family: 'Crimson Pro', serif;
+  font-size: 12pt; font-style: italic;
+  color: rgba(196,168,232,.7);
+  margin-bottom: 4mm;
+}
+.h-pills {
+  display: flex; gap: 2mm; flex-wrap: wrap;
+}
+.h-pill {
+  background: rgba(155,127,199,.15);
+  border: 1px solid rgba(155,127,199,.3);
+  color: rgba(255,255,255,.85);
+  font-size: 7pt; padding: 2px 9px;
+  border-radius: 20px; font-weight: 500;
+}
+.h-pill.exam  { background: rgba(201,107,90,.2); border-color: var(--exam); color: #f4a090; }
+.h-pill.term  { background: rgba(122,184,122,.2); border-color: var(--term); color: #a0d4a0; }
+
+/* ── TABS ── */
+.tab-nav {
+  display: flex; background: #0f0a18;
+  border-bottom: 2px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.tab-btn {
+  flex: 1; padding: 4mm 0;
+  background: none; border: none;
+  color: var(--text-sub); font-size: 8.5pt;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 600; cursor: pointer;
+  letter-spacing: .04em;
+  border-bottom: 3px solid transparent;
+  transition: all .25s;
+}
+.tab-btn.active {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+  background: rgba(155,127,199,.07);
+}
+.tab-btn:hover:not(.active) { color: var(--lavender); }
+
+.tab-panel { display: none; padding: 7mm 10mm 12mm; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION ── */
+.sec-head {
+  display: flex; align-items: center; gap: 3mm;
+  margin: 8mm 0 4mm;
+}
+.sec-badge {
+  background: var(--purple-dark); color: var(--white);
+  font-size: 6.5pt; font-weight: 700;
+  padding: 2px 8px; border-radius: 2px;
+  letter-spacing: .06em; white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 11pt; font-weight: 700;
+  color: var(--purple);
+}
+.sec-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, var(--purple-dark), transparent);
+}
+.sub-head {
+  font-size: 8.5pt; font-weight: 700;
+  color: var(--lavender);
+  margin: 5mm 0 2.5mm;
+  padding-left: 3mm;
+  border-left: 3px solid var(--gold);
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5mm 6mm;
+  margin-bottom: 3.5mm;
+}
+.card.exam-card {
+  background: var(--exam-pale);
+  border-color: var(--exam);
+}
+.card.term-card {
+  background: var(--term-pale);
+  border-color: var(--term);
+}
+.card.teacher-card {
+  background: var(--card);
+  border-left: 3px solid var(--teacher);
+  border-radius: 4px;
+  font-style: italic;
+  color: var(--lavender);
+}
+.card.back-card {
+  background: var(--bg-back);
+  border-left: 2px solid var(--teacher);
+}
+.card.compare-card {
+  background: var(--bg-compare);
+  border-color: var(--border);
+}
+.card.theology-card {
+  border-left: 3px solid var(--purple);
+  border-radius: 4px;
+  background: var(--card);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 6pt; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 1px 7px; border-radius: 2px;
+  margin-bottom: 2.5mm;
+}
+.badge.exam  { background: var(--exam);        color: #fff; }
+.badge.term  { background: var(--term);        color: #0a1a0a; }
+.badge.theo  { background: var(--purple-dark); color: #fff; }
+.badge.back  { background: var(--teacher);     color: #fff; }
+.badge.teach { background: #3d2d5a;            color: var(--lavender); border: 1px solid var(--teacher); }
+
+.card-title {
+  font-size: 10pt; font-weight: 700;
+  color: var(--text); margin-bottom: 3mm;
+}
+.exam-card .card-title { color: var(--exam); }
+.term-card .card-title { color: var(--term); }
+
+/* ── BIBLE TEXT ── */
+.bible {
+  font-family: 'Crimson Pro', monospace;
+  font-size: 10pt;
+  color: var(--bible);
+  background: rgba(196,168,232,.07);
+  border-left: 3px solid var(--bible);
+  padding: 3mm 4mm;
+  border-radius: 0 4px 4px 0;
+  margin: 2mm 0;
+  line-height: 1.75;
+}
+.bible-ref {
+  font-size: 7.5pt;
+  color: var(--lavender);
+  font-style: normal;
+  margin-left: 2mm;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 8pt; margin: 3mm 0 4mm;
+}
+thead tr { background: var(--purple-dark); }
+thead th {
+  padding: 4px 7px; text-align: left;
+  font-size: 7.5pt; font-weight: 600;
+  color: var(--white); letter-spacing: .04em;
+  border: 1px solid rgba(255,255,255,.1);
+}
+td {
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  vertical-align: top; line-height: 1.6;
+}
+tr:nth-child(even) td { background: rgba(255,255,255,.025); }
+tr:nth-child(odd)  td { background: rgba(0,0,0,.15); }
+.td-c { text-align: center; }
+.td-key { color: var(--lavender); font-weight: 600; }
+.td-exam { color: var(--exam); font-weight: 600; }
+.td-bible { color: var(--bible); font-family: 'Crimson Pro', serif; font-size: 9pt; }
+.td-term { color: var(--term); font-weight: 600; }
+
+/* ── STRUCTURE BOX ── */
+.struct-box {
+  background: #0f0a18;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5mm 6mm;
+  margin: 3mm 0;
+  font-size: 8.5pt;
+  line-height: 2;
+}
+.struct-center {
+  text-align: center;
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 9.5pt;
+  padding: 2mm 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  margin: 2mm 0;
+}
+.struct-row {
+  display: flex; gap: 3mm; align-items: flex-start;
+  padding: 1.5mm 0;
+  border-left: 2px solid var(--border);
+  padding-left: 4mm;
+  margin: 1mm 0;
+}
+.struct-row.level1 { border-left-color: var(--purple); margin-left: 0; }
+.struct-row.level2 { border-left-color: var(--exam);   margin-left: 5mm; }
+.struct-row.level3 { border-left-color: var(--term);   margin-left: 10mm; }
+.struct-step {
+  background: var(--purple-dark); color: var(--white);
+  font-size: 6.5pt; font-weight: 700;
+  padding: 1px 6px; border-radius: 2px;
+  white-space: nowrap; margin-top: 2px;
+}
+.struct-step.exam { background: var(--exam); }
+.struct-step.term { background: var(--term); color: #0a1a0a; }
+.struct-content { flex: 1; }
+.struct-verse { color: var(--bible); font-size: 8pt; }
+.struct-note  { color: var(--text-sub); font-size: 7.5pt; font-style: italic; }
+
+/* ── GRID ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; }
+
+/* ── PROPHECY CARDS ── */
+.prophecy-wrap {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 3mm 0;
+}
+.prophecy-card {
+  background: var(--subcard);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+}
+.prophecy-head {
+  background: var(--purple-dark);
+  padding: 2.5mm 3.5mm;
+  font-size: 8pt; font-weight: 700; color: var(--white);
+  text-align: center;
+}
+.prophecy-body { padding: 3.5mm; }
+.prophecy-row { margin-bottom: 2mm; }
+.prophecy-label {
+  font-size: 6.5pt; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  margin-bottom: 0.5mm;
+}
+.prophecy-label.pred  { color: var(--purple); }
+.prophecy-label.fail  { color: var(--exam); }
+.prophecy-label.teach { color: var(--term); }
+.prophecy-text { font-size: 7.5pt; line-height: 1.6; }
+.prophecy-verse { color: var(--bible); font-size: 7pt; font-style: italic; }
+
+/* ── HAVRUTA (탭3) ── */
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4mm 5mm;
+  margin-bottom: 3mm;
+}
+.q-num {
+  display: inline-block;
+  background: var(--purple-dark);
+  color: var(--white);
+  font-size: 7.5pt; font-weight: 700;
+  padding: 1px 8px; border-radius: 12px;
+  margin-bottom: 2mm;
+}
+.q-text {
+  font-size: 10pt; font-weight: 600;
+  color: var(--text); margin-bottom: 2.5mm;
+}
+.q-point {
+  background: var(--subcard);
+  border-left: 3px solid var(--lavender);
+  padding: 2.5mm 3.5mm;
+  border-radius: 0 4px 4px 0;
+  font-size: 8pt; color: var(--lavender);
+  line-height: 1.65;
+}
+.q-point strong { color: var(--text); }
+
+/* ── KEYWORD SUMMARY ── */
+.keyword-row {
+  display: flex; gap: 2mm; flex-wrap: wrap; margin: 3mm 0;
+}
+.keyword {
+  background: var(--purple-pale);
+  border: 1px solid var(--purple-dark);
+  color: var(--purple);
+  font-size: 8pt; font-weight: 600;
+  padding: 2px 10px; border-radius: 20px;
+}
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 8mm; padding: 4mm 10mm;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between;
+  font-size: 7pt; color: var(--text-sub);
+}
+.footer-r { color: var(--purple); font-weight: 600; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: #150f1a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .tab-nav { display: none; }
+  .tab-panel { display: block !important; }
+  .tab-panel + .tab-panel { page-break-before: always; }
+  .card, .prophecy-card, .q-card, .struct-box { page-break-inside: avoid; }
+  .sec-head { page-break-after: avoid; }
+  @page { size: A4; margin: 15mm 12mm; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="h-tag">📖 신약성서 I — 강의노트</div>
+  <div class="h-title">마가복음 — 고난받는 종의 복음서</div>
+  <div class="h-greek">Κατὰ Μᾶρκον · The Gospel According to Mark</div>
+  <div class="h-pills">
+    <span class="h-pill">4주차 · 2026-04-02</span>
+    <span class="h-pill">담당: 한철흠 교수</span>
+    <span class="h-pill exam">★ 중간고사 4/23</span>
+    <span class="h-pill term">용어집 제출 6/4</span>
+    <span class="h-pill">교재: 파월 신약개론 (CLC, 2014)</span>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab(0)">📚 강의노트</button>
+  <button class="tab-btn" onclick="showTab(1)">🎯 핵심정리</button>
+  <button class="tab-btn" onclick="showTab(2)">🗣️ 하브루타</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 1 — 강의노트
+═══════════════════════════════════════════ -->
+<div class="tab-panel active">
+
+  <!-- § 1. 마가복음 특징 5가지 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 01</span>
+    <div class="sec-title">마가복음의 5가지 특징</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="badge theo">신학 특징</div>
+    <table>
+      <thead><tr><th style="width:26%;">특징</th><th>내용</th><th style="width:30%;">비고</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-key">① 예수님의 가르침 희소</td>
+          <td>마태복음의 5대 강화(산상수훈·제자파송·천국비유·공동체·종말론)와 대조 — 가르침 대신 <strong>행동과 사건</strong> 중심</td>
+          <td class="td-sub">마가복음의 핵심 정체성</td>
+        </tr>
+        <tr>
+          <td class="td-key">② 긴박한 이야기 전개</td>
+          <td><span style="color:var(--bible);font-family:'Crimson Pro',serif;">εὐθύς</span> (즉시) <strong>42회</strong> 사용 — 가장 짧은 복음서(16장)에서 가장 빈번하게 등장</td>
+          <td class="td-bible">"때가 찼고 하나님의 나라가 가까이 왔으니 회개하고 복음을 믿으라" (1:15)</td>
+        </tr>
+        <tr>
+          <td class="td-key">③ 구어체·비세련 헬라어</td>
+          <td><strong>역사적 현재(Historical Present)</strong> 151회 — 과거 사건을 현재형으로 서술하여 긴박감 강조 (문법 오류 아님)<br><strong>이야기 삽입(Intercalation)</strong> — 샌드위치 기법</td>
+          <td>마가복음이 먼저 기록되었다고 보는 학계 다수 견해의 근거 중 하나</td>
+        </tr>
+        <tr>
+          <td class="td-key">④ 이방인 독자 대상</td>
+          <td>유대 관습 설명 추가 / 아람어 번역 제공 / 라틴어는 번역 없음</td>
+          <td>로마 기독교인이 독자일 가능성 높음</td>
+        </tr>
+        <tr>
+          <td class="td-key">⑤ 십자가 중심</td>
+          <td>전체의 약 1/3이 수난 이야기 / 마태·누가의 절반 분량이지만 수난 분량은 동일</td>
+          <td class="td-exam">★ 마틴 켈러 인용 — 중간고사 출제</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- § 2. 이방인 독자 증거 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 02</span>
+    <div class="sec-title">이방인 독자의 증거들</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card back-card">
+      <div class="badge back">유대 관습 설명</div>
+      <div style="margin-top:2mm;font-size:8pt;line-height:1.75;">
+        <div class="bible">"부활이 없다 하는 사두개인들이 예수께 와서 물어 이르되" <span class="bible-ref">(12:18)</span></div>
+        <div class="bible">"바리새인들과 모든 유대인들은 장로들의 전통을 지키어 손을 잘 씻지 않고서는 음식을 먹지 아니하며…" <span class="bible-ref">(7:3-4)</span></div>
+        <p style="color:var(--text-sub);font-size:7.5pt;margin-top:2mm;">이방인 독자는 유대 관습을 모르기 때문에 설명이 필요함</p>
+      </div>
+    </div>
+    <div class="card back-card">
+      <div class="badge back">아람어 번역 제공</div>
+      <table style="margin-top:2mm;">
+        <thead><tr><th>아람어</th><th>번역·설명</th><th>본문</th></tr></thead>
+        <tbody>
+          <tr><td class="td-bible">보아너게</td><td>우레의 아들</td><td class="td-bible">3:17</td></tr>
+          <tr><td class="td-bible">달리다굼</td><td>소녀야 일어나라</td><td class="td-bible">5:41</td></tr>
+          <tr><td class="td-bible">에바다</td><td>열리라</td><td class="td-bible">7:34</td></tr>
+          <tr><td class="td-bible">아빠 아버지</td><td>나의 아버지</td><td class="td-bible">14:36</td></tr>
+          <tr><td class="td-bible">엘리 엘리 라마 사박다니</td><td>나의 하나님 나의 하나님 어찌 나를 버리셨나이까</td><td class="td-bible">15:34</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-sub);font-size:7.5pt;margin-top:2mm;">* 라틴어(군대·데나리온·브라이도리온·백부장)는 번역 없음 → 로마 독자는 라틴어를 이미 앎</p>
+    </div>
+  </div>
+
+  <!-- § 3. 이야기 삽입법 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 03</span>
+    <div class="sec-title">이야기 삽입법 (Intercalation / 샌드위치 기법)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="badge theo">문학 기법</div>
+    <p style="margin:2mm 0 3mm;font-size:8.5pt;color:var(--lavender);">두 이야기 사이에 제3의 이야기를 끼워 넣어 상호 의미를 강화하는 마가복음의 독특한 문학 장치</p>
+    <div class="grid-2" style="gap:3mm;">
+      <div class="struct-box">
+        <div class="struct-center">샌드위치 ①</div>
+        <div class="struct-row level1"><span class="struct-step">A</span><div class="struct-content">무화과 나무 저주 <span class="struct-verse">(11:12-14)</span></div></div>
+        <div class="struct-row level2"><span class="struct-step exam">B</span><div class="struct-content"><strong>성전 정화</strong> <span class="struct-verse">(11:15-19)</span></div></div>
+        <div class="struct-row level1"><span class="struct-step">A'</span><div class="struct-content">무화과 나무 마름 <span class="struct-verse">(11:20-21)</span></div></div>
+        <p class="struct-note" style="margin-top:2mm;padding-left:4mm;">→ 열매 없는 무화과 = 열매 없는 성전 (70년 멸망 암시)</p>
+      </div>
+      <div class="struct-box">
+        <div class="struct-center">샌드위치 ②</div>
+        <div class="struct-row level1"><span class="struct-step">A</span><div class="struct-content">제자들 파송 <span class="struct-verse">(6:7-13)</span></div></div>
+        <div class="struct-row level2"><span class="struct-step exam">B</span><div class="struct-content"><strong>침례 요한 순교</strong> <span class="struct-verse">(6:14-29)</span></div></div>
+        <div class="struct-row level1"><span class="struct-step">A'</span><div class="struct-content">제자들 선교 보고 <span class="struct-verse">(6:30)</span></div></div>
+        <p class="struct-note" style="margin-top:2mm;padding-left:4mm;">→ 승리의 선교 사이에 순교 삽입 = 제자도에는 승리와 고난이 공존함</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- § 4. 마가복음 결말 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 04</span>
+    <div class="sec-title">마가복음의 결말 문제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card exam-card">
+    <div class="badge exam">★ 시험 출제 예상</div>
+    <div class="card-title">두 가지 결말 비교</div>
+    <table>
+      <thead><tr><th style="width:22%;">구분</th><th>내용</th><th style="width:28%;">사본 근거 / 의의</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-key">긴 결말 (16:9-20)</td>
+          <td>"제자들이 나가 두루 전파할새 주께서 함께 역사하사 그 따르는 표적으로 말씀을 확실히 증언하시니라"</td>
+          <td>후대 필사가들이 덧붙였을 가능성</td>
+        </tr>
+        <tr style="background:rgba(201,107,90,.08);">
+          <td class="td-exam">짧은 결말 (16:8)</td>
+          <td class="td-bible">"여자들이 몹시 놀라 떨며 나와 무덤에서 도망하고 무서워하여 아무에게 아무 말도 하지 못하더라"</td>
+          <td class="td-exam"><strong>가장 오래된 사본들은 8절로 끝남</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card teacher-card" style="margin-top:3mm;">
+      <div class="badge teach">교수 설명</div>
+      <p style="margin-top:1.5mm;">"이야기는 끝나지 않았다 — 독자들이 이야기를 마무리하도록 요청하는 열린 결말. 마가가 멋없게 끝낼 줄 몰라서가 아니라, 봉황의 깊은 뜻이 있는 것."</p>
+    </div>
+  </div>
+
+  <!-- § 5. 십자가 중심 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 05</span>
+    <div class="sec-title">십자가 중심 — 마가복음의 신학적 핵심</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card exam-card">
+    <div class="badge exam">★ 중간고사 출제 확정</div>
+    <div class="card-title">마틴 켈러 (Martin Kähler) 명언</div>
+    <div class="bible" style="font-size:12pt;text-align:center;padding:4mm;">
+      "마가복음은 확장된 서론을 지닌 수난 이야기다"<br>
+      <span style="font-size:9pt;color:var(--lavender);">a passion narrative with an extended introduction</span>
+    </div>
+  </div>
+
+  <div class="sub-head">복음서·바울 서신의 십자가 강조점 비교</div>
+  <div class="card compare-card">
+    <table>
+      <thead><tr><th style="width:25%;">구분</th><th>십자가 관련 강조점</th><th style="width:28%;">특징</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-key">바울 서신</td>
+          <td>죽으시고 부활하신 예수님 강조 — 예수님의 지상 사역은 거의 언급 안 함 / "우리가 예수와 함께 침례받아 죽고 삶"</td>
+          <td>로마서·고린도서·갈라디아서 등 13권</td>
+        </tr>
+        <tr>
+          <td class="td-key">마태·누가복음</td>
+          <td>예수님의 가르침 길게 설명 / 수난 이전의 삶과 사역에 대한 전기적 기록</td>
+          <td>5대 강화(마태) / 비유 중심(누가)</td>
+        </tr>
+        <tr style="background:rgba(201,107,90,.08);">
+          <td class="td-exam">마가복음</td>
+          <td>예수님의 삶 일부 + <strong>수난 이야기에 집중</strong> — 마태·누가의 절반 분량이지만 수난 분량은 동일</td>
+          <td class="td-exam">수난 이야기 = 전체의 약 1/3</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card teacher-card" style="margin-top:2mm;">
+      <div class="badge teach">교수 설명</div>
+      <p style="margin-top:1.5mm;">"바울 서신이든 사복음서든 — 복음의 핵심에는 반드시 십자가가 있다. 우리의 목회와 사역의 중심에는 무엇이 있어야 하는가? 대한민국 기독교는, 미국 기독교는 과연 십자가 중심인가?"</p>
+    </div>
+  </div>
+
+  <div class="sub-head">마가복음 내부의 십자가 중심 근거</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="badge theo">① 분량의 불균형</div>
+      <p style="margin-top:2mm;font-size:8.5pt;line-height:1.75;">마가복음 전체 길이 = 마태·누가의 <strong>절반</strong><br>
+      그러나 수난 이야기 분량 = 다른 복음서와 <strong>거의 동일</strong><br>
+      → 마가복음에서 수난 이야기의 비중이 압도적으로 큼</p>
+    </div>
+    <div class="card">
+      <div class="badge theo">② 죽일 음모의 조기 등장</div>
+      <div class="bible" style="margin-top:2mm;">"바리새인들이 나가서 곧 헤롯당과 함께 어떻게 하여 예수를 죽일까 의논하니라" <span class="bible-ref">(막 3:6)</span></div>
+      <p style="font-size:7.5pt;color:var(--text-sub);margin-top:1.5mm;">아직 3장, 초반부에 이미 수난의 그림자</p>
+    </div>
+  </div>
+
+  <!-- § 6. 십자가 중심 이야기 구조 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 06</span>
+    <div class="sec-title">8:22 – 10:52 십자가 중심 이야기 구조</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card exam-card">
+    <div class="badge exam">★ 시험 출제 예상 — 3단계 구조 암기</div>
+    <div class="card-title">맹인 치유 사이에 담긴 세 번의 수난 예고</div>
+    <div class="struct-box" style="margin-top:3mm;">
+      <div class="struct-center" style="color:var(--term);font-size:10pt;">맹인을 고치심 — 벳새다 (8:22–26)</div>
+      <div style="padding: 2mm 0 2mm 4mm; color:var(--text-sub);font-size:7.5pt;font-style:italic;">── 영적으로 눈먼 제자들과의 대조가 시작됨 ──</div>
+
+      <div class="struct-row level1">
+        <span class="struct-step">예고 1</span>
+        <div class="struct-content">
+          수난 예고 <span class="struct-verse">(8:31)</span><br>
+          <span style="color:var(--exam);">제자 반응: 베드로가 예수를 꾸짖음 (ἐπιτιμάω) </span><span class="struct-verse">(8:32-33)</span><br>
+          <span style="color:var(--term);">교훈: "자기를 부인하고 자기 십자가를 지고" </span><span class="struct-verse">(8:34-38)</span>
+        </div>
+      </div>
+      <div class="struct-row level1">
+        <span class="struct-step">예고 2</span>
+        <div class="struct-content">
+          수난 예고 <span class="struct-verse">(9:31)</span><br>
+          <span style="color:var(--exam);">제자 반응: 서로 누가 크냐 쟁론 </span><span class="struct-verse">(9:32-34)</span><br>
+          <span style="color:var(--term);">교훈: "섬기는 자가 큰 자" </span><span class="struct-verse">(9:35-37)</span>
+        </div>
+      </div>
+      <div class="struct-row level1">
+        <span class="struct-step">예고 3</span>
+        <div class="struct-content">
+          수난 예고 <span class="struct-verse">(10:33-34)</span><br>
+          <span style="color:var(--exam);">제자 반응: 야고보·요한이 좌우편 청탁 </span><span class="struct-verse">(10:35-40)</span><br>
+          <span style="color:var(--term);">교훈: "인자가 섬기러 옴, 종이 되라" </span><span class="struct-verse">(10:41-45)</span>
+        </div>
+      </div>
+
+      <div style="padding: 2mm 0 2mm 4mm; color:var(--text-sub);font-size:7.5pt;font-style:italic;">── 세 번이나 가르쳐도 깨닫지 못하는 제자들 ──</div>
+      <div class="struct-center" style="color:var(--term);font-size:10pt;">맹인 바디매오를 고치심 (10:46–52)</div>
+    </div>
+    <div class="card teacher-card" style="margin-top:3mm;">
+      <div class="badge teach">핵심 역설</div>
+      <p style="margin-top:1.5mm;"><strong>육신의 맹인은 눈을 떴으나, 제자들은 영적으로 여전히 눈을 뜨지 못한다.</strong> 맹인 치유 두 이야기가 샌드위치처럼 감싸며 이 역설을 부각시킨다.</p>
+    </div>
+  </div>
+
+  <!-- § 7. 제자들의 부정적 묘사 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 07</span>
+    <div class="sec-title">제자들에 대한 부정적 묘사</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">유형 1 — 이해하지 못함 (몰이해)</div>
+  <div class="card">
+    <div class="bible">"그가 누구이기에 바람과 바다도 순종하는가" <span class="bible-ref">(4:41)</span></div>
+    <div class="bible" style="margin-top:2mm;">"너희가 어찌 떡이 없음으로 수군거리느냐 아직도 알지 못하며 깨닫지 못하느냐 너희 마음이 둔하냐" <span class="bible-ref">(8:17)</span></div>
+  </div>
+
+  <div class="sub-head">유형 2 — 메시아의 의미를 오해함</div>
+  <div class="card exam-card">
+    <div class="badge exam">★ 핵심 — ἐπιτιμάω 동일 단어 사용</div>
+    <table style="margin-top:2mm;">
+      <thead><tr><th>본문</th><th>동일 단어 ἐπιτιμάω 사용 장면</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-bible">막 4:39</td>
+          <td>예수님이 바람과 바다를 <strong style="color:var(--term);">꾸짖으심</strong></td>
+        </tr>
+        <tr style="background:rgba(201,107,90,.1);">
+          <td class="td-bible">막 8:32</td>
+          <td>베드로가 예수님을 <strong style="color:var(--exam);">꾸짖음</strong> — 같은 단어 사용!</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card teacher-card" style="margin-top:3mm;">
+      <div class="badge teach">교수 설명</div>
+      <p style="margin-top:1.5mm;">"제자가 예수님께 하지도 않은 짓을 했다. 그 싸가지 없음을 보여줘야 십자가가 부각되는 거예요. 아무리 '주는 그리스도'라 고백해도, 막상 십자가 앞에서는 우리가 베드로보다 나을 사람이 없을 수 있습니다."</p>
+    </div>
+    <table style="margin-top:3mm;">
+      <thead><tr><th>장면</th><th>제자들의 오해</th><th>본문</th></tr></thead>
+      <tbody>
+        <tr><td>수난 예고 후</td><td>베드로가 예수님을 꾸짖음</td><td class="td-bible">8:32</td></tr>
+        <tr><td>수난 예고 후</td><td>서로 누가 크냐 쟁론</td><td class="td-bible">9:34</td></tr>
+        <tr><td>수난 예고 후</td><td>야고보·요한이 좌우편 청탁</td><td class="td-bible">10:37</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-head">유형 3 — 결정적 배신</div>
+  <div class="card">
+    <div class="grid-3">
+      <div style="text-align:center;padding:3mm;background:var(--subcard);border-radius:6px;">
+        <div style="font-size:16pt;">🔪</div>
+        <div style="font-size:8.5pt;font-weight:700;color:var(--exam);margin:1mm 0;">유다의 배신</div>
+        <div style="font-size:7.5pt;color:var(--text-sub);">은 30에 예수님을 팔아넘김</div>
+      </div>
+      <div style="text-align:center;padding:3mm;background:var(--subcard);border-radius:6px;">
+        <div style="font-size:16pt;">🐓</div>
+        <div style="font-size:8.5pt;font-weight:700;color:var(--exam);margin:1mm 0;">베드로의 부인</div>
+        <div style="font-size:7.5pt;color:var(--text-sub);">닭 울기 전 세 번 부인</div>
+      </div>
+      <div style="text-align:center;padding:3mm;background:var(--subcard);border-radius:6px;">
+        <div style="font-size:16pt;">🏃</div>
+        <div style="font-size:8.5pt;font-weight:700;color:var(--exam);margin:1mm 0;">제자 전원 도망</div>
+        <div style="font-size:7.5pt;color:var(--text-sub);">예수님을 버리고 모두 도주</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-head">부정적 묘사의 신학적 의미</div>
+  <div class="card theology-card">
+    <div class="badge theo">신학적 의의</div>
+    <table style="margin-top:2mm;">
+      <thead><tr><th style="width:35%;">해석</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="td-key">바울 신학의 서사적 표현</td><td>선택과 칭의는 인간의 자격이 아닌 하나님의 은혜 — 초대교회 영웅들조차 자랑할 것이 전혀 없음</td></tr>
+        <tr><td class="td-key">제자도의 본질</td><td>그리스도의 부르심과 그리스도의 신실함에 기인 — 우리 자신의 헌신이 아님</td></tr>
+        <tr><td class="td-key">독자와의 동일시</td><td>"주는 그리스도"를 고백하면서도 십자가 앞에서 도망치는 것 = 우리의 실상</td></tr>
+        <tr><td class="td-key">메시아 비밀과 연결</td><td>오해한 채 아는 것보다 차라리 모르는 편이 낫다 → 예수님이 비밀을 명하신 이유</td></tr>
+        <tr><td class="td-key">결말의 반전 (은혜)</td><td>모두 배신했지만 예수님이 다시 찾아오심 → 마가복음도 결국 바울의 '은혜' 신학으로 귀결</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- § 8. 예수님의 인간적 묘사 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 08</span>
+    <div class="sec-title">예수님의 인간적 모습</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="badge theo">기독론</div>
+    <p style="margin:2mm 0 3mm;font-size:8.5pt;">사복음서 모두 예수님의 인성과 신성을 증언. 그러나 <strong style="color:var(--purple);">마가복음은 신약성서에서 예수님을 가장 인간적으로 묘사한 책</strong> — 연민·분노·슬픔·놀람·고뇌를 가감 없이 드러냄.</p>
+    <table>
+      <thead><tr><th style="width:40%;">마가복음</th><th>마태복음 (비교)</th><th style="width:22%;">의미</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-bible">"어찌하여 나를 선하다 일컫느냐 하나님 한 분 외에는 선한 이가 없느니라" (10:18)</td>
+          <td class="td-bible">"어찌하여 선한 일을 내게 묻느냐 선한 이는 오직 한 분이시니라" (19:17)</td>
+          <td>마태가 오해 소지를 완화하여 수정</td>
+        </tr>
+        <tr>
+          <td class="td-bible">"거기서는 아무 권능도 행하실 수 없어 다만 소수의 병자에게 안수하여 고치실 뿐이었고" (6:5)</td>
+          <td class="td-bible">"그들이 믿지 않음으로 말미암아 거기서 많은 능력을 행하지 아니하시니라" (13:58)</td>
+          <td>마태가 신성 강조 방향으로 조정</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:7.5pt;color:var(--text-sub);margin-top:2mm;">* 요한복음 = 고(高)기독론 (신성 부각) / 마가복음 = 인성 부각 — 단, 마가복음도 예수님의 신성을 부인하지 않음</p>
+  </div>
+
+  <!-- § 9. 배경: 화폐·고르반 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 09</span>
+    <div class="sec-title">배경 지식 — 화폐 단위 / 고르반</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card back-card">
+      <div class="badge back">화폐 단위</div>
+      <table style="margin-top:2mm;">
+        <thead><tr><th>단위</th><th>환산</th><th>현대 가치</th></tr></thead>
+        <tbody>
+          <tr><td class="td-bible">1 데나리온</td><td>하루 품삯</td><td>약 10~12만 원</td></tr>
+          <tr><td class="td-bible">1 달란트</td><td>6,000 데나리온</td><td>약 6억 원</td></tr>
+          <tr><td class="td-bible">400 데나리온</td><td>약 1년 연봉 (향유 비유)</td><td>약 5천만~1억 원</td></tr>
+          <tr><td class="td-bible">만 달란트 (탕감)</td><td>6,000 × 10,000</td><td>약 6조 원</td></tr>
+          <tr><td class="td-bible">100 데나리온</td><td>약 3개월 품삯</td><td>약 천만 원</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:7.5pt;color:var(--text-sub);margin-top:1.5mm;">교수: "은사가 아무리 작아도 하나님이 최소 6억을 맡기신 것 — 자부심을 가지라"</p>
+    </div>
+    <div class="card back-card">
+      <div class="badge back">고르반 (Corban, 코르반)</div>
+      <div class="bible" style="margin:2mm 0;">"이르되 사람이 아버지에게나 어머니에게나 말하기를 내가 드려 유익하게 할 것이 고르반 곧 하나님께 드림이 되었다고 하기만 하면" <span class="bible-ref">(막 7:11)</span></div>
+      <p style="font-size:8pt;line-height:1.7;">부모 봉양에 쓸 돈을 "하나님께 헌금했다"고 선언함으로써 효도를 회피하는 유대 관습</p>
+      <div class="card teacher-card" style="margin-top:2mm;">
+        <div class="badge teach">교수 신학 적용</div>
+        <p style="margin-top:1mm;font-size:7.5pt;">"하나님께 드리는 것처럼 보이는 것이 사람의 전통일 수 있다. 반대로 육신의 부모에게 효도하는 것이 하나님의 말씀일 수 있다."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오늘의 핵심 개념 -->
+  <div class="sec-head">
+    <span class="sec-badge">WRAP-UP</span>
+    <div class="sec-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="grid-3">
+    <div class="card" style="text-align:center;padding:5mm 3mm;">
+      <div style="font-size:20pt;margin-bottom:2mm;">✝️</div>
+      <div style="font-weight:700;color:var(--purple);font-size:9.5pt;margin-bottom:1.5mm;">십자가 중심</div>
+      <div style="font-size:7.5pt;color:var(--text-sub);">마가복음의 수난 이야기는 전체의 1/3 — 마틴 켈러: "확장된 서론을 지닌 수난 이야기"</div>
+    </div>
+    <div class="card" style="text-align:center;padding:5mm 3mm;">
+      <div style="font-size:20pt;margin-bottom:2mm;">👁️</div>
+      <div style="font-weight:700;color:var(--purple);font-size:9.5pt;margin-bottom:1.5mm;">메시아 비밀과 오해</div>
+      <div style="font-size:7.5pt;color:var(--text-sub);">예수님은 메시아 신분을 숨기심 — 십자가 이전의 오해가 비밀 명령의 이유</div>
+    </div>
+    <div class="card" style="text-align:center;padding:5mm 3mm;">
+      <div style="font-size:20pt;margin-bottom:2mm;">🙏</div>
+      <div style="font-weight:700;color:var(--purple);font-size:9.5pt;margin-bottom:1.5mm;">은혜 신학</div>
+      <div style="font-size:7.5pt;color:var(--text-sub);">모두 배신했지만 예수님이 찾아오심 — 마가복음은 결국 바울의 은혜 신학과 연결됨</div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <div>한국침례신학대학교 대학원 · 신약성서 I (61047) · 한철흠 교수 · 4주차 2026-04-02</div>
+    <div class="footer-r">nt-06-mark.html · Claude Projects 학습노트</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 2 — 핵심정리
+═══════════════════════════════════════════ -->
+<div class="tab-panel">
+
+  <div class="sec-head">
+    <span class="sec-badge">시험대비</span>
+    <div class="sec-title">중간고사 핵심 정리 — 마가복음</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 시험 항목 1 -->
+  <div class="card exam-card">
+    <div class="badge exam">★ 출제 확정</div>
+    <div class="card-title">마틴 켈러 명언 — 정확히 암기</div>
+    <div class="bible" style="font-size:11pt;text-align:center;padding:4mm;">
+      "마가복음은 확장된 서론을 지닌 수난 이야기다"<br>
+      <span style="font-size:8.5pt;color:var(--lavender);">a passion narrative with an extended introduction (Martin Kähler)</span>
+    </div>
+    <p style="font-size:8pt;color:var(--text-sub);margin-top:2mm;">근거: 마가복음 전체의 약 1/3이 수난 이야기 / 마태·누가보다 짧지만 수난 분량은 동일</p>
+  </div>
+
+  <!-- 시험 항목 2 -->
+  <div class="card exam-card">
+    <div class="badge exam">★ 출제 예상</div>
+    <div class="card-title">마가복음 5대 특징</div>
+    <table>
+      <thead><tr><th>번호</th><th>특징</th><th>핵심 증거</th></tr></thead>
+      <tbody>
+        <tr><td class="td-c td-exam">①</td><td>예수님의 가르침 희소</td><td>마태의 5대 강화와 대조</td></tr>
+        <tr><td class="td-c td-exam">②</td><td>긴박한 이야기 전개</td><td class="td-bible">εὐθύς(즉시) 42회</td></tr>
+        <tr><td class="td-c td-exam">③</td><td>구어체·비세련 헬라어</td><td>역사적 현재 151회 / 이야기 삽입법</td></tr>
+        <tr><td class="td-c td-exam">④</td><td>이방인 독자 대상</td><td>유대 관습 설명 / 아람어 번역 / 라틴어 번역 없음</td></tr>
+        <tr><td class="td-c td-exam">⑤</td><td>십자가 중심</td><td>수난 비중 압도적 / 3:6에 죽일 음모 등장</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 시험 항목 3 -->
+  <div class="card exam-card">
+    <div class="badge exam">★ 출제 예상</div>
+    <div class="card-title">8:22-10:52 삼중 수난 예고 구조</div>
+    <table>
+      <thead><tr><th>단계</th><th>수난 예고</th><th>제자 반응 (오해)</th><th>예수님의 교훈</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-c td-exam">1차</td>
+          <td class="td-bible">8:31</td>
+          <td>베드로가 예수님을 꾸짖음 (ἐπιτιμάω)</td>
+          <td>십자가의 길 (8:34-38)</td>
+        </tr>
+        <tr>
+          <td class="td-c td-exam">2차</td>
+          <td class="td-bible">9:31</td>
+          <td>누가 큰지 쟁론</td>
+          <td>섬기는 자가 큰 자 (9:35-37)</td>
+        </tr>
+        <tr>
+          <td class="td-c td-exam">3차</td>
+          <td class="td-bible">10:33-34</td>
+          <td>야고보·요한의 좌우편 청탁</td>
+          <td>종이 되라, 인자가 섬기러 옴 (10:41-45)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:7.5pt;color:var(--exam);margin-top:1.5mm;">★ 앞뒤 맥락: 맹인 치유(8:22-26) — 삼중 구조 — 맹인 바디매오(10:46-52)</p>
+  </div>
+
+  <!-- 시험 항목 4 -->
+  <div class="card exam-card">
+    <div class="badge exam">★ 출제 예상</div>
+    <div class="card-title">마가복음 결말 — 짧은 결말 vs 긴 결말</div>
+    <table>
+      <thead><tr><th>구분</th><th>내용</th><th>사본 근거</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="td-exam">짧은 결말 (16:8)</td>
+          <td>"여자들이 몹시 놀라 떨며 무덤에서 도망하고 아무에게 아무 말도 하지 못하더라"</td>
+          <td class="td-exam"><strong>가장 오래된 사본들의 결말</strong></td>
+        </tr>
+        <tr>
+          <td>긴 결말 (16:9-20)</td>
+          <td>"제자들이 나가 두루 전파할새…"</td>
+          <td>후대 첨가 가능성</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:7.5pt;color:var(--lavender);margin-top:1.5mm;">신학적 의의: 열린 결말 → "이야기는 끝나지 않았다. 독자가 마무리하라."</p>
+  </div>
+
+  <!-- 용어 정리 -->
+  <div class="sub-head" style="margin-top:6mm;">📖 용어집 후보 (6/4 제출)</div>
+  <div class="card term-card">
+    <div class="badge term">용어집</div>
+    <div class="card-title">이야기 삽입법 (Intercalation)</div>
+    <table style="margin-top:2mm;">
+      <thead><tr><th style="width:25%;">항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="td-term">정의</td><td>두 이야기 사이에 제3의 이야기를 삽입하여 양쪽 이야기의 의미를 상호 강화하는 마가복음의 독특한 문학 기법 (샌드위치 기법이라고도 함)</td></tr>
+        <tr><td class="td-term">성경 근거</td><td>무화과 저주(11:12-14) — 성전 정화(11:15-19) — 무화과 마름(11:20-21) / 제자 파송(6:7-13) — 요한 순교(6:14-29) — 선교 보고(6:30)</td></tr>
+        <tr><td class="td-term">학술 맥락</td><td>마가복음 연구에서 가장 중요한 문학 기법으로 꼽히며, 마가복음의 신학적 메시지를 전달하는 핵심 서사 전략</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:7pt;color:var(--text-sub);margin-top:2mm;">★ 최종 서술은 반드시 본인의 말로 재작성할 것</p>
+  </div>
+
+  <div class="card term-card">
+    <div class="badge term">용어집</div>
+    <div class="card-title">역사적 현재 (Historical Present)</div>
+    <table style="margin-top:2mm;">
+      <thead><tr><th style="width:25%;">항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="td-term">정의</td><td>과거 사건을 현재형으로 서술하는 헬라어 문법 현상. 마가복음에 151회 등장하며 긴박감과 현장감을 강조하는 서사적 장치</td></tr>
+        <tr><td class="td-term">성경 근거</td><td>"The Pharisees came up to Jesus… and they say to him…" (막 7장 등)</td></tr>
+        <tr><td class="td-term">학술 맥락</td><td>마가복음의 헬라어가 '비세련'되었다는 평가의 근거 중 하나이지만, 현대 언어학은 이를 문법 오류가 아닌 의도적 서사 기법으로 이해함</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:7pt;color:var(--text-sub);margin-top:2mm;">★ 최종 서술은 반드시 본인의 말로 재작성할 것</p>
+  </div>
+
+  <div class="doc-footer">
+    <div>핵심정리 탭 · 중간고사 4/23 · 용어집 6/4 제출</div>
+    <div class="footer-r">신약성서 I — 마가복음</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 3 — 하브루타
+═══════════════════════════════════════════ -->
+<div class="tab-panel">
+
+  <div class="sec-head">
+    <span class="sec-badge">하브루타</span>
+    <div class="sec-title">마가복음 — 토론 질문 5가지</div>
+    <div class="sec-line"></div>
+  </div>
+  <p style="font-size:8pt;color:var(--text-sub);margin-bottom:5mm;">수업 전 파트너와 토론 연습용. 각 질문의 논점을 미리 정리하고 자신의 입장을 준비하세요.</p>
+
+  <div class="q-card">
+    <div class="q-num">Q1</div>
+    <div class="q-text">마가복음에서 예수님이 메시아 신분을 숨기신 이유는 무엇인가?</div>
+    <div class="q-point">
+      <strong>논점 A (역사적):</strong> 당시 유대인들이 기대한 정치·군사적 메시아 개념과의 혼동을 막기 위함<br>
+      <strong>논점 B (신학적):</strong> 십자가 이전에 메시아 신분이 공개되면 오해만 깊어짐 — 십자가 이후에야 진정한 이해 가능<br>
+      <strong>논점 C (문학적):</strong> 독자에게 긴장감과 서사적 아이러니를 부여하는 마가의 장치
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q2</div>
+    <div class="q-text">베드로가 예수님을 "꾸짖은"(ἐπιτιμάω) 것은 어떻게 해석해야 하는가? 이것이 신앙인에게 주는 도전은 무엇인가?</div>
+    <div class="q-point">
+      <strong>핵심 아이러니:</strong> 예수님이 바람·바다를 꾸짖을 때 쓴 단어(4:39)를 베드로가 예수님께 사용함(8:32)<br>
+      <strong>논점 A:</strong> 베드로의 고백("주는 그리스도")과 행동 사이의 모순 — 지식과 삶의 괴리<br>
+      <strong>논점 B:</strong> 우리도 "주는 그리스도"를 고백하면서 십자가의 길을 거부할 수 있음 — 자기 성찰<br>
+      <strong>적용:</strong> 신앙 고백이 삶의 방향을 결정하는가, 아니면 삶이 신앙 고백을 수정하는가?
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q3</div>
+    <div class="q-text">이야기 삽입법(샌드위치 기법)이 마가복음 신학에서 갖는 의미는 무엇인가?</div>
+    <div class="q-point">
+      <strong>사례 분석:</strong><br>
+      ① 무화과 저주 — 성전 정화 — 무화과 마름: 열매 없음 = 하나님의 심판<br>
+      ② 제자 파송(승리) — 요한 순교(고난) — 선교 보고(승리): 제자도에는 승리와 고난이 공존<br>
+      <strong>논점:</strong> 마가가 단순 연대기 서술자가 아닌 신학적 편집자임을 보여주는 증거<br>
+      <strong>현대 적용:</strong> 우리 교회와 사역에도 '성전 정화'와 '열매'의 관계가 적용되는가?
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q4</div>
+    <div class="q-text">마가복음이 예수님을 가장 인간적으로 묘사한다는 것은 기독론적으로 어떤 의미인가? 이것은 예수님의 신성을 약화시키는가?</div>
+    <div class="q-point">
+      <strong>논점 A:</strong> 마가복음도 예수님의 신성을 부인하지 않음 — 사복음서 모두 인성과 신성을 증언<br>
+      <strong>논점 B:</strong> 인성의 적나라한 묘사는 오히려 성육신의 진실성을 강화함<br>
+      <strong>비교:</strong> 요한복음(고기독론) vs 마가복음(인성 부각) — 대립이 아닌 상보 관계<br>
+      <strong>위험:</strong> 어느 한 복음서만으로 예수님을 이해하려 할 때 생기는 왜곡
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q5</div>
+    <div class="q-text">마가복음의 짧은 결말(16:8)이 원본이라면, 이 열린 결말은 오늘 우리에게 무엇을 요구하는가?</div>
+    <div class="q-point">
+      <strong>사본 근거:</strong> 가장 오래된 사본들은 16:8로 끝남 — 학계 다수가 짧은 결말을 원본으로 봄<br>
+      <strong>논점 A:</strong> 열린 결말 = "이야기를 독자가 마무리하라"는 마가의 도전<br>
+      <strong>논점 B:</strong> 공포와 침묵으로 끝나는 결말 → 부활의 충격과 경이가 얼마나 컸는지를 역설적으로 표현<br>
+      <strong>현대 적용:</strong> 우리 교회와 삶은 마가복음의 열린 결말을 어떻게 완성하고 있는가?<br>
+      <strong>목회 적용:</strong> "이야기가 끝나지 않았다"는 감각이 사역의 동력이 될 수 있는가?
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <div>하브루타 탭 · 수업 전 토론 준비용 · 신약성서 I 마가복음</div>
+    <div class="footer-r">파트너와 함께 — 질문이 곧 학습이다</div>
+  </div>
+</div>
+
+<script>
+function showTab(index) {
+  const panels = document.querySelectorAll('.tab-panel');
+  const btns   = document.querySelectorAll('.tab-btn');
+  panels.forEach((p, i) => p.classList.toggle('active', i === index));
+  btns.forEach((b, i)   => b.classList.toggle('active', i === index));
+}
+</script>
+</body>
+</html>

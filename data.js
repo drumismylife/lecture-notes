@@ -116,7 +116,9 @@ const SITE_DATA = {
         { week: 4, title: "신약 27권 구조 · 정경 · 본문비평 · 석의", date: "2026.03.26", files: [
 	    { type: "notes", label: "강의노트", href: "output/신약성서I/week04.html" }
 	  ] },
-        { week: 5, title: "기적 이야기 — 마태복음 8-9장", date: "2026.04", files: [] },
+        { week: 5, title: "마가복음 — 고난받는 종의 복음서", date: "2026.04.02", files: [
+	    { type: "notes", label: "강의노트", href: "output/신약성서I/week05.html" }
+	  ] },
         { week: 6, title: "파송 설교 — 마태복음 10장", date: "2026.04", files: [] },
         { week: 7, title: "비유 설교 — 마태복음 13장", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
