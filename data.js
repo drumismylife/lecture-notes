@@ -10,14 +10,9 @@ const SITE_DATA = {
 
     greek: {
       weeks: [
-        {
-          week: 1,
-          title: "수업커리큘럼 및 학습 전략",
-          date: "2026.03.09",
-          files: [
+        { week: 1, title: "수업커리큘럼 및 학습 전략", date: "2026.03.09", files: [
              { type: "notes", label: "강의노트", href: "output/greek/week01.html" }
-          ]
-        },
+          ]},
         { week: 2, title: "알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초", date: "2026.03.16", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week02.html" },
           { type: "pdf", label: "헬라어I_노트정리(홍한나)PDF", href: "output/greek/week02b.pdf" }
@@ -73,7 +68,7 @@ const SITE_DATA = {
 
     phil: {
       weeks: [
-        { week: 1, title: "기독교철학의 학습가이드", date: "2026.03.5.", files: [
+        { week: 1, title: "기독교철학의 학습가이드", date: "2026.03.03.", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week01.html" }
           ] },
         { week: 2, title: "종교란 무엇인가", date: "2026.03.10.", files: [
@@ -104,19 +99,19 @@ const SITE_DATA = {
 
     nt: {
       weeks: [
-        { week: 1, title: "신구약 중간기 & 수전절", date: "2026.03", files: [
+        { week: 1, title: "신구약 중간기 & 수전절", date: "2026.03.05.", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week01.html" }
           ] },
-        { week: 2, title: "마태복음 개론 + 신약성서의 세계", date: "2026.03", files: [
+        { week: 2, title: "마태복음 개론 + 신약성서의 세계", date: "2026.03.12.", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week02.html" }
           ] },
-        { week: 3, title: "신약성서의 세계와 신약의 문헌들", date: "2026.03", files: [
+        { week: 3, title: "신약성서의 세계와 신약의 문헌들", date: "2026.03.19.", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week03.html" }
           ] },
-        { week: 4, title: "신약 27권 구조 · 정경 · 본문비평 · 석의", date: "2026.03.26", files: [
+        { week: 4, title: "신약 27권 구조 · 정경 · 본문비평 · 석의", date: "2026.03.26.", files: [
 	    { type: "notes", label: "강의노트", href: "output/신약성서I/week04.html" }
 	  ] },
-        { week: 5, title: "마가복음 — 고난받는 종의 복음서", date: "2026.04.02", files: [
+        { week: 5, title: "마가복음 — 고난받는 종의 복음서", date: "2026.04.02.", files: [
 	    { type: "notes", label: "강의노트", href: "output/신약성서I/week05.html" }
 	  ] },
         { week: 6, title: "파송 설교 — 마태복음 10장", date: "2026.04", files: [] },
@@ -148,7 +143,9 @@ const SITE_DATA = {
         { week: 4, title: "예루살렘과 그 너머 & 사도 바울", date: "2026.03.27", files: [
 	   { type: "notes", label: "강의노트", href: "output/교회사/week04.html" }
 	] },
-        { week: 5, title: "초대 교부들의 신학", date: "2026.04", files: [] },
+        { week: 5, title: "바울 이후 기독교 — 지리적 확장·선교·핍박과 변증", date: "2026.4.3", files: [
+	   { type: "notes", label: "강의노트", href: "output/교회사/week05.html" }
+	  ] },
         { week: 6, title: "교회 회의와 교리 형성", date: "2026.04", files: [] },
         { week: 7, title: "수도원 운동과 중세 교회", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },

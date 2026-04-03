@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 5주차: 바울 이후 기독교와 지리적 확장</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #14100a;
+    --card:       #1e1710;
+    --card-sub:   #261e14;
+    --card-deep:  #1a1208;
+    --accent:     #c4955a;
+    --gold:       #d4a870;
+    --gold-dim:   #a07840;
+    --green-badge:#7ab87a;
+    --blue-badge: #7aaad4;
+    --amber-badge:#c49a3c;
+    --terra:      #c96b5a;
+    --text-main:  #f0ebe0;
+    --text-sub:   #a09070;
+    --text-hint:  #6b5a40;
+    --border:     rgba(196,149,90,.22);
+    --border-dim: rgba(196,149,90,.10);
+    /* era colors */
+    --era-apostle:#3a6baa;
+    --era-catholic:#9b3a2a;
+    --era-roman:  #8a6020;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    font-size: 9pt;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: linear-gradient(135deg, #0d0905 0%, #1e1508 50%, #160f07 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 10mm 14mm 8mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: 'Historia Ecclesiae';
+    position: absolute;
+    right: 10mm; top: 4mm;
+    font-family: 'Crimson Pro', serif;
+    font-size: 42pt;
+    font-style: italic;
+    color: rgba(196,149,90,.05);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-flex; align-items: center; gap: 2mm;
+    background: var(--accent); color: #14100a;
+    font-size: 6pt; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 2px; margin-bottom: 3mm;
+  }
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18pt; font-weight: 700;
+    color: var(--text-main); line-height: 1.2;
+    margin-bottom: 1.5mm;
+  }
+  .header-sub {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11pt; font-style: italic;
+    color: var(--gold-dim); margin-bottom: 3mm;
+  }
+  .header-meta {
+    display: flex; gap: 3mm; flex-wrap: wrap;
+  }
+  .meta-pill {
+    background: rgba(196,149,90,.12);
+    border: 1px solid var(--border);
+    color: var(--text-sub);
+    font-size: 6.5pt; padding: 2px 8px; border-radius: 20px;
+  }
+
+  /* ── TABS ── */
+  .tabs-wrap { border-bottom: 1px solid var(--border); }
+  .tabs {
+    display: flex; gap: 0;
+    padding: 0 14mm;
+    background: var(--card-deep);
+  }
+  .tab-btn {
+    background: none; border: none;
+    color: var(--text-hint);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 7.5pt; font-weight: 500;
+    padding: 4.5mm 6mm;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    letter-spacing: .02em;
+  }
+  .tab-btn:hover { color: var(--text-sub); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── CONTENT ── */
+  .content { padding: 8mm 14mm 12mm; }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── SECTION HEADS ── */
+  .sec-head {
+    display: flex; align-items: center; gap: 3mm;
+    margin: 8mm 0 4mm;
+  }
+  .sec-badge {
+    background: var(--accent); color: #14100a;
+    font-size: 6pt; font-weight: 700;
+    padding: 2px 8px; border-radius: 2px;
+    letter-spacing: .08em; white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11pt; font-weight: 700;
+    color: var(--gold);
+  }
+  .sec-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+  .sub-head {
+    font-size: 8.5pt; font-weight: 700;
+    color: var(--accent);
+    margin: 5mm 0 2.5mm;
+    padding-left: 3mm;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 6mm; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 1.5mm; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--border), transparent);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 5mm;
+    padding-left: 6mm;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -5mm; top: 2mm;
+    width: 3mm; height: 3mm;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 1.5px solid var(--card);
+  }
+  .tl-era {
+    display: inline-block;
+    font-size: 6pt; font-weight: 700;
+    padding: 1px 7px; border-radius: 10px;
+    margin-bottom: 1.5mm; letter-spacing: .06em;
+  }
+  .tl-era.apostle { background: rgba(58,107,170,.25); color: #88aadd; border: 1px solid rgba(58,107,170,.4); }
+  .tl-era.catholic { background: rgba(155,58,42,.25); color: #dd8870; border: 1px solid rgba(155,58,42,.4); }
+  .tl-year {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11pt; font-weight: 600;
+    color: var(--gold); margin-right: 2mm;
+  }
+  .tl-event { font-weight: 700; color: var(--text-main); font-size: 8.5pt; }
+  .tl-person {
+    display: inline-block;
+    background: rgba(196,149,90,.12);
+    border: 1px solid var(--border-dim);
+    color: var(--accent);
+    font-size: 6pt; padding: 1px 6px; border-radius: 10px;
+    margin-left: 1.5mm; vertical-align: middle;
+  }
+  .tl-desc {
+    margin-top: 1mm;
+    font-size: 7.5pt; color: var(--text-sub);
+    line-height: 1.6;
+  }
+
+  /* ── GEO CARD ── */
+  .geo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm; margin-bottom: 4mm;
+  }
+  .geo-card {
+    background: var(--card);
+    border: 1px solid var(--border-dim);
+    border-top: 2.5px solid var(--gold-dim);
+    border-radius: 4px; padding: 4mm;
+  }
+  .geo-card.highlight { border-top-color: var(--accent); }
+  .geo-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 8.5pt; font-weight: 700;
+    color: var(--gold); margin-bottom: 1.5mm;
+  }
+  .geo-latin {
+    font-family: 'Crimson Pro', serif;
+    font-size: 7.5pt; font-style: italic;
+    color: var(--text-hint); margin-bottom: 2mm;
+  }
+  .geo-body { font-size: 7pt; color: var(--text-sub); line-height: 1.6; }
+  .geo-body li { margin-left: 3mm; padding: 0.5mm 0; }
+
+  /* ── FIGURE CARD ── */
+  .fig-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3mm; margin-bottom: 4mm;
+  }
+  .fig-card {
+    background: var(--card);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px; overflow: hidden;
+  }
+  .fig-head {
+    background: var(--card-deep);
+    border-bottom: 1px solid var(--border-dim);
+    padding: 3mm 4mm;
+  }
+  .fig-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 9pt; font-weight: 700;
+    color: var(--gold);
+  }
+  .fig-dates {
+    font-family: 'Crimson Pro', serif;
+    font-size: 7.5pt; color: var(--text-hint);
+    margin-top: 0.5mm;
+  }
+  .fig-body { padding: 3mm 4mm; }
+  .fig-section {
+    font-size: 6pt; font-weight: 700;
+    color: var(--text-hint); letter-spacing: .1em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--border-dim);
+    padding-top: 2mm; margin-top: 2mm; margin-bottom: 1mm;
+  }
+  .fig-section:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .fig-text { font-size: 7pt; color: var(--text-sub); line-height: 1.6; }
+  .fig-text li { margin-left: 3.5mm; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    display: flex; gap: 3mm; align-items: flex-start;
+    border-radius: 4px; padding: 3.5mm 4mm;
+    margin-bottom: 3mm;
+  }
+  .callout.info  { background: rgba(196,149,90,.07); border-left: 3px solid var(--gold-dim); }
+  .callout.warn  { background: rgba(201,107,90,.08); border-left: 3px solid var(--terra); }
+  .callout.tip   { background: rgba(122,184,122,.07); border-left: 3px solid var(--green-badge); }
+  .callout.prof  { background: rgba(122,170,212,.07); border-left: 3px solid var(--blue-badge); font-style: italic; }
+  .callout-icon  { font-size: 11pt; flex-shrink: 0; line-height: 1.4; }
+  .callout-body  { flex: 1; }
+  .callout-title { font-size: 7.5pt; font-weight: 700; margin-bottom: 1mm; }
+  .callout.info  .callout-title { color: var(--gold); }
+  .callout.warn  .callout-title { color: var(--terra); }
+  .callout.tip   .callout-title { color: var(--green-badge); }
+  .callout.prof  .callout-title { color: var(--blue-badge); }
+  .callout-text  { font-size: 7.5pt; color: var(--text-sub); line-height: 1.65; }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 7.5pt; margin-bottom: 3mm;
+  }
+  thead tr { background: var(--card-deep); }
+  thead th {
+    padding: 4px 6px;
+    font-size: 6.5pt; font-weight: 700;
+    color: var(--gold); letter-spacing: .05em;
+    text-align: left;
+    border: 1px solid var(--border-dim);
+  }
+  td {
+    padding: 4px 7px;
+    border: 1px solid var(--border-dim);
+    vertical-align: top; line-height: 1.55;
+    color: var(--text-sub);
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+  .td-b { font-weight: 700; color: var(--text-main); }
+  .td-c { text-align: center; }
+  .hl-r td { background: rgba(155,58,42,.12) !important; }
+  .hl-g td { background: rgba(122,184,122,.07) !important; }
+
+  /* ── PERSECUTION CARD ── */
+  .per-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm; margin-bottom: 4mm;
+  }
+  .per-card {
+    background: var(--card);
+    border: 1px solid var(--border-dim);
+    border-top: 2px solid var(--terra);
+    border-radius: 4px; padding: 3.5mm;
+  }
+  .per-emperor {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 8pt; font-weight: 700;
+    color: var(--terra); margin-bottom: 1mm;
+  }
+  .per-period {
+    font-family: 'Crimson Pro', serif;
+    font-size: 7pt; color: var(--text-hint);
+    margin-bottom: 2mm;
+  }
+  .per-body { font-size: 7pt; color: var(--text-sub); line-height: 1.6; }
+  .per-body li { margin-left: 3mm; }
+  .per-martyrs {
+    margin-top: 2mm; padding-top: 2mm;
+    border-top: 1px solid var(--border-dim);
+    font-size: 6.5pt; color: var(--text-hint);
+  }
+
+  /* ── APOLOGIST CARD ── */
+  .apo-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 3mm; margin-bottom: 4mm;
+  }
+  .apo-card {
+    background: var(--card);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px; padding: 4mm;
+  }
+  .apo-card.center-card {
+    border-color: var(--accent);
+    background: rgba(196,149,90,.06);
+  }
+  .apo-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 2mm;
+  }
+  .apo-label.right-wing { color: var(--terra); }
+  .apo-label.center-wing { color: var(--accent); }
+  .apo-label.left-wing  { color: var(--blue-badge); }
+  .apo-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 9pt; font-weight: 700;
+    color: var(--text-main); margin-bottom: 1.5mm;
+  }
+  .apo-body { font-size: 7pt; color: var(--text-sub); line-height: 1.65; }
+  .apo-body li { margin-left: 3mm; margin-bottom: 0.5mm; }
+
+  /* ── QUIZ SECTION (탭2) ── */
+  .quiz-section { margin-bottom: 6mm; }
+  .quiz-type-head {
+    display: flex; align-items: center; gap: 2mm;
+    margin-bottom: 3mm;
+  }
+  .quiz-badge {
+    font-size: 6.5pt; font-weight: 700;
+    padding: 2px 9px; border-radius: 2px;
+    letter-spacing: .06em;
+  }
+  .quiz-badge.ox    { background: var(--green-badge); color: #0a1a0a; }
+  .quiz-badge.short { background: var(--blue-badge);  color: #0a0f1a; }
+  .quiz-badge.essay { background: var(--amber-badge); color: #1a1000; }
+  .quiz-badge.exam  { background: var(--terra);       color: #1a0808; }
+  .quiz-label { font-size: 7.5pt; font-weight: 700; color: var(--text-sub); }
+
+  .quiz-item {
+    background: var(--card);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px; margin-bottom: 2.5mm; overflow: hidden;
+  }
+  .quiz-q {
+    padding: 3mm 4mm;
+    font-size: 7.5pt; color: var(--text-main);
+    line-height: 1.6;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 2mm;
+  }
+  .quiz-q:hover { background: rgba(196,149,90,.05); }
+  .quiz-toggle {
+    flex-shrink: 0; width: 4mm; height: 4mm;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7pt; color: var(--text-hint);
+    margin-top: 0.5mm;
+  }
+  .quiz-a {
+    display: none;
+    padding: 3mm 4mm;
+    background: var(--card-deep);
+    border-top: 1px solid var(--border-dim);
+    font-size: 7.5pt; line-height: 1.65;
+  }
+  .quiz-a.open { display: block; }
+  .ans-ox {
+    font-size: 18pt; font-weight: 700;
+    line-height: 1; margin-bottom: 1.5mm;
+  }
+  .ans-ox.O { color: var(--green-badge); }
+  .ans-ox.X { color: var(--terra); }
+  .ans-label { color: var(--accent); font-weight: 700; font-size: 7pt; margin-bottom: 1mm; }
+  .ans-text { color: var(--text-sub); }
+  .ans-guide { color: var(--text-hint); font-style: italic; font-size: 7pt; margin-top: 1.5mm; }
+
+  /* ── DIDACHE BOX ── */
+  .didache-box {
+    background: var(--card-deep);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px; padding: 4mm 5mm;
+    margin-bottom: 4mm;
+  }
+  .didache-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 9pt; font-weight: 700;
+    color: var(--accent); margin-bottom: 2mm;
+  }
+  .didache-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4mm;
+    margin-top: 2.5mm;
+  }
+  .didache-item { font-size: 7.5pt; color: var(--text-sub); line-height: 1.65; }
+  .didache-item strong { color: var(--text-main); display: block; margin-bottom: 0.5mm; font-size: 7.5pt; }
+
+  /* ── PROF QUOTE ── */
+  .prof-quote {
+    background: rgba(122,170,212,.06);
+    border-left: 2px solid var(--text-hint);
+    padding: 3mm 4mm; margin-bottom: 3mm;
+    font-style: italic; font-size: 7.5pt;
+    color: var(--text-sub); line-height: 1.7;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── CORE POINTS ── */
+  .core-box {
+    background: var(--card);
+    border: 1.5px solid var(--accent);
+    border-radius: 5px; padding: 5mm 6mm;
+    margin-top: 7mm;
+  }
+  .core-title {
+    font-size: 8pt; font-weight: 700;
+    color: var(--accent); margin-bottom: 3mm;
+    display: flex; align-items: center; gap: 2mm;
+  }
+  .core-points {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm;
+  }
+  .core-point {
+    background: var(--card-deep);
+    border-radius: 4px; padding: 3.5mm;
+  }
+  .core-num {
+    font-family: 'Crimson Pro', serif;
+    font-size: 20pt; font-weight: 600;
+    color: rgba(196,149,90,.2);
+    line-height: 1; margin-bottom: 1.5mm;
+  }
+  .core-text { font-size: 7.5pt; color: var(--text-sub); line-height: 1.6; }
+  .core-text strong { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    border-top: 1px solid var(--border-dim);
+    padding: 4mm 14mm;
+    display: flex; justify-content: space-between;
+    font-size: 6.5pt; color: var(--text-hint);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #14100a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tabs-wrap, .tab-btn { display: none; }
+    .tab-pane { display: block !important; }
+    .quiz-a { display: block !important; }
+    @page { size: A4; margin: 15mm 12mm; }
+    .sec-head, .sub-head { page-break-after: avoid; }
+    .fig-card, .geo-card, .per-card, .quiz-item { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="header-tag">📜 강의노트</div>
+  <div class="header-title">바울 이후 기독교 — 지리적 확장·선교·핍박과 변증</div>
+  <div class="header-sub">Post-Pauline Christianity: Geographic Expansion, Missions &amp; Apology</div>
+  <div class="header-meta">
+    <span class="meta-pill">교회사개론 I · 5주차</span>
+    <span class="meta-pill">2026 · 04 · 03</span>
+    <span class="meta-pill">담당: 김태식 교수</span>
+    <span class="meta-pill">가톨릭 기독교시대 I</span>
+    <span class="meta-pill">강의노트 + 음성 스크립트 통합</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">📖 강의노트</button>
+    <button class="tab-btn" onclick="switchTab(1)">📝 핵심정리 · 시험대비</button>
+    <button class="tab-btn" onclick="switchTab(2)">⏱ 연대기</button>
+  </div>
+</div>
+
+<!-- ══════════ TAB 1: 강의노트 ══════════ -->
+<div class="content">
+<div class="tab-pane active" id="pane0">
+
+  <!-- 지난 수업 복습 -->
+  <div class="sec-head">
+    <span class="sec-badge">REVIEW</span>
+    <div class="sec-title">지난 주 핵심 복습 — 제2차 유대인 항쟁과 그 결과</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🔁</div>
+    <div class="callout-body">
+      <div class="callout-title">바르코크바 항쟁(제2차, 132–135 AD) 이후 로마의 3대 조치</div>
+      <div class="callout-text">
+        ① 예루살렘 → <strong style="color:var(--gold)">아이리아 카피톨리나(Aelia Capitolina)</strong>로 개명·로마 도시화<br>
+        ② 유대인 예루살렘 <strong style="color:var(--gold)">출입 전면 금지</strong> (혼혈 기독교인 추정 감독만 허용)<br>
+        ③ 지역명 → <strong style="color:var(--gold)">팔레스타인(Palestina)</strong>으로 개명<br>
+        → 이후 <strong>1800여 년간</strong> 유대인 정치적 독립 불가 / 1948년 이스라엘 건국으로 회복
+      </div>
+    </div>
+  </div>
+
+  <div class="callout prof">
+    <div class="callout-icon">🎙</div>
+    <div class="callout-body">
+      <div class="callout-title">교수 강조</div>
+      <div class="callout-text">"2차 유대인 항전의 실패는 유대인 역사의 대단원의 막을 내리는 역사적 사건입니다. 예루살렘이 완전히 로마화되면서 기독교의 중심은 이제 예루살렘이 아닌 주변 도시들로 이동하게 됩니다. 에베소, 안디옥, 로마 — 이 도시들에서 감독(주교)이 나오는 거예요."</div>
+    </div>
+  </div>
+
+  <!-- 지리적 확장 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 01</span>
+    <div class="sec-title">기독교의 지리적 확장 — 지중해 전역으로</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🌍</div>
+    <div class="callout-body">
+      <div class="callout-title">전체 흐름 이해</div>
+      <div class="callout-text">예루살렘 함락(70 AD) 이후, 디아스포라 유대인들이 핍박을 피해 고향으로 귀환 → 지중해 전역에 기독교 씨앗 확산. 구성원은 점차 <strong>유대인 → 이방인</strong>으로 전환. 즉 기독교가 유대교를 벗어나 <strong>헬레니즘 문화권</strong>으로 이동하는 시기.</div>
+    </div>
+  </div>
+
+  <div class="geo-grid">
+    <div class="geo-card">
+      <div class="geo-name">가이사랴 (Caesarea)</div>
+      <div class="geo-latin">팔레스타인의 로마 수도</div>
+      <ul class="geo-body">
+        <li>팔레스타인의 <strong>로마 수도</strong>로서 예루살렘 대체</li>
+        <li>구성원 대부분 <strong>이방인</strong></li>
+        <li>기독교가 유대교에서 헬레니즘으로 이동하는 상징적 거점</li>
+      </ul>
+    </div>
+    <div class="geo-card highlight">
+      <div class="geo-name">안디옥 (Antioch)</div>
+      <div class="geo-latin">시리아의 안디옥 — 동방 선교의 거점</div>
+      <ul class="geo-body">
+        <li>팔레스타인 해안을 따라 <strong>예루살렘 대체</strong></li>
+        <li>주로 이방인 개종자로 구성 — 활발한 선교</li>
+        <li>이그나티우스: <strong>"안디옥과 시리아의 주교"</strong></li>
+        <li>동방 → 에데사·메소포타미아·중앙아시아·중국까지 복음 루트</li>
+        <li>3세기 중엽 이후 안디옥 주교들이 <strong>종교회의 주재</strong></li>
+      </ul>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">소아시아 (Asia Minor)</div>
+      <div class="geo-latin">터키 지역 — 바울의 주 활동 무대</div>
+      <ul class="geo-body">
+        <li>유대교와 이방 세계의 다리 — 바울의 고향 다소(길리기아)</li>
+        <li>에베소: 안디옥·로마와 함께 <strong>3대 기독교 중심지</strong></li>
+        <li>플리니(112 AD) 편지: 비두니아·본도까지 기독교 전파 증언</li>
+        <li>갈라디아·아시아·빌리기아에 활발한 공동체</li>
+      </ul>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">로마 (Roma)</div>
+      <div class="geo-latin">제국의 수도 — 모든 것이 모이는 곳</div>
+      <ul class="geo-body">
+        <li>처음엔 그리스어 사용자들에게 전파</li>
+        <li>롬 1:8: 바울 도착 전부터 이미 <strong>신앙 소문이 온 세상에</strong></li>
+        <li>이단·정통·변증가 모두 로마로 집결</li>
+        <li>마르시온파·발렌티노스파·몬타노스파 모두 로마에서 활동</li>
+      </ul>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">북아프리카 (Africa)</div>
+      <div class="geo-latin">카르타고 · 알렉산드리아</div>
+      <ul class="geo-body">
+        <li>2세기 후반~3세기: 급속 성장</li>
+        <li>터툴리안(195 개종): 카르타고에 큰 교회 존재 증언</li>
+        <li>성경의 <strong>라틴어 번역</strong> 시작 — 최초의 라틴 신학자 배출</li>
+        <li>알렉산드리아: 클레멘트·오리겐·판타이노스의 신학 학교</li>
+        <li>나그 함마디(1947): 영지주의 도서관 발견 (2세기 저술)</li>
+      </ul>
+    </div>
+    <div class="geo-card">
+      <div class="geo-name">스페인·영국 (Hispania · Britannia)</div>
+      <div class="geo-latin">서유럽의 끝까지</div>
+      <ul class="geo-body">
+        <li>스페인: 바울 방문 전승 / 이레네우스·터툴리안 교회 증언</li>
+        <li>영국: 비평학자들은 300 AD 이전 기독교 도달 의심</li>
+        <li>갈리아(프랑스): 리옹·비엔느에서 177 AD 박해 — 교회 존재 확인</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout prof">
+    <div class="callout-icon">🎙</div>
+    <div class="callout-body">
+      <div class="callout-title">교수 보충 — 라틴 교부 vs 헬라 교부</div>
+      <div class="callout-text">"원래 로마 제국의 공통어는 헬라어였어요. 그러다 북아프리카에서 서서히 라틴어 신학자들이 등장합니다. 헬라어로 신학을 한 사람은 '희랍 교부', 라틴어로 쓴 사람은 '라틴 교부'라고 불러요. 먼저 희랍교부들이 있었고 그 다음에 라틴 교부들이 뒤를 잇습니다. 중세 이후로는 서방(로마)은 라틴어, 동방(콘스탄티노플)은 헬라어를 씁니다."</div>
+    </div>
+  </div>
+
+  <!-- 선교 방법 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 02</span>
+    <div class="sec-title">선교의 방법 — 기독교가 급성장한 이유</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20mm">성장 요인</th>
+        <th style="width:40mm">내용</th>
+        <th>교수 보충 (음성)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">자선 (Charity)</td>
+        <td>보상·공로 기대 없는 순수 나눔. 주의 날 예배 시 수거. 미망인·고아·병자·수감자·노예 속량 등</td>
+        <td style="color:var(--text-sub)">로마인은 반드시 보답을 기대하고 자선했음. 기독교의 조건 없는 나눔은 이교도를 놀라게 함</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">교제 (Fellowship)</td>
+        <td>계층 무관 — 주인·노예, 남녀, 부자·빈자 모두 함께 식사. 애찬식(agape meal)</td>
+        <td style="color:var(--text-sub)">엄격한 계층사회에서 귀족과 노예가 같이 먹는 것은 혁명적이었음. 처음에 애찬식과 성찬식이 혼합되다 이후 분리됨</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">핍박 앞의 견고함</td>
+        <td>순교·고문 앞에서도 굴하지 않는 태도. 이교도로부터 비판과 칭송을 동시에 받음</td>
+        <td style="color:var(--text-sub)">에픽테토스·마르쿠스 아우렐리우스·루키아노스 등이 "완고하다"고 비난하면서도 "철학자 같다"고 칭송</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">높은 도덕 기준</td>
+        <td>이혼 반대, 영아 유기 금지, 성적 정결, 정직. 플리니·의사 갈레노스도 도덕적으로 긍정 평가</td>
+        <td style="color:var(--text-sub)">당시 극심한 성적 문란, 여아 유기, 쉬운 이혼이 만연. 바울 서신들이 이를 강하게 다룸</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">신비의식 · 구원 확신</td>
+        <td>침례(악마 승리 확신)·성만찬(그리스도의 몸과 피에 참여). 운명론·귀신론 거부</td>
+        <td style="color:var(--text-sub)">"나도 그리스도의 몸에 참여자가 될 수 있다." 침례 → 사탄의 자녀에서 하나님의 자녀로 전환의 확신</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:var(--gold)">나그네 환대</td>
+        <td>히 13:2 "모르는 사이에 천사를 대접". 여행 중 기독교 공동체 전체가 숙식 지원</td>
+        <td style="color:var(--text-sub)">동방 비밀제의들은 이런 전 제국적 네트워크가 없었음. 초기엔 무조건 환대했으나 이단·사기꾼 문제로 규정 필요성 대두 → 디다케 탄생</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 디다케 -->
+  <div class="sub-head">디다케 (Διδαχή) — 최초의 교회 규범집</div>
+
+  <div class="didache-box">
+    <div class="didache-title">📜 디다케 (Didache) — "가르침" · 12사도의 가르침 · 100~150 AD 저술</div>
+    <div style="font-size:7.5pt; color:var(--text-sub); margin-bottom:3mm;">나그네 문제, 이단의 침투, 성례전 혼란 등에 대응하기 위해 작성된 <strong style="color:var(--accent)">현존하는 가장 오래된 교회 규범집</strong>. 세 부분: ①두 길(생명/죽음) ②세례·고해·성체 ③성직자 지침</div>
+    <div class="didache-grid">
+      <div class="didache-item">
+        <strong>침례 규정</strong>
+        흐르는 물(유수) 우선 → 없으면 고인 물 → 둘 다 불가 시 머리에 세 번 붓기(관수례 허용). 성부·성자·성령의 이름으로. 베푸는 자와 받는 자 모두 금식.
+      </div>
+      <div class="didache-item">
+        <strong>나그네 규정</strong>
+        선지자·사도가 오면 주님처럼 대접. 하루만 머물 것, 특별한 경우 이틀. <strong>3일이면 거짓 선지자.</strong> 떠날 때 그날 빵 외 아무것도 받지 말 것. 돈을 요구하면 거짓 선지자.
+      </div>
+      <div class="didache-item">
+        <strong>기도·금식</strong>
+        매일 세 번 기도. 주기도문 형식 사용. 수·금 금식(이미 유대교 월·목과 차별화).
+      </div>
+      <div class="didache-item">
+        <strong>성만찬</strong>
+        잘못된 가르침의 사람은 성찬에 참여 불가. 침례받은 자만 허용. 성찬과 애찬이 점차 분리되는 과정의 초기 기록.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout prof">
+    <div class="callout-icon">🎙</div>
+    <div class="callout-body">
+      <div class="callout-title">교수 강조 — 침례 방식에 대하여</div>
+      <div class="callout-text">"침례교는 원래 침수례(완전히 잠기는 것)가 원형입니다. 디다케에는 흐르는 물이 없으면 고인물도 가능하고, 그것도 없으면 관수례(머리에 붓기)도 허용했어요. 시간이 가면서 이 약식이 정식이 됩니다. 세례를 1번 줄지, 성부·성자·성령 각각 3번 줄지도 다양했어요. 교회사에서는 다 있었습니다."</div>
+    </div>
+  </div>
+
+  <!-- 핍박과 순교 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 03</span>
+    <div class="sec-title">핍박과 순교 (Persecution &amp; Martyrdom)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">핍박의 3대 원인</div>
+  <table>
+    <thead><tr><th>원인 유형</th><th>구체 내용</th></tr></thead>
+    <tbody>
+      <tr class="hl-r">
+        <td class="td-b">① 로마 정책 위협</td>
+        <td>로마의 융합주의(absorptionism) ↔ 기독교의 배타주의(exclusivism) 충돌. 황제 숭배 거부, 공직·집총·공공 게임 거부 → 불충으로 간주. 물건 공동사용 → 노예제 쇠퇴 우려</td>
+      </tr>
+      <tr>
+        <td class="td-b">② 의심스러운 행습</td>
+        <td>야밤 비밀 모임 → "식인" 오해(살과 피). "평화의 키스" → 근친상간 의혹. 남녀 함께 새벽 모임 → 성적 파티 소문. 터툴리안 변증(Apol. 7): "그런 일 없다"</td>
+      </tr>
+      <tr class="hl-r">
+        <td class="td-b">③ 로마 사회 평화 위협</td>
+        <td>과거 바커스 축제(기원전 2세기) 같은 비밀 의식 선례 → 새 종교에 경계심. 유일신으로 다신론적 로마 공적 삶과 분리. 가족 해체·결혼 억제 등 오해</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-head">황제별 주요 핍박</div>
+  <div class="per-grid">
+    <div class="per-card">
+      <div class="per-emperor">네로 (Nero)</div>
+      <div class="per-period">37–68 AD · 핍박: 64–68</div>
+      <ul class="per-body">
+        <li>64년 로마 대화재 → 기독교인에게 죄 전가</li>
+        <li>기독교인을 불태워 정원 밝힘</li>
+        <li>기독교가 유대교와 다른 종교임을 최초 인식</li>
+      </ul>
+      <div class="per-martyrs">순교: 바울(참수형), 베드로(거꾸로 십자가)</div>
+    </div>
+    <div class="per-card">
+      <div class="per-emperor">도미티안 (Domitian)</div>
+      <div class="per-period">핍박: 약 90–96 AD</div>
+      <ul class="per-body">
+        <li>로마·소아시아 중심</li>
+        <li>황제신에게 절하지 않는다는 이유</li>
+        <li>요한계시록 저술 배경</li>
+      </ul>
+      <div class="per-martyrs">순교: 로마의 클레멘트 / 유배: 요한(밧모섬)</div>
+    </div>
+    <div class="per-card">
+      <div class="per-emperor">트라얀 (Trajan)</div>
+      <div class="per-period">98–117 AD</div>
+      <ul class="per-body">
+        <li>플리니 총독 편지에 가이드라인 제시</li>
+        <li>무명 고소 무시, 자백자 처벌, 부인자 사면</li>
+        <li>이그나티우스: "맹수의 이빨 사이에 밀처럼"</li>
+      </ul>
+      <div class="per-martyrs">순교: 이그나티우스, 시므온, 소지무스, 루푸스</div>
+    </div>
+    <div class="per-card">
+      <div class="per-emperor">안토니우스 파이우스</div>
+      <div class="per-period">138–161 AD</div>
+      <ul class="per-body">
+        <li>마케도니아·데살로니가·아가야 지역</li>
+        <li>폴리캅(86세) 화형 — "나는 주님을 86년 섬겼소"</li>
+        <li>첫 순교자 열전(martyrology)의 시초</li>
+      </ul>
+      <div class="per-martyrs">순교: 폴리캅 (155년 2월 23일)</div>
+    </div>
+    <div class="per-card">
+      <div class="per-emperor">마르쿠스 아우렐리우스</div>
+      <div class="per-period">161–180 AD</div>
+      <ul class="per-body">
+        <li>유명한 스토아 철학자 황제</li>
+        <li>"자연재해의 원인 = 기독교인"</li>
+        <li>리옹·갈리아·아시아 소아시아에서 수많은 순교</li>
+      </ul>
+      <div class="per-martyrs">순교: 리옹 교회 49인 (이레네우스의 스승 포티누스 포함)</div>
+    </div>
+    <div class="per-card">
+      <div class="per-emperor">데키우스 → 디오클레티아누스</div>
+      <div class="per-period">249–311 AD</div>
+      <ul class="per-body">
+        <li>데키우스: <strong>최초의 전국적 박해</strong></li>
+        <li>디오클레티아누스: <strong>최악의 박해</strong> — 교회 파괴, 성경 소각</li>
+        <li>모든 기독교인 권리 정지</li>
+      </ul>
+      <div class="per-martyrs">→ 이후 밀라노 칙령(313)으로 박해 종식</div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">✝️</div>
+    <div class="callout-body">
+      <div class="callout-title">터툴리안의 명언</div>
+      <div class="callout-text"><strong style="color:var(--gold)">"순교자의 피가 곧 교회의 씨앗이다."</strong> (Sanguis martyrum semen ecclesiae)<br>박해할수록 기독교는 더욱 왕성해졌음. 250년간의 산발적·전국적 박해에도 교회는 성장.</div>
+    </div>
+  </div>
+
+  <!-- 2세기 변증가들 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 04</span>
+    <div class="sec-title">2세기 변증가들 — 기독교를 어떻게 세상에 변호할 것인가</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">⚖️</div>
+    <div class="callout-body">
+      <div class="callout-title">3대 스펙트럼</div>
+      <div class="callout-text">핍박과 이교 철학의 도전 앞에서 기독교는 어떻게 자신을 변호할 것인가? 세 가지 입장이 충돌했습니다: <strong>극우(유대교 뿌리 강조)</strong> — <strong>중도파(조화)</strong> — <strong>극좌(헬레니즘 완전 흡수)</strong></div>
+    </div>
+  </div>
+
+  <div class="apo-grid">
+    <div class="apo-card">
+      <div class="apo-label right-wing">극우 (유대교 뿌리)</div>
+      <div class="apo-name">타티안 (Tatian)</div>
+      <div class="apo-body">
+        <ul>
+          <li>활동: 110–172 AD / 저스틴의 제자</li>
+          <li>저서: 디아테사론(4복음서 통합), 『희랍인들에게』</li>
+          <li>플라톤·아리스토텔레스 등 비웃음 — "철학은 돈 버는 기술"</li>
+          <li>그리스 신화는 귀신으로 점철</li>
+          <li>기독교의 유대교 우월성 강조</li>
+          <li style="color:var(--terra)">후에 영지주의로 전향(엔크라타이테파)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="apo-card center-card">
+      <div class="apo-label center-wing">⭐ 중도파 (유대교 + 헬레니즘 조화)</div>
+      <div class="apo-name">순교자 저스틴 (Justin Martyr)</div>
+      <div class="apo-body">
+        <ul>
+          <li>활동: 약 100–165 AD / 평신도 순회 교사</li>
+          <li>저서: 제1·2변증서, 『유대인 트리포와의 대화』</li>
+          <li>스토아→아리스토텔레스→네오피타고라스→<strong>플라톤주의</strong> 거쳐 기독교 회심</li>
+          <li>로고스(λόγος) 기독론 강조: 예언자와 그리스 철학자 모두 신적 이성의 씨앗 소유</li>
+          <li>"이성적으로 살아온 모든 사람은 그리스도인이었다"</li>
+          <li>롬 1:19–20: 자연세계를 통해 하나님을 알 수 있음</li>
+          <li style="color:var(--terra)">165년 크레센스의 고발로 참수 순교</li>
+        </ul>
+      </div>
+    </div>
+    <div class="apo-card">
+      <div class="apo-label left-wing">극좌 (헬레니즘 흡수)</div>
+      <div class="apo-name">마르시온 (Marcion)</div>
+      <div class="apo-body">
+        <ul>
+          <li>기독교를 유대교 뿌리에서 완전 분리</li>
+          <li>기독교의 철저한 헬라화 시도</li>
+          <li>구약의 신 ≠ 신약의 신 주장</li>
+          <li>자신의 정경 목록 작성 (바울 서신 중심)</li>
+          <li style="color:var(--terra)">이단 정죄 — 제9장에서 상세히 다룸</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 이레네우스 -->
+  <div class="sub-head">이레네우스 (Irenaeus, 130–202 AD) — 영지주의 최대의 적</div>
+  <div class="fig-grid">
+    <div class="fig-card">
+      <div class="fig-head">
+        <div class="fig-name">이레네우스 (Εἰρηναῖος, Irenaeus)</div>
+        <div class="fig-dates">약 130–202 AD · 리옹의 주교</div>
+      </div>
+      <div class="fig-body">
+        <div class="fig-section">배경 및 계보</div>
+        <div class="fig-text">
+          소아시아 태생 → 서머나에서 <strong>폴리캅(사도 요한의 마지막 제자)</strong>에게 배움 → 갈리아(프랑스) 리옹의 장로 → 포티누스 순교 후 리옹 주교
+        </div>
+        <div class="fig-section">주요 저서</div>
+        <div class="fig-text">
+          『이단 논박』(Adversus Haereses) · 『하나님의 연합성과 악의 기원』
+        </div>
+        <div class="fig-section">핵심 사상</div>
+        <ul class="fig-text">
+          <li>영지주의 강력 반대 — 예수의 <strong>육체적 성육신</strong> 강조</li>
+          <li><strong>총괄갱신(Recapitulatio)</strong>: 아담의 타락 → 그리스도(새 아담)에 의해 회복</li>
+          <li>육체는 악하지 않음 — 몸과 영혼의 부활 강조</li>
+          <li>주교 = 사도의 계승자, 참 교리의 수호자</li>
+          <li><strong>전천년설</strong> 주장 (교회사 최초 명시적 주창자)</li>
+        </ul>
+        <div class="fig-section">역사적 평가</div>
+        <div class="fig-text" style="color:var(--accent)">
+          "바울 이후 가장 위대한 신학자"로 평가
+        </div>
+      </div>
+    </div>
+    <div class="fig-card">
+      <div class="fig-head">
+        <div class="fig-name">영지주의 vs 기독교 핵심 대결</div>
+        <div class="fig-dates">2세기 최대 이단 논쟁</div>
+      </div>
+      <div class="fig-body">
+        <div class="fig-section">영지주의 (Gnosticism) 특징</div>
+        <ul class="fig-text">
+          <li>구원 = <strong>지식(γνῶσις, gnosis)</strong>을 통해</li>
+          <li>물질·육체 = 악 (창조주는 열등한 신)</li>
+          <li>예수의 육체 성육신 부정 (가현설)</li>
+          <li>비밀 지식을 아는 자만 구원</li>
+          <li>대표: 바실리데스, 발렌티노스, 마르시온</li>
+        </ul>
+        <div class="fig-section">정통 기독교 반론 (이레네우스)</div>
+        <ul class="fig-text">
+          <li>구원 = <strong>믿음</strong>을 통해</li>
+          <li>전능하신 하나님이 천지(물질 포함) 창조</li>
+          <li>예수는 실제로 육체로 오심, 죽으심, 부활하심</li>
+          <li>사도적 전승에 의한 공개된 복음</li>
+          <li>요 2서 1:7 인용: "육체로 임하심 부인 = 적그리스도"</li>
+        </ul>
+        <div class="fig-section">현대 연결</div>
+        <div class="fig-text">댄 브라운 『다빈치 코드』, 프리크·갠디 『예수는 신화다』 — 영지주의 관점 반영. 나그 함마디 도서관(1947) 발굴로 영지주의 문서 공개.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 저스틴의 로고스 기독론 상세 -->
+  <div class="sub-head">저스틴의 로고스(λόγος) 기독론 — 교수 상세 설명</div>
+  <div class="callout prof">
+    <div class="callout-icon">🎙</div>
+    <div class="callout-body">
+      <div class="callout-title">교수 강조 — "이성적으로 살아온 모든 사람은 그리스도인"의 의미</div>
+      <div class="callout-text">
+        "저스틴이 얘기하는 건 이런 겁니다. 우리 할머니들이 새벽마다 옥황상제에게 정화수 떠놓고 빌었잖아요. 그때는 그분이 하나님인지 몰라서 옥황상제라고 불렀지만, 사실 그분이 하나님이셨다. 이렇게 보는 거예요. 그러니까 철학도 율법도 기독교로 인도하는 초보 선생, 몽학선생 역할을 했다는 겁니다. 이게 오늘날 문화신학의 출발점이에요. 복음을 듣지 못한 사람도 구원받을 수 있는가 — 이 논쟁의 원형이 여기 있습니다. 롬 1:19–20이 근거 본문입니다."
+      </div>
+    </div>
+  </div>
+
+  <!-- 사도신경 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 05</span>
+    <div class="sec-title">사도신경 — 입문자 교육(Catechumenate)의 핵심</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">📋</div>
+    <div class="callout-body">
+      <div class="callout-title">사도신경의 역사적 맥락</div>
+      <div class="callout-text">침례 받기 위해선 신앙 핵심 내용을 <strong>배우고 고백</strong>해야 했음. 이그나티우스(110년경)부터 신앙 핵심이 정리되기 시작 → 6세기에 최종 확정. 사도신경의 <strong>각 조항 = 이단 반박</strong>. 침례교가 사도신경을 잘 사용하지 않는 이유: 연옥설·성자 통공(聖者 通功) 개념 포함.</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th style="width:35%">사도신경 조항</th><th>반박하는 이단</th><th>침례교 입장</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-b">"전능하사 천지를 만드신 하나님"</td><td>영지주의 (물질 창조 = 열등신)</td><td>동의</td></tr>
+      <tr><td class="td-b">"성령으로 잉태하사 동정녀에게 나시고"</td><td>가현설 (예수의 인성 부정)</td><td>동의</td></tr>
+      <tr><td class="td-b">"본디오 빌라도에게 고난을 받으사"</td><td>가현설 (실제 고난 부정)</td><td>동의</td></tr>
+      <tr><td class="td-b">"음부에 내려가시며" (생략 판본 존재)</td><td>—</td><td style="color:var(--terra)">⚠️ 가톨릭 연옥설 논쟁의 근거 — 침례교 대부분 생략</td></tr>
+      <tr><td class="td-b">"성도가 서로 교통하는 것" (communio sanctorum)</td><td>—</td><td style="color:var(--terra)">⚠️ 원의미: 성자(순교자)들의 통공 → 침례교: "성도의 교제"로 의역</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout prof">
+    <div class="callout-icon">🎙</div>
+    <div class="callout-body">
+      <div class="callout-title">교수 강조 — 한국 침례교 신앙고백서 논쟁</div>
+      <div class="callout-text">"침례교는 애초부터 신학적 통일성을 추구하지 않았습니다. 구원론에서 칼빈주의냐 알미니우스주의냐를 정하기 어렵고, 종말론도 전천년·후천년·무천년이 공존합니다. 그래서 작년(2025년) 총회에서 통과된 신앙고백서도 공개 토론 없이 통과된 것이 문제입니다. 내용에 서로 상충하는 조항들도 있어요. 침례교 정체성의 핵심은 교리 통일이 아니라 — 신자침례, 회중정치, 복음 전파 사명입니다."</div>
+    </div>
+  </div>
+
+  <!-- 천년왕국설 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 06</span>
+    <div class="sec-title">천년왕국설 (Millennialism) — 이레네우스의 전천년설로 시작</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th style="width:18mm">학설</th><th>핵심 주장</th><th>특징</th><th>대표 교단</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hl-r">
+        <td class="td-b">전천년설<br>(Pre-millennial)</td>
+        <td>예수님이 <strong>먼저 재림</strong> → 천년왕국 → 최후 심판</td>
+        <td>7년 대환란, 휴거 개념. 인간 노력으로 천국 못 만듦</td>
+        <td>침례교(미국), 성결교, 고신 일부</td>
+      </tr>
+      <tr>
+        <td class="td-b">후천년설<br>(Post-millennial)</td>
+        <td>복음 전파로 천년왕국 실현 <strong>후</strong> 예수 재림</td>
+        <td>인간의 선교·사회 개혁 강조</td>
+        <td>장로교 일부, 개혁파</td>
+      </tr>
+      <tr class="hl-g">
+        <td class="td-b">무천년설<br>(A-millennial)</td>
+        <td>천년왕국 = 지금 교회 시대 (상징). 재림 → 최후 심판</td>
+        <td>2000년 문자적 해석 거부. 현 교회 시대가 천년왕국</td>
+        <td>장로교(총신·합신), 개혁파 주류</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 핵심 포인트 -->
+  <div class="core-box">
+    <div class="core-title">⭐ 오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="core-points">
+      <div class="core-point">
+        <div class="core-num">01</div>
+        <div class="core-text"><strong>기독교의 이방화 · 헬레니즘화</strong><br>예루살렘 함락 이후 기독교 중심이 안디옥·에베소·로마·알렉산드리아로 이동. 구성원이 유대인에서 이방인으로 전환되면서 기독교는 <strong>세계 종교의 기틀</strong>을 잡음.</div>
+      </div>
+      <div class="core-point">
+        <div class="core-num">02</div>
+        <div class="core-text"><strong>핍박이 오히려 확장을 낳다</strong><br>250년간 산발적·전국적 박해 속에서도 기독교는 성장. 순교자의 견고함, 높은 도덕성, 조건 없는 자선이 이교도를 감동시켜 오히려 개종자를 늘림. <strong>"순교자의 피 = 교회의 씨앗"</strong> (터툴리안)</div>
+      </div>
+      <div class="core-point">
+        <div class="core-num">03</div>
+        <div class="core-text"><strong>신학의 정립: 이단과의 싸움에서 탄생</strong><br>영지주의·마르시온파의 도전이 없었다면 사도신경도, 정경도, 주교제도도 이렇게 빨리 정립되지 않았을 것. <strong>이단은 정통 신학을 강제로 명료화</strong>시켰음. 이레네우스의 총괄갱신론은 서방 신학의 기초.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane0 -->
+
+<!-- ══════════ TAB 2: 핵심정리 · 시험대비 ══════════ -->
+<div class="tab-pane" id="pane1">
+
+  <div class="sec-head">
+    <span class="sec-badge">시험대비</span>
+    <div class="sec-title">OX 문제</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="quiz-section">
+    <div class="quiz-type-head">
+      <span class="quiz-badge ox">OX</span>
+      <span class="quiz-label">클릭하면 정답이 열립니다</span>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>1. 제2차 유대인 항쟁(바르코크바 항쟁) 이후 로마는 예루살렘의 이름을 '아이리아 카피톨리나(Aelia Capitolina)'로 바꾸고 유대인의 출입을 금지했다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox O">O</div><div class="ans-text">정확. 또한 지역명도 '팔레스타인(Palestina)'으로 개명. 이후 1800여 년간 유대인 정치적 독립 불가, 1948년 이스라엘 건국으로 회복.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>2. 이그나티우스는 안디옥 교회의 주교였으며, 트라얀 황제 시대에 순교했다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox O">O</div><div class="ans-text">이그나티우스는 자신을 "안디옥과 시리아의 주교"라 불렀으며, 로마에서 맹수에게 던져져 "밀처럼 으깨졌다"고 표현했다. 트라얀(98–117) 통치 하에 순교.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>3. 디다케(Didache)는 성경 다음으로 권위 있는 교회 규범서로서 7세기경에 저술되었다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox X">X</div><div class="ans-text">저술 시기는 100–150 AD (사도시대 직후). 성경 권위는 없으며, 현존하는 가장 오래된 교회 규범집으로서의 역사적 가치가 큼. "12사도를 통해 전달된 주님의 가르침"이 원제목.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>4. 폴리캅(Polycarp)은 사도 요한의 직접 제자였으며, 86세의 나이에 화형으로 순교했다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox O">O</div><div class="ans-text">안토니우스 파이우스 황제 시대(155년). "나는 주님을 86년 섬겼소. 그분은 내게 한 번도 나쁜 일을 않으셨소. 내가 어떻게 그분을 저주하겠소?" — 첫 순교자 열전(martyrology)의 대상. 이레네우스의 스승.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>5. 순교자 저스틴(Justin Martyr)은 기독교를 유대교 뿌리로만 이해해야 한다며 헬라 철학을 완전히 거부했다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox X">X</div><div class="ans-text">저스틴은 중도파. 헬라 철학(특히 플라톤주의)을 기독교와 조화시키려 했다. "이성적으로 살아온 모든 사람은 그리스도인이었다"고 주장하며 로고스 기독론을 발전시킴. 타티안이 극우(유대교 뿌리 강조).</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>6. 이레네우스의 '총괄갱신(Recapitulatio)' 이론은 첫 사람 아담의 타락을 둘째 사람 그리스도가 회복한다는 내용이다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox O">O</div><div class="ans-text">이레네우스의 핵심 구속론. 아담(온 인류의 대표자)의 타락 → 새 아담 그리스도에 의한 총괄적 회복. 육체는 악하지 않으며 몸과 영혼 모두 부활한다고 주장하여 영지주의를 반박.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>7. 기독교인들이 2세기에 식인(cannibalism) 혐의를 받은 것은 성찬식의 "살과 피" 언어 때문이었다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox O">O</div><div class="ans-text">새벽 비밀 모임 + "그리스도의 살을 먹고 피를 마신다"는 표현 + 평화의 키스 → 식인·근친상간 오해. 터툴리안이 이를 반박하는 변증 저술 다수 집필.</div></div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>8. 나그 함마디(Nag Hammadi) 도서관은 주로 2세기에 저술된 정통 기독교 문서들의 모음이다.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a"><div class="ans-ox X">X</div><div class="ans-text">정통 기독교가 아닌 <strong>영지주의 문서들</strong>의 모음. 1947년(혹은 1945년) 이집트 나그 함마디에서 발견. 도마복음서 등 포함. 영지주의 연구의 핵심 자료.</div></div>
+    </div>
+  </div>
+
+  <!-- 단답형 -->
+  <div class="sec-head">
+    <span class="sec-badge">시험대비</span>
+    <div class="sec-title">단답 문제</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="quiz-section">
+    <div class="quiz-type-head">
+      <span class="quiz-badge short">단답</span>
+      <span class="quiz-label">클릭하면 정답이 열립니다</span>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q1. "순교자의 피가 곧 교회의 씨앗이다"라는 명언을 남긴 교부는 누구인가?</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-text"><strong>터툴리안 (Tertullian, 약 160–225 AD)</strong> — 카르타고 출신, 195년 개종, 최초의 라틴 신학자. 북아프리카 기독교의 대표적 교부.</div>
+      </div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q2. 2세기 변증가 중 '로고스(λόγος) 기독론'을 발전시켜 헬라 철학과 기독교의 조화를 시도한 인물은?</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-text"><strong>순교자 저스틴 (Justin Martyr, 약 100–165 AD)</strong> — 로마에서 변증 학교 설립. 이성적으로 살아온 모든 자는 사실 그리스도인이었다 주장. 165년 참수 순교.</div>
+      </div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q3. 이레네우스 신학의 핵심 구속 개념으로, 아담의 타락이 그리스도에 의해 회복된다는 이론의 명칭은?</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-text"><strong>총괄갱신론 (Recapitulatio, ἀνακεφαλαίωσις)</strong> — 아담이 온 인류의 대표자로서 타락, 새 아담 그리스도가 대표자로서 회복. 육체의 선함과 몸의 부활 강조. 영지주의(육체=악) 반박의 핵심 도구.</div>
+      </div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q4. 초대교회에서 세례(침례) 전에 신앙 핵심을 배우고 고백하는 과정을 무엇이라 하는가?</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-text"><strong>입문자 교육 / 문답 교육 (Catechumenate, 카테쿠메나테)</strong> — 사도신경에 준하는 내용을 배우고 공개 고백 후 침례를 받음. 디다케에 이 과정의 초기 규정이 담겨 있음.</div>
+      </div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q5. 데키우스 황제 치하의 핍박(249–251 AD)이 이전 핍박들과 구별되는 이유는?</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-text"><strong>최초의 전국적(제국 전체) 박해</strong>였기 때문. 이전 핍박들은 지역적·산발적이었으나, 데키우스는 황제 신 외 다른 신 경배를 전면 금지하는 칙령을 제국 전역에 시행. 배교자(lapsi) 문제가 심각하게 대두됨.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 약술형 -->
+  <div class="sec-head">
+    <span class="sec-badge">시험대비</span>
+    <div class="sec-title">약술 문제</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="quiz-section">
+    <div class="quiz-type-head">
+      <span class="quiz-badge essay">약술</span>
+      <span class="quiz-label">모범 답안 구조를 확인하세요</span>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q. 2세기 기독교가 로마 사회에서 급성장한 이유를 3가지 이상 들어 서술하시오.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">모범 답안 뼈대</div>
+        <ul class="ans-text" style="list-style:disc; padding-left:4mm; line-height:1.8">
+          <li><strong>① 자선:</strong> 보상 없는 순수한 나눔. 미망인·고아·수감자·노예까지 포괄. 로마의 보상 기반 자선과 대조적으로 이교도에게 충격을 줌.</li>
+          <li><strong>② 교제:</strong> 계층·성별·연령 무관한 공동 식사(애찬식). 엄격한 계층 사회에서 혁명적 평등성. 동방 비밀 종교들에게 없는 전 제국적 네트워크.</li>
+          <li><strong>③ 높은 도덕성:</strong> 결혼 신성시, 영아 유기 반대, 이혼 제한, 성적 정결. 플리니·갈레노스 같은 이교도 지식인들도 긍정 평가.</li>
+          <li><strong>④ 핍박 앞의 견고함:</strong> 순교 앞에서도 흔들리지 않는 신앙. 이교도들이 "완고하다"면서도 "철학자 같다"고 칭송.</li>
+          <li><strong>⑤ 구원 확신:</strong> 침례(사탄 극복 확신)와 성찬(그리스도의 몸에 참여). 운명론·귀신론에 대한 대안 제시.</li>
+        </ul>
+        <div class="ans-guide">* 3가지 약술 시: ①②④ 선택 권장. 각 요인 2–3문장으로 구체적 사례 포함하면 고득점.</div>
+      </div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q" onclick="toggleQuiz(this)">
+        <span>Q. 이레네우스가 영지주의를 반박한 핵심 논거를 서술하시오.</span>
+        <span class="quiz-toggle">▶</span>
+      </div>
+      <div class="quiz-a">
+        <div class="ans-label">모범 답안 뼈대</div>
+        <ul class="ans-text" style="list-style:disc; padding-left:4mm; line-height:1.8">
+          <li><strong>① 창조론:</strong> 영지주의는 물질 세계를 열등신의 작품으로 봄. 이레네우스: 전능하신 하나님이 물질을 포함한 천지 전체를 창조하셨으며, 육체는 본질적으로 선함.</li>
+          <li><strong>② 성육신:</strong> 영지주의는 예수의 육체적 성육신을 부정(가현설). 이레네우스: 요한 2서 인용 — "육체로 임하심을 부인하는 자는 적그리스도."</li>
+          <li><strong>③ 총괄갱신론:</strong> 첫 아담(타락의 대표) → 새 아담 그리스도(회복의 대표). 구원은 비밀 지식(영지주의)이 아닌 믿음으로.</li>
+          <li><strong>④ 사도적 전승:</strong> 주교가 사도의 계승자. 공개된 복음만이 참 복음. 영지주의의 비밀 지식 전수 구조를 거부.</li>
+        </ul>
+        <div class="ans-guide">* 답안에 "총괄갱신(Recapitulatio)" 용어를 반드시 포함할 것.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인물 카드 요약 -->
+  <div class="sec-head">
+    <span class="sec-badge">핵심정리</span>
+    <div class="sec-title">5주차 필수 인물 요약</div>
+    <div class="sec-line"></div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>인물</th><th>시대·활동기</th><th>핵심 역할·사상</th><th>시험 키워드</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-b">이그나티우스</td><td>?–107 AD</td><td>안디옥 주교. 트라얀 시대 순교. "밀처럼 으깨짐"</td><td>안디옥 주교, 트라얀</td></tr>
+      <tr><td class="td-b">폴리캅</td><td>69–155 AD</td><td>스미르나 주교. 요한의 제자. 86세 화형 순교. 첫 순교자 열전</td><td>요한의 제자, 155년, 첫 순교자열전</td></tr>
+      <tr><td class="td-b">터툴리안</td><td>160–225 AD</td><td>최초 라틴 신학자. 195년 개종. "순교자의 피 = 교회의 씨앗"</td><td>라틴 신학자, 순교의 피</td></tr>
+      <tr><td class="td-b">저스틴</td><td>100–165 AD</td><td>중도파 변증가. 로고스 기독론. 165년 참수. 변증학교 설립</td><td>로고스, 중도파, 참수</td></tr>
+      <tr><td class="td-b">이레네우스</td><td>130–202 AD</td><td>리옹 주교. 영지주의 반박. 총괄갱신론. 전천년설</td><td>총괄갱신, 이단논박</td></tr>
+      <tr><td class="td-b">타티안</td><td>110–172 AD</td><td>극우 변증가. 디아테사론. 후에 영지주의 전향</td><td>디아테사론, 극우, 영지주의 전향</td></tr>
+    </tbody>
+  </table>
+
+</div><!-- /pane1 -->
+
+<!-- ══════════ TAB 3: 연대기 ══════════ -->
+<div class="tab-pane" id="pane2">
+  <div class="sec-head">
+    <span class="sec-badge">TIMELINE</span>
+    <div class="sec-title">사도시대 → 가톨릭 기독교시대 — 누적 연대기</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body">
+      <div class="callout-title">연대기 활용 안내</div>
+      <div class="callout-text">매 주차 항목이 누적됩니다. 기말 전 전체 흐름을 한눈에 확인하세요. <strong>파피루스 골드 = 연도</strong> · <strong>초록 배지 = 사도시대</strong> · <strong>붉은 배지 = 가톨릭 기독교시대</strong></div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">30 AD</span><span class="tl-event">오순절 성령 강림 — 예루살렘 교회 형성</span></div>
+      <div class="tl-desc">예수 부활 후 50일. 3000명 개종(행 2장). 기독교의 공식 시작점.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">47–57 AD</span><span class="tl-event">사도 바울의 3차 전도 여행</span><span class="tl-person">바울</span></div>
+      <div class="tl-desc">소아시아·그리스·마케도니아 중심. 에베소·고린도·빌립보 등 주요 교회 설립. 신약 서신 집필.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">64 AD</span><span class="tl-event">로마 대화재 — 네로 황제의 1차 기독교 박해</span><span class="tl-person">네로</span></div>
+      <div class="tl-desc">기독교에 죄 전가. 바울(참수)·베드로(역십자가) 순교. 기독교가 유대교와 별개 종교로 인식 시작.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">70 AD</span><span class="tl-event">예루살렘 함락 — 성전 파괴</span><span class="tl-person">티투스 장군</span></div>
+      <div class="tl-desc">제1차 유대인 항쟁 종결. 기독교 중심이 예루살렘에서 안디옥·에베소·로마로 이동. 팔레스타인 기독교인들은 주로 이방인 구성으로 재편.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">90–96 AD</span><span class="tl-event">도미티안 황제 박해 — 요한 밧모섬 유배</span><span class="tl-person">도미티안</span></div>
+      <div class="tl-desc">황제 숭배 거부 이유. 요한계시록 저술 배경. 로마의 클레멘트 순교.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">100 AD</span><span class="tl-event">신약 문서 기록 완성 · 사도시대 종결</span></div>
+      <div class="tl-desc">사도 요한(마지막 생존 사도)의 사망 추정. 이후 사도적 교부(Apostolic Fathers) 시대로 전환.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">107 AD</span><span class="tl-event">이그나티우스 안디옥 주교 순교</span><span class="tl-person">이그나티우스</span></div>
+      <div class="tl-desc">트라얀 황제 시대. 로마로 이송 중 여러 교회에 서신. "나는 하나님의 밀이다. 맹수의 이빨로 갈려 순수한 빵이 되고자 한다."</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era apostle">사도시대</span>
+      <div><span class="tl-year">112 AD</span><span class="tl-event">플리니 총독의 트라얀 황제에게 보낸 편지</span><span class="tl-person">플리니 · 트라얀</span></div>
+      <div class="tl-desc">비두니아의 기독교인 처우 문의. 트라얀 응답: 무명 고소 무시, 자백자 처벌, 부인자 사면. 초기 기독교 예배 실태(새벽 찬양, 윤리 서약) 기록.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">100–150 AD</span><span class="tl-event">디다케(Didache) 저술 — 최초 교회 규범집</span></div>
+      <div class="tl-desc">침례 방식·기도·금식·나그네 대접·애찬식 규정. 이단과 거짓 선지자 구분 기준 제시. 카테쿠메나테(입문자 교육) 형식화.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">132–135 AD</span><span class="tl-event">제2차 유대인 항쟁(바르코크바) 완전 진압</span><span class="tl-person">하드리안</span></div>
+      <div class="tl-desc">예루살렘 → 아이리아 카피톨리나. 지역명 → 팔레스타인. 유대인 출입 금지. 1800년 유대인 디아스포라 시대 본격 시작.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">155 AD</span><span class="tl-event">폴리캅 86세 화형 순교 — 첫 순교자 열전</span><span class="tl-person">폴리캅</span></div>
+      <div class="tl-desc">안토니우스 파이우스 황제 시대. 155년 2월 23일 "영원한 삶으로 들어간 날"로 기념. 사도적 연결의 마지막 고리.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">165 AD</span><span class="tl-event">순교자 저스틴 참수 — 변증 시대의 상징</span><span class="tl-person">저스틴</span></div>
+      <div class="tl-desc">로마 변증학교 설립자. 로고스 기독론 발전. 크레센스의 고발로 참수. "너희가 우리를 죽일 순 있으나 실제로 해할 수는 없다."</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">177 AD</span><span class="tl-event">리옹·비엔느 박해 — 갈리아 교회 순교</span><span class="tl-person">마르쿠스 아우렐리우스</span></div>
+      <div class="tl-desc">49명 순교. 이레네우스의 스승 포티누스 포함. 이레네우스가 리옹 주교로 취임. 서유럽 기독교의 확증.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">195 AD</span><span class="tl-event">터툴리안 기독교 개종 — 라틴 신학의 시작</span><span class="tl-person">터툴리안</span></div>
+      <div class="tl-desc">카르타고 출신. 최초의 라틴 신학자. "순교자의 피 = 교회의 씨앗." 삼위일체(Trinitas) 용어 최초 사용. 법적 변증 방식 개척.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">202 AD</span><span class="tl-event">이레네우스 사망 추정 — 『이단 논박』 완성</span><span class="tl-person">이레네우스</span></div>
+      <div class="tl-desc">영지주의 최대 비판자. 총괄갱신론. 사도적 전승·주교제도 강조. 전천년설 주창. "바울 이후 가장 위대한 신학자."</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">249–251 AD</span><span class="tl-event">데키우스 — 최초의 전국적 박해</span><span class="tl-person">데키우스</span></div>
+      <div class="tl-desc">황제 신 외 경배 전면 금지. 배교자(lapsi) 문제 심각 대두. 교회 내 엄격주의(Rigorism) vs 관대주의(Laxism) 논쟁.</div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-era catholic">가톨릭 기독교시대</span>
+      <div><span class="tl-year">303–311 AD</span><span class="tl-event">디오클레티아누스 — 최악의 박해</span><span class="tl-person">디오클레티아누스·갈레리우스</span></div>
+      <div class="tl-desc">교회 파괴·성경 소각·모든 기독교인 권리 박탈. 박해 종식 후 불과 2년 뒤 밀라노 칙령(313)으로 공인.</div>
+    </div>
+
+  </div>
+
+  <div class="core-box" style="margin-top:6mm;">
+    <div class="core-title">⭐ 연대기 핵심 흐름 요약</div>
+    <div class="core-points">
+      <div class="core-point">
+        <div class="core-num">①</div>
+        <div class="core-text"><strong>30–100 AD 사도시대</strong><br>예수 → 예루살렘 교회 → 바울의 이방 선교 → 70년 함락 → 신약 완성. 기독교가 유대교에서 독립.</div>
+      </div>
+      <div class="core-point">
+        <div class="core-num">②</div>
+        <div class="core-text"><strong>100–250 AD 가톨릭 기독교시대</strong><br>지리적 확장(안디옥·로마·북아프리카) + 산발적 박해 + 이단 도전(영지주의) + 변증가 등장. 신학 기초 형성.</div>
+      </div>
+      <div class="core-point">
+        <div class="core-num">③</div>
+        <div class="core-text"><strong>313 AD → 로마제국시대</strong><br>밀라노 칙령으로 기독교 공인. 다음 단계: 삼위일체 논쟁·니케아 공의회(325). 교회와 국가의 결합.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane2 -->
+
+</div><!-- /content -->
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <span>한국침례신학대학원 · 교회사개론 I · 김태식 교수 · 2026학년도 1학기</span>
+  <span>church-05-expansion.html · 강의노트 + 음성 통합</span>
+</div>
+
+<script>
+  function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+    document.querySelectorAll('.tab-pane').forEach((p,i) => p.classList.toggle('active', i===idx));
+  }
+  function toggleQuiz(el) {
+    const ans = el.nextElementSibling;
+    ans.classList.toggle('open');
+    const tog = el.querySelector('.quiz-toggle');
+    tog.textContent = ans.classList.contains('open') ? '▼' : '▶';
+  }
+</script>
+</body>
+</html>
