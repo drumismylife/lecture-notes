@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 5주차 — 목회자의 정체성과 자기 관리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+:root {
+  --bg-page:       #0f1a12;
+  --bg-card:       #172018;
+  --bg-subcard:    #1e2a20;
+  --bg-hover:      #243026;
+  --green-main:    #7ab87a;
+  --green-soft:    #a8d4a8;
+  --green-dim:     #4a7a4a;
+  --green-deep:    #2a4a2a;
+  --cream:         #d4c9a8;
+  --cream-dim:     #b8ad90;
+  --red-exam:      #c96b5a;
+  --red-exam-bg:   #2d1a16;
+  --red-exam-bd:   #c96b5a;
+  --amber:         #c49a3c;
+  --amber-bg:      #2a2010;
+  --amber-bd:      #c49a3c;
+  --text-main:     #e8ede8;
+  --text-sub:      #9aaa9a;
+  --text-bible:    #a8d4a8;
+  --divider:       #2a3a2a;
+  --shadow:        0 4px 24px rgba(0,0,0,0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── 배경 텍스처 ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(122,184,122,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(122,184,122,0.03) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── 헤더 ── */
+.header {
+  position: relative; z-index: 10;
+  background: linear-gradient(160deg, #1a2d1c 0%, #0f1a12 60%);
+  border-bottom: 1px solid var(--divider);
+  padding: 40px 48px 32px;
+  overflow: hidden;
+}
+.header::after {
+  content: '✠';
+  position: absolute; right: 48px; top: 50%; transform: translateY(-50%);
+  font-size: 120px; color: rgba(122,184,122,0.05);
+  font-family: 'Nanum Myeongjo', serif;
+  pointer-events: none;
+}
+.header-meta {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 4px; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.badge-week   { background: rgba(122,184,122,0.15); color: var(--green-main); border: 1px solid var(--green-dim); }
+.badge-course { background: rgba(212,201,168,0.1);  color: var(--cream-dim);  border: 1px solid rgba(212,201,168,0.3); }
+.badge-date   { background: transparent; color: var(--text-sub); border: 1px solid var(--divider); }
+
+.header h1 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+.header h1 span { color: var(--green-main); }
+.header-sub {
+  margin-top: 8px;
+  color: var(--text-sub);
+  font-size: 13px;
+}
+
+/* ── 탭 ── */
+.tabs-wrap {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(15,26,18,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider);
+}
+.tabs {
+  display: flex; gap: 0;
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 24px;
+}
+.tab-btn {
+  padding: 14px 28px;
+  background: transparent;
+  border: none; border-bottom: 3px solid transparent;
+  color: var(--text-sub);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--green-soft); }
+.tab-btn.active {
+  color: var(--green-main);
+  border-bottom-color: var(--green-main);
+  font-weight: 700;
+}
+
+/* ── 메인 레이아웃 ── */
+.main {
+  max-width: 1100px; margin: 0 auto;
+  padding: 40px 24px 80px;
+  position: relative; z-index: 1;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 섹션 헤딩 ── */
+.section-title {
+  display: flex; align-items: center; gap: 12px;
+  margin: 40px 0 20px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--cream);
+}
+.section-title::before {
+  content: '';
+  display: block; width: 4px; height: 22px;
+  background: var(--green-main);
+  border-radius: 2px; flex-shrink: 0;
+}
+.section-title:first-child { margin-top: 0; }
+
+/* ── 원칙 블록 ── */
+.principle {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-left: 4px solid var(--green-main);
+  border-radius: 8px;
+  padding: 22px 26px;
+  margin-bottom: 16px;
+  page-break-inside: avoid;
+}
+.principle-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--cream); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.principle-title .icon { font-size: 18px; }
+.principle-stmt {
+  font-size: 14px; font-weight: 700;
+  color: var(--green-soft); margin-bottom: 8px;
+  padding: 8px 12px;
+  background: rgba(122,184,122,0.08);
+  border-radius: 4px;
+}
+.principle-body { font-size: 14px; color: var(--text-main); }
+.principle-body li {
+  margin: 4px 0 4px 16px;
+  list-style: disc;
+}
+.principle-ref {
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--divider);
+  font-size: 12px; color: var(--green-soft);
+  font-family: monospace;
+}
+
+/* ── 시험 블록 ── */
+.exam-block {
+  background: var(--red-exam-bg);
+  border: 1px solid var(--red-exam-bd);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+  page-break-inside: avoid;
+}
+.exam-block .exam-label {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--red-exam); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 2px 8px; border-radius: 3px; margin-bottom: 10px;
+}
+.exam-block .exam-q {
+  font-size: 14px; font-weight: 700;
+  color: #e8a898; margin-bottom: 8px;
+}
+.exam-block .exam-hint {
+  font-size: 13px; color: #c0a0a0;
+}
+.exam-block .exam-hint li {
+  margin: 3px 0 3px 16px; list-style: '→ ';
+}
+
+/* ── 성경 블록 ── */
+.bible-block {
+  background: var(--bg-subcard);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.bible-ref { font-size: 12px; font-weight: 700; color: var(--green-main); margin-bottom: 8px; }
+.bible-text { font-family: 'Nanum Myeongjo', serif; font-size: 14px; color: var(--text-bible); font-style: italic; margin-bottom: 10px; padding: 10px 14px; background: rgba(168,212,168,0.06); border-radius: 4px; }
+.bible-interp { font-size: 13px; color: var(--text-sub); margin-bottom: 6px; }
+.bible-apply { font-size: 13px; color: var(--text-main); }
+
+/* ── 목회자상 카드 ── */
+.pastor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.pastor-card {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s;
+  page-break-inside: avoid;
+}
+.pastor-card:hover { border-color: var(--green-dim); transform: translateY(-2px); }
+.pastor-card .pc-icon { font-size: 28px; margin-bottom: 10px; }
+.pastor-card .pc-title { font-family: 'Nanum Myeongjo', serif; font-size: 15px; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+.pastor-card .pc-subtitle { font-size: 11px; color: var(--green-main); font-weight: 700; letter-spacing: 0.06em; margin-bottom: 8px; }
+.pastor-card .pc-body { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.pastor-card .pc-verse { margin-top: 10px; font-size: 11px; color: var(--green-soft); font-family: monospace; }
+
+/* ── 교수 설명 ── */
+.professor {
+  background: rgba(122,184,122,0.05);
+  border-left: 3px solid var(--green-dim);
+  padding: 12px 18px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 12px;
+  font-size: 13px; font-style: italic;
+  color: var(--green-soft);
+}
+.professor::before { content: '🎙 강의: '; font-style: normal; font-weight: 700; }
+
+/* ── 현장 블록 ── */
+.field-block {
+  background: #1a2a1a;
+  border-left: 4px solid var(--green-dim);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.field-block .field-title { font-size: 14px; font-weight: 700; color: var(--green-soft); margin-bottom: 12px; }
+.field-block .field-row { display: grid; grid-template-columns: 70px 1fr; gap: 6px; margin-bottom: 6px; font-size: 13px; }
+.field-block .field-row .label { color: var(--green-main); font-weight: 700; font-size: 12px; padding-top: 2px; }
+.field-block .field-row .content { color: var(--text-main); }
+
+/* ── 사역 카드 ── */
+.ministry-card {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.ministry-card .min-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.ministry-card .min-badge { background: rgba(122,184,122,0.15); color: var(--green-main); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 3px; letter-spacing: 0.06em; }
+.ministry-card .min-title { font-size: 15px; font-weight: 700; color: var(--cream); font-family: 'Nanum Myeongjo', serif; }
+.ministry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.ministry-item { background: var(--bg-subcard); border-radius: 6px; padding: 12px 14px; }
+.ministry-item .mi-label { font-size: 11px; color: var(--green-main); font-weight: 700; letter-spacing: 0.06em; margin-bottom: 5px; }
+.ministry-item .mi-val { font-size: 13px; color: var(--text-main); }
+.ministry-item .mi-val li { margin: 3px 0 3px 14px; list-style: disc; font-size: 12px; }
+
+/* ── 성찰 블록 ── */
+.reflection {
+  background: #1e261e;
+  border: 1px dashed var(--green-dim);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.reflection .ref-title { font-size: 13px; font-weight: 700; color: var(--green-main); margin-bottom: 12px; }
+.reflection .ref-q {
+  display: flex; gap: 10px;
+  font-size: 13px; color: var(--green-soft);
+  margin-bottom: 10px; line-height: 1.7;
+}
+.reflection .ref-q::before { content: '?'; font-size: 18px; font-weight: 900; color: var(--green-main); flex-shrink: 0; line-height: 1.4; }
+
+/* ── 3가지 핵심 원칙 ── */
+.principles-final {
+  background: linear-gradient(135deg, #1a2d1c 0%, #172018 100%);
+  border: 1px solid var(--green-dim);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 40px;
+}
+.principles-final h3 { font-family: 'Nanum Myeongjo', serif; font-size: 17px; color: var(--cream); margin-bottom: 20px; }
+.pf-list { display: grid; gap: 14px; }
+.pf-item { display: flex; gap: 16px; align-items: flex-start; }
+.pf-num {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--green-main); color: var(--bg-page);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 15px;
+}
+.pf-text strong { display: block; color: var(--cream); font-size: 14px; margin-bottom: 4px; }
+.pf-text span { color: var(--text-sub); font-size: 13px; }
+
+/* ── 요약 테이블 ── */
+.summary-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.summary-table th {
+  background: var(--bg-subcard);
+  color: var(--green-main); font-size: 12px;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 2px solid var(--green-dim);
+  font-weight: 700; letter-spacing: 0.05em;
+}
+.summary-table td { padding: 10px 14px; border-bottom: 1px solid var(--divider); font-size: 13px; vertical-align: top; }
+.summary-table tr:hover td { background: var(--bg-hover); }
+.summary-table .key-col { color: var(--cream); font-weight: 600; width: 140px; }
+.summary-table .val-col { color: var(--text-main); }
+.summary-table .ref-col { color: var(--text-sub); font-size: 11px; font-family: monospace; }
+
+/* ── 구분선 ── */
+.divider { border: none; border-top: 1px solid var(--divider); margin: 30px 0; }
+
+/* ── 인쇄 ── */
+@media print {
+  body { background: #fff; color: #111; font-size: 11pt; }
+  .tabs-wrap, .tab-btn { display: none !important; }
+  .tab-panel { display: block !important; page-break-before: always; }
+  .tab-panel:first-of-type { page-break-before: avoid; }
+  .header { background: #f0f0f0 !important; color: #111 !important; border-bottom: 2px solid #ccc; }
+  .header h1 { color: #111 !important; }
+  .principle, .exam-block, .pastor-card, .ministry-card { page-break-inside: avoid; }
+  :root {
+    --bg-page: #fff; --bg-card: #f8f8f8; --bg-subcard: #f0f0f0;
+    --text-main: #111; --text-sub: #444; --green-main: #2a6a2a;
+    --cream: #111; --red-exam: #a03020;
+  }
+}
+
+@media (max-width: 640px) {
+  .header { padding: 24px 20px 20px; }
+  .main { padding: 24px 16px 60px; }
+  .pastor-grid { grid-template-columns: 1fr; }
+  .ministry-grid { grid-template-columns: 1fr; }
+  .tab-btn { padding: 12px 16px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<header class="header">
+  <div class="header-meta">
+    <span class="badge badge-course">목회학 · 63117</span>
+    <span class="badge badge-week">5주차</span>
+    <span class="badge badge-date">2026 · 04 · 06</span>
+  </div>
+  <h1>목회자의 <span>정체성</span>과 자기 관리</h1>
+  <p class="header-sub">담당 이영호 교수 &nbsp;|&nbsp; 참고: 양병모 「목회학」 · 존 맥아더 「목회학」 · 최병락·김관성 「목회 멘토링」 · 논문 3편</p>
+</header>
+
+<!-- ── 탭 ── -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('notes', this)">📖 강의노트</button>
+    <button class="tab-btn" onclick="switchTab('summary', this)">📌 핵심정리 &amp; 시험</button>
+    <button class="tab-btn" onclick="switchTab('field', this)">🌿 현장적용 &amp; 성찰</button>
+  </div>
+</div>
+
+<main class="main">
+
+<!-- ══════════════════════════════════════════
+     탭 1 · 강의노트
+══════════════════════════════════════════ -->
+<div id="tab-notes" class="tab-panel active">
+
+  <div class="section-title">Ⅰ. 목회자는 누구인가? — 정체성의 세 층위</div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">📛</span>목회자의 세 가지 호칭</div>
+    <div class="principle-stmt">감독·장로·목사는 신약 성경에서 동일 직분을 가리키는 상호 교환적 표현이다.</div>
+    <div class="principle-body">
+      1세기 초기 기독교에서 세 호칭은 혼용되었다. 2세기 이후 점차 구분되기 시작했으며,
+      침례교는 목사·집사 두 직분만 유지하고 장로를 별도 직분으로 두지 않는다.
+      <br><br>
+      <ul>
+        <li><strong style="color:var(--cream)">감독(ἐπίσκοπος)</strong> — 딤전 3:2; 딛 1:7</li>
+        <li><strong style="color:var(--cream)">장로(πρεσβύτερος)</strong> — 딛 1:5</li>
+        <li><strong style="color:var(--cream)">목사(ποιμήν)</strong> — 엡 4:11</li>
+      </ul>
+    </div>
+    <div class="principle-ref">딛 1:5,7 — "각 성에 장로들을 세우려 함이니… 감독은 하나님의 청지기로서"</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">🪞</span>정체성의 세 층위</div>
+    <div class="principle-stmt">목회자의 정체성은 자기 인식 · 성도의 기대 · 세상의 시선 세 층위에서 형성된다.</div>
+    <div class="principle-body">
+      <ul>
+        <li><strong style="color:var(--cream)">목회자 자신</strong>: "나는 하나님의 자녀·종·섬기는 사람이다" — 침례교적 정체성은 힘을 빼고 낮은 자리에서 시작한다.</li>
+        <li><strong style="color:var(--cream)">성도의 기대</strong>: 우리와 동일한 본능을 가졌지만 더 높은 도덕적·영적 수준에 있는 사람을 기대한다.</li>
+        <li><strong style="color:var(--cream)">세상의 시선</strong>: 자기가 만난 목회자를 보고 형성된다 → 목회자의 삶이 곧 교회의 이미지다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="professor">"성도들이 목회자를 불쌍히 여길 때 그때 쓰임 받는다. 성도들의 불쌍히 여김을 받아야 하는 사람이다."</div>
+
+  <hr class="divider">
+  <div class="section-title">Ⅱ. 목회자의 자질</div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">⚖️</span>아리스토텔레스의 설득자 3요소 → 목회자 3대 자질</div>
+    <div class="principle-stmt">파토스(열정) · 에토스(성품) · 로고스(지성)를 균형 있게 갖춰야 한다.</div>
+    <div class="principle-body">
+      <ul>
+        <li><strong style="color:var(--cream)">파토스(Pathos) — 열정</strong>: 하나님에 대한 갈망, 영혼 사랑. "자기가 감동받지 않은 것으로 절대로 다른 사람을 감동시킬 수 없다."</li>
+        <li><strong style="color:var(--cream)">에토스(Ethos) — 성품과 윤리</strong>: 말과 행동의 일치. 부흥사보다 담임목사가 설교하기 어려운 이유는 성도들이 목사가 어떤 사람인지 알기 때문이다.</li>
+        <li><strong style="color:var(--cream)">로고스(Logos) — 지성</strong>: 진리를 이해하는 능력. 이성과 지성으로 말씀을 연구하고 가르치는 능력.</li>
+      </ul>
+    </div>
+    <div class="principle-ref">딛 1:6-9</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">📋</span>존 맥아더의 목회자 3대 덕목</div>
+    <div class="principle-stmt">성적인 도덕성 / 가정에서의 리더십 / 성품의 고결함</div>
+    <div class="principle-body">
+      <ul>
+        <li><strong style="color:var(--cream)">성적 도덕성</strong>: "한 아내의 남편" — 흠 없는 결혼 역사(맥아더) / 성적으로 정결한 상태(조석민 교수) / 당시 로마의 이혼·간통·동성애에 대한 반대</li>
+        <li><strong style="color:var(--cream)">가정 리더십</strong>: 자녀를 공손함으로 복종하게 하는 자. 단, 자녀 문제는 부모만의 책임이 아님을 유의해야 한다.</li>
+        <li><strong style="color:var(--cream)">성품의 고결함</strong>: 자기 권리를 제한하는 것 포함. 재정·시간 사용의 투명한 기준 필요. 교회 규모에 맞는 시스템 구축이 중요하다.</li>
+      </ul>
+    </div>
+    <div class="principle-ref">딛 1:6-9; 딤전 3:1-7</div>
+  </div>
+
+  <div class="professor">"루터: 목회자는 재력·행정력·능력보다 성품을 갖춰야 한다."</div>
+  <div class="professor">"지글러: 목회자의 문제점은 마땅히 서 있어야 할 자리에 없는 것이 아니라, 마땅히 보여야 할 모습을 보이지 않는 것이다."</div>
+
+  <hr class="divider">
+  <div class="section-title">Ⅲ. 헨리 나우웬의 목회자 정체성 4가지 모델</div>
+  <p style="font-size:13px;color:var(--text-sub);margin-bottom:18px;">양병모 교수의 논문 "Henri J. M. Nouwen의 저술에 나타난 목회자 정체성과 목회적 적용"(복음과 실천신학 제9권) 참고</p>
+
+  <div class="pastor-grid">
+    <div class="pastor-card">
+      <div class="pc-icon">🩹</div>
+      <div class="pc-subtitle">모델 ①</div>
+      <div class="pc-title">상처 입은 치유자<br><span style="font-size:12px;color:var(--text-sub)">Wounded Healer</span></div>
+      <div class="pc-body">자신의 상처를 인정하고 이를 도구로 삼아 타인의 고통을 위로하며 치유에 사용한다. 목회자가 먼저 자기 상처를 치유받을 때, 그 경험이 사역의 자원이 된다.</div>
+      <div class="pc-verse">고후 1장 — 내가 받은 위로로 남을 위로하는 자가 되었다</div>
+    </div>
+    <div class="pastor-card">
+      <div class="pc-icon">🚶</div>
+      <div class="pc-subtitle">모델 ②</div>
+      <div class="pc-title">탕자와 같은 존재<br><span style="font-size:12px;color:var(--text-sub)">Prodigal Son</span></div>
+      <div class="pc-body">세속적 성공과 안락을 뒤로 하고 소외된 자와 함께한다. <strong style="color:var(--green-soft)">영적 파워는 결핍에서 나온다.</strong> 나우웬 자신: 하버드 교수 → 남미 선교 → 장애인 공동체에서 '피터'를 섬김.</div>
+      <div class="pc-verse">눅 15장 — 안전지대를 떠나는 삶</div>
+    </div>
+    <div class="pastor-card">
+      <div class="pc-icon">🤡</div>
+      <div class="pc-subtitle">모델 ③</div>
+      <div class="pc-title">어릿광대 같은 종<br><span style="font-size:12px;color:var(--text-sub)">Clown Minister</span></div>
+      <div class="pc-body">철저한 복종과 겸손을 바탕으로 자신의 약함을 드러냄으로써 공동체적 사랑을 실천한다. 집(οἰκία)에 거하는 자는 서로 복종하는 자다.</div>
+      <div class="pc-verse">엡 5:18-21 — "피차 복종하라"</div>
+    </div>
+    <div class="pastor-card">
+      <div class="pc-icon">💚</div>
+      <div class="pc-subtitle">모델 ④</div>
+      <div class="pc-title">사랑받는 자의 확신<br><span style="font-size:12px;color:var(--text-sub)">Beloved</span></div>
+      <div class="pc-body">하나님의 무조건적 사랑을 내면화하여 자기 거부와 낮은 자존감의 위기를 극복한다. <strong style="color:var(--green-soft)">하나님의 자녀라는 정체성으로 살아가라.</strong></div>
+      <div class="pc-verse">마 3:17 — "이는 내 사랑하는 아들이요 내 기뻐하는 자라"</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-title">Ⅳ. 성경이 제시하는 목회자 상</div>
+
+  <div class="bible-block">
+    <div class="bible-ref">딛 1:7 / 딤전 3:1-7 — 청지기 의식</div>
+    <div class="bible-text">"감독은 하나님의 청지기로서 책망할 것이 없고 제 고집대로 하지 아니하며 급히 분내지 아니하며 술을 즐기지 아니하며 구타하지 아니하며 더러운 이득을 탐하지 아니하니"</div>
+    <div class="bible-interp">🔍 해석: 목회자는 교회의 주인이 아닌 청지기 — 하나님의 관리를 받는 존재</div>
+    <div class="bible-apply">✅ 적용: 주인의식이 아닌 청지기 의식 → 재정·행정·리더십 모든 영역에서 자기 권리를 내려놓는 것</div>
+  </div>
+
+  <div class="bible-block">
+    <div class="bible-ref">벧전 5:2-3 — 자원함의 원칙</div>
+    <div class="bible-text">"양 무리를 치되 억지로 하지 말고 하나님의 뜻을 따라 자원함으로 하며 더러운 이득을 위하여 하지 말고 기꺼이 하며 맡은 자들에게 주장하는 자세를 하지 말고 양 무리의 본이 되라"</div>
+    <div class="bible-interp">🔍 해석: 사역의 동기가 핵심 — 억지/돈/지배가 아닌, 자원함/섬김/본이 됨</div>
+    <div class="bible-apply">✅ 적용: 사역 임하는 기본 자세 3가지 ①자원함 ②섬김 ③본이 됨</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">🌱</span>훌륭한 성품 — 산상수훈의 덕목들</div>
+    <div class="principle-stmt">훌륭한 성품은 산상수훈의 말씀을 실천하는 삶에서 나온다.</div>
+    <div class="principle-body">
+      <ul>
+        <li><strong style="color:var(--cream)">절제·신중·단정</strong> — 감정을 조절하는 능력</li>
+        <li><strong style="color:var(--cream)">나그네 대접</strong> — 갚을 길 없는 사람에 대한 이타적 사랑 (이스라엘의 출애굽 기억)</li>
+        <li><strong style="color:var(--cream)">관용(아가소스, ἀγαθός)</strong> — 하나님의 선함을 드러내는 것 = 저주기·손해보기. "선함(καλός)"은 매력적이라는 뜻도 포함한다.</li>
+        <li><strong style="color:var(--cream)">재정 청결</strong> — 돈이 아닌 은혜를 택하라 (잠 22:1 원리). 작은 돈에도 엄격한 기준이 필요하다.</li>
+        <li><strong style="color:var(--cream)">비다툼</strong> — 손해보고 져주는 성품</li>
+      </ul>
+    </div>
+    <div class="principle-ref">마 5:13-16; 딤전 3:2-7; 딛 1:6-9 / "아가소스(ἀγαθός)" — 하나님의 성품을 드러내는 선함</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">📊</span>목회자 종합 자격 요건 5가지</div>
+    <div class="principle-stmt">청지기 의식 / 책망 없음 / 내부 신뢰 / 가르치는 능력 / 외부 존경</div>
+    <div class="principle-body">
+      <ul>
+        <li>① 청지기 의식이 분명한 사람 (딛 1:7)</li>
+        <li>② 책망할 것이 없는 사람 (딛 1:6, 딤전 3:2)</li>
+        <li>③ 교회 내부의 신뢰를 얻은 사람</li>
+        <li>④ 말씀을 가르치는 능력이 있는 사람 — "소명 받았다는 증거는 가르치는 능력이다"</li>
+        <li>⑤ 교회 밖에서도 존경받는 사람 (딤전 3:7 — 외인에게 선한 증거를 얻은 자)</li>
+      </ul>
+    </div>
+    <div class="principle-ref">딛 1:6-9; 딤전 3:1-7; 벧전 5:1-4</div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-title">Ⅴ. 목회자의 자기 관리</div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">🔥</span>목회자 분노 관리의 중요성</div>
+    <div class="principle-stmt">분노 관리 실패는 신뢰 상실·사역 중단·영적 붕괴의 연쇄 위기를 초래한다.</div>
+    <div class="principle-body">
+      <ul>
+        <li><strong style="color:var(--cream)">엄격한 자기 관리</strong>: 목회자의 높은 도덕성은 사역 신뢰의 기반</li>
+        <li><strong style="color:var(--cream)">자기 관리 실패의 결과</strong>: 신뢰 상실 → 사역 중단 → 영적·인격적 붕괴</li>
+        <li><strong style="color:var(--cream)">분노 관리 미흡</strong>: 관계 붕괴 → 리더십 상실 → 건강·영성 약화</li>
+        <li><strong style="color:var(--cream)">갈등 상황에서의 인성</strong>: 불화 않기 / 경쟁 않기 / 억울함 참기 / 감정 없이 담백하게 해명하기</li>
+      </ul>
+    </div>
+    <div class="principle-ref">딛 1:7 — "급히 분내지 아니하며"</div>
+  </div>
+
+  <div class="professor">"최고의 복수는 감정이 실리지 않은 상태의 담백함으로 사실만 덤덤하게 말하는 것이다."</div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">😈</span>그레이그 반스 — 목회자의 세 가지 유혹</div>
+    <div class="principle-stmt">배 부르려는 유혹 / 무모함의 유혹 / 사탄과 타협하려는 유혹</div>
+    <div class="principle-body">
+      참고: 그레이그 반스, "목회자가 겪는 세 가지 유혹", 『목회 수업』, 홍성사 (시 사이드 장로교회)
+      <br><br>
+      <ul>
+        <li><strong style="color:var(--cream)">배 부르려는 유혹</strong> — 안락과 세속적 성공을 추구. 예수님의 "돌로 떡을 만들라"는 유혹과 유사</li>
+        <li><strong style="color:var(--cream)">무모함의 유혹</strong> — 분별 없이 믿음을 핑계로 무리하게 진행. "성전에서 뛰어내리라"는 유혹과 유사. 기준: 믿음인지 무모함인지는 결과로만 알 수 있다.</li>
+        <li><strong style="color:var(--cream)">사탄과 타협하려는 유혹</strong> — 재정 불투명·헌금 허위 발급 등 작은 타협들. "세상 영광과 교환하라"는 유혹과 유사</li>
+      </ul>
+    </div>
+    <div class="principle-ref">마 4:1-11 — 예수님의 광야 시험</div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="min-header">
+      <span class="min-badge">사역</span>
+      <span class="min-title">영성 관리 — 자기 관리의 핵심</span>
+    </div>
+    <div class="ministry-grid">
+      <div class="ministry-item">
+        <div class="mi-label">목적</div>
+        <div class="mi-val">세상 유혹을 이기고 하나님과의 친밀함 유지</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">핵심 원리</div>
+        <div class="mi-val">영적 훈련 외에 유혹을 이기는 다른 방법은 없다</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">방법</div>
+        <div class="mi-val">
+          <ul>
+            <li>꾸준한 기도 — 시간·장소 정기화</li>
+            <li>한적한 곳 기도 — 기도원·수양관</li>
+            <li>꾸준한 말씀 묵상·읽기</li>
+            <li>건전한 목회자들과의 교제</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">성경 근거</div>
+        <div class="mi-val">마 4:1-11 (예수님의 광야 시험 극복)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="min-header">
+      <span class="min-badge">사역</span>
+      <span class="min-title">가르치는 능력 발전</span>
+    </div>
+    <div class="ministry-grid">
+      <div class="ministry-item">
+        <div class="mi-label">목적</div>
+        <div class="mi-val">말씀 선포와 교육 능력 향상 — 소명의 증거</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">방법</div>
+        <div class="mi-val">
+          <ul>
+            <li>성경 읽기와 연구 (통독 → 강의형 통독)</li>
+            <li>독서 — 다양한 영역</li>
+            <li>좋은 설교 듣기 (이동원·유기성 목사)</li>
+            <li>직접 설교·강의 실습</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">핵심 원리</div>
+        <div class="mi-val">딤전 4:12 — "말과 행실과 사랑과 믿음과 정절에 있어서 믿는 자의 본이 되라"</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">추천 자료</div>
+        <div class="mi-val">이동원 목사 구설교 / 유기성 목사 설교 / 『성경 수업』(구약·신약편)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="min-header">
+      <span class="min-badge">사역</span>
+      <span class="min-title">가정 관리</span>
+    </div>
+    <div class="ministry-grid">
+      <div class="ministry-item">
+        <div class="mi-label">목적</div>
+        <div class="mi-val">목회자 가정의 건강이 사역의 기반</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">위협 요소</div>
+        <div class="mi-val">
+          <ul>
+            <li>스트레스 — 일·쉼 구분 없음</li>
+            <li>성도의 과도한 기대</li>
+            <li>가정보다 목회 우선 사고</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">리차드 포스터</div>
+        <div class="mi-val">돈→소박함 / 섹스→신의·충절 / 권력→섬김</div>
+      </div>
+      <div class="ministry-item">
+        <div class="mi-label">존 뷰케년</div>
+        <div class="mi-val">
+          <ul>
+            <li>멘토를 찾아라</li>
+            <li>가장 중요한 것을 먼저</li>
+            <li>목회와 가정을 분리</li>
+            <li>자녀를 보통 아이로 대하기</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bible-block">
+    <div class="bible-ref">삼상 2:12; 8:3 / 레 10:1-2 — 목회자 가정의 경고</div>
+    <div class="bible-text">엘리의 두 아들(행실이 나빠), 사무엘의 아들들(뇌물 수수), 아론의 두 아들(다른 불 드리다 죽음)</div>
+    <div class="bible-interp">🔍 해석: 훌륭한 목회자의 자녀도 실패할 수 있다 — 부모만의 책임이 아님</div>
+    <div class="bible-apply">✅ 적용: 자녀 문제로 과도하게 죄책감 갖지 말 것, 동시에 가정 사역을 결코 소홀히 하지 말 것</div>
+  </div>
+
+  <div class="professor">"교회가 세워질 때 결정적인 영향을 주는 것은 목회적 역량이 아니라 목회자와 사모의 성품이다." — 김관성</div>
+
+  <!-- 핵심 원칙 3가지 -->
+  <div class="principles-final">
+    <h3>✦ 오늘 목회 핵심 원칙 3가지</h3>
+    <div class="pf-list">
+      <div class="pf-item">
+        <div class="pf-num">1</div>
+        <div class="pf-text">
+          <strong>정체성의 기초</strong>
+          <span>목회자는 역량이나 직위가 아닌, 하나님의 사랑받는 자녀라는 정체성(나우웬의 Beloved) 위에서 사역한다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">2</div>
+        <div class="pf-text">
+          <strong>성품이 역량이다</strong>
+          <span>교회를 세우는 결정적 요소는 목회 기술이 아니라 목회자와 사모의 성품이다. 아가소스(선함)를 드러내는 삶이 진정한 영향력이다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">3</div>
+        <div class="pf-text">
+          <strong>자기 관리는 사역의 전제</strong>
+          <span>영성·감정·가정·능력의 꾸준한 관리 없이는 지속 가능한 목회가 불가능하다. 세 가지 유혹(안락·무모함·타협)을 경계하라.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-notes -->
+
+
+<!-- ══════════════════════════════════════════
+     탭 2 · 핵심정리 & 시험
+══════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-panel">
+
+  <div class="section-title">📌 핵심 요약표</div>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th class="key-col">항목</th>
+        <th class="val-col">핵심 내용</th>
+        <th class="ref-col">근거</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="key-col">목회자 호칭</td>
+        <td class="val-col">감독·장로·목사 — 신약에서 상호 교환적. 2세기 이후 구분 시작</td>
+        <td class="ref-col">딛 1:5,7</td>
+      </tr>
+      <tr>
+        <td class="key-col">설득자 3요소</td>
+        <td class="val-col">파토스(열정)·에토스(성품)·로고스(지성) — 아리스토텔레스 → 목회자 자질</td>
+        <td class="ref-col">딛 1:6-9</td>
+      </tr>
+      <tr>
+        <td class="key-col">맥아더 3대 덕목</td>
+        <td class="val-col">성적 도덕성 / 가정 리더십 / 성품의 고결함</td>
+        <td class="ref-col">딛 1:6-9</td>
+      </tr>
+      <tr>
+        <td class="key-col">나우웬 4모델</td>
+        <td class="val-col">상처 치유자 / 탕자 / 어릿광대 종 / 사랑받는 자</td>
+        <td class="ref-col">고후 1; 마 3:17</td>
+      </tr>
+      <tr>
+        <td class="key-col">목회자 5자격</td>
+        <td class="val-col">청지기 의식 / 책망 없음 / 내부 신뢰 / 가르치는 능력 / 외부 존경</td>
+        <td class="ref-col">딛 1:6-9; 딤전 3:1-7</td>
+      </tr>
+      <tr>
+        <td class="key-col">3가지 유혹</td>
+        <td class="val-col">배 부름 / 무모함 / 타협 — 그레이그 반스</td>
+        <td class="ref-col">마 4:1-11</td>
+      </tr>
+      <tr>
+        <td class="key-col">자기관리 3영역</td>
+        <td class="val-col">성품 성숙(감정관리) / 능력 발전 / 세상에서의 신뢰</td>
+        <td class="ref-col">마 5:13-16</td>
+      </tr>
+      <tr>
+        <td class="key-col">아가소스</td>
+        <td class="val-col">하나님의 성품(선함)을 드러내는 것 = 영향력의 원천. 져주기·손해보기</td>
+        <td class="ref-col">마 5:16</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🔴 출제 예상 문제 (중간고사 4/20)</div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 1</div>
+    <div class="exam-q">아리스토텔레스의 설득자 3요소를 목회자의 자질과 연결하여 각각 설명하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>파토스(Pathos) — 하나님에 대한 갈망, 영혼 사랑 (열정)</li>
+        <li>에토스(Ethos) — 말과 행동의 일치, 성품과 윤리</li>
+        <li>로고스(Logos) — 진리를 이해하는 지성적 능력</li>
+        <li>출처: 딛 1:6-9 연결 가능</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 2</div>
+    <div class="exam-q">존 맥아더가 딛 1:6-9에 근거하여 제시한 목회자의 세 가지 덕목을 설명하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>성적인 도덕성 — "한 아내의 남편" (정결함·결혼의 신실함)</li>
+        <li>가정에서의 리더십 — 자녀를 공손함으로 복종하게 하는 자</li>
+        <li>성품의 고결함 — 자기 권리를 제한, 투명한 재정·행정 기준</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 3</div>
+    <div class="exam-q">헨리 나우웬의 목회자 정체성 4가지 모델의 명칭과 핵심 개념을 서술하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>상처 입은 치유자 — 자기 상처를 도구로 타인을 치유</li>
+        <li>탕자와 같은 존재 — 안락을 버리고 소외된 자와 함께함, 영적 파워는 결핍에서</li>
+        <li>어릿광대 같은 종 — 약함을 드러내 공동체적 사랑 실천, 피차 복종</li>
+        <li>사랑받는 자의 확신 — 하나님의 무조건적 사랑을 내면화, 자녀 정체성</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 4</div>
+    <div class="exam-q">성경이 제시하는 목회자의 다섯 가지 자격 요건을 성경 근거와 함께 서술하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>① 청지기 의식이 분명한 사람 — 딛 1:7</li>
+        <li>② 책망할 것이 없는 사람 — 딛 1:6, 딤전 3:2</li>
+        <li>③ 교회 내부의 신뢰를 얻은 사람</li>
+        <li>④ 가르치는 능력이 있는 사람 — 딤전 4:12</li>
+        <li>⑤ 교회 밖에서 존경받는 사람 — 딤전 3:7</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 5</div>
+    <div class="exam-q">그레이그 반스가 제시한 목회자의 세 가지 유혹을 예수님의 광야 시험과 연결하여 서술하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>배 부르려는 유혹 ↔ 돌로 떡을 만들라 (물질적 안락)</li>
+        <li>무모함의 유혹 ↔ 성전에서 뛰어내리라 (분별 없는 믿음)</li>
+        <li>사탄과 타협하려는 유혹 ↔ 엎드려 경배하면 주리라 (작은 타협들)</li>
+        <li>출처: 마 4:1-11</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label">⚠ 시험 예상 6</div>
+    <div class="exam-q">목회자 분노 관리가 중요한 이유와 갈등 상황에서의 올바른 대응 방식을 설명하시오.</div>
+    <div class="exam-hint">
+      <ul>
+        <li>분노 관리 실패 → 신뢰 상실 → 사역 중단 → 영적·인격적 붕괴</li>
+        <li>갈등 대응: 불화 않기 / 경쟁 않기 / 억울함 참기 / 감정 없이 담백하게 해명</li>
+        <li>근거: 딛 1:7 "급히 분내지 아니하며"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 핵심 원칙 3가지 -->
+  <div class="principles-final">
+    <h3>✦ 오늘 목회 핵심 원칙 3가지</h3>
+    <div class="pf-list">
+      <div class="pf-item">
+        <div class="pf-num">1</div>
+        <div class="pf-text">
+          <strong>정체성의 기초</strong>
+          <span>목회자는 역량이나 직위가 아닌, 하나님의 사랑받는 자녀라는 정체성(나우웬의 Beloved) 위에서 사역한다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">2</div>
+        <div class="pf-text">
+          <strong>성품이 역량이다</strong>
+          <span>교회를 세우는 결정적 요소는 목회 기술이 아니라 목회자와 사모의 성품이다. 아가소스(선함)를 드러내는 삶이 진정한 영향력이다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">3</div>
+        <div class="pf-text">
+          <strong>자기 관리는 사역의 전제</strong>
+          <span>영성·감정·가정·능력의 꾸준한 관리 없이는 지속 가능한 목회가 불가능하다. 세 가지 유혹(안락·무모함·타협)을 경계하라.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-summary -->
+
+
+<!-- ══════════════════════════════════════════
+     탭 3 · 현장적용 & 성찰
+══════════════════════════════════════════ -->
+<div id="tab-field" class="tab-panel">
+
+  <div class="section-title">🌿 현장 적용 시나리오</div>
+
+  <div class="field-block">
+    <div class="field-title">시나리오 ① 성도의 과도한 기대와 목회자의 경계</div>
+    <div class="field-row"><span class="label">상황</span><span class="content">성도들이 목회자를 "우리와는 다른 사람"으로 기대하며, 사생활 영역까지 목회자답게 행동하도록 암묵적 압력을 가한다.</span></div>
+    <div class="field-row"><span class="label">진단</span><span class="content">이 기대는 완전히 잘못된 것이 아니나, 목회자도 동일한 인간임을 인정하는 것이 필요하다. 과도한 기대는 목회자 가정을 위협하는 주요 요인이다.</span></div>
+    <div class="field-row"><span class="label">실천</span><span class="content">① 자신의 한계를 겸손하게 인정하되 사역은 충실히 한다. ② 목회와 가정의 시간을 명확히 분리한다. ③ 성도에게 "목회자도 하나님의 은혜가 필요한 사람"임을 설교로 나눈다.</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">시나리오 ② 청소년 대상 설교에서의 공감과 파토스</div>
+    <div class="field-row"><span class="label">상황</span><span class="content">청소년들은 설교자의 진정성(파토스)에 민감하다. 준비된 내용을 전달하는 것만으로는 마음을 열기 어렵다.</span></div>
+    <div class="field-row"><span class="label">진단</span><span class="content">에토스(진실된 삶)와 파토스(열정·공감)가 함께 있어야 한다. 청소년들은 "저 분 진짜인가?"를 먼저 확인한다.</span></div>
+    <div class="field-row"><span class="label">실천</span><span class="content">① 본문으로 먼저 자신이 감동받는 묵상 시간을 확보한다. ② 청소년의 삶의 자리(학업·관계·정체성 고민)에서 공감의 접점을 찾는다. ③ 유기성 목사의 설교 방식(삶의 자리 공감)을 참고한다.</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">시나리오 ③ 부사역자로서의 분노 관리</div>
+    <div class="field-row"><span class="label">상황</span><span class="content">담임목사의 결정에 동의하기 어렵거나, 억울하게 오해받는 상황이 반복된다.</span></div>
+    <div class="field-row"><span class="label">진단</span><span class="content">부사역자 시절은 분노 관리 훈련의 도가니다. 이 시기의 연단이 훗날 목회의 깊이를 만든다.</span></div>
+    <div class="field-row"><span class="label">실천</span><span class="content">① 감정이 실리지 않은 상태에서 담백하게 사실만 말한다. ② 억울함을 하나님 앞에 기도로 내려놓는다. ③ 불화·경쟁·해명 충동을 의식적으로 절제한다.</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">시나리오 ④ 목회자 가정과 재정 청결</div>
+    <div class="field-row"><span class="label">상황</span><span class="content">어려운 교인의 헌금 영수증 처리나 재정 사용에서 "이 정도는 괜찮겠지"라는 유혹이 생긴다.</span></div>
+    <div class="field-row"><span class="label">진단</span><span class="content">사탄과 타협하려는 유혹(그레이그 반스)의 전형. 작은 타협이 신뢰의 기반을 무너뜨린다.</span></div>
+    <div class="field-row"><span class="label">실천</span><span class="content">① 재정에서 자기 권리를 제한하는 시스템을 처음부터 만든다. ② 돈보다 은혜를 택한다는 원칙을 구체적 결단으로 실천한다 (잠 22:1). ③ 작은 결단들이 쌓여 신뢰가 형성됨을 기억한다.</span></div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-title">🔍 나우웬 4모델 — 현장 적용</div>
+
+  <div class="ministry-card">
+    <div class="min-header">
+      <span class="min-badge">상처 치유자</span>
+      <span class="min-title">내 상처를 어떻게 사역 자원으로 전환할 것인가</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-sub);line-height:1.8;">
+      청소년 사역에서 청소년들이 겪는 상처(가정 해체, 따돌림, 정체성 혼란)를 목회자가 자신의 경험과 
+      연결하여 위로할 수 있다. 내가 먼저 그 아픔을 알기 때문에 진정한 공감이 가능하다. 
+      단, 상처가 치유되지 않은 채 사역하면 오히려 상처를 투사하게 되므로, 
+      자기 치유 과정(상담, 기도, 멘토)이 선행되어야 한다.
+    </p>
+  </div>
+
+  <div class="ministry-card">
+    <div class="min-header">
+      <span class="min-badge">탕자의 삶</span>
+      <span class="min-title">영적 파워는 결핍에서 나온다 — 실천적 적용</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-sub);line-height:1.8;">
+      신학교 시절의 결핍(경제적·시간적·관계적)을 영적 성장의 기회로 받아들이는 것이 중요하다. 
+      나우웬이 하버드 교수직을 떠나 장애인 공동체에서 섬긴 것처럼, 
+      화려한 자리보다 소외된 자리에서 하나님이 더 강하게 일하심을 기억하라.
+    </p>
+  </div>
+
+  <hr class="divider">
+  <div class="section-title">💬 자기 성찰 질문</div>
+
+  <div class="reflection">
+    <div class="ref-title">🪞 정체성 성찰</div>
+    <div class="ref-q">나는 지금 목회자인 나 자신을 누구라고 생각하는가? 하나님의 종? 하나님의 아들? 섬기는 자? 그 정체성이 사역 방식에 어떻게 드러나고 있는가?</div>
+    <div class="ref-q">내 설교와 삶이 일치하고 있는가? 성도들이 나의 에토스(성품)를 어떻게 평가할까? 교회 밖 사람들에게 나는 어떤 사람으로 알려져 있는가?</div>
+    <div class="ref-q">나는 "사랑받는 자"라는 정체성(나우웬)으로 사역하는가, 아니면 인정과 성과로 정체성을 채우려 하는가? 마지막으로 "나는 하나님께 충분히 사랑받는다"는 확신이 들었던 때는 언제인가?</div>
+  </div>
+
+  <div class="reflection">
+    <div class="ref-title">🔥 자기 관리 성찰</div>
+    <div class="ref-q">나의 분노 관리 수준은 어떤가? 갈등 상황에서 나는 어떤 반응을 보이는가? 감정이 실리지 않은 상태로 담백하게 말할 수 있는가?</div>
+    <div class="ref-q">세 가지 유혹(안락·무모함·타협) 중 나는 현재 어느 유혹에 가장 취약한가? 그것을 이기기 위해 지금 실천하고 있는 것은 무엇인가?</div>
+    <div class="ref-q">나의 가정은 사역의 기반이 되고 있는가, 아니면 사역의 희생이 되고 있는가? 배우자와 마지막으로 진솔한 대화를 나눈 것은 언제인가?</div>
+    <div class="ref-q">내 영적 훈련(기도·말씀 묵상)은 정기적·지속적으로 이루어지고 있는가? 아니면 사역 준비로만 성경을 읽고 있는가?</div>
+  </div>
+
+  <div class="reflection">
+    <div class="ref-title">🌱 성품 성찰 — 산상수훈 점검</div>
+    <div class="ref-q">나는 갚을 길 없는 사람을 이타적으로 대접하고 있는가? (나그네 대접의 원리) 최근에 내가 손해를 감수하며 누군가를 섬긴 경험이 있는가?</div>
+    <div class="ref-q">나는 재정적 결정에서 "돈이냐 은혜냐"의 선택에 직면했을 때 어떤 선택을 해왔는가? 작은 재정 결정들이 나의 가치관을 드러내고 있지 않은가?</div>
+  </div>
+
+  <!-- 핵심 원칙 3가지 -->
+  <div class="principles-final">
+    <h3>✦ 오늘 목회 핵심 원칙 3가지</h3>
+    <div class="pf-list">
+      <div class="pf-item">
+        <div class="pf-num">1</div>
+        <div class="pf-text">
+          <strong>정체성의 기초</strong>
+          <span>목회자는 역량이나 직위가 아닌, 하나님의 사랑받는 자녀라는 정체성(나우웬의 Beloved) 위에서 사역한다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">2</div>
+        <div class="pf-text">
+          <strong>성품이 역량이다</strong>
+          <span>교회를 세우는 결정적 요소는 목회 기술이 아니라 목회자와 사모의 성품이다. 아가소스(선함)를 드러내는 삶이 진정한 영향력이다.</span>
+        </div>
+      </div>
+      <div class="pf-item">
+        <div class="pf-num">3</div>
+        <div class="pf-text">
+          <strong>자기 관리는 사역의 전제</strong>
+          <span>영성·감정·가정·능력의 꾸준한 관리 없이는 지속 가능한 목회가 불가능하다. 세 가지 유혹(안락·무모함·타협)을 경계하라.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-field -->
+
+</main>
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
