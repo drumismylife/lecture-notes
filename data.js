@@ -85,8 +85,12 @@ const SITE_DATA = {
 	    { type: "notes", label: "강의노트_업그레이드", href: "output/기독교철학/week04b.html" },
 	    { type: "audio", label: "음성노트정리", href: "output/기독교철학/음성강의정리.m4a" }
 	  ] },
-        { week: 5, title: "악의 문제", date: "2026.04", files: [] },
-        { week: 6, title: "종교 언어 — 비트겐슈타인", date: "2026.04", files: [] },
+        { week: 5, title: "윌리엄 제임스", date: "2026.03.31", files: [
+	     { type: "notes", label: "강의노트", href: "output/기독교철학/week05.html" }
+	  ] },
+        { week: 6, title: "레비나스 — 계시의 개념과 메시아적 종교", date: "2026.04.07", files: [
+	     { type: "notes", label: "강의노트", href: "output/기독교철학/week06.html". }
+	  ] },
         { week: 7, title: "신앙과 이성의 관계", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "종교다원주의", date: "2026.05", files: [] },

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 6주차 — 레비나스</title>
+<style>
+  :root {
+    --bg:        #12100e;
+    --card:      #1c1814;
+    --subcard:   #252018;
+    --amber:     #c49a3c;
+    --amber-lt:  #e8c97a;
+    --sage:      #8aab8a;
+    --terra:     #c96b5a;
+    --green:     #5a8a6a;
+    --text:      #ede8df;
+    --muted:     #9e9688;
+    --border:    #3a3228;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; font-size: 14px; line-height: 1.75; }
+
+  /* ── TAB SYSTEM ── */
+  .tab-bar { display: flex; gap: 2px; padding: 20px 24px 0; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .tab-btn { padding: 10px 22px; background: var(--card); border: 1px solid var(--border); border-bottom: none; border-radius: 6px 6px 0 0; color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s; }
+  .tab-btn.active { background: var(--subcard); color: var(--amber); border-color: var(--amber); }
+  .tab-pane { display: none; padding: 28px 24px 60px; max-width: 1060px; margin: 0 auto; }
+  .tab-pane.active { display: block; }
+
+  /* ── HEADER ── */
+  .note-header { background: linear-gradient(135deg, #1a1510 0%, #2a1f0e 60%, #1c1814 100%); border: 1px solid var(--border); border-radius: 10px; padding: 28px 32px 24px; margin-bottom: 28px; position: relative; overflow: hidden; }
+  .note-header::before { content: 'Emmanuel Levinas'; position: absolute; right: -10px; top: 14px; font-size: 52px; font-style: italic; color: rgba(196,154,60,.07); white-space: nowrap; letter-spacing: .02em; }
+  .note-header .course-tag { display: inline-block; background: var(--amber); color: #12100e; font-size: 10px; font-weight: 700; letter-spacing: .12em; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; }
+  .note-header h1 { font-size: 24px; font-weight: 700; color: var(--amber-lt); line-height: 1.3; margin-bottom: 6px; }
+  .note-header .latin { font-style: italic; color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .note-header .pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .note-header .pill { background: rgba(196,154,60,.12); border: 1px solid rgba(196,154,60,.3); color: var(--amber-lt); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+
+  /* ── SECTION HEADING ── */
+  .sec-head { display: flex; align-items: center; gap: 10px; margin: 32px 0 16px; }
+  .sec-badge { background: var(--amber); color: #12100e; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 3px; letter-spacing: .1em; white-space: nowrap; }
+  .sec-title { font-size: 15px; font-weight: 700; color: var(--amber-lt); }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--amber), transparent); }
+
+  /* ── CARDS ── */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-bottom: 14px; }
+  .card-title { font-size: 15px; font-weight: 700; color: var(--amber); margin-bottom: 6px; }
+  .card-meta { font-size: 11px; color: var(--muted); margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .card-meta span::before { content: '· '; }
+  .card-body { font-size: 13.5px; color: var(--text); }
+  .card-body p { margin-bottom: 8px; }
+  .card-label { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; margin-top: 10px; }
+  .foreign { font-family: 'Georgia', serif; color: var(--amber-lt); }
+
+  /* ── CONCEPT GRID ── */
+  .concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
+  .concept-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+  .concept-term { font-size: 15px; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
+  .concept-foreign { font-family: 'Georgia', serif; font-style: italic; font-size: 12px; color: var(--amber-lt); margin-bottom: 8px; }
+  .concept-def { font-size: 13px; color: var(--text); line-height: 1.7; }
+
+  /* ── QUOTE (교수설명) ── */
+  .prof-quote { background: #1a1612; border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; padding: 14px 18px; margin: 10px 0; font-size: 13px; font-style: italic; color: #d4ccbe; line-height: 1.8; }
+  .prof-quote::before { content: '"'; font-size: 22px; color: var(--amber); line-height: 0; vertical-align: -6px; margin-right: 4px; }
+
+  /* ── ARGUMENT ── */
+  .arg-block { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+  .arg-title { background: var(--subcard); padding: 12px 20px; font-size: 13px; font-weight: 700; color: var(--amber-lt); border-bottom: 1px solid var(--border); }
+  .arg-row { padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+  .arg-row:last-child { border-bottom: none; border-left: 3px solid var(--amber); }
+  .arg-row-label { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: .1em; margin-bottom: 5px; }
+  .arg-premise { background: #1e1c18; }
+  .arg-argument { background: var(--subcard); }
+  .arg-conclusion { background: #1a1810; }
+
+  /* ── COMPARE ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+  .compare-side { background: var(--card); padding: 18px 20px; }
+  .compare-name { font-size: 15px; font-weight: 700; color: var(--amber); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .compare-row { margin-bottom: 12px; }
+  .compare-axis { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: .1em; margin-bottom: 4px; }
+  .compare-val { font-size: 13px; color: var(--text); }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, var(--amber), var(--border)); }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-dot { position: absolute; left: -20px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--amber); border: 2px solid var(--bg); }
+  .tl-week { font-size: 10px; font-weight: 700; color: var(--amber); letter-spacing: .1em; margin-bottom: 2px; }
+  .tl-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .tl-concept { font-size: 12px; color: var(--muted); margin-bottom: 3px; font-style: italic; }
+  .tl-sig { font-size: 12px; color: var(--sage); }
+  .tl-item.current .tl-dot { background: var(--amber-lt); box-shadow: 0 0 8px rgba(232,201,122,.5); }
+  .tl-item.current .tl-name { color: var(--amber-lt); }
+
+  /* ── KEY PROPOSITION ── */
+  .key-prop { background: #2a2010; border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; padding: 14px 20px; margin-bottom: 12px; }
+  .key-prop-num { font-size: 10px; font-weight: 700; color: var(--amber); letter-spacing: .1em; margin-bottom: 6px; }
+  .key-prop-text { font-size: 14px; font-weight: 600; color: var(--amber-lt); line-height: 1.7; }
+  .key-prop-sub { font-size: 12px; color: var(--muted); margin-top: 5px; font-style: italic; }
+
+  /* ── EXAM ── */
+  .exam-item { background: #2d1a16; border: 1px solid var(--terra); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; }
+  .exam-badge { background: var(--terra); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .exam-text { font-size: 13.5px; color: #e8c0b8; }
+
+  /* ── ACTIVITY ── */
+  .act-card { background: #1a2a1e; border: 1px solid var(--green); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .act-title { font-size: 14px; font-weight: 700; color: var(--sage); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .act-badge { background: var(--green); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+  .act-label { font-size: 10px; font-weight: 700; color: var(--sage); letter-spacing: .1em; margin-top: 10px; margin-bottom: 4px; }
+  .act-body { font-size: 13px; color: #c8dbc8; line-height: 1.75; }
+  .act-q { font-size: 13px; color: var(--sage); font-style: italic; line-height: 1.8; }
+
+  /* ── ESSAY FRAME ── */
+  .essay-block { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+  .essay-title { background: var(--subcard); padding: 12px 20px; font-size: 13px; font-weight: 700; color: var(--amber-lt); border-bottom: 1px solid var(--border); font-style: italic; }
+  .essay-row { padding: 12px 20px; border-bottom: 1px solid var(--border); display: flex; gap: 16px; }
+  .essay-row:last-child { border-bottom: none; }
+  .essay-part { font-size: 11px; font-weight: 700; color: var(--amber); width: 56px; flex-shrink: 0; padding-top: 2px; }
+  .essay-content { font-size: 13px; color: var(--text); line-height: 1.75; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; color: #1e1e1e; }
+    .tab-bar { display: none; }
+    .tab-pane { display: block !important; page-break-after: always; }
+    .note-header { background: #f5f0e8 !important; }
+    .note-header h1, .note-header .course-tag { color: #8b6914 !important; }
+    .card, .concept-card, .arg-block, .compare-grid, .act-card, .exam-item, .key-prop { page-break-inside: avoid; }
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes')">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary')">⚡ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('compare')">📊 비교표</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 1 : 강의노트
+══════════════════════════════════════════ -->
+<div id="tab-notes" class="tab-pane active">
+
+  <!-- HEADER -->
+  <div class="note-header">
+    <div class="course-tag">기독교철학 · 61083 · 6주차</div>
+    <h1>레비나스 — 계시의 개념과 메시아적 종교</h1>
+    <div class="latin">Emmanuel Levinas — La révélation et la religion messianique</div>
+    <div class="pills">
+      <span class="pill">2026-04-07</span>
+      <span class="pill">타자 철학 (Philosophie de l'Autre)</span>
+      <span class="pill">전체성 비판</span>
+      <span class="pill">메시아적 책임</span>
+    </div>
+  </div>
+
+  <!-- 사상가 카드 1: 레비나스 -->
+  <div class="sec-head">
+    <div class="sec-badge">THINKER</div>
+    <div class="sec-title">사상가 카드</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">에마뉘엘 레비나스 (1906–1995)</div>
+    <div class="card-meta">
+      <span>20세기 프랑스 현대철학 · 유대 현상학</span>
+      <span>주요 저작: 『전체성과 무한』(1961) · 『존재와 다르게』(1974)</span>
+    </div>
+    <div class="card-body">
+      <div class="card-label">핵심 개념</div>
+      <p>타자의 얼굴 <span class="foreign">(le visage de l'Autre)</span>, 전체성 비판 <span class="foreign">(critique de la totalité)</span>, 타자성 <span class="foreign">(altérité)</span>, 무한 <span class="foreign">(Infini)</span>, 근본적 수동성 <span class="foreign">(passivité radicale)</span></p>
+      <div class="card-label">핵심 주장</div>
+      <p>서양 철학의 동일성 중심 사유는 타자를 폭력적으로 환원한다. 윤리는 존재론에 앞선다 <span class="foreign">(L'éthique avant l'ontologie)</span>. 타자의 얼굴은 "살인하지 말라"는 초윤리적 명령을 발화한다.</p>
+      <div class="card-label">기독교 접점</div>
+      <p>신은 타자를 경유해서만 만날 수 있다. 우리는 이미 선택받은 존재 <span class="foreign">(être élu)</span>로서 타자에 대한 메시아적 책임을 진다. 하나님의 형상 <span class="foreign">(imago Dei)</span>을 담은 타인의 얼굴에서 신을 만난다.</p>
+    </div>
+  </div>
+
+  <!-- 사상가 카드 2: 아버스 -->
+  <div class="card">
+    <div class="card-title">다이앤 아버스 (Diane Arbus, 1923–1971)</div>
+    <div class="card-meta">
+      <span>20세기 미국 사진 예술 · 철학상담 연구 대화 상대</span>
+      <span>주요 작품: 인간 가족전 · 쌍둥이 시리즈</span>
+    </div>
+    <div class="card-body">
+      <div class="card-label">핵심 개념</div>
+      <p>응시의 사건 <span class="foreign">(event of the gaze)</span>, 존재의 유일무이성, 차이의 미학, 정상성 비판</p>
+      <div class="card-label">핵심 주장</div>
+      <p>"촬영은 분석이 아니라 만남이다." 장애인·기형인·성소수자 등 주변부 인물들의 얼굴은 관람자의 시선을 되돌려 세우는 윤리적 사건이다. 정상/비정상의 경계 자체를 묻는다.</p>
+      <div class="card-label">레비나스와의 조응</div>
+      <p>"인생의 시험을 이미 통과한 자들"로서 장애인은 정상인보다 더 깊은 실존의 지평에 서 있다. 쌍둥이조차 전적으로 다른 존재 — 아버스의 카메라는 레비나스의 타자 철학을 시각적으로 증언한다.</p>
+      <div class="prof-quote">나는 그것이 분석이라고 생각하지 않는다. 하나의 만남이다. 나는 나와 닮지 않은 사람들을 좋아하고, 심지어 내가 좋아하지 않는 사람들조차도 좋아한다.</div>
+    </div>
+  </div>
+
+  <!-- 핵심 개념 -->
+  <div class="sec-head">
+    <div class="sec-badge">CONCEPTS</div>
+    <div class="sec-title">핵심 개념 카드</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">타자의 얼굴</div>
+      <div class="concept-foreign">le visage de l'Autre</div>
+      <div class="concept-def">물리적 표정이나 외모가 아닌, 이미지나 형상으로 동일화될 수 없는 타자의 현현(顯現, épiphanie). 얼굴은 나의 사유를 멈추게 하고 응답을 요구하는 타자의 초월적 현존이다. "살인하지 말라"는 초윤리적 명령을 담지한다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">전체성 vs 무한</div>
+      <div class="concept-foreign">totalité / Infini</div>
+      <div class="concept-def">전체성 — 서양 철학이 지향해온 동일성 중심의 사유 체계. 이질성을 배제하거나 흡수함으로써 폭력을 정당화한다. 무한 — 타자의 절대적 타자성, 나의 사유를 초과하는 초월성. 레비나스의 주저 제목이기도 하다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">근본적 수동성</div>
+      <div class="concept-foreign">passivité radicale</div>
+      <div class="concept-def">모든 수동성보다 더 수동적인 상태. 나는 나 자신을 선택할 수 없으며 항상 이미 선택된 존재로서 주어진다. 수동성은 단순한 무력함이 아니라 윤리적 잠재력을 품은 정지의 역동성이다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">오디세우스적 주체</div>
+      <div class="concept-foreign">sujet odysséen</div>
+      <div class="concept-def">타자를 경험·향유하되 결국 이타카로 귀환하는 동일자의 회귀 구조. 타자를 섭취하여 자기를 풍요롭게 하는 자아 중심 주체. 출세욕은 타자의 욕망이 쓰고 있는 가면인 경우가 많다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">아브라함적 주체</div>
+      <div class="concept-foreign">sujet abrahamique</div>
+      <div class="concept-def">비문맥적 소환에 응답하며 돌아오지 않는 길을 떠나는 주체. 미지(未知)를 향해 열린, 타자의 명령에 응답하는 주체. "그 땅으로 가라"는 명령 앞에서 이유를 묻기 전 응답한다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">응시의 사건</div>
+      <div class="concept-foreign">event of the gaze</div>
+      <div class="concept-def">주체→객체의 일방향이 아니라 나와 타자의 상호적 긴장 속에서 발생하는 사건. 인식이 아니라 관계이며, 더 나아가 윤리적 상황이다. 아버스의 사진은 이를 시각적으로 구현한다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">계시의 역설</div>
+      <div class="concept-foreign">paradoxe de la révélation</div>
+      <div class="concept-def">계시는 이중 구조를 가진다. ①사건으로서의 계시 — 시나이 사건처럼 전례 없는 독특성, 이성으로 완전 파악 불가. ②텍스트로서의 계시 — 인간의 언어로 기록되어 해석 가능. 이 두 차원이 동시에 공존하는 역설이 종교의 핵심이다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">메시아적 책임</div>
+      <div class="concept-foreign">responsabilité messianique</div>
+      <div class="concept-def">유대 전통에서 메시아는 특정 인물이 아니라 우리 모두가 져야 할 타자에 대한 책임 방식이다. 이미 선택받은 존재로서 타자의 고통에 응답해야 할 사명. 레비나스는 "우리 모두가 메시아적이어야 한다"고 말한다.</div>
+    </div>
+  </div>
+
+  <!-- 교수 강조 발언 -->
+  <div class="sec-head">
+    <div class="sec-badge">LECTURE</div>
+    <div class="sec-title">교수님 강조 발언</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">총을 겨누고 있어도 얼굴을 똑바로 쳐다보고 있으면 방아쇠를 당길 수 없다. 얼굴 자체가 이미 '살인하지 말라'는 명령을 발화하고 있기 때문이다.</div>
+
+  <div class="prof-quote">폭력의 토대가 뭘까? 늘 같음을 지향하고 '우리'라는 범주가 가지고 있는 힘을 통해서 타자를 정제하는 것이다. 셋만 모여도 "쟤 좀 이상하지 않니" 하는 말을 던지면서 내 뒤에 줄 서라고 하는 거다.</div>
+
+  <div class="prof-quote">쌍둥이조차 전적으로 다르다는 것을 전제하고 사람들을 바라본다면 — 우리 가족도, 성도들도, 얼마나 더 전적으로 다른 존재인가. 같음은 사실 나의 욕심일 수 있다.</div>
+
+  <div class="prof-quote">레비나스는 신을 만나는 것은 반드시 타자를 경유해야 한다고 말한다. 하나님의 형상을 담은 존재들과의 관계 안에서 신을 이해하고 해석할 수 있다.</div>
+
+  <div class="prof-quote">중요한 것은 이런 생각들을 좀 바꿔보자는 것이다. 주체 중심의 사유체계에서 타자 중심의 사유체계로. 이것이 이번 강의의 핵심 실천 과제다.</div>
+
+  <!-- 논증 분석 -->
+  <div class="sec-head">
+    <div class="sec-badge">ARGUMENT</div>
+    <div class="sec-title">논증 분석</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">① 전체성 비판과 폭력의 기원</div>
+    <div class="arg-row arg-premise">
+      <div class="arg-row-label">전제</div>
+      서양 철학은 동일성의 세계를 지향해왔으며, 이 동일성 체계 안에서 개별자의 이질성은 배제된다. "전체성에 대한 나의 비판은 나치즘의 정치적 경험 이후에 실재 도래하였다."
+    </div>
+    <div class="arg-row arg-argument">
+      <div class="arg-row-label">논증</div>
+      폭력이란 타자의 타자성을 인정하지 않는 데서 초래된다. 동일자는 존재를 자기 안으로 복속시키고 소유물로 만든다. 나치즘은 이 논리의 극단적 귀결이며, 오늘날 국가·민족·종교 공동체 안에서도 이 구조는 반복된다.
+    </div>
+    <div class="arg-row arg-conclusion">
+      <div class="arg-row-label">결론</div>
+      진정한 해방은 타자의 타자성을 절대적으로 인정하는 윤리적 주체를 통해 가능하다. 차이 <span class="foreign">(différence)</span>는 제거해야 할 결함이 아니라 존재가 자신을 드러내는 진실의 틈이다.
+    </div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">② 얼굴의 윤리적 명령 구조</div>
+    <div class="arg-row arg-premise">
+      <div class="arg-row-label">전제</div>
+      타자의 얼굴은 물리적 표정이나 외모로 환원될 수 없는 현현(顯現)이다. 얼굴은 가시적 존재이지만 결코 나에게 환원되지 않는다.
+    </div>
+    <div class="arg-row arg-argument">
+      <div class="arg-row-label">논증</div>
+      얼굴은 주체가 의식적으로 수립하는 법적·도덕적 규범이 아니라, 타자로부터 직접 들려오는 초윤리적 요청("살인하지 말라")을 담지한다. 이 명령은 내가 결정하는 것이 아니라 이미 나를 선행한다.
+    </div>
+    <div class="arg-row arg-conclusion">
+      <div class="arg-row-label">결론</div>
+      윤리적 주체는 자신이 행위를 결정하는 것이 아니라, 타자의 요청에 의해 이미 소환되어 있는 존재다. 우리는 이미 타인들의 인질 <span class="foreign">(otage)</span>이자 볼모다.
+    </div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">③ 아버스의 응시와 정상성 비판</div>
+    <div class="arg-row arg-premise">
+      <div class="arg-row-label">전제</div>
+      사회는 정상/비정상의 경계를 설정하고 주변부 인물들을 배제한다. 그러나 정상성의 기준은 누가 정하는가? 정상과 비정상을 나눌 때 이득을 보는 세력은 누구인가?
+    </div>
+    <div class="arg-row arg-argument">
+      <div class="arg-row-label">논증</div>
+      아버스는 장애인·기형인·성소수자를 정면 응시하는 사진으로 담았다. 이들은 이미 운명의 시험을 통과한 자들로서 가면 없이 자신의 실존을 드러낸다. 쌍둥이조차 전적으로 다른 존재라면, 모든 인간은 얼마나 더 전적으로 다른가.
+    </div>
+    <div class="arg-row arg-conclusion">
+      <div class="arg-row-label">결론</div>
+      예술은 윤리적 응답의 장이 될 수 있다. 존재의 아름다움은 유일무이한 고유성에 있다. 장애의 요소는 이미 우리 모두에게 자리하고 있다 — 다만 이들이 먼저 드러낼 뿐이다.
+    </div>
+  </div>
+
+  <!-- 사상사 타임라인 -->
+  <div class="sec-head">
+    <div class="sec-badge">HISTORY</div>
+    <div class="sec-title">중간고사까지 사상사 흐름</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">3주 · 3/17</div>
+        <div class="tl-name">비트겐슈타인 (1889–1951)</div>
+        <div class="tl-concept">언어게임 <span class="foreign">(Sprachspiel)</span> · 삶의 형식 <span class="foreign">(Lebensform)</span></div>
+        <div class="tl-sig">종교언어는 삶의 형식 안에서만 작동 — 과학적 검증의 대상이 아니다</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">4주 · 3/24</div>
+        <div class="tl-name">윌리엄 제임스 (1842–1910)</div>
+        <div class="tl-concept">종교적 경험 · 실용주의 <span class="foreign">(Pragmatism)</span></div>
+        <div class="tl-sig">신앙의 유용성과 경험의 열매로 진리를 판단</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">5주 · 3/31</div>
+        <div class="tl-name">존 헨리 뉴먼 (1801–1890)</div>
+        <div class="tl-concept">동의의 문법 <span class="foreign">(Grammar of Assent)</span> · 교의 발전론</div>
+        <div class="tl-sig">이성과 신앙의 유기적 통합 — 암묵적 이성</div>
+      </div>
+      <div class="tl-item current">
+        <div class="tl-dot"></div>
+        <div class="tl-week">6주 · 4/7 ◀ 현재</div>
+        <div class="tl-name">에마뉘엘 레비나스 (1906–1995)</div>
+        <div class="tl-concept">타자의 얼굴 <span class="foreign">(le visage)</span> · 전체성 비판 · 메시아적 책임</div>
+        <div class="tl-sig">윤리가 존재론에 앞선다 — 타자를 통한 신 경유</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">7주 · 4/14</div>
+        <div class="tl-name">슐라이어마허 (1768–1834)</div>
+        <div class="tl-concept">절대의존의 감정 <span class="foreign">(schlechthinnige Abhängigkeit)</span></div>
+        <div class="tl-sig">종교의 본질은 감정(Gefühl) — 교의 이전에 경험이 있다</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-notes -->
+
+
+<!-- ══════════════════════════════════════════
+     TAB 2 : 핵심정리
+══════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-pane">
+
+  <div class="note-header">
+    <div class="course-tag">핵심정리 · 중간고사 대비</div>
+    <h1>레비나스 — 오늘 핵심 명제 & 시험 대비</h1>
+    <div class="latin">Points clés & Préparation aux examens</div>
+  </div>
+
+  <!-- 핵심 명제 3가지 -->
+  <div class="sec-head">
+    <div class="sec-badge">KEY</div>
+    <div class="sec-title">오늘 핵심 명제 3가지 (교수님 말미 강조)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="key-prop">
+    <div class="key-prop-num">핵심 명제 01</div>
+    <div class="key-prop-text">주체 중심 → 타자 중심으로 사유를 전환하라</div>
+    <div class="key-prop-sub">전적인 다름 <span class="foreign">(altérité totale)</span>을 전제할 때 관계의 폭력성이 해체된다. 쌍둥이조차 전적으로 다른 존재라면, 옆의 모든 사람은 얼마나 더 전적으로 다른가.</div>
+  </div>
+
+  <div class="key-prop">
+    <div class="key-prop-num">핵심 명제 02</div>
+    <div class="key-prop-text">타자의 얼굴이 신으로의 통로다</div>
+    <div class="key-prop-sub">신은 타자를 경유해서만 만날 수 있다. 하나님의 형상 <span class="foreign">(imago Dei)</span>을 담은 타인과의 관계 안에서 신 이해가 가능하다.</div>
+  </div>
+
+  <div class="key-prop">
+    <div class="key-prop-num">핵심 명제 03</div>
+    <div class="key-prop-text">우리는 이미 선택받은 존재 — 메시아적 책임이 신앙의 출발점이다</div>
+    <div class="key-prop-sub">근본적 수동성 <span class="foreign">(passivité radicale)</span> — 내가 먼저 결정하는 것이 아니라, 이미 명령받은 존재로서 응답하는 것이 신앙이다. 자유보다 책임이 앞선다.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 시험 예상 항목 -->
+  <div class="sec-head">
+    <div class="sec-badge">EXAM</div>
+    <div class="sec-title">출제 예상 항목 — 중간고사 4/21 대비</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-item">
+    <div class="exam-badge">⚠ 중간</div>
+    <div class="exam-text">레비나스의 '전체성 비판' 개념과 나치즘 경험의 관계를 서술하라.</div>
+  </div>
+  <div class="exam-item">
+    <div class="exam-badge">⚠ 중간</div>
+    <div class="exam-text">타자의 얼굴 <span class="foreign">(le visage de l'Autre)</span> 개념과 그 윤리적 명령 구조를 설명하라.</div>
+  </div>
+  <div class="exam-item">
+    <div class="exam-badge">⚠ 중간</div>
+    <div class="exam-text">오디세우스적 주체와 아브라함적 주체를 비교하고 각각의 기독교 신앙적 함의를 논하라.</div>
+  </div>
+  <div class="exam-item">
+    <div class="exam-badge">⚠ 중간</div>
+    <div class="exam-text">근본적 수동성 <span class="foreign">(passivité radicale)</span>의 의미와 메시아적 책임의 연결을 설명하라.</div>
+  </div>
+  <div class="exam-item">
+    <div class="exam-badge">⚠ 중간</div>
+    <div class="exam-text">레비나스의 계시 이해: 사건으로서의 계시와 텍스트로서의 계시의 차이 및 역설 구조를 서술하라.</div>
+  </div>
+  <div class="exam-item">
+    <div class="exam-badge">심화</div>
+    <div class="exam-text">아버스의 응시 사진과 레비나스의 타자 철학이 어떻게 조응하는지 설명하라.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 논술 뼈대 -->
+  <div class="sec-head">
+    <div class="sec-badge">ESSAY</div>
+    <div class="sec-title">논술 대비 뼈대</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="essay-block">
+    <div class="essay-title">"레비나스의 타자 철학이 기독교 목회에 주는 함의를 논하라"</div>
+    <div class="essay-row">
+      <div class="essay-part">서론</div>
+      <div class="essay-content">서양 철학의 동일성 중심 사유가 지닌 폭력성 문제 제기. 레비나스는 나치즘 경험에서 출발하여 전체성(totalité)을 비판하고, 타자의 얼굴에서 윤리의 기원을 찾는다.</div>
+    </div>
+    <div class="essay-row">
+      <div class="essay-part">본론 1</div>
+      <div class="essay-content">타자의 얼굴 <span class="foreign">(le visage)</span> 개념 — 타자는 나의 방식으로 환원·포섭될 수 없는 절대적 외재성을 지닌다. 얼굴은 "살인하지 말라"는 초윤리적 명령을 담지하며, 윤리는 존재론에 앞선다.</div>
+    </div>
+    <div class="essay-row">
+      <div class="essay-part">본론 2</div>
+      <div class="essay-content">오디세우스적 주체 비판 → 아브라함적 주체로의 전환. 자기중심적 귀환을 지향하는 목회에서 비문맥적 소환에 응답하는 소명의 목회로. 성도의 '전적인 다름'을 인정하는 것이 목회 폭력을 해체하는 출발점이다.</div>
+    </div>
+    <div class="essay-row">
+      <div class="essay-part">결론</div>
+      <div class="essay-content">타인을 전적으로 다른 존재로 인정하는 것이 폭력을 해체하는 출발점이며, 타인의 얼굴 안에서 하나님을 만나는 것 <span class="foreign">(imago Dei)</span>이 메시아적 책임의 실천이다. 신앙은 내가 결정하는 것이 아니라 이미 소환받은 자로서의 응답이다.</div>
+    </div>
+  </div>
+
+  <!-- 활동지 -->
+  <div class="sec-head">
+    <div class="sec-badge">PRAXIS</div>
+    <div class="sec-title">프락시스 활동지</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-title"><span class="act-badge">활동지 1</span>주체 전환 — 타자 중심 목회 시선</div>
+    <div class="act-label">개념 내용</div>
+    <div class="act-body">교수님은 강의 말미에 "주체 중심의 사유체계에서 타자 중심의 사유체계로 바꾸는 것"을 이번 강의의 핵심 실천 과제로 제시했다. 이는 단순한 인식론적 전환이 아니라 목회적 자세의 근본적 전환을 요구한다. 레비나스에 따르면 나는 이미 타자의 인질(otage)이자 볼모다.</div>
+    <div class="act-label">실천 질문</div>
+    <div class="act-q">나는 성도들을 '내가 아는 범주' 안으로 흡수하려는 오디세우스적 목자인가, 아니면 그들의 전적인 다름을 인정하고 그 얼굴 앞에서 응답하는 아브라함적 목자인가?</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-title"><span class="act-badge">활동지 2</span>전적인 다름의 전제와 공동체론</div>
+    <div class="act-label">개념 내용</div>
+    <div class="act-body">"쌍둥이조차 전적으로 다르다"는 아버스의 시선을 통해, 가족·성도·이웃을 '동일성'으로 묶으려는 욕구 자체가 폭력의 씨앗일 수 있음을 지적했다. 다름의 공동체 <span class="foreign">(communauté de l'altérité)</span>는 동질성이 아니라 각각의 고유성을 인정하면서 함께 사는 공동체다.</div>
+    <div class="act-label">실천 질문</div>
+    <div class="act-q">나의 교회 공동체 안에서 '정상성'에서 벗어난 이들에게 나는 어떤 시선을 보내고 있는가? 그들의 얼굴이 나에게 어떤 명령을 발화하고 있는지 들을 준비가 되어 있는가?</div>
+  </div>
+
+  <div class="act-card">
+    <div class="act-title"><span class="act-badge">활동지 3</span>메시아적 책임과 설교 사역</div>
+    <div class="act-label">개념 내용</div>
+    <div class="act-body">레비나스는 "우리 모두가 메시아적이어야 한다"고 말한다. 예수님을 메시아로 여기고 그 메시아성을 배우며 몸소 실행해야 할 책임이 우리에게 주어진 명령이다. 나는 이미 선택받은 존재이고, 그 명령에 응답하면서 신에 대한 이해가 자리하게 된다.</div>
+    <div class="act-label">실천 질문</div>
+    <div class="act-q">나의 설교와 목양이 '선택받은 자로서의 책임'을 전제하고 있는가? 내가 매주 강단에 서는 것은 내 결단인가, 아니면 이미 소환받은 자로서의 응답인가?</div>
+  </div>
+
+</div><!-- end tab-summary -->
+
+
+<!-- ══════════════════════════════════════════
+     TAB 3 : 비교표
+══════════════════════════════════════════ -->
+<div id="tab-compare" class="tab-pane">
+
+  <div class="note-header">
+    <div class="course-tag">비교표 · 중간고사 대비</div>
+    <h1>레비나스 — 비교 분석표</h1>
+    <div class="latin">Tableaux comparatifs pour l'examen</div>
+  </div>
+
+  <!-- 비교 1 -->
+  <div class="sec-head">
+    <div class="sec-badge">비교 01</div>
+    <div class="sec-title">오디세우스적 주체 vs 아브라함적 주체</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-side">
+      <div class="compare-name">오디세우스적 주체</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">타자를 경험·향유하여 자기를 풍요롭게 한 후 원점으로 귀환</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">자아 중심 — 외부 없는 자기. 타자를 섭취하는 구조</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">이성이 타자를 포섭·종합. 동일자의 세계를 확장</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">출세욕·자기실현 신앙의 위험성. "우리는 같아"라는 동질성 지향</div>
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-name">아브라함적 주체</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">비문맥적 소환에 응답하며 돌아오지 않는 길로 떠남</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">타자의 명령에 대한 근본적 수동성. 이미 선택받은 존재</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">이성 이전에 이미 선택됨. 이유를 묻기 전 응답하는 구조</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">소명(召命)으로서의 신앙. 메시아적 책임을 지는 목회자 상</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 비교 2 -->
+  <div class="sec-head">
+    <div class="sec-badge">비교 02</div>
+    <div class="sec-title">레비나스 vs 칸트/헤겔 (전체성 문제)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-side">
+      <div class="compare-name">레비나스</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">타자의 얼굴에서 윤리의 출발점을 찾는 현상학 — 특수성 안에서 보편을 발견</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">타자를 통한 신 경유. 이웃과의 관계 안에서 신 이해</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">윤리가 존재론에 앞선다. 자유보다 책임이 먼저다</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">imago Dei — 타인의 얼굴에서 신을 만남. 메시아적 책임</div>
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-name">칸트 / 헤겔</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">보편적 이성의 범주로 도덕·역사를 구성. 쉽게 보편성 주장</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">이성의 자율성. 도덕 법칙에서 신 존재 요청</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">이성이 종교를 정초함. 역사 속 절대정신의 자기실현</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">도덕 신학. 그러나 "유토피아는 만들어지지 않았다" — 수백만이 죽었다</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 비교 3 -->
+  <div class="sec-head">
+    <div class="sec-badge">비교 03</div>
+    <div class="sec-title">아버스의 응시 vs 레비나스의 얼굴 — 조응 구조</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-side">
+      <div class="compare-name">아버스 (예술적 차원)</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">주변부 인물의 정면 응시 사진. 허락 이후에만 셔터를 누름</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">존재의 유일무이성. 차이는 결함이 아닌 진실의 틈</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">분석 이전에 만남. 감각적 현존으로서의 타자를 드러냄</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">장애인은 이미 운명의 시험을 통과한 귀족 — 우리보다 한 단계 높은 존재</div>
+      </div>
+    </div>
+    <div class="compare-side">
+      <div class="compare-name">레비나스 (철학적 차원)</div>
+      <div class="compare-row">
+        <div class="compare-axis">방법론</div>
+        <div class="compare-val">타자의 얼굴에서 윤리의 기원을 찾는 현상학적 분석</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">종교의 기초</div>
+        <div class="compare-val">타자성(altérité)의 절대성. 환원 불가능한 외재성</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">신앙-이성 관계</div>
+        <div class="compare-val">얼굴의 현현이 이성적 판단에 앞서 윤리적 명령을 발화</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-axis">기독교 접점</div>
+        <div class="compare-val">하나님의 형상(imago Dei)을 담은 타자의 얼굴 — 신으로의 통로</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전체 철학자 비교표 (중간고사 대비) -->
+  <div class="sec-head">
+    <div class="sec-badge">총정리</div>
+    <div class="sec-title">2–6주 철학자 비교 (중간고사 대비)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card" style="overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+      <thead>
+        <tr style="background:#2a2010; color:var(--amber-lt);">
+          <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border);">철학자</th>
+          <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border);">방법론</th>
+          <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border);">종교의 기초</th>
+          <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border);">신앙-이성</th>
+          <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border);">기독교 접점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 12px; color:var(--amber); font-weight:700;">비트겐슈타인</td>
+          <td style="padding:10px 12px;">언어 분석</td>
+          <td style="padding:10px 12px;">삶의 형식(Lebensform)</td>
+          <td style="padding:10px 12px;">신앙은 언어게임 내부 — 이성으로 환원 불가</td>
+          <td style="padding:10px 12px;">예배·기도 언어의 고유성</td>
+        </tr>
+        <tr style="background:#1f1c18; border-bottom:1px solid var(--border);">
+          <td style="padding:10px 12px; color:var(--amber); font-weight:700;">윌리엄 제임스</td>
+          <td style="padding:10px 12px;">실용주의·심리학</td>
+          <td style="padding:10px 12px;">종교적 경험의 효과</td>
+          <td style="padding:10px 12px;">신앙의 실용적 가치로 판단</td>
+          <td style="padding:10px 12px;">회심·신비체험의 실재성</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 12px; color:var(--amber); font-weight:700;">존 헨리 뉴먼</td>
+          <td style="padding:10px 12px;">암묵적 이성·교의론</td>
+          <td style="padding:10px 12px;">동의의 문법(Grammar of Assent)</td>
+          <td style="padding:10px 12px;">이성과 신앙의 유기적 통합</td>
+          <td style="padding:10px 12px;">교의 발전 — 신앙의 역사성</td>
+        </tr>
+        <tr style="background:#1f1c18; border-bottom:1px solid var(--border);">
+          <td style="padding:10px 12px; color:var(--amber); font-weight:700;">레비나스 ◀</td>
+          <td style="padding:10px 12px;">타자 현상학</td>
+          <td style="padding:10px 12px;">타자의 얼굴(le visage)</td>
+          <td style="padding:10px 12px;">윤리가 존재론에 앞선다</td>
+          <td style="padding:10px 12px;">imago Dei · 메시아적 책임</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end tab-compare -->
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
