@@ -12,7 +12,7 @@ const SITE_DATA = {
       weeks: [
         { week: 1, title: "수업커리큘럼 및 학습 전략", date: "2026.03.09", files: [
              { type: "notes", label: "강의노트", href: "output/greek/week01.html" }
-          ]},
+        ]},
         { week: 2, title: "알파벳 완성 · 이중모음 · 숨표 · 악센트 · 동사 기초", date: "2026.03.16", files: [
           { type: "notes", label: "강의노트", href: "output/greek/week02.html" },
           { type: "pdf", label: "헬라어I_노트정리(홍한나)PDF", href: "output/greek/week02b.pdf" }
@@ -35,8 +35,7 @@ const SITE_DATA = {
         { week: 13, title: "부정사와 종속절", date: "2026.06", files: [] },
         { week: 14, title: "신약 본문 독해 실습", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
-      ]
-    },
+        ] },
 
     min: {
       weeks: [
@@ -65,8 +64,7 @@ const SITE_DATA = {
         { week: 13, title: "디지털 시대의 목회", date: "2026.06", files: [] },
         { week: 14, title: "한국 교회 현황과 과제", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
-      ]
-    },
+        ] },
 
     phil: {
       weeks: [
@@ -86,10 +84,12 @@ const SITE_DATA = {
 	    { type: "audio", label: "음성노트정리", href: "output/기독교철학/음성강의정리.m4a" }
 	  ] },
         { week: 5, title: "윌리엄 제임스", date: "2026.03.31", files: [
-	     { type: "notes", label: "강의노트", href: "output/기독교철학/week05.html" }
+	     { type: "notes", label: "강의노트", href: "output/기독교철학/week05.html" },
+	     { type: "notes", label: "강의노트(업데이트)", href: "output/기독교철학/week05b.html" }
 	  ] },
         { week: 6, title: "레비나스 — 계시의 개념과 메시아적 종교", date: "2026.04.07", files: [
-	     { type: "notes", label: "강의노트", href: "output/기독교철학/week06.html". }
+	     { type: "notes", label: "강의노트", href: "output/기독교철학/week06.html" },
+	     { type: "notes", label: "강의노트(업데이트)", href: "output/기독교철학/week06b.html" }
 	  ] },
         { week: 7, title: "신앙과 이성의 관계", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },

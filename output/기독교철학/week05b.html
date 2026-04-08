@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 5주차 — 윌리엄 제임스</title>
+<style>
+  :root {
+    --bg:      #12100e;
+    --card:    #1c1814;
+    --sub:     #252018;
+    --amber:   #c49a3c;
+    --orig:    #e8c97a;
+    --sage:    #8aab8a;
+    --terra:   #c96b5a;
+    --green:   #5a8a6a;
+    --text:    #ede8df;
+    --muted:   #9e9688;
+    --border:  #3a3428;
+    /* 수업 미언급 색 */
+    --dim-bg:  #161410;
+    --dim-bdr: #3a3020;
+    --dim-lbl: #7a6a3a;
+    --dim-txt: #8a8070;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Noto Serif KR', Georgia, serif;
+    font-size: 15px; line-height: 1.8; padding-bottom: 80px;
+  }
+
+  /* ── 헤더 ── */
+  .ph {
+    background: linear-gradient(135deg,#1a1610,#221e14);
+    border-bottom: 2px solid var(--amber);
+    padding: 30px 40px 22px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .ph .meta { color: var(--muted); font-size: 11px; letter-spacing:.1em; margin-bottom:4px; }
+  .ph h1 { font-size: 20px; color: var(--amber); font-weight: 700; }
+  .ph h2 { font-size: 13px; color: var(--text); font-weight: 400; margin-top: 3px; opacity:.85; }
+
+  /* ── 탭 ── */
+  .tb {
+    display: flex; gap: 2px; padding: 13px 40px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky; top: 90px; z-index: 90;
+  }
+  .tb button {
+    background: none; border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--muted); cursor: pointer;
+    font-family: inherit; font-size: 13px;
+    padding: 7px 18px 9px; transition: all .18s;
+  }
+  .tb button.on { color: var(--amber); border-bottom-color: var(--amber); }
+  .tb button:hover:not(.on) { color: var(--text); }
+
+  /* ── 탭 패널 ── */
+  .pane { display: none; padding: 34px 40px; max-width: 900px; margin: 0 auto; }
+  .pane.on { display: block; }
+
+  /* ── 섹션 레이블 ── */
+  .sec {
+    font-size: 10px; font-weight: 700; letter-spacing: .16em;
+    color: var(--amber); text-transform: uppercase;
+    margin: 38px 0 13px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  }
+  .sec:first-child { margin-top: 0; }
+
+  /* ── 사상가 카드 ── */
+  .thinker {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 22px 26px; margin-bottom: 20px;
+    page-break-inside: avoid;
+  }
+  .thinker .name { font-size: 18px; font-weight: 700; color: var(--amber); }
+  .thinker .dates { color: var(--muted); font-size: 12px; margin-left: 8px; }
+  .thinker .row {
+    display: flex; flex-wrap: wrap; gap: 5px 20px;
+    margin: 9px 0 4px; font-size: 13px; color: var(--muted);
+  }
+  .thinker .row strong { color: var(--text); }
+  .thinker .claim {
+    background: var(--sub); border-left: 3px solid var(--amber);
+    padding: 11px 15px; margin: 12px 0 0;
+    border-radius: 0 4px 4px 0; font-size: 14px;
+  }
+  .thinker .xian {
+    background: #1e2218; border-left: 3px solid var(--sage);
+    padding: 11px 15px; margin-top: 10px;
+    border-radius: 0 4px 4px 0; font-size: 14px; color: #b8d4b8;
+  }
+  .thinker .xian .lbl {
+    color: var(--sage); font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; display: block; margin-bottom: 3px;
+  }
+
+  /* ── 개념 그리드 ── */
+  .cgrid { display: grid; grid-template-columns: repeat(auto-fill,minmax(248px,1fr)); gap: 13px; margin-bottom: 18px; }
+  .cc {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 15px 17px; page-break-inside: avoid;
+  }
+  .cc .term { font-size: 15px; font-weight: 700; color: var(--text); }
+  .cc .orig { font-family: 'Courier New',monospace; color: var(--orig); font-size: 11px; margin: 3px 0 8px; }
+  .cc .def { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+  /* ── 교수 설명 블록 (녹취 기반) ── */
+  .prof {
+    background: #181510; border-left: 3px solid var(--amber);
+    padding: 14px 18px; margin-bottom: 12px;
+    border-radius: 0 6px 6px 0; font-size: 14px; page-break-inside: avoid;
+  }
+  .prof .lbl {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .13em;
+    color: var(--amber); text-transform: uppercase;
+    display: block; margin-bottom: 7px;
+  }
+  .prof p { color: #d8d0c4; line-height: 1.78; }
+  .prof p + p { margin-top: 8px; }
+  .prof .sub {
+    margin-top: 10px; padding: 9px 13px;
+    border-left: 2px solid var(--border); background: #1c1a14;
+    color: var(--muted); font-size: 13.5px; border-radius: 0 4px 4px 0;
+  }
+
+  /* ── PDF 슬라이드 블록 (수업 언급) ── */
+  .slide {
+    background: #16140e; border: 1px solid #4a3e20;
+    border-left: 3px solid #8a7030;
+    padding: 14px 18px; margin-bottom: 12px;
+    border-radius: 0 6px 6px 0; font-size: 14px; page-break-inside: avoid;
+  }
+  .slide .lbl {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .13em;
+    color: #b09040; text-transform: uppercase;
+    display: block; margin-bottom: 7px;
+  }
+  .slide p { color: #ccc4a8; line-height: 1.78; }
+  .slide p + p { margin-top: 8px; }
+  .slide .sub {
+    margin-top: 10px; padding: 9px 13px;
+    border-left: 2px solid var(--border); background: #1a1810;
+    color: var(--muted); font-size: 13.5px; border-radius: 0 4px 4px 0;
+  }
+
+  /* ── 수업 미언급 블록 ── */
+  .unspoken {
+    background: var(--dim-bg); border: 1px solid var(--dim-bdr);
+    border-left: 3px solid var(--dim-lbl);
+    padding: 12px 16px; margin-bottom: 12px;
+    border-radius: 0 6px 6px 0; font-size: 13.5px;
+    page-break-inside: avoid; opacity: .78;
+  }
+  .unspoken .lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: .13em;
+    color: var(--dim-lbl); text-transform: uppercase;
+    display: block; margin-bottom: 6px;
+  }
+  .unspoken p { color: var(--dim-txt); line-height: 1.72; }
+
+  /* ── 인물 카드 ── */
+  .figure-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 13px; margin-bottom: 18px; }
+  .fig {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 18px; page-break-inside: avoid;
+  }
+  .fig .fname { font-size: 14px; font-weight: 700; color: var(--amber); }
+  .fig .fdates { font-size: 11px; color: var(--muted); }
+  .fig .frole { font-size: 12px; color: var(--sage); margin: 3px 0 8px; }
+  .fig .fquote {
+    font-style: italic; font-size: 13px; color: #c4baa8;
+    border-left: 2px solid #6b6457; padding-left: 10px; margin-top: 8px;
+  }
+  .fig .fdef { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+  /* ── 논증 블록 ── */
+  .arg { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 18px; page-break-inside: avoid; }
+  .arg .at { background: var(--sub); padding: 9px 16px; font-size: 11px; font-weight: 700; letter-spacing: .09em; color: var(--amber); text-transform: uppercase; }
+  .arg .row { display: grid; grid-template-columns: 72px 1fr; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--border); font-size: 14px; align-items: start; }
+  .arg .row.pre  { background: #1e1c18; }
+  .arg .row.body { background: var(--sub); }
+  .arg .row.conc { background: var(--sub); border-left: 3px solid var(--amber); }
+  .arg .al { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .07em; padding-top: 2px; }
+
+  /* ── 핵심명제 ── */
+  .prop {
+    background: #2a2010; border-left: 3px solid var(--amber);
+    color: var(--orig); padding: 13px 17px; margin-bottom: 11px;
+    border-radius: 0 6px 6px 0; font-size: 14.5px; line-height: 1.7;
+    page-break-inside: avoid;
+  }
+  .prop .n { color: var(--amber); font-weight: 700; margin-right: 7px; }
+
+  /* ── 시험 ── */
+  .exam {
+    background: #2d1a16; color: var(--terra);
+    border: 1px solid var(--terra); border-radius: 6px;
+    padding: 11px 15px; margin-bottom: 9px;
+    font-size: 13.5px; display: flex; gap: 10px; align-items: flex-start;
+    page-break-inside: avoid;
+  }
+  .exam .bdg {
+    background: var(--terra); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: .06em;
+    padding: 2px 7px; border-radius: 3px;
+    white-space: nowrap; margin-top: 1px; flex-shrink: 0;
+  }
+
+  /* ── 인용 ── */
+  .qt {
+    border-left: 2px solid #6b6457;
+    padding: 11px 15px; margin-bottom: 13px;
+    font-style: italic; font-size: 14px; color: #c4baa8;
+  }
+  .qt .src { font-style: normal; font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+  /* ── 범례 ── */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    margin-bottom: 24px; font-size: 12px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0;
+  }
+
+  /* ── 구분선 ── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  /* ── 비교표 ── */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  th { background: var(--sub); padding: 9px 14px; font-size: 11px; color: var(--muted); text-align: left; border: 1px solid var(--border); font-weight: 700; letter-spacing: .06em; }
+  td { padding: 10px 14px; font-size: 13.5px; border: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: #1e1c18; }
+  .hl { color: var(--amber); font-weight: 700; }
+
+  @media print {
+    .tb { display: none !important; }
+    .pane { display: block !important; padding: 20px; }
+    body { font-size: 12pt; }
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <div class="meta">기독교철학 · 61083 · 심상우 교수 · 5주차 (2026-03-31) · 녹취록 + 강의자료 통합본</div>
+  <h1>윌리엄 제임스 (William James, 1842–1910)</h1>
+  <h2>종교적 근본행위 · 신앙의 결단 · 반응으로서의 종교 · 신비주의</h2>
+</div>
+
+<div class="tb">
+  <button class="on" onclick="go('note',this)">📖 강의노트</button>
+  <button onclick="go('core',this)">⚡ 핵심정리</button>
+  <button onclick="go('cmp',this)">📊 비교표</button>
+</div>
+
+<!-- ════════════════════════════════════════
+     TAB 1 · 강의노트
+════════════════════════════════════════ -->
+<div id="tab-note" class="pane on">
+
+  <!-- 범례 -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#c49a3c;"></div>교수 설명 (녹취)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#8a7030;"></div>강의자료 (수업 언급)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a3020;"></div>강의자료만 (수업 미언급)</div>
+  </div>
+
+  <!-- 사상가 -->
+  <div class="sec">사상가</div>
+  <div class="thinker">
+    <div><span class="name">윌리엄 제임스</span><span class="dates">(1842–1910, 미국)</span></div>
+    <div class="row">
+      <span><strong>분야</strong>: 실용주의(Pragmatism) · 종교심리학</span>
+      <span><strong>주요 저작</strong>: 『믿으려는 의지에 대하여』(1896) · 『종교 경험의 다양성』(1902) · 『실용주의』(1907)</span>
+    </div>
+    <div class="claim">
+      <strong>핵심 주장:</strong> 종교의 힘은 삶을 변혁시키는 실존적 경험에 있다. 믿음은 경험의 조건이며, 종교는 단일한 본질이 아니라 다양한 경험들의 집합이다. 신비 체험은 진리를 강요하지 않는 존재론적 제안이다.
+    </div>
+    <div class="xian">
+      <span class="lbl">기독교 접점</span>
+      고후 1:3 "모든 위로의 하느님" — 기도 중 다시 일어설 용기를 얻는 것이 '위로의 하느님'을 실존적으로 경험하는 것. 벧전 3:15 — 신앙인은 "왜 나는 이 믿음을 가지고 있는가?"에 대해 스스로 성찰하고 타인에게 설명할 수 있어야 한다.
+    </div>
+  </div>
+
+  <!-- 강의 배경 -->
+  <div class="sec">강의 배경 — 왜 제임스인가</div>
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>윌리엄 제임스는 종교심리학자들이 최고로 치는 학자다. 철학은 기본적으로 삶에 적용되어야 한다는 것이 전제인데, 강단 철학으로 가면서 너무 어려운 논리 싸움이 됐다. 제임스의 이야기가 나의 삶과 어떻게 연결되는지, 교회에서 성도들에게 어떻게 전달할 것인지를 생각하며 접근해야 한다.</p>
+    <p>제임스와 비트겐슈타인은 거의 같은 맥락이다. 둘 다 이성의 틀로 환원될 수 없는 종교의 고유한 영역을 인정한다. 논리적으로 설명해봐 하면 우리는 믿음의 차원 안에서 이야기하고 있지 논리로 설명할 수 없다.</p>
+  </div>
+
+  <!-- 1절 -->
+  <div class="sec">1. 종교적 근본행위 개념</div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급)</span>
+    <p>신앙은 단순히 머리로만 동의하는 개념이 아니라 <strong>결단을 수반하는 실존적 행위</strong>다. 믿음은 '믿으려는 의지' 없이는 시작될 수 없다. 마치 어떤 사람이 한 사람을 전적으로 신뢰하고 사랑하기로 마음먹을 때 그 관계가 시작되는 것처럼.</p>
+    <p>그러나 신앙은 맹목적인 감정이 아니라 <strong>일정한 합리성을 필요로 한다.</strong> 벧전 3:15 — 신앙인은 "왜 나는 이 믿음을 가지고 있는가?"라는 질문에 스스로 성찰하고 타인에게 설명할 수 있어야 한다. "그냥"이라고 답하기보다 자신의 삶에서 경험한 하느님의 위로와 희망의 이유를 이야기할 수 있어야 한다.</p>
+    <p>히브리서 11:6 — "하느님께 나아가는 자는 반드시 그가 계신 것을 믿어야 한다." 신앙의 내용은 단지 이론적 진술이 아니라 존재론적·형이상학적 의미를 포함하는 실존적 진술이다. 참된 종교적 신앙은 <strong>삶의 윤리적 실천 안에서 증명</strong>되어야 한다.</p>
+  </div>
+
+  <div class="unspoken">
+    <span class="lbl">📄 강의자료만 · 수업 미언급</span>
+    <p><strong>종교철학의 3대 논증 분류</strong> — 존재론적(하느님 존재의 본질) / 도덕적(선과 악의 문제) / 우주론적(우주의 기원). 종교철학의 핵심 과제는 이 논제들을 따로 떨어뜨려 생각하는 것이 아니라, 이들이 서로 어떻게 연결되어 있는지, 그리고 삶의 다른 영역들과 어떻게 관계를 맺는지를 묻는 데 있다.</p>
+    <p style="margin-top:8px;"><strong>종교-예술-정치 연결</strong> — 고흐의 그림에서 볼 수 있는 신앙의 감수성, 마틴 루터 킹의 "I Have a Dream"과 흑인 민권 운동의 신앙적 뿌리. 종교가 단지 개인 내면의 감정이 아니라 사회적 정의와 예술적 창조성에까지 영향을 미치는 힘임을 보여준다.</p>
+  </div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 합리주의 종교 이해 비판</span>
+    <p>제임스는 철학적·이론적 신학 체계(합리주의적 형이상학)를 부정하지는 않지만, 그것을 <strong>"부차적인(second-rate)"</strong> 기능이라고 평가한다. 종교의 진짜 힘은 고통 속에서 위로를 받고, 절망 속에서 희망을 발견하며, 윤리적으로 새 삶을 살게 만드는 실존적 체험에 있기 때문이다.</p>
+    <p>17~18세기 계몽주의 이후 종교를 철학적으로 정당화하려는 시도들이 많았다. 데카르트의 신 존재 증명, 칸트의 도덕 이론에 기초한 신 개념, 헤겔의 절대정신으로서의 종교 이해. 이런 전통은 종교를 형이상학적 개념과 논리적 체계 속에 가두려는 경향을 보였다. "종교는 삶의 정점에서 오는 깊은 감정의 흐름이다. 이를 개념으로만 설명하려는 철학은 그 생명력을 잃게 만든다."</p>
+  </div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 실용주의 핵심 질문과 환원주의 비판</span>
+    <p>제임스의 핵심 질문: <strong>"이 믿음이 삶에 실제로 어떤 결과를 가져오는가?"</strong> "하느님이 나를 용서하신다"는 믿음을 통해 죄책감에서 벗어나고 다시 살아갈 용기를 얻었다면, 그 믿음은 논리적으로 증명되지 않아도 실용적 진리로서 의미가 있다.</p>
+    <p><strong>환원주의(reductionism) 비판</strong>: "종교를 단순히 심리적 유익이나 삶의 변화로 설명하는 것은 그 본질을 왜곡한다. 예수 그리스도의 부활은 객관적 사실인데, '그 믿음이 위로를 줬다면 그것으로 충분하다'고 말하면 신앙의 진리성보다 유용성이 앞서게 된다."</p>
+    <p>제임스의 재반박: 진리는 고정된 관념이 아니라 삶 속에서 검증되고 드러나는 것이다. "하느님이 존재하신다"는 믿음이 삶을 더 도덕적으로 만들고 타인을 더 사랑하게 만든다면, 그 믿음은 <strong>'삶을 살아낼 수 있게 하는 실천적 진리'</strong>로서 정당성을 갖는다.</p>
+  </div>
+
+  <!-- 과학자들 -->
+  <div class="sec">1-1. 과학과 신앙의 대화</div>
+  <div class="figure-grid">
+    <div class="fig">
+      <div class="fname">조지 르메트르</div>
+      <div class="fdates">Georges Lemaître, 1894–1966</div>
+      <div class="frole">벨기에 천체물리학자 · 로마 가톨릭 사제</div>
+      <div class="fdef">빅뱅 이론 원형 '원시 원자 가설' 제안. 과학적 연구는 신학적 주장을 정당화하거나 대체하려는 목적이 아님을 명확히 했다.</div>
+      <div class="fquote">"과학은 하늘이 어떻게 움직이는지를 말해주고, 종교는 하늘로 어떻게 가야 하는지를 말해준다."</div>
+    </div>
+    <div class="fig">
+      <div class="fname">오웬 깅저리치</div>
+      <div class="fdates">Owen Gingerich, 1930–2023</div>
+      <div class="frole">하버드 천문학자 · 개신교 신자</div>
+      <div class="fdef">과학과 신앙은 갈등할 필요가 없으며, 하느님의 창조 세계를 이해하는 방식이라고 보았다.</div>
+      <div class="fquote">"나는 우주가 목적을 가지고 있으며, 우리가 그것을 이해할 수 있도록 설계되었다고 믿는다." — 『God's Universe』</div>
+    </div>
+    <div class="fig">
+      <div class="fname">존 폴킹혼</div>
+      <div class="fdates">John Polkinghorne, 1930–2021</div>
+      <div class="frole">케임브리지 이론물리학자 · 성공회 사제 · 템플턴상(2002)</div>
+      <div class="fdef">과학은 '어떻게(how)'를, 신학은 '왜(why)'를 탐구한다. 양자역학의 '열린 가능성' 속에 하느님의 섭리적 개입 가능성을 찾았다.</div>
+      <div class="fquote">"신은 자연의 법칙 속에서 일하신다." — 『Science and Theology』</div>
+    </div>
+  </div>
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>우리 시대가 과학의 시대라는 것—종교가 자리할 수 없는 시대인 것처럼 보이는데, 비트겐슈타인이나 윌리엄 제임스 같은 사람들의 이야기를 들으면 종교인으로서 또 다른 세계들을 나름대로 추구하고 나아갈 수 있는 힘을 얻게 된다. 이 과학자-신앙인들의 삶이 그 좋은 예다.</p>
+  </div>
+
+  <!-- 2절 -->
+  <div class="sec">2. 신앙의 결단 — 클리포드 반박</div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취) · 클리포드의 주장</span>
+    <p>W. K. 클리포드: "무엇인가를 불충분한 근거에 입각해서 믿는 것은 언제나, 어디서나, 누구에게나 윤리적으로 잘못된 것이다." 노후된 배를 점검도 않고 '괜찮을 거야'라는 믿음으로 출항해 난파시킨 선장 — 믿음이 아무리 진심이었다 해도 도덕적으로 잘못이라는 것. 이것이 철저한 지성우위주의다.</p>
+  </div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취) · 제임스의 반박</span>
+    <p>삶의 어떤 문제들은 지식이 따라잡기 전에 결단이 필요하다. 하나님이 존재하신다는 확실한 증거는 없지만, 그 믿음을 가지면 삶이 윤리적·정서적으로 풍요로워진다. 반면 중립에 머물면 신앙의 실천적 효과를 영영 경험할 수 없게 된다. 그래서 그 믿음을 선택할 <strong>'권리'</strong>가 있다.</p>
+    <div class="sub">교수: "결단하지 않겠다—이것 자체가 하나님을 부정하는 쪽으로 기울어진 선택이다. '나중에 더 확실한 증거가 생기면 결정할래'—이 태도는 신을 신뢰하지 않기로 선택한 것이고, 실질적인 결과를 갖는 선택이다."</div>
+  </div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 결단의 3조건</span>
+    <p>제임스는 모든 경우에 믿어도 된다고 말하는 것이 아니다. 오직 다음 세 조건이 충족될 때만 해당된다.<br>
+    ① <strong>실제적인(pragmatic) 문제</strong>일 것 — 삶에 실질적 영향을 주는 문제<br>
+    ② <strong>결정이 긴급</strong>할 것 — 미룰 수 없는 상황<br>
+    ③ <strong>믿음이 현실에 영향</strong>을 줄 수 있을 것</p>
+  </div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 선택의 3특성</span>
+    <p>제임스는 우리가 마주하는 어떤 선택들은 세 가지 특성을 가진다고 말한다.<br>
+    ① <strong>살아있고(live)</strong> — 양쪽 모두 나에게 실질적 가능성이 있는 선택<br>
+    ② <strong>강요되며(forced)</strong> — 중립·유보가 불가능한 선택. 유보 자체가 한 편을 선택하는 것<br>
+    ③ <strong>중대하다(momentous)</strong> — 삶 전체의 방향을 결정짓는 선택<br>
+    하느님을 믿을지 말지는 단순한 이론적 문제가 아니라 이 세 특성을 모두 가진 실존적 문제다.</p>
+  </div>
+
+  <!-- 살아있는 가설 -->
+  <div class="sec">2-1. 살아있는 가설 vs. 죽은 가설</div>
+
+  <div class="cgrid">
+    <div class="cc">
+      <div class="term">살아있는 가설</div>
+      <div class="orig">Live Hypothesis</div>
+      <div class="def">실제로 믿을 수 있는 가능성이 열려 있는 주장. 지적으로도, 정서적으로도 "믿을 만하다"고 여겨지는 믿음. 주관적 개방성과 연관. 여기서만 신앙의 결단이 가능하다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">죽은 가설</div>
+      <div class="orig">Dead Hypothesis</div>
+      <div class="def">전혀 믿을 수 없다고 여기는 주장. 아무리 논리적으로 정리되어 있어도 마음이 전혀 반응하지 않는다. 논리적 토론의 대상일 뿐, 삶을 움직이지 못한다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">살아있는 선택</div>
+      <div class="orig">Living Option</div>
+      <div class="def">두 가설 모두 나에게 실질적 매력과 가능성을 가질 때의 선택. 단순한 이론적 가능성이 아니라 내 실존에 실제적 영향을 주는 선택지.</div>
+    </div>
+    <div class="cc">
+      <div class="term">자기실현적 믿음</div>
+      <div class="orig">Self-fulfilling Belief</div>
+      <div class="def">믿음이 현실을 창조하는 능동적 결단. 친구를 신뢰하겠다는 믿음이 실제 신뢰 관계를 형성하듯, "하나님을 믿어야 하나님을 경험할 수 있다." 믿음이 경험의 조건이다.</div>
+    </div>
+  </div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>"하나님이 존재한다"는 가설은 어떤 사람에게는 실제 삶의 영향과 희망을 제공하는 살아있는 가설이지만, 철저한 무신론자에게는 신뢰할 수 없는 죽은 가설이다. 가설의 생동성은 주관적 개방성과 깊이 연관되어 있다. 우리는 성경이라는 살아있는 메시지를 진리로 받아들인 것이다.</p>
+    <div class="sub">A학생: 기독교 신앙을 가졌지만 과학적 세계관을 공부하며 불가지론적 사고의 설득력을 점점 느낌. B학생: 무신론 배경이지만 예수·본회퍼 같은 인물에 깊이 감동받음. 둘 다 이 상황이 살아있는 선택이다. 증거가 완전히 확정되기를 기다리지 않고 결단할 권리가 있다.</div>
+  </div>
+
+  <div class="unspoken">
+    <span class="lbl">📄 강의자료만 · 수업 미언급</span>
+    <p><strong>C학생 사례</strong> — 신앙을 유지하거나 되찾음으로써 삶의 윤리적 방향을 찾고, 희망을 되새기며 공동체 안에서 살아갈 용기를 얻게 된다면, 그 신앙은 단지 추상적인 선택이 아니라 실제적·실존적 진리가 된다. 이때 그 믿음을 선택하는 행위 자체가 정당화될 수 있다. 이것이 제임스가 '믿으려는 의지'를 통해 주장하는 바다.</p>
+  </div>
+
+  <!-- tu quoque -->
+  <div class="sec">2-2. tu quoque 논법 — 되치기 반박</div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>라틴어 <em>tu quoque</em>(너도 마찬가지야)—되치기 반박 논법. 신앙의 결단을 비이성적이라 비판하는 클리포드류의 회의주의자들에게: "당신들도 완전한 증거 없이 믿고 결정하는 경우가 있지 않냐?" 우정, 결혼, 직업, 윤리적 결단—완벽한 증거가 없어도 결정을 내린다. 왜 유독 종교에서만 그 결단을 금지하는가?</p>
+    <div class="sub">교수: "가치적인 거리는 명확한 부분들이 아니다. 서울에서 부산까지 물리적으로는 비행기·KTX가 빠르다. 그러나 가치적 거리는 좋은 사람들이 같이 가면 가장 빠르다—사랑하는 사람과 가면 시간이 언제 가는지 모른다. 이 가치적 거리들이 종교의 영역이다."</div>
+  </div>
+
+  <!-- 논증 -->
+  <div class="arg">
+    <div class="at">신앙의 결단 정당성 논증</div>
+    <div class="row pre">
+      <span class="al">전제</span>
+      <span>클리포드: 충분한 증거 없는 믿음은 도덕적으로 잘못이다. 그러나 삶의 중요한 결단(사랑·우정·결혼)은 완전한 증거 없이 이루어진다. 선택을 유보하는 것 자체가 하나의 선택(신 부정)이다.</span>
+    </div>
+    <div class="row body">
+      <span class="al">논증</span>
+      <span>살아있는(live) + 강요된(forced) + 중대한(momentous) 선택이면 결단은 정당화된다. tu quoque: 회의주의자도 일상에서 증거 없이 결단함. 믿음은 자기실현적 조건이다.</span>
+    </div>
+    <div class="row conc">
+      <span class="al">결론</span>
+      <span>"믿지 않으면 진실이 되지 않는 어떤 진리가 있으며, 그러므로 믿음을 선택할 수 있는 도덕적 권리가 있다."</span>
+    </div>
+  </div>
+
+  <!-- 우주·회의주의 -->
+  <div class="sec">2-3. 우주는 열려 있고 인간은 구성 요소다</div>
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>제임스는 우주가 이미 결정된 상태로 존재하는 것이 아니라 계속 만들어지고 있고 변화 가능하며, 인간의 선택과 행동에 따라 달라질 수 있다고 봤다. 우주는 완성된 퍼즐이 아니라 우리 각각의 손에 몇 조각씩 맡겨져 있는 거대한 퍼즐판이다. 거대한 오케스트라 속 작은 악기 하나 같지만, 우리가 어떻게 연주하느냐에 따라 전체 음악의 분위기가 달라질 수 있다. "당신이 지금 내리는 어떤 도덕적 결단, 혹은 신앙의 결단은 단지 당신 개인에게만 영향을 주는 것이 아니라 우주의 방향 자체에 영향을 주는 실질적인 사건이다."</p>
+  </div>
+
+  <div class="sec">2-4. 파괴적 회의주의 비판</div>
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 메피스토텔레스적 회의주의</span>
+    <p>괴테의 『파우스트』에서 메피스토펠레스: <em>"나는 언제나 부정하는 정신이다."</em> (Ich bin der Geist, der stets verneint.) 메피스토텔레스적 회의주의는 단순한 철학적 회의가 아니라, <strong>모든 것을 의심함으로써 삶의 의미와 가치를 와해시키려는 영적·정신적 태도</strong>다. 이성도, 신앙도, 도덕도 믿지 않는다. (단점: 극도로 부정적. 장점: 창의적.)</p>
+  </div>
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>제임스는 파괴적 회의주의—실천적 결단을 유예시키고 마비시키는 회의—에 매우 비판적이다. "모든 것을 끊임없이 의심하다 보면 결국 아무것도 할 수 없고, 아무것도 믿을 수 없게 된다. 그러나 삶은 우리에게 결단을 요구한다."</p>
+    <div class="sub">교수: "철학을 전공하는 친구들을 보면 하나의 단어를 가지고 2~3시간 동안 계속 회의하고 비판한다. 영적·정신적으로 굉장히 피폐해진다. 자기 삶을 에너제틱하게 끌어가지 못한다. 메피스토텔레스적 회의주의를 극복해야 진짜 신앙이나 진리가 시작될 수 있다."</div>
+  </div>
+
+  <!-- 3절 -->
+  <div class="sec">3. 반응으로서의 종교 — 경험들의 집합</div>
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급)</span>
+    <p>제임스는 종교를 '하느님이 존재한다'거나 '구원이 목적이다'와 같은 하나의 정형화된 본질로 규정하려는 시도를 거부한다. <strong>"종교란, 인간이 혼자 있을 때, 자기 자신보다 위대한 어떤 실재와 관계한다고 느끼면서 생겨나는 정서와 행동이다."</strong> 종교는 다양한 성격적·심리적·문화적 경험들의 <strong>집합 개념(collectional concept)</strong>이다. 종교는 심리·문화·시대에 따라 변형될 수 있는 살아있는 현상이다.</p>
+  </div>
+
+  <div class="cgrid">
+    <div class="cc">
+      <div class="term">개인적 종교</div>
+      <div class="orig">Personal Religion</div>
+      <div class="def">개인의 내면에서 경험하고 응답하는 주관적·실존적 종교 경험. 회심, 기도, 감정, 영적 고뇌와 각성을 강조. 제임스가 더 강조한 형태. 모든 제도는 여기서 출발한다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">제도적 종교</div>
+      <div class="orig">Institutional Religion</div>
+      <div class="def">교리, 성직자 제도, 교회, 전례, 권위로 구성된 공적·조직화된 종교 형태. 개인 체험의 파생물이자 제도화. 경직된 교리·권위주의·정치화로 흐르기 쉽다는 위험성이 있다.</div>
+    </div>
+  </div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>모든 제도적 종교도 개인의 강렬한 체험에서 비롯되었다. 예수님, 바울, 프란체스코, 조지 폭스—그들도 다 개인 체험의 차원들을 먼저 가졌다. 광야에서, 다메섹 도상에서, 신앙의 세계를 깊이 들어갔을 때 그 경험들이 있었다.</p>
+    <div class="sub">카우아이 섬 연구: 고위험군 201명 중 72명이 40년 후 사회적으로 건강하게 성장. 공통점—"전적으로 믿어주는 사람이 한 명 있었다." 교회에서 전적으로 믿어주는 그런 사람이 여러분이 되어줬으면 한다.</div>
+  </div>
+
+  <!-- 3-1 신비/합리 -->
+  <div class="sec">3-1. 신비적 삶과 합리적 삶 — 분절과 회귀</div>
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급)</span>
+    <p><strong>"지성은 신비를 만들어내지 못한다. 신비는 먼저 주어지고(Mythos), 지성은 그것을 해석할 뿐이다."</strong> 종교의 기원은 이성이 아니라 체험이다. 신비적 삶(직관·체험·느낌)과 합리적 삶(지적 사유·논리적 해석)은 불연속적인 것이 아니라 <strong>상호 분절과 회귀의 과정</strong>을 지속한다.</p>
+  </div>
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>성경을 처음에는 문자처럼 읽다가, 어느 순간 글자가 아니라 신의 메시지처럼 쑥쑥 들어오는 그 순간—이것이 말함(le Dire)과 말해진 것(le Dit)의 차이다. 지성의 안경(바르트·칼뱅·루터)을 끼고 텍스트를 보는 것 하나, 말씀이 나한테 들려지기를 기대하고 기다리는 것 하나—이 두 가지를 다 길렀으면 좋겠다.</p>
+    <div class="sub">교수 개인 경험: "나는 심비적인 체험들이 대단히 많은 사람이었다. 새소리가 나한테 '너 죽지 말라, 너의 삶을 그렇게 가두면 안 된다'고 얘기해서 살았다. 논리적으로 설명이 안 되는 얘기지만 나한테 의미 있게 다가왔기 때문에 지금도 지워지지 않는다. 이후에는 이 체험들을 논리로 만들어가는 방식이 필요하겠구나 생각이 들었고, 그래서 의학·조직신학·종교철학으로 학문이 전개됐다."</div>
+  </div>
+
+  <!-- 4절 신앙상태 -->
+  <div class="sec">4. 신앙 상태 — 두 가지 인식적 자세</div>
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급)</span>
+    <p><strong>① 자기중심적 관점 (실존적 관심)</strong>: "나는 어떻게 살아야 하는가?", "내 삶은 어떤 의미를 갖는가?" 개인의 구원·안식·내면의 평안·궁극적 운명에 대한 관심. 삶의 위기·고통·죽음·죄책감에서 해답을 구하려는 태도. → 파스칼의 신앙적 결단, 어거스틴의 고백록.</p>
+    <p><strong>② 탈자기적 관점 (우주적 관심)</strong>: "세상은 어떤 방식으로 작동하는가?", "궁극적 실재는 무엇인가?" 종교를 우주의 질서·초월적 실재·존재 전체에 대한 사유로 접근. 인간의 실존을 넘어서 전체 우주 안에서의 위치를 사유한다. → 플라톤의 이데아, 스피노자의 신 개념, 신비주의적 합일.</p>
+    <p>제임스의 결론: 개인의 내면적 필요에서 출발하되, 그것이 더 높은 존재와의 연결로 확장될 수 있다. 제임스의 종교철학은 단순한 '종교심리학'이 아니라, 실존적 체험과 형이상학적 통찰을 아우르는 폭넓은 종교 이해다.</p>
+  </div>
+
+  <!-- 5절 -->
+  <div class="sec">5. 진리에 대한 물음 — 인격적 신과 신비주의</div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 인격적 신 체험 스펙트럼</span>
+    <p>제임스는 종교적 체험의 다양성을 인정한다. 어떤 사람은 신을 초월적이고 인격적인 존재(하느님·야훼·아버지)로 체험하고, 어떤 사람은 신을 자연·질서·조화·에너지·절대정신·도(道) 등 비인격적·추상적 개념으로 경험한다. 그는 이 둘 다 실제적이고 진지한 종교 체험의 표현으로 인정한다.</p>
+    <p>다만 제임스는 <strong>인격적 신과의 교통을 더 강렬하고 경이로운 것으로 본다.</strong> "나는 신과의 교통에 대한 생생한 의식을 가진 사람들에 대한 깊은 경탄을 갖고 있다." 기도에 응답이 있다고 느끼는 체험, 신의 음성이나 인도하심을 따르는 실존적 결단—이런 체험은 도덕적·영적 전환을 이끌어내는 힘을 가진다.</p>
+  </div>
+
+  <div class="prof">
+    <span class="lbl">교수 설명 (녹취)</span>
+    <p>기도하는 시간이 바로 초월적 실재에 대한 직관이 일어나는 시간이다. 뭔가 설명할 수 없어—근데 황홀감을 경험하기도 하고, 말씀이 살아서 꿈틀거리면서 나한테 막 다가오는 느낌. 이때의 감격은 내 삶을 바꾸라고 하는 메시지가 된다.</p>
+  </div>
+
+  <!-- 신비주의 4특성 -->
+  <div class="sec">5-1. 신비주의 4특성</div>
+  <div class="cgrid">
+    <div class="cc">
+      <div class="term">① 불가언성</div>
+      <div class="orig">Ineffability</div>
+      <div class="def">말로 표현할 수 없고, 논리적 개념으로 환원되지 않는다. 오직 체험자만이 그것을 알 수 있다. 방언을 처음 받았을 때의 감격—다른 사람은 모른다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">② 인식성</div>
+      <div class="orig">Noetic Quality</div>
+      <div class="def">단순한 느낌이 아니라 앎의 성격을 갖는다. 진리를 직관적으로 깨닫게 된다. 체험자에게 하나의 앎으로 주어지며, 그 앎은 삶을 바꾸는 힘을 가진다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">③ 일시성</div>
+      <div class="orig">Transiency</div>
+      <div class="def">그 체험은 짧은 순간 동안 지속되며 다시 불러오기 어렵다. 일회적으로 찾아오는 성격이 있다.</div>
+    </div>
+    <div class="cc">
+      <div class="term">④ 수동성</div>
+      <div class="orig">Passivity</div>
+      <div class="def">그것을 자기 의지로 만들어낸 것이 아니라, 무언가에 의해 압도당하고 이끌린다고 느낀다. 기도 중 임재의 경험이 전형적이다.</div>
+    </div>
+  </div>
+
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급) · 존재론적 제안</span>
+    <p>신비 체험은 <strong>"이것이 참이다!"라는 진리의 명령어(command)가 아니라, "이런 방식으로 세상을 볼 수도 있어"라는 제안(suggestion)</strong>이다.<br>
+    ▸ "삶에는 보이는 것 너머의 차원이 있다."<br>
+    ▸ "너는 너보다 더 크고 깊은 무언가와 연결되어 있다."<br>
+    ▸ "이 체험은 너의 삶을 새롭게 조명할 수 있다."<br>
+    신비 체험이 삶을 긍정적으로 바꾸는 한 <strong>윤리적으로 정당화</strong>된다. 강요되지 않고 자유롭게 수용될 수 있을 때, 그 체험은 철학적으로 인정받을 수 있고 윤리적으로도 정당한 종교적 신앙의 토대가 된다.</p>
+    <div class="sub">예시: 깊은 기도 중에 자신을 무조건적으로 사랑하시는 어떤 존재의 임재를 느낀다. 그 이후 죄책감에서 벗어나 삶의 방향을 새롭게 세우고 이웃을 더 사랑하게 된다. 이 체험은 논리적으로 증명할 수 없지만 체험자에게는 진실로 느껴진다. 강요되지 않지만 듣는 이에게 삶을 다르게 보는 제안이 된다. 도덕적·실존적 변화를 낳기 때문에 철학적·윤리적으로 정당화될 수 있다.</div>
+  </div>
+
+  <!-- 루돌프 오토 -->
+  <div class="sec">5-2. 루돌프 오토와의 비교</div>
+  <div class="slide">
+    <span class="lbl">강의자료 (수업 언급)</span>
+    <p>루돌프 오토 — 『거룩에 관하여(Das Heilige)』: 종교를 <strong>"전율적 신비(mysterium tremendum et fascinans)"</strong>라고 묘사. 제임스의 "변화시키는 경험"과 오토의 "신비적 느낌"은 둘 다 개인적 체험이 종교의 핵심임을 말하지만, <strong>제임스는 더 심리적·실용적 측면에 집중</strong>한 반면 <strong>오토는 현상학적이고 초월적 감정을 강조</strong>했다는 점에서 차이가 있다.</p>
+  </div>
+
+  <hr>
+  <div class="sec">오늘 핵심 명제 3가지</div>
+  <div class="prop"><span class="n">①</span>믿음은 경험의 결론이 아니라 경험의 <strong>조건</strong>이다 — "하나님을 믿어야 하나님을 경험할 수 있다." 살아있는(live)·강요된(forced)·중대한(momentous) 선택 앞에서, 자기실현적 결단만이 실존적 진리에 이르게 한다.</div>
+  <div class="prop"><span class="n">②</span><strong>신비는 먼저 주어지고(Mythos), 지성은 해석할 뿐이다</strong> — 종교의 기원은 이성이 아니라 체험이다. 신비적 삶과 합리적 삶은 상호 분절과 회귀의 과정으로 두 날개가 함께 가야 한다.</div>
+  <div class="prop"><span class="n">③</span>신비 체험은 존재론적 <strong>제안(suggestion)</strong>이다 — 진리의 명령어가 아닌 이 제안이 삶의 도덕적·영적 변화를 이끌 때, 그 믿음은 철학적·윤리적으로 정당화된다.</div>
+
+</div><!-- /tab-note -->
+
+<!-- ════════════════════════════════════════
+     TAB 2 · 핵심정리
+════════════════════════════════════════ -->
+<div id="tab-core" class="pane">
+
+  <div class="sec">핵심 명제</div>
+  <div class="prop"><span class="n">①</span>믿음은 경험의 <strong>조건</strong>이다 — 살아있는(live)·강요된(forced)·중대한(momentous) 선택에서 자기실현적 결단만이 실존적 진리에 이르게 한다.</div>
+  <div class="prop"><span class="n">②</span><strong>신비가 먼저(Mythos)</strong>, 지성은 해석할 뿐 — 종교의 기원은 이성이 아니라 체험이다. 신비적 삶과 합리적 삶은 두 날개다.</div>
+  <div class="prop"><span class="n">③</span>신비 체험은 <strong>존재론적 제안(suggestion)</strong> — 삶의 변화를 이끌 때 철학적·윤리적으로 정당화된다.</div>
+
+  <hr>
+  <div class="sec">논증 요약</div>
+
+  <div class="arg">
+    <div class="at">신앙의 결단 정당성</div>
+    <div class="row pre">
+      <span class="al">전제</span>
+      <span>중요한 삶의 결단은 완전한 증거 없이 이루어진다. 선택 유보 자체가 신 부정의 선택이다.</span>
+    </div>
+    <div class="row body">
+      <span class="al">논증</span>
+      <span>살아있는(live) + 강요된(forced) + 중대한(momentous) 선택 → 결단 정당화. tu quoque 반박. 믿음은 자기실현적 조건이다.</span>
+    </div>
+    <div class="row conc">
+      <span class="al">결론</span>
+      <span>"믿지 않으면 진실이 되지 않는 어떤 진리가 있으며, 그러므로 믿음을 선택할 수 있는 도덕적 권리가 있다."</span>
+    </div>
+  </div>
+
+  <div class="arg">
+    <div class="at">신비체험의 윤리적 정당성</div>
+    <div class="row pre">
+      <span class="al">전제</span>
+      <span>신비 체험은 불가언성·인식성·일시성·수동성의 4특성을 지닌다. 논리적 증명이 불가능하다.</span>
+    </div>
+    <div class="row body">
+      <span class="al">논증</span>
+      <span>체험자에게 직관적 앎(noetic quality)을 제공하고, 도덕적·영적 전환을 이끈다. 진리를 강요하지 않고 존재론적 제안(suggestion)으로 작동한다.</span>
+    </div>
+    <div class="row conc">
+      <span class="al">결론</span>
+      <span>삶의 의미를 만들고 도덕적 전환을 이끄는 믿음은 윤리적으로 정당화될 수 있다. 검증 불가능성이 진리성을 부정하지 않는다.</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="sec">주요 인용</div>
+  <div class="qt">"무엇인가를 불충분한 근거에 입각해서 믿는 것은 언제나, 어디서나, 누구에게나 윤리적으로 잘못된 것이다."<div class="src">— W. K. 클리포드 (제임스의 반박 대상)</div></div>
+  <div class="qt">"종교는 우리가 비록 충분한 근거들을 갖고 있지 않더라도, 그 경향들에 어떤 저항도 행사하지 않거나 혹은 그것들을 보존하는 데에 존립한다."<div class="src">— 윌리엄 제임스, 『종교 경험의 다양성』</div></div>
+  <div class="qt">"믿지 않으면 진실이 되지 않는 어떤 진리가 있으며, 그러므로 믿음을 선택할 수 있는 도덕적 권리가 있다."<div class="src">— 윌리엄 제임스, 「믿으려는 의지에 대하여」</div></div>
+  <div class="qt">"과학은 하늘이 어떻게 움직이는지를 말해주고, 종교는 하늘로 어떻게 가야 하는지를 말해준다."<div class="src">— 조지 르메트르 (강의자료)</div></div>
+
+  <hr>
+  <div class="sec">시험 출제 예상</div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>살아있는 가설 vs. 죽은 가설</strong>의 차이를 설명하고, 제임스의 종교철학에서 이 구분이 갖는 의미를 서술하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>클리포드의 지성주의와 제임스의 반박</strong>을 비교하라. 결단의 3조건과 선택의 3특성(live·forced·momentous)을 함께 설명하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>신비주의 4특성</strong>(불가언성·인식성·일시성·수동성)을 설명하고, 제임스가 신비 체험을 '존재론적 제안(suggestion)'이라고 부르는 이유를 논하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>개인적 종교 vs. 제도적 종교</strong>의 차이와 제임스가 전자를 강조한 이유를 서술하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>"신비는 먼저 주어지고, 지성은 해석할 뿐이다"</strong>라는 명제를 설명하라. 신비적 삶과 합리적 삶의 '분절과 회귀' 관계를 포함하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>제임스 vs. 루돌프 오토</strong>: 두 사람 모두 종교적 경험을 강조하지만, 접근 방식에서 어떤 차이가 있는가?</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>자기중심적 관점 vs. 탈자기적 관점</strong>(신앙 상태 두 가지)을 설명하고, 제임스의 종교철학이 이 둘을 어떻게 통합하는지 서술하라.</span></div>
+  <div class="exam"><span class="bdg">시험</span><span><strong>합리주의 종교 이해(데카르트·칸트·헤겔)</strong>에 대한 제임스의 비판을 서술하라. "second-rate" 평가의 의미는 무엇인가?</span></div>
+
+</div><!-- /tab-core -->
+
+<!-- ════════════════════════════════════════
+     TAB 3 · 비교표
+════════════════════════════════════════ -->
+<div id="tab-cmp" class="pane">
+
+  <div class="sec">비트겐슈타인 vs. 윌리엄 제임스</div>
+  <table>
+    <thead><tr><th>비교 축</th><th>비트겐슈타인 (1889–1951)</th><th>윌리엄 제임스 (1842–1910)</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">방법론</td><td>언어 분석 (Sprachanalyse)<br>언어게임의 문법 해명</td><td>실용주의 + 심리학<br>종교 경험의 실질적 효과 주목</td></tr>
+      <tr><td class="hl">종교의 기초</td><td>삶의 형식 (Lebensform)<br>공동체 내 실천과 언어 사용</td><td>개인적 종교 경험<br>내면의 신비 체험·회심·기도</td></tr>
+      <tr><td class="hl">신앙-이성 관계</td><td>서로 다른 언어게임<br>이성으로 신앙 검증 = 범주 오류</td><td>이성은 신비 이후 해석 역할<br>증거 없이도 살아있는 가설에 결단 가능</td></tr>
+      <tr><td class="hl">기독교 접점</td><td>신앙 언어의 자율성<br>신앙 = 실존적 헌신</td><td>믿음의 선행성 (자기실현적 믿음)<br>신비 체험의 윤리적 정당성</td></tr>
+      <tr><td class="hl">공동체 vs. 개인</td><td>공동체적<br>언어게임은 공유된 삶의 형식 안에서만 가능</td><td>개인적<br>모든 제도는 개인 체험에서 출발</td></tr>
+      <tr><td class="hl">교수 연결점</td><td colspan="2">둘 다 이성의 틀로 환원될 수 없는 종교의 고유한 영역을 인정한다. 논리로 설명할 수 없어도 믿음의 차원 안에서 이야기한다.</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="sec">클리포드 vs. 제임스 — 신앙과 증거 논쟁</div>
+  <table>
+    <thead><tr><th>비교 축</th><th>W. K. 클리포드</th><th>윌리엄 제임스</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">핵심 명제</td><td>"충분한 증거 없이 믿는 것은 언제나 윤리적으로 잘못이다"</td><td>"삶의 어떤 문제들은 지식이 따라잡기 전에 결단이 필요하다"</td></tr>
+      <tr><td class="hl">인식론</td><td>지성주의 (증거 우선)</td><td>실용주의 (결단 우선)</td></tr>
+      <tr><td class="hl">결단 조건</td><td>검증 가능한 근거에만 허용</td><td>live + forced + momentous 선택에서 정당화</td></tr>
+      <tr><td class="hl">반박</td><td colspan="2">tu quoque: 사랑·우정·결혼도 완전한 증거 없이 결단한다. 왜 유독 종교에서만 금지하는가?</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="sec">제임스 vs. 루돌프 오토 — 종교 경험 이해</div>
+  <table>
+    <thead><tr><th>비교 축</th><th>윌리엄 제임스</th><th>루돌프 오토</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">핵심 저작</td><td>『종교 경험의 다양성』(1902)</td><td>『거룩에 관하여(Das Heilige)』(1917)</td></tr>
+      <tr><td class="hl">종교 경험 이해</td><td>다양한 경험들의 집합. 개인의 체험이 핵심</td><td>전율적 신비 (mysterium tremendum et fascinans)</td></tr>
+      <tr><td class="hl">강조점</td><td>심리적·실용적 — 삶의 변화를 이끄는 효과</td><td>현상학적·초월적 — 경외감과 매혹을 동반하는 느낌</td></tr>
+      <tr><td class="hl">공통점</td><td colspan="2">개인적 체험이 종교의 핵심. 합리적 이해로 환원될 수 없는 신비의 영역 인정</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="sec">개인적 종교 vs. 제도적 종교</div>
+  <table>
+    <thead><tr><th>비교 축</th><th>개인적 종교</th><th>제도적 종교</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">특성</td><td>주관적·실존적 경험</td><td>공적·조직화된 형태</td></tr>
+      <tr><td class="hl">강조 요소</td><td>회심, 기도, 감정, 영적 고뇌, 신비 체험</td><td>교리, 성직 제도, 전례, 권위, 성례전</td></tr>
+      <tr><td class="hl">제임스 평가</td><td>종교의 원천이자 더 근본적인 형태 (강조)</td><td>개인 체험의 파생물·제도화. 경직·권위주의 위험</td></tr>
+      <tr><td class="hl">신학적 예시</td><td>바울의 다메섹 체험, 프란체스코의 회심, 조지 폭스의 내적 각성</td><td>교회, 성례전, 신조, 교리 체계</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="sec">신앙 상태 — 두 가지 인식적 자세</div>
+  <table>
+    <thead><tr><th>비교 축</th><th>자기중심적 관점 (실존적)</th><th>탈자기적 관점 (우주적)</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">핵심 질문</td><td>"나는 어떻게 살아야 하는가?"</td><td>"궁극적 실재는 무엇인가?"</td></tr>
+      <tr><td class="hl">관심</td><td>개인의 구원·안식·내면의 평안·궁극적 운명</td><td>우주의 질서·초월적 실재·존재 전체</td></tr>
+      <tr><td class="hl">대표</td><td>파스칼의 신앙적 결단, 어거스틴의 고백록</td><td>플라톤의 이데아, 스피노자의 신 개념</td></tr>
+      <tr><td class="hl">통합</td><td colspan="2">개인의 내면적 필요에서 출발하되, 더 높은 존재와의 연결로 확장된다. 실존적 체험과 형이상학적 통찰을 아우르는 폭넓은 종교 이해.</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="sec">신비주의 4특성</div>
+  <table>
+    <thead><tr><th>특성</th><th>원어</th><th>의미</th><th>신학적 예시</th></tr></thead>
+    <tbody>
+      <tr><td class="hl">불가언성</td><td>Ineffability</td><td>말로 표현 불가, 논리 환원 불가. 체험자만 알 수 있음</td><td>방언 체험, 기도 중 황홀감</td></tr>
+      <tr><td class="hl">인식성</td><td>Noetic Quality</td><td>단순한 느낌이 아닌 직관적 앎. 삶을 바꾸는 힘을 가짐</td><td>말씀이 살아 꿈틀거리는 순간</td></tr>
+      <tr><td class="hl">일시성</td><td>Transiency</td><td>짧은 순간 지속, 재현 어려움. 일회적 성격</td><td>회심의 결정적 순간</td></tr>
+      <tr><td class="hl">수동성</td><td>Passivity</td><td>의지가 아닌 압도됨. 무언가에 이끌린다고 느낌</td><td>기도 중 임재 경험, 치유 체험</td></tr>
+    </tbody>
+  </table>
+
+</div><!-- /tab-cmp -->
+
+<script>
+  function go(id, btn) {
+    document.querySelectorAll('.pane').forEach(el => el.classList.remove('on'));
+    document.querySelectorAll('.tb button').forEach(el => el.classList.remove('on'));
+    document.getElementById('tab-' + id).classList.add('on');
+    btn.classList.add('on');
+  }
+</script>
+</body>
+</html>
