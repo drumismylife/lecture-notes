@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I — 중간고사 안내 (4/23)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:          #150f1a;
+    --card:        #1e1526;
+    --card2:       #261c30;
+    --card3:       #1c1528;
+    --purple:      #9b7fc7;
+    --purple-dark: #6b4fa0;
+    --purple-dim:  #3d2d5a;
+    --lavender:    #b8a8d4;
+    --bible:       #c4a8e8;
+    --exam:        #c96b5a;
+    --exam-bg:     #2d1a16;
+    --exam-border: #c96b5a;
+    --gold:        #c9a84c;
+    --gold-bg:     #2a2010;
+    --teal:        #5ab8c4;
+    --teal-bg:     #0e2428;
+    --green:       #7ab87a;
+    --green-bg:    #162416;
+    --text:        #ede8f5;
+    --text2:       #9e96aa;
+    --border:      #2e2245;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: linear-gradient(135deg, #2a0d0d 0%, #3d1515 50%, #2d0f0f 100%);
+    border-bottom: 2px solid var(--exam-border);
+    padding: 14px 20px 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: 'Midterm Examination';
+    position: absolute;
+    right: -10px; top: 2px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 28pt;
+    font-style: italic;
+    color: rgba(201,107,90,.08);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .meta-badge {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .meta-badge.exam   { background: var(--exam-bg);  color: var(--exam);  border: 1px solid var(--exam); }
+  .meta-badge.date   { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+  .meta-badge.course { background: var(--purple-dark); color: #fff; }
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 8pt;
+    color: rgba(201,107,90,.8);
+  }
+
+  /* ─── CONTENT ─── */
+  .content { padding: 16px 18px 30px; }
+
+  /* ─── SECTION HEADS ─── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0 10px;
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-badge {
+    background: var(--exam-bg);
+    color: var(--exam);
+    border: 1px solid var(--exam);
+    font-size: 6pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+  .sec-badge.purple {
+    background: var(--purple-dark);
+    color: #fff;
+    border: none;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--exam);
+  }
+  .sec-title.purple { color: var(--purple); }
+  .sec-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--exam-border), transparent);
+  }
+  .sec-line.purple {
+    background: linear-gradient(to right, var(--purple-dim), transparent);
+  }
+
+  .sub-head {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--lavender);
+    margin: 14px 0 7px;
+    padding-left: 10px;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ─── BLOCKS ─── */
+  .block {
+    background: var(--card);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+  }
+  .block.exam-main {
+    background: var(--exam-bg);
+    border: 1.5px solid var(--exam-border);
+    border-left: 4px solid var(--exam-border);
+  }
+  .block.prof {
+    font-style: italic;
+    border-left: 2px solid #6b5a8a;
+    background: #1b1528;
+    color: var(--lavender);
+    font-size: 8.5pt;
+  }
+  .block.prof .prof-label {
+    font-style: normal;
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #6b5a8a;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .block.gold-item {
+    background: var(--gold-bg);
+    border-left: 3px solid var(--gold);
+    border-color: #3a2c10;
+  }
+  .block.green-item {
+    background: var(--green-bg);
+    border-left: 3px solid var(--green);
+    border-color: #1e3a1e;
+  }
+  .block.teal-item {
+    background: var(--teal-bg);
+    border-left: 3px solid var(--teal);
+    border-color: #1a3840;
+  }
+  .block.purple-item {
+    background: var(--card2);
+    border-left: 3px solid var(--purple);
+  }
+
+  .block-title {
+    font-size: 8.5pt;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .block-title.exam   { color: var(--exam); }
+  .block-title.gold   { color: var(--gold); }
+  .block-title.green  { color: var(--green); }
+  .block-title.teal   { color: var(--teal); }
+  .block-title.purple { color: var(--purple); }
+  .block-title.lavender { color: var(--lavender); }
+
+  .block-text {
+    font-size: 8.5pt;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .block-text.dim { color: var(--text2); }
+
+  /* ─── QUESTION CARD ─── */
+  .q-card {
+    background: var(--exam-bg);
+    border: 1.5px solid var(--exam-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .q-header {
+    background: rgba(201,107,90,.15);
+    padding: 10px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .q-num-badge {
+    background: var(--exam);
+    color: #fff;
+    font-size: 7pt;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .q-title-text {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .q-body {
+    padding: 12px 14px;
+    border-top: 1px solid rgba(201,107,90,.2);
+  }
+  .q-scenario {
+    background: rgba(255,255,255,.04);
+    border-radius: 4px;
+    padding: 9px 11px;
+    margin-bottom: 10px;
+    font-size: 8pt;
+    color: var(--lavender);
+    font-style: italic;
+    border-left: 2px solid var(--exam);
+  }
+  .q-guide-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+    letter-spacing: .04em;
+  }
+  .q-guide-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 8pt;
+    color: var(--text2);
+  }
+  .q-guide-item::before {
+    content: '→';
+    color: var(--exam);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .q-guide-item strong { color: var(--text); }
+  .q-time-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(201,107,90,.15);
+    border: 1px solid rgba(201,107,90,.4);
+    color: var(--exam);
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  .q-open-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(90,184,196,.15);
+    border: 1px solid rgba(90,184,196,.4);
+    color: var(--teal);
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 8px;
+    letter-spacing: .06em;
+  }
+
+  /* ─── OVERVIEW TABLE ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8pt;
+    margin-bottom: 10px;
+  }
+  thead tr { background: rgba(201,107,90,.2); }
+  thead th {
+    padding: 7px 9px;
+    font-weight: 600;
+    font-size: 7.5pt;
+    color: var(--exam);
+    text-align: left;
+    border: 1px solid rgba(201,107,90,.3);
+  }
+  td {
+    padding: 7px 9px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--text);
+    font-size: 8pt;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+  .td-head { font-weight: 700; color: var(--lavender); background: var(--card2) !important; white-space: nowrap; }
+  .td-c { text-align: center; }
+  .td-exam { color: var(--exam); font-weight: 700; }
+
+  /* ─── BADGE ─── */
+  .badge {
+    display: inline-block;
+    font-size: 6pt;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+    letter-spacing: .06em;
+  }
+  .badge.exam   { background: var(--exam-bg);  color: var(--exam);  border: 1px solid var(--exam); }
+  .badge.gold   { background: var(--gold-bg);  color: var(--gold);  border: 1px solid var(--gold); }
+  .badge.green  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+  .badge.teal   { background: var(--teal-bg);  color: var(--teal);  border: 1px solid var(--teal); }
+  .badge.open   { background: var(--teal-bg);  color: var(--teal);  border: 1px solid var(--teal); }
+
+  /* ─── GRID ─── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ─── SUMMARY ─── */
+  .summary-box {
+    background: linear-gradient(135deg, #2a1010 0%, #2a1a10 100%);
+    border: 1px solid rgba(201,107,90,.4);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-top: 20px;
+  }
+  .summary-box .sum-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--exam);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .strategy-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+  }
+  .strategy-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .st-num {
+    background: rgba(201,107,90,.2);
+    color: var(--exam);
+    font-size: 8pt;
+    font-weight: 700;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .st-body { flex: 1; }
+  .st-title { font-size: 8.5pt; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .st-desc  { font-size: 8pt; color: var(--text2); line-height: 1.6; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: #150f1a; }
+    .q-card, .block, table { page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 12mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-meta">
+    <span class="meta-badge course">신약성서 I</span>
+    <span class="meta-badge exam">★ 중간고사</span>
+    <span class="meta-badge date">시험일: 4/23 (7주차)</span>
+    <span class="meta-badge date">안내일: 2026-04-09</span>
+  </div>
+  <div class="header-title">중간고사 문제 안내 & 준비 가이드</div>
+  <div class="header-sub">교수님이 사전에 공개하신 4개 문제 — 오늘 녹음·사진 촬영 가능</div>
+</div>
+
+<div class="content">
+
+  <!-- SECTION 0: 교수님 안내 -->
+  <div class="sec-head">
+    <span class="sec-badge">공지</span>
+    <div class="sec-title">교수님 안내 사항</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block prof">
+    <div class="prof-label">교수 설명 (2026-04-09 강의 중)</div>
+    오늘 중간고사에 대해서 좀 이야기를 하려고 하는데요. 선물을 가져왔어요. 1, 2번 문제는 여러분들이 정리를 하셔가지고 교회에서 꼭 한번 가르치시기를 추천드립니다. 중간고사라고 생각을 너무 딱딱하게 하지 않으셨으면 좋겠고요. 오늘 여러분들 휴대폰으로 녹음을 하시면 도움이 될 겁니다.
+  </div>
+
+  <div class="block exam-main">
+    <div class="block-title exam">★ 시험 기본 정보</div>
+    <div class="block-text">
+      <strong>시험일:</strong> 4/23 (8주차) &nbsp;&nbsp; <strong>범위:</strong> 1~7주 전체<br>
+      <strong>문항 수:</strong> 4문제 &nbsp;&nbsp; <strong>총 시간:</strong> 약 2시간<br>
+      <strong>특징:</strong> 오픈 퀘스천(Open Question) 중심 — 정답보다 <em>흐름과 맥락</em>을 평가<br>
+      <strong>지향점:</strong> 배운 것을 교회 현장(고등학생·청소년)에 전달할 수 있는 수준으로 정리
+    </div>
+  </div>
+
+  <!-- SECTION 1: 문제 1 -->
+  <div class="sec-head">
+    <span class="sec-badge">문제 1</span>
+    <div class="sec-title">구약과 신약 사이에 어떤 일들이 있었나요?</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num-badge">문제 1</div>
+      <div class="q-title-text">
+        구약과 신약 사이에 어떤 일들이 있었어요?
+        <span class="q-open-badge">OPEN QUESTION</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-scenario">
+        📌 상황 설정: 이웃집 고등학생이 찾아와서 물었어요. "선생님, 구약과 신약 사이에 무슨 일들이 있었어요?" — 이 학생이 알아들을 수 있는 수준으로, 25분 동안 이야기해 준다고 생각하며 답지에 써 주세요. 친절하게, 그리스도의 사랑으로.
+      </div>
+      <div class="q-time-chip">⏱ 목표 분량: 25분 분량의 구두 설명 = 약 800~1,000자 서술</div>
+      <div class="q-guide-title">📋 교수님 제시 가이드라인 (반드시 포함)</div>
+      <div class="q-guide-item"><strong>흐름 중심으로:</strong> 날짜·숫자보다 역사의 흐름과 그 흐름이 만들어낸 텐션(긴장)에 집중</div>
+      <div class="q-guide-item"><strong>페르시아 → 알렉산더 → 헬레니즘 → 로마:</strong> 고레스 왕의 귀환 허용, 알렉산더의 정권, 헬레니즘 문화(언어·도로) 확산 흐름</div>
+      <div class="q-guide-item"><strong>마카비 혁명 ★ 반드시 포함:</strong> 마카비 혁명 이후 메시아 기대가 급격히 높아짐. 비슷한 일이 반복되면서 메시아 대망 고조</div>
+      <div class="q-guide-item"><strong>하스몬 왕조:</strong> 자기들끼리 내분 → 로마가 힘을 얻고 그 틈을 타 헤롯 대왕 등장</div>
+      <div class="q-guide-item"><strong>유대인들의 세 가지 반응:</strong> ① 로마와 결합(적응) ② 완전 저항(열심당/시카리) ③ 은둔(쿰란 공동체)</div>
+      <div class="q-guide-item"><strong>바리새인 · 사두개인:</strong> 이 그룹들이 등장하게 된 배경과 특징도 언급</div>
+      <div class="q-guide-item"><strong>오늘 수업 내용도 활용:</strong> 오늘 사회인류학 강의에서 배운 로마-유대 세계 특성도 연결 가능</div>
+    </div>
+  </div>
+
+  <div class="block purple-item">
+    <div class="block-title purple">📝 답안 구성 참고 — 핵심 흐름 키워드</div>
+    <div class="block-text">
+      <strong style="color:var(--gold);">① 페르시아 지배기</strong> — 바빌론 포로 귀환, 고레스 왕 칙령, 성전 재건<br>
+      <strong style="color:var(--gold);">② 알렉산더 대왕</strong> — 헬레니즘 문화 확산, 코이네 헬라어(신약 언어의 배경), 도로망 발달 → 복음 전파의 준비<br>
+      <strong style="color:var(--gold);">③ 마카비 혁명 ★</strong> — 헬레니즘 강제 동화에 저항, 수전절(하누카)의 유래, 메시아 기대 급증<br>
+      <strong style="color:var(--gold);">④ 하스몬 왕조</strong> — 독립 유지 but 내분, 로마의 개입 기회<br>
+      <strong style="color:var(--gold);">⑤ 로마 지배 (BC 63~)</strong> — 폼페이우스의 예루살렘 점령, 헤롯 대왕 등장, 식민지 압제<br>
+      <strong style="color:var(--gold);">⑥ 유대인의 반응</strong> — 바리새인(율법 준수·민족 정체성), 사두개인(로마와 협력), 열심당(무력 저항), 에세네파(은둔)<br>
+      <strong style="color:var(--gold);">⑦ 메시아 기대의 절정</strong> → 예수님 탄생의 시대적 배경
+    </div>
+  </div>
+
+  <!-- SECTION 2: 문제 2 -->
+  <div class="sec-head">
+    <span class="sec-badge">문제 2</span>
+    <div class="sec-title">마태·마가·누가복음, 비슷한 것 같은데 조금씩 다르기도 하고요</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num-badge">문제 2</div>
+      <div class="q-title-text">
+        마태, 마가, 누가복음이 있잖아요. 읽을 때 비슷한 것 같은데, 조금씩 다르기도 하고요. 그것에 대해 설명해 주시면 잘 배울게요.
+        <span class="q-open-badge">OPEN QUESTION</span>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="q-scenario">
+        📌 상황 설정: 문제 1과 같은 고등학생이 쭈뼛쭈뼛하며 추가 질문을 해요. 마가복음까지 구체적으로 배운 내용은 상세히, 누가복음은 공통된 내용 위주로 포함 가능. 역시 25분 분량으로 서술.
+      </div>
+      <div class="q-time-chip">⏱ 목표 분량: 25분 분량의 구두 설명 = 약 800~1,000자 서술</div>
+      <div class="q-guide-title">📋 교수님 제시 가이드라인</div>
+      <div class="q-guide-item"><strong>먼저 "왜 기록되었는가":</strong> 교수님 말씀 — 가장 먼저 떠오르는 키워드는 "필요(Need)". 복음서가 기록된 것은 필요가 생겼기 때문</div>
+      <div class="q-guide-item"><strong>마가복음 우선성:</strong> 마가복음이 먼저 적혀지고, 마태와 누가복음이 마가를 참조해 기록됨 (두 자료 가설 / 공관복음 문제)</div>
+      <div class="q-guide-item"><strong>비슷한 이유 + 다른 이유 모두:</strong> 공통 자료 사용(비슷함) + 각 복음서의 수신자·저자 의도 차이(다름)</div>
+      <div class="q-guide-item"><strong>숫자·장수보다 특징 중심:</strong> 몇 장, 어느 구절보다 각 복음서의 핵심 특징과 신학적 강조점을 설명</div>
+      <div class="q-guide-item"><strong>누가복음:</strong> 구체적으로 배우지 않았어도 공통점 위주로 포함 가능</div>
+    </div>
+  </div>
+
+  <div class="block purple-item">
+    <div class="block-title purple">📝 답안 구성 참고 — 공관복음 핵심 포인트</div>
+    <div class="block-text">
+      <strong style="color:var(--gold);">왜 기록되었나?</strong> — 목격자 세대가 줄어들고, 복음이 지역 교회들로 확산되면서 기록의 "필요"가 생김<br><br>
+      <strong style="color:var(--gold);">왜 비슷한가?</strong> — 공관복음 문제(Synoptic Problem): 두 자료 가설(마가 + Q 자료) → 마태·누가가 마가를 참조 + 공통 자료(Q) 사용<br><br>
+      <strong style="color:var(--gold);">왜 다른가?</strong>
+      <table style="margin-top:8px; font-size:7.5pt;">
+        <thead>
+          <tr><th>복음서</th><th>수신자</th><th>핵심 특징</th><th>예수님 묘사</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-head">마태복음</td><td>유대인 그리스도인</td><td>5대 강화, 수미상관법(임마누엘), 구약 인용 多</td><td>새 모세, 다윗의 자손·왕</td></tr>
+          <tr><td class="td-head">마가복음</td><td>로마(이방인) 그리스도인</td><td>수난 이야기 1/3, 샌드위치 기법, 두 결말 문제</td><td>고난받는 종, 섬기러 오신 분</td></tr>
+          <tr><td class="td-head">누가복음</td><td>데오빌로(이방인 신자)</td><td>평지수훈, 여성·세리·소외계층 강조, 사도행전과 2부작</td><td>인자, 소외계층의 구원자</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: 문제 3 -->
+  <div class="sec-head">
+    <span class="sec-badge">문제 3</span>
+    <div class="sec-title">신약성서 I을 배우면서 나에게 도움이 된 것 네 가지</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num-badge">문제 3</div>
+      <div class="q-title-text">지금까지 신약성서 I을 배우면서 나에게 도움이 된 것은 네 가지는요.</div>
+    </div>
+    <div class="q-body">
+      <div class="q-guide-title">📋 교수님 의도 및 가이드라인</div>
+      <div class="q-guide-item"><strong>진솔하게 쓸 것:</strong> "정말 도움이 되는 걸 발견해보세요. 그게 목적이에요."</div>
+      <div class="q-guide-item"><strong>정답 없음:</strong> 교수님이 학습자의 생각을 "사는" 문제. 점수를 위한 것이 아니라 실질적인 도움을 찾는 것이 목표</div>
+      <div class="q-guide-item"><strong>서술 형식:</strong> 반말체 또는 존댓말, 간략하거나 상세하거나 — 자유롭게. 단, 진심을 담아서</div>
+      <div class="q-guide-item"><strong>교회·사역과 연결:</strong> 배운 것이 설교·교육·상담에 어떻게 도움이 되는지 연결하면 더욱 좋음</div>
+    </div>
+  </div>
+
+  <div class="block teal-item">
+    <div class="block-title teal">💡 답안 아이디어 (개인 상황에 맞게 변용)</div>
+    <div class="block-text dim">
+      ① 복음서들이 왜 각기 다른지 이해하게 됨 → 성경 전체의 통일성과 다양성을 동시에 보는 시각<br>
+      ② 사회인류학적 관점 → 예수님의 비유와 행동을 당시 문화 맥락에서 더 생생하게 이해<br>
+      ③ 마카비 혁명·헤롯 대왕 등 중간기 역사 → 신약 배경을 구체적으로 파악하게 됨<br>
+      ④ 공관복음 문제(마가 우선성) → 복음서 기록의 과정과 필요를 이해하게 됨<br>
+      <span style="font-size:7.5pt; color:var(--text2);">위 예시는 참고용. 본인의 실제 경험과 언어로 작성하세요.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 문제 4 -->
+  <div class="sec-head">
+    <span class="sec-badge">문제 4</span>
+    <div class="sec-title">신약성경을 읽으면서 궁금한 것 네 가지 질문</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num-badge">문제 4</div>
+      <div class="q-title-text">신약성경을 읽으면서 궁금한 것 네 가지 질문.</div>
+    </div>
+    <div class="q-body">
+      <div class="q-guide-title">📋 교수님 의도 및 가이드라인</div>
+      <div class="q-guide-item"><strong>질문만 쓰면 됨:</strong> 답을 찾는 것이 아니라 질문 자체를 쓰는 문제. "정답은 없어요."</div>
+      <div class="q-guide-item"><strong>질문하는 능력이 핵심:</strong> "진리탐구는 질문에서부터 나와요." — 어떤 질문이라도 괜찮음</div>
+      <div class="q-guide-item"><strong>단, 질문의 수준:</strong> "이 질문을 듣고 알아들을 수 있겠다 정도"로 설명이 가능한 질문이어야 함</div>
+      <div class="q-guide-item"><strong>다음 시간 활용:</strong> 수집된 질문들은 다음 수업에서 익명으로 함께 나눌 예정</div>
+    </div>
+  </div>
+
+  <div class="block gold-item">
+    <div class="block-title gold">💡 질문 작성 아이디어 (개인 상황에 맞게 변용)</div>
+    <div class="block-text dim">
+      ① 마가복음의 두 결말(16:8 vs 긴 결말) 중 어느 것이 원본인가? 그리고 그것이 신앙에 어떤 의미를 가지는가?<br>
+      ② 예수님이 메시아 신분을 숨기신 이유는 무엇인가?(메시아 비밀)<br>
+      ③ 공관복음이 마가복음에 의존한다면, 마태·누가복음은 왜 따로 기록될 필요가 있었는가?<br>
+      ④ 사회인류학적으로 볼 때, 현대 한국 교회는 집단주의와 개인주의 중 어느 문화에 더 가까운가?<br>
+      <span style="font-size:7.5pt; color:var(--text2);">위 예시는 참고용. 본인이 실제로 궁금한 것을 진솔하게 쓰세요.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 5: 전체 준비 전략 -->
+  <div class="sec-head">
+    <span class="sec-badge purple">준비 전략</span>
+    <div class="sec-title purple">중간고사 준비 전략</div>
+    <div class="sec-line purple"></div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sum-title">★ 교수님이 강조하신 핵심 준비 방법</div>
+
+    <div class="strategy-item">
+      <div class="st-num">1</div>
+      <div class="st-body">
+        <div class="st-title">1·2번 문제: 실제 교회 청소년에게 가르치기</div>
+        <div class="st-desc">답안을 쓰기 전에, 실제로 청소년(고등학생)에게 25분 동안 이야기해 주는 장면을 상상하며 정리하세요. 주일이나 다음 주 사역에서 실제로 한 번 전달해 보는 것을 추천드립니다.</div>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="st-num">2</div>
+      <div class="st-body">
+        <div class="st-title">흐름 중심 정리 (날짜·숫자 No, 맥락 Yes)</div>
+        <div class="st-desc">중간기 역사는 날짜나 세세한 숫자보다 <strong>페르시아→헬레니즘→마카비→하스몬→로마</strong>의 흐름과 그 흐름이 만들어낸 사회적 긴장을 중심으로 정리하세요.</div>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="st-num">3</div>
+      <div class="st-body">
+        <div class="st-title">하브루타식 상호 토론으로 준비</div>
+        <div class="st-desc">짝을 지어 서로에게 설명해 보는 것이 가장 효과적입니다. 한 사람이 고등학생 역할, 한 사람이 선생님 역할을 하며 1·2번 답을 실제로 말해보세요.</div>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="st-num">4</div>
+      <div class="st-body">
+        <div class="st-title">3·4번 문제: 진솔함이 점수</div>
+        <div class="st-desc">정답을 찾으려 하지 말고, 실제로 배우면서 도움이 된 것과 진짜 궁금한 것을 정리하세요. 교수님이 평가하시는 것은 "학생의 생각"입니다.</div>
+      </div>
+    </div>
+
+    <div class="strategy-item">
+      <div class="st-num">5</div>
+      <div class="st-body">
+        <div class="st-title">마카비 혁명은 반드시 포함</div>
+        <div class="st-desc">교수님이 명시적으로 강조: "마카비 혁명은 꼭 넣으세요." 메시아 기대 고조와의 연결 고리가 핵심입니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 문제 요약 테이블 -->
+  <div class="sub-head" style="margin-top:20px;">문제 한눈에 보기</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:8%;">번호</th>
+        <th style="width:40%;">문제 내용</th>
+        <th style="width:15%;">성격</th>
+        <th style="width:15%;">예상 분량</th>
+        <th>핵심 포인트</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-c td-exam">1번</td>
+        <td>구약과 신약 사이에 어떤 일들이 있었나요?</td>
+        <td class="td-c"><span class="badge open">OPEN</span></td>
+        <td class="td-c">25분 분량</td>
+        <td>중간기 역사 흐름, <strong>마카비 혁명 필수</strong>, 메시아 기대</td>
+      </tr>
+      <tr>
+        <td class="td-c td-exam">2번</td>
+        <td>마태·마가·누가복음, 비슷하지만 다른 이유는?</td>
+        <td class="td-c"><span class="badge open">OPEN</span></td>
+        <td class="td-c">25분 분량</td>
+        <td>공관복음 문제, 마가 우선성, 각 복음서 수신자·특징</td>
+      </tr>
+      <tr>
+        <td class="td-c td-exam">3번</td>
+        <td>신약성서 I에서 나에게 도움이 된 것 4가지</td>
+        <td class="td-c"><span class="badge teal">성찰형</span></td>
+        <td class="td-c">자유 서술</td>
+        <td>진솔함, 교회 사역과의 연결, 정답 없음</td>
+      </tr>
+      <tr>
+        <td class="td-c td-exam">4번</td>
+        <td>신약성경 읽으면서 궁금한 질문 4가지</td>
+        <td class="td-c"><span class="badge teal">질문형</span></td>
+        <td class="td-c">질문만</td>
+        <td>답 불필요, 알아들을 수 있는 수준의 질문, 다음 시간 공유 예정</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div><!-- end content -->
+</body>
+</html>
