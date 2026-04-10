@@ -155,7 +155,9 @@ const SITE_DATA = {
         { week: 5, title: "바울 이후 기독교 — 지리적 확장·선교·핍박과 변증", date: "2026.4.3", files: [
 	   { type: "notes", label: "강의노트", href: "output/교회사/week05.html" }
 	  ] },
-        { week: 6, title: "교회 회의와 교리 형성", date: "2026.04", files: [] },
+        { week: 6, title: "8장 함께 사는 삶", date: "2026.04", files: [
+	   { type: "notes", label: "강의노트", href: "output/교회사/week06.html" }
+	  ] },
         { week: 7, title: "수도원 운동과 중세 교회", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "스콜라 신학", date: "2026.05", files: [] },

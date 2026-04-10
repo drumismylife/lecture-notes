@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 6주차: 8장 함께 사는 삶</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:            #14100a;
+  --card:          #1e1710;
+  --card2:         #261e14;
+  --card3:         #1a140e;
+  --gold:          #c4955a;
+  --gold2:         #d4a870;
+  --gold-dim:      #7a5c30;
+  --ox-green:      #5a9e6a;
+  --ox-green-bg:   #0b1e10;
+  --ans-blue:      #6a9fd4;
+  --ans-blue-bg:   #0a1622;
+  --essay-amber:   #c49a3c;
+  --essay-amber-bg:#1a1200;
+  --prof-border:   #6b5a40;
+  --text:          #f0ebe0;
+  --text2:         #c8b896;
+  --text3:         #7a6a50;
+  --border:        #2e2318;
+  --border2:       #3a2e20;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);font-size:9.2pt;line-height:1.72;}
+
+/* HEADER */
+.page-header{background:linear-gradient(140deg,#0d0a06 0%,#1a1208 55%,#221608 100%);border-bottom:2px solid var(--gold-dim);padding:11mm 15mm 9mm;position:relative;overflow:hidden;}
+.page-header::before{content:'Historia Ecclesiae · VI';position:absolute;right:8mm;top:5mm;font-family:'Crimson Pro',serif;font-size:32pt;font-style:italic;color:rgba(196,149,90,.05);letter-spacing:.04em;white-space:nowrap;pointer-events:none;}
+.header-tag{display:inline-block;background:var(--gold-dim);color:#f0e8d0;font-size:6.5pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 10px;border-radius:2px;margin-bottom:3mm;}
+.header-title{font-family:'Noto Serif KR',serif;font-size:20pt;font-weight:700;color:var(--gold);line-height:1.2;margin-bottom:2mm;}
+.header-sub{font-family:'Crimson Pro',serif;font-size:12pt;font-style:italic;color:var(--text2);margin-bottom:3.5mm;}
+.header-meta{display:flex;gap:3mm;flex-wrap:wrap;}
+.meta-pill{background:rgba(196,149,90,.1);border:1px solid rgba(196,149,90,.22);color:var(--text2);font-size:7pt;padding:2px 9px;border-radius:20px;}
+
+/* TABS */
+.tab-bar{display:flex;background:#0e0b07;border-bottom:1px solid var(--border);padding:0 12mm;position:sticky;top:0;z-index:100;}
+.tab-btn{padding:9px 16px;font-size:8pt;font-weight:600;color:var(--text3);cursor:pointer;border:none;background:transparent;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;letter-spacing:.04em;}
+.tab-btn:hover{color:var(--text2);}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-panel{display:none;padding:8mm 15mm 16mm;}
+.tab-panel.active{display:block;}
+
+/* SECTION */
+.sec-head{display:flex;align-items:center;gap:3mm;margin:9mm 0 4mm;}
+.sec-badge{background:var(--gold-dim);color:#f0e8d0;font-size:6.5pt;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:.06em;white-space:nowrap;}
+.sec-title{font-family:'Noto Serif KR',serif;font-size:12.5pt;font-weight:700;color:var(--gold);}
+.sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--gold-dim),transparent);}
+.sub-head{font-size:9pt;font-weight:700;color:var(--gold2);margin:5mm 0 2.5mm;padding-left:3.5mm;border-left:3px solid var(--gold-dim);}
+
+/* TEXT */
+p{margin-bottom:2mm;color:var(--text);}
+ul,ol{margin-left:5mm;margin-bottom:2mm;}
+li{margin-bottom:1.5mm;color:var(--text);}
+li::marker{color:var(--gold2);}
+strong{color:var(--gold2);font-weight:700;}
+em{color:var(--text2);font-style:italic;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:5mm 6mm;margin-bottom:3.5mm;}
+.card.accent{border-left:3px solid var(--gold);}
+.card.event{border-left:3px solid var(--gold2);}
+.card.doctrine{border-left:3px solid var(--ans-blue);}
+.card-title{font-size:9pt;font-weight:700;color:var(--gold);margin-bottom:2.5mm;display:flex;align-items:center;gap:2mm;}
+.badge-sm{font-size:6pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:2px;}
+.badge-event{background:#2a1e08;color:var(--gold2);border:1px solid var(--gold-dim);}
+.badge-doctrine{background:#0a1828;color:var(--ans-blue);border:1px solid #2a4060;}
+
+/* PROF BLOCK */
+.prof-block{background:#181210;border-left:2px solid var(--prof-border);border-radius:0 5px 5px 0;padding:4mm 5mm;margin:3mm 0;}
+.prof-block::before{content:'📌 교수 강조';display:block;font-size:6.2pt;font-weight:700;color:var(--prof-border);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2mm;}
+.prof-text{font-family:'Crimson Pro',serif;font-style:italic;font-size:10.5pt;color:var(--text2);line-height:1.78;}
+.prof-text b{color:var(--gold);font-style:normal;}
+
+/* COMPARE / CLASH */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:2mm;}
+.compare-card{background:var(--card2);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.compare-head{padding:3mm 4mm;font-size:8.5pt;font-weight:700;}
+.compare-head.a{background:#0e1e12;color:#7ab87a;border-bottom:1px solid #1a2e1a;}
+.compare-head.b{background:#1e0e0e;color:#d47a6a;border-bottom:1px solid #2e1a1a;}
+.compare-body{padding:3mm 4mm;font-size:8pt;color:var(--text2);line-height:1.62;}
+.clash-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:3mm 0;}
+.clash-side{background:var(--card3);border:1px solid var(--border);border-radius:4px;padding:3mm 4mm;}
+.clash-label{font-size:7pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2mm;}
+.clash-a .clash-label{color:#7ab87a;}
+.clash-b .clash-label{color:#d47a6a;}
+.clash-body{font-size:8pt;color:var(--text2);line-height:1.62;}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:8pt;margin-bottom:3.5mm;}
+thead tr{background:rgba(196,149,90,.15);}
+thead th{padding:5px 7px;font-weight:700;font-size:7.5pt;color:var(--gold);text-align:left;border:1px solid var(--border2);}
+td{padding:5px 7px;border:1px solid var(--border);vertical-align:top;line-height:1.58;color:var(--text2);}
+tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+.td-b{font-weight:700;color:var(--text);}
+
+/* EXAM */
+.exam-section-title{font-size:8pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:5mm 0 2.5mm;padding-bottom:1.5mm;border-bottom:1px solid var(--border);}
+.exam-section-title.ox{color:var(--ox-green);}
+.exam-section-title.sa{color:var(--ans-blue);}
+.exam-section-title.es{color:var(--essay-amber);}
+.exam-item{border-radius:5px;padding:4mm 5mm;margin-bottom:2.5mm;cursor:pointer;transition:opacity .15s;}
+.exam-item:hover{opacity:.9;}
+.exam-item.ox-item{background:var(--ox-green-bg);border:1px solid rgba(90,158,106,.25);}
+.exam-item.sa-item{background:var(--ans-blue-bg);border:1px solid rgba(106,159,212,.25);}
+.exam-item.es-item{background:var(--essay-amber-bg);border:1px solid rgba(196,154,60,.25);}
+.exam-q{display:flex;align-items:flex-start;gap:2.5mm;font-size:8.5pt;font-weight:600;color:var(--text);line-height:1.6;}
+.exam-badge{font-size:6pt;font-weight:700;letter-spacing:.08em;padding:1px 6px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.badge-ox{background:var(--ox-green);color:#fff;}
+.badge-sa{background:var(--ans-blue);color:#fff;}
+.badge-es{background:var(--essay-amber);color:#fff;}
+.exam-answer{display:none;margin-top:2.5mm;padding-top:2.5mm;border-top:1px dashed var(--border2);font-size:8.2pt;color:var(--text2);line-height:1.68;}
+.exam-answer.show{display:block;}
+.exam-answer p{margin-bottom:1.5mm;}
+.answer-label{font-size:6.5pt;font-weight:700;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5mm;}
+.ox-mark{font-size:22pt;font-weight:700;line-height:1.2;}
+.ox-mark.o{color:var(--ox-green);}
+.ox-mark.x{color:#d47a6a;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:10mm;}
+.timeline::before{content:'';position:absolute;left:4mm;top:0;bottom:0;width:1.5px;background:linear-gradient(to bottom,var(--gold-dim),transparent);}
+.tl-item{position:relative;margin-bottom:5.5mm;padding-left:4mm;}
+.tl-item::before{content:'';position:absolute;left:-7mm;top:4px;width:6px;height:6px;border-radius:50%;background:var(--gold2);border:1.5px solid var(--bg);}
+.tl-year{display:inline-block;background:rgba(196,149,90,.15);color:var(--gold2);font-family:'Crimson Pro',serif;font-size:9pt;font-weight:600;padding:1px 8px;border-radius:3px;border:1px solid var(--gold-dim);margin-bottom:1.5mm;}
+.tl-era-badge{display:inline-block;font-size:6pt;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:2mm;letter-spacing:.06em;text-transform:uppercase;}
+.era-catholic{background:#2e0e0e;color:#c47a7a;border:1px solid #4e1e1e;}
+.era-roman{background:#2a1e08;color:#c4a060;border:1px solid #4a3010;}
+.tl-event{font-size:8.5pt;font-weight:700;color:var(--text);margin-bottom:1mm;}
+.tl-person{font-size:7.5pt;color:var(--gold2);margin-bottom:1mm;}
+.tl-meaning{font-size:7.8pt;color:var(--text2);line-height:1.6;}
+
+/* KEY POINTS */
+.keypoints{background:rgba(196,149,90,.07);border:1px solid rgba(196,149,90,.2);border-radius:6px;padding:5mm 6mm;margin-top:6mm;}
+.keypoints-title{font-family:'Noto Serif KR',serif;font-size:10pt;font-weight:700;color:var(--gold);margin-bottom:3mm;}
+.kp-item{display:flex;gap:3mm;align-items:flex-start;margin-bottom:2.5mm;}
+.kp-num{background:var(--gold-dim);color:#f0e8d0;font-size:7pt;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.kp-text{font-size:8.5pt;color:var(--text2);line-height:1.65;}
+.kp-text strong{color:var(--text);}
+
+@media print{
+  body{background:#14100a !important;}
+  .tab-bar{display:none;}
+  .tab-panel{display:block !important;page-break-before:always;}
+  .tab-panel:first-of-type{page-break-before:avoid;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{size:A4;margin:15mm 12mm;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-tag">교회사개론 I · 6주차</div>
+  <div class="header-title">8장 함께 사는 삶</div>
+  <div class="header-sub">Vita Communis Ecclesiae — 가톨릭 기독교시대 II · 2026.04.10</div>
+  <div class="header-meta">
+    <span class="meta-pill">담당: 김태식 교수</span>
+    <span class="meta-pill">가톨릭시대 100–313 AD</span>
+    <span class="meta-pill">침례 · 성찬 · 직제 · 이단</span>
+    <span class="meta-pill">중간고사 범위 4/24</span>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('exam',this)">✏️ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline',this)">📜 연대기</button>
+</div>
+
+<!-- ═══════════════════════════════════
+     TAB 1  강의노트
+═══════════════════════════════════ -->
+<div id="tab-notes" class="tab-panel active">
+
+  <!-- 도입 -->
+  <div class="sec-head">
+    <span class="sec-badge">도입</span>
+    <span class="sec-title">이 시기는 교회의 타락인가, 성장인가?</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card accent">
+    <div class="card-title"><span class="badge-sm badge-event">논쟁</span>두 학자의 상반된 평가</div>
+    <ul>
+      <li><strong>루돌프 좀(Rudolph Sohm)</strong>: 교회가 순수한 영적 기관으로 시작했지만 2세기 동안 예수의 의도에서 벗어난 <strong>법의 교회(a church of law)</strong>가 되었다고 주장</li>
+      <li><strong>아돌프 하르나크(Adolph Harnack)</strong>: 근대 법 개념을 교회에 부여하는 것은 부당하다 비판. 가톨릭리즘을 <em>"율법과 같이 고정된 사도 전통의 교회"</em>로 정의하고 <strong>헬레니즘화(Hellenization)</strong>의 발달이 200년경 분명히 시작되었다고 주장</li>
+      <li><strong>저자(셀리)의 입장</strong>: 타락의 측면도 있으나, 혼합주의 세계 속에서 <strong>언약 공동체의 정체성을 유지</strong>해야 하는 이중 도전에 직면한 시기</li>
+    </ul>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">가톨릭(Catholic)의 본래 의미는 <b>'보편적'</b>이다. 예수님께서 사도들에게 전하신 복음은 단 하나의 보편적이고 유일한 진리 체계 — 이것이 <b>사도적 전통(Apostolic Tradition)</b>으로서의 가톨릭이다. 이것이 헬레니즘화되면서 신학적 문제들이 발전했고, 그에 대응하는 교리문답·침례·주의 만찬·신조·사도적 사역 같은 제도 형식들이 생겨났다. 이단들이 등장할 때마다 교리가 정립되고 신조화되었다.</div>
+  </div>
+
+  <!-- § 1 침례 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 1</span>
+    <span class="sec-title">침례 (Βάπτισμα, Baptisma): 군인의 맹세</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">A. 유아세례의 시작 — 언제, 어떻게?</div>
+
+  <div class="card doctrine">
+    <div class="card-title"><span class="badge-sm badge-doctrine">교리 논쟁</span>유아세례 vs. 신자침례</div>
+    <div class="clash-grid">
+      <div class="clash-side clash-a">
+        <div class="clash-label">유아세례파 근거</div>
+        <div class="clash-body">· 행 11:14; 16:15,33; 18:8 — "가족" 구절에 어린이 포함 추정<br>· 유대교 개종자 할례 관행이 침례로 대체된다고 주장<br>· 폴리캅·이레네우스: 그리스도는 어린이를 포함한 모든 사람을 위해 오셨다<br>· <strong>터툴리안(206년)</strong>이 최초의 명확한 문헌 증거 제공</div>
+      </div>
+      <div class="clash-side clash-b">
+        <div class="clash-label">신자침례 (원형)</div>
+        <div class="clash-body">· <strong>디다케(Didache, ~100년)</strong>: "흐르는 물에 침례를 주라" 명시<br>· 초기 기독교에서 유아세례를 행했다는 직접 증거 없음<br>· 약식 세례는 이후 정황상 허용된 것<br>· <em>침례가 원형 — 교수 강조</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">침례는 로마 군인이 군대에 입대할 때 하는 <b>서약식(sacramentum)</b>과 같다. 우리는 하나님의 군대(army of Christ)로 입대하는 것이며, 사탄과 그 무리와의 전쟁에서 이미 승리했다는 확신의 의식이었다. 단순한 의식이 아니었다.<br><br>사도신경의 모든 항목은 이단들에 대한 직접 응답이다: <b>"천지를 만드신 하나님 아버지"</b> → 영지주의·플라톤 철학의 이원론 반박. <b>"동정녀 마리아에게 나시고"</b> → 예수님 인성 논쟁. <b>"본디오 빌라도에게 고난을 받으사"</b> → 실제 역사 인물에 의한 실제 고난(가현설 반박). 사도신경은 사도가 쓴 것이 아니라 110년경부터 항목이 하나씩 추가되어 6~7세기에 최종 확정된 것이다.</div>
+  </div>
+
+  <div class="sub-head">B. 침례의 네 가지 신학적 의미</div>
+
+  <div class="card accent">
+    <ul>
+      <li>① <strong>귀신 축출(Exorcism)</strong>: 그리스도의 영을 통한 악마 세력에 대한 승리 (이그나티우스, Justin, Dial. 116)</li>
+      <li>② <strong>죄 사함(Forgiveness)</strong>: 침례요한의 전통 계승 (막 1:4; 마 3:6; 눅 3:3). 주로 <strong>서방 교회</strong>에서 발달 — 동방은 인간 본성을 선하게, 서방은 헬라 이원론의 영향으로 죄를 더 강조</li>
+      <li>③ <strong>거듭남·중생(Regeneration)</strong>: 요한복음·벧전·저스틴·바나바 서신 — "침례에 의해 거듭남이 주어진다"</li>
+      <li>④ <strong>이레네우스의 총괄갱신론(Recapitulation Theory)</strong>: 아담의 범죄 → 인류에 원죄. 둘째 아담 그리스도의 순종 → 온 인류 속죄. 침례는 <em>"중생의 놋대야(the laver of regeneration)"</em></li>
+    </ul>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">초대교회는 침례를 <b>실제로 구원과 중생을 가져오는 행위</b>로 믿었다. 유아세례도 단순한 부모의 헌신 다짐이 아니라, 침례를 통해 하나님의 자녀가 되고 구원이 온다고 믿었다. 그래서 중세에 유아가 세례를 받지 못하고 죽으면 지옥에 간다고 믿었고, 교황의 미사 폐쇄령이 그토록 큰 공포가 되었던 것이다.</div>
+  </div>
+
+  <!-- § 2 성찬 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 2</span>
+    <span class="sec-title">성례전과 예배 (Εὐχαριστία, Eucharistia): 계약적 재생</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">A. 성찬식의 두 가지 핵심 신학 주제</div>
+
+  <div class="card doctrine">
+    <div class="card-title"><span class="badge-sm badge-doctrine">교리</span>희생(Sacrifice) vs. 실제 임재(Real Presence)</div>
+    <p style="margin-bottom:2.5mm;">침례가 첫 계약 소유라면, 성찬식은 그 서약을 <strong>반복·갱신</strong>하는 것. 침례받은 자에게만 허용 (플리니의 편지, 112년)</p>
+    <div class="clash-grid">
+      <div class="clash-side clash-a">
+        <div class="clash-label">희생 (Sacrifice)</div>
+        <div class="clash-body">구약의 희생제를 대신하는 "참된 희생·봉헌(oblation)". 그리스도의 죽음을 표시.<br><strong>클레멘트</strong>: 구약 희생제의 성취로 주장</div>
+      </div>
+      <div class="clash-side clash-b">
+        <div class="clash-label">실제 임재 (Real Presence)</div>
+        <div class="clash-body"><strong>이그나티우스</strong>: 빵·포도주는 <em>"불멸의 약, 해독제"</em> (Eph. 20.2)<br><strong>저스틴</strong>: 사제의 축사 시 신적 로고스가 본질 변형 → <b>본질변형설 기원</b> (1 Apol. 66)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">중세까지도 성찬식은 단순한 의식이 아니었다. 그래서 교황이 가진 두 가지 강력한 무기가 있었다.<br><br>
+    <b>① 개인 파문령</b>: 성경책을 닫는 것. 파문당한 왕은 모든 법적 효력이 상실 — 봉신들의 맹세 효력도 사라짐. 성찬식 불가. 교구 교회에서 장례식을 치르지 못하고, 교구 공동묘지에 묻히지 못함.<br>
+    <b>② 전 미사 폐쇄령</b>: 모든 교회를 폐쇄. 유아세례 불가(세례 못 받은 유아가 죽으면 지옥 간다고 믿음), 장례식 불가, 성찬식 불가. 황제들이 파문령을 당하면 교황에게 무릎 꿇고 용서를 빌 수밖에 없었던 이유가 여기에 있다.</div>
+  </div>
+
+  <div class="sub-head">B. 예배 형식의 주요 변화 (2세기)</div>
+
+  <div class="card event">
+    <div class="card-title"><span class="badge-sm badge-event">사건</span>세 가지 핵심 변화</div>
+    <ul>
+      <li>① <strong>달력 전환</strong>: 유대인 달력(안식일) → 로마 달력(dies Solis, 일요일). 플리니의 편지(112년)에 이미 언급. 태양신 Sol Invictus 명칭을 꺼렸으나 수용. <strong>321년 로마 제국이 법정 공휴일로 지정</strong></li>
+      <li>② <strong>성찬식과 애찬식(Agape) 분리</strong>: 고전 11:17-22의 남용 문제(부자들이 먼저 음식 먹어버림) → 분리 압력. 플리니 편지: 그리스도인들이 저녁에 따로 음식을 먹기 위해 모임. 새벽 모임에 대한 소문(평화의 키스, 살과 피를 먹음)이 박해의 빌미가 됨</li>
+      <li>③ <strong>예배 구조 형성</strong>: 저스틴이 로마 주일 예배 순서 최초 기술. "말씀의 예배(service of Word)" + 성찬식 결합. 예비신자(catechumens)와 신자 미사가 점차 구분됨</li>
+    </ul>
+  </div>
+
+  <!-- § 3 일상 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 3</span>
+    <span class="sec-title">일상적 삶을 지탱한 것들</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">A. 기도 · 금식 · 달력</div>
+  <div class="card">
+    <ul>
+      <li><strong>기도</strong>: 하루 3회 (오전 9시·정오·오후 3시). 특별 기도 — 해질녘·취침 전</li>
+      <li><strong>금식</strong>: 주 2회 (수·금요일 / 유대인은 화·목요일). 몬타누스주의자들은 재림 임박 신앙으로 횟수 증가</li>
+      <li><strong>달력</strong>: 처음에는 유대인 달력 → 2세기 중엽부터 로마 달력 수용. 321년 일요일 법정 공휴일 지정</li>
+    </ul>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">금식은 가장 기본적인 욕망 억제다. 오리겐이 스스로를 거세하고 옷 한 벌·맨발·바닥 취침으로 살았던 것도 같은 맥락이다. 제롬(Jerome)은 히브리어 공부에 모든 에너지를 쏟았더니 성적 욕망이 사라지더라 했고, 그 결과 히브리어 박사가 되어 성경을 번역하게 된다. 금욕주의는 중세까지 기독교의 주된 흐름이었다. 1970~80년대 한국에서 순복음 신앙이 퍼지면서 그나마 삶을 긍정적으로 보는 신학이 자리잡게 되었다.</div>
+  </div>
+
+  <div class="sub-head">B. 부활절(Πάσχα, Pascha) 날짜 논쟁</div>
+
+  <div class="card event">
+    <div class="card-title"><span class="badge-sm badge-event">사건</span>부활절 날짜 논쟁 — 최종 결착은 니케아(325)</div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-head a">소아시아파</div>
+        <div class="compare-body">유대인 유월절 기준 <strong>Nisan 14일</strong>. 수난절·부활절 구분 없이 지킴. 고대 전례 주장</div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-head b">로마파</div>
+        <div class="compare-body">유월절 다음 <strong>첫 번째 일요일</strong>에 부활절 준수. 2세기 중엽부터 소아시아 회중에 강요</div>
+      </div>
+    </div>
+    <p style="font-size:8pt;color:var(--text2);margin-top:1mm;">아니케투스(155-166) 강요 → 폴리캅 중재 → 빅토르(189-199) 재격화·소아시아 교인 추방 → 이레네우스 중재 → <strong>325년 니케아 공의회에서 로마 관습으로 최종 확정</strong></p>
+  </div>
+
+  <div class="sub-head">C. 성령 재림일 · 교회 달력 · 크리스마스</div>
+  <div class="card">
+    <ul>
+      <li><strong>터툴리안(3세기 초)</strong>: 개종자는 부활절 일요일과 성령 재림일에 침례를 받아야 한다 → 초대·중세에 부활절·크리스마스가 주된 침례 시기</li>
+      <li><strong>순교자 기념일</strong>: 폴리캅 순교(155년)를 기점으로 교회 달력에 수록 시작 → 이후 성인 목록(saints calendar)으로 발전</li>
+      <li><strong>크리스마스 12월 25일</strong>: 4세기 전까지 탄생 기념 증거 없음. <strong>AD 336년 서방교회가 율리우스력에 따라 지정</strong>. 클레멘트는 개인적으로 4월 18·19일 또는 5월 29일로 추측</li>
+    </ul>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">예수님의 실제 탄생일은 알 수 없다. 마치 태어난 날을 모르는 아이를 고아원에 맡겼을 때 맡긴 날을 생일로 삼는 것처럼 — 12월 25일은 탄생 기념일로 <b>지정된</b> 날이다.</div>
+  </div>
+
+  <div class="sub-head">D. 찬송가 · 예술의 발전</div>
+  <div class="card">
+    <ul>
+      <li><strong>찬송가</strong>: 바울 서신(엡 5:19; 골 3:16)부터 확인. 플리니 편지(112년)에 찬송 언급. 운율 있는 그리스 찬송가 2세기 후반 발달</li>
+      <li><strong>알렉산드리아의 클레멘트(150-220)</strong>: 현존 최고(最古) 찬송가 작사 — 찬송가 103장 <em>"참 목자 우리 주"</em></li>
+      <li><strong>예술</strong>: 제2계명 전통에도 불구하고 로마 묘지에 2세기부터 구원 장면 그림 존재. 가정-교회(house-church)로 개조된 집들에 예술품 장식 자연스럽게 발전</li>
+    </ul>
+  </div>
+
+  <!-- § 4 배교자 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 4</span>
+    <span class="sec-title">배교자 구제 — 교회 순수성과 회복의 긴장</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th style="width:14%;">입장</th><th style="width:22%;">인물</th><th>주장</th><th style="width:24%;">비고</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-b" style="color:#d47a7a;">엄격주의</td>
+        <td>몬타누스 (Montanus)</td>
+        <td>침례 이후 중죄(배교·살인·간통) 절대 용서 불가. 즉각 파문</td>
+        <td>재림 임박 신앙과 연결</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:#c4a060;">절충</td>
+        <td>헤르마스 (Hermas)</td>
+        <td>딱 <strong>한 번</strong>의 공식 회개 허용. 폭넓은 지지 획득</td>
+        <td>본인이 간통을 저질러 이런 주장을 했다는 비판 받음</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:#7aaad4;">중도 (초기)</td>
+        <td>터툴리안 (몬타누스파 改宗 전)</td>
+        <td>침례 후 한 차례 회개 가능. "교회가 사죄 못할 죄는 없다"</td>
+        <td rowspan="2">몬타누스파 개종 후 입장 전환. 헤르마스를 "간통자들의 목자"라 비난</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:#d47a7a;">엄격 (후기)</td>
+        <td>터툴리안 (몬타누스파 이후)</td>
+        <td>배교·살인·간통은 용서 불가. 추가 죄목도 포함</td>
+      </tr>
+      <tr>
+        <td class="td-b" style="color:#7ab87a;">보편 용서</td>
+        <td>어거스틴 (Augustine)</td>
+        <td>세 가지 포함 대부분의 죄 용서 가능 (성령 훼방죄 제외)</td>
+        <td>로마 가톨릭의 대죄·소죄 구분으로 발전</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prof-block">
+    <div class="prof-text">로마 가톨릭은 초대교회 때부터 죄를 <b>대죄(mortal sin)</b>와 <b>소죄(venial sin)</b>로 구분했다. 용서받기 위한 절차도 다 규정이 되어 있었다 — 삼베옷과 재를 뒤집어 쓰고, 금식하며 기도하고, 장로들 앞에 엎드리고, 대중 앞에 무릎 꿇고, 성찬식 참여를 간청해야 했다. 죄의 경중에 따라 이 과정의 연수(年數)가 달랐다.</div>
+  </div>
+
+  <!-- § 5 직제 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 5</span>
+    <span class="sec-title">선교를 위한 조직 — 이중직제 → 삼중직제</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid" style="margin-bottom:3.5mm;">
+    <div class="compare-card">
+      <div class="compare-head a">이중직제 (초기)</div>
+      <div class="compare-body">
+        장로(πρεσβύτερος) = 감독(ἐπίσκοπος) = 목사<br><strong>— 동일 직분의 다른 이름</strong><br>+ 다수의 집사(διάκονος)<br><br>
+        근거: 빌 1:1; 딛 1:5,7 (presbyter·bishop 상호 교환적 사용)
+      </div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-head b">삼중직제 (발전)</div>
+      <div class="compare-body">
+        <strong>한 명의 단독 감독(목사)</strong><br>
+        + 다수의 장로<br>
+        + 다수의 집사<br><br>
+        180년까지도 알렉산드리아는 단독 감독제 아님 → 2세기 말 보편화
+      </div>
+    </div>
+  </div>
+
+  <div class="card event">
+    <div class="card-title"><span class="badge-sm badge-event">원인·결과</span>변화의 배경과 의의</div>
+    <ul>
+      <li>유대교 배경 공동체가 다양한 헬레니즘 배경의 개종자를 수용 → 조직 관리 필요성 증가</li>
+      <li><strong>이그나티우스(110-117)</strong>: "감독 없이는 아무 일도 하지 말라." 단, 로마 교회에는 '교회'에 편지 → 로마 교회는 삼중직 미채택</li>
+      <li><strong>클레멘트(1 Clement 40)</strong>: 구약 제사장직 언급 → 성직자·평신도 구분. <strong>사도적 계승(Apostolic Succession)</strong> 교리의 씨앗</li>
+      <li>이그나티우스: 감독은 "그리스도, 심지어 하나님의 위치". 모든 교회 사안(성례전·결혼·침례)이 감독의 감독을 받아야 함</li>
+    </ul>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">중요한 것은 <b>이중직제에서 삼중직제로 변천되었다</b>는 사실이다. 신약성경에서 장로·감독·목사가 같은 의미로 쓰였던 것이 갈수록 분화되어 한 명의 감독 아래 다수의 장로, 다수의 집사가 생겼다. 이것이 중세 교황권까지 이어지는 성직 위계 구조의 토대가 된다.</div>
+  </div>
+
+  <!-- § 6 이단 -->
+  <div class="sec-head">
+    <span class="sec-badge">§ 6</span>
+    <span class="sec-title">정체성을 위한 일치 투쟁 — 이단과 정통</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card doctrine">
+    <div class="card-title"><span class="badge-sm badge-doctrine">논쟁</span>정통이 먼저인가, 이단이 먼저인가?</div>
+    <div class="clash-grid">
+      <div class="clash-side clash-a">
+        <div class="clash-label">기존 견해</div>
+        <div class="clash-body">정통신앙이 먼저 있었고, 거기서 이단이 파생. 터툴리안: 그리스도는 제자들에게 단 하나의 분명한 진리 체계(사도적 전통)만 주었다</div>
+      </div>
+      <div class="clash-side clash-b">
+        <div class="clash-label">월터 바우어(Walter Bauer)의 반론</div>
+        <div class="clash-body">애초부터 다양한 신앙이 공존했고, 정통신앙이란 <strong>권력 싸움의 결과</strong>다. 힘이 센 로마 교회가 정통을 강요했다</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-text">바우어의 주장에 완전히 동의하지는 않지만, 이단들이 등장하면서 정통 교리가 명확히 <b>정립·신조화</b>되는 것은 사실이다. 사도신경의 각 항목도, 325년 니케아 신조도, 신약 정경화 운동도 — 모두 이단의 도전에 대한 응답이었다. <b>교리는 진공 속에서 생기지 않고 구체적인 역사적 위협 앞에서 형성된다.</b></div>
+  </div>
+
+  <div class="sub-head">유대주의적 이단들</div>
+  <table>
+    <thead><tr><th style="width:18%;">종파</th><th>핵심 주장</th><th style="width:32%;">특이점</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-b">에비온주의<br><em style="font-size:7.5pt;">(Ebionites)</em></td>
+        <td>율법 준수 필수. 예수는 침례 때 성령이 임한 양자된 인간. 바울 서신 거부</td>
+        <td>예루살렘 멸망(70년) 때 펠라로 피신한 그룹의 후예. 행 15장의 바리새파 신자들 계열</td>
+      </tr>
+      <tr>
+        <td class="td-b">엘케사이파<br><em style="font-size:7.5pt;">(Elchasaites)</em></td>
+        <td>천사의 계시를 받은 유대적 기독교 혼합주의 종파. 침례를 통한 치유 강조. 그리스도의 신성 부인</td>
+        <td><strong>이슬람교 태동에 영향</strong>을 줌. 400년경 소멸. 갈 1:8-10이 이 종파를 가리킨다는 주장</td>
+      </tr>
+      <tr>
+        <td class="td-b">세린투스파<br><em style="font-size:7.5pt;">(Cerinthians)</em></td>
+        <td>가현설(Docetism): 예수의 육체는 환상. 세상은 천사들의 창조물. 부활 부정</td>
+        <td>사도 요한의 <em>"말씀이 육신이 되어"</em>(요 1:14)는 직접 반박. 죽은 자를 위한 침례 행함 (고전 15:29)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prof-block">
+    <div class="prof-text">신약성경은 처음부터 전부 알려진 게 아니었다. 이그나티우스는 마태·마가·누가·요한복음을 몰랐고, 바울 서신 일부만 알고 있었다. <b>175년경 무라토리안 정경(Muratorian Canon)</b>이 신약성경 목록을 거의 완성했는데, 이것은 마르키온(Marcion)이 바울 서신 위주로 자의적 정경을 만든 것에 대한 교회 전체의 응답이었다. 우리는 신약성경 전체를 가지고 초기 교부들을 평가하지만, 그들은 제한된 성경을 가지고 신학을 했다는 점을 감안해야 한다.</div>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="keypoints">
+    <div class="keypoints-title">⭐ 오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="kp-item">
+      <div class="kp-num">1</div>
+      <div class="kp-text"><strong>침례의 다층적 신학</strong>: 초대교회 침례는 죄 사함·중생·귀신 축출·하나님 군대 입대 서약을 동시에 의미하는 다층적 사건이었다. 이 신학적 무게감이 이후 성례전 신학 전체 — 나아가 중세 교황권까지 — 를 형성한다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">2</div>
+      <div class="kp-text"><strong>이중직제 → 삼중직제</strong>: 신약성경에서 동일어였던 장로·감독·목사가 2세기를 거치며 단독 감독 중심의 삼중직제로 진화했다. 이것이 성직자·평신도 구분, 사도적 계승론, 중세 교황권으로 이어지는 성직 위계 구조의 토대가 된다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">3</div>
+      <div class="kp-text"><strong>이단이 정통을 만든다</strong>: 사도신경의 각 항목, 니케아 신조, 신약 정경화 운동 모두 이단의 도전에 대한 교회의 응답이었다. 교리는 진공 속에서 생기지 않고 구체적인 역사적 위협 앞에서 형성된다.</div>
+    </div>
+  </div>
+
+</div><!-- /tab-notes -->
+
+<!-- ═══════════════════════════════════
+     TAB 2  핵심정리
+═══════════════════════════════════ -->
+<div id="tab-exam" class="tab-panel">
+
+  <p style="font-size:8pt;color:var(--text3);margin-bottom:5mm;">각 문항을 클릭하면 정답·해설이 펼쳐집니다.</p>
+
+  <div class="exam-section-title ox">▸ OX 문제 (6문항)</div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>디다케(~100년)는 흐르는 물에 침례를 주라고 규정하며, 이것이 침례의 원형임을 보여준다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark o">O</div>
+      <p style="margin-top:2mm;">디다케는 흐르는 물 침례를 원칙으로 규정한다. 약식 세례는 이후 여러 정황상 허용된 것이다. 침례가 원형이다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>터툴리안은 평생 일관되게 침례 이후 중죄에 대해 한 번의 회개를 허용했다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark x">X</div>
+      <p style="margin-top:2mm;">터툴리안은 초기에는 한 차례 회개 허용을 주장했으나, 몬타누스파로 개종한 이후 배교·살인·간통은 용서 불가로 입장을 완전히 바꿨다. 헤르마스를 "간통자들의 목자"라 비난했다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>이그나티우스 시대에 로마 교회는 이미 삼중직제(감독·장로·집사)를 채택하고 있었다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark x">X</div>
+      <p style="margin-top:2mm;">이그나티우스는 로마 교회에 편지를 보낼 때 '감독'이 아닌 '교회'에 보냈다. 이것은 로마 교회가 당시 삼중직제를 채택하지 않았음을 보여준다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>저스틴(Justin)은 사제의 축사 시 신적 로고스가 빵과 포도주를 그리스도의 피와 살로 본질 변형(transmute)시킨다고 주장했다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark o">O</div>
+      <p style="margin-top:2mm;">본질변형설(transubstantiation)의 신학적 기원이다. 저스틴이 이 개념을 제시했고 (1 Apol. 66), 이후 교부들이 발전시켰다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>크리스마스 12월 25일은 사도시대부터 지켜온 예수님의 실제 탄생일이다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark x">X</div>
+      <p style="margin-top:2mm;">4세기 전까지 그리스도 탄생 기념의 믿을 만한 증거가 없다. AD 336년 서방교회가 처음 지정한 것이며, 태양신 Sol Invictus 축제일이었다. 알렉산드리아의 클레멘트는 4월 18·19일이나 5월 29일을 추측했다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item ox-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-ox">OX</span>325년 니케아 공의회는 부활절 날짜를 소아시아파의 관습인 Nisan 14일로 확정했다.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <div class="ox-mark x">X</div>
+      <p style="margin-top:2mm;">니케아 공의회는 <strong>로마파의 관습</strong>(유월절 다음 첫 번째 일요일)으로 확정했다. 소아시아파는 Nisan 14일을 주장했으나 패했다.</p>
+    </div>
+  </div>
+
+  <div class="exam-section-title sa" style="margin-top:7mm;">▸ 단답 문제 (4문항)</div>
+
+  <div class="exam-item sa-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-sa">단답</span>이중직제와 삼중직제의 차이를 구체적으로 설명하시오.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <p><strong>이중직제</strong>: 장로(πρεσβύτερος) = 감독(ἐπίσκοπος) = 목사가 동일 직분의 다른 이름으로 쓰임 + 다수의 집사. (빌 1:1; 딛 1:5,7)</p>
+      <p><strong>삼중직제</strong>: 한 명의 단독 감독 + 다수의 장로 + 다수의 집사로 직분이 분화. 2세기 말엽에 보편화.</p>
+    </div>
+  </div>
+
+  <div class="exam-item sa-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-sa">단답</span>이레네우스의 총괄갱신론(Recapitulation Theory)이란 무엇인가?</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <p>아담이 인류를 대표하여 범죄함으로 모든 인류에게 원죄가 임했고, 둘째 아담인 예수 그리스도의 순종으로 온 인류가 속죄되었다는 구속사 이론. 이레네우스는 침례를 <em>"중생의 놋대야(the laver of regeneration)"</em>로 이해했다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item sa-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-sa">단답</span>부활절 날짜 논쟁에서 소아시아파와 로마파의 입장 차이를 설명하고 최종 결정을 쓰시오.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <p><strong>소아시아파</strong>: 유대인 유월절 기준 Nisan 14일 (수난절·부활절 구분 없이 지킴).</p>
+      <p><strong>로마파</strong>: 유월절 다음 첫 번째 일요일에 부활절 준수.</p>
+      <p><strong>최종 결정</strong>: 325년 니케아 공의회에서 로마파 관습으로 확정.</p>
+    </div>
+  </div>
+
+  <div class="exam-item sa-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-sa">단답</span>배교자 구제 문제에서 헤르마스, 터툴리안(초기), 몬타누스의 입장을 비교하시오.</div>
+    <div class="exam-answer">
+      <div class="answer-label">정답</div>
+      <p><strong>몬타누스</strong>: 침례 이후 중죄(배교·살인·간통) 절대 용서 불가, 즉각 파문.</p>
+      <p><strong>헤르마스</strong>: 딱 한 번의 공식 회개 허용 (폭넓은 지지. 단, 본인이 간통을 저질렀다는 비판 받음).</p>
+      <p><strong>터툴리안(초기)</strong>: 침례 후 한 차례 회개 가능. "교회가 사죄 못할 죄는 없다." 몬타누스파 개종 후 엄격주의로 전환.</p>
+    </div>
+  </div>
+
+  <div class="exam-section-title es" style="margin-top:7mm;">▸ 약술 문제 (2문항)</div>
+
+  <div class="exam-item es-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-es">약술</span>초대교회 성찬식의 두 가지 핵심 신학 주제를 설명하고, 이것이 중세 교황 권력과 어떻게 연결되는지 서술하시오.</div>
+    <div class="exam-answer">
+      <div class="answer-label">모범 답안 틀</div>
+      <p>① <strong>희생(Sacrifice)</strong>: 구약 희생제를 대신하는 그리스도의 죽음의 재현 (클레멘트).</p>
+      <p>② <strong>실제 임재(Real Presence)</strong>: 이그나티우스는 빵·포도주를 "불멸의 약"으로, 저스틴은 축사 시 신적 로고스가 본질 변형시킨다고 주장 → 본질변형설의 기원.</p>
+      <p>③ <strong>중세 교황권과의 연결</strong>: 성찬이 구원과 직결되었기에 교황의 파문령(개인 성찬 배제, 장례 불가)과 전 미사 폐쇄령(유아세례 불가)이 황제도 굴복시키는 강력한 통치 수단이 될 수 있었다.</p>
+    </div>
+  </div>
+
+  <div class="exam-item es-item" onclick="toggleAnswer(this)">
+    <div class="exam-q"><span class="exam-badge badge-es">약술</span>2세기 교회 직제가 이중직제에서 삼중직제로 변화한 원인과 그 역사적 의의를 서술하시오.</div>
+    <div class="exam-answer">
+      <div class="answer-label">모범 답안 틀</div>
+      <p>① <strong>배경</strong>: 신약성경에서 장로·감독·목사는 동일 직분의 상호 교환 가능한 용어였다 (딛 1:5,7).</p>
+      <p>② <strong>원인</strong>: 다양한 헬레니즘 배경의 개종자를 수용하면서 조직 관리 필요성 증가. 이단 논쟁에서 일치된 권위가 필요했다.</p>
+      <p>③ <strong>결과</strong>: 이그나티우스의 감독 권위 강조 → 클레멘트의 사도적 계승론 → 성직자·평신도 구분 → 중세 교황권 위계 구조의 토대 형성.</p>
+    </div>
+  </div>
+
+</div><!-- /tab-exam -->
+
+<!-- ═══════════════════════════════════
+     TAB 3  연대기
+═══════════════════════════════════ -->
+<div id="tab-timeline" class="tab-panel">
+
+  <p style="font-size:8pt;color:var(--text3);margin-bottom:6mm;">6주차까지 누적된 타임라인입니다. 매 주차마다 항목이 추가되어 기말고사 전에는 학기 전체 흐름이 완성됩니다.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">~100 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">디다케(Didache) 작성</div>
+      <div class="tl-person">저자 미상</div>
+      <div class="tl-meaning">흐르는 물에 침례를 주라 명시. 현존 최초의 교회 예배·조직 지침서. 침례의 원형을 보여주는 핵심 문헌. 기도(하루 3회)·금식(수·금요일) 관행도 수록.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">110–117 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">이그나티우스의 서신 — 감독 권위 강조</div>
+      <div class="tl-person">안디옥의 이그나티우스 (Ignatius of Antioch)</div>
+      <div class="tl-meaning">"감독 없이는 아무 일도 하지 말라." 삼중직제(감독·장로·집사) 강력 옹호. 단, 로마 교회에는 '교회'에 편지 → 로마는 당시 삼중직 미채택. 성찬의 실제 임재를 영지주의에 맞서 강조.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">112 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">플리니의 트라야누스 황제에게 보낸 편지</div>
+      <div class="tl-person">플리니 (Pliny the Younger)</div>
+      <div class="tl-meaning">그리스도인들이 새벽에 모여 그리스도에게 찬송하고 성찬식을 행하며, 침례받지 못한 자는 배제했다는 로마 측 최초 기록. 유대인이 아닌 이방인이 이미 주류임을 보여줌. 성찬식·애찬식 분리의 간접 증거.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">150–220 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">알렉산드리아의 클레멘트 — 최고(最古) 찬송가 작사</div>
+      <div class="tl-person">클레멘트 (Clement of Alexandria)</div>
+      <div class="tl-meaning">찬송가 103장 "참 목자 우리 주" 작사. 암브로시우스보다 약 100년 앞선 교회음악 선구자. 성직자·평신도 구분과 사도적 계승론의 씨앗 제공 (1 Clement 40).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">155 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">폴리캅 순교 — 순교자 기념일 교회 달력 등재 시작</div>
+      <div class="tl-person">폴리캅 (Polycarp of Smyrna)</div>
+      <div class="tl-meaning">순교자들의 "탄생일"(순교 기념일)이 교회 달력에 등재되기 시작. 이것이 훗날 성인 목록(saints calendar)으로 발전하는 기점. 이레네우스와 함께 부활절 날짜 논쟁 중재.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">155–199 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">부활절 날짜 논쟁 — 소아시아 vs. 로마</div>
+      <div class="tl-person">아니케투스 (155-166) · 빅토르 (189-199) · 이레네우스 중재</div>
+      <div class="tl-meaning">소아시아파(Nisan 14일) vs. 로마파(첫 번째 일요일). 아니케투스 강요 → 폴리캅 중재 → 빅토르 재격화·소아시아 교인 추방 → 이레네우스 중재. 최종 결착은 325년 니케아 공의회.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">~175 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">무라토리안 정경 (Muratorian Canon)</div>
+      <div class="tl-person">저자 미상</div>
+      <div class="tl-meaning">신약성경 전체 목록이 거의 완성된 최초의 문헌. 마르키온의 자의적 정경화에 대한 교회 전체의 응답으로 신약 정경화 운동이 가속화된 결과. 175년 이전에 신약성경이 이미 광범위하게 알려졌음을 시사.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">206 AD <span class="tl-era-badge era-catholic">가톨릭시대</span></div>
+      <div class="tl-event">터툴리안 — 유아세례 최초 명확한 문헌 증거 제공</div>
+      <div class="tl-person">터툴리안 (Tertullian of Carthage)</div>
+      <div class="tl-meaning">유아세례를 행했다는 최초의 명확한 문헌 기록. 개종자는 부활절·성령 재림일에 침례를 받아야 한다고도 주장. 배교자 구제 문제에서 초기의 관용적 입장 → 몬타누스파 개종 후 엄격주의로 전환.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">321 AD <span class="tl-era-badge era-roman">로마제국시대</span></div>
+      <div class="tl-event">로마 제국, 일요일(dies Solis)을 법정 공휴일로 지정</div>
+      <div class="tl-person">콘스탄티누스 황제 (Constantine I)</div>
+      <div class="tl-meaning">기독교인들이 태양신 Sol Invictus 명칭 사용을 꺼렸음에도 공식 수용. 유대인 달력에서 로마 달력으로의 완전한 전환을 법적으로 확인한 사건.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">325 AD <span class="tl-era-badge era-roman">로마제국시대</span></div>
+      <div class="tl-event">니케아 공의회 — 부활절 날짜·삼위일체 논쟁 처리</div>
+      <div class="tl-person">콘스탄티누스 황제 소집</div>
+      <div class="tl-meaning">부활절을 로마파 관습(유월절 다음 첫 번째 일요일)으로 최종 확정. 삼위일체 논쟁(아리우스 vs. 아타나시우스)도 처리 → <em>다음 주차 핵심 주제</em>.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">336 AD <span class="tl-era-badge era-roman">로마제국시대</span></div>
+      <div class="tl-event">서방교회 — 예수 탄생일을 12월 25일로 지정</div>
+      <div class="tl-person">서방교회</div>
+      <div class="tl-meaning">4세기 전까지 탄생 기념의 증거 없음. 율리우스력에 따라 12월 25일로 지정. 태양신 Sol Invictus 축제일을 기독교화한 것이라는 해석도 있음.</div>
+    </div>
+
+  </div>
+</div><!-- /tab-timeline -->
+
+<script>
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleAnswer(el){
+  const ans=el.querySelector('.exam-answer');
+  ans.classList.toggle('show');
+}
+</script>
+</body>
+</html>
