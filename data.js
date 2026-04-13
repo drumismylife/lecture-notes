@@ -54,7 +54,9 @@ const SITE_DATA = {
         { week: 5, title: "목회자의 정체성과 자기 관리", date: "2026.4.6.", files: [
 	  { type: "notes", label: "강의노트", href: "output/목회학/week05.html" }
 	] },
-        { week: 6, title: "교회 행정과 리더십", date: "2026.04", files: [] },
+        { week: 6, title: "목회자의 영성 관리", date: "2026.04.13.", files: [
+	  { type: "notes", label: "강의노트", href: "output/목회학/week06.html" }
+	  ] },
         { week: 7, title: "교육 목회", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "선교와 전도 사역", date: "2026.05", files: [] },

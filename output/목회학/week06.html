@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 6주차 — 목회자의 영성 관리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-page: #0f1a12;
+  --bg-card: #172018;
+  --bg-subcard: #1e2a20;
+  --bg-verse: #152016;
+  --accent-green: #7ab87a;
+  --accent-green-soft: #4a7a4a;
+  --text-bible: #a8d4a8;
+  --text-cream: #d4c9a8;
+  --badge-exam: #c96b5a;
+  --badge-task: #c49a3c;
+  --text-main: #e8ede8;
+  --text-sub: #9aaa9a;
+  --text-dim: #6a7a6a;
+  --border-green: rgba(122,184,122,0.25);
+  --border-soft: rgba(122,184,122,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+/* ── 배경 텍스처 ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(122,184,122,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(122,184,122,0.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ══════════════════════════════
+   HEADER
+══════════════════════════════ */
+.doc-header {
+  padding: 44px 0 32px;
+  border-bottom: 1px solid var(--border-green);
+  margin-bottom: 32px;
+}
+
+.header-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.meta-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--accent-green-soft);
+  color: var(--accent-green);
+  background: rgba(122,184,122,0.07);
+  text-transform: uppercase;
+}
+
+.meta-badge.date { color: var(--text-sub); border-color: rgba(154,170,154,0.3); background: transparent; }
+
+.doc-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text-cream);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.doc-subtitle {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+/* ══════════════════════════════
+   TABS
+══════════════════════════════ */
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 18px 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.tab-btn:hover { color: var(--text-sub); }
+
+.tab-btn.active {
+  color: var(--accent-green);
+  border-bottom-color: var(--accent-green);
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ══════════════════════════════
+   SECTION LABELS
+══════════════════════════════ */
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+
+.section-label:first-child { margin-top: 0; }
+
+/* ══════════════════════════════
+   원칙 BLOCK
+══════════════════════════════ */
+.principle-block {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-green);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+}
+
+.principle-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-cream);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.principle-title .ptag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: rgba(122,184,122,0.15);
+  color: var(--accent-green);
+  border: 1px solid rgba(122,184,122,0.3);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+.principle-body {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+  line-height: 1.85;
+}
+
+.principle-body strong { color: var(--text-main); font-weight: 600; }
+
+.principle-ref {
+  font-size: 11px;
+  color: var(--accent-green-soft);
+  font-family: 'Noto Serif KR', serif;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 8px;
+  margin-top: 10px;
+}
+
+.principle-ref span { color: var(--text-bible); }
+
+/* ══════════════════════════════
+   성경 BLOCK
+══════════════════════════════ */
+.bible-block {
+  background: var(--bg-verse);
+  border: 1px solid rgba(168,212,168,0.15);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+
+.bible-ref-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-green);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bible-ref-title::before {
+  content: '✦';
+  font-size: 9px;
+  color: var(--accent-green-soft);
+}
+
+.bible-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.bible-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+.bible-row-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.bible-verse {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  color: var(--text-bible);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.bible-interp {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+
+.bible-apply {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.greek-word {
+  font-family: 'Noto Serif KR', serif;
+  color: var(--text-bible);
+  font-style: normal;
+  background: rgba(168,212,168,0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* ══════════════════════════════
+   교재/학자 비교 BLOCK
+══════════════════════════════ */
+.scholar-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-green);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+}
+
+.scholar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.scholar-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(122,184,122,0.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(122,184,122,0.25);
+}
+
+.scholar-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-cream);
+  font-family: 'Noto Serif KR', serif;
+}
+
+.scholar-def {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.85;
+  font-style: italic;
+  border-left: 2px solid var(--accent-green-soft);
+  padding-left: 14px;
+  margin-bottom: 8px;
+}
+
+.scholar-def em { font-style: normal; color: var(--text-cream); font-weight: 600; }
+
+.scholar-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════
+   TABLE
+══════════════════════════════ */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-bottom: 16px;
+}
+
+.styled-table th {
+  background: rgba(122,184,122,0.1);
+  color: var(--accent-green);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  padding: 9px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-green);
+}
+
+.styled-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text-sub);
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.styled-table td:first-child { color: var(--text-cream); font-weight: 600; }
+
+.styled-table tr:last-child td { border-bottom: none; }
+
+.styled-table tr:hover td { background: rgba(122,184,122,0.03); }
+
+.warn-text { color: #e08060; font-size: 11px; }
+.em-green { color: var(--accent-green); font-weight: 600; }
+
+/* ══════════════════════════════
+   단계 STEPPER
+══════════════════════════════ */
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 16px;
+}
+
+.step-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-line-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(122,184,122,0.12);
+  border: 2px solid var(--accent-green-soft);
+  color: var(--accent-green);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.step-connector {
+  width: 1px;
+  flex: 1;
+  min-height: 16px;
+  background: var(--border-soft);
+  margin: 3px 0;
+}
+
+.step-content {
+  padding: 4px 0 18px;
+  flex: 1;
+}
+
+.step-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-cream);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.75;
+}
+
+.step-desc strong { color: var(--text-main); }
+
+/* ══════════════════════════════
+   영성 색깔 CARDS
+══════════════════════════════ */
+.spirituality-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.spirit-card {
+  background: var(--bg-subcard);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+
+.spirit-card:hover { border-color: var(--accent-green-soft); }
+
+.spirit-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+}
+
+.spirit-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-cream);
+  margin-bottom: 6px;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.spirit-sub {
+  font-size: 11.5px;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.spirit-keyword {
+  font-size: 10px;
+  color: var(--accent-green);
+  letter-spacing: 0.06em;
+}
+
+.spirit-warn {
+  font-size: 10px;
+  color: #d08060;
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════
+   삶의 변화 LIST
+══════════════════════════════ */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.life-card {
+  background: var(--bg-subcard);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.life-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.life-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-green);
+  background: rgba(122,184,122,0.1);
+  border: 1px solid rgba(122,184,122,0.25);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.life-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-cream);
+  font-family: 'Noto Serif KR', serif;
+}
+
+.life-body {
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.life-body strong { color: var(--text-main); font-weight: 600; }
+
+.life-train {
+  font-size: 11px;
+  color: var(--accent-green-soft);
+  margin-top: 6px;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 6px;
+}
+
+/* ══════════════════════════════
+   목회자상 CARD
+══════════════════════════════ */
+.pastor-identity {
+  background: var(--bg-card);
+  border: 1px solid rgba(122,184,122,0.2);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+
+.pi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.pi-box {
+  background: var(--bg-subcard);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.pi-box-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.pi-box-label.bad { color: #c96b5a; }
+.pi-box-label.good { color: var(--accent-green); }
+
+.pi-box-val {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.pi-motto {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  color: var(--text-cream);
+  border-top: 1px solid var(--border-soft);
+  padding-top: 14px;
+  line-height: 1.7;
+  text-align: center;
+  font-style: italic;
+}
+
+.pi-motto em { font-style: normal; color: var(--accent-green); font-weight: 700; }
+
+/* ══════════════════════════════
+   핵심정리 탭 — SUMMARY CARDS
+══════════════════════════════ */
+.summary-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--accent-green);
+}
+
+.summary-q {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent-green);
+  margin-bottom: 8px;
+}
+
+.summary-a {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.summary-a li {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 4px;
+  color: var(--text-sub);
+}
+
+.summary-a li::before {
+  content: '▸ ';
+  color: var(--accent-green);
+}
+
+/* ══════════════════════════════
+   핵심 원칙 3 FOOTER BOX
+══════════════════════════════ */
+.principle3-box {
+  background: rgba(122,184,122,0.06);
+  border: 1px solid rgba(122,184,122,0.2);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin-top: 36px;
+}
+
+.p3-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p3-title::before { content: '✦'; font-size: 9px; }
+
+.p3-items { display: flex; flex-direction: column; gap: 14px; }
+
+.p3-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.p3-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(122,184,122,0.3);
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+  min-width: 20px;
+}
+
+.p3-content { flex: 1; }
+
+.p3-head {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-cream);
+  margin-bottom: 3px;
+}
+
+.p3-desc {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════
+   DIVIDER
+══════════════════════════════ */
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--border-soft);
+  margin: 28px 0;
+}
+
+/* ══════════════════════════════
+   PRINT
+══════════════════════════════ */
+@media print {
+  body { background: #fff; color: #111; font-size: 11pt; }
+  .tab-bar { display: none; }
+  .tab-panel { display: block !important; }
+  .page-wrap { max-width: 100%; padding: 0 10px; }
+  .principle-block, .bible-block, .scholar-block, .spirit-card, .life-card {
+    break-inside: avoid;
+    background: #f9f9f9 !important;
+    border-color: #aaa !important;
+    color: #111 !important;
+  }
+  .doc-title, .principle-title, .scholar-name { color: #111 !important; }
+  .principle-body, .bible-interp, .bible-apply, .step-desc, .spirit-sub, .life-body { color: #333 !important; }
+  .bible-verse { color: #2a5a2a !important; }
+  body::before { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ── HEADER ── -->
+  <header class="doc-header">
+    <div class="header-meta">
+      <span class="meta-badge">목회학</span>
+      <span class="meta-badge">6주차</span>
+      <span class="meta-badge date">2026-04-13</span>
+    </div>
+    <h1 class="doc-title">목회자의 영성 관리</h1>
+    <p class="doc-subtitle">한국침례신학대학교 대학원 · 목회학 63117 · 이영호 교수</p>
+  </header>
+
+  <!-- ── TAB BAR ── -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(event,'tab-note')">📖 강의노트</button>
+    <button class="tab-btn" onclick="switchTab(event,'tab-summary')">📌 핵심정리</button>
+    <button class="tab-btn" onclick="switchTab(event,'tab-pastor')">🌿 목회자상</button>
+  </div>
+
+  <!-- ════════════════════════════════
+       TAB 1 강의노트
+  ════════════════════════════════ -->
+  <div id="tab-note" class="tab-panel active">
+
+    <!-- 영성의 정의 -->
+    <div class="section-label">영성이란 무엇인가</div>
+
+    <div class="principle-block">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        영성의 정의 — 일반 영성과 기독교 영성
+      </div>
+      <div class="principle-body">
+        <strong>일반 영성:</strong> 궁극적 실재(ultimate reality)와의 관계 속에서 인간의 삶이 형성되고 변화되는 방식<br>
+        · 대상: 궁극적 실재(신·절대자·공·도 등) / 과정: 훈련·체험·실천 / 결과: 삶의 변화<br><br>
+        <strong>기독교 영성:</strong> 성령 안에서 그리스도와의 연합을 통해 하나님과의 관계 속에서 형성되는 삶의 방식<br>
+        · 하나님 앞에서 사는 삶의 방식 · 예수 그리스도를 닮아가는 과정
+      </div>
+      <div class="principle-ref">
+        ✦ <span>영성 vs 영력</span>: 영성은 갈 5장 성령의 열매처럼 <span>성품을 통한 영향력</span>,
+        영력은 고전 12장 은사로 나타나는 <span>영적인 힘</span>
+      </div>
+    </div>
+
+    <div class="principle-block">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        영성의 두 가지 핵심 특징
+      </div>
+      <div class="principle-body">
+        <strong>관계 중심성</strong> — 하나님과의 인격적 교제에서 비롯됨<br>
+        <strong>은혜 중심성</strong> — 인간의 성취·수련이 아니라 하나님의 선행적 은혜로 가능함<br>
+        &nbsp;&nbsp;→ 딤전 4:7 "경건을 연습하라"는 내 의지·노력으로 수준에 도달하려는 것이 아니라,
+        성령의 도우심 속에 하나님을 깊이 만나는 <strong>습관</strong>을 뜻한다
+      </div>
+      <div class="principle-ref">
+        성경 근거: <span>딤전 4:7</span> (경건을 연습하라) · <span>엡 4:24</span> (의와 진리와 거룩함으로 새 사람을 입으라)
+      </div>
+    </div>
+
+    <!-- 학자별 정의 비교 -->
+    <div class="section-label">주요 학자 정의 비교</div>
+
+    <div class="scholar-block">
+      <div class="scholar-header">
+        <span class="scholar-tag">교재</span>
+        <span class="scholar-name">이현모 (침신대) — 가장 포괄적 정의 ★</span>
+      </div>
+      <div class="scholar-def">
+        "영성이란 하나님과의 관계 속에서 생기는 것이지만 단순한 관계가 아니라 <em>자신이 체험하고 변화된 거룩한 성품</em>이며 이 성품은 삶을 통해서 세상과 교회 공동체 안에서 <em>변화를 구현하는 차원으로 나아가는 것</em>이다."
+      </div>
+      <div class="scholar-note">핵심 3요소: ① 하나님(대상) ② 하나님과의 만남(과정) ③ 성품 변화 → 세상 변화(결과)</div>
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>학자</th>
+          <th>핵심 정의</th>
+          <th>강조점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Richard J. Foster</td>
+          <td>하나님과의 관계 속에서의 삶의 변화</td>
+          <td>영적 훈련</td>
+        </tr>
+        <tr>
+          <td>R. Paul Stevens</td>
+          <td>하나님과의 연합 — 삶의 모든 자리에서 하나님의 임재를 느끼며 살아가기</td>
+          <td>생활 영성</td>
+        </tr>
+        <tr>
+          <td>이현모 (침신대)</td>
+          <td>체험·변화된 거룩한 성품 → 공동체 속에서 변화를 구현</td>
+          <td>성품·공동체</td>
+        </tr>
+        <tr>
+          <td>송인규 (합신)</td>
+          <td>그리스도와의 연합 → 자아 성숙 → 인간관계 → 사회적 영역</td>
+          <td>단계적 구조</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 삼위일체 구조 -->
+    <div class="section-label">영성의 삼위일체적 구조</div>
+
+    <div class="principle-block">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        삼위일체적 영성 구조
+      </div>
+      <div class="principle-body">
+        <strong>성부</strong> — 관계의 대상. 하나님 앞에서 살아가는 삶<br>
+        <strong>성자</strong> — "길이신 예수님"
+        (<span class="greek-word">ἡ ὁδός</span>, hē hodos). 하나님과의 관계(생명, <span class="greek-word">ζωή</span>)로 나아가는 유일한 통로<br>
+        <strong>성령</strong> — 삼위일체 하나님이 우리와 거처(<span class="greek-word">μονή</span>, monē)를 함께 하심 (요 14:21, 23)<br><br>
+        <strong>요한복음의 예수님 = 재창조의 하나님</strong><br>
+        창조하나님이 창조 → 인간 타락 → 예수님이 재창조 (고후 5:17 "새로운 피조물" = 요 3장 "거듭남")<br>
+        → <strong>영성 = 하나님이 창조하신 본연의 모습을 예수님을 통해 회복하는 것</strong>
+      </div>
+      <div class="principle-ref">
+        성경 근거: <span>요 14:6</span> · <span>요 14:21, 23</span> · <span>창 1:1–2 / 요 1:1</span> · <span>고후 5:17</span>
+      </div>
+    </div>
+
+    <!-- 바른 영성의 단계 -->
+    <div class="section-label">바른 영성의 4단계 (송인규)</div>
+
+    <div class="stepper">
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle">1</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">그리스도와의 연합</div>
+          <div class="step-desc">영성의 출발점. 삼위일체 하나님과 하나됨 — 상호 내주(mutual indwelling)</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle">2</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">자아의 성숙</div>
+          <div class="step-desc">
+            <strong>정서적</strong> — 평안(<span class="greek-word">εἰρήνη</span>·샬롬, 하나님의 통치를 받는 상태)과 속에서 솟구치는 기쁨<br>
+            <strong>지성적</strong> — 진리 분별, 하나님을 깊이 앎<br>
+            <strong>의지적</strong> — 죄에 대한 감정적 미움, 거룩함을 향한 결단
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle">3</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">인간관계의 변화</div>
+          <div class="step-desc">
+            오래 참음·환대·경청·따뜻함. 엡 5:18 이하 — 성령 충만 → 피차 복종<br>
+            <strong>영성이 깊은 사람은 사람과의 관계가 좋다</strong>
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle">4</div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">사회적 영향력</div>
+          <div class="step-desc">
+            가정·직장·교회·세상에서 선한 영향력. 소금과 빛의 삶 (마 5:16)<br>
+            "너희 착한 행실을 보고 하나님께 영광을 돌리게 하라" —
+            착함은 하나님의 형상(<span class="greek-word">ἀγαθός</span>, agathos)에서 나오는 매력
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 요한복음 거함의 영성 -->
+    <div class="section-label">요한복음의 거함(μένω)의 영성</div>
+
+    <div class="bible-block">
+      <div class="bible-ref-title">요 14:1–3, 23 / 요 15:4–10 — 연합의 방법과 결과</div>
+
+      <div class="bible-row">
+        <div class="bible-row-label">본문</div>
+        <div class="bible-verse">
+          "내 아버지의 집(<span class="greek-word">ἐν τῇ οἰκίᾳ τοῦ πατρός μου</span>)에 거할 곳(<span class="greek-word">μοναί</span>)이 많도다" (요 14:2)<br>
+          "내 안에 거하라 나도 너희 안에 거하리라" (요 15:4)<br>
+          "사람이 나를 사랑하면 내 말을 지키리니… 거처(<span class="greek-word">μονήν</span>)를 그와 함께 하리라" (요 14:23)
+        </div>
+      </div>
+
+      <div class="bible-row">
+        <div class="bible-row-label">해석 — 연합의 3가지 방법</div>
+        <div class="bible-interp">
+          ① <strong>말씀 안에 거함</strong> (요 15:7): "내 말이 너희 안에 거하면" — 말씀의 내면화·통치<br>
+          ② <strong>사랑 안에 거함</strong> (요 15:9–10): 추상적 사랑이 아닌 실천하는 사랑 — 새 계명(서로 사랑하라)을 지킴<br>
+          ③ <strong>순종을 통한 연합</strong> (요 15:10): 순종은 율법주의가 아니라 관계적 응답<br><br>
+          ✦ 요 15장 "참 포도나무" = 새로운 공동체(교회)의 탄생 선언 — 예수님 안에 붙어있는 새로운 이스라엘
+        </div>
+      </div>
+
+      <div class="bible-row">
+        <div class="bible-row-label">적용 — 연합의 3가지 결과</div>
+        <div class="bible-apply">
+          ① <strong>열매 맺는 삶</strong> (요 15:5) — 서로 사랑, 제자다운 삶, 영혼 구원<br>
+          ② <strong>기도의 응답</strong> (요 15:7) — "무엇이든지 원하는 대로 구하라" (전제: 연합 상태. 아버지의 뜻대로 구하는 것)<br>
+          ③ <strong>사역의 능력</strong> — "나를 떠나서는 아무것도 할 수 없음"<br>
+          &nbsp;&nbsp;→ <em>사역의 실패는 기술 부족이 아니라 연합의 단절에서 온다</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- 바울의 영성 -->
+    <div class="section-label">바울의 영성 구조 (빌 3:8–9)</div>
+
+    <div class="bible-block">
+      <div class="bible-ref-title">빌 3:8–9 — 자기 부정 · 관계 중심 영성 · 연합</div>
+      <div class="bible-row">
+        <div class="bible-row-label">본문</div>
+        <div class="bible-verse">
+          "또한 모든 것을 해로 여김은 내 주 그리스도 예수를 아는 지식(<span class="greek-word">τῆς γνώσεως Χριστοῦ Ἰησοῦ</span>)이 가장 고상하기 때문이라… 그리스도를 얻고 <strong>그 안에서 발견되려 함이니</strong>"
+        </div>
+      </div>
+      <div class="bible-row">
+        <div class="bible-row-label">해석</div>
+        <div class="bible-interp">
+          ① <strong>자기 부정</strong>: 업적·종교적 경력·자격 — 모두 배설물로 여김 (방해가 되기 때문)<br>
+          ② <strong>관계 중심 영성</strong>: "그리스도를 아는 지식(<span class="greek-word">γνῶσις</span>)" — 단순한 정보가 아닌 인격적·경험적 앎<br>
+          ③ <strong>연합</strong>: "그 안에서 발견됨" — 나의 존재 근거가 예수님 안에 있음 (위치적 연합)
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 영성의 9가지 색깔 -->
+    <div class="section-label">영성의 아홉 가지 색깔 (Gary Thomas)</div>
+
+    <div class="principle-block">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        영성의 색깔을 아는 것의 의미
+      </div>
+      <div class="principle-body">
+        사람마다 하나님을 깊이 만나는 방식이 다르다. 자신의 영성 유형(보통 2–3가지 복합)을 파악하고("마음의 정원"),
+        그에 맞는 방법으로 하나님과 친밀한 만남을 의도적으로 가지는 것이 중요하다.
+        아홉 가지 모두 성경에 있는 방식이며, 어느 하나가 우월한 것이 아니다.
+      </div>
+    </div>
+
+    <div class="spirituality-grid">
+      <div class="spirit-card">
+        <div class="spirit-num">01</div>
+        <div class="spirit-name">자연주의</div>
+        <div class="spirit-sub">야외·창조 세계에서 하나님의 임재를 깊이 경험</div>
+        <div class="spirit-keyword">자연 · 창조 · 경외</div>
+        <div class="spirit-warn">⚠ 범신론 주의</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">02</div>
+        <div class="spirit-name">감각주의</div>
+        <div class="spirit-sub">아름다움·예술·음악·향·색을 통해 하나님 경험 (헨리 나우웬)</div>
+        <div class="spirit-keyword">아름다움 · 예배 · 감각</div>
+        <div class="spirit-warn">⚠ 상징·도구 집착 주의</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">03</div>
+        <div class="spirit-name">전통주의</div>
+        <div class="spirit-sub">예전·의식·규칙 속에서 안정감과 은혜 경험</div>
+        <div class="spirit-keyword">질서 · 전통 · 규범</div>
+        <div class="spirit-warn">⚠ 형식주의 위험</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">04</div>
+        <div class="spirit-name">금욕주의</div>
+        <div class="spirit-sub">고독·침묵·절제를 통해 하나님 추구</div>
+        <div class="spirit-keyword">침묵 · 절제 · 고독</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">05</div>
+        <div class="spirit-name">행동주의</div>
+        <div class="spirit-sub">정의·개혁·사회 참여 속에서 하나님 경험</div>
+        <div class="spirit-keyword">정의 · 행동 · 변화</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">06</div>
+        <div class="spirit-name">박애주의</div>
+        <div class="spirit-sub">이웃 섬김·사랑 실천을 통해 하나님 경험 (테레사 수녀)</div>
+        <div class="spirit-keyword">섬김 · 사랑 · 관계</div>
+        <div class="spirit-warn">⚠ 에너지 소진 → 관계 단절</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">07</div>
+        <div class="spirit-name">열정주의</div>
+        <div class="spirit-sub">감정적 표현·체험·성령의 역동적 경험 강조</div>
+        <div class="spirit-keyword">열정 · 체험 · 찬양</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">08</div>
+        <div class="spirit-name">묵상주의</div>
+        <div class="spirit-sub">하나님 사랑에 깊이 몰입, 내면적 친밀함 추구</div>
+        <div class="spirit-keyword">사랑 · 친밀함 · 묵상</div>
+      </div>
+      <div class="spirit-card">
+        <div class="spirit-num">09</div>
+        <div class="spirit-name">지성주의</div>
+        <div class="spirit-sub">진리 탐구·신학·성경 연구를 통해 하나님을 앎</div>
+        <div class="spirit-keyword">진리 · 이해 · 연구</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 삶의 변화 8가지 -->
+    <div class="section-label">하나님을 깊이 만난 사람의 삶의 변화 (Okholm, 수도원 영성)</div>
+
+    <div class="principle-block" style="margin-bottom:20px;">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        핵심 명제
+      </div>
+      <div class="principle-body">
+        <strong>내면이 형성되지 않으면 사역은 무너진다.</strong><br>
+        참된 영성은 하나님과의 만남에서 그치지 않고 구체적인 삶의 방식으로 드러난다.
+        아래 8가지는 하나님을 깊이 만난 사람에게 나타나는 자연스러운 삶의 열매다.
+      </div>
+    </div>
+
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">1</div>
+          <div class="life-title">경청</div>
+        </div>
+        <div class="life-body">
+          영성의 출발은 <strong>하나님 말씀을 듣는 것</strong>.<br>
+          침묵과 주의 깊은 태도로 하나님의 뜻을 분별하고, 타인의 말 속에서도 하나님을 경청
+        </div>
+        <div class="life-train">훈련: 렉시오 디비나 · 침묵 기도 10–20분 · 하루 한 구절</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">2</div>
+          <div class="life-title">청빈</div>
+        </div>
+        <div class="life-body">
+          탐욕은 <strong>불안</strong>에서 온다 (광야의 만나). 나눔은 하나님에 대한 <strong>신뢰의 표현</strong>.<br>
+          소유 중심 → 관계·나눔 중심으로 전환
+        </div>
+        <div class="life-train">훈련: 불필요한 소유 내려놓기 · 소비 점검 · 물질 사용 기록</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">3</div>
+          <div class="life-title">복종</div>
+        </div>
+        <div class="life-body">
+          영성은 아는 것이 아니라 <strong>순종하는 것</strong>.<br>
+          하나님께 및 공동체 안에서 피차 복종 (엡 5:21)
+        </div>
+        <div class="life-train">훈련: 말씀 적용 1가지 실천 · 공동체 피드백 수용</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">4</div>
+          <div class="life-title">겸손</div>
+        </div>
+        <div class="life-body">
+          <strong>하나님 앞에서 내가 누구인지 아는 것</strong> = 겸손.<br>
+          자기 과시·위선·가면을 내려놓고 진실한 자기로 서는 것
+        </div>
+        <div class="life-train">훈련: 하루 자기 성찰 · 약함 인정하기</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">5</div>
+          <div class="life-title">환대</div>
+        </div>
+        <div class="life-body">
+          타인을 통해 그리스도를 만남. 1차적으로 <strong>교회 공동체 형제자매를 돌보는 것</strong><br>
+          "지극히 작은 자 하나에게 한 것이 곧 내게 한 것" (마 25:40)
+        </div>
+        <div class="life-train">마 25장 — 하나님 뜻을 실천하는 과정에서 약자를 돌봄</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">6</div>
+          <div class="life-title">착실함</div>
+        </div>
+        <div class="life-body">
+          한 공동체·자리에서 지속적 헌신.<br>
+          <strong>영성은 이동이 아니라 머묾에서 깊어진다</strong>
+        </div>
+        <div class="life-train">반복되는 일상 속에서 하나님을 경험</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">7</div>
+          <div class="life-title">균형</div>
+        </div>
+        <div class="life-body">
+          삶의 모든 영역에서 하나님을 인식.<br>
+          기도와 일의 통합. <strong>성(聖)과 속(俗)의 구분을 넘는 삶</strong>
+        </div>
+        <div class="life-train">훈련: 사역/휴식/가정 균형 · 안식일 회복</div>
+      </div>
+      <div class="life-card">
+        <div class="life-header">
+          <div class="life-num">8</div>
+          <div class="life-title">삶으로 증언하는 복음</div>
+        </div>
+        <div class="life-body">
+          영성은 반드시 삶으로 드러남.<br>
+          <strong>말보다 행동으로 복음을 증거</strong> — 하나님의 성품(<span class="greek-word">ἀγαθός</span>)을 드러내는 삶
+        </div>
+        <div class="life-train">세상 속에서 하나님의 형상을 보여주는 것</div>
+      </div>
+    </div>
+
+    <!-- 핵심 원칙 3가지 -->
+    <div class="principle3-box">
+      <div class="p3-title">오늘 목회 핵심 원칙 3가지</div>
+      <div class="p3-items">
+        <div class="p3-item">
+          <div class="p3-num">①</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 수련이 아니라 연합이다</div>
+            <div class="p3-desc">목회자의 영성은 내 노력으로 쌓는 것이 아니라 하나님의 선행적 은혜 안에서 그리스도와 연합함으로 형성된다 (요 15:4)</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">②</div>
+          <div class="p3-content">
+            <div class="p3-head">사역 실패의 근본 원인은 연합의 단절이다</div>
+            <div class="p3-desc">기술·프로그램이 아닌 하나님과의 생명적 연합에서 목회의 능력이 흘러나온다 (요 15:5 "나를 떠나서는 아무것도 할 수 없음")</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">③</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 삶 전체를 하나님과 함께 살아가는 구조다</div>
+            <div class="p3-desc">예배당 안의 경건만이 아니라 일상의 경청·청빈·겸손·환대로 구현될 때 참된 영성이다</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-note -->
+
+  <!-- ════════════════════════════════
+       TAB 2 핵심정리
+  ════════════════════════════════ -->
+  <div id="tab-summary" class="tab-panel">
+
+    <div class="section-label">핵심 개념 정리</div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 영성과 영력의 차이는?</div>
+      <div class="summary-a">
+        <ul>
+          <li><strong>영성</strong>: 갈 5장 성령의 열매 → 성품을 통한 영향력. 하나님과의 관계 속에서 형성된 거룩한 성품이 삶으로 드러나는 것</li>
+          <li><strong>영력</strong>: 고전 12장 은사 → 영적인 힘. 방언·치유·예언 등 은사의 발현</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 이현모 교수의 영성 정의 3요소는?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① <strong>대상</strong>: 하나님 (관계의 출발)</li>
+          <li>② <strong>과정</strong>: 하나님과의 만남 → 성품의 체험·변화</li>
+          <li>③ <strong>결과</strong>: 변화된 성품 → 세상과 공동체에서 변화를 구현</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 송인규의 바른 영성 4단계는?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① 그리스도와의 연합 (영성의 출발)</li>
+          <li>② 자아의 성숙 — 정서적(평안·기쁨)·지성적·의지적</li>
+          <li>③ 인간관계의 변화 — 오래 참음·환대·피차 복종</li>
+          <li>④ 사회적 영향력 — 가정·직장·교회·세상에서 선한 영향</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 요한복음 거함의 영성 — 연합의 3가지 방법은?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① 말씀 안에 거함 (요 15:7) — 말씀의 내면화·통치</li>
+          <li>② 사랑 안에 거함 (요 15:9–10) — 새 계명(서로 사랑하라)을 실천으로 지킴</li>
+          <li>③ 순종을 통한 연합 (요 15:10) — 율법주의가 아닌 관계적 응답</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 연합의 3가지 결과는?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① 열매 맺는 삶 — 서로 사랑·제자다운 삶·영혼 구원</li>
+          <li>② 기도의 응답 — 하나님의 뜻대로 구하는 기도</li>
+          <li>③ 사역의 능력 — "나를 떠나서는 아무것도 할 수 없음"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 바울의 영성 구조 (빌 3:8–9) 3단계는?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① 자기 부정 — 모든 업적·경력을 배설물로 여김</li>
+          <li>② 관계 중심 영성 — 그리스도를 인격적·경험적으로 아는 것(γνῶσις)</li>
+          <li>③ 연합 — "그 안에서 발견됨" (위치·존재의 연합)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 하나님을 깊이 만난 사람의 삶의 변화 8가지는?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① 경청 ② 청빈 ③ 복종 ④ 겸손</li>
+          <li>⑤ 환대 ⑥ 착실함 ⑦ 균형 ⑧ 삶으로 증언하는 복음</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. 영성의 두 가지 핵심 특징은?</div>
+      <div class="summary-a">
+        <ul>
+          <li>① <strong>관계 중심성</strong> — 하나님과의 인격적 교제</li>
+          <li>② <strong>은혜 중심성</strong> — 인간의 수련·성취가 아닌 하나님의 선행적 은혜</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="summary-item">
+      <div class="summary-q">Q. Gary Thomas의 9가지 영성 유형은?</div>
+      <div class="summary-a">
+        <ul>
+          <li>자연주의 · 감각주의 · 전통주의 · 금욕주의 · 행동주의</li>
+          <li>박애주의 · 열정주의 · 묵상주의 · 지성주의</li>
+          <li>※ 보통 2–3가지 복합, 한 가지만 있는 것이 아님</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 핵심 원칙 3가지 -->
+    <div class="principle3-box">
+      <div class="p3-title">오늘 목회 핵심 원칙 3가지</div>
+      <div class="p3-items">
+        <div class="p3-item">
+          <div class="p3-num">①</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 수련이 아니라 연합이다</div>
+            <div class="p3-desc">하나님의 선행적 은혜 안에서 그리스도와 연합함으로 형성된다 (요 15:4)</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">②</div>
+          <div class="p3-content">
+            <div class="p3-head">사역 실패의 근본 원인은 연합의 단절이다</div>
+            <div class="p3-desc">기술·프로그램이 아닌 하나님과의 생명적 연합에서 목회의 능력이 흘러나온다 (요 15:5)</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">③</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 삶 전체를 하나님과 함께 살아가는 구조다</div>
+            <div class="p3-desc">일상의 경청·청빈·겸손·환대로 구현될 때 참된 영성이다</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-summary -->
+
+  <!-- ════════════════════════════════
+       TAB 3 목회자상
+  ════════════════════════════════ -->
+  <div id="tab-pastor" class="tab-panel">
+
+    <div class="section-label">목회자 영성과 정체성</div>
+
+    <div class="pastor-identity">
+      <div class="pi-row">
+        <div class="pi-box">
+          <div class="pi-box-label bad">역할 중심 (경계)</div>
+          <div class="pi-box-val">
+            설교하는 사람<br>
+            교회를 이끄는 사람<br>
+            영향력 있는 사람
+          </div>
+        </div>
+        <div class="pi-box">
+          <div class="pi-box-label good">존재 중심 (목표)</div>
+          <div class="pi-box-val">
+            그리스도 안에 있는 사람<br>
+            그리스도를 아는 사람<br>
+            연합 속에서 사역하는 사람
+          </div>
+        </div>
+      </div>
+      <div class="pi-motto">
+        목회란 <em>내가 만난 하나님</em>을 만나게 하는 것이다.<br>
+        영성의 기준은 <em>얼마나 영향력이 있는가</em>가 아니라 <em>그리스도를 얼마나 아는가</em>이다.
+      </div>
+    </div>
+
+    <div class="section-label">사역과 영성의 관계</div>
+
+    <div class="principle-block">
+      <div class="principle-title">
+        <span class="ptag">원칙</span>
+        목회자의 영성은 사역 기술이 아니라 삶 전체를 하나님과 함께 살아가는 구조다
+      </div>
+      <div class="principle-body">
+        목회는 단순한 기술로 할 수 있는 것이 아니라,
+        <strong>하나님과의 생명의 연합 관계를 통해서 흘러나오는 생명력</strong>을 가지고 하는 것이다.<br><br>
+        사역의 실패는 기술의 부족이 아니라 연합의 단절에서 온다 (요 15:5).<br>
+        내면이 형성되지 않으면 사역은 무너진다. 아무리 말씀을 잘 전해도
+        그 사람의 삶에서 흘러나오는 영성이 없으면 사람의 영을 터치하지 못한다.
+      </div>
+      <div class="principle-ref">
+        성경 근거: <span>요 15:5</span> (나를 떠나서는 아무것도 할 수 없음)
+        · <span>빌 3:8–9</span> (그 안에서 발견되려 함)
+      </div>
+    </div>
+
+    <div class="section-label">영성의 삼위일체적 구조 요약</div>
+
+    <div class="stepper">
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle" style="font-size:10px;">父</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">성부 — 관계의 대상</div>
+          <div class="step-desc">하나님 앞에서 살아가는 삶. 하나님의 임재 속에서 매 순간 살아가는 것</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle" style="font-size:10px;">子</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">성자 — 길이신 예수님 (<span class="greek-word">ἡ ὁδός</span>)</div>
+          <div class="step-desc">
+            재창조의 예수님 — 타락한 인간을 본연의 모습으로 회복시키심.<br>
+            <strong>영성 = 예수님을 통해 하나님이 창조하신 본연의 모습으로 돌아가는 것</strong>
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line-wrap">
+          <div class="step-circle" style="font-size:10px;">靈</div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">성령 — 내주하시는 하나님</div>
+          <div class="step-desc">
+            삼위일체 하나님이 우리와 거처(<span class="greek-word">μονή</span>)를 함께 하심 (요 14:23).<br>
+            성령 충만 = 성령에 지배를 받는 것 = 하나님의 통치를 받는 상태 = 샬롬
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">참고문헌</div>
+
+    <div class="scholar-block">
+      <div class="scholar-header">
+        <span class="scholar-tag">교재</span>
+        <span class="scholar-name">이번 주 강의 주요 참고문헌</span>
+      </div>
+      <div class="scholar-def" style="font-style:normal;">
+        <em>김순성</em> — "목회 실천의 본질과 목표 및 방법으로서의 영성" (복음과 실천신학)<br>
+        <em>침례신학연구소</em> — 『기독교 영성, 더 깊고 넓게』(침신대출판부, 이현모 교수 정의 수록)<br>
+        <em>Dennis L. Okholm</em> — 『수도원에서 배우는 영성 훈련』(규장) — 초기 수도원의 소중한 가치 연구<br>
+        <em>Gary Thomas</em> — 『영성에도 색깔이 있다』(CUP) — 개신교계의 헨리 나우웬<br>
+        <em>Richard J. Foster</em> — 영적 훈련, 돈·섹스·권력의 유혹 극복 (소박함·신의·섬김)<br>
+        <em>R. Paul Stevens</em> — 『현대인을 위한 생활 영성』
+      </div>
+    </div>
+
+    <!-- 핵심 원칙 3가지 -->
+    <div class="principle3-box">
+      <div class="p3-title">오늘 목회 핵심 원칙 3가지</div>
+      <div class="p3-items">
+        <div class="p3-item">
+          <div class="p3-num">①</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 수련이 아니라 연합이다</div>
+            <div class="p3-desc">하나님의 선행적 은혜 안에서 그리스도와 연합함으로 형성된다 (요 15:4)</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">②</div>
+          <div class="p3-content">
+            <div class="p3-head">사역 실패의 근본 원인은 연합의 단절이다</div>
+            <div class="p3-desc">기술·프로그램이 아닌 하나님과의 생명적 연합에서 목회의 능력이 흘러나온다 (요 15:5)</div>
+          </div>
+        </div>
+        <div class="p3-item">
+          <div class="p3-num">③</div>
+          <div class="p3-content">
+            <div class="p3-head">영성은 삶 전체를 하나님과 함께 살아가는 구조다</div>
+            <div class="p3-desc">일상의 경청·청빈·겸손·환대로 구현될 때 참된 영성이다</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-pastor -->
+
+</div><!-- /page-wrap -->
+
+<script>
+function switchTab(e, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
