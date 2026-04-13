@@ -24,8 +24,10 @@ const SITE_DATA = {
 	  { type: "notes", label: "강의노트", href: "output/greek/week04.html" },
 	  { type: "audio", label: "현재수동노래1", href: "output/greek/현재-수동1.mp3" }
 	] },
-        { week: 5, title: "전치사와 격", date: "2026.04", files: [] },
-        { week: 6, title: "동사 기초 — 현재 능동태", date: "2026.04", files: [] },
+        { week: 5, title: "교수님 변경 및 복습", date: "2026.04.06.", files: [] },
+        { week: 6, title: "시제/태 정리, 전체복습 등", date: "2026.04.13", files: [
+	  { type: "notes", label: "강의노트", href: "output/greek/week06.html" }
+	  ] },
         { week: 7, title: "동사 — 미완료 과거", date: "2026.04", files: [] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "동사 — 미래", date: "2026.05", files: [] },

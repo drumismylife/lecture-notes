@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 6주차 동사 전시제 총정리</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b27;
+    --subcard: #1e2538;
+    --border: #2a3050;
+    --gold: #c9a84c;
+    --gold-dim: #a07830;
+    --greek: #f0d080;
+    --blue: #7c9ed9;
+    --red: #e07b6a;
+    --green: #6fcf97;
+    --text: #e8eaf0;
+    --text-sub: #9ba3b8;
+    --text-hint: #6b7490;
+    --teal: #4dbdcf;
+    --purple: #9d7fce;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2540 50%, #0d2035 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 24px 32px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'Κοινὴ Ἑλληνική';
+    position: absolute;
+    right: 24px; top: 12px;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-style: italic;
+    color: rgba(201,168,76,0.08);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .header-meta { font-size: 11px; color: var(--text-hint); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .header-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .header-greek { font-family: Georgia, serif; font-size: 15px; font-style: italic; color: var(--gold); margin-bottom: 10px; }
+  .header-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .pill.red { background: rgba(224,123,106,0.12); border-color: rgba(224,123,106,0.3); color: var(--red); }
+  .pill.green { background: rgba(111,207,151,0.12); border-color: rgba(111,207,151,0.3); color: var(--green); }
+
+  /* TABS */
+  .tabs { display: flex; border-bottom: 2px solid var(--border); background: var(--card); padding: 0 32px; }
+  .tab-btn {
+    background: none; border: none; color: var(--text-hint);
+    font-size: 13px; font-weight: 600; padding: 14px 20px;
+    cursor: pointer; position: relative; transition: color 0.2s;
+    font-family: inherit; letter-spacing: 0.04em;
+  }
+  .tab-btn.active { color: var(--gold); }
+  .tab-btn.active::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+  }
+  .tab-btn:hover:not(.active) { color: var(--text-sub); }
+  .tab-content { display: none; padding: 28px 32px; max-width: 1000px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* SECTION HEADS */
+  .sec-head {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 16px;
+  }
+  .sec-badge {
+    background: var(--gold); color: #0d1117;
+    font-size: 10px; font-weight: 800; padding: 2px 8px;
+    border-radius: 3px; letter-spacing: 0.1em; white-space: nowrap;
+  }
+  .sec-badge.blue { background: var(--blue); }
+  .sec-badge.teal { background: var(--teal); }
+  .sec-badge.purple { background: var(--purple); }
+  .sec-title { font-size: 16px; font-weight: 700; color: var(--text); }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+  /* ASPECT BOX */
+  .aspect-box {
+    background: linear-gradient(135deg, #1a2035 0%, #1e2840 100%);
+    border: 1px solid var(--gold-dim);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 18px 20px; margin-bottom: 24px;
+  }
+  .aspect-title { font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 10px; letter-spacing: 0.06em; }
+  .aspect-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .aspect-item { background: rgba(255,255,255,0.04); border-radius: 6px; padding: 10px 12px; }
+  .aspect-label { font-size: 11px; color: var(--text-hint); margin-bottom: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .aspect-val { font-size: 13px; font-weight: 600; color: var(--text-sub); }
+  .aspect-val span { color: var(--gold); }
+  .aspect-note { margin-top: 12px; font-size: 12px; color: var(--text-hint); border-top: 1px solid var(--border); padding-top: 10px; }
+
+  /* TENSE BLOCK */
+  .tense-block { margin-bottom: 24px; }
+  .tense-header {
+    background: var(--subcard);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 14px 18px;
+  }
+  .tense-header-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .tense-badge {
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px;
+    letter-spacing: 0.08em;
+  }
+  .tense-badge.act { background: rgba(124,158,217,0.2); color: var(--blue); border: 1px solid rgba(124,158,217,0.4); }
+  .tense-badge.pass { background: rgba(224,123,106,0.2); color: var(--red); border: 1px solid rgba(224,123,106,0.4); }
+  .tense-badge.mid { background: rgba(157,127,206,0.2); color: var(--purple); border: 1px solid rgba(157,127,206,0.4); }
+  .tense-badge.imp { background: rgba(77,189,207,0.2); color: var(--teal); border: 1px solid rgba(77,189,207,0.4); }
+  .tense-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .tense-marker {
+    margin-left: auto; font-size: 11px; color: var(--text-hint);
+    background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px;
+  }
+  .tense-meaning {
+    font-size: 13px; color: var(--text-sub); margin-top: 6px;
+    padding-left: 2px;
+  }
+  .tense-meaning .greek-ex {
+    font-family: Georgia, serif; color: var(--greek); font-size: 14px;
+    font-style: italic;
+  }
+  .tense-meaning .meaning-arrow { color: var(--gold); margin: 0 6px; }
+
+  /* CONJ TABLE */
+  .conj-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+  .conj-table { width: 100%; border-collapse: collapse; }
+  .conj-table thead tr { background: #1e2538; }
+  .conj-table thead th {
+    padding: 8px 12px; font-size: 11px; font-weight: 700;
+    color: var(--text-hint); letter-spacing: 0.08em;
+    text-transform: uppercase; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .conj-table td {
+    padding: 9px 12px; border-bottom: 1px solid rgba(42,48,80,0.6);
+    vertical-align: middle;
+  }
+  .conj-table tr:last-child td { border-bottom: none; }
+  .conj-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .col-person { font-size: 12px; color: var(--text-hint); width: 70px; }
+  .col-greek {
+    font-family: Georgia, serif; color: var(--greek); font-size: 16px;
+    font-style: italic; font-weight: 600;
+  }
+  .col-pron { font-size: 11px; color: var(--text-hint); }
+  .col-meaning { font-size: 13px; color: var(--text-sub); }
+  .col-ending {
+    font-family: Georgia, serif; font-size: 12px;
+    color: var(--gold); background: rgba(201,168,76,0.08);
+    padding: 2px 6px; border-radius: 3px;
+  }
+
+  /* EXAMPLE ROW */
+  .example-row {
+    background: rgba(201,168,76,0.04);
+    border-top: 1px dashed rgba(201,168,76,0.2);
+    padding: 10px 18px;
+  }
+  .example-label { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  .example-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .example-item { font-size: 13px; }
+  .example-item .eg-greek { font-family: Georgia, serif; color: var(--greek); font-style: italic; font-size: 14px; }
+  .example-item .eg-pron { font-size: 11px; color: var(--text-hint); }
+  .example-item .eg-mean { font-size: 12px; color: var(--text-sub); }
+
+  /* RULE BOX */
+  .rule-box {
+    background: #1e1a10;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+  }
+  .rule-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 8px; letter-spacing: 0.06em; }
+  .rule-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .rule-item { text-align: center; }
+  .rule-greek { font-family: Georgia, serif; color: var(--greek); font-size: 15px; font-style: italic; }
+  .rule-arrow { color: var(--gold); font-size: 12px; margin: 0 4px; }
+  .rule-example { font-size: 11px; color: var(--text-hint); margin-top: 2px; font-family: Georgia, serif; font-style: italic; }
+
+  /* FLASH CARDS */
+  .cards-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .filter-btn {
+    background: var(--subcard); border: 1px solid var(--border);
+    color: var(--text-hint); font-size: 12px; padding: 5px 14px;
+    border-radius: 20px; cursor: pointer; transition: all 0.2s;
+    font-family: inherit;
+  }
+  .filter-btn.active { background: rgba(201,168,76,0.15); border-color: var(--gold); color: var(--gold); }
+  .filter-btn:hover:not(.active) { border-color: var(--text-hint); color: var(--text-sub); }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .flash-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    min-height: 130px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s, border-color 0.15s;
+    transform-style: preserve-3d;
+  }
+  .flash-card:hover { transform: translateY(-2px); border-color: var(--gold-dim); }
+  .card-front, .card-back {
+    position: absolute; inset: 0;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: opacity 0.25s;
+  }
+  .card-back { opacity: 0; background: #1a2030; border: 1px solid var(--gold-dim); border-radius: 10px; }
+  .flash-card.flipped .card-front { opacity: 0; }
+  .flash-card.flipped .card-back { opacity: 1; }
+  .card-cat { font-size: 10px; color: var(--text-hint); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .card-greek { font-family: Georgia, serif; color: var(--greek); font-size: 20px; font-style: italic; line-height: 1.3; }
+  .card-pron { font-size: 12px; color: var(--gold); margin-top: 4px; }
+  .card-hint { font-size: 11px; color: var(--text-hint); margin-top: 6px; }
+  .card-meaning { font-size: 16px; font-weight: 700; color: var(--text); }
+  .card-sub { font-size: 12px; color: var(--text-sub); margin-top: 4px; }
+  .card-pos { font-size: 11px; color: var(--blue); margin-top: 3px; }
+  .card-tap { font-size: 10px; color: var(--text-hint); position: absolute; bottom: 8px; right: 10px; }
+
+  /* VERB FORM CARDS */
+  .vform-card .card-front { background: linear-gradient(135deg, #161b27, #1a2035); }
+  .vform-card.act .card-front { border-top: 3px solid var(--blue); }
+  .vform-card.pass .card-front { border-top: 3px solid var(--red); }
+  .vform-card.mid .card-front { border-top: 3px solid var(--purple); }
+  .vform-card .card-tense { font-size: 10px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.1em; margin-bottom: 4px; }
+
+  .memo-box {
+    background: var(--subcard); border: 1px solid var(--border);
+    border-radius: 6px; padding: 14px 16px; margin-bottom: 20px;
+    font-size: 13px; color: var(--text-sub);
+  }
+  .memo-box strong { color: var(--gold); }
+
+  /* 오늘 암기 */
+  .today-box {
+    background: linear-gradient(135deg, #1a2a1a, #1e2820);
+    border: 1px solid var(--green);
+    border-radius: 8px; padding: 16px 20px; margin-top: 32px;
+  }
+  .today-title { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 10px; letter-spacing: 0.06em; }
+  .today-items { display: flex; gap: 12px; flex-wrap: wrap; }
+  .today-item {
+    background: rgba(111,207,151,0.08); border: 1px solid rgba(111,207,151,0.25);
+    border-radius: 6px; padding: 8px 14px; font-family: Georgia, serif;
+    color: var(--greek); font-size: 15px; font-style: italic;
+  }
+  .today-item span { display: block; font-family: inherit; font-size: 11px; color: var(--green); margin-top: 2px; font-style: normal; }
+
+  @media print {
+    body { background: white; color: black; }
+    .tab-btn { display: none; }
+    .tab-content { display: block !important; }
+    .flash-card .card-back { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">헬라어 I · 한철흠 교수 · 박창환 역편 교재</div>
+  <div class="header-title">6주차 — 동사 전시제·전태 총정리</div>
+  <div class="header-greek">Πᾶσα γραφὴ θεόπνευστος — 모든 시제와 태의 직설법</div>
+  <div class="header-pills">
+    <span class="pill">2026-04-13</span>
+    <span class="pill red">중간고사 D-14 (4/27)</span>
+    <span class="pill">현재·미래·미완료·단순과거</span>
+    <span class="pill green">λύω 기준</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('notes',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('cards',this)">🃏 암기카드</button>
+</div>
+
+<!-- ===== TAB 1: 강의노트 ===== -->
+<div class="tab-content active" id="tab-notes">
+
+  <!-- ASPECT 총론 -->
+  <div class="sec-head" style="margin-top:0">
+    <span class="sec-badge">INTRO</span>
+    <div class="sec-title">헬라어 시제(Tense)란 무엇인가</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="aspect-box">
+    <div class="aspect-title">⏱ 헬라어 시제 = 때(Time) + 동작의 종류(Aspect)</div>
+    <div class="aspect-grid">
+      <div class="aspect-item">
+        <div class="aspect-label">계속적·반복 동작</div>
+        <div class="aspect-val"><span>현재 / 미완료</span><br>진행 중이거나 반복되는 행위</div>
+      </div>
+      <div class="aspect-item">
+        <div class="aspect-label">단순 발생</div>
+        <div class="aspect-val"><span>단순과거 (부정과거)</span><br>동작이 단순히 일어났음, 배경 설명</div>
+      </div>
+      <div class="aspect-item">
+        <div class="aspect-label">완료 상태</div>
+        <div class="aspect-val"><span>완료</span><br>과거 동작이 현재에도 영향을 미치는 상태</div>
+      </div>
+    </div>
+    <div class="aspect-note">
+      ★ <strong style="color:var(--gold)">직설법 안</strong>에서는 <em style="color:var(--text-sub)">때(time)</em>와 <em style="color:var(--text-sub)">동작의 종류(aspect)</em> 둘 다 표현됩니다.
+      직설법 <strong style="color:var(--gold)">밖</strong>(부정사·분사·접속법 등)에서는 <em style="color:var(--text-sub)">때는 사라지고 aspect만</em> 남습니다.
+    </div>
+  </div>
+
+  <!-- 자음+σ 규칙 -->
+  <div class="rule-box">
+    <div class="rule-title">🔤 자음 + σ 축약 규칙 (미래/제1단순과거에 적용)</div>
+    <div class="rule-grid">
+      <div class="rule-item">
+        <div class="rule-greek">π, β, φ <span class="rule-arrow">+σ→</span> ψ</div>
+        <div class="rule-example">γράφω → γράψω (그랍소)</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-greek">κ, γ, χ <span class="rule-arrow">+σ→</span> ξ</div>
+        <div class="rule-example">ἄγω → ἄξω (악소)</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-greek">τ, δ, θ <span class="rule-arrow">+σ→</span> σ</div>
+        <div class="rule-example">πείθω → πείσω (페이소)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 현재 능동태 ===== -->
+  <div class="sec-head">
+    <span class="sec-badge blue">현재시제</span>
+    <div class="sec-title">현재 직설법 — 지금 진행 중인 동작</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge act">능동태</span>
+        <span class="tense-name">현재 능동태 직설법</span>
+        <span class="tense-marker">어미: -ω / -εις / -ει / -ομεν / -ετε / -ουσι(ν)</span>
+      </div>
+      <div class="tense-meaning">
+        화자가 <strong style="color:var(--blue)">직접</strong> 동작을 행하며, 지금 진행 중이거나 반복되는 행위를 나타냅니다.<br>
+        <span class="greek-ex">λύω</span> (뤼오) <span class="meaning-arrow">→</span> "나는 (지금) 풀고 있다" — 포로를 묶은 사슬을 <em>지금 이 순간</em> 풀고 있는 장면
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>어미</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1인칭 단수</td><td class="col-greek">λύ-ω</td><td class="col-pron">뤼오</td><td class="col-meaning">나는 풀고 있다</td><td class="col-ending">-ω</td></tr>
+          <tr><td class="col-person">2인칭 단수</td><td class="col-greek">λύ-εις</td><td class="col-pron">뤼에이스</td><td class="col-meaning">너는 풀고 있다</td><td class="col-ending">-εις</td></tr>
+          <tr><td class="col-person">3인칭 단수</td><td class="col-greek">λύ-ει</td><td class="col-pron">뤼에이</td><td class="col-meaning">그/그녀는 풀고 있다</td><td class="col-ending">-ει</td></tr>
+          <tr><td class="col-person">1인칭 복수</td><td class="col-greek">λύ-ομεν</td><td class="col-pron">뤼오멘</td><td class="col-meaning">우리는 풀고 있다</td><td class="col-ending">-ομεν</td></tr>
+          <tr><td class="col-person">2인칭 복수</td><td class="col-greek">λύ-ετε</td><td class="col-pron">뤼에테</td><td class="col-meaning">너희는 풀고 있다</td><td class="col-ending">-ετε</td></tr>
+          <tr><td class="col-person">3인칭 복수</td><td class="col-greek">λύ-ουσι(ν)</td><td class="col-pron">뤼우씨(ν)</td><td class="col-meaning">그들은 풀고 있다</td><td class="col-ending">-ουσι(ν)</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">γράφω</span> <span class="eg-pron">(그라포)</span> <span class="eg-mean">나는 쓰고 있다</span></div>
+          <div class="example-item"><span class="eg-greek">πιστεύω</span> <span class="eg-pron">(피스튜오)</span> <span class="eg-mean">나는 믿고 있다</span></div>
+          <div class="example-item"><span class="eg-greek">ἀκούω</span> <span class="eg-pron">(아쿠오)</span> <span class="eg-mean">나는 듣고 있다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 현재 수/중 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge pass">수동태</span>
+        <span class="tense-badge mid">중간태</span>
+        <span class="tense-name">현재 수동/중간태 직설법</span>
+        <span class="tense-marker">어미: -ομαι / -ῃ / -εται / -όμεθα / -εσθε / -ονται</span>
+      </div>
+      <div class="tense-meaning">
+        <strong style="color:var(--red)">수동태</strong>: 지금 다른 이에게 동작을 <em>당하고</em> 있음 &nbsp;|&nbsp;
+        <strong style="color:var(--purple)">중간태</strong>: 지금 자신을 위해 / 자신에게 영향이 돌아오는 동작<br>
+        <span class="greek-ex">λύομαι</span> (뤼오마이) <span class="meaning-arrow">→</span> <span style="color:var(--red)">"나는 (지금) 풀리고 있다"</span> &nbsp;/&nbsp; <span style="color:var(--purple)">"나는 나를 위해 풀고 있다"</span>
+        &nbsp;— 형태 동일, 문맥으로 구별
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻 (수동)</th><th>뜻 (중간)</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">λύ-ομαι</td><td class="col-pron">뤼오마이</td><td class="col-meaning">나는 풀리고 있다</td><td class="col-meaning">나는 나를 위해 풀고 있다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">λύ-ῃ</td><td class="col-pron">뤼에</td><td class="col-meaning">너는 풀리고 있다</td><td class="col-meaning">너는 너를 위해 풀고 있다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">λύ-εται</td><td class="col-pron">뤼에타이</td><td class="col-meaning">그는 풀리고 있다</td><td class="col-meaning">그는 자신을 위해 풀고 있다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">λυ-όμεθα</td><td class="col-pron">뤼오메싸</td><td class="col-meaning">우리는 풀리고 있다</td><td class="col-meaning">우리는 우리를 위해 풀고 있다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">λύ-εσθε</td><td class="col-pron">뤼에스떼</td><td class="col-meaning">너희는 풀리고 있다</td><td class="col-meaning">너희는 너희를 위해 풀고 있다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">λύ-ονται</td><td class="col-pron">뤼온타이</td><td class="col-meaning">그들은 풀리고 있다</td><td class="col-meaning">그들은 자신들을 위해 풀고 있다</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">πιστεύομαι</span> <span class="eg-pron">(피스튜오마이)</span> <span class="eg-mean">나는 믿겨지고 있다</span></div>
+          <div class="example-item"><span class="eg-greek">σῴζομαι</span> <span class="eg-pron">(소조마이)</span> <span class="eg-mean">나는 구원받고 있다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 미래 시제 ===== -->
+  <div class="sec-head">
+    <span class="sec-badge" style="background:var(--teal);color:#0d1117">미래시제</span>
+    <div class="sec-title">미래 직설법 — 앞으로 일어날 동작 (시제 표지: σ)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 미래 능동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge act">능동태</span>
+        <span class="tense-name">미래 능동태 직설법</span>
+        <span class="tense-marker">표지: σ 삽입 → 어간+σ+능동어미</span>
+      </div>
+      <div class="tense-meaning">
+        화자가 앞으로 <strong style="color:var(--blue)">직접</strong> 동작을 행할 것임을 나타냅니다.<br>
+        <span class="greek-ex">λύσω</span> (뤼소) <span class="meaning-arrow">→</span> "나는 풀 것이다" — 미래에 묶인 것을 <em>풀겠다는 의지 혹은 예측</em>
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>어미</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">λύ-σ-ω</td><td class="col-pron">뤼소</td><td class="col-meaning">나는 풀 것이다</td><td class="col-ending">-σω</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">λύ-σ-εις</td><td class="col-pron">뤼세이스</td><td class="col-meaning">너는 풀 것이다</td><td class="col-ending">-σεις</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">λύ-σ-ει</td><td class="col-pron">뤼세이</td><td class="col-meaning">그/그녀는 풀 것이다</td><td class="col-ending">-σει</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">λύ-σ-ομεν</td><td class="col-pron">뤼소멘</td><td class="col-meaning">우리는 풀 것이다</td><td class="col-ending">-σομεν</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">λύ-σ-ετε</td><td class="col-pron">뤼세테</td><td class="col-meaning">너희는 풀 것이다</td><td class="col-ending">-σετε</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">λύ-σ-ουσι(ν)</td><td class="col-pron">뤼수씨(ν)</td><td class="col-meaning">그들은 풀 것이다</td><td class="col-ending">-σουσι(ν)</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">자음축약 예시</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">γράφω → γράψω</span> <span class="eg-pron">(그랍소)</span> <span class="eg-mean">나는 쓸 것이다 (φ+σ→ψ)</span></div>
+          <div class="example-item"><span class="eg-greek">ἀκούω → ἀκούσω</span> <span class="eg-pron">(아쿠소)</span> <span class="eg-mean">나는 들을 것이다</span></div>
+          <div class="example-item"><span class="eg-greek">βαπτίζω → βαπτίσω</span> <span class="eg-pron">(밥티소)</span> <span class="eg-mean">나는 침례를 줄 것이다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미래 수동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge pass">수동태</span>
+        <span class="tense-name">미래 수동태 직설법</span>
+        <span class="tense-marker">표지: θησ (어간+θη+σ+수동어미)</span>
+      </div>
+      <div class="tense-meaning">
+        앞으로 다른 이에게 동작을 <strong style="color:var(--red)">당할 것</strong>임을 나타냅니다.<br>
+        <span class="greek-ex">λυθήσομαι</span> (뤼데소마이) <span class="meaning-arrow">→</span> "나는 풀릴 것이다" — 미래에 묶인 상태에서 <em>해방될 것</em>
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">λυ-θή-σ-ομαι</td><td class="col-pron">뤼데소마이</td><td class="col-meaning">나는 풀릴 것이다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">λυ-θή-σ-ῃ</td><td class="col-pron">뤼데세</td><td class="col-meaning">너는 풀릴 것이다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">λυ-θή-σ-εται</td><td class="col-pron">뤼데세타이</td><td class="col-meaning">그는 풀릴 것이다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">λυ-θη-σό-μεθα</td><td class="col-pron">뤼데소메싸</td><td class="col-meaning">우리는 풀릴 것이다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">λυ-θή-σ-εσθε</td><td class="col-pron">뤼데세스떼</td><td class="col-meaning">너희는 풀릴 것이다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">λυ-θή-σ-ονται</td><td class="col-pron">뤼데손타이</td><td class="col-meaning">그들은 풀릴 것이다</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">σωθήσομαι</span> <span class="eg-pron">(소떼소마이)</span> <span class="eg-mean">나는 구원받을 것이다</span></div>
+          <div class="example-item"><span class="eg-greek">βαπτισθήσομαι</span> <span class="eg-pron">(밥티스떼소마이)</span> <span class="eg-mean">나는 침례받을 것이다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미래 중간 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge mid">중간태</span>
+        <span class="tense-name">미래 중간태 직설법</span>
+        <span class="tense-marker">표지: σ + 중간태어미 (미래수동과 구별됨!)</span>
+      </div>
+      <div class="tense-meaning">
+        앞으로 자신을 위해 / 자신에게 이익이 돌아오도록 동작을 행할 것임을 나타냅니다.<br>
+        <span class="greek-ex">λύσομαι</span> (뤼소마이) <span class="meaning-arrow">→</span> "나는 나를 위해 풀 것이다" — <em>미래 수동(λυθήσομαι)과 반드시 구별!</em>
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">λύ-σ-ομαι</td><td class="col-pron">뤼소마이</td><td class="col-meaning">나는 나를 위해 풀 것이다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">λύ-σ-ῃ</td><td class="col-pron">뤼세</td><td class="col-meaning">너는 너를 위해 풀 것이다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">λύ-σ-εται</td><td class="col-pron">뤼세타이</td><td class="col-meaning">그는 자신을 위해 풀 것이다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">λυ-σό-μεθα</td><td class="col-pron">뤼소메싸</td><td class="col-meaning">우리는 우리를 위해 풀 것이다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">λύ-σ-εσθε</td><td class="col-pron">뤼세스떼</td><td class="col-meaning">너희는 너희를 위해 풀 것이다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">λύ-σ-ονται</td><td class="col-pron">뤼손타이</td><td class="col-meaning">그들은 자신들을 위해 풀 것이다</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">ἀκούσομαι</span> <span class="eg-pron">(아쿠소마이)</span> <span class="eg-mean">나는 나를 위해 들을 것이다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 미완료 ===== -->
+  <div class="sec-head">
+    <span class="sec-badge imp">미완료</span>
+    <div class="sec-title">미완료 직설법 — 과거의 계속·반복된 동작 (가산모음 ε)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 미완료 능동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge act">능동태</span>
+        <span class="tense-name">미완료 능동태 직설법</span>
+        <span class="tense-marker">가산모음 ε- 접두 + 2차 능동어미</span>
+      </div>
+      <div class="tense-meaning">
+        과거에 <strong style="color:var(--teal)">계속되거나 반복된</strong> 동작을 화자가 직접 행했음을 나타냅니다.<br>
+        <span class="greek-ex">ἔλυον</span> (엘뤼온) <span class="meaning-arrow">→</span> "나는 풀고 있었다 / 나는 풀곤 하였다" — 과거에 <em>반복적으로 묶인 것을 풀던</em> 장면
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>어미</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἔ-λυ-ον</td><td class="col-pron">엘뤼온</td><td class="col-meaning">나는 풀고 있었다</td><td class="col-ending">-ον</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἔ-λυ-ες</td><td class="col-pron">엘뤼에스</td><td class="col-meaning">너는 풀고 있었다</td><td class="col-ending">-ες</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἔ-λυ-ε(ν)</td><td class="col-pron">엘뤼에(ν)</td><td class="col-meaning">그/그녀는 풀고 있었다</td><td class="col-ending">-ε(ν)</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λύ-ομεν</td><td class="col-pron">엘뤼오멘</td><td class="col-meaning">우리는 풀고 있었다</td><td class="col-ending">-ομεν</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λύ-ετε</td><td class="col-pron">엘뤼에테</td><td class="col-meaning">너희는 풀고 있었다</td><td class="col-ending">-ετε</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἔ-λυ-ον</td><td class="col-pron">엘뤼온</td><td class="col-meaning">그들은 풀고 있었다</td><td class="col-ending">-ον</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">ἔγραφον</span> <span class="eg-pron">(에그라폰)</span> <span class="eg-mean">나는 쓰고 있었다</span></div>
+          <div class="example-item"><span class="eg-greek">ἐδίδασκον</span> <span class="eg-pron">(에디다스콘)</span> <span class="eg-mean">나는 가르치고 있었다</span></div>
+          <div class="example-item"><span class="eg-greek">ἐθεράπευον</span> <span class="eg-pron">(에떼라퓨온)</span> <span class="eg-mean">나는 치료하고 있었다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미완료 수/중 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge pass">수동태</span>
+        <span class="tense-badge mid">중간태</span>
+        <span class="tense-name">미완료 수동/중간태 직설법</span>
+        <span class="tense-marker">가산모음 ε- + 2차 수동어미 (형태 동일)</span>
+      </div>
+      <div class="tense-meaning">
+        과거에 계속 <strong style="color:var(--red)">당하던</strong> 동작 / 과거에 계속 <strong style="color:var(--purple)">자신을 위해</strong> 하던 동작<br>
+        <span class="greek-ex">ἐλυόμην</span> (엘뤼오민) <span class="meaning-arrow">→</span>
+        <span style="color:var(--red)">"나는 풀리고 있었다"</span> / <span style="color:var(--purple)">"나는 나를 위해 풀고 있었다"</span>
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻 (수동)</th><th>뜻 (중간)</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἐ-λυ-όμην</td><td class="col-pron">엘뤼오민</td><td class="col-meaning">나는 풀리고 있었다</td><td class="col-meaning">나는 나를 위해 풀고 있었다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἐ-λύ-ου</td><td class="col-pron">엘뤼우</td><td class="col-meaning">너는 풀리고 있었다</td><td class="col-meaning">너는 너를 위해 풀고 있었다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἐ-λύ-ετο</td><td class="col-pron">엘뤼에토</td><td class="col-meaning">그는 풀리고 있었다</td><td class="col-meaning">그는 자신을 위해 풀고 있었다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λυ-όμεθα</td><td class="col-pron">엘뤼오메싸</td><td class="col-meaning">우리는 풀리고 있었다</td><td class="col-meaning">우리를 위해 풀고 있었다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λύ-εσθε</td><td class="col-pron">엘뤼에스떼</td><td class="col-meaning">너희는 풀리고 있었다</td><td class="col-meaning">너희를 위해 풀고 있었다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἐ-λύ-οντο</td><td class="col-pron">엘뤼온토</td><td class="col-meaning">그들은 풀리고 있었다</td><td class="col-meaning">그들 자신을 위해 풀고 있었다</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">ἐπιστευόμην</span> <span class="eg-pron">(에피스튜오민)</span> <span class="eg-mean">나는 믿겨지고 있었다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 단순과거 ===== -->
+  <div class="sec-head">
+    <span class="sec-badge" style="background:var(--red);color:#fff">단순과거</span>
+    <div class="sec-title">단순(부정)과거 직설법 — 과거의 단순한 발생</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="memo-box">
+    <strong>제1단순과거 vs 제2단순과거</strong>: 번역은 둘 다 "~했다"로 동일합니다. 차이는 형태: 제1은 <strong>σα 표지</strong>(규칙변화), 제2는 <strong>어간 자체가 변화</strong>(불규칙, 어근에 따라 정해져 있음). 마치 영어의 walked(규칙)와 went(불규칙) 차이와 같습니다.
+  </div>
+
+  <!-- 제1단과 능동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge act">능동태</span>
+        <span class="tense-name">제1단순과거 능동태 직설법</span>
+        <span class="tense-marker">가산모음 ε- + 어간 + σα + 2차어미</span>
+      </div>
+      <div class="tense-meaning">
+        과거에 동작이 <strong style="color:var(--red)">단순히 한 번 발생</strong>했음을 나타냅니다. 지속·반복의 의미 없음.<br>
+        <span class="greek-ex">ἔλυσα</span> (엘뤼사) <span class="meaning-arrow">→</span> "나는 풀었다" — 특정 시점에 묶인 것을 <em>한 번 풀었다</em>는 사건
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>어미</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἔ-λυ-σα</td><td class="col-pron">엘뤼사</td><td class="col-meaning">나는 풀었다</td><td class="col-ending">-σα</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἔ-λυ-σας</td><td class="col-pron">엘뤼사스</td><td class="col-meaning">너는 풀었다</td><td class="col-ending">-σας</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἔ-λυ-σε(ν)</td><td class="col-pron">엘뤼세(ν)</td><td class="col-meaning">그/그녀는 풀었다</td><td class="col-ending">-σε(ν)</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λύ-σαμεν</td><td class="col-pron">엘뤼사멘</td><td class="col-meaning">우리는 풀었다</td><td class="col-ending">-σαμεν</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λύ-σατε</td><td class="col-pron">엘뤼사테</td><td class="col-meaning">너희는 풀었다</td><td class="col-ending">-σατε</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἔ-λυ-σαν</td><td class="col-pron">엘뤼산</td><td class="col-meaning">그들은 풀었다</td><td class="col-ending">-σαν</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">ἐθεράπευσα</span> <span class="eg-pron">(에떼라퓨사)</span> <span class="eg-mean">나는 치료했다</span></div>
+          <div class="example-item"><span class="eg-greek">ἐπίστευσα</span> <span class="eg-pron">(에피스튜사)</span> <span class="eg-mean">나는 믿었다</span></div>
+          <div class="example-item"><span class="eg-greek">ἔγραψα</span> <span class="eg-pron">(에그랍사)</span> <span class="eg-mean">나는 썼다 (φ+σ→ψ)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제1단과 수동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge pass">수동태</span>
+        <span class="tense-name">제1단순과거 수동태 직설법</span>
+        <span class="tense-marker">가산모음 ε- + 어간 + θη + 2차어미</span>
+      </div>
+      <div class="tense-meaning">
+        과거에 단순히 동작을 <strong style="color:var(--red)">당했음</strong>을 나타냅니다. 수동 표지 <strong style="color:var(--gold)">θη</strong>가 핵심.<br>
+        <span class="greek-ex">ἐλύθην</span> (엘뤼뗀) <span class="meaning-arrow">→</span> "나는 풀렸다" — 누군가가 나를 풀어줬다는 <em>수동 사건</em>
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>어미</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἐ-λύ-θη-ν</td><td class="col-pron">엘뤼뗀</td><td class="col-meaning">나는 풀렸다</td><td class="col-ending">-θην</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἐ-λύ-θη-ς</td><td class="col-pron">엘뤼떼스</td><td class="col-meaning">너는 풀렸다</td><td class="col-ending">-θης</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἐ-λύ-θη</td><td class="col-pron">엘뤼떼</td><td class="col-meaning">그/그녀는 풀렸다</td><td class="col-ending">-θη</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λύ-θη-μεν</td><td class="col-pron">엘뤼떼멘</td><td class="col-meaning">우리는 풀렸다</td><td class="col-ending">-θημεν</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λύ-θη-τε</td><td class="col-pron">엘뤼떼테</td><td class="col-meaning">너희는 풀렸다</td><td class="col-ending">-θητε</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἐ-λύ-θη-σαν</td><td class="col-pron">엘뤼떼산</td><td class="col-meaning">그들은 풀렸다</td><td class="col-ending">-θησαν</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">예시 동사</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">ἐσώθην</span> <span class="eg-pron">(에소뗀)</span> <span class="eg-mean">나는 구원받았다</span></div>
+          <div class="example-item"><span class="eg-greek">ἐθεραπεύθην</span> <span class="eg-pron">(에떼라퓨뗀)</span> <span class="eg-mean">나는 치료받았다</span></div>
+          <div class="example-item"><span class="eg-greek">ἐβαπτίσθην</span> <span class="eg-pron">(에밥티스뗀)</span> <span class="eg-mean">나는 침례받았다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제1단과 중간 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge mid">중간태</span>
+        <span class="tense-name">제1단순과거 중간태 직설법</span>
+        <span class="tense-marker">가산모음 ε- + 어간 + σα + 중간2차어미</span>
+      </div>
+      <div class="tense-meaning">
+        과거에 자신을 위해 / 자신에게 이익이 돌아오도록 동작을 <strong style="color:var(--purple)">한 번 행했음</strong>.<br>
+        <span class="greek-ex">ἐλυσάμην</span> (엘뤼사민) <span class="meaning-arrow">→</span> "나는 나를 위해 풀었다" — 자신의 이익을 위해 묶인 것을 풀었다
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἐ-λυ-σά-μην</td><td class="col-pron">엘뤼사민</td><td class="col-meaning">나는 나를 위해 풀었다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἐ-λύ-σω</td><td class="col-pron">엘뤼소</td><td class="col-meaning">너는 너를 위해 풀었다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἐ-λύ-σα-το</td><td class="col-pron">엘뤼사토</td><td class="col-meaning">그는 자신을 위해 풀었다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λυ-σά-μεθα</td><td class="col-pron">엘뤼사메싸</td><td class="col-meaning">우리는 우리를 위해 풀었다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λύ-σα-σθε</td><td class="col-pron">엘뤼사스떼</td><td class="col-meaning">너희는 너희를 위해 풀었다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἐ-λύ-σα-ντο</td><td class="col-pron">엘뤼산토</td><td class="col-meaning">그들은 자신들을 위해 풀었다</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 제2단과 능동 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge act">능동태</span>
+        <span class="tense-name">제2단순과거 능동태 직설법 (λαμβάνω 기준)</span>
+        <span class="tense-marker">어간 자체 변화 (σα 없음) — 불규칙</span>
+      </div>
+      <div class="tense-meaning">
+        <strong style="color:var(--gold)">제2단순과거</strong>: σα 표지 없이 어간 자체가 바뀝니다. 번역은 제1과 동일하게 "~했다".<br>
+        <span class="greek-ex">ἔλαβον</span> (엘라본) <span class="meaning-arrow">→</span> "나는 취했다(받았다)" — λαμβάνω의 과거형, 어간이 λαβ-으로 변화
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th><th>원형</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἔ-λαβ-ον</td><td class="col-pron">엘라본</td><td class="col-meaning">나는 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἔ-λαβ-ες</td><td class="col-pron">엘라베스</td><td class="col-meaning">너는 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἔ-λαβ-ε(ν)</td><td class="col-pron">엘라베(ν)</td><td class="col-meaning">그는 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λάβ-ομεν</td><td class="col-pron">엘라보멘</td><td class="col-meaning">우리는 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λάβ-ετε</td><td class="col-pron">엘라베테</td><td class="col-meaning">너희는 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἔ-λαβ-ον</td><td class="col-pron">엘라본</td><td class="col-meaning">그들은 취했다</td><td class="col-ending">λαμβάνω</td></tr>
+        </tbody>
+      </table>
+      <div class="example-row">
+        <div class="example-label">제2단순과거 불규칙 5쌍</div>
+        <div class="example-grid">
+          <div class="example-item"><span class="eg-greek">λέγω → εἶπον</span> <span class="eg-pron">(에이폰)</span> <span class="eg-mean">말했다</span></div>
+          <div class="example-item"><span class="eg-greek">βλέπω → εἶδον</span> <span class="eg-pron">(에이돈)</span> <span class="eg-mean">보았다</span></div>
+          <div class="example-item"><span class="eg-greek">ἔρχομαι → ἦλθον</span> <span class="eg-pron">(엘톤)</span> <span class="eg-mean">왔다/갔다</span></div>
+          <div class="example-item"><span class="eg-greek">λαμβάνω → ἔλαβον</span> <span class="eg-pron">(엘라본)</span> <span class="eg-mean">취했다</span></div>
+          <div class="example-item"><span class="eg-greek">λείπω → ἔλιπον</span> <span class="eg-pron">(엘리폰)</span> <span class="eg-mean">남겼다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제2단과 중간 -->
+  <div class="tense-block">
+    <div class="tense-header">
+      <div class="tense-header-row">
+        <span class="tense-badge mid">중간태</span>
+        <span class="tense-name">제2단순과거 중간태 직설법 (λείπω 기준)</span>
+        <span class="tense-marker">변화 어간 λιπ- + 중간 2차어미</span>
+      </div>
+      <div class="tense-meaning">
+        <span class="greek-ex">ἐλιπόμην</span> (엘리포민) <span class="meaning-arrow">→</span> "나는 나를 위해 남겼다" — λείπω(남기다)의 제2단과 중간태
+      </div>
+    </div>
+    <div class="conj-wrap">
+      <table class="conj-table">
+        <thead><tr><th>인칭·수</th><th>헬라어</th><th>음가</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="col-person">1단</td><td class="col-greek">ἐ-λιπ-όμην</td><td class="col-pron">엘리포민</td><td class="col-meaning">나는 나를 위해 남겼다</td></tr>
+          <tr><td class="col-person">2단</td><td class="col-greek">ἐ-λίπ-ου</td><td class="col-pron">엘리푸</td><td class="col-meaning">너는 너를 위해 남겼다</td></tr>
+          <tr><td class="col-person">3단</td><td class="col-greek">ἐ-λίπ-ετο</td><td class="col-pron">엘리페토</td><td class="col-meaning">그는 자신을 위해 남겼다</td></tr>
+          <tr><td class="col-person">1복</td><td class="col-greek">ἐ-λιπ-όμεθα</td><td class="col-pron">엘리포메싸</td><td class="col-meaning">우리는 우리를 위해 남겼다</td></tr>
+          <tr><td class="col-person">2복</td><td class="col-greek">ἐ-λίπ-εσθε</td><td class="col-pron">엘리페스떼</td><td class="col-meaning">너희는 너희를 위해 남겼다</td></tr>
+          <tr><td class="col-person">3복</td><td class="col-greek">ἐ-λίπ-οντο</td><td class="col-pron">엘리폰토</td><td class="col-meaning">그들은 자신들을 위해 남겼다</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 오늘 암기 -->
+  <div class="today-box">
+    <div class="today-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="today-items">
+      <div class="today-item">ἔλυσα <span>(엘뤼사) — 제1단과 능동 1단 "나는 풀었다"</span></div>
+      <div class="today-item">ἐλύθην <span>(엘뤼뗀) — 제1단과 수동 1단 "나는 풀렸다"</span></div>
+      <div class="today-item">εἶπον / εἶδον / ἦλθον <span>— 제2단과 불규칙 3대장</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB 2: 암기카드 ===== -->
+<div class="tab-content" id="tab-cards">
+  <div class="cards-filter">
+    <button class="filter-btn active" onclick="filterCards('all',this)">전체</button>
+    <button class="filter-btn" onclick="filterCards('verb',this)">동사 단어</button>
+    <button class="filter-btn" onclick="filterCards('noun',this)">명사·기타</button>
+    <button class="filter-btn" onclick="filterCards('adj',this)">형용사</button>
+    <button class="filter-btn" onclick="filterCards('vform-pres',this)">현재 변화형</button>
+    <button class="filter-btn" onclick="filterCards('vform-fut',this)">미래 변화형</button>
+    <button class="filter-btn" onclick="filterCards('vform-imp',this)">미완료 변화형</button>
+    <button class="filter-btn" onclick="filterCards('vform-aor1',this)">제1단과 변화형</button>
+    <button class="filter-btn" onclick="filterCards('vform-aor2',this)">제2단과</button>
+  </div>
+  <div class="memo-box" style="font-size:12px;">카드를 클릭하면 뒤집힙니다. 앞면: 헬라어+음가 → 뒷면: 뜻+품사·형태 정보</div>
+  <div class="cards-grid" id="cardsGrid"></div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.flash-card').forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) {
+      c.style.display = '';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+}
+
+const allCards = [
+  // ===== 동사 단어 =====
+  { cat:'verb', greek:'λύω', pron:'뤼오', meaning:'풀다, 해방하다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'ἀκούω', pron:'아쿠오', meaning:'듣다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'βλέπω', pron:'블레포', meaning:'보다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'γινώσκω', pron:'기노스코', meaning:'알다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'γράφω', pron:'그라포', meaning:'쓰다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'διδάσκω', pron:'디다스코', meaning:'가르치다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'λαμβάνω', pron:'람바노', meaning:'취하다, 받다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'λέγω', pron:'레고', meaning:'말하다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'πιστεύω', pron:'피스튜오', meaning:'믿다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'θεραπεύω', pron:'떼라퓨오', meaning:'치료하다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'ἐγείρω', pron:'에게이로', meaning:'일으키다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'βαπτίζω', pron:'밥티조', meaning:'침례를 주다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'ἔχω', pron:'에코', meaning:'가지고 있다', pos:'동사', hint:'' },
+  { cat:'verb', greek:'σῴζω', pron:'소조', meaning:'구원하다, 치료하다', pos:'동사', hint:'★시험: 두 가지 뜻 모두 필수!' },
+  // ===== 명사·접속사 =====
+  { cat:'noun', greek:'λόγος', pron:'로고스', meaning:'말(씀)', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'καί', pron:'카이', meaning:'그리고', pos:'접속사', hint:'' },
+  { cat:'noun', greek:'θεός', pron:'떼오스', meaning:'하나님', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'ζωή', pron:'조에', meaning:'생명', pos:'여성명사 1변화', hint:'' },
+  { cat:'noun', greek:'φῶς', pron:'포스', meaning:'빛', pos:'중성명사 3변화', hint:'' },
+  { cat:'noun', greek:'ἄνθρωπος', pron:'안뜨로포스', meaning:'사람', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'κόσμος', pron:'코스모스', meaning:'세상', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'ἀπόστολος', pron:'아포스톨로스', meaning:'사도', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'νόμος', pron:'노모스', meaning:'율법', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'υἱός', pron:'휘오스', meaning:'아들', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'ἀδελφός', pron:'아델포스', meaning:'형제', pos:'남성명사 2변화', hint:'' },
+  { cat:'noun', greek:'δῶρον', pron:'도론', meaning:'선물', pos:'중성명사 2변화', hint:'' },
+  // ===== 형용사 =====
+  { cat:'adj', greek:'ἀγαθός, ή, όν', pron:'아가또스', meaning:'좋은, 착한', pos:'형용사 2-1-2변화', hint:'' },
+  { cat:'adj', greek:'κακός, ή, όν', pron:'카코스', meaning:'나쁜', pos:'형용사 2-1-2변화', hint:'' },
+  { cat:'adj', greek:'καλός, ή, όν', pron:'칼로스', meaning:'좋은, 아름다운', pos:'형용사 2-1-2변화', hint:'' },
+  { cat:'adj', greek:'μικρός, ά, όν', pron:'미크로스', meaning:'작은, 적은', pos:'형용사 2-1-2변화', hint:'' },
+  { cat:'adj', greek:'νεκρός, ά, όν', pron:'네크로스', meaning:'죽은', pos:'형용사 2-1-2변화', hint:'' },
+  { cat:'adj', greek:'δίκαιος, α, ον', pron:'디카이오스', meaning:'옳은', pos:'형용사 2-1-2변화', hint:'' },
+
+  // ===== 현재 변화형 (λύω 기준) =====
+  // 능동
+  { cat:'vform-pres', greek:'λύω', pron:'뤼오', meaning:'나는 (지금) 풀고 있다', pos:'현재 능동 직설법 1단', hint:'' },
+  { cat:'vform-pres', greek:'λύεις', pron:'뤼에이스', meaning:'너는 (지금) 풀고 있다', pos:'현재 능동 직설법 2단', hint:'' },
+  { cat:'vform-pres', greek:'λύει', pron:'뤼에이', meaning:'그는 (지금) 풀고 있다', pos:'현재 능동 직설법 3단', hint:'' },
+  { cat:'vform-pres', greek:'λύομεν', pron:'뤼오멘', meaning:'우리는 (지금) 풀고 있다', pos:'현재 능동 직설법 1복', hint:'' },
+  { cat:'vform-pres', greek:'λύετε', pron:'뤼에테', meaning:'너희는 (지금) 풀고 있다', pos:'현재 능동 직설법 2복', hint:'' },
+  { cat:'vform-pres', greek:'λύουσι(ν)', pron:'뤼우씨(ν)', meaning:'그들은 (지금) 풀고 있다', pos:'현재 능동 직설법 3복', hint:'' },
+  // 수동/중간
+  { cat:'vform-pres', greek:'λύομαι', pron:'뤼오마이', meaning:'나는 풀리고 있다 / 나를 위해 풀고 있다', pos:'현재 수동/중간 직설법 1단', hint:'' },
+  { cat:'vform-pres', greek:'λύῃ', pron:'뤼에', meaning:'너는 풀리고 있다 / 너를 위해 풀고 있다', pos:'현재 수동/중간 직설법 2단', hint:'' },
+  { cat:'vform-pres', greek:'λύεται', pron:'뤼에타이', meaning:'그는 풀리고 있다 / 자신을 위해 풀고 있다', pos:'현재 수동/중간 직설법 3단', hint:'' },
+  { cat:'vform-pres', greek:'λυόμεθα', pron:'뤼오메싸', meaning:'우리는 풀리고 있다 / 우리를 위해 풀고 있다', pos:'현재 수동/중간 직설법 1복', hint:'' },
+  { cat:'vform-pres', greek:'λύεσθε', pron:'뤼에스떼', meaning:'너희는 풀리고 있다', pos:'현재 수동/중간 직설법 2복', hint:'' },
+  { cat:'vform-pres', greek:'λύονται', pron:'뤼온타이', meaning:'그들은 풀리고 있다', pos:'현재 수동/중간 직설법 3복', hint:'' },
+
+  // ===== 미래 변화형 =====
+  // 능동
+  { cat:'vform-fut', greek:'λύσω', pron:'뤼소', meaning:'나는 풀 것이다', pos:'미래 능동 직설법 1단', hint:'' },
+  { cat:'vform-fut', greek:'λύσεις', pron:'뤼세이스', meaning:'너는 풀 것이다', pos:'미래 능동 직설법 2단', hint:'' },
+  { cat:'vform-fut', greek:'λύσει', pron:'뤼세이', meaning:'그는 풀 것이다', pos:'미래 능동 직설법 3단', hint:'' },
+  { cat:'vform-fut', greek:'λύσομεν', pron:'뤼소멘', meaning:'우리는 풀 것이다', pos:'미래 능동 직설법 1복', hint:'' },
+  { cat:'vform-fut', greek:'λύσετε', pron:'뤼세테', meaning:'너희는 풀 것이다', pos:'미래 능동 직설법 2복', hint:'' },
+  { cat:'vform-fut', greek:'λύσουσι(ν)', pron:'뤼수씨(ν)', meaning:'그들은 풀 것이다', pos:'미래 능동 직설법 3복', hint:'' },
+  // 수동
+  { cat:'vform-fut', greek:'λυθήσομαι', pron:'뤼데소마이', meaning:'나는 풀릴 것이다', pos:'미래 수동 직설법 1단', hint:'표지: θησ' },
+  { cat:'vform-fut', greek:'λυθήσῃ', pron:'뤼데세', meaning:'너는 풀릴 것이다', pos:'미래 수동 직설법 2단', hint:'' },
+  { cat:'vform-fut', greek:'λυθήσεται', pron:'뤼데세타이', meaning:'그는 풀릴 것이다', pos:'미래 수동 직설법 3단', hint:'' },
+  { cat:'vform-fut', greek:'λυθησόμεθα', pron:'뤼데소메싸', meaning:'우리는 풀릴 것이다', pos:'미래 수동 직설법 1복', hint:'' },
+  { cat:'vform-fut', greek:'λυθήσεσθε', pron:'뤼데세스떼', meaning:'너희는 풀릴 것이다', pos:'미래 수동 직설법 2복', hint:'' },
+  { cat:'vform-fut', greek:'λυθήσονται', pron:'뤼데손타이', meaning:'그들은 풀릴 것이다', pos:'미래 수동 직설법 3복', hint:'' },
+  // 중간
+  { cat:'vform-fut', greek:'λύσομαι', pron:'뤼소마이', meaning:'나는 나를 위해 풀 것이다', pos:'미래 중간 직설법 1단', hint:'cf. 수동 λυθήσομαι와 구별!' },
+  { cat:'vform-fut', greek:'λύσῃ', pron:'뤼세', meaning:'너는 너를 위해 풀 것이다', pos:'미래 중간 직설법 2단', hint:'' },
+  { cat:'vform-fut', greek:'λύσεται', pron:'뤼세타이', meaning:'그는 자신을 위해 풀 것이다', pos:'미래 중간 직설법 3단', hint:'' },
+  { cat:'vform-fut', greek:'λυσόμεθα', pron:'뤼소메싸', meaning:'우리는 우리를 위해 풀 것이다', pos:'미래 중간 직설법 1복', hint:'' },
+  { cat:'vform-fut', greek:'λύσεσθε', pron:'뤼세스떼', meaning:'너희는 너희를 위해 풀 것이다', pos:'미래 중간 직설법 2복', hint:'' },
+  { cat:'vform-fut', greek:'λύσονται', pron:'뤼손타이', meaning:'그들은 자신들을 위해 풀 것이다', pos:'미래 중간 직설법 3복', hint:'' },
+
+  // ===== 미완료 변화형 =====
+  // 능동
+  { cat:'vform-imp', greek:'ἔλυον', pron:'엘뤼온', meaning:'나는 풀고 있었다 / 풀곤 하였다', pos:'미완료 능동 직설법 1단', hint:'가산모음 ε-' },
+  { cat:'vform-imp', greek:'ἔλυες', pron:'엘뤼에스', meaning:'너는 풀고 있었다', pos:'미완료 능동 직설법 2단', hint:'' },
+  { cat:'vform-imp', greek:'ἔλυε(ν)', pron:'엘뤼에(ν)', meaning:'그는 풀고 있었다', pos:'미완료 능동 직설법 3단', hint:'' },
+  { cat:'vform-imp', greek:'ἐλύομεν', pron:'엘뤼오멘', meaning:'우리는 풀고 있었다', pos:'미완료 능동 직설법 1복', hint:'' },
+  { cat:'vform-imp', greek:'ἐλύετε', pron:'엘뤼에테', meaning:'너희는 풀고 있었다', pos:'미완료 능동 직설법 2복', hint:'' },
+  { cat:'vform-imp', greek:'ἔλυον', pron:'엘뤼온', meaning:'그들은 풀고 있었다', pos:'미완료 능동 직설법 3복', hint:'1단과 형태 같음 - 문맥 구별' },
+  // 수동/중간
+  { cat:'vform-imp', greek:'ἐλυόμην', pron:'엘뤼오민', meaning:'나는 풀리고 있었다 / 나를 위해 풀고 있었다', pos:'미완료 수동/중간 직설법 1단', hint:'' },
+  { cat:'vform-imp', greek:'ἐλύου', pron:'엘뤼우', meaning:'너는 풀리고 있었다', pos:'미완료 수동/중간 직설법 2단', hint:'ε+λυ+ε+σο 축약' },
+  { cat:'vform-imp', greek:'ἐλύετο', pron:'엘뤼에토', meaning:'그는 풀리고 있었다', pos:'미완료 수동/중간 직설법 3단', hint:'' },
+  { cat:'vform-imp', greek:'ἐλυόμεθα', pron:'엘뤼오메싸', meaning:'우리는 풀리고 있었다', pos:'미완료 수동/중간 직설법 1복', hint:'' },
+  { cat:'vform-imp', greek:'ἐλύεσθε', pron:'엘뤼에스떼', meaning:'너희는 풀리고 있었다', pos:'미완료 수동/중간 직설법 2복', hint:'' },
+  { cat:'vform-imp', greek:'ἐλύοντο', pron:'엘뤼온토', meaning:'그들은 풀리고 있었다', pos:'미완료 수동/중간 직설법 3복', hint:'' },
+
+  // ===== 제1단순과거 변화형 =====
+  // 능동
+  { cat:'vform-aor1', greek:'ἔλυσα', pron:'엘뤼사', meaning:'나는 풀었다', pos:'제1단과 능동 직설법 1단', hint:'표지: σα' },
+  { cat:'vform-aor1', greek:'ἔλυσας', pron:'엘뤼사스', meaning:'너는 풀었다', pos:'제1단과 능동 직설법 2단', hint:'' },
+  { cat:'vform-aor1', greek:'ἔλυσε(ν)', pron:'엘뤼세(ν)', meaning:'그는 풀었다', pos:'제1단과 능동 직설법 3단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσαμεν', pron:'엘뤼사멘', meaning:'우리는 풀었다', pos:'제1단과 능동 직설법 1복', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσατε', pron:'엘뤼사테', meaning:'너희는 풀었다', pos:'제1단과 능동 직설법 2복', hint:'' },
+  { cat:'vform-aor1', greek:'ἔλυσαν', pron:'엘뤼산', meaning:'그들은 풀었다', pos:'제1단과 능동 직설법 3복', hint:'' },
+  // 수동
+  { cat:'vform-aor1', greek:'ἐλύθην', pron:'엘뤼뗀', meaning:'나는 풀렸다', pos:'제1단과 수동 직설법 1단', hint:'표지: θη' },
+  { cat:'vform-aor1', greek:'ἐλύθης', pron:'엘뤼떼스', meaning:'너는 풀렸다', pos:'제1단과 수동 직설법 2단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύθη', pron:'엘뤼떼', meaning:'그는 풀렸다', pos:'제1단과 수동 직설법 3단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύθημεν', pron:'엘뤼떼멘', meaning:'우리는 풀렸다', pos:'제1단과 수동 직설법 1복', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύθητε', pron:'엘뤼떼테', meaning:'너희는 풀렸다', pos:'제1단과 수동 직설법 2복', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύθησαν', pron:'엘뤼떼산', meaning:'그들은 풀렸다', pos:'제1단과 수동 직설법 3복', hint:'' },
+  // 중간
+  { cat:'vform-aor1', greek:'ἐλυσάμην', pron:'엘뤼사민', meaning:'나는 나를 위해 풀었다', pos:'제1단과 중간 직설법 1단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσω', pron:'엘뤼소', meaning:'너는 너를 위해 풀었다', pos:'제1단과 중간 직설법 2단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσατο', pron:'엘뤼사토', meaning:'그는 자신을 위해 풀었다', pos:'제1단과 중간 직설법 3단', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλυσάμεθα', pron:'엘뤼사메싸', meaning:'우리는 우리를 위해 풀었다', pos:'제1단과 중간 직설법 1복', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσασθε', pron:'엘뤼사스떼', meaning:'너희는 너희를 위해 풀었다', pos:'제1단과 중간 직설법 2복', hint:'' },
+  { cat:'vform-aor1', greek:'ἐλύσαντο', pron:'엘뤼산토', meaning:'그들은 자신들을 위해 풀었다', pos:'제1단과 중간 직설법 3복', hint:'' },
+
+  // ===== 제2단과 =====
+  { cat:'vform-aor2', greek:'εἶπον', pron:'에이폰', meaning:'말했다', pos:'제2단과 능동 1단 (λέγω)', hint:'어간 변화: λεγ→ εἰπ' },
+  { cat:'vform-aor2', greek:'εἶδον', pron:'에이돈', meaning:'보았다', pos:'제2단과 능동 1단 (βλέπω)', hint:'어간 변화: βλεπ→ ἰδ' },
+  { cat:'vform-aor2', greek:'ἦλθον', pron:'엘톤', meaning:'왔다, 갔다', pos:'제2단과 능동 1단 (ἔρχομαι)', hint:'어간 변화: ἐρχ→ ἐλθ' },
+  { cat:'vform-aor2', greek:'ἔλαβον', pron:'엘라본', meaning:'취했다, 받았다', pos:'제2단과 능동 1단 (λαμβάνω)', hint:'어간 변화: λαμβαν→ λαβ' },
+  { cat:'vform-aor2', greek:'ἔλιπον', pron:'엘리폰', meaning:'남겼다', pos:'제2단과 능동 1단 (λείπω)', hint:'어간 변화: λειπ→ λιπ' },
+  { cat:'vform-aor2', greek:'ἐλάβομεν', pron:'엘라보멘', meaning:'우리는 취했다', pos:'제2단과 능동 1복 (λαμβάνω)', hint:'' },
+  { cat:'vform-aor2', greek:'ἐλιπόμην', pron:'엘리포민', meaning:'나는 나를 위해 남겼다', pos:'제2단과 중간 1단 (λείπω)', hint:'' },
+];
+
+function buildCards() {
+  const grid = document.getElementById('cardsGrid');
+  allCards.forEach(card => {
+    const div = document.createElement('div');
+    div.className = 'flash-card' +
+      (card.cat.startsWith('vform') ?
+        (' vform-card ' + (card.pos.includes('능동') ? 'act' : card.pos.includes('수동') ? 'pass' : 'mid'))
+        : '');
+    div.dataset.cat = card.cat;
+
+    const catLabels = {
+      'verb':'동사', 'noun':'명사/기타', 'adj':'형용사',
+      'vform-pres':'현재 변화형', 'vform-fut':'미래 변화형',
+      'vform-imp':'미완료 변화형', 'vform-aor1':'제1단과 변화형', 'vform-aor2':'제2단과'
+    };
+
+    div.innerHTML = `
+      <div class="card-front">
+        <div class="card-cat">${catLabels[card.cat] || card.cat}</div>
+        <div class="card-greek">${card.greek}</div>
+        <div class="card-pron">${card.pron}</div>
+        ${card.hint ? `<div class="card-hint">${card.hint}</div>` : ''}
+        <div class="card-tap">탭하여 뒤집기 ↩</div>
+      </div>
+      <div class="card-back">
+        <div class="card-meaning">${card.meaning}</div>
+        <div class="card-pos">${card.pos}</div>
+        ${card.hint ? `<div class="card-sub" style="color:var(--gold);font-size:11px;">${card.hint}</div>` : ''}
+        <div class="card-tap">탭하여 앞으로 ↩</div>
+      </div>
+    `;
+    div.addEventListener('click', () => div.classList.toggle('flipped'));
+    grid.appendChild(div);
+  });
+}
+
+buildCards();
+</script>
+</body>
+</html>
