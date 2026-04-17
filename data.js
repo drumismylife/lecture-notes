@@ -128,7 +128,9 @@ const SITE_DATA = {
 	  { type: "notes", label: "강의노트", href: "output/신약성서I/week06.html" },
 	  { type: "notes", label: "중간고사 문제 안내 & 준비 가이드", href: "output/신약성서I/week06b.html" }
 	  ] },
-        { week: 7, title: "비유 설교 — 마태복음 13장", date: "2026.04", files: [] },
+        { week: 7, title: "비유 설교 — 마태복음 13장", date: "2026.04", files: [
+            { type: "notes", label: "강의노트", href: "output/신약성서I/week07.html" }
+          ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "교회 설교 — 마태복음 18장", date: "2026.05", files: [] },
         { week: 10, title: "예루살렘 입성과 논쟁", date: "2026.05", files: [] },
