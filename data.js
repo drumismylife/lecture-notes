@@ -164,7 +164,7 @@ const SITE_DATA = {
         { week: 6, title: "8장 함께 사는 삶", date: "2026.04", files: [
 	   { type: "notes", label: "강의노트", href: "output/교회사/week06.html" }
 	  ] },
-        { week: 7, title: "교회사개론 I — Historia Ecclesiae", date: "2026.04", files: [
+        { week: 7, title: "교회사개론 I — Historia Ecclesiae", date: "2026.04.17", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week07.html" }
           ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
