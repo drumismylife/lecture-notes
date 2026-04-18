@@ -95,7 +95,9 @@ const SITE_DATA = {
 	     { type: "notes", label: "강의노트", href: "output/기독교철학/week06.html" },
 	     { type: "notes", label: "강의노트(업데이트)", href: "output/기독교철학/week06b.html" }
 	  ] },
-        { week: 7, title: "신앙과 이성의 관계", date: "2026.04", files: [] },
+        { week: 7, title: "찰스 샌더스 퍼스", date: "2026.04.14", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week07.html" }
+          ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "종교다원주의", date: "2026.05", files: [] },
         { week: 10, title: "Ricken — 종교철학 I", date: "2026.05", files: [] },
