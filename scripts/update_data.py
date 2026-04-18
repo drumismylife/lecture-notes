@@ -26,7 +26,8 @@ def update(course_name, week_str):
         print(f"❌ 과목 키 없음: {course_key}"); sys.exit(1)
 
     section = text[course_start:]
-    pattern = r'(week:\s*' + str(week_int) + r'\b.*?files:\s*)\[\]'
+    # (?:(?!week:\s*\d).)*? : 다음 week: N 이 나오기 전까지만 매칭 (주차 경계 넘지 않음)
+    pattern = r'(week:\s*' + str(week_int) + r'\b(?:(?!week:\s*\d).)*?files:\s*)\[\]'
     m = re.search(pattern, section, re.DOTALL)
     if not m:
         print(f"⚠️  week {week_int} 항목 없음 또는 이미 파일 등록됨"); sys.exit(0)
