@@ -11,13 +11,17 @@ COURSE_MAP = {
     "교회사": "hist"
 }
 
+# output 폴더명이 과목명과 다른 경우
+OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek"}
+
 def update(course_name, week_str):
     course_key = COURSE_MAP.get(course_name)
     if not course_key:
         print(f"❌ 알 수 없는 과목: {course_name}"); sys.exit(1)
 
     week_int = int(week_str)
-    href = f"output/{course_name}/week{int(week_str):02d}.html"
+    folder = OUTPUT_FOLDER_OVERRIDE.get(course_name, course_name)
+    href = f"output/{folder}/week{int(week_str):02d}.html"
     new_entry = f'{{ type: "notes", label: "강의노트", href: "{href}" }}'
 
     text = open(DATA_JS, encoding='utf-8').read()

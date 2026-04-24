@@ -10,6 +10,7 @@ deploy.py — HTML 파일을 output/ 에 넣은 후 data.js 업데이트 + git p
 
 import re
 import sys
+import html as html_lib
 import subprocess
 from datetime import date
 from pathlib import Path
@@ -39,7 +40,7 @@ def extract_title_from_html(html_path: Path) -> str:
             title = re.sub(r'<[^>]+>', ' ', m.group(1))
             title = re.sub(r'\s+', ' ', title).strip()
             if title:
-                return title
+                return html_lib.unescape(title)  # &amp; → & 등 엔티티 디코딩
     return ""
 
 
