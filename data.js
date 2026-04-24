@@ -28,7 +28,9 @@ const SITE_DATA = {
         { week: 6, title: "시제/태 정리, 전체복습 등", date: "2026.04.13", files: [
 	  { type: "notes", label: "강의노트", href: "output/greek/week06.html" }
 	  ] },
-        { week: 7, title: "동사 — 미완료 과거", date: "2026.04", files: [] },
+        { week: 7, title: "동사의 시제 복습 &amp; 명사(제2변화) 입문", date: "2026.04.18", files: [
+            { type: "notes", label: "강의노트", href: "output/헬라어/week07.html" }
+          ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "동사 — 미래", date: "2026.05", files: [] },
         { week: 10, title: "동사 — 부정과거", date: "2026.05", files: [] },

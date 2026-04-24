@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 7주차 동사 시제 복습 · 명사 입문</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b27;
+  --subcard: #1e2538;
+  --border: #2a3050;
+  --gold: #c9a84c;
+  --gold-dim: rgba(201,168,76,0.15);
+  --blue: #7c9ed9;
+  --blue-dim: rgba(124,158,217,0.12);
+  --red: #e07b6a;
+  --red-dim: rgba(224,123,106,0.12);
+  --green: #6fcf97;
+  --green-dim: rgba(111,207,151,0.12);
+  --purple: #b39ddb;
+  --purple-dim: rgba(179,157,219,0.12);
+  --text: #e8eaf0;
+  --text-sub: #9ba3b8;
+  --text-hint: #6b7490;
+  --greek: #f0d080;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, #0d1117 0%, #161b27 40%, #1a2035 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: 'Κοινὴ Ἑλληνική';
+  position: absolute;
+  right: 20px; top: 12px;
+  font-family: 'Noto Serif', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: rgba(201,168,76,0.07);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.header-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.meta-pill {
+  font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  padding: 2px 10px; border-radius: 20px;
+  border: 1px solid var(--border); color: var(--text-sub);
+  background: var(--subcard);
+}
+.meta-pill.gold { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+.meta-pill.red { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+}
+.header-sub { font-size: 13px; color: var(--text-sub); }
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex; gap: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  position: sticky; top: 0; z-index: 100;
+}
+.tab-btn {
+  padding: 14px 20px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-hint);
+  background: none; border: none; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-btn:hover:not(.active) { color: var(--text-sub); }
+
+.tab-panel { display: none; padding: 28px 32px 48px; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION HEADING ── */
+.sec-head {
+  display: flex; align-items: center; gap: 10px;
+  margin: 32px 0 16px;
+}
+.sec-head:first-child { margin-top: 0; }
+.sec-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  padding: 2px 8px; border-radius: 3px;
+  background: var(--gold); color: #0d1117;
+  white-space: nowrap;
+}
+.sec-badge.blue { background: var(--blue); }
+.sec-badge.red { background: var(--red); }
+.sec-badge.purple { background: var(--purple); }
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+/* ── SUB HEADING ── */
+.sub-head {
+  font-size: 13px; font-weight: 700;
+  color: var(--gold);
+  margin: 24px 0 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--gold);
+}
+
+/* ── GRAMMAR RULE BOX ── */
+.rule-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.rule-title { font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+.rule-body { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+.rule-body .gr { color: var(--greek); font-family: 'Noto Serif', serif; font-size: 14px; }
+.rule-body strong { color: var(--text); }
+
+/* ── EXAM BADGE ── */
+.exam-item {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--red-dim); border: 1px solid var(--red);
+  color: var(--red); font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px;
+  margin-right: 4px;
+}
+
+/* ── TABLES ── */
+.table-wrap {
+  overflow-x: auto; margin-bottom: 16px;
+  border-radius: 6px; border: 1px solid var(--border);
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead tr { background: var(--subcard); }
+thead th {
+  padding: 8px 12px; text-align: left;
+  font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border);
+}
+td { padding: 7px 12px; border-bottom: 1px solid rgba(42,48,80,0.5); color: var(--text-sub); }
+tr:last-child td { border-bottom: none; }
+td.gr { color: var(--greek); font-family: 'Noto Serif', serif; font-size: 14px; }
+td.kor { color: var(--text); }
+td.hint { color: var(--text-hint); font-size: 12px; }
+tr.row-active td { background: rgba(201,168,76,0.06); }
+tr.row-passive td { background: rgba(124,158,217,0.06); }
+tr.row-mid td { background: rgba(179,157,219,0.06); }
+
+/* Active/Passive/Aorist coloring for conjugation tables */
+.conj-active thead tr { background: rgba(124,158,217,0.18); }
+.conj-active thead th { color: var(--blue); }
+.conj-passive thead tr { background: rgba(224,123,106,0.18); }
+.conj-passive thead th { color: var(--red); }
+.conj-aorist thead tr { background: rgba(201,168,76,0.18); }
+.conj-aorist thead th { color: var(--gold); }
+.conj-mid thead tr { background: rgba(179,157,219,0.18); }
+.conj-mid thead th { color: var(--purple); }
+.conj-imperfect thead tr { background: rgba(111,207,151,0.18); }
+.conj-imperfect thead th { color: var(--green); }
+
+/* ── TENSE LABEL CHIP ── */
+.tense-chip {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  padding: 1px 7px; border-radius: 3px;
+  margin-right: 4px;
+}
+.chip-active { background: var(--blue-dim); color: var(--blue); border: 1px solid var(--blue); }
+.chip-passive { background: var(--red-dim); color: var(--red); border: 1px solid var(--red); }
+.chip-aorist { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold); }
+.chip-mid { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple); }
+.chip-imperfect { background: var(--green-dim); color: var(--green); border: 1px solid var(--green); }
+.chip-excluded { background: rgba(107,116,144,0.15); color: var(--text-hint); border: 1px solid var(--text-hint); font-size: 10px; }
+
+/* ── GRID FOR TABLES ── */
+.table-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.table-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media (max-width: 700px) {
+  .table-grid-2, .table-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── WORD CARDS ── */
+.word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 10px; margin-bottom: 16px; }
+.word-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  transition: border-color .2s;
+}
+.word-card:hover { border-color: var(--gold); }
+.wc-greek { font-family: 'Noto Serif', serif; font-size: 18px; color: var(--greek); font-weight: 600; }
+.wc-pronun { font-size: 11px; color: var(--blue); margin: 2px 0; }
+.wc-meaning { font-size: 13px; color: var(--text); font-weight: 600; }
+.wc-pos { font-size: 11px; color: var(--text-hint); margin-top: 4px; }
+.wc-root { font-size: 11px; color: var(--text-hint); margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border); }
+
+/* ── CALLOUT ── */
+.callout {
+  display: flex; gap: 12px; align-items: flex-start;
+  border-radius: 6px; padding: 12px 14px; margin-bottom: 12px;
+}
+.callout.tip { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); }
+.callout.warn { background: rgba(224,123,106,0.08); border-left: 3px solid var(--red); }
+.callout.info { background: rgba(124,158,217,0.08); border-left: 3px solid var(--blue); }
+.callout.good { background: rgba(111,207,151,0.08); border-left: 3px solid var(--green); }
+.callout-icon { font-size: 16px; line-height: 1.4; flex-shrink: 0; }
+.callout-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+.callout.warn .callout-title { color: var(--red); }
+.callout.info .callout-title { color: var(--blue); }
+.callout.good .callout-title { color: var(--green); }
+.callout-text { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.callout-text .gr { color: var(--greek); font-family: 'Noto Serif', serif; }
+
+/* ── PROFESSOR QUOTE ── */
+.prof-quote {
+  background: var(--subcard);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.prof-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 6px; }
+.prof-text { font-size: 13px; color: var(--text-sub); font-style: italic; line-height: 1.75; }
+
+/* ── FLASHCARD ── */
+.flash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 10px; margin-bottom: 16px; }
+.flash-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  height: 120px;
+  cursor: pointer;
+  position: relative;
+  perspective: 800px;
+}
+.flash-inner {
+  position: absolute; inset: 0;
+  transition: transform .45s;
+  transform-style: preserve-3d;
+}
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+.flash-front, .flash-back {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  backface-visibility: hidden;
+  padding: 12px;
+  border-radius: 8px;
+}
+.flash-front { background: var(--card); }
+.flash-back { background: var(--subcard); transform: rotateY(180deg); }
+.flash-greek { font-family: 'Noto Serif', serif; font-size: 22px; color: var(--greek); font-weight: 600; }
+.flash-pronun { font-size: 12px; color: var(--blue); margin-top: 4px; }
+.flash-hint { font-size: 11px; color: var(--text-hint); margin-top: 6px; }
+.flash-meaning { font-size: 15px; color: var(--text); font-weight: 700; }
+.flash-pos { font-size: 11px; color: var(--text-hint); margin-top: 4px; }
+
+/* ── MEMORIZE BOX ── */
+.memo-box {
+  background: #2a2210;
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 28px;
+}
+.memo-title { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 8px; letter-spacing: .06em; }
+.memo-items { display: flex; gap: 10px; flex-wrap: wrap; }
+.memo-item {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-family: 'Noto Serif', serif;
+  font-size: 14px; color: var(--greek);
+  font-weight: 600;
+}
+.memo-item span { font-family: 'Noto Sans KR', sans-serif; font-size: 11px; color: var(--gold); margin-left: 6px; }
+
+/* ── EXAM SECTION ── */
+.exam-box {
+  background: var(--red-dim);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.exam-box-title { font-size: 12px; font-weight: 700; color: var(--red); margin-bottom: 6px; }
+.exam-list { list-style: none; }
+.exam-list li {
+  font-size: 13px; color: var(--text-sub);
+  padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.exam-list li::before { content: '▶'; color: var(--red); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+
+/* ── SIGMA CHANGE TABLE ── */
+.sigma-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.sigma-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.sigma-top { font-size: 13px; color: var(--text-sub); margin-bottom: 8px; }
+.sigma-arrow { font-size: 18px; color: var(--gold); margin: 4px 0; }
+.sigma-eq { font-family: 'Noto Serif', serif; font-size: 16px; color: var(--greek); }
+
+/* ── COMPARISON TABLE ── */
+.compare-tag { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; display: inline-block; margin-bottom: 4px; }
+
+/* ── PRINT ── */
+@media print {
+  .tab-bar { display: none; }
+  .tab-panel { display: block !important; padding: 16px; }
+  body { background: white; color: black; font-size: 10pt; }
+  .page-header { background: white; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-meta">
+    <span class="meta-pill">헬라어 I</span>
+    <span class="meta-pill gold">7주차 · 2026-04-20</span>
+    <span class="meta-pill">담당: 이영민 교수</span>
+    <span class="meta-pill red">중간고사 D-14 (5/4)</span>
+    <span class="meta-pill">교재: 박창환 역편 『신약성서 헬라어 교본』</span>
+  </div>
+  <div class="header-title">동사의 시제 복습 &amp; 명사(제2변화) 입문</div>
+  <div class="header-sub">동사 시제 총정리 · σ 결합 음성변화 · 미완료 vs 제2단순과거 · 제2변화 남성·중성 명사 격변화 · 명사 어휘</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(event,'lecture')">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(event,'summary')">⭐ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(event,'cards')">🗂 암기카드</button>
+</div>
+
+<!-- ══════════════════════════════════
+     TAB 1: 강의노트
+══════════════════════════════════ -->
+<div class="tab-panel active" id="tab-lecture">
+
+  <!-- SECTION 1: 단어 복습 -->
+  <div class="sec-head">
+    <span class="sec-badge blue">SECTION 01</span>
+    <div class="sec-title">단어 복습 — 동사 · 명사 · 형용사</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sub-head">📌 동사 어휘 (1~6주 누적)</div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="wc-greek">βλέπω</div>
+      <div class="wc-pronun">블레포 (ble-pō)</div>
+      <div class="wc-meaning">보다</div>
+      <div class="wc-pos">동사 · 현재 능동 1인칭 단수</div>
+      <div class="wc-root">미래: βλέψω (ψ = π+σ)</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">γράφω</div>
+      <div class="wc-pronun">그라포 (grá-phō)</div>
+      <div class="wc-meaning">쓰다</div>
+      <div class="wc-pos">동사</div>
+      <div class="wc-root">미래: γράψω (ψ = φ+σ)</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">λαμβάνω</div>
+      <div class="wc-pronun">람바노 (lam-bá-nō)</div>
+      <div class="wc-meaning">취하다, 받다</div>
+      <div class="wc-pos">동사</div>
+      <div class="wc-root">제2단순과거: ἔλαβον</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">πιστεύω</div>
+      <div class="wc-pronun">피스튜오 (pis-teú-ō)</div>
+      <div class="wc-meaning">믿다</div>
+      <div class="wc-pos">동사</div>
+      <div class="wc-root">제1단순과거: ἐπίστευσα</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἀκούω</div>
+      <div class="wc-pronun">아쿠오 (a-koú-ō)</div>
+      <div class="wc-meaning">듣다</div>
+      <div class="wc-pos">동사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">λέγω</div>
+      <div class="wc-pronun">레고 (lé-gō)</div>
+      <div class="wc-meaning">말하다</div>
+      <div class="wc-pos">동사</div>
+      <div class="wc-root">제2단순과거: εἶπον</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἐγείρω</div>
+      <div class="wc-pronun">에게이로 (e-geí-rō)</div>
+      <div class="wc-meaning">일으키다</div>
+      <div class="wc-pos">동사 ⚠️ ε-어간 동사</div>
+      <div class="wc-root">미래: ἐγερῶ (불규칙)</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἔχω</div>
+      <div class="wc-pronun">에코 (é-khō)</div>
+      <div class="wc-meaning">가지고 있다</div>
+      <div class="wc-pos">동사 ⚠️ ε-어간 동사</div>
+      <div class="wc-root">미래: ἕξω / σχήσω</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">βαπτίζω</div>
+      <div class="wc-pronun">밥티조 (bap-tí-zō)</div>
+      <div class="wc-meaning">침례를 주다</div>
+      <div class="wc-pos">동사</div>
+    </div>
+    <div class="word-card" style="border-color: var(--red);">
+      <div class="wc-greek">σῴζω</div>
+      <div class="wc-pronun">소조 (sṓ-zō)</div>
+      <div class="wc-meaning">구원하다 / 치료하다</div>
+      <div class="wc-pos">동사 <span class="exam-item">🔴 시험</span></div>
+      <div class="wc-root">반드시 두 가지 뜻 모두 번역</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">διδάσκω</div>
+      <div class="wc-pronun">디다스코 (di-dás-kō)</div>
+      <div class="wc-meaning">가르치다</div>
+      <div class="wc-pos">동사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">γινώσκω</div>
+      <div class="wc-pronun">기노스코 (gi-nṓ-skō)</div>
+      <div class="wc-meaning">알다</div>
+      <div class="wc-pos">동사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">θεραπεύω</div>
+      <div class="wc-pronun">테라퓨오 (the-ra-peú-ō)</div>
+      <div class="wc-meaning">치료하다</div>
+      <div class="wc-pos">동사</div>
+    </div>
+  </div>
+
+  <div class="sub-head">📌 명사 어휘 (7주 신규)</div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="wc-greek">ὁ λόγος</div>
+      <div class="wc-pronun">호 로고스</div>
+      <div class="wc-meaning">말씀, 말</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ θεός</div>
+      <div class="wc-pronun">호 테오스</div>
+      <div class="wc-meaning">하나님, 신</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ ἄνθρωπος</div>
+      <div class="wc-pronun">호 안트로포스</div>
+      <div class="wc-meaning">사람</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ κόσμος</div>
+      <div class="wc-pronun">호 코스모스</div>
+      <div class="wc-meaning">세상, 우주</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ ἀπόστολος</div>
+      <div class="wc-pronun">호 아포스톨로스</div>
+      <div class="wc-meaning">사도</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ νόμος</div>
+      <div class="wc-pronun">호 노모스</div>
+      <div class="wc-meaning">율법</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ υἱός</div>
+      <div class="wc-pronun">호 휘오스</div>
+      <div class="wc-meaning">아들</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ ἀδελφός</div>
+      <div class="wc-pronun">호 아델포스</div>
+      <div class="wc-meaning">형제</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">τὸ δῶρον</div>
+      <div class="wc-pronun">토 도론</div>
+      <div class="wc-meaning">선물</div>
+      <div class="wc-pos">명사 · 중성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ θάνατος</div>
+      <div class="wc-pronun">호 타나토스</div>
+      <div class="wc-meaning">죽음</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ὁ δοῦλος</div>
+      <div class="wc-pronun">호 둘로스</div>
+      <div class="wc-meaning">종, 노예</div>
+      <div class="wc-pos">명사 · 남성 · 제2변화</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">καί</div>
+      <div class="wc-pronun">카이</div>
+      <div class="wc-meaning">그리고, 또한</div>
+      <div class="wc-pos">접속사</div>
+    </div>
+  </div>
+
+  <div class="sub-head">📌 형용사 어휘 (7주 신규)</div>
+  <div class="callout info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-body">
+      <div class="callout-title">형용사 사전 표기 방식</div>
+      <div class="callout-text">형용사는 <strong>남성형, ή/ά, όν/α</strong> 세 가지 성형을 함께 표기합니다. 예: <span class="gr">ἀγαθός, ή, όν</span> — 남성/여성/중성 순.</div>
+    </div>
+  </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="wc-greek">ἀγαθός, ή, όν</div>
+      <div class="wc-pronun">아가토스</div>
+      <div class="wc-meaning">좋은, 착한</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">κακός, ή, όν</div>
+      <div class="wc-pronun">카코스</div>
+      <div class="wc-meaning">나쁜</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">καλός, ή, όν</div>
+      <div class="wc-pronun">칼로스</div>
+      <div class="wc-meaning">좋은, 아름다운</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">μικρός, ά, όν</div>
+      <div class="wc-pronun">미크로스</div>
+      <div class="wc-meaning">작은, 적은</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">νεκρός, ά, όν</div>
+      <div class="wc-pronun">네크로스</div>
+      <div class="wc-meaning">죽은</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">δίκαιος, α, ον</div>
+      <div class="wc-pronun">디카이오스</div>
+      <div class="wc-meaning">옳은, 의로운</div>
+      <div class="wc-pos">형용사</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 동사 시제 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 02</span>
+    <div class="sec-title">동사의 시제 — 두 가지 요소 복습</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"동사의 시제는 두 가지 요소를 나타냅니다 — 하나는 동작이 일어나는 때(time of action), 또 다른 하나는 동작의 종류(kind of action). 둘 중에 더 우선하는 것은 동작의 종류입니다. 직설법 밖에서는 때는 사라지고 종류가 부각됩니다."</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>시제</th>
+          <th>동작의 종류 (Kind of Action)</th>
+          <th>번역 예</th>
+          <th>특징 표지</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-active">
+          <td><span class="tense-chip chip-active">현재</span></td>
+          <td class="kor">계속적·반복적 동작</td>
+          <td class="gr">λύω → 나는 풀고 있다</td>
+          <td class="hint">연결모음 ο/ε</td>
+        </tr>
+        <tr class="row-active">
+          <td><span class="tense-chip chip-imperfect">미완료</span></td>
+          <td class="kor">과거의 계속적·반복적 동작</td>
+          <td class="gr">ἔλυον → 나는 풀고 있었다</td>
+          <td class="hint">가산모음 ε + 현재어근</td>
+        </tr>
+        <tr>
+          <td><span class="tense-chip chip-aorist">단순과거</span></td>
+          <td class="kor">단순 사실적 동작 (배경 설명)</td>
+          <td class="gr">ἔλυσα → 나는 풀었다</td>
+          <td class="hint">가산모음 ε + σα (제1) / 과거어근 (제2)</td>
+        </tr>
+        <tr>
+          <td><span class="tense-chip chip-passive">미래</span></td>
+          <td class="kor">미래의 동작</td>
+          <td class="gr">λύσω → 나는 풀 것이다</td>
+          <td class="hint">시제표지 σ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 3: σ 결합 -->
+  <div class="sec-head">
+    <span class="sec-badge gold">SECTION 03</span>
+    <div class="sec-title">σ 결합 음성변화 — 미래/단순과거 시제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"시그마가 합쳐지는 때가 있어요. 미래 시제도 그렇고 단순 과거도 그렇고. 그럴 때는 소리가 좀 바뀌어요. 네이티브 스피커들이 생각할 때 편안한 소리로 바뀌는 겁니다."</div>
+  </div>
+
+  <div class="sigma-grid">
+    <div class="sigma-card">
+      <div class="sigma-top"><strong style="color:var(--text)">π, β, φ</strong> + σ</div>
+      <div class="sigma-arrow">↓</div>
+      <div class="sigma-eq">ψ (프사이)</div>
+      <div style="font-size:12px; color:var(--text-hint); margin-top:8px;">γράφω → <span style="color:var(--greek);font-family:'Noto Serif',serif">γράψω</span></div>
+    </div>
+    <div class="sigma-card">
+      <div class="sigma-top"><strong style="color:var(--text)">κ, γ, χ</strong> + σ</div>
+      <div class="sigma-arrow">↓</div>
+      <div class="sigma-eq">ξ (크시)</div>
+      <div style="font-size:12px; color:var(--text-hint); margin-top:8px;">ἄγω → <span style="color:var(--greek);font-family:'Noto Serif',serif">ἄξω</span></div>
+    </div>
+    <div class="sigma-card">
+      <div class="sigma-top"><strong style="color:var(--text)">τ, δ, θ</strong> + σ</div>
+      <div class="sigma-arrow">↓</div>
+      <div class="sigma-eq">σ (탈락)</div>
+      <div style="font-size:12px; color:var(--text-hint); margin-top:8px;">πείθω → <span style="color:var(--greek);font-family:'Noto Serif',serif">πείσω</span></div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">⚠️ ε-어간 동사 주의 (시험 함정!)</div>
+      <div class="callout-text"><span class="gr">ἔχω</span> (에코), <span class="gr">ἐγείρω</span> (에게이로)처럼 어간이 모음으로 시작하거나 ε를 포함한 동사들은 미래 시제에서 불규칙 변화를 보입니다. 규칙 패턴을 그대로 적용하면 틀립니다!</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 제1 vs 제2 단순과거 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 04</span>
+    <div class="sec-title">제1단순과거 vs 제2단순과거 비교</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"영어에서 일반적으로 -ed를 붙이는 단어는 제1단순과거 형태를 따른다고 볼 수 있죠. 그런데 go → went처럼 불규칙하게 바뀌는 것은 제2단순과거 형태라고 굳이 말할 수 있겠습니다. 제2단순과거는 굉장히 불규칙하게 느껴지기 때문에 그냥 외워요."</div>
+  </div>
+
+  <div class="table-grid-2">
+    <div>
+      <div class="compare-tag" style="background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold);">제1단순과거 (규칙형) — ε + 어근 + σα</div>
+      <div class="table-wrap" style="margin-top:6px;">
+        <table class="conj-aorist">
+          <thead><tr><th>인칭·수</th><th>형태</th><th>해석</th></tr></thead>
+          <tbody>
+            <tr><td>1단</td><td class="gr">ἔλυσα</td><td class="hint">나는 풀었다</td></tr>
+            <tr><td>2단</td><td class="gr">ἔλυσας</td><td class="hint">너는 풀었다</td></tr>
+            <tr><td>3단</td><td class="gr">ἔλυσε(ν)</td><td class="hint">그는 풀었다</td></tr>
+            <tr><td>1복</td><td class="gr">ἐλύσαμεν</td><td class="hint">우리는 풀었다</td></tr>
+            <tr><td>2복</td><td class="gr">ἐλύσατε</td><td class="hint">너희는 풀었다</td></tr>
+            <tr><td>3복</td><td class="gr">ἔλυσαν</td><td class="hint">그들은 풀었다</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="compare-tag" style="background:var(--purple-dim);color:var(--purple);border:1px solid var(--purple);">제2단순과거 (불규칙형) — ε + 과거어근 + 어미</div>
+      <div class="table-wrap" style="margin-top:6px;">
+        <table class="conj-mid">
+          <thead><tr><th>인칭·수</th><th>형태 (λέγω)</th><th>해석</th></tr></thead>
+          <tbody>
+            <tr><td>1단</td><td class="gr">εἶπον</td><td class="hint">나는 말했다</td></tr>
+            <tr><td>2단</td><td class="gr">εἶπες</td><td class="hint">너는 말했다</td></tr>
+            <tr><td>3단</td><td class="gr">εἶπε(ν)</td><td class="hint">그는 말했다</td></tr>
+            <tr><td>1복</td><td class="gr">εἴπομεν</td><td class="hint">우리는 말했다</td></tr>
+            <tr><td>2복</td><td class="gr">εἴπετε</td><td class="hint">너희는 말했다</td></tr>
+            <tr><td>3복</td><td class="gr">εἶπον</td><td class="hint">그들은 말했다</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">λέγω 제2단순과거 어근 분석</div>
+      <div class="callout-text">
+        현재 어근: <span class="gr">λεγ-</span> (람다·엡실론·감마)<br>
+        과거 어근: <span class="gr">εἰπ-</span> (완전히 다른 어근!) → 가산모음 ε + εἰπ + 어미<br>
+        ε + εἰπ = εἶπ (두 엡실론이 합쳐져 장모음 에타/이오타로 표기)<br><br>
+        <strong>제2단순과거 필수 암기 쌍:</strong><br>
+        βλέπω → <span class="gr">εἶδον</span> | ἔρχομαι → <span class="gr">ἦλθον</span> | λαμβάνω → <span class="gr">ἔλαβον</span> | λείπω → <span class="gr">ἔλιπον</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: 미완료 vs 제2단순과거 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 05</span>
+    <div class="sec-title">미완료 과거 vs 제2단순과거 — 형태 혼동 주의</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"미완료 과거와 제2단순과거가 같은 어미 형태를 취하는 듯이 보입니다. 그런데 분명한 차이가 있어요. 바로 어근입니다. 미완료는 현재 어근을 씁니다 — 진행되고 있는 것을 나타내기 때문에요. 제2단순과거는 과거 어근을 취합니다."</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>시제</th>
+          <th>구조</th>
+          <th>λέγω 예시</th>
+          <th>의미</th>
+          <th>어근 종류</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tense-chip chip-imperfect">미완료</span></td>
+          <td class="hint">ε + <strong style="color:var(--green)">현재어근</strong> + 어미</td>
+          <td class="gr">ἔλεγον</td>
+          <td class="kor">나는 말하고 있었다</td>
+          <td style="color:var(--green)">현재어근 λεγ-</td>
+        </tr>
+        <tr>
+          <td><span class="tense-chip chip-mid">제2단순과거</span></td>
+          <td class="hint">ε + <strong style="color:var(--purple)">과거어근</strong> + 어미</td>
+          <td class="gr">εἶπον</td>
+          <td class="kor">나는 말했다</td>
+          <td style="color:var(--purple)">과거어근 εἰπ-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">핵심 구별법</div>
+      <div class="callout-text">어미 형태(<span class="gr">-ον, -ες, -ε, -ομεν, -ετε, -ον</span>)는 동일 — <strong>어근이 현재형이면 미완료, 다른 어근이면 제2단순과거!</strong></div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: 중간태 & 디포넌트 -->
+  <div class="sec-head">
+    <span class="sec-badge">SECTION 06</span>
+    <div class="sec-title">중간태(Middle Voice) &amp; 디포넌트 동사</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"중간태는 주어의 동작이 동작의 주체인 자신에게 영향을 미칠 때, 그런 상황을 표현할 때 사용하는 헬라어의 특징입니다. '자신을 위해 무엇하다' 정도의 의미로 이해하면 됩니다."</div>
+  </div>
+
+  <div class="table-wrap" style="margin-bottom:12px;">
+    <table>
+      <thead><tr><th>태</th><th>의미</th><th>예시</th></tr></thead>
+      <tbody>
+        <tr class="row-active">
+          <td><span class="tense-chip chip-active">능동태</span></td>
+          <td class="kor">주어가 동작을 행함</td>
+          <td class="gr">λύω — 나는 풀다</td>
+        </tr>
+        <tr class="row-passive">
+          <td><span class="tense-chip chip-passive">수동태</span></td>
+          <td class="kor">주어가 동작을 받음</td>
+          <td class="gr">λύομαι — 나는 풀린다</td>
+        </tr>
+        <tr class="row-mid">
+          <td><span class="tense-chip chip-mid">중간태 <span class="chip-excluded">시험 제외</span></span></td>
+          <td class="kor">주어가 자신을 위해 / 자신에게 영향을 미침</td>
+          <td class="gr">λύομαι — 나는 나를 위해 풀다</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">디포넌트(Deponent) 동사 — <span class="chip-mid">중간·수동 형태 + 능동 의미</span></div>
+    <div class="rule-body">
+      형식은 중간태나 수동태 어미를 갖지만, 뜻은 능동태입니다.<br>
+      능동태 형태 자체가 없는 동사들입니다.<br><br>
+      대표 예: <span class="gr">ἔρχομαι</span> (에르코마이) — 오다, 가다<br>
+      → 어미 <span class="gr">-ομαι</span>는 중간·수동태 형태이지만 의미는 능동 "온다/간다"<br>
+      → 제2단순과거: <span class="gr">ἦλθον</span> (일반 능동 형태로 변함)
+    </div>
+  </div>
+
+  <!-- SECTION 7: 명사 -->
+  <div class="sec-head">
+    <span class="sec-badge blue">SECTION 07</span>
+    <div class="sec-title">명사 — 성·수·격 개념 &amp; 제2변화 격변화</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <div class="prof-label">👨‍🏫 교수 설명</div>
+    <div class="prof-text">"격은 문장 안에서 그 명사가 갖는 다른 단어들과의 관계를 나타내는 요소입니다. '나는' 할 때 주어이고, '나에게' 할 때는 간접목적어이죠. 이와 같이 는·에게·를 같은 부분들을 달리 붙임으로 인해서 그 명사가 문장 안에서 다른 단어와 갖는 관계를 나타내는 것이 격입니다."</div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">헬라어 명사의 세 가지 정보</div>
+    <div class="rule-body">
+      <strong>① 성(Gender):</strong> 남성(Masculine) · 여성(Feminine) · 중성(Neuter)<br>
+      → 정관사로 구별: <span class="gr">ὁ</span> (남성) · <span class="gr">ἡ</span> (여성) · <span class="gr">τό</span> (중성)<br><br>
+      <strong>② 수(Number):</strong> 단수(Singular) · 복수(Plural)<br><br>
+      <strong>③ 격(Case):</strong> 주격·속격·여격·대격·(호격) 5가지
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-bottom:12px;">
+    <table>
+      <thead><tr><th>격</th><th>영어명</th><th>한국어 조사</th><th>역할</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--blue)">주격</strong></td><td class="hint">Nominative</td><td class="kor">은/는/이/가</td><td class="hint">주어</td></tr>
+        <tr><td><strong style="color:var(--gold)">속격</strong></td><td class="hint">Genitive</td><td class="kor">의 / 로부터 / 중에</td><td class="hint">소유·소속</td></tr>
+        <tr><td><strong style="color:var(--green)">여격</strong></td><td class="hint">Dative</td><td class="kor">에게 / 를 위해 / 에 의해</td><td class="hint">간접목적어</td></tr>
+        <tr><td><strong style="color:var(--red)">대격</strong></td><td class="hint">Accusative</td><td class="kor">을/를</td><td class="hint">직접목적어</td></tr>
+        <tr><td><strong style="color:var(--text-hint)">호격 <span class="chip-excluded">드물게 사용</span></strong></td><td class="hint">Vocative</td><td class="kor">주여! 아!</td><td class="hint">호칭</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-head">제2변화 남성 명사 격변화 — ἄνθρωπος (사람)</div>
+
+  <div class="callout info">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body">
+      <div class="callout-title">제2변화 = 오미크론(ο) 변화</div>
+      <div class="callout-text">어미에 <span class="gr">ο</span>가 많이 포함되어 <strong>오미크론 변화</strong>라고도 부릅니다. 헬라어 명사 중 이 변화를 취하는 것이 가장 많습니다. 주로 남성과 중성 명사가 해당됩니다.</div>
+    </div>
+  </div>
+
+  <div class="table-grid-2">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px;">남성 명사 — <span style="font-family:'Noto Serif',serif;color:var(--greek)">ἄνθρωπος</span></div>
+      <div class="table-wrap">
+        <table class="conj-active">
+          <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--blue)">주격</strong></td><td class="gr">ἄνθρωπ-<strong style="color:var(--gold)">ος</strong></td><td class="gr">ἄνθρωπ-<strong style="color:var(--gold)">οι</strong></td></tr>
+            <tr><td><strong style="color:var(--gold)">속격</strong></td><td class="gr">ἀνθρώπ-<strong style="color:var(--gold)">ου</strong></td><td class="gr">ἀνθρώπ-<strong style="color:var(--gold)">ων</strong></td></tr>
+            <tr><td><strong style="color:var(--green)">여격</strong></td><td class="gr">ἀνθρώπ-<strong style="color:var(--gold)">ῳ</strong></td><td class="gr">ἀνθρώπ-<strong style="color:var(--gold)">οις</strong></td></tr>
+            <tr><td><strong style="color:var(--red)">대격</strong></td><td class="gr">ἄνθρωπ-<strong style="color:var(--gold)">ον</strong></td><td class="gr">ἀνθρώπ-<strong style="color:var(--gold)">ους</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:12px;color:var(--text-hint);margin-top:6px;">어미: -ος · -ου · -ῳ · -ον (단) / -οι · -ων · -οις · -ους (복)</div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:6px;">중성 명사 — <span style="font-family:'Noto Serif',serif;color:var(--greek)">δῶρον</span> (선물)</div>
+      <div class="table-wrap">
+        <table class="conj-mid">
+          <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--blue)">주격</strong></td><td class="gr">δῶρ-<strong style="color:var(--purple)">ον</strong></td><td class="gr">δῶρ-<strong style="color:var(--purple)">α</strong></td></tr>
+            <tr><td><strong style="color:var(--gold)">속격</strong></td><td class="gr">δώρ-<strong style="color:var(--gold)">ου</strong></td><td class="gr">δώρ-<strong style="color:var(--gold)">ων</strong></td></tr>
+            <tr><td><strong style="color:var(--green)">여격</strong></td><td class="gr">δώρ-<strong style="color:var(--gold)">ῳ</strong></td><td class="gr">δώρ-<strong style="color:var(--gold)">οις</strong></td></tr>
+            <tr><td><strong style="color:var(--red)">대격</strong></td><td class="gr">δῶρ-<strong style="color:var(--purple)">ον</strong></td><td class="gr">δῶρ-<strong style="color:var(--purple)">α</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:12px;color:var(--text-hint);margin-top:6px;">어미: -ον · -ου · -ῳ · -ον (단) / <strong style="color:var(--purple)">-α</strong> · -ων · -οις · <strong style="color:var(--purple)">-α</strong> (복)</div>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">남성 vs 중성 차이 요약</div>
+    <div class="rule-body">
+      <strong>공통:</strong> 속격(-ου/-ων)과 여격(-ῳ/-οις)은 남성·중성 동일<br>
+      <strong>차이:</strong> 중성은 주격·대격이 동일 어미 — 단수 <span class="gr">-ον</span>, 복수 <span class="gr">-α</span><br><br>
+      → 남성 주격 단수: <span class="gr">-ος</span> / 중성 주격 단수: <span class="gr">-ον</span><br>
+      → 남성 주격 복수: <span class="gr">-οι</span> / 중성 주격 복수: <span class="gr">-α</span>
+    </div>
+  </div>
+
+  <!-- SECTION 8: 번역 연습 -->
+  <div class="sec-head">
+    <span class="sec-badge red">SECTION 08</span>
+    <div class="sec-title">번역 연습 (슬라이드 예문)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>헬라어</th><th>직역</th><th>분석</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="hint">1</td>
+          <td class="gr">δοῦλος γράφει λόγους.</td>
+          <td class="kor">한 종이 말씀들을 쓰고 있어요.</td>
+          <td class="hint">δοῦλος=주격(주어), λόγους=대격복수(직목)</td>
+        </tr>
+        <tr>
+          <td class="hint">2</td>
+          <td class="gr">ἀπόστολοι διδάσκουσιν ἄνθρωπον.</td>
+          <td class="kor">사도들이 한 사람을 가르치고 있어요.</td>
+          <td class="hint">ἀπόστολοι=주격복수, ἄνθρωπον=대격단수</td>
+        </tr>
+        <tr>
+          <td class="hint">3</td>
+          <td class="gr">δοῦλος λαμβάνει δῶρα.</td>
+          <td class="kor">한 종이 선물들을 받고 있어요.</td>
+          <td class="hint">δῶρα=중성 복수(-α) ← 중성명사 핵심!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memo-box">
+    <div class="memo-title">🔥 오늘 암기 필수 형태 3가지</div>
+    <div class="memo-items">
+      <div class="memo-item">ἄνθρωπος<span>→ ἄνθρωπον (대격) / ἀνθρώπου (속격)</span></div>
+      <div class="memo-item">δῶρα<span>중성명사 복수 -α (주격=대격)</span></div>
+      <div class="memo-item">εἶπον<span>λέγω의 제2단순과거 (과거어근 εἰπ-)</span></div>
+    </div>
+  </div>
+
+</div><!-- end tab-lecture -->
+
+
+<!-- ══════════════════════════════════
+     TAB 2: 핵심정리
+══════════════════════════════════ -->
+<div class="tab-panel" id="tab-summary">
+
+  <div class="sec-head">
+    <span class="sec-badge red">시험 포인트</span>
+    <div class="sec-title">중간고사 대비 핵심 정리 (5/4 시험)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🔴</div>
+    <div class="callout-body">
+      <div class="callout-title">중간고사 범위 (5/4)</div>
+      <div class="callout-text">단어 + 동사 시제에 따른 해석 — <strong>4/13 수업 자료에서 출제</strong> (6주차 PPT 슬라이드 기준)</div>
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-box-title">🔴 시험 핵심 항목</div>
+    <ul class="exam-list">
+      <li>동사의 두 가지 시제 요소: time of action vs <strong>kind of action</strong> (동작의 종류 우선)</li>
+      <li>σ 결합 음성 변화 3가지: π/β/φ+σ→ψ / κ/γ/χ+σ→ξ / τ/δ/θ+σ→σ(탈락)</li>
+      <li>제1단순과거 능동태 변화표 전체 (λύω 기준, ε + 어근 + σα 구조)</li>
+      <li>제2단순과거 필수 단어 쌍: λέγω→εἶπον / βλέπω→εἶδον / ἔρχομαι→ἦλθον / λαμβάνω→ἔλαβον</li>
+      <li>미완료 vs 제2단순과거 구별: <strong>현재어근 = 미완료 / 과거어근 = 제2단순과거</strong></li>
+      <li><span class="gr">σῴζω</span> 번역 시 <strong>반드시 두 가지</strong>: 구원하다 / 치료하다</li>
+      <li>제2변화 남성 명사 어미: -ος / -ου / -ῳ / -ον (단) · -οι / -ων / -οις / -ους (복)</li>
+      <li>제2변화 중성 명사 어미: 주격=대격 (단수 -ον, 복수 -α)</li>
+    </ul>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">시험 제외 항목</div>
+      <div class="callout-text">
+        <span class="chip-excluded">시험 제외</span> 중간태 (형태는 알되 시험 출제 없음)<br>
+        <span class="chip-excluded">시험 제외</span> 악센트 표기<br>
+        <span class="chip-excluded">시험 제외</span> 미래 중간태<br>
+        <span class="chip-excluded">시험 제외</span> 헬라어 직접 쓰기
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-head">동사 변화표 총정리 (핵심 시제)</div>
+
+  <div class="table-grid-2">
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-active">현재 능동</span></div>
+      <div class="table-wrap">
+        <table class="conj-active">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">λύ-ω</td><td class="gr">λύ-ομεν</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">λύ-εις</td><td class="gr">λύ-ετε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">λύ-ει</td><td class="gr">λύ-ουσι(ν)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-passive">현재 수동/중간</span> <span class="chip-excluded">중간: 시험제외</span></div>
+      <div class="table-wrap">
+        <table class="conj-passive">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">λύ-ομαι</td><td class="gr">λυ-όμεθα</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">λύ-ῃ</td><td class="gr">λύ-εσθε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">λύ-εται</td><td class="gr">λύ-ονται</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-imperfect">미완료 능동</span></div>
+      <div class="table-wrap">
+        <table class="conj-imperfect">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">ἔ-λυ-ον</td><td class="gr">ἐ-λύ-ομεν</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">ἔ-λυ-ες</td><td class="gr">ἐ-λύ-ετε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">ἔ-λυ-ε(ν)</td><td class="gr">ἔ-λυ-ον</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-aorist">제1단순과거 능동</span></div>
+      <div class="table-wrap">
+        <table class="conj-aorist">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">ἔ-λυ-σα</td><td class="gr">ἐ-λύ-σαμεν</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">ἔ-λυ-σας</td><td class="gr">ἐ-λύ-σατε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">ἔ-λυ-σε(ν)</td><td class="gr">ἔ-λυ-σαν</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-passive">미래 능동</span></div>
+      <div class="table-wrap">
+        <table class="conj-passive">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">λύ-σω</td><td class="gr">λύ-σομεν</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">λύ-σεις</td><td class="gr">λύ-σετε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">λύ-σει</td><td class="gr">λύ-σουσι</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div style="margin-bottom:6px;"><span class="tense-chip chip-passive">미래 수동</span></div>
+      <div class="table-wrap">
+        <table class="conj-passive">
+          <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+          <tbody>
+            <tr><td class="hint">1인칭</td><td class="gr">λυθήσομαι</td><td class="gr">λυθησόμεθα</td></tr>
+            <tr><td class="hint">2인칭</td><td class="gr">λυθήσῃ</td><td class="gr">λυθήσεσθε</td></tr>
+            <tr><td class="hint">3인칭</td><td class="gr">λυθήσεται</td><td class="gr">λυθήσονται</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-head">명사 격변화 어미 비교표</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>격</th><th>남성 단수</th><th>남성 복수</th><th>중성 단수</th><th>중성 복수</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--blue)">주격</strong></td><td class="gr">-ος</td><td class="gr">-οι</td><td class="gr">-ον</td><td class="gr" style="color:var(--red)">-α ⚡</td></tr>
+        <tr><td><strong style="color:var(--gold)">속격</strong></td><td class="gr">-ου</td><td class="gr">-ων</td><td class="gr">-ου</td><td class="gr">-ων</td></tr>
+        <tr><td><strong style="color:var(--green)">여격</strong></td><td class="gr">-ῳ</td><td class="gr">-οις</td><td class="gr">-ῳ</td><td class="gr">-οις</td></tr>
+        <tr><td><strong style="color:var(--red)">대격</strong></td><td class="gr">-ον</td><td class="gr">-ους</td><td class="gr">-ον</td><td class="gr" style="color:var(--red)">-α ⚡</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="font-size:12px;color:var(--red);margin-bottom:16px;">⚡ 중성명사는 주격=대격 (단수 -ον, 복수 -α) — 속격·여격은 남성과 동일!</div>
+
+  <div class="memo-box">
+    <div class="memo-title">🔥 오늘 암기 필수 형태 3가지</div>
+    <div class="memo-items">
+      <div class="memo-item">ἄνθρωπος<span>→ ἄνθρωπον (대격) / ἀνθρώπου (속격)</span></div>
+      <div class="memo-item">δῶρα<span>중성명사 복수 -α (주격=대격)</span></div>
+      <div class="memo-item">εἶπον<span>λέγω의 제2단순과거 (과거어근 εἰπ-)</span></div>
+    </div>
+  </div>
+
+</div><!-- end tab-summary -->
+
+
+<!-- ══════════════════════════════════
+     TAB 3: 암기카드
+══════════════════════════════════ -->
+<div class="tab-panel" id="tab-cards">
+
+  <div class="sec-head">
+    <span class="sec-badge blue">FLASHCARDS</span>
+    <div class="sec-title">클릭하여 뒤집기 — 동사·명사 핵심 단어</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🃏</div>
+    <div class="callout-body">
+      <div class="callout-title">사용 방법</div>
+      <div class="callout-text">카드를 클릭하면 앞면(헬라어)↔뒷면(뜻·품사)이 전환됩니다.</div>
+    </div>
+  </div>
+
+  <div class="sub-head">동사</div>
+  <div class="flash-grid" id="flash-verbs"></div>
+
+  <div class="sub-head">명사 (제2변화)</div>
+  <div class="flash-grid" id="flash-nouns"></div>
+
+  <div class="sub-head">명사 격변화 — 핵심 형태</div>
+  <div class="flash-grid" id="flash-declension"></div>
+
+  <div class="sub-head">제2단순과거 쌍</div>
+  <div class="flash-grid" id="flash-aorist2"></div>
+
+  <div class="memo-box">
+    <div class="memo-title">🔥 오늘 암기 필수 형태 3가지</div>
+    <div class="memo-items">
+      <div class="memo-item">ἄνθρωπος<span>→ ἄνθρωπον (대격) / ἀνθρώπου (속격)</span></div>
+      <div class="memo-item">δῶρα<span>중성명사 복수 -α (주격=대격)</span></div>
+      <div class="memo-item">εἶπον<span>λέγω의 제2단순과거 (과거어근 εἰπ-)</span></div>
+    </div>
+  </div>
+
+</div><!-- end tab-cards -->
+
+
+<script>
+// ── TAB SWITCH ──
+function switchTab(e, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+// ── FLASHCARD DATA ──
+const verbCards = [
+  { gr:'βλέπω', pron:'블레포', meaning:'보다', pos:'동사', hint:'미래: βλέψω' },
+  { gr:'γράφω', pron:'그라포', meaning:'쓰다', pos:'동사', hint:'미래: γράψω (φ+σ→ψ)' },
+  { gr:'λαμβάνω', pron:'람바노', meaning:'취하다, 받다', pos:'동사', hint:'제2단과: ἔλαβον' },
+  { gr:'πιστεύω', pron:'피스튜오', meaning:'믿다', pos:'동사', hint:'제1단과: ἐπίστευσα' },
+  { gr:'λέγω', pron:'레고', meaning:'말하다', pos:'동사', hint:'제2단과: εἶπον' },
+  { gr:'ἀκούω', pron:'아쿠오', meaning:'듣다', pos:'동사', hint:'' },
+  { gr:'ἐγείρω', pron:'에게이로', meaning:'일으키다', pos:'동사 ⚠️ε-어간', hint:'불규칙 미래 주의' },
+  { gr:'ἔχω', pron:'에코', meaning:'가지고 있다', pos:'동사 ⚠️ε-어간', hint:'불규칙 미래 주의' },
+  { gr:'βαπτίζω', pron:'밥티조', meaning:'침례를 주다', pos:'동사', hint:'' },
+  { gr:'σῴζω', pron:'소조', meaning:'구원하다 / 치료하다', pos:'동사 🔴두 뜻 필수', hint:'시험: 두 가지 번역!' },
+  { gr:'θεραπεύω', pron:'테라퓨오', meaning:'치료하다', pos:'동사', hint:'' },
+  { gr:'ἔρχομαι', pron:'에르코마이', meaning:'오다, 가다', pos:'디포넌트 동사', hint:'제2단과: ἦλθον' },
+];
+
+const nounCards = [
+  { gr:'ὁ λόγος', pron:'호 로고스', meaning:'말씀', pos:'남성명사', hint:'복수주격: λόγοι' },
+  { gr:'ὁ θεός', pron:'호 테오스', meaning:'하나님', pos:'남성명사', hint:'속격: θεοῦ' },
+  { gr:'ὁ ἄνθρωπος', pron:'호 안트로포스', meaning:'사람', pos:'남성명사', hint:'대격: ἄνθρωπον' },
+  { gr:'ὁ κόσμος', pron:'호 코스모스', meaning:'세상', pos:'남성명사', hint:'' },
+  { gr:'ὁ ἀπόστολος', pron:'호 아포스톨로스', meaning:'사도', pos:'남성명사', hint:'복수: ἀπόστολοι' },
+  { gr:'ὁ δοῦλος', pron:'호 둘로스', meaning:'종, 노예', pos:'남성명사', hint:'' },
+  { gr:'τὸ δῶρον', pron:'토 도론', meaning:'선물', pos:'중성명사', hint:'복수: δῶρα (-α!)' },
+  { gr:'ὁ θάνατος', pron:'호 타나토스', meaning:'죽음', pos:'남성명사', hint:'' },
+  { gr:'ὁ υἱός', pron:'호 휘오스', meaning:'아들', pos:'남성명사', hint:'' },
+  { gr:'ὁ ἀδελφός', pron:'호 아델포스', meaning:'형제', pos:'남성명사', hint:'' },
+];
+
+const declCards = [
+  { gr:'ἀνθρώπ-ου', pron:'안트로푸', meaning:'사람의 (속격)', pos:'남성 단수 속격', hint:'"-의" 의미' },
+  { gr:'ἀνθρώπ-ῳ', pron:'안트로포', meaning:'사람에게 (여격)', pos:'남성 단수 여격', hint:'"-에게" 의미' },
+  { gr:'ἄνθρωπ-ον', pron:'안트로폰', meaning:'사람을 (대격)', pos:'남성 단수 대격', hint:'직접목적어' },
+  { gr:'ἄνθρωπ-οι', pron:'안트로포이', meaning:'사람들이 (주격복수)', pos:'남성 복수 주격', hint:'복수 주격 -οι' },
+  { gr:'δῶρ-α', pron:'도라', meaning:'선물들 (중성복수)', pos:'중성 복수 주격=대격', hint:'중성 복수 = -α!' },
+];
+
+const aorist2Cards = [
+  { gr:'εἶπον', pron:'에이폰', meaning:'말했다 (단과 1단)', pos:'λέγω → 제2단순과거', hint:'과거어근 εἰπ-' },
+  { gr:'εἶδον', pron:'에이돈', meaning:'보았다 (단과 1단)', pos:'βλέπω → 제2단순과거', hint:'' },
+  { gr:'ἦλθον', pron:'엘톤', meaning:'왔다/갔다 (단과 1단)', pos:'ἔρχομαι → 제2단순과거', hint:'' },
+  { gr:'ἔλαβον', pron:'엘라본', meaning:'취했다 (단과 1단)', pos:'λαμβάνω → 제2단순과거', hint:'' },
+  { gr:'ἔλιπον', pron:'엘리폰', meaning:'떠났다 (단과 1단)', pos:'λείπω → 제2단순과거', hint:'' },
+];
+
+function buildFlash(data, containerId) {
+  const container = document.getElementById(containerId);
+  data.forEach(card => {
+    const div = document.createElement('div');
+    div.className = 'flash-card';
+    div.innerHTML = `
+      <div class="flash-inner">
+        <div class="flash-front">
+          <div class="flash-greek">${card.gr}</div>
+          <div class="flash-pronun">${card.pron}</div>
+          ${card.hint ? `<div class="flash-hint">${card.hint}</div>` : ''}
+        </div>
+        <div class="flash-back">
+          <div class="flash-meaning">${card.meaning}</div>
+          <div class="flash-pos">${card.pos}</div>
+        </div>
+      </div>`;
+    div.addEventListener('click', () => div.classList.toggle('flipped'));
+    container.appendChild(div);
+  });
+}
+
+buildFlash(verbCards, 'flash-verbs');
+buildFlash(nounCards, 'flash-nouns');
+buildFlash(declCards, 'flash-declension');
+buildFlash(aorist2Cards, 'flash-aorist2');
+</script>
+</body>
+</html>
