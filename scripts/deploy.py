@@ -20,6 +20,7 @@ ROOT_DIR   = SCRIPT_DIR.parent
 
 sys.path.insert(0, str(SCRIPT_DIR))
 from update_data import update as update_data_js, COURSE_MAP
+from add_back_button import inject as inject_back_button
 
 OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek"}
 COURSE_NAMES = ", ".join(COURSE_MAP.keys())
@@ -176,6 +177,10 @@ def main():
         print(f"  ⚠️  제목 추출 실패 → '{title}' 사용")
 
     href = f"output/{out_folder}/{file_suffix}"
+
+    # 뒤로가기 버튼 삽입
+    if inject_back_button(html_path):
+        print("  뒤로가기 버튼 삽입")
 
     if not variant:
         # 첫 번째 자료: title·date 업데이트 + files: [] 등록
