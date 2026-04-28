@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9주차 · 존 헨리 뉴먼 — 기독교철학</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #12100e;
+  --card:      #1c1814;
+  --card2:     #252018;
+  --card3:     #1e1c18;
+  --amber:     #c49a3c;
+  --amber-lt:  #e8c97a;
+  --amber-dk:  #8a6a1e;
+  --sage:      #8aab8a;
+  --sage-dk:   #5a8a6a;
+  --terra:     #c96b5a;
+  --terra-dk:  #8a3a2a;
+  --border:    rgba(196,154,60,.18);
+  --border2:   rgba(196,154,60,.32);
+  --text:      #ede8df;
+  --text2:     #9e9688;
+  --text3:     #6b6457;
+  --slide-only:#4a7a9b;
+  --slide-bg:  #1a2530;
+  --slide-bd:  rgba(74,122,155,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:9pt;line-height:1.75;color:var(--text);background:var(--bg);min-height:100vh;}
+
+/* ─── HEADER ─── */
+.page-header{background:linear-gradient(160deg,#0e0c0a 0%,#1c1508 45%,#201a0a 100%);padding:10mm 14mm 8mm;position:relative;overflow:hidden;border-bottom:1px solid var(--border2);}
+.page-header::before{content:'Newman';position:absolute;right:-6mm;top:4mm;font-family:'EB Garamond',serif;font-size:80pt;font-style:italic;color:rgba(196,154,60,.04);white-space:nowrap;pointer-events:none;}
+.page-header::after{content:'';position:absolute;bottom:-20mm;left:30mm;width:80mm;height:80mm;border-radius:50%;background:radial-gradient(circle,rgba(196,154,60,.07) 0%,transparent 70%);pointer-events:none;}
+.draft-badge{display:inline-flex;align-items:center;gap:2mm;background:rgba(201,107,90,.2);border:1px solid var(--terra);color:var(--terra);font-size:6.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 10px;border-radius:2px;margin-bottom:4mm;}
+.week-label{font-size:7pt;font-weight:700;color:var(--amber);letter-spacing:.14em;text-transform:uppercase;margin-bottom:2mm;}
+.page-title{font-family:'Noto Serif KR',serif;font-size:20pt;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1.5mm;}
+.page-title span{color:var(--amber);}
+.page-latin{font-family:'EB Garamond',serif;font-size:12pt;font-style:italic;color:var(--text2);margin-bottom:3mm;letter-spacing:.04em;}
+.quote-hero{font-family:'EB Garamond',serif;font-size:13pt;font-style:italic;color:var(--amber-lt);line-height:1.6;border-left:3px solid var(--amber);padding-left:5mm;margin-top:5mm;}
+
+/* ─── TABS ─── */
+.tab-bar{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--card);padding:0 14mm;position:sticky;top:0;z-index:100;}
+.tab-btn{font-size:7.5pt;font-weight:600;color:var(--text3);padding:3.5mm 5mm;border:none;background:none;cursor:pointer;letter-spacing:.06em;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
+.tab-btn.active{color:var(--amber);border-bottom-color:var(--amber);}
+.tab-btn:hover:not(.active){color:var(--text2);}
+.tab-panel{display:none;padding:8mm 14mm 14mm;animation:fadeIn .25s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── SECTION HEADS ─── */
+.sec-head{display:flex;align-items:center;gap:3mm;margin:8mm 0 4mm;page-break-after:avoid;}
+.sec-badge{background:var(--amber);color:#12100e;font-size:6.5pt;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:.08em;white-space:nowrap;}
+.sec-title{font-family:'Noto Serif KR',serif;font-size:11pt;font-weight:700;color:var(--amber-lt);}
+.sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--amber-dk),transparent);}
+.sub-head{font-size:8.5pt;font-weight:700;color:var(--amber);margin:5mm 0 2.5mm;padding-left:3mm;border-left:3px solid var(--sage-dk);}
+
+/* ─── SOURCE LEGEND ─── */
+.source-legend{display:flex;gap:4mm;flex-wrap:wrap;margin-bottom:5mm;padding:3mm 4mm;background:var(--card);border:1px solid var(--border);border-radius:5px;}
+.legend-item{display:flex;align-items:center;gap:1.5mm;font-size:6.5pt;color:var(--text2);}
+.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.legend-dot.script{background:var(--text2);}
+.legend-dot.slide{background:var(--slide-only);}
+.legend-dot.both{background:var(--amber);}
+
+/* ─── THINKER CARD ─── */
+.thinker-card{background:linear-gradient(135deg,var(--card) 0%,#201c12 100%);border:1px solid var(--border2);border-radius:8px;padding:6mm 7mm;margin-bottom:5mm;position:relative;overflow:hidden;page-break-inside:avoid;}
+.thinker-card::before{content:'JHN';position:absolute;right:5mm;top:4mm;font-family:'EB Garamond',serif;font-size:36pt;color:rgba(196,154,60,.07);font-weight:700;}
+.thinker-name{font-family:'Noto Serif KR',serif;font-size:14pt;font-weight:700;color:var(--amber);margin-bottom:1mm;}
+.thinker-dates{font-size:8pt;color:var(--text3);font-family:'EB Garamond',serif;margin-bottom:3mm;}
+.thinker-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:3.5mm;}
+.meta-item .label{font-size:6pt;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8mm;}
+.meta-item .value{font-size:7.5pt;color:var(--text);line-height:1.5;}
+.thinker-claim{background:rgba(196,154,60,.08);border-left:3px solid var(--amber);padding:3mm 4mm;border-radius:0 4px 4px 0;font-size:8pt;line-height:1.65;}
+.thinker-claim strong{color:var(--amber-lt);}
+
+/* ─── TIMELINE ─── */
+.timeline{position:relative;padding-left:8mm;margin-bottom:5mm;}
+.timeline::before{content:'';position:absolute;left:3mm;top:2mm;bottom:2mm;width:1px;background:linear-gradient(to bottom,var(--amber-dk),transparent);}
+.tl-item{position:relative;margin-bottom:3.5mm;page-break-inside:avoid;}
+.tl-dot{position:absolute;left:-6.5mm;top:2mm;width:7px;height:7px;border-radius:50%;background:var(--card);border:1.5px solid var(--amber-dk);}
+.tl-item.key .tl-dot{background:var(--amber);border-color:var(--amber);}
+.tl-year{font-family:'EB Garamond',serif;font-size:9pt;font-weight:600;color:var(--amber);display:inline-block;min-width:12mm;}
+.tl-topic{font-weight:600;font-size:8pt;color:var(--text);display:inline;}
+.tl-desc{font-size:7.5pt;color:var(--text2);line-height:1.6;margin-top:.5mm;padding-left:12mm;}
+
+/* ─── CONCEPT CARD ─── */
+.concept-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3mm;margin-bottom:4mm;}
+.concept-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4mm 5mm;page-break-inside:avoid;}
+.concept-card.slide-only{border-color:var(--slide-bd);background:var(--slide-bg);}
+.concept-term{font-size:9pt;font-weight:700;color:var(--amber-lt);margin-bottom:1mm;}
+.concept-original{font-family:'JetBrains Mono',monospace;font-size:7pt;color:var(--amber);opacity:.85;margin-bottom:2mm;display:block;}
+.concept-def{font-size:7.5pt;color:var(--text2);line-height:1.65;}
+.concept-thinker{font-size:6.5pt;color:var(--text3);margin-top:2mm;border-top:1px solid var(--border);padding-top:1.5mm;}
+
+/* ─── ARGUMENT BLOCK ─── */
+.arg-block{margin-bottom:4mm;border-radius:6px;overflow:hidden;page-break-inside:avoid;}
+.arg-title{background:var(--card2);padding:3mm 5mm;font-size:8pt;font-weight:700;color:var(--amber-lt);border-bottom:1px solid var(--border);}
+.arg-premise{background:var(--card3);padding:3mm 5mm;font-size:7.8pt;line-height:1.65;border-bottom:1px solid var(--border);}
+.arg-premise::before{content:'전제 ';font-weight:700;color:var(--text3);font-size:7pt;letter-spacing:.06em;}
+.arg-body{background:var(--card2);padding:3mm 5mm;font-size:7.8pt;line-height:1.65;border-bottom:1px solid var(--border);}
+.arg-body::before{content:'논증 ';font-weight:700;color:var(--text3);font-size:7pt;letter-spacing:.06em;}
+.arg-conclusion{background:var(--card);padding:3mm 5mm;font-size:7.8pt;line-height:1.65;border-left:3px solid var(--amber);}
+.arg-conclusion::before{content:'결론 ';font-weight:700;color:var(--amber);font-size:7pt;letter-spacing:.06em;}
+
+/* ─── LECTURE QUOTE ─── */
+.lec-quote{background:var(--card);border-left:3px solid var(--text3);padding:3mm 4mm;margin-bottom:3mm;border-radius:0 4px 4px 0;page-break-inside:avoid;}
+.lec-quote p{font-family:'EB Garamond',serif;font-size:9.5pt;font-style:italic;color:var(--text2);line-height:1.7;}
+.lec-label{font-size:6pt;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5mm;}
+
+/* ─── COMPARISON TABLE ─── */
+.compare-wrap{overflow-x:auto;margin-bottom:5mm;}
+table{width:100%;border-collapse:collapse;font-size:7.5pt;}
+th{background:var(--amber-dk);color:var(--text);padding:2.5mm 3.5mm;text-align:left;font-weight:700;font-size:7pt;letter-spacing:.05em;white-space:nowrap;}
+td{padding:2.5mm 3.5mm;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.6;}
+tr:nth-child(odd) td{background:var(--card);}
+tr:nth-child(even) td{background:var(--card2);}
+td:first-child{font-weight:700;color:var(--amber-lt);white-space:nowrap;}
+
+/* ─── PRAXIS CARD ─── */
+.praxis-card{background:#1a2a1e;border:1px solid var(--sage-dk);border-radius:6px;padding:4mm 5mm;margin-bottom:3mm;page-break-inside:avoid;}
+.praxis-num{font-size:7pt;font-weight:700;color:var(--sage);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5mm;}
+.praxis-title{font-size:9pt;font-weight:700;color:var(--sage);margin-bottom:2mm;}
+.praxis-content{font-size:7.8pt;color:var(--text2);line-height:1.7;margin-bottom:2mm;}
+.praxis-q{font-size:7.5pt;color:var(--sage);font-style:italic;border-top:1px dashed rgba(138,171,138,.3);padding-top:2mm;margin-top:2mm;}
+.praxis-q::before{content:'✦ 실천 질문: ';font-weight:700;font-style:normal;}
+
+/* ─── KEY PROPOSITION ─── */
+.key-prop{background:#2a2010;border-left:3px solid var(--amber);padding:3mm 5mm;margin-bottom:2.5mm;border-radius:0 4px 4px 0;}
+.key-prop p{font-size:8pt;color:var(--amber-lt);line-height:1.65;}
+
+/* ─── EXAM CARD ─── */
+.exam-list{display:flex;flex-direction:column;gap:2mm;}
+.exam-item{background:#2d1a16;border:1px solid rgba(201,107,90,.35);border-radius:4px;padding:2.5mm 4mm;display:flex;align-items:flex-start;gap:2.5mm;}
+.exam-badge{background:var(--terra-dk);color:var(--terra);font-size:6pt;font-weight:700;letter-spacing:.08em;padding:1px 6px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:.5mm;}
+.exam-text{font-size:7.8pt;line-height:1.6;}
+
+/* ─── SLIDE-ONLY BADGE ─── */
+.slide-tag{display:inline-block;background:rgba(74,122,155,.2);border:1px solid var(--slide-only);color:var(--slide-only);font-size:6pt;font-weight:700;letter-spacing:.08em;padding:1px 6px;border-radius:2px;margin-left:2mm;vertical-align:middle;}
+
+/* ─── QUESTION BLOCK ─── */
+.question-block{background:#1a1e1a;border-left:3px solid var(--sage);padding:3.5mm 4.5mm;margin-bottom:3mm;border-radius:0 5px 5px 0;}
+.question-block p{font-size:7.8pt;line-height:1.7;color:var(--text2);}
+
+/* ─── DUAL CARD ─── */
+.dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm;}
+.dual-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4mm;}
+.dual-card.slide-card{background:var(--slide-bg);border-color:var(--slide-bd);}
+.dual-card h4{font-size:8.5pt;font-weight:700;color:var(--amber-lt);margin-bottom:2mm;padding-bottom:1.5mm;border-bottom:1px solid var(--border);}
+.dual-card.slide-card h4{color:#7ab0cc;border-color:var(--slide-bd);}
+.dual-card ul{list-style:none;padding:0;}
+.dual-card li{font-size:7.5pt;color:var(--text2);line-height:1.65;margin-bottom:1.5mm;padding-left:4mm;position:relative;}
+.dual-card li::before{content:'·';position:absolute;left:0;color:var(--amber);}
+.dual-card.slide-card li::before{color:var(--slide-only);}
+
+/* ─── PARADOX CARD ─── */
+.paradox-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5mm;margin-bottom:4mm;}
+.paradox-item{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3.5mm 4mm;page-break-inside:avoid;}
+.paradox-vs{display:flex;align-items:center;gap:2mm;margin-bottom:2mm;}
+.para-a{font-size:8pt;font-weight:700;color:var(--amber-lt);}
+.para-sep{font-size:7pt;color:var(--text3);}
+.para-b{font-size:8pt;font-weight:700;color:var(--sage);}
+.paradox-desc{font-size:7.3pt;color:var(--text2);line-height:1.6;}
+
+/* ─── FOOTER ─── */
+.page-footer{background:var(--card);border-top:1px solid var(--border);padding:4mm 14mm;font-size:6.5pt;color:var(--text3);display:flex;justify-content:space-between;align-items:center;}
+
+/* ─── PRINT ─── */
+@media print{
+  body{background:#fff;color:#111;}
+  .tab-bar{display:none;}
+  .tab-panel{display:block!important;}
+  .page-header{background:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  * {-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .tab-panel+.tab-panel{page-break-before:always;}
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- ── HEADER ── -->
+<div class="page-header">
+  <div class="draft-badge">⚠ 초안 · 강의 스크립트 + PDF 슬라이드 통합본</div>
+  <div class="week-label">기독교철학 · 9주차 · 2026-04-28</div>
+  <div class="page-title">존 헨리 <span>뉴먼</span></div>
+  <div class="page-latin">John Henry Newman, 1801–1890</div>
+  <div class="quote-hero">"진리는 살아 있으며, 신앙은 그것에 대한 인격적 응답이다."</div>
+</div>
+
+<!-- ── TAB BAR ── -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(1)">✦ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(2)">⇌ 비교표</button>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 1 — 강의노트
+══════════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-0">
+
+  <!-- 출처 범례 -->
+  <div class="source-legend">
+    <span class="legend-item"><span class="legend-dot both"></span>스크립트 + 슬라이드 공통</span>
+    <span class="legend-item"><span class="legend-dot slide"></span>슬라이드 단독 추가</span>
+    <span class="legend-item"><span class="legend-dot script"></span>스크립트 강조 내용</span>
+  </div>
+
+  <!-- 사상가 카드 -->
+  <div class="thinker-card">
+    <div class="thinker-name">존 헨리 뉴먼</div>
+    <div class="thinker-dates">John Henry Newman · 1801년 2월 21일 런던 출생 — 1890년 8월 11일 버밍엄 선종</div>
+    <div class="thinker-meta">
+      <div class="meta-item">
+        <div class="label">시대</div>
+        <div class="value">19세기 영국<br>가톨릭 신학 / 옥스퍼드 운동</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">주요 저작</div>
+        <div class="value">『동의의 문법』(1870)<br>『교리 발전론』(1845)<br>『기독교 대학의 이상』</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">핵심 개념</div>
+        <div class="value">동의 · 추론감각<br>교리 발전론<br>양심론 · 신앙감각</div>
+      </div>
+    </div>
+    <div class="thinker-claim">
+      <strong>핵심 주장:</strong> 신앙은 맹목적 감정이 아니라 이성·경험·양심이 통합된 전체적 동의(assent)이며,
+      교리는 고정된 규칙이 아니라 살아 성장하는 유기체다.
+    </div>
+  </div>
+
+  <!-- 01 생애 -->
+  <div class="sec-head"><span class="sec-badge">01</span><span class="sec-title">생애</span><div class="sec-line"></div></div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1801</span><span class="tl-topic">런던 출생</span>
+      <div class="tl-desc">은행가의 장남. 어릴 적부터 성경을 사랑하고 종교적 감수성이 예민했다.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1809–17</span><span class="tl-topic">이튼 사립기숙학교</span>
+      <div class="tl-desc">8년간 교육 중 <strong>영적 회심 경험</strong> — 평생 신앙과 진리 탐구의 동기가 됨.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">대학</span><span class="tl-topic">옥스퍼드 트리니티 칼리지 → 오리얼 칼리지 펠로우</span>
+      <div class="tl-desc">신학과 철학 연구에 몰두. 1824년 성공회 사제 서품. 옥스퍼드 대학 교회 부목사·주임사제.</div>
+    </div>
+    <div class="tl-item key">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1833</span><span class="tl-topic">옥스퍼드 운동 주도</span>
+      <div class="tl-desc">성공회 내 가톨릭적 전통 회복 추구. 고교회파(High Church) 전통 강조.
+        사도적 계승·성례전·교부 가르침 충실을 역설. <em>Tracts for the Times</em> 저술.</div>
+    </div>
+    <div class="tl-item key">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1845</span><span class="tl-topic">가톨릭 개종</span>
+      <div class="tl-desc"><strong>개종의 세 가지 내적 동인:</strong><br>
+        ① 초대 교회 교부들 연구 → 로마 가톨릭에서 초기 전통이 온전히 보존됨을 확신<br>
+        ② 교리 발전론 → 성공회가 사도적 전통에서 멀어졌다는 신학적 판단<br>
+        ③ 영적 체험·양심의 인도 — 시칠리아 열병 회복 중 쓴 시 <em>구름기둥(Lead, Kindly Light)</em></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1847</span><span class="tl-topic">가톨릭 사제 서품 (로마)</span>
+      <div class="tl-desc">버밍엄에 오라토리오 수도회 설립. 가톨릭 신자 교육·사회 봉사.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1845</span><span class="tl-topic">『교리 발전론』 출판</span>
+      <div class="tl-desc">교리 발전론 체계화. 교리는 유기체처럼 성장한다는 핵심 주장 정립.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1854</span><span class="tl-topic">더블린 가톨릭 대학교 초대 총장</span>
+      <div class="tl-desc">『기독교 대학의 이상』 — 교육과 신학의 이상 실현 시도.</div>
+    </div>
+    <div class="tl-item key">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1870</span><span class="tl-topic">『동의의 문법』 출판</span>
+      <div class="tl-desc"><em>An Essay in Aid of a Grammar of Assent</em> — 신앙과 이성의 통합 체계 완성.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1879</span><span class="tl-topic">추기경 서임 (교황 레오 13세)</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <span class="tl-year">1890</span><span class="tl-topic">버밍엄 선종</span>
+      <div class="tl-desc">신학·교육·종교적 양심 영역에서 지속적 영향. 제2차 바티칸 공의회의 정신적 토대.</div>
+    </div>
+  </div>
+
+  <!-- 02 핵심사상 1 — 동의의 문법 -->
+  <div class="sec-head"><span class="sec-badge">02</span><span class="sec-title">핵심사상 1 — 신앙과 이성의 통합: 동의의 문법</span><div class="sec-line"></div></div>
+
+  <div class="lec-quote">
+    <div class="lec-label">교수 설명</div>
+    <p>"경험이 먼저다. 이성은 그 이후에 도래한다. 빵을 만들 때 텍스트의 명령이 먼저 있고,
+    '왜 그렇게 하지?'라는 사유는 그 이후에 오는 것처럼 — 우리의 신앙적 체험도 그렇다."</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">동의 (Assent)</div>
+      <code class="concept-original">영 Assent / 추론감각 Illative Sense</code>
+      <div class="concept-def">신앙은 단편적 증거의 합이 아니라, 삶 전체의 경험·도덕적 성향·직관이 결합된
+        <strong>종합적 판단으로 도달하는 전체적 확신</strong>이다.
+        친구를 완벽한 증거 때문에 신뢰하지 않듯, 신앙도 오랜 경험·직관·관계 속에서 알게 된다.</div>
+      <div class="concept-thinker">저작: 『동의의 문법』(1870)</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">실증적 이성 vs 도덕적 이성</div>
+      <code class="concept-original">실증적 이성 · 도덕적 이성 (개연성 probability)</code>
+      <div class="concept-def">뉴먼은 두 이성을 구분한다.
+        과학적 증거에 기반한 <em>실증적 이성</em>과
+        신뢰·경험·도덕적 성찰에 기반한 <em>도덕적 이성</em>.
+        신앙의 영역은 후자이며, 개연성을 통해 진리에 도달한다.</div>
+    </div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">논증 — 신앙은 전체적 동의다</div>
+    <div class="arg-premise">인간의 인식은 논리적 증명만으로 이루어지지 않는다.
+      친구를 신뢰하는 것은 완벽한 증거가 아니라 경험·직관·관계에서 비롯된다.</div>
+    <div class="arg-body">신앙의 영역에서도 개연성을 통해 진리에 도달할 수 있다.
+      이성 + 경험 + 도덕적 직관 + 양심이 통합되어 작동하는 <em>추론 감각(illative sense)</em>이
+      전체적 확신(assent)을 형성한다.
+      그리스도교 진리는 역사적 사건·도덕적 감수성·공동체의 증언이 맞물려 확신으로 이어진다.</div>
+    <div class="arg-conclusion">신앙은 수학 공식 같은 논리 계산이 아니라, <strong>삶 전체로 아는 것</strong>이다.
+      하나님은 증명만으로 믿는 분이 아니며, 믿음은 맹목이 아니라 이성·경험·양심이 함께 움직이는 앎이다.</div>
+  </div>
+
+  <!-- 03 핵심사상 2 — 교리 발전론 -->
+  <div class="sec-head"><span class="sec-badge">03</span><span class="sec-title">핵심사상 2 — 교리 발전론</span><div class="sec-line"></div></div>
+
+  <div class="lec-quote">
+    <div class="lec-label">교수 설명</div>
+    <p>"교리는 씨앗이야. 성장하고 발전하는 것이야. 교리가 우리를 더 작게 만들거나 범주 안에 가두는 것이 아니라."</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">교리 발전론</div>
+      <code class="concept-original">Development of Doctrine (1845)</code>
+      <div class="concept-def">교리는 죽은 규칙이 아니라 <strong>자라는 씨앗</strong>. 진리 자체는 변하지 않지만,
+        그 이해(교리)는 유기체처럼 성장한다. 강물이 흐르거나 나무가 자라듯 시대에 따라
+        새로운 표현으로 확장되되 본질은 보존된다.<br>
+        예: 삼위일체 교리 → 니케아 공의회(325년)에서 정립</div>
+      <div class="concept-thinker">저작: 『교리 발전론』(1845)</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">신앙 감각 (Sensus Fidelium)</div>
+      <code class="concept-original">라 Sensus Fidelium / Sensus Fidei</code>
+      <div class="concept-def">교리의 발전은 성직자만이 아닌 <strong>신자들의 신앙 감각</strong>에 의존한다.
+        신자들의 삶과 기도는 교회가 진리를 식별하는 데 필수적이다.<br>
+        → 제2차 바티칸 공의회(1962–65) '하나님의 백성' 개념과
+        시노달리타스(Synodalitas, 공동체적 협의)에 직접적 영향</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">관념과 구상력</div>
+      <code class="concept-original">영 Idea / Imagination (구상력)</code>
+      <div class="concept-def">관념은 단순한 추상 개념이 아니라 <em>구상력(imagination)에 각인된 통합적 형상</em>.
+        논리적 추론보다 앞서 존재한다. 셰익스피어의 '햄릿'처럼 — 개별 성격 특성을 조합한 것이 아니라
+        이미 구상력 속에 심어진 '햄릿적 인간'의 통합적 인상을 구체화한 것.</div>
+    </div>
+    <div class="concept-card slide-only">
+      <div class="concept-term">유기적 성장의 조건 <span class="slide-tag">슬라이드</span></div>
+      <code class="concept-original">씨앗 → 식물 / 햄릿 / 아리스토텔레스의 덕론</code>
+      <div class="concept-def">발달은 본질의 변형이 아니라 씨앗 속에 내재된 생명의 잠재성이 외적으로 드러나는 과정.
+        정체성과 지속성을 유지하는 발달. 아리스토텔레스도 '고결한 인간'이라는 통합적 이상을 먼저 지니고
+        개별 덕목을 분석했다 — 신앙의 구조도 같다.</div>
+    </div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">논증 — 교리는 살아 있는 유기체다</div>
+    <div class="arg-premise">진리 자체는 불변하지만, 인간의 진리 이해는 역사 속에서 심화될 수 있다.</div>
+    <div class="arg-body">식물의 씨앗이 시간이 흐르며 형태를 갖추듯, 신앙의 관념도 교회 역사 속에서 점진적으로 성장하고
+      이단 논쟁·문화적 도전에 대응하며 명확성을 획득한다.
+      이는 정체성과 지속성을 유지하는 발달이지, 본질의 변형이 아니다.</div>
+    <div class="arg-conclusion">교리는 죽은 규칙이 아니라 자라는 씨앗이며, 강물처럼 흐르되 본질은 보존된다.
+      신앙은 다양한 교리나 실천 규범들의 집합이 아니라,
+      <strong>하나님과 인간 존재에 대한 전체적이고 살아 있는 관념이 구체화되는 역사적·존재론적 여정</strong>이다.</div>
+  </div>
+
+  <!-- 04 핵심사상 3 — 양심론 -->
+  <div class="sec-head"><span class="sec-badge">04</span><span class="sec-title">핵심사상 3 — 양심: 하나님의 목소리</span><div class="sec-line"></div></div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">양심론</div>
+      <code class="concept-original">영 Conscience / 라 Conscientia</code>
+      <div class="concept-def">양심은 신적 계시와 인간의 자유가 만나는 장.
+        "내 기분도, 내 취향도 아니다. 양심은 <strong>진리를 향한 내면의 부름</strong>이며,
+        하나님 앞에서 듣는 목소리다."<br>
+        ① 도덕적 판단 — 선악을 구분하는 본능적 능력<br>
+        ② 하나님과의 대화 — 개인을 초월한 객관적 진리를 지향</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">양심의 이중 책임</div>
+      <code class="concept-original">양심의 자유 = 진리를 향한 의무</code>
+      <div class="concept-def">양심에 따른 행동은 절대적 권리이지만,
+        동시에 <em>진리 탐구와 교회의 가르침에 귀 기울일 책임</em>이 수반된다.
+        양심의 자유는 진리를 향한 의무다.</div>
+    </div>
+  </div>
+
+  <div class="lec-quote">
+    <div class="lec-label">교수 설명 — 아우구스티누스와의 연결</div>
+    <p>"양심의 소리라는 것은 어쩌면 아우구스티누스도 이미 얘기한 부분들이에요.
+    우리 안에 이미 그 소리를 — 그게 어쩌면 우리식으로 하면 양심이지 않을까."</p>
+  </div>
+
+  <!-- 05 핵심사상 4 — 교회론 -->
+  <div class="sec-head"><span class="sec-badge">05</span><span class="sec-title">핵심사상 4 — 교회론: 권위와 신자의 협력</span><div class="sec-line"></div></div>
+
+  <div class="lec-quote">
+    <div class="lec-label">교수 설명</div>
+    <p>"교회는 회사처럼 위에서 지시하고 아래가 따르는 구조가 아니라
+    함께 진리를 지키고 배워 가는 공동체다."</p>
+  </div>
+
+  <div class="dual-grid">
+    <div class="dual-card">
+      <h4>교황무류성 — 뉴먼의 이해</h4>
+      <ul>
+        <li>'교황은 절대 틀리지 않는다' — 오해하기 쉬운 명제</li>
+        <li>교황 개인이 마음대로 절대 권력을 행사한다는 뜻이 아님</li>
+        <li>교회 전체가 믿어 온 진리를 보호하는 역할</li>
+        <li>비유: 오케스트라 지휘자 — 혼자 음악 만드는 것이 아니라 전체 연주가 조화를 이루게 돕는 역할</li>
+      </ul>
+    </div>
+    <div class="dual-card">
+      <h4>신자들의 협력 — 혁신적 입장</h4>
+      <ul>
+        <li>"교리 문제에 대해 신자들에게 자문하라" (가톨릭 내에서 혁신적)</li>
+        <li>진리는 성직자만 아는 것이 아니라 평신도도 신앙감각(sensus fidei) 지님</li>
+        <li>교회 = 위계만 있는 피라미드 ✗ → 모두가 함께 걷는 순례 공동체 ✓</li>
+        <li>"교황도, 주교도, 사제도, 평신도도 함께 말하고 듣고 분별한다"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 06 핵심사상 5 — 자유주의 비판 -->
+  <div class="sec-head"><span class="sec-badge">06</span><span class="sec-title">핵심사상 5 — 종교적 자유주의 비판</span><div class="sec-line"></div></div>
+
+  <div class="arg-block">
+    <div class="arg-title">논증 — 종교적 상대주의 비판</div>
+    <div class="arg-premise">종교가 개인의 취향·감정·주관적 의견에 불과하다면,
+      모든 종교는 동등하게 상대적이거나 무의미해진다.
+      19세기 영국에서 종교는 점점 '취향'이나 '의견'의 문제로 축소되고 있었다.</div>
+    <div class="arg-body">신앙은 단순한 감정적 선호가 아니라 객관적으로 계시된 진리와 만나는 지적·실천적 행위다.
+      이성·경험·도덕적 직관이 어우러진 총체적 동의이며, 삶을 변화시키는 힘을 가진다.</div>
+    <div class="arg-conclusion">종교는 보편적 실재에 뿌리내려야 한다.
+      종교가 참된 진리와 실재에 뿌리내릴 때 비로소 인간의 삶을 이끌고 변화시킨다.</div>
+  </div>
+
+  <div class="lec-quote">
+    <div class="lec-label">교수 설명 — 이즘(ism)과의 거리두기</div>
+    <p>"세속의 가치와 거리를 두면서 동시에 그 세계 안에서 살아가야 한다.
+    그 긴장 속에서 창조적으로 응답하는 것이 그리스도인의 과제다. 뉴먼의 사상은
+    근대성과 전통의 종합을 시도한 독창적 체계다."</p>
+  </div>
+
+  <!-- 07 슬라이드 전용 — 그리스도교의 이중적 성격 -->
+  <div class="sec-head"><span class="sec-badge">07</span><span class="sec-title">그리스도교의 이중적 성격 <span class="slide-tag">슬라이드</span></span><div class="sec-line"></div></div>
+
+  <div class="paradox-grid">
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">교의적</span><span class="para-sep">+</span><span class="para-b">교화적</span><span class="para-sep">+</span><span class="para-a">실천적</span></div>
+      <div class="paradox-desc">이 세 차원이 동시적. 교리는 신앙의 내용을 제공하고, 도덕은 삶의 방향을 정하며,
+        실천은 신앙을 구체적 행동으로 체현. 무엇을 믿느냐와 어떻게 살아지느냐를 동시에 요구한다.</div>
+    </div>
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">비교적(relative)</span><span class="para-sep">+</span><span class="para-b">공공적(public)</span></div>
+      <div class="paradox-desc">비교적 — 다양한 시대·문화·상황 속에서 실제로 관계 맺고 해석되어야 하는 진리.
+        공공적 — 개인적 신앙 체험에 머물지 않고 공동체적·사회적 차원을 본질적으로 지님.</div>
+    </div>
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">관대함</span><span class="para-sep">vs</span><span class="para-b">엄격함</span></div>
+      <div class="paradox-desc">관대함 — 하나님의 사랑과 자비, 누구든 받아들이는 넓은 품.
+        엄격함 — 진리에 대한 요구, 회개와 성화에 대한 강력한 요청.
+        진정한 신앙은 인간 존재를 정화하고 변화시키는 고통스러운 요구를 동반한다.</div>
+    </div>
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">밝음</span><span class="para-sep">vs</span><span class="para-b">어둠</span></div>
+      <div class="paradox-desc">구원의 빛을 비추지만 동시에 하나님의 완전성과 초월성 앞에서 신비와 어둠을 체험.
+        구원의 약속은 분명하지만 신앙의 길은 불확실성과 시련 속을 걷는 여정이기도 하다.</div>
+    </div>
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">사랑</span><span class="para-sep">vs</span><span class="para-b">공포</span></div>
+      <div class="paradox-desc">하나님의 무한한 사랑으로 인간을 부르시지만, 동시에 절대적 거룩함 앞에서 두려움.
+        친밀함과 경외가 함께 — 참된 신앙은 하나님의 친밀함에 안주하는 것만이 아니라
+        그의 위대하심과 심판의 실재 앞에 경외하는 태도도 포함한다.</div>
+    </div>
+    <div class="paradox-item">
+      <div class="paradox-vs"><span class="para-a">바울의 아레오파고스 설교</span><span class="para-sep">→</span><span class="para-b">발전의 원리</span></div>
+      <div class="paradox-desc">행 17:23 "여러분이 알지도 못하고 숭배하는 그 대상을 내가 선포하려고 합니다."
+        인간 안에 이미 신적 실재에 대한 인상이 있다. 불완전하지만 그 숭배 자체가 실재를 향해
+        나아가는 움직임 — 뉴먼은 이를 발전 과정(development)의 원리로 해석한다.</div>
+    </div>
+  </div>
+
+  <!-- 08 슬라이드 전용 — 자연적 종교 vs 계시된 종교 -->
+  <div class="sec-head"><span class="sec-badge">08</span><span class="sec-title">자연적 종교 vs 계시된 종교 <span class="slide-tag">슬라이드</span></span><div class="sec-line"></div></div>
+
+  <div class="dual-grid">
+    <div class="dual-card">
+      <h4>자연적 종교 (Natural Religion)</h4>
+      <ul>
+        <li>인간의 이성·양심·도덕적 본성에 기반해 신을 추구하는 보편적 종교적 태도</li>
+        <li>모든 인간이 종교적 존재임을 강조</li>
+        <li>계시 종교의 토대이자 준비 단계</li>
+        <li>신앙의 보편성과 준비성을 담당</li>
+        <li><em>한계:</em> 이성과 도덕적 노력만으로는 구원·궁극적 진리에 도달 불가</li>
+      </ul>
+    </div>
+    <div class="dual-card slide-card">
+      <h4>계시된 종교 (Revealed Religion)</h4>
+      <ul>
+        <li>신이 자신의 뜻과 진리를 명확히 드러낸 완성된 형태</li>
+        <li>신의 직접적 계시와 은총이 필요함을 인정</li>
+        <li>구원과 진리의 완성성을 담당</li>
+        <li>연속성과 상호 보완성: 자연 종교와 계시 종교는 단절이 아니라 연속</li>
+        <li>내면적 종교성(양심·도덕성) + 신적 계시(은총·구원)의 조화 추구</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 09 활동지 -->
+  <div class="sec-head"><span class="sec-badge">09</span><span class="sec-title">프락시스 활동지 초안</span><div class="sec-line"></div></div>
+
+  <div class="praxis-card">
+    <div class="praxis-num">활동지 ①</div>
+    <div class="praxis-title">철학자 소개</div>
+    <div class="praxis-content">존 헨리 뉴먼(1801–1890)은 19세기 영국의 신학자·철학자로, 성공회에서 가톨릭으로
+      개종한 독특한 사상 여정을 걸었다. 그는 신앙과 이성의 조화, 교리 발전론, 양심론을 중심으로
+      신앙의 지성적 진지성을 강조했으며, 제2차 바티칸 공의회의 정신적 토대를 마련했다.</div>
+    <div class="praxis-q">나는 신앙과 이성의 관계를 어떻게 경험하고 있는가?</div>
+  </div>
+
+  <div class="praxis-card">
+    <div class="praxis-num">활동지 ②</div>
+    <div class="praxis-title">핵심 주장</div>
+    <div class="praxis-content">신앙은 논리적 증명이 아니라 이성·경험·양심이 통합된 전체적 동의(assent)다.
+      교리는 살아 성장하는 유기체이며, 양심은 하나님의 목소리다.
+      하나님은 수학 공식처럼 증명만으로 믿는 분이 아니라, 오랜 경험·직관·관계 속에서 알게 되는 분이다.</div>
+    <div class="praxis-q">내가 하나님을 신뢰하는 근거는 논리인가, 경험인가, 아니면 그 통합인가?</div>
+  </div>
+
+  <div class="praxis-card">
+    <div class="praxis-num">활동지 ③</div>
+    <div class="praxis-title">기독교적 의의</div>
+    <div class="praxis-content">신앙의 지성적 진지성을 강조함으로써 신앙이 맹목적 감정주의로 전락하는 것을 막는다.
+      교리 발전론은 전통과 갱신이 함께할 수 있다는 신학적 근거를 제공한다.
+      양심론은 성도 개개인을 진리 분별의 주체로 세운다.
+      그리스도교의 이중성 — 관대함과 엄격함, 사랑과 공포 — 은 신앙의 풍성함을 보여준다.</div>
+    <div class="praxis-q">나의 설교·목양에서 감정과 지성은 어떤 비중으로 작동하고 있는가?</div>
+  </div>
+
+  <div class="praxis-card">
+    <div class="praxis-num">활동지 ④</div>
+    <div class="praxis-title">비판적 성찰</div>
+    <div class="praxis-content">뉴먼은 진리의 객관성을 강조하지만, 어떤 교리 발전이 '본질 보존'인지 '변형'인지의
+      기준 문제가 남는다. 침례교 전통의 "성경으로 돌아가라"와 뉴먼의 교리 발전론은 긴장 관계에 있다.
+      또한 그의 개종이 양심의 인도인지 역사적·제도적 이유에 의한 것인지에 대한 해석도 다양하다.</div>
+    <div class="praxis-q">우리 교회 공동체에서 교리는 열린 씨앗인가, 닫힌 규칙인가?</div>
+  </div>
+
+  <div class="praxis-card">
+    <div class="praxis-num">활동지 ⑤</div>
+    <div class="praxis-title">목회 적용</div>
+    <div class="praxis-content">양심론 → 설교에서 청중의 내면의 부름에 호소하는 방식.
+      교리 발전론 → 복음의 본질을 유지하면서 시대 언어로 재표현하는 설교 전략.
+      자연종교·계시종교 구분 → 불신자·구도자와 대화할 때 보편적 양심에서 출발하는 전도 접근.
+      공동체적 진리 분별 → 평신도 목소리를 포함하는 목회 구조(sensus fidelium).</div>
+    <div class="praxis-q">나는 설교할 때 청중의 양심(하나님의 목소리로서)에 어떻게 호소하고 있는가?</div>
+  </div>
+
+  <!-- 10 토론 질문 -->
+  <div class="sec-head"><span class="sec-badge">10</span><span class="sec-title">토론 질문</span><div class="sec-line"></div></div>
+
+  <div class="question-block">
+    <p>뉴먼은 양심을 '하나님의 목소리'라고 했다. 나의 양심은 실제로 어떻게 작동하고 있는가?
+      내가 양심의 소리라고 느끼는 것이 단순한 감정인지, 아니면 진리를 향한 내면의 부름인지 어떻게 구별할 수 있는가?</p>
+  </div>
+
+  <div class="question-block">
+    <p>뉴먼의 교리 발전론에 따르면 교리는 시대에 따라 새로운 표현으로 확장된다.
+      침례교 전통("성경으로 돌아가라")과 뉴먼의 교리 발전론은 어떻게 긴장하고 또 어떻게 대화할 수 있는가?</p>
+  </div>
+
+  <div class="question-block">
+    <p>뉴먼은 종교적 상대주의를 강력히 비판한다. 그러나 슐라이어마허의 절대의존의 감정,
+      윌리엄 제임스의 종교 경험론도 주관적 차원을 강조한다.
+      세 사람의 차이는 어디에 있으며, 어느 입장이 더 목회적으로 유용한가?</p>
+  </div>
+
+</div><!-- /panel-0 -->
+
+
+<!-- ══════════════════════════════════════════════
+     TAB 2 — 핵심정리
+══════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-1">
+
+  <div class="sec-head"><span class="sec-badge">✦</span><span class="sec-title">핵심 명제</span><div class="sec-line"></div></div>
+
+  <div class="key-prop"><p>신앙은 단순한 논리 계산이 아니라 이성·경험·양심이 함께 움직이는 <strong>삶 전체로 아는 것</strong>이다. (동의의 문법)</p></div>
+  <div class="key-prop"><p>교리는 고정된 규칙이 아니라 살아 성장하는 유기체다. 진리는 변하지 않지만, 진리에 대한 이해는 자라날 수 있다. (교리 발전론)</p></div>
+  <div class="key-prop"><p>양심은 내 기분이나 취향이 아니라 <strong>진리를 향한 내면의 부름</strong>이며, 하나님 앞에서 듣는 목소리다. 양심의 자유는 진리를 향한 의무다.</p></div>
+  <div class="key-prop"><p>기독교는 교의적·교화적·실천적이며, 이 모든 것이 동시적이다. 사랑과 공의가 함께 살아 있는 것이 그리스도교의 특징이다.</p></div>
+  <div class="key-prop"><p>관념은 논리적 추론이나 개념적 체계보다 앞서는 것이다. 신앙도 그러한 <strong>구상력에 각인된 전체적 인상</strong> 안에서 살아 움직인다.</p></div>
+  <div class="key-prop"><p>자연적 종교는 계시 종교의 토대이자 준비 단계다. 양심과 도덕적 본성은 복음을 받아들이는 준비된 자리다.</p></div>
+
+  <div class="sec-head"><span class="sec-badge">시험</span><span class="sec-title">출제 예상 항목</span><div class="sec-line"></div></div>
+
+  <div class="exam-list">
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">뉴먼의 '동의(assent)'와 '추론감각(illative sense)' 개념을 설명하고, 신앙 이해에 어떻게 적용되는지 서술하라.</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">교리 발전론의 핵심 주장을 '씨앗' 비유를 사용하여 설명하고, 삼위일체 교리를 예시로 들어라.</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">뉴먼의 양심론 — 양심을 단순한 감정적 반응과 구별하는 기준은 무엇인가?</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">뉴먼 vs 윌리엄 제임스 — 종교 경험/신앙의 근거 비교 (방법론, 종교의 기초, 신앙-이성 관계)</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">뉴먼 vs 슐라이어마허 — 신앙에서 이성과 감정의 역할 비교</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">뉴먼이 종교적 자유주의(상대주의)를 비판하는 근거를 서술하라.</span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">그리스도교의 이중적 성격 — 관대함/엄격함, 밝음/어둠, 사랑/공포 — 각 쌍의 의미를 설명하라. <span class="slide-tag">슬라이드</span></span></div>
+    <div class="exam-item"><span class="exam-badge">시험</span><span class="exam-text">자연적 종교와 계시된 종교의 차이, 그리고 뉴먼이 둘을 어떻게 연속적으로 보는지 설명하라. <span class="slide-tag">슬라이드</span></span></div>
+  </div>
+
+  <div class="sec-head"><span class="sec-badge">✦</span><span class="sec-title">핵심 논증 3 요약</span><div class="sec-line"></div></div>
+
+  <div class="arg-block">
+    <div class="arg-title">① 동의의 문법</div>
+    <div class="arg-premise">인간의 인식은 논증만으로 완성되지 않는다. 친구 신뢰는 증거가 아니라 경험·직관·관계에서 비롯된다.</div>
+    <div class="arg-body">신앙 영역도 이성+경험+양심+직관이 통합된 추론감각(illative sense)이 전체적 확신(assent)을 형성한다.</div>
+    <div class="arg-conclusion">신앙은 삶 전체로 아는 것이다. 하나님은 증명만으로 믿는 분이 아니다.</div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">② 교리 발전론</div>
+    <div class="arg-premise">진리 자체는 불변하지만 인간의 진리 이해는 역사 속에서 심화된다.</div>
+    <div class="arg-body">씨앗이 자라듯 신앙의 관념도 이단 논쟁·문화적 도전에 대응하며 명확성을 획득한다. 이는 정체성을 유지하는 발달이다.</div>
+    <div class="arg-conclusion">교리는 자라는 씨앗이며 신앙은 하나님과 인간 존재에 대한 전체적·살아 있는 관념이 구체화되는 역사적·존재론적 여정이다.</div>
+  </div>
+
+  <div class="arg-block">
+    <div class="arg-title">③ 종교적 상대주의 비판</div>
+    <div class="arg-premise">종교가 개인 취향에 불과하다면 모든 종교는 동등하게 상대적이거나 무의미해진다.</div>
+    <div class="arg-body">신앙은 객관적으로 계시된 진리와 만나는 지적·실천적 행위. 이성+경험+도덕적 직관의 총체적 동의다.</div>
+    <div class="arg-conclusion">종교는 보편적 실재에 뿌리내려야 한다. 참된 진리에 뿌리내릴 때 비로소 삶을 변화시키는 힘을 갖는다.</div>
+  </div>
+
+</div><!-- /panel-1 -->
+
+
+<!-- ══════════════════════════════════════════════
+     TAB 3 — 비교표
+══════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-2">
+
+  <div class="sec-head"><span class="sec-badge">⇌</span><span class="sec-title">뉴먼 vs 윌리엄 제임스 — 종교 이해 비교</span><div class="sec-line"></div></div>
+
+  <div class="compare-wrap">
+    <table>
+      <tr><th>비교 축</th><th>존 헨리 뉴먼</th><th>윌리엄 제임스</th></tr>
+      <tr><td>방법론</td><td>분석철학적 신학·교리사·양심론</td><td>실용주의·심리학</td></tr>
+      <tr><td>종교의 기초</td><td>객관적으로 계시된 진리에 대한 이성적 동의</td><td>종교 경험의 심리적 효과·실용적 가치</td></tr>
+      <tr><td>신앙-이성 관계</td><td>이성·경험·양심의 통합적 동의 (illative sense)</td><td>신앙의 유용성·결과로 판단 (실용주의)</td></tr>
+      <tr><td>종교적 진리</td><td>객관적 실재에 뿌리내린 보편적 진리</td><td>개인 경험의 실용적 차원에서 확인</td></tr>
+      <tr><td>기독교 접점</td><td>신앙의 지성적 진지성 / 교리 발전 / 양심론</td><td>회심·신비체험의 심리학적 이해</td></tr>
+      <tr><td>상대주의 입장</td><td>강하게 비판 — 종교는 보편적 실재에 뿌리내려야</td><td>상대적으로 허용 — 효과가 있으면 진리</td></tr>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-badge">⇌</span><span class="sec-title">뉴먼 vs 슐라이어마허 — 신앙의 기초 비교</span><div class="sec-line"></div></div>
+
+  <div class="compare-wrap">
+    <table>
+      <tr><th>비교 축</th><th>존 헨리 뉴먼</th><th>슐라이어마허</th></tr>
+      <tr><td>방법론</td><td>분석적 신학 / 교리사 / 양심론</td><td>낭만주의 신학 / 감정론</td></tr>
+      <tr><td>종교의 기초</td><td>이성·경험·양심이 통합된 동의</td><td>절대의존의 감정 (schlechthinnige Abhängigkeit)</td></tr>
+      <tr><td>신앙-이성 관계</td><td>이성과 감정 모두 포함한 통합적 앎</td><td>감정이 신앙의 일차적 기초</td></tr>
+      <tr><td>교리 이해</td><td>살아 성장하는 유기체 (본질 보존)</td><td>종교적 경험의 반성적 표현</td></tr>
+      <tr><td>기독교 접점</td><td>신앙의 지성적 진지성 / 교리 연속성</td><td>경건주의·부흥운동 신학</td></tr>
+      <tr><td>주관-객관</td><td>객관적 진리 강조 — 상대주의 강력 비판</td><td>주관적 경험에서 출발</td></tr>
+    </table>
+  </div>
+
+  <div class="sec-head"><span class="sec-badge">⇌</span><span class="sec-title">중간고사 대비 — 전체 비교표 (2~9주)</span><div class="sec-line"></div></div>
+
+  <div class="compare-wrap">
+    <table>
+      <tr><th>철학자</th><th>방법론</th><th>종교의 기초</th><th>신앙-이성</th><th>기독교 접점</th></tr>
+      <tr><td>비트겐슈타인</td><td>분석철학·언어게임</td><td>삶의 형식 내 언어 실천</td><td>신앙은 언어게임 내부 — 이성 환원 불가</td><td>예배·기도 언어의 고유성</td></tr>
+      <tr><td>윌리엄 제임스</td><td>실용주의·심리학</td><td>종교 경험의 심리적 효과</td><td>결과의 유용성으로 판단</td><td>회심·신비체험의 이해</td></tr>
+      <tr><td>존 헨리 뉴먼</td><td>신학·교리사·양심론</td><td>이성·경험·양심의 통합적 동의</td><td>이성과 감정 통합 — 객관적 진리 지향</td><td>신앙의 지성적 진지성 / 교리 발전론</td></tr>
+      <tr><td>레비나스</td><td>현상학·타자철학</td><td>타자의 얼굴 (le visage)</td><td>신앙은 윤리적 응답에서 발생</td><td>계시의 타자성 / 메시아적 종교</td></tr>
+      <tr><td>슐라이어마허</td><td>낭만주의·감정론</td><td>절대의존의 감정</td><td>감정이 신앙의 기초</td><td>경건주의·부흥운동 신학</td></tr>
+      <tr><td>칸트 <em>(예정)</em></td><td>비판철학·도덕론</td><td>도덕적 요청</td><td>이성이 신앙 영역 제한</td><td>도덕 신학·윤리 설교</td></tr>
+    </table>
+  </div>
+
+</div><!-- /panel-2 -->
+
+<div class="page-footer">
+  <span>기독교철학 · 61083 · 심상우 교수 · 9주차 (2026-04-28)</span>
+  <span>phil-09-newman.html · 초안: 스크립트 + 슬라이드 통합본</span>
+</div>
+
+<script>
+function switchTab(idx){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+</script>
+</body>
+</html>

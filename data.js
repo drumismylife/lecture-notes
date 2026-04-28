@@ -103,7 +103,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/기독교철학/week07.html" }
           ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
-        { week: 9, title: "종교다원주의", date: "2026.05", files: [] },
+        { week: 9, title: "기독교철학", date: "2026.04.29", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week09.html" }
+          ] },
         { week: 10, title: "Ricken — 종교철학 I", date: "2026.05", files: [] },
         { week: 11, title: "Ricken — 종교철학 II", date: "2026.05", files: [] },
         { week: 12, title: "기독교와 포스트모더니즘", date: "2026.06", files: [] },
