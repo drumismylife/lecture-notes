@@ -196,41 +196,45 @@ const SITE_DATA = {
       href: "output/greek/night_greek_ver2.html",
       isNew: false
     },
-  {
-    name: "헬라어 학습앱2",
-    icon: "📖",
-    desc: "알파벳 발음 · 단어 · 동사변화 오디오 학습",
-    href: "https://drumismylife.github.io/greek-study/",
-    isNew: true
-  },
-  {
-    name: "헬라어 현재-수동 외우기 노래1",
-    icon: "🎶",
-    desc: "현재-수동 외우기 노래",
-    href: "output/greek/현재-수동1.mp3",
-    isNew: true
-  },
-  {
-    name: "헬라어 현재-수동 외우기 노래2",
-    icon: "🎶",
-    desc: "현재-수동 외우기 노래",
-    href: "output/greek/현재-수동2.mp3",
-    isNew: true
-  },
-  {
-    name: "헬라어 미래-수동 외우기 노래1",
-    icon: "🎶",
-    desc: "미래-수동 외우기 노래",
-    href: "output/greek/미래-수동1.mp3",
-    isNew: true
-  },
-  {
-    name: "헬라어 미래-수동 외우기 노래2",
-    icon: "🎶",
-    desc: "미래-수동 외우기 노래",
-    href: "output/greek/미래-수동2.mp3",
-    isNew: true
-  }
+    {
+      name: "헬라어 학습앱2",
+      icon: "📖",
+      desc: "알파벳 발음 · 단어 · 동사변화 오디오 학습",
+      href: "https://drumismylife.github.io/greek-study/",
+      isNew: false
+    },
+    {
+      name: "중간고사 문법 정리",
+      icon: "📝",
+      desc: "중간고사 대비 핵심 문법 총정리 학습 페이지",
+      href: "output/greek/중간고사_문법정리.html",
+      isNew: true
+    }
+  ],
+
+  greekAudio: [
+    { category: "현재시제", tracks: [
+      { name: "현재-수동 1", href: "output/greek/현재-수동1.mp3" },
+      { name: "현재-수동 2", href: "output/greek/현재-수동2.mp3" }
+    ]},
+    { category: "미래시제", tracks: [
+      { name: "미래-수동 1", href: "output/greek/미래-수동1.mp3" },
+      { name: "미래-수동 2", href: "output/greek/미래-수동2.mp3" }
+    ]},
+    { category: "단순과거", tracks: [
+      { name: "단순과거 능동 직설 1", href: "output/greek/헬라어-단순과거 능동 직설.mp3" },
+      { name: "단순과거 능동 직설 2", href: "output/greek/헬라어-단순과거 능동 직설-2.mp3" },
+      { name: "단순과거 수동 직설 1", href: "output/greek/헬라어-단순과거 수동 직설.mp3" },
+      { name: "단순과거 수동 직설 2", href: "output/greek/헬라어-단순과거 수동 직설-2.mp3" },
+      { name: "단순과거 중간 직설 1", href: "output/greek/헬라어-단순과거 중간 직설.mp3" },
+      { name: "단순과거 중간 직설 2", href: "output/greek/헬라어-단순과거 중간 직설-2.mp3" }
+    ]},
+    { category: "미완료", tracks: [
+      { name: "미완료 능동 직설 1", href: "output/greek/헬라어-미완료 능동 직설.mp3" },
+      { name: "미완료 능동 직설 2", href: "output/greek/헬라어-미완료 능동 직설-2.mp3" },
+      { name: "미완료 수동/중간 직설 1", href: "output/greek/헬라어-미완료  수동_중간 직설.mp3" },
+      { name: "미완료 수동/중간 직설 2", href: "output/greek/헬라어-미완료  수동_중간 직설-2.mp3" }
+    ]}
   ],
 
   // ── 관련 자료 ───────────────────────────────────────────────

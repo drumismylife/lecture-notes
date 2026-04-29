@@ -145,6 +145,33 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .tag-tool{background:rgba(255,255,255,.1);color:#c8c5be}
 .tag-phil{background:rgba(104,168,122,.2);color:#7bc994}
 
+/* AUDIO PLAYER */
+.ap-wrap{background:var(--surface);border-radius:var(--r-sm);overflow:hidden;margin-bottom:8px}
+.ap-player{padding:18px 22px;display:flex;align-items:center;gap:16px;border-bottom:.5px solid var(--border)}
+.ap-controls{display:flex;gap:6px;flex-shrink:0;align-items:center}
+.ap-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);color:var(--text);display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .2s;border:none;cursor:pointer;font-family:inherit}
+.ap-btn:hover{background:rgba(255,255,255,0.15)}
+.ap-btn.ap-play{background:var(--gold);color:#111;width:46px;height:46px;font-size:15px}
+.ap-btn.ap-play:hover{background:#e0b84a}
+.ap-info{flex:1;min-width:0}
+.ap-now{font-size:14px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap-cat-tag{font-size:11px;color:var(--text3);margin-top:2px}
+.ap-bar{width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:10px;cursor:pointer;position:relative}
+.ap-fill{height:100%;background:var(--gold);border-radius:2px;width:0%;transition:width .1s linear;pointer-events:none}
+.ap-list{padding:8px 0;max-height:300px;overflow-y:auto}
+.ap-list::-webkit-scrollbar{width:4px}
+.ap-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px}
+.ap-group-label{padding:10px 22px 4px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.ap-item{display:flex;align-items:center;gap:12px;padding:10px 22px;cursor:pointer;transition:background .15s;border:none;background:none;width:100%;text-align:left;color:var(--text2);font-family:inherit;font-size:13px}
+.ap-item:hover{background:var(--surface-h)}
+.ap-item.ap-active{background:rgba(212,168,67,0.07)}
+.ap-item.ap-active .ap-iname,.ap-item.ap-active .ap-inum{color:var(--gold)}
+.ap-inum{font-size:11px;color:var(--text3);width:20px;flex-shrink:0;text-align:right}
+.ap-iname{flex:1}
+.ap-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;display:none}
+.ap-item.ap-active .ap-dot{display:block;animation:apPulse 1.2s ease infinite}
+@keyframes apPulse{0%,100%{opacity:1}50%{opacity:.25}}
+
 /* FOOTER */
 footer{border-top:.5px solid var(--border);padding:28px 24px}
 .foot-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#8c8880;gap:12px;flex-wrap:wrap}
@@ -219,6 +246,25 @@ footer{border-top:.5px solid var(--border);padding:28px 24px}
   <div class="dbody">
     <div class="sec-label" style="margin-top:40px">헬라어 학습 앱</div>
     <div class="trow" id="greek-tools"></div>
+    <div class="sec-label">문법 암기 음성</div>
+    <div class="ap-wrap" id="greek-audio-wrap" style="display:none">
+      <div class="ap-player">
+        <div class="ap-controls">
+          <button class="ap-btn" onclick="apPrev()" title="이전">⏮</button>
+          <button class="ap-btn ap-play" id="ap-play-btn" onclick="apToggle()">▶</button>
+          <button class="ap-btn" onclick="apNext()" title="다음">⏭</button>
+        </div>
+        <div class="ap-info">
+          <div class="ap-now" id="ap-now">트랙을 선택하세요</div>
+          <div class="ap-cat-tag" id="ap-cat-tag">—</div>
+          <div class="ap-bar" id="ap-bar" onclick="apSeek(event)">
+            <div class="ap-fill" id="ap-fill"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ap-list" id="ap-list"></div>
+    </div>
+    <audio id="ap-audio" preload="none"></audio>
     <div class="sec-label">주차별 강의 자료</div>
     <div class="wlist" id="weeks-greek"></div>
   </div>
@@ -326,6 +372,53 @@ function renderTools(){
   el.innerHTML=SITE_DATA.greekTools.map(t=>`<a class="ttile" href="${t.href}" target="_blank"><div class="tico">${t.icon}</div><div><div class="tname">${t.name}${t.isNew?'<span class="tnew">NEW</span>':''}</div><div class="tnote">${t.desc}</div></div></a>`).join('');
 }
 
+// ── Audio Player ──────────────────────────────────────────
+let _apTracks=[],_apIdx=-1;
+function _apEl(){return document.getElementById('ap-audio');}
+
+function renderAudio(){
+  if(!SITE_DATA.greekAudio)return;
+  const wrap=document.getElementById('greek-audio-wrap');
+  const list=document.getElementById('ap-list');
+  if(!wrap||!list)return;
+  wrap.style.display='';
+  let html='',idx=0;_apTracks=[];
+  SITE_DATA.greekAudio.forEach(g=>{
+    html+=`<div class="ap-group-label">${g.category}</div>`;
+    g.tracks.forEach(t=>{
+      _apTracks.push({...t,category:g.category});
+      html+=`<button class="ap-item" id="ap-i-${idx}" onclick="apPlay(${idx})"><span class="ap-inum">${idx+1}</span><span class="ap-iname">${t.name}</span><span class="ap-dot"></span></button>`;
+      idx++;
+    });
+  });
+  list.innerHTML=html;
+}
+
+function apPlay(idx){
+  if(idx<0||idx>=_apTracks.length)return;
+  const a=_apEl();
+  if(_apIdx>=0)document.getElementById(`ap-i-${_apIdx}`)?.classList.remove('ap-active');
+  _apIdx=idx;
+  const t=_apTracks[idx];
+  document.getElementById(`ap-i-${idx}`)?.classList.add('ap-active');
+  document.getElementById(`ap-i-${idx}`)?.scrollIntoView({block:'nearest'});
+  document.getElementById('ap-now').textContent=t.name;
+  document.getElementById('ap-cat-tag').textContent=t.category;
+  a.src=t.href;a.play().catch(()=>{});
+}
+function apToggle(){
+  const a=_apEl();
+  if(_apIdx<0){if(_apTracks.length)apPlay(0);return;}
+  a.paused?a.play():a.pause();
+}
+function apNext(){apPlay(Math.min(_apTracks.length-1,_apIdx+1));}
+function apPrev(){apPlay(Math.max(0,_apIdx-1));}
+function apSeek(e){
+  const a=_apEl();if(!a.duration)return;
+  const r=e.currentTarget.getBoundingClientRect();
+  a.currentTime=((e.clientX-r.left)/r.width)*a.duration;
+}
+
 function renderResources(){
   const el=document.getElementById('resources-body');if(!el||!SITE_DATA.resources)return;
   el.innerHTML=SITE_DATA.resources.map(g=>`<div class="rgrp"><div class="rglbl">${g.label}</div><div class="rgrid">${g.items.map(r=>`<a class="rcard" href="${r.href}" target="_blank" rel="noopener"><div class="rico">${r.icon}</div><div><div class="rname">${r.name}</div><div class="rdesc">${r.desc}</div><span class="rtag tag-${r.tag}">${r.tagLabel}</span></div></a>`).join('')}</div></div>`).join('');
@@ -345,7 +438,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(typeof SITE_DATA==='undefined')return;
   renderGrid();
   Object.keys(SITE_DATA.courses).forEach(id=>renderWeeks(id));
-  renderTools();renderResources();
+  renderTools();renderAudio();renderResources();
+  const a=_apEl();
+  a.addEventListener('timeupdate',()=>{if(!a.duration)return;document.getElementById('ap-fill').style.width=(a.currentTime/a.duration*100).toFixed(1)+'%';});
+  a.addEventListener('ended',()=>{document.getElementById('ap-play-btn').textContent='▶';apNext();});
+  a.addEventListener('pause',()=>{document.getElementById('ap-play-btn').textContent='▶';});
+  a.addEventListener('play',()=>{document.getElementById('ap-play-btn').textContent='⏸';});
   document.querySelectorAll('.nav-tab[data-page]').forEach(btn=>{
     btn.addEventListener('click',()=>showPage(btn.dataset.page));
   });
