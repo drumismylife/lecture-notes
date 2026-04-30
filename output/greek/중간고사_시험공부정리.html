@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 동사 암기카드 — 시험 범위 완전판</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b27;
+  --card2: #1e2538;
+  --card3: #252d42;
+  --gold: #c9a84c;
+  --gold2: #f0d080;
+  --blue: #7c9ed9;
+  --blue2: #a8c4f0;
+  --red: #e07b6a;
+  --red2: #f0a898;
+  --green: #6fcf97;
+  --purple: #b090e0;
+  --text: #e8eaf0;
+  --text2: #9ba3b8;
+  --text3: #6b7490;
+  --border: #2a3050;
+  --border2: #3a4468;
+  --active-a: #1a2540;
+  --active-b: #1a2530;
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #0a1020 0%, #111827 50%, #0d1a30 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.header-sub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+.header-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text2);
+}
+.stat-val { color: var(--gold); font-weight: 700; }
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  padding: 0 12px;
+  gap: 2px;
+}
+
+.tab-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text2); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-label { font-size: 10px; color: var(--text3); font-weight: 600; letter-spacing: 0.08em; }
+
+.filter-group {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--gold); color: var(--gold); }
+.filter-chip.active { background: var(--gold); border-color: var(--gold); color: #0d1117; }
+.filter-chip.tense-pres.active { background: var(--blue); border-color: var(--blue); }
+.filter-chip.tense-fut.active  { background: var(--green); border-color: var(--green); color: #0d1117; }
+.filter-chip.tense-imp.active  { background: var(--purple); border-color: var(--purple); color: #0d1117; }
+.filter-chip.tense-aor.active  { background: var(--red); border-color: var(--red); }
+.filter-chip.tense-aor2.active { background: var(--gold); border-color: var(--gold); color: #0d1117; }
+.filter-chip.voice-act.active  { background: #2a4a7a; border-color: var(--blue); color: var(--blue2); }
+.filter-chip.voice-pas.active  { background: #4a1a1a; border-color: var(--red); color: var(--red2); }
+.filter-chip.voice-mid.active  { background: #2a1a4a; border-color: var(--purple); color: var(--purple); }
+
+.sep { width: 1px; background: var(--border); height: 20px; margin: 0 4px; }
+
+/* ── PROGRESS ── */
+.progress-bar-wrap {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress-bar-bg {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.progress-text { font-size: 11px; color: var(--text2); white-space: nowrap; }
+
+/* ── MAIN CONTENT AREAS ── */
+.view { display: none; padding: 16px; }
+.view.active { display: block; }
+
+/* ── SET A: 어미 패턴 ── */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.pattern-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.pattern-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.pattern-head {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pattern-name { font-size: 12px; font-weight: 700; }
+.pattern-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  letter-spacing: 0.06em;
+}
+.badge-act { background: rgba(124,158,217,0.2); color: var(--blue); border: 1px solid var(--blue); }
+.badge-pas { background: rgba(224,123,106,0.2); color: var(--red); border: 1px solid var(--red); }
+.badge-mid { background: rgba(176,144,224,0.2); color: var(--purple); border: 1px solid var(--purple); }
+
+.pattern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.pattern-table th {
+  background: var(--card2);
+  color: var(--text3);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 5px 8px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.pattern-table td {
+  padding: 5px 8px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.pattern-table td:first-child { color: var(--text3); font-size: 10px; font-weight: 600; }
+.greek-cell { font-size: 13px; color: var(--gold2); font-family: 'Times New Roman', serif; }
+.pron-cell { color: var(--text3); font-size: 10px; }
+.meaning-cell { color: var(--text2); font-size: 10px; }
+
+/* ── SET B: 어간 카드 ── */
+.stem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.stem-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.stem-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow); }
+.stem-greek { font-size: 22px; color: var(--gold2); font-family: 'Times New Roman', serif; margin-bottom: 2px; }
+.stem-pron { font-size: 11px; color: var(--text3); margin-bottom: 6px; }
+.stem-meaning { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 10px; }
+.stem-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+.stem-table td { padding: 3px 6px; border-top: 1px solid var(--border); }
+.stem-table td:first-child { color: var(--text3); width: 80px; }
+.stem-greek-sm { color: var(--gold2); font-family: 'Times New Roman', serif; font-size: 12px; }
+.stem-note { margin-top: 8px; font-size: 10px; color: var(--red2); background: rgba(224,123,106,0.1); border: 1px solid rgba(224,123,106,0.3); border-radius: 4px; padding: 4px 8px; }
+
+/* ── SET C: 핵심 형태 암기카드 ── */
+.flashcard-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn.primary { background: var(--gold); border-color: var(--gold); color: #0d1117; }
+.btn.primary:hover { background: var(--gold2); }
+.btn.danger { border-color: var(--red); color: var(--red); }
+
+.card-count-display {
+  font-size: 12px;
+  color: var(--text2);
+  margin-left: auto;
+}
+
+/* Single flashcard */
+.flashcard-scene {
+  perspective: 1000px;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  height: 280px;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.flashcard-inner.flipped { transform: rotateY(180deg); }
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.flashcard-front {
+  background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+}
+.flashcard-back {
+  background: linear-gradient(135deg, #1a2035 0%, #0f1a2a 100%);
+  transform: rotateY(180deg);
+  border-color: var(--gold);
+}
+
+.card-tense-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.card-greek-main {
+  font-size: 36px;
+  color: var(--gold2);
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.card-hint {
+  font-size: 11px;
+  color: var(--text3);
+}
+.card-back-pron {
+  font-size: 14px;
+  color: var(--text3);
+  margin-bottom: 8px;
+}
+.card-back-meaning {
+  font-size: 20px;
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.card-back-analysis {
+  font-size: 11px;
+  color: var(--text2);
+  text-align: center;
+  line-height: 1.6;
+}
+.card-back-verb {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.flip-hint {
+  text-align: center;
+  font-size: 10px;
+  color: var(--text3);
+  margin-bottom: 12px;
+}
+
+.nav-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.nav-btn {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+.know-btn {
+  background: rgba(111,207,151,0.15);
+  border-color: var(--green);
+  color: var(--green);
+  font-size: 12px;
+  width: auto;
+  padding: 0 16px;
+  border-radius: 8px;
+}
+.dontknow-btn {
+  background: rgba(224,123,106,0.15);
+  border-color: var(--red);
+  color: var(--red);
+  font-size: 12px;
+  width: auto;
+  padding: 0 16px;
+  border-radius: 8px;
+}
+
+/* Card grid (browse mode) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.mini-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.mini-card:hover { border-color: var(--gold); }
+.mini-card.known { border-color: var(--green); background: rgba(111,207,151,0.05); }
+.mini-greek { font-size: 16px; color: var(--gold2); font-family: 'Times New Roman', serif; margin-bottom: 3px; }
+.mini-pron { font-size: 10px; color: var(--text3); margin-bottom: 3px; }
+.mini-meaning { font-size: 11px; color: var(--text); font-weight: 600; }
+.mini-tag { font-size: 9px; color: var(--text3); margin-top: 4px; }
+.mini-known-badge {
+  display: inline-block;
+  background: var(--green);
+  color: #0d1117;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-top: 3px;
+}
+
+/* tense color legend */
+.tense-pres { color: var(--blue); }
+.tense-fut  { color: var(--green); }
+.tense-imp  { color: var(--purple); }
+.tense-aor  { color: var(--red); }
+.voice-act  { }
+.voice-pas  { }
+.voice-mid  { }
+
+.legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+}
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* View toggle */
+.view-toggle {
+  display: flex;
+  gap: 4px;
+}
+.vtbtn {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text3);
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.vtbtn.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
+
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-badge {
+  font-size: 9px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text3);
+  padding: 40px;
+  font-size: 12px;
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="header">
+  <div>
+    <div class="header-title">🏛 헬라어 동사 암기카드 — 시험 범위 완전판</div>
+    <div class="header-sub">14개 동사 · 4시제 (현재/미래/미완료/단순과거) · 3태 (능동/수동/중간)</div>
+  </div>
+  <div class="header-stats">
+    <span>전체 카드: <span class="stat-val" id="totalCount">0</span></span>
+    <span>암기 완료: <span class="stat-val" id="knownCount">0</span></span>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('setA')">묶음 A — 어미 패턴</button>
+  <button class="tab-btn" onclick="switchTab('setB')">묶음 B — 어간 변화</button>
+  <button class="tab-btn" onclick="switchTab('setC')">묶음 C — 핵심 형태</button>
+  <button class="tab-btn" onclick="switchTab('setD')">묶음 D — 어휘</button>
+  <button class="tab-btn" onclick="switchTab('browse')">전체 목록</button>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span style="color:var(--text3); font-weight:700; font-size:10px;">시제:</span>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div><span class="tense-pres">현재</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span class="tense-fut">미래</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div><span class="tense-imp">미완료</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div><span class="tense-aor">단순과거</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div><span style="color:var(--gold)">제2단순과거</span></div>
+  <span style="color:var(--text3); font-weight:700; font-size:10px; margin-left:8px;">태:</span>
+  <div class="legend-item"><span style="color:var(--blue2)">능동</span></div>
+  <div class="legend-item"><span style="color:var(--red2)">수동</span></div>
+  <div class="legend-item"><span style="color:var(--purple)">중간</span></div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">시제</span>
+  <div class="filter-group" id="tenseFilters">
+    <button class="filter-chip tense-pres active" data-tense="현재" onclick="toggleFilter(this,'tense')">현재</button>
+    <button class="filter-chip tense-fut active"  data-tense="미래"  onclick="toggleFilter(this,'tense')">미래</button>
+    <button class="filter-chip tense-imp active"  data-tense="미완료" onclick="toggleFilter(this,'tense')">미완료</button>
+    <button class="filter-chip tense-aor active"  data-tense="단순과거" onclick="toggleFilter(this,'tense')">단순과거</button>
+    <button class="filter-chip tense-aor2 active" data-tense="제2단순과거" onclick="toggleFilter(this,'tense')">제2단순과거</button>
+  </div>
+  <div class="sep"></div>
+  <span class="filter-label">태</span>
+  <div class="filter-group">
+    <button class="filter-chip voice-act active" data-voice="능동" onclick="toggleFilter(this,'voice')">능동</button>
+    <button class="filter-chip voice-pas active" data-voice="수동" onclick="toggleFilter(this,'voice')">수동</button>
+    <button class="filter-chip voice-mid active" data-voice="중간" onclick="toggleFilter(this,'voice')">중간</button>
+  </div>
+  <div class="sep"></div>
+  <span class="filter-label">동사</span>
+  <div class="filter-group" id="verbFilters"></div>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">0 / 0</div>
+</div>
+
+<!-- SET A VIEW -->
+<div class="view active" id="view-setA">
+  <div class="section-title">묶음 A — 어미 패턴 카드 <span class="section-badge">공통 어미 암기</span></div>
+  <div class="pattern-grid" id="patternGrid"></div>
+</div>
+
+<!-- SET B VIEW -->
+<div class="view" id="view-setB">
+  <div class="section-title">묶음 B — 어간 변화 카드 <span class="section-badge">동사별 어간</span></div>
+  <div class="stem-grid" id="stemGrid"></div>
+</div>
+
+<!-- SET C VIEW -->
+<div class="view" id="view-setC">
+  <div class="flashcard-controls">
+    <button class="btn primary" onclick="startStudy()">▶ 학습 시작</button>
+    <button class="btn" onclick="shuffleCards()">🔀 섞기</button>
+    <button class="btn" onclick="resetKnown()">↺ 초기화</button>
+    <button class="btn" onclick="onlyUnknown()">모르는 것만</button>
+    <div class="view-toggle" style="margin-left:auto;">
+      <button class="vtbtn active" id="vtCard" onclick="setViewMode('card')" title="카드 모드">🃏</button>
+      <button class="vtbtn" id="vtGrid" onclick="setViewMode('grid')" title="그리드 모드">⊞</button>
+    </div>
+  </div>
+  
+  <!-- Card study mode -->
+  <div id="cardStudyMode">
+    <div class="flip-hint">카드를 클릭하면 뒤집힙니다 👆</div>
+    <div class="flashcard-scene">
+      <div class="flashcard-inner" id="flashcardInner" onclick="flipCard()">
+        <div class="flashcard-face flashcard-front" id="cardFront">
+          <div class="card-tense-badge" id="cardTenseBadge"></div>
+          <div class="card-greek-main" id="cardGreek"></div>
+          <div class="card-hint" id="cardHint"></div>
+        </div>
+        <div class="flashcard-face flashcard-back" id="cardBack">
+          <div class="card-back-pron" id="cardPron"></div>
+          <div class="card-back-meaning" id="cardMeaning"></div>
+          <div class="card-back-analysis" id="cardAnalysis"></div>
+          <div class="card-back-verb" id="cardVerb"></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-btns">
+      <button class="nav-btn dontknow-btn" onclick="markCard(false)">✗ 모름</button>
+      <button class="nav-btn" onclick="prevCard()">◀</button>
+      <button class="nav-btn" onclick="nextCard()">▶</button>
+      <button class="nav-btn know-btn" onclick="markCard(true)">✓ 암기</button>
+    </div>
+    <div class="card-count-display" id="cardCountDisplay" style="text-align:center;"></div>
+  </div>
+  
+  <!-- Grid browse mode -->
+  <div id="gridBrowseMode" style="display:none;">
+    <div class="card-grid" id="setcGrid"></div>
+  </div>
+</div>
+
+<!-- BROWSE ALL VIEW -->
+<div class="view" id="view-browse">
+  <div class="section-title">전체 목록 <span class="section-badge" id="browseCount"></span></div>
+  <div class="card-grid" id="browseGrid"></div>
+</div>
+
+<!-- SET D VIEW — 어휘 -->
+<div class="view" id="view-setD">
+  <div class="section-title">묶음 D — 어휘 암기카드 <span class="section-badge">명사·형용사·불변화사</span></div>
+
+  <div class="flashcard-controls" id="vocab-controls">
+    <button class="btn primary" onclick="startVocab()">▶ 학습 시작</button>
+    <button class="btn" onclick="shuffleVocab()">🔀 섞기</button>
+    <button class="btn" onclick="resetVocabKnown()">↺ 초기화</button>
+    <button class="btn" onclick="onlyUnknownVocab()">모르는 것만</button>
+    <div class="filter-group" style="margin-left:auto; gap:4px; display:flex;">
+      <button class="filter-chip active" id="vf-all"  onclick="filterVocab('all',this)">전체</button>
+      <button class="filter-chip" id="vf-noun" onclick="filterVocab('noun',this)">명사</button>
+      <button class="filter-chip" id="vf-adj"  onclick="filterVocab('adj',this)">형용사</button>
+      <button class="filter-chip" id="vf-other" onclick="filterVocab('other',this)">불변화사</button>
+    </div>
+    <div class="view-toggle">
+      <button class="vtbtn active" id="vvCard" onclick="setVocabMode('card')" title="카드">🃏</button>
+      <button class="vtbtn" id="vvGrid" onclick="setVocabMode('grid')" title="그리드">⊞</button>
+    </div>
+  </div>
+
+  <div id="vocabCardMode">
+    <div class="flip-hint">카드를 클릭하면 뒤집힙니다 👆</div>
+    <div class="flashcard-scene">
+      <div class="flashcard-inner" id="vocabInner" onclick="flipVocab()">
+        <div class="flashcard-face flashcard-front">
+          <div class="card-tense-badge" id="vcatBadge"></div>
+          <div class="card-greek-main" id="vGreek"></div>
+          <div class="card-hint" id="vHint"></div>
+        </div>
+        <div class="flashcard-face flashcard-back" style="border-color:var(--teal-mid,#1a7f9a)">
+          <div class="card-back-pron" id="vPron"></div>
+          <div class="card-back-meaning" id="vMeaning"></div>
+          <div class="card-back-analysis" id="vAnalysis"></div>
+          <div class="card-back-verb" id="vExtra"></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-btns">
+      <button class="nav-btn dontknow-btn" onclick="markVocab(false)">✗ 모름</button>
+      <button class="nav-btn" onclick="prevVocab()">◀</button>
+      <button class="nav-btn" onclick="nextVocab()">▶</button>
+      <button class="nav-btn know-btn" onclick="markVocab(true)">✓ 암기</button>
+    </div>
+    <div class="card-count-display" id="vocabCountDisplay" style="text-align:center;"></div>
+
+    <div style="margin-top:20px; background:var(--card2); border:1px solid var(--border); border-radius:8px; padding:12px 14px;">
+      <div style="font-size:10px; font-weight:700; color:var(--gold); letter-spacing:.08em; margin-bottom:8px;">격변화 어미 빠른 참조</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; font-size:10px;">
+        <div>
+          <div style="color:var(--blue2); font-weight:700; margin-bottom:3px;">2변화 남성 (-ος)</div>
+          <div style="color:var(--text2)">주 -ος / -οι</div>
+          <div style="color:var(--text2)">속 -ου / -ων</div>
+          <div style="color:var(--text2)">여 -ῳ / -οις</div>
+          <div style="color:var(--text2)">대 -ον / -ους</div>
+        </div>
+        <div>
+          <div style="color:var(--red2); font-weight:700; margin-bottom:3px;">1변화 여성 (-η/-α)</div>
+          <div style="color:var(--text2)">주 -η/-α / -αι</div>
+          <div style="color:var(--text2)">속 -ης/-ας / -ων</div>
+          <div style="color:var(--text2)">여 -ῃ/-ᾳ / -αις</div>
+          <div style="color:var(--text2)">대 -ην/-αν / -ας</div>
+        </div>
+        <div>
+          <div style="color:var(--green); font-weight:700; margin-bottom:3px;">2변화 중성 (-ον)</div>
+          <div style="color:var(--text2)">주 -ον / -α</div>
+          <div style="color:var(--text2)">속 -ου / -ων</div>
+          <div style="color:var(--text2)">여 -ῳ / -οις</div>
+          <div style="color:var(--text2)">대 -ον / -α</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="vocabGridMode" style="display:none;">
+    <div class="card-grid" id="vocabGridEl"></div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════════
+
+const VERBS = [
+  { id:'luo',    greek:'λύω',       pron:'뤼오',    meaning:'풀다, 해방하다' },
+  { id:'akouo',  greek:'ἀκούω',     pron:'아쿠오',   meaning:'듣다' },
+  { id:'blepo',  greek:'βλέπω',     pron:'블레포',   meaning:'보다' },
+  { id:'ginosko',greek:'γινώσκω',   pron:'기노스코',  meaning:'알다' },
+  { id:'grapho', greek:'γράφω',     pron:'그라포',   meaning:'쓰다' },
+  { id:'didasko',greek:'διδάσκω',   pron:'디다스코',  meaning:'가르치다' },
+  { id:'lambano',greek:'λαμβάνω',   pron:'람바노',   meaning:'취하다, 받다' },
+  { id:'lego',   greek:'λέγω',      pron:'레고',     meaning:'말하다' },
+  { id:'pisteuo',greek:'πιστεύω',   pron:'피스튜오',  meaning:'믿다' },
+  { id:'therapeuo',greek:'θεραπεύω',pron:'테라퓨오',  meaning:'치료하다' },
+  { id:'egeiro', greek:'ἐγείρω',    pron:'에게이로',  meaning:'일으키다' },
+  { id:'baptizo',greek:'βαπτίζω',   pron:'밥티조',   meaning:'침례를 주다' },
+  { id:'echo',   greek:'ἔχω',       pron:'에코',     meaning:'가지고 있다' },
+  { id:'sozo',   greek:'σῴζω',      pron:'소조',     meaning:'구원하다, 치료하다' },
+];
+
+// Conjugation tables: [형태, 발음, 해석]
+// Format: { tense, voice, forms: [{person, singular:[form,pron,meaning], plural:[form,pron,meaning]}] }
+
+const CONJUGATIONS = {};
+
+// ── λύω (뤼오) — 기준 동사 ──
+CONJUGATIONS['luo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['λύω','뤼오','나는 풀다'], pl:['λύομεν','뤼오멘','우리는 풀다']},
+    {p:'2', sg:['λύεις','뤼에이스','너는 풀다'], pl:['λύετε','뤼에테','너희는 풀다']},
+    {p:'3', sg:['λύει','뤼에이','그는 풀다'], pl:['λύουσι(ν)','뤼우시','그들은 풀다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['λύομαι','뤼오마이','나는 풀리다'], pl:['λυόμεθα','뤼오메따','우리는 풀리다']},
+    {p:'2', sg:['λύῃ','뤼에','너는 풀리다'], pl:['λύεσθε','뤼에스떼','너희는 풀리다']},
+    {p:'3', sg:['λύεται','뤼에타이','그는 풀리다'], pl:['λύονται','뤼온타이','그들은 풀리다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['λύομαι','뤼오마이','나는(위해) 풀다'], pl:['λυόμεθα','뤼오메따','우리는(위해) 풀다']},
+    {p:'2', sg:['λύῃ','뤼에','너는(위해) 풀다'], pl:['λύεσθε','뤼에스떼','너희는(위해) 풀다']},
+    {p:'3', sg:['λύεται','뤼에타이','그는(위해) 풀다'], pl:['λύονται','뤼온타이','그들은(위해) 풀다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['λύσω','뤼소','나는 풀 것이다'], pl:['λύσομεν','뤼소멘','우리는 풀 것이다']},
+    {p:'2', sg:['λύσεις','뤼세이스','너는 풀 것이다'], pl:['λύσετε','뤼세테','너희는 풀 것이다']},
+    {p:'3', sg:['λύσει','뤼세이','그는 풀 것이다'], pl:['λύσουσι(ν)','뤼수시','그들은 풀 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['λυθήσομαι','뤼떼소마이','나는 풀릴 것이다'], pl:['λυθησόμεθα','뤼떼소메따','우리는 풀릴 것이다']},
+    {p:'2', sg:['λυθήσῃ','뤼떼세','너는 풀릴 것이다'], pl:['λυθήσεσθε','뤼떼세스떼','너희는 풀릴 것이다']},
+    {p:'3', sg:['λυθήσεται','뤼떼세타이','그는 풀릴 것이다'], pl:['λυθήσονται','뤼떼손타이','그들은 풀릴 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['λύσομαι','뤼소마이','나는(위해) 풀 것이다'], pl:['λυσόμεθα','뤼소메따','우리는(위해) 풀 것이다']},
+    {p:'2', sg:['λύσῃ','뤼세','너는(위해) 풀 것이다'], pl:['λύσεσθε','뤼세스떼','너희는(위해) 풀 것이다']},
+    {p:'3', sg:['λύσεται','뤼세타이','그는(위해) 풀 것이다'], pl:['λύσονται','뤼손타이','그들은(위해) 풀 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἔλυον','엘뤼온','나는 풀고 있었다'], pl:['ἐλύομεν','엘뤼오멘','우리는 풀고 있었다']},
+    {p:'2', sg:['ἔλυες','엘뤼에스','너는 풀고 있었다'], pl:['ἐλύετε','엘뤼에테','너희는 풀고 있었다']},
+    {p:'3', sg:['ἔλυε(ν)','엘뤼에','그는 풀고 있었다'], pl:['ἔλυον','엘뤼온','그들은 풀고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐλυόμην','엘뤼오멘','나는 풀리고 있었다'], pl:['ἐλυόμεθα','엘뤼오메따','우리는 풀리고 있었다']},
+    {p:'2', sg:['ἐλύου','엘뤼우','너는 풀리고 있었다'], pl:['ἐλύεσθε','엘뤼에스떼','너희는 풀리고 있었다']},
+    {p:'3', sg:['ἐλύετο','엘뤼에토','그는 풀리고 있었다'], pl:['ἐλύοντο','엘뤼온토','그들은 풀리고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐλυόμην','엘뤼오멘','나는(위해) 풀고 있었다'], pl:['ἐλυόμεθα','엘뤼오메따','우리는(위해) 풀고 있었다']},
+    {p:'2', sg:['ἐλύου','엘뤼우','너는(위해) 풀고 있었다'], pl:['ἐλύεσθε','엘뤼에스떼','너희는(위해) 풀고 있었다']},
+    {p:'3', sg:['ἐλύετο','엘뤼에토','그는(위해) 풀고 있었다'], pl:['ἐλύοντο','엘뤼온토','그들은(위해) 풀고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔλυσα','엘뤼사','나는 풀었다'], pl:['ἐλύσαμεν','엘뤼사멘','우리는 풀었다']},
+    {p:'2', sg:['ἔλυσας','엘뤼사스','너는 풀었다'], pl:['ἐλύσατε','엘뤼사테','너희는 풀었다']},
+    {p:'3', sg:['ἔλυσε(ν)','엘뤼센','그는 풀었다'], pl:['ἔλυσαν','엘뤼산','그들은 풀었다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐλύθην','엘뤼떼n','나는 풀렸다'], pl:['ἐλύθημεν','엘뤼떼멘','우리는 풀렸다']},
+    {p:'2', sg:['ἐλύθης','엘뤼떼스','너는 풀렸다'], pl:['ἐλύθητε','엘뤼떼테','너희는 풀렸다']},
+    {p:'3', sg:['ἐλύθη','엘뤼떼','그는 풀렸다'], pl:['ἐλύθησαν','엘뤼떼산','그들은 풀렸다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐλυσάμην','엘뤼사멘','나는(위해) 풀었다'], pl:['ἐλυσάμεθα','엘뤼사메따','우리는(위해) 풀었다']},
+    {p:'2', sg:['ἐλύσω','엘뤼소','너는(위해) 풀었다'], pl:['ἐλύσασθε','엘뤼사스떼','너희는(위해) 풀었다']},
+    {p:'3', sg:['ἐλύσατο','엘뤼사토','그는(위해) 풀었다'], pl:['ἐλύσαντο','엘뤼산토','그들은(위해) 풀었다']},
+  ]},
+];
+
+// ── ἀκούω (아쿠오) ──
+CONJUGATIONS['akouo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['ἀκούω','아쿠오','나는 듣다'], pl:['ἀκούομεν','아쿠오멘','우리는 듣다']},
+    {p:'2', sg:['ἀκούεις','아쿠에이스','너는 듣다'], pl:['ἀκούετε','아쿠에테','너희는 듣다']},
+    {p:'3', sg:['ἀκούει','아쿠에이','그는 듣다'], pl:['ἀκούουσι(ν)','아쿠우시','그들은 듣다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['ἀκούομαι','아쿠오마이','나는 들리다'], pl:['ἀκουόμεθα','아쿠오메따','우리는 들리다']},
+    {p:'2', sg:['ἀκούῃ','아쿠에','너는 들리다'], pl:['ἀκούεσθε','아쿠에스떼','너희는 들리다']},
+    {p:'3', sg:['ἀκούεται','아쿠에타이','그는 들리다'], pl:['ἀκούονται','아쿠온타이','그들은 들리다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['ἀκούομαι','아쿠오마이','나는(위해) 듣다'], pl:['ἀκουόμεθα','아쿠오메따','우리는(위해) 듣다']},
+    {p:'2', sg:['ἀκούῃ','아쿠에','너는(위해) 듣다'], pl:['ἀκούεσθε','아쿠에스떼','너희는(위해) 듣다']},
+    {p:'3', sg:['ἀκούεται','아쿠에타이','그는(위해) 듣다'], pl:['ἀκούονται','아쿠온타이','그들은(위해) 듣다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['ἀκούσω','아쿠소','나는 들을 것이다'], pl:['ἀκούσομεν','아쿠소멘','우리는 들을 것이다']},
+    {p:'2', sg:['ἀκούσεις','아쿠세이스','너는 들을 것이다'], pl:['ἀκούσετε','아쿠세테','너희는 들을 것이다']},
+    {p:'3', sg:['ἀκούσει','아쿠세이','그는 들을 것이다'], pl:['ἀκούσουσι(ν)','아쿠수시','그들은 들을 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['ἀκουσθήσομαι','아쿠스떼소마이','나는 들릴 것이다'], pl:['ἀκουσθησόμεθα','아쿠스떼소메따','우리는 들릴 것이다']},
+    {p:'2', sg:['ἀκουσθήσῃ','아쿠스떼세','너는 들릴 것이다'], pl:['ἀκουσθήσεσθε','아쿠스떼세스떼','너희는 들릴 것이다']},
+    {p:'3', sg:['ἀκουσθήσεται','아쿠스떼세타이','그는 들릴 것이다'], pl:['ἀκουσθήσονται','아쿠스떼손타이','그들은 들릴 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['ἀκούσομαι','아쿠소마이','나는(위해) 들을 것이다'], pl:['ἀκουσόμεθα','아쿠소메따','우리는(위해) 들을 것이다']},
+    {p:'2', sg:['ἀκούσῃ','아쿠세','너는(위해) 들을 것이다'], pl:['ἀκούσεσθε','아쿠세스떼','너희는(위해) 들을 것이다']},
+    {p:'3', sg:['ἀκούσεται','아쿠세타이','그는(위해) 들을 것이다'], pl:['ἀκούσονται','아쿠손타이','그들은(위해) 들을 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἤκουον','에쿠온','나는 듣고 있었다'], pl:['ἠκούομεν','에쿠오멘','우리는 듣고 있었다']},
+    {p:'2', sg:['ἤκουες','에쿠에스','너는 듣고 있었다'], pl:['ἠκούετε','에쿠에테','너희는 듣고 있었다']},
+    {p:'3', sg:['ἤκουε(ν)','에쿠에','그는 듣고 있었다'], pl:['ἤκουον','에쿠온','그들은 듣고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἠκουόμην','에쿠오멘','나는 들리고 있었다'], pl:['ἠκουόμεθα','에쿠오메따','우리는 들리고 있었다']},
+    {p:'2', sg:['ἠκούου','에쿠우','너는 들리고 있었다'], pl:['ἠκούεσθε','에쿠에스떼','너희는 들리고 있었다']},
+    {p:'3', sg:['ἠκούετο','에쿠에토','그는 들리고 있었다'], pl:['ἠκούοντο','에쿠온토','그들은 들리고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἠκουόμην','에쿠오멘','나는(위해) 듣고 있었다'], pl:['ἠκουόμεθα','에쿠오메따','우리는(위해) 듣고 있었다']},
+    {p:'2', sg:['ἠκούου','에쿠우','너는(위해) 듣고 있었다'], pl:['ἠκούεσθε','에쿠에스떼','너희는(위해) 듣고 있었다']},
+    {p:'3', sg:['ἠκούετο','에쿠에토','그는(위해) 듣고 있었다'], pl:['ἠκούοντο','에쿠온토','그들은(위해) 듣고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἤκουσα','에쿠사','나는 들었다'], pl:['ἠκούσαμεν','에쿠사멘','우리는 들었다']},
+    {p:'2', sg:['ἤκουσας','에쿠사스','너는 들었다'], pl:['ἠκούσατε','에쿠사테','너희는 들었다']},
+    {p:'3', sg:['ἤκουσε(ν)','에쿠센','그는 들었다'], pl:['ἤκουσαν','에쿠산','그들은 들었다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἠκούσθην','에쿠스떼n','나는 들렸다'], pl:['ἠκούσθημεν','에쿠스떼멘','우리는 들렸다']},
+    {p:'2', sg:['ἠκούσθης','에쿠스떼스','너는 들렸다'], pl:['ἠκούσθητε','에쿠스떼테','너희는 들렸다']},
+    {p:'3', sg:['ἠκούσθη','에쿠스떼','그는 들렸다'], pl:['ἠκούσθησαν','에쿠스떼산','그들은 들렸다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἠκουσάμην','에쿠사멘','나는(위해) 들었다'], pl:['ἠκουσάμεθα','에쿠사메따','우리는(위해) 들었다']},
+    {p:'2', sg:['ἠκούσω','에쿠소','너는(위해) 들었다'], pl:['ἠκούσασθε','에쿠사스떼','너희는(위해) 들었다']},
+    {p:'3', sg:['ἠκούσατο','에쿠사토','그는(위해) 들었다'], pl:['ἠκούσαντο','에쿠산토','그들은(위해) 들었다']},
+  ]},
+];
+
+// ── βλέπω (블레포) ── π+σ→ψ
+CONJUGATIONS['blepo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['βλέπω','블레포','나는 보다'], pl:['βλέπομεν','블레포멘','우리는 보다']},
+    {p:'2', sg:['βλέπεις','블레페이스','너는 보다'], pl:['βλέπετε','블레페테','너희는 보다']},
+    {p:'3', sg:['βλέπει','블레페이','그는 보다'], pl:['βλέπουσι(ν)','블레푸시','그들은 보다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['βλέπομαι','블레포마이','나는 보이다'], pl:['βλεπόμεθα','블레포메따','우리는 보이다']},
+    {p:'2', sg:['βλέπῃ','블레페','너는 보이다'], pl:['βλέπεσθε','블레페스떼','너희는 보이다']},
+    {p:'3', sg:['βλέπεται','블레페타이','그는 보이다'], pl:['βλέπονται','블레폰타이','그들은 보이다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['βλέπομαι','블레포마이','나는(위해) 보다'], pl:['βλεπόμεθα','블레포메따','우리는(위해) 보다']},
+    {p:'2', sg:['βλέπῃ','블레페','너는(위해) 보다'], pl:['βλέπεσθε','블레페스떼','너희는(위해) 보다']},
+    {p:'3', sg:['βλέπεται','블레페타이','그는(위해) 보다'], pl:['βλέπονται','블레폰타이','그들은(위해) 보다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['βλέψω','블렙소','나는 볼 것이다'], pl:['βλέψομεν','블렙소멘','우리는 볼 것이다']},
+    {p:'2', sg:['βλέψεις','블렙세이스','너는 볼 것이다'], pl:['βλέψετε','블렙세테','너희는 볼 것이다']},
+    {p:'3', sg:['βλέψει','블렙세이','그는 볼 것이다'], pl:['βλέψουσι(ν)','블렙수시','그들은 볼 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['βλεφθήσομαι','블레프떼소마이','나는 보여질 것이다'], pl:['βλεφθησόμεθα','블레프떼소메따','우리는 보여질 것이다']},
+    {p:'2', sg:['βλεφθήσῃ','블레프떼세','너는 보여질 것이다'], pl:['βλεφθήσεσθε','블레프떼세스떼','너희는 보여질 것이다']},
+    {p:'3', sg:['βλεφθήσεται','블레프떼세타이','그는 보여질 것이다'], pl:['βλεφθήσονται','블레프떼손타이','그들은 보여질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['βλέψομαι','블렙소마이','나는(위해) 볼 것이다'], pl:['βλεψόμεθα','블렙소메따','우리는(위해) 볼 것이다']},
+    {p:'2', sg:['βλέψῃ','블렙세','너는(위해) 볼 것이다'], pl:['βλέψεσθε','블렙세스떼','너희는(위해) 볼 것이다']},
+    {p:'3', sg:['βλέψεται','블렙세타이','그는(위해) 볼 것이다'], pl:['βλέψονται','블렙손타이','그들은(위해) 볼 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἔβλεπον','에블레폰','나는 보고 있었다'], pl:['ἐβλέπομεν','에블레포멘','우리는 보고 있었다']},
+    {p:'2', sg:['ἔβλεπες','에블레페스','너는 보고 있었다'], pl:['ἐβλέπετε','에블레페테','너희는 보고 있었다']},
+    {p:'3', sg:['ἔβλεπε(ν)','에블레페','그는 보고 있었다'], pl:['ἔβλεπον','에블레폰','그들은 보고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐβλεπόμην','에블레포멘','나는 보이고 있었다'], pl:['ἐβλεπόμεθα','에블레포메따','우리는 보이고 있었다']},
+    {p:'2', sg:['ἐβλέπου','에블레푸','너는 보이고 있었다'], pl:['ἐβλέπεσθε','에블레페스떼','너희는 보이고 있었다']},
+    {p:'3', sg:['ἐβλέπετο','에블레페토','그는 보이고 있었다'], pl:['ἐβλέποντο','에블레폰토','그들은 보이고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐβλεπόμην','에블레포멘','나는(위해) 보고 있었다'], pl:['ἐβλεπόμεθα','에블레포메따','우리는(위해) 보고 있었다']},
+    {p:'2', sg:['ἐβλέπου','에블레푸','너는(위해) 보고 있었다'], pl:['ἐβλέπεσθε','에블레페스떼','너희는(위해) 보고 있었다']},
+    {p:'3', sg:['ἐβλέπετο','에블레페토','그는(위해) 보고 있었다'], pl:['ἐβλέποντο','에블레폰토','그들은(위해) 보고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔβλεψα','에블렙사','나는 보았다'], pl:['ἐβλέψαμεν','에블렙사멘','우리는 보았다']},
+    {p:'2', sg:['ἔβλεψας','에블렙사스','너는 보았다'], pl:['ἐβλέψατε','에블렙사테','너희는 보았다']},
+    {p:'3', sg:['ἔβλεψε(ν)','에블렙센','그는 보았다'], pl:['ἔβλεψαν','에블렙산','그들은 보았다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐβλέφθην','에블레프떼n','나는 보여졌다'], pl:['ἐβλέφθημεν','에블레프떼멘','우리는 보여졌다']},
+    {p:'2', sg:['ἐβλέφθης','에블레프떼스','너는 보여졌다'], pl:['ἐβλέφθητε','에블레프떼테','너희는 보여졌다']},
+    {p:'3', sg:['ἐβλέφθη','에블레프떼','그는 보여졌다'], pl:['ἐβλέφθησαν','에블레프떼산','그들은 보여졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐβλεψάμην','에블렙사멘','나는(위해) 보았다'], pl:['ἐβλεψάμεθα','에블렙사메따','우리는(위해) 보았다']},
+    {p:'2', sg:['ἐβλέψω','에블렙소','너는(위해) 보았다'], pl:['ἐβλέψασθε','에블렙사스떼','너희는(위해) 보았다']},
+    {p:'3', sg:['ἐβλέψατο','에블렙사토','그는(위해) 보았다'], pl:['ἐβλέψαντο','에블렙산토','그들은(위해) 보았다']},
+  ]},
+  { tense:'제2단순과거', voice:'능동', forms:[
+    {p:'1', sg:['εἶδον','에이돈','나는 보았다 (제2)'], pl:['εἴδομεν','에이도멘','우리는 보았다']},
+    {p:'2', sg:['εἶδες','에이데스','너는 보았다'], pl:['εἴδετε','에이데테','너희는 보았다']},
+    {p:'3', sg:['εἶδε(ν)','에이데','그는 보았다'], pl:['εἶδον','에이돈','그들은 보았다']},
+  ]},
+];
+
+// ── γινώσκω (기노스코) — 불규칙 미래 어간 γνω-
+CONJUGATIONS['ginosko'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['γινώσκω','기노스코','나는 알다'], pl:['γινώσκομεν','기노스코멘','우리는 알다']},
+    {p:'2', sg:['γινώσκεις','기노스케이스','너는 알다'], pl:['γινώσκετε','기노스케테','너희는 알다']},
+    {p:'3', sg:['γινώσκει','기노스케이','그는 알다'], pl:['γινώσκουσι(ν)','기노스쿠시','그들은 알다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['γινώσκομαι','기노스코마이','나는 알려지다'], pl:['γινωσκόμεθα','기노스코메따','우리는 알려지다']},
+    {p:'2', sg:['γινώσκῃ','기노스케','너는 알려지다'], pl:['γινώσκεσθε','기노스케스떼','너희는 알려지다']},
+    {p:'3', sg:['γινώσκεται','기노스케타이','그는 알려지다'], pl:['γινώσκονται','기노스콘타이','그들은 알려지다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['γινώσκομαι','기노스코마이','나는(위해) 알다'], pl:['γινωσκόμεθα','기노스코메따','우리는(위해) 알다']},
+    {p:'2', sg:['γινώσκῃ','기노스케','너는(위해) 알다'], pl:['γινώσκεσθε','기노스케스떼','너희는(위해) 알다']},
+    {p:'3', sg:['γινώσκεται','기노스케타이','그는(위해) 알다'], pl:['γινώσκονται','기노스콘타이','그들은(위해) 알다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['γνώσομαι','그노소마이','나는 알게 될 것이다'], pl:['γνωσόμεθα','그노소메따','우리는 알게 될 것이다']},
+    {p:'2', sg:['γνώσῃ','그노세','너는 알게 될 것이다'], pl:['γνώσεσθε','그노세스떼','너희는 알게 될 것이다']},
+    {p:'3', sg:['γνώσεται','그노세타이','그는 알게 될 것이다'], pl:['γνώσονται','그노손타이','그들은 알게 될 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['γνωσθήσομαι','그노스떼소마이','나는 알려질 것이다'], pl:['γνωσθησόμεθα','그노스떼소메따','우리는 알려질 것이다']},
+    {p:'2', sg:['γνωσθήσῃ','그노스떼세','너는 알려질 것이다'], pl:['γνωσθήσεσθε','그노스떼세스떼','너희는 알려질 것이다']},
+    {p:'3', sg:['γνωσθήσεται','그노스떼세타이','그는 알려질 것이다'], pl:['γνωσθήσονται','그노스떼손타이','그들은 알려질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['γνώσομαι','그노소마이','나는(위해) 알게 될 것이다'], pl:['γνωσόμεθα','그노소메따','우리는(위해) 알게 될 것이다']},
+    {p:'2', sg:['γνώσῃ','그노세','너는(위해) 알게 될 것이다'], pl:['γνώσεσθε','그노세스떼','너희는(위해) 알게 될 것이다']},
+    {p:'3', sg:['γνώσεται','그노세타이','그는(위해) 알게 될 것이다'], pl:['γνώσονται','그노손타이','그들은(위해) 알게 될 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐγίνωσκον','에기노스콘','나는 알고 있었다'], pl:['ἐγινώσκομεν','에기노스코멘','우리는 알고 있었다']},
+    {p:'2', sg:['ἐγίνωσκες','에기노스케스','너는 알고 있었다'], pl:['ἐγινώσκετε','에기노스케테','너희는 알고 있었다']},
+    {p:'3', sg:['ἐγίνωσκε(ν)','에기노스케','그는 알고 있었다'], pl:['ἐγίνωσκον','에기노스콘','그들은 알고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐγινωσκόμην','에기노스코멘','나는 알려지고 있었다'], pl:['ἐγινωσκόμεθα','에기노스코메따','우리는 알려지고 있었다']},
+    {p:'2', sg:['ἐγινώσκου','에기노스쿠','너는 알려지고 있었다'], pl:['ἐγινώσκεσθε','에기노스케스떼','너희는 알려지고 있었다']},
+    {p:'3', sg:['ἐγινώσκετο','에기노스케토','그는 알려지고 있었다'], pl:['ἐγινώσκοντο','에기노스콘토','그들은 알려지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐγινωσκόμην','에기노스코멘','나는(위해) 알고 있었다'], pl:['ἐγινωσκόμεθα','에기노스코메따','우리는(위해) 알고 있었다']},
+    {p:'2', sg:['ἐγινώσκου','에기노스쿠','너는(위해) 알고 있었다'], pl:['ἐγινώσκεσθε','에기노스케스떼','너희는(위해) 알고 있었다']},
+    {p:'3', sg:['ἐγινώσκετο','에기노스케토','그는(위해) 알고 있었다'], pl:['ἐγινώσκοντο','에기노스콘토','그들은(위해) 알고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔγνων','에그논','나는 알았다'], pl:['ἔγνωμεν','에그노멘','우리는 알았다']},
+    {p:'2', sg:['ἔγνως','에그노스','너는 알았다'], pl:['ἔγνωτε','에그노테','너희는 알았다']},
+    {p:'3', sg:['ἔγνω','에그노','그는 알았다'], pl:['ἔγνωσαν','에그노산','그들은 알았다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐγνώσθην','에그노스떼n','나는 알려졌다'], pl:['ἐγνώσθημεν','에그노스떼멘','우리는 알려졌다']},
+    {p:'2', sg:['ἐγνώσθης','에그노스떼스','너는 알려졌다'], pl:['ἐγνώσθητε','에그노스떼테','너희는 알려졌다']},
+    {p:'3', sg:['ἐγνώσθη','에그노스떼','그는 알려졌다'], pl:['ἐγνώσθησαν','에그노스떼산','그들은 알려졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐγνωσάμην','에그노사멘','나는(위해) 알았다'], pl:['ἐγνωσάμεθα','에그노사메따','우리는(위해) 알았다']},
+    {p:'2', sg:['ἐγνώσω','에그노소','너는(위해) 알았다'], pl:['ἐγνώσασθε','에그노사스떼','너희는(위해) 알았다']},
+    {p:'3', sg:['ἐγνώσατο','에그노사토','그는(위해) 알았다'], pl:['ἐγνώσαντο','에그노산토','그들은(위해) 알았다']},
+  ]},
+  { tense:'제2단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔγνων','에그논','나는 알았다 (제2)'], pl:['ἔγνωμεν','에그노멘','우리는 알았다']},
+    {p:'2', sg:['ἔγνως','에그노스','너는 알았다'], pl:['ἔγνωτε','에그노테','너희는 알았다']},
+    {p:'3', sg:['ἔγνω','에그노','그는 알았다'], pl:['ἔγνωσαν','에그노산','그들은 알았다']},
+  ]},
+];
+
+// ── γράφω (그라포) — φ+σ→ψ
+CONJUGATIONS['grapho'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['γράφω','그라포','나는 쓰다'], pl:['γράφομεν','그라포멘','우리는 쓰다']},
+    {p:'2', sg:['γράφεις','그라페이스','너는 쓰다'], pl:['γράφετε','그라페테','너희는 쓰다']},
+    {p:'3', sg:['γράφει','그라페이','그는 쓰다'], pl:['γράφουσι(ν)','그라푸시','그들은 쓰다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['γράφομαι','그라포마이','나는 쓰여지다'], pl:['γραφόμεθα','그라포메따','우리는 쓰여지다']},
+    {p:'2', sg:['γράφῃ','그라페','너는 쓰여지다'], pl:['γράφεσθε','그라페스떼','너희는 쓰여지다']},
+    {p:'3', sg:['γράφεται','그라페타이','그는 쓰여지다'], pl:['γράφονται','그라폰타이','그들은 쓰여지다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['γράφομαι','그라포마이','나는(위해) 쓰다'], pl:['γραφόμεθα','그라포메따','우리는(위해) 쓰다']},
+    {p:'2', sg:['γράφῃ','그라페','너는(위해) 쓰다'], pl:['γράφεσθε','그라페스떼','너희는(위해) 쓰다']},
+    {p:'3', sg:['γράφεται','그라페타이','그는(위해) 쓰다'], pl:['γράφονται','그라폰타이','그들은(위해) 쓰다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['γράψω','그랍소','나는 쓸 것이다'], pl:['γράψομεν','그랍소멘','우리는 쓸 것이다']},
+    {p:'2', sg:['γράψεις','그랍세이스','너는 쓸 것이다'], pl:['γράψετε','그랍세테','너희는 쓸 것이다']},
+    {p:'3', sg:['γράψει','그랍세이','그는 쓸 것이다'], pl:['γράψουσι(ν)','그랍수시','그들은 쓸 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['γραφήσομαι','그라페소마이','나는 쓰여질 것이다'], pl:['γραφησόμεθα','그라페소메따','우리는 쓰여질 것이다']},
+    {p:'2', sg:['γραφήσῃ','그라페세','너는 쓰여질 것이다'], pl:['γραφήσεσθε','그라페세스떼','너희는 쓰여질 것이다']},
+    {p:'3', sg:['γραφήσεται','그라페세타이','그는 쓰여질 것이다'], pl:['γραφήσονται','그라페손타이','그들은 쓰여질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['γράψομαι','그랍소마이','나는(위해) 쓸 것이다'], pl:['γραψόμεθα','그랍소메따','우리는(위해) 쓸 것이다']},
+    {p:'2', sg:['γράψῃ','그랍세','너는(위해) 쓸 것이다'], pl:['γράψεσθε','그랍세스떼','너희는(위해) 쓸 것이다']},
+    {p:'3', sg:['γράψεται','그랍세타이','그는(위해) 쓸 것이다'], pl:['γράψονται','그랍손타이','그들은(위해) 쓸 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἔγραφον','에그라폰','나는 쓰고 있었다'], pl:['ἐγράφομεν','에그라포멘','우리는 쓰고 있었다']},
+    {p:'2', sg:['ἔγραφες','에그라페스','너는 쓰고 있었다'], pl:['ἐγράφετε','에그라페테','너희는 쓰고 있었다']},
+    {p:'3', sg:['ἔγραφε(ν)','에그라페','그는 쓰고 있었다'], pl:['ἔγραφον','에그라폰','그들은 쓰고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐγραφόμην','에그라포멘','나는 쓰여지고 있었다'], pl:['ἐγραφόμεθα','에그라포메따','우리는 쓰여지고 있었다']},
+    {p:'2', sg:['ἐγράφου','에그라푸','너는 쓰여지고 있었다'], pl:['ἐγράφεσθε','에그라페스떼','너희는 쓰여지고 있었다']},
+    {p:'3', sg:['ἐγράφετο','에그라페토','그는 쓰여지고 있었다'], pl:['ἐγράφοντο','에그라폰토','그들은 쓰여지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐγραφόμην','에그라포멘','나는(위해) 쓰고 있었다'], pl:['ἐγραφόμεθα','에그라포메따','우리는(위해) 쓰고 있었다']},
+    {p:'2', sg:['ἐγράφου','에그라푸','너는(위해) 쓰고 있었다'], pl:['ἐγράφεσθε','에그라페스떼','너희는(위해) 쓰고 있었다']},
+    {p:'3', sg:['ἐγράφετο','에그라페토','그는(위해) 쓰고 있었다'], pl:['ἐγράφοντο','에그라폰토','그들은(위해) 쓰고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔγραψα','에그랍사','나는 썼다'], pl:['ἐγράψαμεν','에그랍사멘','우리는 썼다']},
+    {p:'2', sg:['ἔγραψας','에그랍사스','너는 썼다'], pl:['ἐγράψατε','에그랍사테','너희는 썼다']},
+    {p:'3', sg:['ἔγραψε(ν)','에그랍센','그는 썼다'], pl:['ἔγραψαν','에그랍산','그들은 썼다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐγράφην','에그라펜','나는 쓰여졌다'], pl:['ἐγράφημεν','에그라페멘','우리는 쓰여졌다']},
+    {p:'2', sg:['ἐγράφης','에그라페스','너는 쓰여졌다'], pl:['ἐγράφητε','에그라페테','너희는 쓰여졌다']},
+    {p:'3', sg:['ἐγράφη','에그라페','그는 쓰여졌다'], pl:['ἐγράφησαν','에그라페산','그들은 쓰여졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐγραψάμην','에그랍사멘','나는(위해) 썼다'], pl:['ἐγραψάμεθα','에그랍사메따','우리는(위해) 썼다']},
+    {p:'2', sg:['ἐγράψω','에그랍소','너는(위해) 썼다'], pl:['ἐγράψασθε','에그랍사스떼','너희는(위해) 썼다']},
+    {p:'3', sg:['ἐγράψατο','에그랍사토','그는(위해) 썼다'], pl:['ἐγράψαντο','에그랍산토','그들은(위해) 썼다']},
+  ]},
+];
+
+// ── διδάσκω (디다스코) — κ+σ→ξ
+CONJUGATIONS['didasko'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['διδάσκω','디다스코','나는 가르치다'], pl:['διδάσκομεν','디다스코멘','우리는 가르치다']},
+    {p:'2', sg:['διδάσκεις','디다스케이스','너는 가르치다'], pl:['διδάσκετε','디다스케테','너희는 가르치다']},
+    {p:'3', sg:['διδάσκει','디다스케이','그는 가르치다'], pl:['διδάσκουσι(ν)','디다스쿠시','그들은 가르치다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['διδάσκομαι','디다스코마이','나는 가르침을 받다'], pl:['διδασκόμεθα','디다스코메따','우리는 가르침을 받다']},
+    {p:'2', sg:['διδάσκῃ','디다스케','너는 가르침을 받다'], pl:['διδάσκεσθε','디다스케스떼','너희는 가르침을 받다']},
+    {p:'3', sg:['διδάσκεται','디다스케타이','그는 가르침을 받다'], pl:['διδάσκονται','디다스콘타이','그들은 가르침을 받다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['διδάσκομαι','디다스코마이','나는(위해) 가르치다'], pl:['διδασκόμεθα','디다스코메따','우리는(위해) 가르치다']},
+    {p:'2', sg:['διδάσκῃ','디다스케','너는(위해) 가르치다'], pl:['διδάσκεσθε','디다스케스떼','너희는(위해) 가르치다']},
+    {p:'3', sg:['διδάσκεται','디다스케타이','그는(위해) 가르치다'], pl:['διδάσκονται','디다스콘타이','그들은(위해) 가르치다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['διδάξω','디닥소','나는 가르칠 것이다'], pl:['διδάξομεν','디닥소멘','우리는 가르칠 것이다']},
+    {p:'2', sg:['διδάξεις','디닥세이스','너는 가르칠 것이다'], pl:['διδάξετε','디닥세테','너희는 가르칠 것이다']},
+    {p:'3', sg:['διδάξει','디닥세이','그는 가르칠 것이다'], pl:['διδάξουσι(ν)','디닥수시','그들은 가르칠 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['διδαχθήσομαι','디다크떼소마이','나는 가르침을 받을 것이다'], pl:['διδαχθησόμεθα','디다크떼소메따','우리는 가르침을 받을 것이다']},
+    {p:'2', sg:['διδαχθήσῃ','디다크떼세','너는 가르침을 받을 것이다'], pl:['διδαχθήσεσθε','디다크떼세스떼','너희는 가르침을 받을 것이다']},
+    {p:'3', sg:['διδαχθήσεται','디다크떼세타이','그는 가르침을 받을 것이다'], pl:['διδαχθήσονται','디다크떼손타이','그들은 가르침을 받을 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['διδάξομαι','디닥소마이','나는(위해) 가르칠 것이다'], pl:['διδαξόμεθα','디닥소메따','우리는(위해) 가르칠 것이다']},
+    {p:'2', sg:['διδάξῃ','디닥세','너는(위해) 가르칠 것이다'], pl:['διδάξεσθε','디닥세스떼','너희는(위해) 가르칠 것이다']},
+    {p:'3', sg:['διδάξεται','디닥세타이','그는(위해) 가르칠 것이다'], pl:['διδάξονται','디닥손타이','그들은(위해) 가르칠 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐδίδασκον','에디다스콘','나는 가르치고 있었다'], pl:['ἐδιδάσκομεν','에디다스코멘','우리는 가르치고 있었다']},
+    {p:'2', sg:['ἐδίδασκες','에디다스케스','너는 가르치고 있었다'], pl:['ἐδιδάσκετε','에디다스케테','너희는 가르치고 있었다']},
+    {p:'3', sg:['ἐδίδασκε(ν)','에디다스케','그는 가르치고 있었다'], pl:['ἐδίδασκον','에디다스콘','그들은 가르치고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐδιδασκόμην','에디다스코멘','나는 가르침을 받고 있었다'], pl:['ἐδιδασκόμεθα','에디다스코메따','우리는 가르침을 받고 있었다']},
+    {p:'2', sg:['ἐδιδάσκου','에디다스쿠','너는 가르침을 받고 있었다'], pl:['ἐδιδάσκεσθε','에디다스케스떼','너희는 가르침을 받고 있었다']},
+    {p:'3', sg:['ἐδιδάσκετο','에디다스케토','그는 가르침을 받고 있었다'], pl:['ἐδιδάσκοντο','에디다스콘토','그들은 가르침을 받고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐδιδασκόμην','에디다스코멘','나는(위해) 가르치고 있었다'], pl:['ἐδιδασκόμεθα','에디다스코메따','우리는(위해) 가르치고 있었다']},
+    {p:'2', sg:['ἐδιδάσκου','에디다스쿠','너는(위해) 가르치고 있었다'], pl:['ἐδιδάσκεσθε','에디다스케스떼','너희는(위해) 가르치고 있었다']},
+    {p:'3', sg:['ἐδιδάσκετο','에디다스케토','그는(위해) 가르치고 있었다'], pl:['ἐδιδάσκοντο','에디다스콘토','그들은(위해) 가르치고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἐδίδαξα','에디닥사','나는 가르쳤다'], pl:['ἐδιδάξαμεν','에디닥사멘','우리는 가르쳤다']},
+    {p:'2', sg:['ἐδίδαξας','에디닥사스','너는 가르쳤다'], pl:['ἐδιδάξατε','에디닥사테','너희는 가르쳤다']},
+    {p:'3', sg:['ἐδίδαξε(ν)','에디닥센','그는 가르쳤다'], pl:['ἐδίδαξαν','에디닥산','그들은 가르쳤다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐδιδάχθην','에디닥크떼n','나는 가르침을 받았다'], pl:['ἐδιδάχθημεν','에디닥크떼멘','우리는 가르침을 받았다']},
+    {p:'2', sg:['ἐδιδάχθης','에디닥크떼스','너는 가르침을 받았다'], pl:['ἐδιδάχθητε','에디닥크떼테','너희는 가르침을 받았다']},
+    {p:'3', sg:['ἐδιδάχθη','에디닥크떼','그는 가르침을 받았다'], pl:['ἐδιδάχθησαν','에디닥크떼산','그들은 가르침을 받았다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐδιδαξάμην','에디닥사멘','나는(위해) 가르쳤다'], pl:['ἐδιδαξάμεθα','에디닥사메따','우리는(위해) 가르쳤다']},
+    {p:'2', sg:['ἐδιδάξω','에디닥소','너는(위해) 가르쳤다'], pl:['ἐδιδάξασθε','에디닥사스떼','너희는(위해) 가르쳤다']},
+    {p:'3', sg:['ἐδιδάξατο','에디닥사토','그는(위해) 가르쳤다'], pl:['ἐδιδάξαντο','에디닥산토','그들은(위해) 가르쳤다']},
+  ]},
+];
+
+// ── λαμβάνω (람바노) — 불규칙 미래 λήμψ-, 과거 ἔλαβον
+CONJUGATIONS['lambano'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['λαμβάνω','람바노','나는 취하다/받다'], pl:['λαμβάνομεν','람바노멘','우리는 취하다/받다']},
+    {p:'2', sg:['λαμβάνεις','람바네이스','너는 취하다/받다'], pl:['λαμβάνετε','람바네테','너희는 취하다/받다']},
+    {p:'3', sg:['λαμβάνει','람바네이','그는 취하다/받다'], pl:['λαμβάνουσι(ν)','람바누시','그들은 취하다/받다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['λαμβάνομαι','람바노마이','나는 취해지다'], pl:['λαμβανόμεθα','람바노메따','우리는 취해지다']},
+    {p:'2', sg:['λαμβάνῃ','람바네','너는 취해지다'], pl:['λαμβάνεσθε','람바네스떼','너희는 취해지다']},
+    {p:'3', sg:['λαμβάνεται','람바네타이','그는 취해지다'], pl:['λαμβάνονται','람바논타이','그들은 취해지다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['λαμβάνομαι','람바노마이','나는(위해) 취하다'], pl:['λαμβανόμεθα','람바노메따','우리는(위해) 취하다']},
+    {p:'2', sg:['λαμβάνῃ','람바네','너는(위해) 취하다'], pl:['λαμβάνεσθε','람바네스떼','너희는(위해) 취하다']},
+    {p:'3', sg:['λαμβάνεται','람바네타이','그는(위해) 취하다'], pl:['λαμβάνονται','람바논타이','그들은(위해) 취하다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['λήμψομαι','렘프소마이','나는 취할 것이다'], pl:['ληψόμεθα','렙소메따','우리는 취할 것이다']},
+    {p:'2', sg:['λήμψῃ','렘프세','너는 취할 것이다'], pl:['λήμψεσθε','렘프세스떼','너희는 취할 것이다']},
+    {p:'3', sg:['λήμψεται','렘프세타이','그는 취할 것이다'], pl:['λήμψονται','렘프손타이','그들은 취할 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['ληφθήσομαι','렙프떼소마이','나는 취해질 것이다'], pl:['ληφθησόμεθα','렙프떼소메따','우리는 취해질 것이다']},
+    {p:'2', sg:['ληφθήσῃ','렙프떼세','너는 취해질 것이다'], pl:['ληφθήσεσθε','렙프떼세스떼','너희는 취해질 것이다']},
+    {p:'3', sg:['ληφθήσεται','렙프떼세타이','그는 취해질 것이다'], pl:['ληφθήσονται','렙프떼손타이','그들은 취해질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['λήμψομαι','렘프소마이','나는(위해) 취할 것이다'], pl:['ληψόμεθα','렙소메따','우리는(위해) 취할 것이다']},
+    {p:'2', sg:['λήμψῃ','렘프세','너는(위해) 취할 것이다'], pl:['λήμψεσθε','렘프세스떼','너희는(위해) 취할 것이다']},
+    {p:'3', sg:['λήμψεται','렘프세타이','그는(위해) 취할 것이다'], pl:['λήμψονται','렘프손타이','그들은(위해) 취할 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐλάμβανον','엘람바논','나는 취하고 있었다'], pl:['ἐλαμβάνομεν','엘람바노멘','우리는 취하고 있었다']},
+    {p:'2', sg:['ἐλάμβανες','엘람바네스','너는 취하고 있었다'], pl:['ἐλαμβάνετε','엘람바네테','너희는 취하고 있었다']},
+    {p:'3', sg:['ἐλάμβανε(ν)','엘람바네','그는 취하고 있었다'], pl:['ἐλάμβανον','엘람바논','그들은 취하고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐλαμβανόμην','엘람바노멘','나는 취해지고 있었다'], pl:['ἐλαμβανόμεθα','엘람바노메따','우리는 취해지고 있었다']},
+    {p:'2', sg:['ἐλαμβάνου','엘람바누','너는 취해지고 있었다'], pl:['ἐλαμβάνεσθε','엘람바네스떼','너희는 취해지고 있었다']},
+    {p:'3', sg:['ἐλαμβάνετο','엘람바네토','그는 취해지고 있었다'], pl:['ἐλαμβάνοντο','엘람바논토','그들은 취해지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐλαμβανόμην','엘람바노멘','나는(위해) 취하고 있었다'], pl:['ἐλαμβανόμεθα','엘람바노메따','우리는(위해) 취하고 있었다']},
+    {p:'2', sg:['ἐλαμβάνου','엘람바누','너는(위해) 취하고 있었다'], pl:['ἐλαμβάνεσθε','엘람바네스떼','너희는(위해) 취하고 있었다']},
+    {p:'3', sg:['ἐλαμβάνετο','엘람바네토','그는(위해) 취하고 있었다'], pl:['ἐλαμβάνοντο','엘람바논토','그들은(위해) 취하고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔλαβον','엘라본','나는 취했다 (제2)'], pl:['ἐλάβομεν','엘라보멘','우리는 취했다']},
+    {p:'2', sg:['ἔλαβες','엘라베스','너는 취했다'], pl:['ἐλάβετε','엘라베테','너희는 취했다']},
+    {p:'3', sg:['ἔλαβε(ν)','엘라베','그는 취했다'], pl:['ἔλαβον','엘라본','그들은 취했다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐλήφθην','엘렙프떼n','나는 취해졌다'], pl:['ἐλήφθημεν','엘렙프떼멘','우리는 취해졌다']},
+    {p:'2', sg:['ἐλήφθης','엘렙프떼스','너는 취해졌다'], pl:['ἐλήφθητε','엘렙프떼테','너희는 취해졌다']},
+    {p:'3', sg:['ἐλήφθη','엘렙프떼','그는 취해졌다'], pl:['ἐλήφθησαν','엘렙프떼산','그들은 취해졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐλαβόμην','엘라보멘','나는(위해) 취했다'], pl:['ἐλαβόμεθα','엘라보메따','우리는(위해) 취했다']},
+    {p:'2', sg:['ἐλάβου','엘라부','너는(위해) 취했다'], pl:['ἐλάβεσθε','엘라베스떼','너희는(위해) 취했다']},
+    {p:'3', sg:['ἐλάβετο','엘라베토','그는(위해) 취했다'], pl:['ἐλάβοντο','엘라본토','그들은(위해) 취했다']},
+  ]},
+  { tense:'제2단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔλαβον','엘라본','나는 취했다 (제2)'], pl:['ἐλάβομεν','엘라보멘','우리는 취했다']},
+    {p:'2', sg:['ἔλαβες','엘라베스','너는 취했다'], pl:['ἐλάβετε','엘라베테','너희는 취했다']},
+    {p:'3', sg:['ἔλαβε(ν)','엘라베','그는 취했다'], pl:['ἔλαβον','엘라본','그들은 취했다']},
+  ]},
+  { tense:'제2단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐλαβόμην','엘라보멘','나는(위해) 취했다 (제2)'], pl:['ἐλαβόμεθα','엘라보메따','우리는(위해) 취했다']},
+    {p:'2', sg:['ἐλάβου','엘라부','너는(위해) 취했다'], pl:['ἐλάβεσθε','엘라베스떼','너희는(위해) 취했다']},
+    {p:'3', sg:['ἐλάβετο','엘라베토','그는(위해) 취했다'], pl:['ἐλάβοντο','엘라본토','그들은(위해) 취했다']},
+  ]},
+];
+
+// ── λέγω (레고) — 미래 불규칙 ἐρῶ, 과거 εἶπον
+CONJUGATIONS['lego'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['λέγω','레고','나는 말하다'], pl:['λέγομεν','레고멘','우리는 말하다']},
+    {p:'2', sg:['λέγεις','레게이스','너는 말하다'], pl:['λέγετε','레게테','너희는 말하다']},
+    {p:'3', sg:['λέγει','레게이','그는 말하다'], pl:['λέγουσι(ν)','레구시','그들은 말하다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['λέγομαι','레고마이','나는 말해지다'], pl:['λεγόμεθα','레고메따','우리는 말해지다']},
+    {p:'2', sg:['λέγῃ','레게','너는 말해지다'], pl:['λέγεσθε','레게스떼','너희는 말해지다']},
+    {p:'3', sg:['λέγεται','레게타이','그는 말해지다'], pl:['λέγονται','레곤타이','그들은 말해지다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['λέγομαι','레고마이','나는(위해) 말하다'], pl:['λεγόμεθα','레고메따','우리는(위해) 말하다']},
+    {p:'2', sg:['λέγῃ','레게','너는(위해) 말하다'], pl:['λέγεσθε','레게스떼','너희는(위해) 말하다']},
+    {p:'3', sg:['λέγεται','레게타이','그는(위해) 말하다'], pl:['λέγονται','레곤타이','그들은(위해) 말하다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['ἐρῶ','에로','나는 말할 것이다 (불규칙)'], pl:['ἐροῦμεν','에루멘','우리는 말할 것이다']},
+    {p:'2', sg:['ἐρεῖς','에레이스','너는 말할 것이다'], pl:['ἐρεῖτε','에레이테','너희는 말할 것이다']},
+    {p:'3', sg:['ἐρεῖ','에레이','그는 말할 것이다'], pl:['ἐροῦσι(ν)','에루시','그들은 말할 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['ῥηθήσομαι','레떼소마이','나는 말해질 것이다'], pl:['ῥηθησόμεθα','레떼소메따','우리는 말해질 것이다']},
+    {p:'2', sg:['ῥηθήσῃ','레떼세','너는 말해질 것이다'], pl:['ῥηθήσεσθε','레떼세스떼','너희는 말해질 것이다']},
+    {p:'3', sg:['ῥηθήσεται','레떼세타이','그는 말해질 것이다'], pl:['ῥηθήσονται','레떼손타이','그들은 말해질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['ἐροῦμαι','에루마이','나는(위해) 말할 것이다'], pl:['ἐρούμεθα','에루메따','우리는(위해) 말할 것이다']},
+    {p:'2', sg:['ἐρῇ','에레','너는(위해) 말할 것이다'], pl:['ἐρεῖσθε','에레이스떼','너희는(위해) 말할 것이다']},
+    {p:'3', sg:['ἐρεῖται','에레이타이','그는(위해) 말할 것이다'], pl:['ἐροῦνται','에루온타이','그들은(위해) 말할 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἔλεγον','엘레곤','나는 말하고 있었다'], pl:['ἐλέγομεν','엘레고멘','우리는 말하고 있었다']},
+    {p:'2', sg:['ἔλεγες','엘레게스','너는 말하고 있었다'], pl:['ἐλέγετε','엘레게테','너희는 말하고 있었다']},
+    {p:'3', sg:['ἔλεγε(ν)','엘레게','그는 말하고 있었다'], pl:['ἔλεγον','엘레곤','그들은 말하고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐλεγόμην','엘레고멘','나는 말해지고 있었다'], pl:['ἐλεγόμεθα','엘레고메따','우리는 말해지고 있었다']},
+    {p:'2', sg:['ἐλέγου','엘레구','너는 말해지고 있었다'], pl:['ἐλέγεσθε','엘레게스떼','너희는 말해지고 있었다']},
+    {p:'3', sg:['ἐλέγετο','엘레게토','그는 말해지고 있었다'], pl:['ἐλέγοντο','엘레곤토','그들은 말해지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐλεγόμην','엘레고멘','나는(위해) 말하고 있었다'], pl:['ἐλεγόμεθα','엘레고메따','우리는(위해) 말하고 있었다']},
+    {p:'2', sg:['ἐλέγου','엘레구','너는(위해) 말하고 있었다'], pl:['ἐλέγεσθε','엘레게스떼','너희는(위해) 말하고 있었다']},
+    {p:'3', sg:['ἐλέγετο','엘레게토','그는(위해) 말하고 있었다'], pl:['ἐλέγοντο','엘레곤토','그들은(위해) 말하고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['εἶπον','에이폰','나는 말했다 (제2)'], pl:['εἴπομεν','에이포멘','우리는 말했다']},
+    {p:'2', sg:['εἶπες','에이페스','너는 말했다'], pl:['εἴπετε','에이페테','너희는 말했다']},
+    {p:'3', sg:['εἶπε(ν)','에이페','그는 말했다'], pl:['εἶπον','에이폰','그들은 말했다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐρρήθην','에레떼n','나는 말해졌다'], pl:['ἐρρήθημεν','에레떼멘','우리는 말해졌다']},
+    {p:'2', sg:['ἐρρήθης','에레떼스','너는 말해졌다'], pl:['ἐρρήθητε','에레떼테','너희는 말해졌다']},
+    {p:'3', sg:['ἐρρήθη','에레떼','그는 말해졌다'], pl:['ἐρρήθησαν','에레떼산','그들은 말해졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['εἰπόμην','에이포멘','나는(위해) 말했다'], pl:['εἰπόμεθα','에이포메따','우리는(위해) 말했다']},
+    {p:'2', sg:['εἴπου','에이푸','너는(위해) 말했다'], pl:['εἴπεσθε','에이페스떼','너희는(위해) 말했다']},
+    {p:'3', sg:['εἴπετο','에이페토','그는(위해) 말했다'], pl:['εἴποντο','에이폰토','그들은(위해) 말했다']},
+  ]},
+  { tense:'제2단순과거', voice:'능동', forms:[
+    {p:'1', sg:['εἶπον','에이폰','나는 말했다 (제2)'], pl:['εἴπομεν','에이포멘','우리는 말했다']},
+    {p:'2', sg:['εἶπες','에이페스','너는 말했다'], pl:['εἴπετε','에이페테','너희는 말했다']},
+    {p:'3', sg:['εἶπε(ν)','에이페','그는 말했다'], pl:['εἶπον','에이폰','그들은 말했다']},
+  ]},
+  { tense:'제2단순과거', voice:'중간', forms:[
+    {p:'1', sg:['εἰπόμην','에이포멘','나는(위해) 말했다 (제2)'], pl:['εἰπόμεθα','에이포메따','우리는(위해) 말했다']},
+    {p:'2', sg:['εἴπου','에이푸','너는(위해) 말했다'], pl:['εἴπεσθε','에이페스떼','너희는(위해) 말했다']},
+    {p:'3', sg:['εἴπετο','에이페토','그는(위해) 말했다'], pl:['εἴποντο','에이폰토','그들은(위해) 말했다']},
+  ]},
+];
+
+// ── πιστεύω (피스튜오) — 규칙
+CONJUGATIONS['pisteuo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['πιστεύω','피스튜오','나는 믿다'], pl:['πιστεύομεν','피스튜오멘','우리는 믿다']},
+    {p:'2', sg:['πιστεύεις','피스튜에이스','너는 믿다'], pl:['πιστεύετε','피스튜에테','너희는 믿다']},
+    {p:'3', sg:['πιστεύει','피스튜에이','그는 믿다'], pl:['πιστεύουσι(ν)','피스튜우시','그들은 믿다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['πιστεύομαι','피스튜오마이','나는 믿어지다'], pl:['πιστευόμεθα','피스튜오메따','우리는 믿어지다']},
+    {p:'2', sg:['πιστεύῃ','피스튜에','너는 믿어지다'], pl:['πιστεύεσθε','피스튜에스떼','너희는 믿어지다']},
+    {p:'3', sg:['πιστεύεται','피스튜에타이','그는 믿어지다'], pl:['πιστεύονται','피스튜온타이','그들은 믿어지다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['πιστεύομαι','피스튜오마이','나는(위해) 믿다'], pl:['πιστευόμεθα','피스튜오메따','우리는(위해) 믿다']},
+    {p:'2', sg:['πιστεύῃ','피스튜에','너는(위해) 믿다'], pl:['πιστεύεσθε','피스튜에스떼','너희는(위해) 믿다']},
+    {p:'3', sg:['πιστεύεται','피스튜에타이','그는(위해) 믿다'], pl:['πιστεύονται','피스튜온타이','그들은(위해) 믿다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['πιστεύσω','피스튜소','나는 믿을 것이다'], pl:['πιστεύσομεν','피스튜소멘','우리는 믿을 것이다']},
+    {p:'2', sg:['πιστεύσεις','피스튜세이스','너는 믿을 것이다'], pl:['πιστεύσετε','피스튜세테','너희는 믿을 것이다']},
+    {p:'3', sg:['πιστεύσει','피스튜세이','그는 믿을 것이다'], pl:['πιστεύσουσι(ν)','피스튜수시','그들은 믿을 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['πιστευθήσομαι','피스튜떼소마이','나는 믿어질 것이다'], pl:['πιστευθησόμεθα','피스튜떼소메따','우리는 믿어질 것이다']},
+    {p:'2', sg:['πιστευθήσῃ','피스튜떼세','너는 믿어질 것이다'], pl:['πιστευθήσεσθε','피스튜떼세스떼','너희는 믿어질 것이다']},
+    {p:'3', sg:['πιστευθήσεται','피스튜떼세타이','그는 믿어질 것이다'], pl:['πιστευθήσονται','피스튜떼손타이','그들은 믿어질 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['πιστεύσομαι','피스튜소마이','나는(위해) 믿을 것이다'], pl:['πιστευσόμεθα','피스튜소메따','우리는(위해) 믿을 것이다']},
+    {p:'2', sg:['πιστεύσῃ','피스튜세','너는(위해) 믿을 것이다'], pl:['πιστεύσεσθε','피스튜세스떼','너희는(위해) 믿을 것이다']},
+    {p:'3', sg:['πιστεύσεται','피스튜세타이','그는(위해) 믿을 것이다'], pl:['πιστεύσονται','피스튜손타이','그들은(위해) 믿을 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐπίστευον','에피스튜온','나는 믿고 있었다'], pl:['ἐπιστεύομεν','에피스튜오멘','우리는 믿고 있었다']},
+    {p:'2', sg:['ἐπίστευες','에피스튜에스','너는 믿고 있었다'], pl:['ἐπιστεύετε','에피스튜에테','너희는 믿고 있었다']},
+    {p:'3', sg:['ἐπίστευε(ν)','에피스튜에','그는 믿고 있었다'], pl:['ἐπίστευον','에피스튜온','그들은 믿고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐπιστευόμην','에피스튜오멘','나는 믿어지고 있었다'], pl:['ἐπιστευόμεθα','에피스튜오메따','우리는 믿어지고 있었다']},
+    {p:'2', sg:['ἐπιστεύου','에피스튜우','너는 믿어지고 있었다'], pl:['ἐπιστεύεσθε','에피스튜에스떼','너희는 믿어지고 있었다']},
+    {p:'3', sg:['ἐπιστεύετο','에피스튜에토','그는 믿어지고 있었다'], pl:['ἐπιστεύοντο','에피스튜온토','그들은 믿어지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐπιστευόμην','에피스튜오멘','나는(위해) 믿고 있었다'], pl:['ἐπιστευόμεθα','에피스튜오메따','우리는(위해) 믿고 있었다']},
+    {p:'2', sg:['ἐπιστεύου','에피스튜우','너는(위해) 믿고 있었다'], pl:['ἐπιστεύεσθε','에피스튜에스떼','너희는(위해) 믿고 있었다']},
+    {p:'3', sg:['ἐπιστεύετο','에피스튜에토','그는(위해) 믿고 있었다'], pl:['ἐπιστεύοντο','에피스튜온토','그들은(위해) 믿고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἐπίστευσα','에피스튜사','나는 믿었다'], pl:['ἐπιστεύσαμεν','에피스튜사멘','우리는 믿었다']},
+    {p:'2', sg:['ἐπίστευσας','에피스튜사스','너는 믿었다'], pl:['ἐπιστεύσατε','에피스튜사테','너희는 믿었다']},
+    {p:'3', sg:['ἐπίστευσε(ν)','에피스튜센','그는 믿었다'], pl:['ἐπίστευσαν','에피스튜산','그들은 믿었다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐπιστεύθην','에피스튜떼n','나는 믿어졌다'], pl:['ἐπιστεύθημεν','에피스튜떼멘','우리는 믿어졌다']},
+    {p:'2', sg:['ἐπιστεύθης','에피스튜떼스','너는 믿어졌다'], pl:['ἐπιστεύθητε','에피스튜떼테','너희는 믿어졌다']},
+    {p:'3', sg:['ἐπιστεύθη','에피스튜떼','그는 믿어졌다'], pl:['ἐπιστεύθησαν','에피스튜떼산','그들은 믿어졌다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐπιστευσάμην','에피스튜사멘','나는(위해) 믿었다'], pl:['ἐπιστευσάμεθα','에피스튜사메따','우리는(위해) 믿었다']},
+    {p:'2', sg:['ἐπιστεύσω','에피스튜소','너는(위해) 믿었다'], pl:['ἐπιστεύσασθε','에피스튜사스떼','너희는(위해) 믿었다']},
+    {p:'3', sg:['ἐπιστεύσατο','에피스튜사토','그는(위해) 믿었다'], pl:['ἐπιστεύσαντο','에피스튜산토','그들은(위해) 믿었다']},
+  ]},
+];
+
+// ── θεραπεύω (테라퓨오) — 규칙
+CONJUGATIONS['therapeuo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['θεραπεύω','테라퓨오','나는 치료하다'], pl:['θεραπεύομεν','테라퓨오멘','우리는 치료하다']},
+    {p:'2', sg:['θεραπεύεις','테라퓨에이스','너는 치료하다'], pl:['θεραπεύετε','테라퓨에테','너희는 치료하다']},
+    {p:'3', sg:['θεραπεύει','테라퓨에이','그는 치료하다'], pl:['θεραπεύουσι(ν)','테라퓨우시','그들은 치료하다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['θεραπεύομαι','테라퓨오마이','나는 치료받다'], pl:['θεραπευόμεθα','테라퓨오메따','우리는 치료받다']},
+    {p:'2', sg:['θεραπεύῃ','테라퓨에','너는 치료받다'], pl:['θεραπεύεσθε','테라퓨에스떼','너희는 치료받다']},
+    {p:'3', sg:['θεραπεύεται','테라퓨에타이','그는 치료받다'], pl:['θεραπεύονται','테라퓨온타이','그들은 치료받다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['θεραπεύομαι','테라퓨오마이','나는(위해) 치료하다'], pl:['θεραπευόμεθα','테라퓨오메따','우리는(위해) 치료하다']},
+    {p:'2', sg:['θεραπεύῃ','테라퓨에','너는(위해) 치료하다'], pl:['θεραπεύεσθε','테라퓨에스떼','너희는(위해) 치료하다']},
+    {p:'3', sg:['θεραπεύεται','테라퓨에타이','그는(위해) 치료하다'], pl:['θεραπεύονται','테라퓨온타이','그들은(위해) 치료하다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['θεραπεύσω','테라퓨소','나는 치료할 것이다'], pl:['θεραπεύσομεν','테라퓨소멘','우리는 치료할 것이다']},
+    {p:'2', sg:['θεραπεύσεις','테라퓨세이스','너는 치료할 것이다'], pl:['θεραπεύσετε','테라퓨세테','너희는 치료할 것이다']},
+    {p:'3', sg:['θεραπεύσει','테라퓨세이','그는 치료할 것이다'], pl:['θεραπεύσουσι(ν)','테라퓨수시','그들은 치료할 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['θεραπευθήσομαι','테라퓨떼소마이','나는 치료받을 것이다'], pl:['θεραπευθησόμεθα','테라퓨떼소메따','우리는 치료받을 것이다']},
+    {p:'2', sg:['θεραπευθήσῃ','테라퓨떼세','너는 치료받을 것이다'], pl:['θεραπευθήσεσθε','테라퓨떼세스떼','너희는 치료받을 것이다']},
+    {p:'3', sg:['θεραπευθήσεται','테라퓨떼세타이','그는 치료받을 것이다'], pl:['θεραπευθήσονται','테라퓨떼손타이','그들은 치료받을 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['θεραπεύσομαι','테라퓨소마이','나는(위해) 치료할 것이다'], pl:['θεραπευσόμεθα','테라퓨소메따','우리는(위해) 치료할 것이다']},
+    {p:'2', sg:['θεραπεύσῃ','테라퓨세','너는(위해) 치료할 것이다'], pl:['θεραπεύσεσθε','테라퓨세스떼','너희는(위해) 치료할 것이다']},
+    {p:'3', sg:['θεραπεύσεται','테라퓨세타이','그는(위해) 치료할 것이다'], pl:['θεραπεύσονται','테라퓨손타이','그들은(위해) 치료할 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐθεράπευον','에테라퓨온','나는 치료하고 있었다'], pl:['ἐθεραπεύομεν','에테라퓨오멘','우리는 치료하고 있었다']},
+    {p:'2', sg:['ἐθεράπευες','에테라퓨에스','너는 치료하고 있었다'], pl:['ἐθεραπεύετε','에테라퓨에테','너희는 치료하고 있었다']},
+    {p:'3', sg:['ἐθεράπευε(ν)','에테라퓨에','그는 치료하고 있었다'], pl:['ἐθεράπευον','에테라퓨온','그들은 치료하고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐθεραπευόμην','에테라퓨오멘','나는 치료받고 있었다'], pl:['ἐθεραπευόμεθα','에테라퓨오메따','우리는 치료받고 있었다']},
+    {p:'2', sg:['ἐθεραπεύου','에테라퓨우','너는 치료받고 있었다'], pl:['ἐθεραπεύεσθε','에테라퓨에스떼','너희는 치료받고 있었다']},
+    {p:'3', sg:['ἐθεραπεύετο','에테라퓨에토','그는 치료받고 있었다'], pl:['ἐθεραπεύοντο','에테라퓨온토','그들은 치료받고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐθεραπευόμην','에테라퓨오멘','나는(위해) 치료하고 있었다'], pl:['ἐθεραπευόμεθα','에테라퓨오메따','우리는(위해) 치료하고 있었다']},
+    {p:'2', sg:['ἐθεραπεύου','에테라퓨우','너는(위해) 치료하고 있었다'], pl:['ἐθεραπεύεσθε','에테라퓨에스떼','너희는(위해) 치료하고 있었다']},
+    {p:'3', sg:['ἐθεραπεύετο','에테라퓨에토','그는(위해) 치료하고 있었다'], pl:['ἐθεραπεύοντο','에테라퓨온토','그들은(위해) 치료하고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἐθεράπευσα','에테라퓨사','나는 치료했다'], pl:['ἐθεραπεύσαμεν','에테라퓨사멘','우리는 치료했다']},
+    {p:'2', sg:['ἐθεράπευσας','에테라퓨사스','너는 치료했다'], pl:['ἐθεραπεύσατε','에테라퓨사테','너희는 치료했다']},
+    {p:'3', sg:['ἐθεράπευσε(ν)','에테라퓨센','그는 치료했다'], pl:['ἐθεράπευσαν','에테라퓨산','그들은 치료했다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐθεραπεύθην','에테라퓨떼n','나는 치료받았다'], pl:['ἐθεραπεύθημεν','에테라퓨떼멘','우리는 치료받았다']},
+    {p:'2', sg:['ἐθεραπεύθης','에테라퓨떼스','너는 치료받았다'], pl:['ἐθεραπεύθητε','에테라퓨떼테','너희는 치료받았다']},
+    {p:'3', sg:['ἐθεραπεύθη','에테라퓨떼','그는 치료받았다'], pl:['ἐθεραπεύθησαν','에테라퓨떼산','그들은 치료받았다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐθεραπευσάμην','에테라퓨사멘','나는(위해) 치료했다'], pl:['ἐθεραπευσάμεθα','에테라퓨사메따','우리는(위해) 치료했다']},
+    {p:'2', sg:['ἐθεραπεύσω','에테라퓨소','너는(위해) 치료했다'], pl:['ἐθεραπεύσασθε','에테라퓨사스떼','너희는(위해) 치료했다']},
+    {p:'3', sg:['ἐθεραπεύσατο','에테라퓨사토','그는(위해) 치료했다'], pl:['ἐθεραπεύσαντο','에테라퓨산토','그들은(위해) 치료했다']},
+  ]},
+];
+
+// ── ἐγείρω (에게이로) — 미래 ε 탈락, 과거 ἤγειρα / 수동 ἠγέρθην
+CONJUGATIONS['egeiro'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['ἐγείρω','에게이로','나는 일으키다'], pl:['ἐγείρομεν','에게이로멘','우리는 일으키다']},
+    {p:'2', sg:['ἐγείρεις','에게이레이스','너는 일으키다'], pl:['ἐγείρετε','에게이레테','너희는 일으키다']},
+    {p:'3', sg:['ἐγείρει','에게이레이','그는 일으키다'], pl:['ἐγείρουσι(ν)','에게이루시','그들은 일으키다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['ἐγείρομαι','에게이로마이','나는 일어나다'], pl:['ἐγειρόμεθα','에게이로메따','우리는 일어나다']},
+    {p:'2', sg:['ἐγείρῃ','에게이레','너는 일어나다'], pl:['ἐγείρεσθε','에게이레스떼','너희는 일어나다']},
+    {p:'3', sg:['ἐγείρεται','에게이레타이','그는 일어나다'], pl:['ἐγείρονται','에게이론타이','그들은 일어나다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['ἐγείρομαι','에게이로마이','나는(위해) 일으키다'], pl:['ἐγειρόμεθα','에게이로메따','우리는(위해) 일으키다']},
+    {p:'2', sg:['ἐγείρῃ','에게이레','너는(위해) 일으키다'], pl:['ἐγείρεσθε','에게이레스떼','너희는(위해) 일으키다']},
+    {p:'3', sg:['ἐγείρεται','에게이레타이','그는(위해) 일으키다'], pl:['ἐγείρονται','에게이론타이','그들은(위해) 일으키다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['ἐγερῶ','에게로','나는 일으킬 것이다'], pl:['ἐγεροῦμεν','에게루멘','우리는 일으킬 것이다']},
+    {p:'2', sg:['ἐγερεῖς','에게레이스','너는 일으킬 것이다'], pl:['ἐγερεῖτε','에게레이테','너희는 일으킬 것이다']},
+    {p:'3', sg:['ἐγερεῖ','에게레이','그는 일으킬 것이다'], pl:['ἐγεροῦσι(ν)','에게루시','그들은 일으킬 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['ἐγερθήσομαι','에게르떼소마이','나는 일어날 것이다'], pl:['ἐγερθησόμεθα','에게르떼소메따','우리는 일어날 것이다']},
+    {p:'2', sg:['ἐγερθήσῃ','에게르떼세','너는 일어날 것이다'], pl:['ἐγερθήσεσθε','에게르떼세스떼','너희는 일어날 것이다']},
+    {p:'3', sg:['ἐγερθήσεται','에게르떼세타이','그는 일어날 것이다'], pl:['ἐγερθήσονται','에게르떼손타이','그들은 일어날 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['ἐγεροῦμαι','에게루마이','나는(위해) 일으킬 것이다'], pl:['ἐγερούμεθα','에게루메따','우리는(위해) 일으킬 것이다']},
+    {p:'2', sg:['ἐγερῇ','에게레','너는(위해) 일으킬 것이다'], pl:['ἐγερεῖσθε','에게레이스떼','너희는(위해) 일으킬 것이다']},
+    {p:'3', sg:['ἐγερεῖται','에게레이타이','그는(위해) 일으킬 것이다'], pl:['ἐγεροῦνται','에게룬타이','그들은(위해) 일으킬 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἤγειρον','에게이론','나는 일으키고 있었다'], pl:['ἠγείρομεν','에게이로멘','우리는 일으키고 있었다']},
+    {p:'2', sg:['ἤγειρες','에게이레스','너는 일으키고 있었다'], pl:['ἠγείρετε','에게이레테','너희는 일으키고 있었다']},
+    {p:'3', sg:['ἤγειρε(ν)','에게이레','그는 일으키고 있었다'], pl:['ἤγειρον','에게이론','그들은 일으키고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἠγειρόμην','에게이로멘','나는 일어나고 있었다'], pl:['ἠγειρόμεθα','에게이로메따','우리는 일어나고 있었다']},
+    {p:'2', sg:['ἠγείρου','에게이루','너는 일어나고 있었다'], pl:['ἠγείρεσθε','에게이레스떼','너희는 일어나고 있었다']},
+    {p:'3', sg:['ἠγείρετο','에게이레토','그는 일어나고 있었다'], pl:['ἠγείροντο','에게이론토','그들은 일어나고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἠγειρόμην','에게이로멘','나는(위해) 일으키고 있었다'], pl:['ἠγειρόμεθα','에게이로메따','우리는(위해) 일으키고 있었다']},
+    {p:'2', sg:['ἠγείρου','에게이루','너는(위해) 일으키고 있었다'], pl:['ἠγείρεσθε','에게이레스떼','너희는(위해) 일으키고 있었다']},
+    {p:'3', sg:['ἠγείρετο','에게이레토','그는(위해) 일으키고 있었다'], pl:['ἠγείροντο','에게이론토','그들은(위해) 일으키고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἤγειρα','에게이라','나는 일으켰다'], pl:['ἠγείραμεν','에게이라멘','우리는 일으켰다']},
+    {p:'2', sg:['ἤγειρας','에게이라스','너는 일으켰다'], pl:['ἠγείρατε','에게이라테','너희는 일으켰다']},
+    {p:'3', sg:['ἤγειρε(ν)','에게이레','그는 일으켰다'], pl:['ἤγειραν','에게이란','그들은 일으켰다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἠγέρθην','에게르떼n','나는 일어났다'], pl:['ἠγέρθημεν','에게르떼멘','우리는 일어났다']},
+    {p:'2', sg:['ἠγέρθης','에게르떼스','너는 일어났다'], pl:['ἠγέρθητε','에게르떼테','너희는 일어났다']},
+    {p:'3', sg:['ἠγέρθη','에게르떼','그는 일어났다'], pl:['ἠγέρθησαν','에게르떼산','그들은 일어났다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἠγειράμην','에게이라멘','나는(위해) 일으켰다'], pl:['ἠγειράμεθα','에게이라메따','우리는(위해) 일으켰다']},
+    {p:'2', sg:['ἠγείρω','에게이로','너는(위해) 일으켰다'], pl:['ἠγείρασθε','에게이라스떼','너희는(위해) 일으켰다']},
+    {p:'3', sg:['ἠγείρατο','에게이라토','그는(위해) 일으켰다'], pl:['ἠγείραντο','에게이란토','그들은(위해) 일으켰다']},
+  ]},
+];
+
+// ── βαπτίζω (밥티조) — ζ→σ
+CONJUGATIONS['baptizo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['βαπτίζω','밥티조','나는 침례를 주다'], pl:['βαπτίζομεν','밥티조멘','우리는 침례를 주다']},
+    {p:'2', sg:['βαπτίζεις','밥티제이스','너는 침례를 주다'], pl:['βαπτίζετε','밥티제테','너희는 침례를 주다']},
+    {p:'3', sg:['βαπτίζει','밥티제이','그는 침례를 주다'], pl:['βαπτίζουσι(ν)','밥티주시','그들은 침례를 주다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['βαπτίζομαι','밥티조마이','나는 침례를 받다'], pl:['βαπτιζόμεθα','밥티조메따','우리는 침례를 받다']},
+    {p:'2', sg:['βαπτίζῃ','밥티제','너는 침례를 받다'], pl:['βαπτίζεσθε','밥티제스떼','너희는 침례를 받다']},
+    {p:'3', sg:['βαπτίζεται','밥티제타이','그는 침례를 받다'], pl:['βαπτίζονται','밥티존타이','그들은 침례를 받다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['βαπτίζομαι','밥티조마이','나는(위해) 침례를 주다'], pl:['βαπτιζόμεθα','밥티조메따','우리는(위해) 침례를 주다']},
+    {p:'2', sg:['βαπτίζῃ','밥티제','너는(위해) 침례를 주다'], pl:['βαπτίζεσθε','밥티제스떼','너희는(위해) 침례를 주다']},
+    {p:'3', sg:['βαπτίζεται','밥티제타이','그는(위해) 침례를 주다'], pl:['βαπτίζονται','밥티존타이','그들은(위해) 침례를 주다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['βαπτίσω','밥티소','나는 침례를 줄 것이다'], pl:['βαπτίσομεν','밥티소멘','우리는 침례를 줄 것이다']},
+    {p:'2', sg:['βαπτίσεις','밥티세이스','너는 침례를 줄 것이다'], pl:['βαπτίσετε','밥티세테','너희는 침례를 줄 것이다']},
+    {p:'3', sg:['βαπτίσει','밥티세이','그는 침례를 줄 것이다'], pl:['βαπτίσουσι(ν)','밥티수시','그들은 침례를 줄 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['βαπτισθήσομαι','밥티스떼소마이','나는 침례를 받을 것이다'], pl:['βαπτισθησόμεθα','밥티스떼소메따','우리는 침례를 받을 것이다']},
+    {p:'2', sg:['βαπτισθήσῃ','밥티스떼세','너는 침례를 받을 것이다'], pl:['βαπτισθήσεσθε','밥티스떼세스떼','너희는 침례를 받을 것이다']},
+    {p:'3', sg:['βαπτισθήσεται','밥티스떼세타이','그는 침례를 받을 것이다'], pl:['βαπτισθήσονται','밥티스떼손타이','그들은 침례를 받을 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['βαπτίσομαι','밥티소마이','나는(위해) 침례를 줄 것이다'], pl:['βαπτισόμεθα','밥티소메따','우리는(위해) 침례를 줄 것이다']},
+    {p:'2', sg:['βαπτίσῃ','밥티세','너는(위해) 침례를 줄 것이다'], pl:['βαπτίσεσθε','밥티세스떼','너희는(위해) 침례를 줄 것이다']},
+    {p:'3', sg:['βαπτίσεται','밥티세타이','그는(위해) 침례를 줄 것이다'], pl:['βαπτίσονται','밥티손타이','그들은(위해) 침례를 줄 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἐβάπτιζον','에밥티존','나는 침례를 주고 있었다'], pl:['ἐβαπτίζομεν','에밥티조멘','우리는 침례를 주고 있었다']},
+    {p:'2', sg:['ἐβάπτιζες','에밥티제스','너는 침례를 주고 있었다'], pl:['ἐβαπτίζετε','에밥티제테','너희는 침례를 주고 있었다']},
+    {p:'3', sg:['ἐβάπτιζε(ν)','에밥티제','그는 침례를 주고 있었다'], pl:['ἐβάπτιζον','에밥티존','그들은 침례를 주고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐβαπτιζόμην','에밥티조멘','나는 침례를 받고 있었다'], pl:['ἐβαπτιζόμεθα','에밥티조메따','우리는 침례를 받고 있었다']},
+    {p:'2', sg:['ἐβαπτίζου','에밥티주','너는 침례를 받고 있었다'], pl:['ἐβαπτίζεσθε','에밥티제스떼','너희는 침례를 받고 있었다']},
+    {p:'3', sg:['ἐβαπτίζετο','에밥티제토','그는 침례를 받고 있었다'], pl:['ἐβαπτίζοντο','에밥티존토','그들은 침례를 받고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐβαπτιζόμην','에밥티조멘','나는(위해) 침례를 주고 있었다'], pl:['ἐβαπτιζόμεθα','에밥티조메따','우리는(위해) 침례를 주고 있었다']},
+    {p:'2', sg:['ἐβαπτίζου','에밥티주','너는(위해) 침례를 주고 있었다'], pl:['ἐβαπτίζεσθε','에밥티제스떼','너희는(위해) 침례를 주고 있었다']},
+    {p:'3', sg:['ἐβαπτίζετο','에밥티제토','그는(위해) 침례를 주고 있었다'], pl:['ἐβαπτίζοντο','에밥티존토','그들은(위해) 침례를 주고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἐβάπτισα','에밥티사','나는 침례를 주었다'], pl:['ἐβαπτίσαμεν','에밥티사멘','우리는 침례를 주었다']},
+    {p:'2', sg:['ἐβάπτισας','에밥티사스','너는 침례를 주었다'], pl:['ἐβαπτίσατε','에밥티사테','너희는 침례를 주었다']},
+    {p:'3', sg:['ἐβάπτισε(ν)','에밥티센','그는 침례를 주었다'], pl:['ἐβάπτισαν','에밥티산','그들은 침례를 주었다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐβαπτίσθην','에밥티스떼n','나는 침례를 받았다'], pl:['ἐβαπτίσθημεν','에밥티스떼멘','우리는 침례를 받았다']},
+    {p:'2', sg:['ἐβαπτίσθης','에밥티스떼스','너는 침례를 받았다'], pl:['ἐβαπτίσθητε','에밥티스떼테','너희는 침례를 받았다']},
+    {p:'3', sg:['ἐβαπτίσθη','에밥티스떼','그는 침례를 받았다'], pl:['ἐβαπτίσθησαν','에밥티스떼산','그들은 침례를 받았다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐβαπτισάμην','에밥티사멘','나는(위해) 침례를 주었다'], pl:['ἐβαπτισάμεθα','에밥티사메따','우리는(위해) 침례를 주었다']},
+    {p:'2', sg:['ἐβαπτίσω','에밥티소','너는(위해) 침례를 주었다'], pl:['ἐβαπτίσασθε','에밥티사스떼','너희는(위해) 침례를 주었다']},
+    {p:'3', sg:['ἐβαπτίσατο','에밥티사토','그는(위해) 침례를 주었다'], pl:['ἐβαπτίσαντο','에밥티산토','그들은(위해) 침례를 주었다']},
+  ]},
+];
+
+// ── ἔχω (에코) — 가산모음 없음! ε+ε→ε (시험 주의)
+CONJUGATIONS['echo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['ἔχω','에코','나는 가지고 있다'], pl:['ἔχομεν','에코멘','우리는 가지고 있다']},
+    {p:'2', sg:['ἔχεις','에케이스','너는 가지고 있다'], pl:['ἔχετε','에케테','너희는 가지고 있다']},
+    {p:'3', sg:['ἔχει','에케이','그는 가지고 있다'], pl:['ἔχουσι(ν)','에쿠시','그들은 가지고 있다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['ἔχομαι','에코마이','나는 붙잡혀 있다'], pl:['ἐχόμεθα','에코메따','우리는 붙잡혀 있다']},
+    {p:'2', sg:['ἔχῃ','에케','너는 붙잡혀 있다'], pl:['ἔχεσθε','에케스떼','너희는 붙잡혀 있다']},
+    {p:'3', sg:['ἔχεται','에케타이','그는 붙잡혀 있다'], pl:['ἔχονται','에콘타이','그들은 붙잡혀 있다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['ἔχομαι','에코마이','나는(위해) 가지다'], pl:['ἐχόμεθα','에코메따','우리는(위해) 가지다']},
+    {p:'2', sg:['ἔχῃ','에케','너는(위해) 가지다'], pl:['ἔχεσθε','에케스떼','너희는(위해) 가지다']},
+    {p:'3', sg:['ἔχεται','에케타이','그는(위해) 가지다'], pl:['ἔχονται','에콘타이','그들은(위해) 가지다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['ἕξω','헥소','나는 가질 것이다'], pl:['ἕξομεν','헥소멘','우리는 가질 것이다']},
+    {p:'2', sg:['ἕξεις','헥세이스','너는 가질 것이다'], pl:['ἕξετε','헥세테','너희는 가질 것이다']},
+    {p:'3', sg:['ἕξει','헥세이','그는 가질 것이다'], pl:['ἕξουσι(ν)','헥수시','그들은 가질 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['ἐχθήσομαι','엑크떼소마이','나는 붙잡힐 것이다'], pl:['ἐχθησόμεθα','엑크떼소메따','우리는 붙잡힐 것이다']},
+    {p:'2', sg:['ἐχθήσῃ','엑크떼세','너는 붙잡힐 것이다'], pl:['ἐχθήσεσθε','엑크떼세스떼','너희는 붙잡힐 것이다']},
+    {p:'3', sg:['ἐχθήσεται','엑크떼세타이','그는 붙잡힐 것이다'], pl:['ἐχθήσονται','엑크떼손타이','그들은 붙잡힐 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['ἕξομαι','헥소마이','나는(위해) 가질 것이다'], pl:['ἑξόμεθα','헥소메따','우리는(위해) 가질 것이다']},
+    {p:'2', sg:['ἕξῃ','헥세','너는(위해) 가질 것이다'], pl:['ἕξεσθε','헥세스떼','너희는(위해) 가질 것이다']},
+    {p:'3', sg:['ἕξεται','헥세타이','그는(위해) 가질 것이다'], pl:['ἕξονται','헥손타이','그들은(위해) 가질 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['εἶχον','에이콘','나는 가지고 있었다 ⚠️가산모음없음'], pl:['εἴχομεν','에이코멘','우리는 가지고 있었다']},
+    {p:'2', sg:['εἶχες','에이케스','너는 가지고 있었다'], pl:['εἴχετε','에이케테','너희는 가지고 있었다']},
+    {p:'3', sg:['εἶχε(ν)','에이케','그는 가지고 있었다'], pl:['εἶχον','에이콘','그들은 가지고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['εἰχόμην','에이코멘','나는 붙잡혀 있었다'], pl:['εἰχόμεθα','에이코메따','우리는 붙잡혀 있었다']},
+    {p:'2', sg:['εἴχου','에이쿠','너는 붙잡혀 있었다'], pl:['εἴχεσθε','에이케스떼','너희는 붙잡혀 있었다']},
+    {p:'3', sg:['εἴχετο','에이케토','그는 붙잡혀 있었다'], pl:['εἴχοντο','에이콘토','그들은 붙잡혀 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['εἰχόμην','에이코멘','나는(위해) 가지고 있었다'], pl:['εἰχόμεθα','에이코메따','우리는(위해) 가지고 있었다']},
+    {p:'2', sg:['εἴχου','에이쿠','너는(위해) 가지고 있었다'], pl:['εἴχεσθε','에이케스떼','너희는(위해) 가지고 있었다']},
+    {p:'3', sg:['εἴχετο','에이케토','그는(위해) 가지고 있었다'], pl:['εἴχοντο','에이콘토','그들은(위해) 가지고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔσχον','에스콘','나는 가졌다 (제2)'], pl:['ἔσχομεν','에스코멘','우리는 가졌다']},
+    {p:'2', sg:['ἔσχες','에스케스','너는 가졌다'], pl:['ἔσχετε','에스케테','너희는 가졌다']},
+    {p:'3', sg:['ἔσχε(ν)','에스케','그는 가졌다'], pl:['ἔσχον','에스콘','그들은 가졌다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐσχέθην','에스케떼n','나는 붙잡혔다'], pl:['ἐσχέθημεν','에스케떼멘','우리는 붙잡혔다']},
+    {p:'2', sg:['ἐσχέθης','에스케떼스','너는 붙잡혔다'], pl:['ἐσχέθητε','에스케떼테','너희는 붙잡혔다']},
+    {p:'3', sg:['ἐσχέθη','에스케떼','그는 붙잡혔다'], pl:['ἐσχέθησαν','에스케떼산','그들은 붙잡혔다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐσχόμην','에스코멘','나는(위해) 가졌다'], pl:['ἐσχόμεθα','에스코메따','우리는(위해) 가졌다']},
+    {p:'2', sg:['ἔσχου','에스쿠','너는(위해) 가졌다'], pl:['ἔσχεσθε','에스케스떼','너희는(위해) 가졌다']},
+    {p:'3', sg:['ἔσχετο','에스케토','그는(위해) 가졌다'], pl:['ἔσχοντο','에스콘토','그들은(위해) 가졌다']},
+  ]},
+  { tense:'제2단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔσχον','에스콘','나는 가졌다 (제2)'], pl:['ἔσχομεν','에스코멘','우리는 가졌다']},
+    {p:'2', sg:['ἔσχες','에스케스','너는 가졌다'], pl:['ἔσχετε','에스케테','너희는 가졌다']},
+    {p:'3', sg:['ἔσχε(ν)','에스케','그는 가졌다'], pl:['ἔσχον','에스콘','그들은 가졌다']},
+  ]},
+];
+
+// ── σῴζω (소조) — 두 가지 의미 필수!
+CONJUGATIONS['sozo'] = [
+  { tense:'현재', voice:'능동', forms:[
+    {p:'1', sg:['σῴζω','소조','나는 구원하다/치료하다'], pl:['σῴζομεν','소조멘','우리는 구원하다/치료하다']},
+    {p:'2', sg:['σῴζεις','소제이스','너는 구원하다/치료하다'], pl:['σῴζετε','소제테','너희는 구원하다/치료하다']},
+    {p:'3', sg:['σῴζει','소제이','그는 구원하다/치료하다'], pl:['σῴζουσι(ν)','소주시','그들은 구원하다/치료하다']},
+  ]},
+  { tense:'현재', voice:'수동', forms:[
+    {p:'1', sg:['σῴζομαι','소조마이','나는 구원받다/치료받다'], pl:['σῳζόμεθα','소조메따','우리는 구원받다/치료받다']},
+    {p:'2', sg:['σῴζῃ','소제','너는 구원받다/치료받다'], pl:['σῴζεσθε','소제스떼','너희는 구원받다/치료받다']},
+    {p:'3', sg:['σῴζεται','소제타이','그는 구원받다/치료받다'], pl:['σῴζονται','소존타이','그들은 구원받다/치료받다']},
+  ]},
+  { tense:'현재', voice:'중간', forms:[
+    {p:'1', sg:['σῴζομαι','소조마이','나는(위해) 구원하다'], pl:['σῳζόμεθα','소조메따','우리는(위해) 구원하다']},
+    {p:'2', sg:['σῴζῃ','소제','너는(위해) 구원하다'], pl:['σῴζεσθε','소제스떼','너희는(위해) 구원하다']},
+    {p:'3', sg:['σῴζεται','소제타이','그는(위해) 구원하다'], pl:['σῴζονται','소존타이','그들은(위해) 구원하다']},
+  ]},
+  { tense:'미래', voice:'능동', forms:[
+    {p:'1', sg:['σώσω','소소','나는 구원할/치료할 것이다'], pl:['σώσομεν','소소멘','우리는 구원할/치료할 것이다']},
+    {p:'2', sg:['σώσεις','소세이스','너는 구원할/치료할 것이다'], pl:['σώσετε','소세테','너희는 구원할/치료할 것이다']},
+    {p:'3', sg:['σώσει','소세이','그는 구원할/치료할 것이다'], pl:['σώσουσι(ν)','소수시','그들은 구원할/치료할 것이다']},
+  ]},
+  { tense:'미래', voice:'수동', forms:[
+    {p:'1', sg:['σωθήσομαι','소떼소마이','나는 구원받을/치료받을 것이다'], pl:['σωθησόμεθα','소떼소메따','우리는 구원받을/치료받을 것이다']},
+    {p:'2', sg:['σωθήσῃ','소떼세','너는 구원받을/치료받을 것이다'], pl:['σωθήσεσθε','소떼세스떼','너희는 구원받을/치료받을 것이다']},
+    {p:'3', sg:['σωθήσεται','소떼세타이','그는 구원받을/치료받을 것이다'], pl:['σωθήσονται','소떼손타이','그들은 구원받을/치료받을 것이다']},
+  ]},
+  { tense:'미래', voice:'중간', forms:[
+    {p:'1', sg:['σώσομαι','소소마이','나는(위해) 구원할 것이다'], pl:['σωσόμεθα','소소메따','우리는(위해) 구원할 것이다']},
+    {p:'2', sg:['σώσῃ','소세','너는(위해) 구원할 것이다'], pl:['σώσεσθε','소세스떼','너희는(위해) 구원할 것이다']},
+    {p:'3', sg:['σώσεται','소세타이','그는(위해) 구원할 것이다'], pl:['σώσονται','소손타이','그들은(위해) 구원할 것이다']},
+  ]},
+  { tense:'미완료', voice:'능동', forms:[
+    {p:'1', sg:['ἔσῳζον','에소존','나는 구원하고/치료하고 있었다'], pl:['ἐσῴζομεν','에소조멘','우리는 구원하고/치료하고 있었다']},
+    {p:'2', sg:['ἔσῳζες','에소제스','너는 구원하고/치료하고 있었다'], pl:['ἐσῴζετε','에소제테','너희는 구원하고/치료하고 있었다']},
+    {p:'3', sg:['ἔσῳζε(ν)','에소제','그는 구원하고/치료하고 있었다'], pl:['ἔσῳζον','에소존','그들은 구원하고/치료하고 있었다']},
+  ]},
+  { tense:'미완료', voice:'수동', forms:[
+    {p:'1', sg:['ἐσῳζόμην','에소조멘','나는 구원받고/치료받고 있었다'], pl:['ἐσῳζόμεθα','에소조메따','우리는 구원받고/치료받고 있었다']},
+    {p:'2', sg:['ἐσῴζου','에소주','너는 구원받고/치료받고 있었다'], pl:['ἐσῴζεσθε','에소제스떼','너희는 구원받고/치료받고 있었다']},
+    {p:'3', sg:['ἐσῴζετο','에소제토','그는 구원받고/치료받고 있었다'], pl:['ἐσῴζοντο','에소존토','그들은 구원받고/치료받고 있었다']},
+  ]},
+  { tense:'미완료', voice:'중간', forms:[
+    {p:'1', sg:['ἐσῳζόμην','에소조멘','나는(위해) 구원하고 있었다'], pl:['ἐσῳζόμεθα','에소조메따','우리는(위해) 구원하고 있었다']},
+    {p:'2', sg:['ἐσῴζου','에소주','너는(위해) 구원하고 있었다'], pl:['ἐσῴζεσθε','에소제스떼','너희는(위해) 구원하고 있었다']},
+    {p:'3', sg:['ἐσῴζετο','에소제토','그는(위해) 구원하고 있었다'], pl:['ἐσῴζοντο','에소존토','그들은(위해) 구원하고 있었다']},
+  ]},
+  { tense:'단순과거', voice:'능동', forms:[
+    {p:'1', sg:['ἔσωσα','에소사','나는 구원했다/치료했다'], pl:['ἐσώσαμεν','에소사멘','우리는 구원했다/치료했다']},
+    {p:'2', sg:['ἔσωσας','에소사스','너는 구원했다/치료했다'], pl:['ἐσώσατε','에소사테','너희는 구원했다/치료했다']},
+    {p:'3', sg:['ἔσωσε(ν)','에소센','그는 구원했다/치료했다'], pl:['ἔσωσαν','에소산','그들은 구원했다/치료했다']},
+  ]},
+  { tense:'단순과거', voice:'수동', forms:[
+    {p:'1', sg:['ἐσώθην','에소떼n','나는 구원받았다/치료받았다'], pl:['ἐσώθημεν','에소떼멘','우리는 구원받았다/치료받았다']},
+    {p:'2', sg:['ἐσώθης','에소떼스','너는 구원받았다/치료받았다'], pl:['ἐσώθητε','에소떼테','너희는 구원받았다/치료받았다']},
+    {p:'3', sg:['ἐσώθη','에소떼','그는 구원받았다/치료받았다'], pl:['ἐσώθησαν','에소떼산','그들은 구원받았다/치료받았다']},
+  ]},
+  { tense:'단순과거', voice:'중간', forms:[
+    {p:'1', sg:['ἐσωσάμην','에소사멘','나는(위해) 구원했다'], pl:['ἐσωσάμεθα','에소사메따','우리는(위해) 구원했다']},
+    {p:'2', sg:['ἐσώσω','에소소','너는(위해) 구원했다'], pl:['ἐσώσασθε','에소사스떼','너희는(위해) 구원했다']},
+    {p:'3', sg:['ἐσώσατο','에소사토','그는(위해) 구원했다'], pl:['ἐσώσαντο','에소산토','그들은(위해) 구원했다']},
+  ]},
+];
+
+// ════════════════════════════════════════════════════════
+// SET A DATA — 어미 패턴
+// ════════════════════════════════════════════════════════
+const PATTERNS_A = [
+  {
+    name: '현재 능동태 직설법', tense:'현재', voice:'능동', tenseColor:'var(--blue)',
+    note: '연결모음 ο/ε + 인칭어미',
+    rows: [
+      ['1단','ω (오)','나는 ~한다'],['2단','εις (에이스)','너는 ~한다'],['3단','ει (에이)','그는 ~한다'],
+      ['1복','ομεν (오멘)','우리는 ~한다'],['2복','ετε (에테)','너희는 ~한다'],['3복','ουσι(ν) (우시)','그들은 ~한다'],
+    ]
+  },
+  {
+    name: '현재 수동/중간태 직설법', tense:'현재', voice:'수동/중간', tenseColor:'var(--blue)',
+    note: '현재 수동=중간 동형',
+    rows: [
+      ['1단','ομαι (오마이)','나는 ~된다'],['2단','ῃ (에)','너는 ~된다'],['3단','εται (에타이)','그는 ~된다'],
+      ['1복','όμεθα (오메따)','우리는 ~된다'],['2복','εσθε (에스떼)','너희는 ~된다'],['3복','ονται (온타이)','그들은 ~된다'],
+    ]
+  },
+  {
+    name: '미래 능동태 직설법', tense:'미래', voice:'능동', tenseColor:'var(--green)',
+    note: '어간 + σ + 현재 능동 어미',
+    rows: [
+      ['1단','σω (소)','나는 ~할 것이다'],['2단','σεις (세이스)','너는 ~할 것이다'],['3단','σει (세이)','그는 ~할 것이다'],
+      ['1복','σομεν (소멘)','우리는 ~할 것이다'],['2복','σετε (세테)','너희는 ~할 것이다'],['3복','σουσι(ν) (수시)','그들은 ~할 것이다'],
+    ]
+  },
+  {
+    name: '미래 수동태 직설법', tense:'미래', voice:'수동', tenseColor:'var(--green)',
+    note: '어간 + θησ + 현재 수동 어미',
+    rows: [
+      ['1단','θήσομαι (떼소마이)','나는 ~될 것이다'],['2단','θήσῃ (떼세)','너는 ~될 것이다'],['3단','θήσεται (떼세타이)','그는 ~될 것이다'],
+      ['1복','θησόμεθα (떼소메따)','우리는 ~될 것이다'],['2복','θήσεσθε (떼세스떼)','너희는 ~될 것이다'],['3복','θήσονται (떼손타이)','그들은 ~될 것이다'],
+    ]
+  },
+  {
+    name: '미래 중간태 직설법', tense:'미래', voice:'중간', tenseColor:'var(--green)',
+    note: '어간 + σ + 현재 수동 어미',
+    rows: [
+      ['1단','σομαι (소마이)','나는(위해) ~할 것이다'],['2단','σῃ (세)','너는(위해) ~할 것이다'],['3단','σεται (세타이)','그는(위해) ~할 것이다'],
+      ['1복','σόμεθα (소메따)','우리는(위해) ~할 것이다'],['2복','σεσθε (세스떼)','너희는(위해) ~할 것이다'],['3복','σονται (손타이)','그들은(위해) ~할 것이다'],
+    ]
+  },
+  {
+    name: '미완료 능동태 직설법', tense:'미완료', voice:'능동', tenseColor:'var(--purple)',
+    note: '가산모음 ε + 어간 + 과거 능동 어미',
+    rows: [
+      ['1단','ον (온)','나는 ~하고 있었다'],['2단','ες (에스)','너는 ~하고 있었다'],['3단','ε(ν) (에)','그는 ~하고 있었다'],
+      ['1복','ομεν (오멘)','우리는 ~하고 있었다'],['2복','ετε (에테)','너희는 ~하고 있었다'],['3복','ον (온)','그들은 ~하고 있었다'],
+    ]
+  },
+  {
+    name: '미완료 수동/중간태 직설법', tense:'미완료', voice:'수동/중간', tenseColor:'var(--purple)',
+    note: '가산모음 ε + 어간 + 과거 수동 어미',
+    rows: [
+      ['1단','όμην (오멘)','나는 ~되고 있었다'],['2단','ου (우)','너는 ~되고 있었다'],['3단','ετο (에토)','그는 ~되고 있었다'],
+      ['1복','όμεθα (오메따)','우리는 ~되고 있었다'],['2복','εσθε (에스떼)','너희는 ~되고 있었다'],['3복','οντο (온토)','그들은 ~되고 있었다'],
+    ]
+  },
+  {
+    name: '단순과거 능동태 직설법', tense:'단순과거', voice:'능동', tenseColor:'var(--red)',
+    note: '가산모음 ε + 어간 + σα 표지',
+    rows: [
+      ['1단','σα (사)','나는 ~했다'],['2단','σας (사스)','너는 ~했다'],['3단','σε(ν) (센)','그는 ~했다'],
+      ['1복','σαμεν (사멘)','우리는 ~했다'],['2복','σατε (사테)','너희는 ~했다'],['3복','σαν (산)','그들은 ~했다'],
+    ]
+  },
+  {
+    name: '단순과거 수동태 직설법', tense:'단순과거', voice:'수동', tenseColor:'var(--red)',
+    note: '가산모음 ε + 어간 + θη 표지',
+    rows: [
+      ['1단','θην (떼n)','나는 ~됐다'],['2단','θης (떼스)','너는 ~됐다'],['3단','θη (떼)','그는 ~됐다'],
+      ['1복','θημεν (떼멘)','우리는 ~됐다'],['2복','θητε (떼테)','너희는 ~됐다'],['3복','θησαν (떼산)','그들은 ~됐다'],
+    ]
+  },
+  {
+    name: '단순과거 중간태 직설법', tense:'단순과거', voice:'중간', tenseColor:'var(--red)',
+    note: '가산모음 ε + 어간 + σα + 중간 어미',
+    rows: [
+      ['1단','σάμην (사멘)','나는(위해) ~했다'],['2단','σω (소)','너는(위해) ~했다'],['3단','σατο (사토)','그는(위해) ~했다'],
+      ['1복','σάμεθα (사메따)','우리는(위해) ~했다'],['2복','σασθε (사스떼)','너희는(위해) ~했다'],['3복','σαντο (산토)','그들은(위해) ~했다'],
+    ]
+  },
+  {
+    name: '제2단순과거 능동태 직설법', tense:'제2단순과거', voice:'능동', tenseColor:'var(--gold)',
+    note: 'σα 없음 — 어간 자체가 변함 / 어미는 미완료 능동과 동일',
+    rows: [
+      ['1단','ον (온)','나는 ~했다'],['2단','ες (에스)','너는 ~했다'],['3단','ε(ν) (에)','그는 ~했다'],
+      ['1복','ομεν (오멘)','우리는 ~했다'],['2복','ετε (에테)','너희는 ~했다'],['3복','ον (온)','그들은 ~했다'],
+    ]
+  },
+  {
+    name: '제2단순과거 중간태 직설법', tense:'제2단순과거', voice:'중간', tenseColor:'var(--gold)',
+    note: '어간 변화 + 미완료 수동/중간 어미',
+    rows: [
+      ['1단','όμην (오멘)','나는(위해) ~했다'],['2단','ου (우)','너는(위해) ~했다'],['3단','ετο (에토)','그는(위해) ~했다'],
+      ['1복','όμεθα (오메따)','우리는(위해) ~했다'],['2복','εσθε (에스떼)','너희는(위해) ~했다'],['3복','οντο (온토)','그들은(위해) ~했다'],
+    ]
+  },
+];
+
+// ════════════════════════════════════════════════════════
+// SET B DATA — 어간 변화
+// ════════════════════════════════════════════════════════
+const STEMS_B = [
+  { id:'luo',    greek:'λύω', pron:'뤼오', meaning:'풀다, 해방하다',
+    stems:[['현재 어간','λυ- (뤼)'],['미래 어간','λύσ- (뤼스) 규칙'],['과거 어간','ἐλύσ- (엘뤼스) 규칙'],['과거수동','ἐλύθ- (엘뤼뜨) θη 표지']],
+    note: '기준 동사 — 모든 규칙 변화의 모델' },
+  { id:'akouo',  greek:'ἀκούω', pron:'아쿠오', meaning:'듣다',
+    stems:[['현재 어간','ἀκου- (아쿠)'],['미래 어간','ἀκούσ- (아쿠스) 규칙'],['과거 어간','ἠκούσ- (에쿠스) ε+α→η'],['과거수동','ἠκούσθ- (에쿠스뜨)']],
+    note: '⚠️ 모음 어간: 가산모음 ε + α → η 축약' },
+  { id:'blepo',  greek:'βλέπω', pron:'블레포', meaning:'보다',
+    stems:[['현재 어간','βλεπ- (블렙)'],['미래 어간','βλέψ- (블렙스) π+σ→ψ'],['과거 어간','ἔβλεψ- (에블렙스)'],['과거수동','ἐβλέφθ- (에블레프뜨)']],
+    note: '⚠️ π+σ → ψ 자음 축약' },
+  { id:'ginosko',greek:'γινώσκω', pron:'기노스코', meaning:'알다',
+    stems:[['현재 어간','γινωσκ- (기노스크)'],['미래 어간','γνώσ- (그노스) 어간 단축!'],['제2단순과거','ἔγνω- (에그노) ※제2과거'],['과거수동','ἐγνώσθ- (에그노스뜨)']],
+    note: '⚠️ 제2과거: σα 없이 어간만 변화 γινωσκ→γνω' },
+  { id:'grapho', greek:'γράφω', pron:'그라포', meaning:'쓰다',
+    stems:[['현재 어간','γραφ- (그라프)'],['미래 어간','γράψ- (그랍스) φ+σ→ψ'],['과거 어간','ἔγραψ- (에그랍스)'],['과거수동','ἐγράφ- (에그라프) θη']],
+    note: '⚠️ φ+σ → ψ 자음 축약' },
+  { id:'didasko',greek:'διδάσκω', pron:'디다스코', meaning:'가르치다',
+    stems:[['현재 어간','διδασκ- (디다스크)'],['미래 어간','διδάξ- (디닥스) κ+σ→ξ'],['과거 어간','ἐδίδαξ- (에디닥스)'],['과거수동','ἐδιδάχθ- (에디닥크뜨)']],
+    note: '⚠️ κ+σ → ξ 자음 축약' },
+  { id:'lambano',greek:'λαμβάνω', pron:'람바노', meaning:'취하다, 받다',
+    stems:[['현재 어간','λαμβαν- (람반)'],['미래 어간','λήμψ- (렘프스) 불규칙!'],['제2단순과거','ἔλαβ- (엘라브) ※제2과거'],['과거수동','ἐλήφθ- (엘레프뜨)']],
+    note: '⚠️ 미래 완전불규칙: λαμβαν→λήμψ / 제2과거: ἔλαβον (σα 없음)' },
+  { id:'lego',   greek:'λέγω', pron:'레고', meaning:'말하다',
+    stems:[['현재 어간','λεγ- (레그)'],['미래 어간','ἐρ- (에르) 완전 불규칙!'],['제2단순과거','εἶπ- (에이프) ※제2과거'],['과거수동','ἐρρήθ- (에레뜨)']],
+    note: '⚠️ 최대 불규칙: 현재 λέγ / 미래 ἐρῶ / 제2과거 εἶπον' },
+  { id:'pisteuo',greek:'πιστεύω', pron:'피스튜오', meaning:'믿다',
+    stems:[['현재 어간','πιστευ- (피스튜)'],['미래 어간','πιστεύσ- (피스튜스) 규칙'],['과거 어간','ἐπίστευσ- (에피스튜스)'],['과거수동','ἐπιστεύθ- (에피스튜뜨)']],
+    note: '규칙 동사 — 표준 변화 따름' },
+  { id:'therapeuo',greek:'θεραπεύω', pron:'테라퓨오', meaning:'치료하다',
+    stems:[['현재 어간','θεραπευ- (테라퓨)'],['미래 어간','θεραπεύσ- (테라퓨스) 규칙'],['과거 어간','ἐθεράπευσ- (에테라퓨스)'],['과거수동','ἐθεραπεύθ- (에테라퓨뜨)']],
+    note: '규칙 동사 — πιστεύω와 동일 패턴' },
+  { id:'egeiro', greek:'ἐγείρω', pron:'에게이로', meaning:'일으키다',
+    stems:[['현재 어간','ἐγειρ- (에게이르)'],['미래 어간','ἐγερ- (에게르) ε 탈락 주의!'],['과거 어간','ἤγειρ- (에게이르) 제1과거'],['과거수동','ἠγέρθ- (에게르뜨) ε탈락']],
+    note: '⚠️ 미래/과거수동에서 어간 ε 탈락: ἐγείρ→ἐγερ' },
+  { id:'baptizo',greek:'βαπτίζω', pron:'밥티조', meaning:'침례를 주다',
+    stems:[['현재 어간','βαπτιζ- (밥티즈)'],['미래 어간','βαπτίσ- (밥티스) ζ→σ'],['과거 어간','ἐβάπτισ- (에밥티스)'],['과거수동','ἐβαπτίσθ- (에밥티스뜨)']],
+    note: '⚠️ ζ → σ 자음 변화 (미래/과거)' },
+  { id:'echo',   greek:'ἔχω', pron:'에코', meaning:'가지고 있다',
+    stems:[['현재 어간','ἐχ- (에크)'],['미래 어간','ἕξ- (헥스) 규칙'],['제2단순과거','ἔσχ- (에스크) ※제2과거'],['미완료 특이','εἶχ- (에이크) 가산모음 없음!']],
+    note: '⚠️⚠️ 미완료 가산모음 없음! εἶχον / 제2과거: ἔσχον' },
+  { id:'sozo',   greek:'σῴζω', pron:'소조', meaning:'구원하다, 치료하다',
+    stems:[['현재 어간','σῳζ- (소즈)'],['미래 어간','σώσ- (소스) 규칙'],['과거 어간','ἔσωσ- (에소스)'],['과거수동','ἐσώθ- (에소뜨) θη 표지']],
+    note: '⚠️ 두 가지 의미 필수: 구원하다 + 치료하다' },
+];
+
+// ════════════════════════════════════════════════════════
+// FLASHCARD GENERATION
+// ════════════════════════════════════════════════════════
+
+let allCards = [];
+let filteredCards = [];
+let currentCardIdx = 0;
+let isFlipped = false;
+let knownSet = new Set();
+let activeFilters = { tense: new Set(['현재','미래','미완료','단순과거','제2단순과거']), voice: new Set(['능동','수동','중간']), verb: new Set(VERBS.map(v=>v.id)) };
+let viewMode = 'card';
+
+function buildCards() {
+  allCards = [];
+  VERBS.forEach(verb => {
+    const conjs = CONJUGATIONS[verb.id] || [];
+    conjs.forEach(conj => {
+      conj.forms.forEach(row => {
+        ['sg','pl'].forEach(num => {
+          const f = row[num];
+          allCards.push({
+            verbId: verb.id,
+            verbGreek: verb.greek,
+            verbPron: verb.pron,
+            verbMeaning: verb.meaning,
+            tense: conj.tense,
+            voice: conj.voice,
+            person: row.p,
+            number: num === 'sg' ? '단수' : '복수',
+            greek: f[0],
+            pron: f[1],
+            meaning: f[2],
+          });
+        });
+      });
+    });
+  });
+}
+
+function getFilteredCards() {
+  return allCards.filter(c =>
+    activeFilters.tense.has(c.tense) &&
+    (activeFilters.voice.has(c.voice) || (c.voice.includes('/') && (activeFilters.voice.has('수동') || activeFilters.voice.has('중간')))) &&
+    activeFilters.verb.has(c.verbId)
+  );
+}
+
+function updateStats() {
+  document.getElementById('totalCount').textContent = filteredCards.length;
+  document.getElementById('knownCount').textContent = [...knownSet].filter(k => filteredCards.some(c => cardKey(c) === k)).length;
+  const known = [...knownSet].filter(k => filteredCards.some(c => cardKey(c) === k)).length;
+  const pct = filteredCards.length ? (known / filteredCards.length * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${known} / ${filteredCards.length}`;
+}
+
+function cardKey(c) { return `${c.verbId}_${c.tense}_${c.voice}_${c.person}_${c.number}`; }
+
+function tenseColor(t) {
+  if(t==='현재') return 'var(--blue)';
+  if(t==='미래') return 'var(--green)';
+  if(t==='미완료') return 'var(--purple)';
+  if(t==='단순과거') return 'var(--red)';
+  if(t==='제2단순과거') return 'var(--gold)';
+  return 'var(--text3)';
+}
+function tenseKr(t) { return t; }
+
+function renderCard(idx) {
+  if(!filteredCards.length) return;
+  const c = filteredCards[idx];
+  const badge = document.getElementById('cardTenseBadge');
+  badge.textContent = `${c.tense} · ${c.voice}태`;
+  badge.style.background = tenseColor(c.tense) + '33';
+  badge.style.color = tenseColor(c.tense);
+  badge.style.border = `1px solid ${tenseColor(c.tense)}`;
+  document.getElementById('cardGreek').textContent = c.greek;
+  document.getElementById('cardHint').textContent = `${c.person}인칭 ${c.number} | ${c.verbGreek} (${c.verbPron})`;
+  document.getElementById('cardPron').textContent = `(${c.pron})`;
+  document.getElementById('cardMeaning').textContent = c.meaning;
+  document.getElementById('cardAnalysis').textContent = `${c.tense}시제 · ${c.voice}태 · ${c.person}인칭 ${c.number}`;
+  document.getElementById('cardVerb').textContent = `어원: ${c.verbGreek} (${c.verbPron}) — ${c.verbMeaning}`;
+  document.getElementById('cardCountDisplay').textContent = `${idx + 1} / ${filteredCards.length}`;
+  const inner = document.getElementById('flashcardInner');
+  inner.classList.remove('flipped');
+  isFlipped = false;
+  if(knownSet.has(cardKey(c))) {
+    inner.style.opacity = '0.7';
+  } else {
+    inner.style.opacity = '1';
+  }
+}
+
+function flipCard() {
+  const inner = document.getElementById('flashcardInner');
+  inner.classList.toggle('flipped');
+  isFlipped = !isFlipped;
+}
+
+function nextCard() {
+  if(!filteredCards.length) return;
+  currentCardIdx = (currentCardIdx + 1) % filteredCards.length;
+  renderCard(currentCardIdx);
+}
+
+function prevCard() {
+  if(!filteredCards.length) return;
+  currentCardIdx = (currentCardIdx - 1 + filteredCards.length) % filteredCards.length;
+  renderCard(currentCardIdx);
+}
+
+function markCard(known) {
+  if(!filteredCards.length) return;
+  const c = filteredCards[currentCardIdx];
+  const k = cardKey(c);
+  if(known) knownSet.add(k); else knownSet.delete(k);
+  updateStats();
+  nextCard();
+  if(viewMode === 'grid') renderSetCGrid();
+}
+
+function startStudy() {
+  filteredCards = getFilteredCards();
+  currentCardIdx = 0;
+  setViewMode('card');
+  renderCard(0);
+  updateStats();
+}
+
+function shuffleCards() {
+  filteredCards = getFilteredCards().sort(() => Math.random() - 0.5);
+  currentCardIdx = 0;
+  renderCard(0);
+}
+
+function resetKnown() {
+  knownSet.clear();
+  updateStats();
+  if(viewMode==='grid') renderSetCGrid();
+}
+
+function onlyUnknown() {
+  filteredCards = getFilteredCards().filter(c => !knownSet.has(cardKey(c)));
+  currentCardIdx = 0;
+  if(filteredCards.length) renderCard(0);
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('vtCard').classList.toggle('active', mode==='card');
+  document.getElementById('vtGrid').classList.toggle('active', mode==='grid');
+  document.getElementById('cardStudyMode').style.display = mode==='card' ? 'block' : 'none';
+  document.getElementById('gridBrowseMode').style.display = mode==='grid' ? 'block' : 'none';
+  if(mode==='grid') renderSetCGrid();
+}
+
+function renderSetCGrid() {
+  const grid = document.getElementById('setcGrid');
+  grid.innerHTML = '';
+  filteredCards.forEach((c,i) => {
+    const known = knownSet.has(cardKey(c));
+    const el = document.createElement('div');
+    el.className = 'mini-card' + (known ? ' known' : '');
+    el.style.borderLeft = `3px solid ${tenseColor(c.tense)}`;
+    el.innerHTML = `
+      <div class="mini-greek">${c.greek}</div>
+      <div class="mini-pron">(${c.pron})</div>
+      <div class="mini-meaning">${c.meaning}</div>
+      <div class="mini-tag">${c.tense} · ${c.voice}태 · ${c.person}인칭 ${c.number} | ${c.verbGreek}</div>
+      ${known ? '<div class="mini-known-badge">✓ 암기</div>' : ''}
+    `;
+    el.onclick = () => { currentCardIdx = i; setViewMode('card'); renderCard(i); };
+    grid.appendChild(el);
+  });
+}
+
+function renderBrowseGrid() {
+  const grid = document.getElementById('browseGrid');
+  const cards = getFilteredCards();
+  document.getElementById('browseCount').textContent = cards.length + '개 형태';
+  grid.innerHTML = '';
+  cards.forEach((c,i) => {
+    const el = document.createElement('div');
+    el.className = 'mini-card';
+    el.style.borderLeft = `3px solid ${tenseColor(c.tense)}`;
+    el.innerHTML = `
+      <div class="mini-greek">${c.greek}</div>
+      <div class="mini-pron">(${c.pron})</div>
+      <div class="mini-meaning">${c.meaning}</div>
+      <div class="mini-tag">${c.tense} · ${c.voice}태 · ${c.person}인칭 ${c.number}</div>
+      <div class="mini-tag" style="color:var(--gold)">${c.verbGreek} — ${c.verbMeaning}</div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+// ── FILTER LOGIC ──
+function toggleFilter(btn, type) {
+  const val = btn.dataset.tense || btn.dataset.voice || btn.dataset.verb;
+  if(activeFilters[type].has(val)) {
+    if(activeFilters[type].size > 1) activeFilters[type].delete(val);
+  } else {
+    activeFilters[type].add(val);
+  }
+  btn.classList.toggle('active', activeFilters[type].has(val));
+  filteredCards = getFilteredCards();
+  currentCardIdx = 0;
+  if(filteredCards.length) renderCard(0);
+  updateStats();
+  if(viewMode==='grid') renderSetCGrid();
+  renderBrowseGrid();
+}
+
+// ── BUILD VERB FILTER CHIPS ──
+function buildVerbFilters() {
+  const wrap = document.getElementById('verbFilters');
+  VERBS.forEach(v => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-chip active';
+    btn.dataset.verb = v.id;
+    btn.textContent = v.pron;
+    btn.onclick = function(){ toggleFilter(this, 'verb'); };
+    wrap.appendChild(btn);
+  });
+}
+
+// ── RENDER SET A ──
+function renderSetA() {
+  const grid = document.getElementById('patternGrid');
+  PATTERNS_A.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'pattern-card';
+    const voiceBadgeClass = p.voice.includes('능동') ? 'badge-act' : p.voice.includes('수동') ? 'badge-pas' : 'badge-mid';
+    card.innerHTML = `
+      <div class="pattern-head" style="background:${p.tenseColor}22; border-bottom:1px solid ${p.tenseColor}44;">
+        <div class="pattern-name" style="color:${p.tenseColor}">${p.name}</div>
+        <div class="pattern-badge ${voiceBadgeClass}">${p.voice}</div>
+      </div>
+      <table class="pattern-table">
+        <thead><tr><th>인칭</th><th>어미</th><th>해석</th></tr></thead>
+        <tbody>
+          ${p.rows.map(r=>`<tr><td>${r[0]}</td><td class="greek-cell">${r[1]}</td><td class="meaning-cell">${r[2]}</td></tr>`).join('')}
+        </tbody>
+      </table>
+      <div style="padding:6px 10px;font-size:9px;color:var(--gold);border-top:1px solid var(--border)">💡 ${p.note}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ── RENDER SET B ──
+function renderSetB() {
+  const grid = document.getElementById('stemGrid');
+  STEMS_B.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'stem-card';
+    el.innerHTML = `
+      <div class="stem-greek">${s.greek}</div>
+      <div class="stem-pron">(${s.pron})</div>
+      <div class="stem-meaning">${s.meaning}</div>
+      <table class="stem-table">
+        ${s.stems.map(([k,v])=>`<tr><td>${k}</td><td class="stem-greek-sm">${v}</td></tr>`).join('')}
+      </table>
+      <div class="stem-note">${s.note}</div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+// ════════════════════════════════════════════════════════
+// SET D DATA — 어휘 (명사·형용사·불변화사)
+// ════════════════════════════════════════════════════════
+const VOCAB = [
+  // ── 명사 ──
+  { cat:'noun', gk:'λόγος, ου, ὁ', pron:'로고스', meaning:'말씀, 말', gender:'남성', decl:'2변화 남성',
+    endings:'주 λόγος/λόγοι · 속 λόγου/λόγων · 여 λόγῳ/λόγοις · 대 λόγον/λόγους',
+    note:'신약에서 가장 중요한 단어 중 하나 (요 1:1 ἐν ἀρχῇ ἦν ὁ λόγος)' },
+  { cat:'noun', gk:'θεός, ου, ὁ', pron:'테오스', meaning:'하나님, 신', gender:'남성', decl:'2변화 남성',
+    endings:'주 θεός/θεοί · 속 θεοῦ/θεῶν · 여 θεῷ/θεοῖς · 대 θεόν/θεούς',
+    note:'λόγος와 동일 변화 패턴' },
+  { cat:'noun', gk:'κόσμος, ου, ὁ', pron:'코스모스', meaning:'세상, 세계', gender:'남성', decl:'2변화 남성',
+    endings:'주 κόσμος/κόσμοι · 속 κόσμου/κόσμων · 여 κόσμῳ/κόσμοις · 대 κόσμον/κόσμους',
+    note:'영어 cosmos의 어원' },
+  { cat:'noun', gk:'ἄνθρωπος, ου, ὁ', pron:'안뜨로포스', meaning:'사람, 인간', gender:'남성', decl:'2변화 남성',
+    endings:'주 ἄνθρωπος/ἄνθρωποι · 속 ἀνθρώπου/ἀνθρώπων · 여 ἀνθρώπῳ/ἀνθρώποις · 대 ἄνθρωπον/ἀνθρώπους',
+    note:'영어 anthropology의 어원' },
+  { cat:'noun', gk:'ἀπόστολος, ου, ὁ', pron:'아포스톨로스', meaning:'사도', gender:'남성', decl:'2변화 남성',
+    endings:'주 ἀπόστολος/ἀπόστολοι · 속 ἀποστόλου/ἀποστόλων · 여 ἀποστόλῳ/ἀποστόλοις · 대 ἀπόστολον/ἀποστόλους',
+    note:'ἀπό(~로부터) + στέλλω(보내다) → 파송받은 자' },
+  { cat:'noun', gk:'νόμος, ου, ὁ', pron:'노모스', meaning:'율법, 법', gender:'남성', decl:'2변화 남성',
+    endings:'주 νόμος/νόμοι · 속 νόμου/νόμων · 여 νόμῳ/νόμοις · 대 νόμον/νόμους',
+    note:'영어 autonomous의 어원 (auto+nomos)' },
+  { cat:'noun', gk:'υἱός, οῦ, ὁ', pron:'휘오스', meaning:'아들', gender:'남성', decl:'2변화 남성',
+    endings:'주 υἱός/υἱοί · 속 υἱοῦ/υἱῶν · 여 υἱῷ/υἱοῖς · 대 υἱόν/υἱούς',
+    note:'υἱὸς θεοῦ = 하나님의 아들 (속격 연결)' },
+  { cat:'noun', gk:'ἀδελφός, οῦ, ὁ', pron:'아델포스', meaning:'형제', gender:'남성', decl:'2변화 남성',
+    endings:'주 ἀδελφός/ἀδελφοί · 속 ἀδελφοῦ/ἀδελφῶν · 여 ἀδελφῷ/ἀδελφοῖς · 대 ἀδελφόν/ἀδελφούς',
+    note:'Philadelphia(필라델피아) = 형제 사랑' },
+  { cat:'noun', gk:'δῶρον, ου, τό', pron:'도론', meaning:'선물', gender:'중성', decl:'2변화 중성',
+    endings:'주 δῶρον/δῶρα · 속 δώρου/δώρων · 여 δώρῳ/δώροις · 대 δῶρον/δῶρα',
+    note:'⚠️ 중성: 주격=대격, 복수 주·대 -α' },
+  { cat:'noun', gk:'ζωή, ῆς, ἡ', pron:'조에', meaning:'생명', gender:'여성', decl:'1변화 여성(-η)',
+    endings:'주 ζωή/ζωαί · 속 ζωῆς/ζωῶν · 여 ζωῇ/ζωαῖς · 대 ζωήν/ζωάς',
+    note:'요 11:25 ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή' },
+  { cat:'noun', gk:'φῶς, φωτός, τό', pron:'포스', meaning:'빛', gender:'중성', decl:'3변화 (불규칙)',
+    endings:'주 φῶς/φῶτα · 속 φωτός/φώτων · 여 φωτί/φωσί · 대 φῶς/φῶτα',
+    note:'⚠️ 3변화 중성 불규칙. 요 8:12 ἐγώ εἰμι τὸ φῶς τοῦ κόσμου' },
+  { cat:'noun', gk:'σκοτία, ας, ἡ', pron:'스코티아', meaning:'어둠', gender:'여성', decl:'1변화 여성(-α)',
+    endings:'주 σκοτία/σκοτίαι · 속 σκοτίας/σκοτιῶν · 여 σκοτίᾳ/σκοτίαις · 대 σκοτίαν/σκοτίας',
+    note:'요 1:5 καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν' },
+
+  // ── 형용사 ──
+  { cat:'adj', gk:'ἀγαθός, ή, όν', pron:'아가토스', meaning:'좋은, 착한', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 ἀγαθός/ή/όν · 복 ἀγαθοί/αί/ά',
+    note:'한정: ὁ ἀγαθὸς λόγος / 서술: ὁ λόγος ἀγαθός' },
+  { cat:'adj', gk:'κακός, ή, όν', pron:'카코스', meaning:'나쁜, 악한', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 κακός/κακή/κακόν · 복 κακοί/αί/ά',
+    note:'영어 cacophony의 어원 (kakos+phone)' },
+  { cat:'adj', gk:'καλός, ή, όν', pron:'칼로스', meaning:'좋은, 아름다운', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 καλός/καλή/καλόν · 복 καλοί/αί/ά',
+    note:'ποιμὴν ὁ καλός = 선한 목자 (요 10:11)' },
+  { cat:'adj', gk:'μικρός, ά, όν', pron:'미크로스', meaning:'작은, 적은', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 μικρός/μικρά/μικρόν · 복 μικροί/αί/ά',
+    note:'영어 micro-의 어원. 여성형 -ά (α 변화)' },
+  { cat:'adj', gk:'νεκρός, ά, όν', pron:'네크로스', meaning:'죽은', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 νεκρός/νεκρά/νεκρόν · 복 νεκροί/αί/ά',
+    note:'영어 necromancy의 어원. ἐγείρω + νεκρός 자주 함께 등장' },
+  { cat:'adj', gk:'δίκαιος, α, ον', pron:'디카이오스', meaning:'옳은, 의로운', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 δίκαιος/δικαία/δίκαιον · 복 δίκαιοι/αι/α',
+    note:'δικαιοσύνη(의로움)의 어근. 여성형 -α 주의' },
+  { cat:'adj', gk:'μακάριος, α, ον', pron:'마카리오스', meaning:'복있는, 행복한', gender:'남·여·중', decl:'2-1-2 변화',
+    endings:'남 μακάριος/μακαρία/μακάριον · 복 μακάριοι/αι/α',
+    note:'마 5:9 μακάριοι οἱ εἰρηνοποιοί (평화를 만드는 자들은 복이 있다)' },
+
+  // ── 불변화사·전치사·접속사 ──
+  { cat:'other', gk:'καί', pron:'카이', meaning:'그리고, 또한, 심지어', gender:'-', decl:'불변화사',
+    endings:'(변화 없음)',
+    note:'신약에서 가장 자주 등장하는 단어. 문장 연결·강조 모두 사용' },
+  { cat:'other', gk:'οὐ / οὐκ / οὐχ', pron:'우 / 우크 / 우크', meaning:'아니다 (부정)', gender:'-', decl:'불변화사',
+    endings:'모음 앞 οὐκ, 거친숨표 앞 οὐχ, 그 외 οὐ',
+    note:'οὐ κατέλαβεν (요 1:5) — 자음/모음에 따라 형태 변화' },
+  { cat:'other', gk:'πρός (+ 대격)', pron:'프로스', meaning:'~에게로, ~옆에, ~와 함께', gender:'-', decl:'전치사',
+    endings:'항상 대격 지배',
+    note:'ὁ λόγος ἦν πρὸς τὸν θεόν (요 1:1) — 대격과 함께 사용' },
+  { cat:'other', gk:'ἐν (+ 여격)', pron:'엔', meaning:'~안에, ~에서', gender:'-', decl:'전치사',
+    endings:'항상 여격 지배',
+    note:'ἐν ἀρχῇ (태초에) — 여격과 함께 사용' },
+  { cat:'other', gk:'διά (+ 대격/속격)', pron:'디아', meaning:'~때문에 (대격) / ~을 통하여 (속격)', gender:'-', decl:'전치사',
+    endings:'대격: ~ 때문에 / 속격: ~을 통해',
+    note:'막 1:17 διὰ τοῦτο(이것 때문에) — 격에 따라 의미 변화' },
+  { cat:'other', gk:'ὅτι', pron:'호티', meaning:'왜냐하면, ~때문에, ~라는 것', gender:'-', decl:'접속사',
+    endings:'(변화 없음)',
+    note:'마 5:9 ὅτι αὐτοὶ υἱοὶ θεοῦ κληθήσονται (왜냐하면 ~이기 때문에)' },
+  { cat:'other', gk:'εἰρηνοποιός, όν', pron:'에이레노포이오스', meaning:'평화를 만드는 (자)', gender:'남·여/중', decl:'2변화 형용사',
+    endings:'주 -ός(남여) / -όν(중) — 여성형 별도 없음',
+    note:'마 5:9 μακάριοι οἱ εἰρηνοποιοί. εἰρήνη(평화)+ποιέω(만들다)' },
+];
+
+// ── SET D 상태 변수 ──
+let vocabAll = [...VOCAB];
+let vocabFiltered = [...VOCAB];
+let vocabIdx = 0;
+let vocabFlipped = false;
+let vocabKnown = new Set();
+let vocabViewMode = 'card';
+
+function catColor(c) {
+  if(c==='noun') return 'var(--blue)';
+  if(c==='adj')  return 'var(--purple)';
+  return 'var(--gold)';
+}
+function catLabel(c) {
+  if(c==='noun') return '명사';
+  if(c==='adj')  return '형용사';
+  return '불변화사';
+}
+
+function renderVocabCard(idx) {
+  if(!vocabFiltered.length) return;
+  const v = vocabFiltered[idx];
+  const badge = document.getElementById('vcatBadge');
+  badge.textContent = catLabel(v.cat) + ' · ' + v.decl;
+  badge.style.background = catColor(v.cat) + '33';
+  badge.style.color = catColor(v.cat);
+  badge.style.border = '1px solid ' + catColor(v.cat);
+  document.getElementById('vGreek').textContent = v.gk;
+  document.getElementById('vHint').textContent = v.gender !== '-' ? '성: ' + v.gender : v.decl;
+  document.getElementById('vPron').textContent = '(' + v.pron + ')';
+  document.getElementById('vMeaning').textContent = v.meaning;
+  document.getElementById('vAnalysis').textContent = v.endings;
+  document.getElementById('vExtra').textContent = v.note;
+  const inner = document.getElementById('vocabInner');
+  inner.classList.remove('flipped');
+  vocabFlipped = false;
+  inner.style.opacity = vocabKnown.has(v.gk) ? '0.7' : '1';
+  document.getElementById('vocabCountDisplay').textContent = (idx+1) + ' / ' + vocabFiltered.length;
+}
+
+function flipVocab() {
+  document.getElementById('vocabInner').classList.toggle('flipped');
+  vocabFlipped = !vocabFlipped;
+}
+function nextVocab() {
+  if(!vocabFiltered.length) return;
+  vocabIdx = (vocabIdx + 1) % vocabFiltered.length;
+  renderVocabCard(vocabIdx);
+}
+function prevVocab() {
+  if(!vocabFiltered.length) return;
+  vocabIdx = (vocabIdx - 1 + vocabFiltered.length) % vocabFiltered.length;
+  renderVocabCard(vocabIdx);
+}
+function markVocab(known) {
+  if(!vocabFiltered.length) return;
+  const v = vocabFiltered[vocabIdx];
+  if(known) vocabKnown.add(v.gk); else vocabKnown.delete(v.gk);
+  nextVocab();
+  if(vocabViewMode==='grid') renderVocabGrid();
+}
+function startVocab() { vocabIdx = 0; setVocabMode('card'); renderVocabCard(0); }
+function shuffleVocab() { vocabFiltered = [...vocabFiltered].sort(()=>Math.random()-.5); vocabIdx=0; renderVocabCard(0); }
+function resetVocabKnown() { vocabKnown.clear(); if(vocabViewMode==='grid') renderVocabGrid(); else renderVocabCard(vocabIdx); }
+function onlyUnknownVocab() { vocabFiltered = vocabAll.filter(v=>!vocabKnown.has(v.gk)); vocabIdx=0; if(vocabFiltered.length) renderVocabCard(0); }
+
+function filterVocab(cat, el) {
+  document.querySelectorAll('#view-setD .filter-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  vocabFiltered = cat==='all' ? [...vocabAll] : vocabAll.filter(v=>v.cat===cat);
+  vocabIdx = 0;
+  if(vocabViewMode==='grid') renderVocabGrid(); else renderVocabCard(0);
+}
+
+function setVocabMode(mode) {
+  vocabViewMode = mode;
+  document.getElementById('vvCard').classList.toggle('active', mode==='card');
+  document.getElementById('vvGrid').classList.toggle('active', mode==='grid');
+  document.getElementById('vocabCardMode').style.display = mode==='card' ? 'block' : 'none';
+  document.getElementById('vocabGridMode').style.display = mode==='grid' ? 'block' : 'none';
+  if(mode==='grid') renderVocabGrid();
+}
+
+function renderVocabGrid() {
+  const grid = document.getElementById('vocabGridEl');
+  grid.innerHTML = '';
+  vocabFiltered.forEach((v,i) => {
+    const known = vocabKnown.has(v.gk);
+    const el = document.createElement('div');
+    el.className = 'mini-card' + (known ? ' known' : '');
+    el.style.borderLeft = '3px solid ' + catColor(v.cat);
+    el.innerHTML = `
+      <div class="mini-greek">${v.gk}</div>
+      <div class="mini-pron">(${v.pron})</div>
+      <div class="mini-meaning">${v.meaning}</div>
+      <div class="mini-tag">${catLabel(v.cat)} · ${v.decl}</div>
+      <div class="mini-tag" style="color:var(--text3); font-size:9px; margin-top:2px;">${v.endings}</div>
+      ${known ? '<div class="mini-known-badge">✓ 암기</div>' : ''}
+    `;
+    el.onclick = () => { vocabIdx=i; setVocabMode('card'); renderVocabCard(i); };
+    grid.appendChild(el);
+  });
+}
+
+// ── UPDATE switchTab to handle setD ──
+function switchTab(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  event.target.classList.add('active');
+  if(id==='browse') renderBrowseGrid();
+  if(id==='setC') { filteredCards = getFilteredCards(); renderCard(currentCardIdx); updateStats(); }
+  if(id==='setD') { renderVocabCard(vocabIdx); }
+  const filterBar = document.getElementById('filterBar');
+  const progressBar = document.querySelector('.progress-bar-wrap');
+  const legend = document.querySelector('.legend');
+  const isVocab = id === 'setD';
+  if(filterBar) filterBar.style.display = isVocab ? 'none' : '';
+  if(progressBar) progressBar.style.display = isVocab ? 'none' : '';
+  if(legend) legend.style.display = isVocab ? 'none' : '';
+}
+
+// ── INIT ──
+buildCards();
+buildVerbFilters();
+renderSetA();
+renderSetB();
+filteredCards = getFilteredCards();
+renderCard(0);
+updateStats();
+renderVocabCard(0);
+</script>
+</body>
+</html>

@@ -204,10 +204,10 @@ const SITE_DATA = {
       isNew: false
     },
     {
-      name: "중간고사 문법 정리",
+      name: "중간고사 시험공부 정리",
       icon: "📝",
-      desc: "중간고사 대비 핵심 문법 총정리 학습 페이지",
-      href: "output/greek/중간고사_문법정리.html",
+      desc: "중간고사 대비 시험공부 총정리 학습 페이지",
+      href: "output/greek/중간고사_시험공부정리.html",
       isNew: true
     }
   ],
