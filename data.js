@@ -208,6 +208,13 @@ const SITE_DATA = {
       icon: "📝",
       desc: "중간고사 대비 시험공부 총정리 학습 페이지",
       href: "output/greek/중간고사_시험공부정리.html",
+      isNew: false
+    },
+    {
+      name: "중간고사 퀴즈 앱",
+      icon: "🧩",
+      desc: "중간고사 대비 문법 퀴즈 — 직접 풀며 점검",
+      href: "output/greek/greek-quiz.html",
       isNew: true
     }
   ],
