@@ -290,9 +290,9 @@ body {
 /* Single flashcard */
 .flashcard-scene {
   perspective: 1000px;
-  max-width: 500px;
+  max-width: 540px;
   margin: 0 auto 20px;
-  height: 280px;
+  height: 360px;
 }
 .flashcard-inner {
   position: relative;
@@ -350,11 +350,13 @@ body {
   margin-bottom: 8px;
 }
 .card-back-meaning {
-  font-size: 20px;
+  font-size: 13px;
   color: var(--text);
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-weight: 400;
+  margin-bottom: 6px;
   text-align: center;
+  width: 100%;
+  overflow-y: auto;
 }
 .card-back-analysis {
   font-size: 11px;
@@ -419,7 +421,7 @@ body {
 /* Card grid (browse mode) */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 10px;
 }
 .mini-card {
@@ -445,6 +447,87 @@ body {
   padding: 1px 5px;
   border-radius: 3px;
   margin-top: 3px;
+}
+
+/* ── Paradigm mini-card header ── */
+.mini-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.paradigm-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ── Mini paradigm table (grid/browse) ── */
+.mini-paradigm {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  margin-top: 2px;
+}
+.mini-paradigm td {
+  padding: 2px 4px;
+  vertical-align: middle;
+}
+.mp-person {
+  color: var(--text3);
+  font-size: 9px;
+  width: 20px;
+  text-align: right;
+  padding-right: 6px;
+}
+.mp-form {
+  width: 50%;
+}
+.mp-greek {
+  font-family: 'Times New Roman', serif;
+  color: var(--gold2);
+  font-size: 13px;
+}
+
+/* ── Paradigm back-of-card table ── */
+.paradigm-back-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.paradigm-back-table th {
+  color: var(--text3);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 2px 6px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.paradigm-back-table td {
+  padding: 3px 6px;
+  vertical-align: top;
+}
+.pb-person {
+  color: var(--text3);
+  font-size: 10px;
+  width: 24px;
+  text-align: right;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+.pb-cell {
+  width: 44%;
+}
+.pb-greek {
+  font-family: 'Times New Roman', serif;
+  color: var(--gold2);
+  font-size: 15px;
+}
+.pb-meaning {
+  font-size: 9px;
+  color: var(--text3);
+  margin-top: 1px;
 }
 
 /* tense color legend */
@@ -592,7 +675,6 @@ body {
   <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span class="tense-fut">미래</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div><span class="tense-imp">미완료</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div><span class="tense-aor">단순과거</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div><span style="color:var(--gold)">제2단순과거</span></div>
   <span style="color:var(--text3); font-weight:700; font-size:10px; margin-left:8px;">태:</span>
   <div class="legend-item"><span style="color:var(--blue2)">능동</span></div>
   <div class="legend-item"><span style="color:var(--red2)">수동</span></div>
@@ -607,7 +689,6 @@ body {
     <button class="filter-chip tense-fut active"  data-tense="미래"  onclick="toggleFilter(this,'tense')">미래</button>
     <button class="filter-chip tense-imp active"  data-tense="미완료" onclick="toggleFilter(this,'tense')">미완료</button>
     <button class="filter-chip tense-aor active"  data-tense="단순과거" onclick="toggleFilter(this,'tense')">단순과거</button>
-    <button class="filter-chip tense-aor2 active" data-tense="제2단순과거" onclick="toggleFilter(this,'tense')">제2단순과거</button>
   </div>
   <div class="sep"></div>
   <span class="filter-label">태</span>
@@ -986,11 +1067,6 @@ CONJUGATIONS['blepo'] = [
     {p:'2', sg:['ἐβλέψω','에블렙소','너는(위해) 보았다'], pl:['ἐβλέψασθε','에블렙사스떼','너희는(위해) 보았다']},
     {p:'3', sg:['ἐβλέψατο','에블렙사토','그는(위해) 보았다'], pl:['ἐβλέψαντο','에블렙산토','그들은(위해) 보았다']},
   ]},
-  { tense:'제2단순과거', voice:'능동', forms:[
-    {p:'1', sg:['εἶδον','에이돈','나는 보았다 (제2)'], pl:['εἴδομεν','에이도멘','우리는 보았다']},
-    {p:'2', sg:['εἶδες','에이데스','너는 보았다'], pl:['εἴδετε','에이데테','너희는 보았다']},
-    {p:'3', sg:['εἶδε(ν)','에이데','그는 보았다'], pl:['εἶδον','에이돈','그들은 보았다']},
-  ]},
 ];
 
 // ── γινώσκω (기노스코) — 불규칙 미래 어간 γνω-
@@ -1009,11 +1085,6 @@ CONJUGATIONS['ginosko'] = [
     {p:'1', sg:['γινώσκομαι','기노스코마이','나는(위해) 알다'], pl:['γινωσκόμεθα','기노스코메따','우리는(위해) 알다']},
     {p:'2', sg:['γινώσκῃ','기노스케','너는(위해) 알다'], pl:['γινώσκεσθε','기노스케스떼','너희는(위해) 알다']},
     {p:'3', sg:['γινώσκεται','기노스케타이','그는(위해) 알다'], pl:['γινώσκονται','기노스콘타이','그들은(위해) 알다']},
-  ]},
-  { tense:'미래', voice:'능동', forms:[
-    {p:'1', sg:['γνώσομαι','그노소마이','나는 알게 될 것이다'], pl:['γνωσόμεθα','그노소메따','우리는 알게 될 것이다']},
-    {p:'2', sg:['γνώσῃ','그노세','너는 알게 될 것이다'], pl:['γνώσεσθε','그노세스떼','너희는 알게 될 것이다']},
-    {p:'3', sg:['γνώσεται','그노세타이','그는 알게 될 것이다'], pl:['γνώσονται','그노손타이','그들은 알게 될 것이다']},
   ]},
   { tense:'미래', voice:'수동', forms:[
     {p:'1', sg:['γνωσθήσομαι','그노스떼소마이','나는 알려질 것이다'], pl:['γνωσθησόμεθα','그노스떼소메따','우리는 알려질 것이다']},
@@ -1051,14 +1122,9 @@ CONJUGATIONS['ginosko'] = [
     {p:'3', sg:['ἐγνώσθη','에그노스떼','그는 알려졌다'], pl:['ἐγνώσθησαν','에그노스떼산','그들은 알려졌다']},
   ]},
   { tense:'단순과거', voice:'중간', forms:[
-    {p:'1', sg:['ἐγνωσάμην','에그노사멘','나는(위해) 알았다'], pl:['ἐγνωσάμεθα','에그노사메따','우리는(위해) 알았다']},
-    {p:'2', sg:['ἐγνώσω','에그노소','너는(위해) 알았다'], pl:['ἐγνώσασθε','에그노사스떼','너희는(위해) 알았다']},
-    {p:'3', sg:['ἐγνώσατο','에그노사토','그는(위해) 알았다'], pl:['ἐγνώσαντο','에그노산토','그들은(위해) 알았다']},
-  ]},
-  { tense:'제2단순과거', voice:'능동', forms:[
-    {p:'1', sg:['ἔγνων','에그논','나는 알았다 (제2)'], pl:['ἔγνωμεν','에그노멘','우리는 알았다']},
-    {p:'2', sg:['ἔγνως','에그노스','너는 알았다'], pl:['ἔγνωτε','에그노테','너희는 알았다']},
-    {p:'3', sg:['ἔγνω','에그노','그는 알았다'], pl:['ἔγνωσαν','에그노산','그들은 알았다']},
+    {p:'1', sg:['ἐγνώμην','에그노멘','나는(위해) 알았다'], pl:['ἐγνώμεθα','에그노메따','우리는(위해) 알았다']},
+    {p:'2', sg:['ἔγνω','에그노','너는(위해) 알았다'], pl:['ἐγνώσθε','에그노스떼','너희는(위해) 알았다']},
+    {p:'3', sg:['ἐγνώτο','에그노토','그는(위해) 알았다'], pl:['ἐγνώντο','에그논토','그들은(위해) 알았다']},
   ]},
 ];
 
@@ -1207,11 +1273,6 @@ CONJUGATIONS['lambano'] = [
     {p:'2', sg:['λαμβάνῃ','람바네','너는(위해) 취하다'], pl:['λαμβάνεσθε','람바네스떼','너희는(위해) 취하다']},
     {p:'3', sg:['λαμβάνεται','람바네타이','그는(위해) 취하다'], pl:['λαμβάνονται','람바논타이','그들은(위해) 취하다']},
   ]},
-  { tense:'미래', voice:'능동', forms:[
-    {p:'1', sg:['λήμψομαι','렘프소마이','나는 취할 것이다'], pl:['ληψόμεθα','렙소메따','우리는 취할 것이다']},
-    {p:'2', sg:['λήμψῃ','렘프세','너는 취할 것이다'], pl:['λήμψεσθε','렘프세스떼','너희는 취할 것이다']},
-    {p:'3', sg:['λήμψεται','렘프세타이','그는 취할 것이다'], pl:['λήμψονται','렘프손타이','그들은 취할 것이다']},
-  ]},
   { tense:'미래', voice:'수동', forms:[
     {p:'1', sg:['ληφθήσομαι','렙프떼소마이','나는 취해질 것이다'], pl:['ληφθησόμεθα','렙프떼소메따','우리는 취해질 것이다']},
     {p:'2', sg:['ληφθήσῃ','렙프떼세','너는 취해질 것이다'], pl:['ληφθήσεσθε','렙프떼세스떼','너희는 취해질 것이다']},
@@ -1238,7 +1299,7 @@ CONJUGATIONS['lambano'] = [
     {p:'3', sg:['ἐλαμβάνετο','엘람바네토','그는(위해) 취하고 있었다'], pl:['ἐλαμβάνοντο','엘람바논토','그들은(위해) 취하고 있었다']},
   ]},
   { tense:'단순과거', voice:'능동', forms:[
-    {p:'1', sg:['ἔλαβον','엘라본','나는 취했다 (제2)'], pl:['ἐλάβομεν','엘라보멘','우리는 취했다']},
+    {p:'1', sg:['ἔλαβον','엘라본','나는 취했다'], pl:['ἐλάβομεν','엘라보멘','우리는 취했다']},
     {p:'2', sg:['ἔλαβες','엘라베스','너는 취했다'], pl:['ἐλάβετε','엘라베테','너희는 취했다']},
     {p:'3', sg:['ἔλαβε(ν)','엘라베','그는 취했다'], pl:['ἔλαβον','엘라본','그들은 취했다']},
   ]},
@@ -1249,16 +1310,6 @@ CONJUGATIONS['lambano'] = [
   ]},
   { tense:'단순과거', voice:'중간', forms:[
     {p:'1', sg:['ἐλαβόμην','엘라보멘','나는(위해) 취했다'], pl:['ἐλαβόμεθα','엘라보메따','우리는(위해) 취했다']},
-    {p:'2', sg:['ἐλάβου','엘라부','너는(위해) 취했다'], pl:['ἐλάβεσθε','엘라베스떼','너희는(위해) 취했다']},
-    {p:'3', sg:['ἐλάβετο','엘라베토','그는(위해) 취했다'], pl:['ἐλάβοντο','엘라본토','그들은(위해) 취했다']},
-  ]},
-  { tense:'제2단순과거', voice:'능동', forms:[
-    {p:'1', sg:['ἔλαβον','엘라본','나는 취했다 (제2)'], pl:['ἐλάβομεν','엘라보멘','우리는 취했다']},
-    {p:'2', sg:['ἔλαβες','엘라베스','너는 취했다'], pl:['ἐλάβετε','엘라베테','너희는 취했다']},
-    {p:'3', sg:['ἔλαβε(ν)','엘라베','그는 취했다'], pl:['ἔλαβον','엘라본','그들은 취했다']},
-  ]},
-  { tense:'제2단순과거', voice:'중간', forms:[
-    {p:'1', sg:['ἐλαβόμην','엘라보멘','나는(위해) 취했다 (제2)'], pl:['ἐλαβόμεθα','엘라보메따','우리는(위해) 취했다']},
     {p:'2', sg:['ἐλάβου','엘라부','너는(위해) 취했다'], pl:['ἐλάβεσθε','엘라베스떼','너희는(위해) 취했다']},
     {p:'3', sg:['ἐλάβετο','엘라베토','그는(위해) 취했다'], pl:['ἐλάβοντο','엘라본토','그들은(위해) 취했다']},
   ]},
@@ -1312,7 +1363,7 @@ CONJUGATIONS['lego'] = [
     {p:'3', sg:['ἐλέγετο','엘레게토','그는(위해) 말하고 있었다'], pl:['ἐλέγοντο','엘레곤토','그들은(위해) 말하고 있었다']},
   ]},
   { tense:'단순과거', voice:'능동', forms:[
-    {p:'1', sg:['εἶπον','에이폰','나는 말했다 (제2)'], pl:['εἴπομεν','에이포멘','우리는 말했다']},
+    {p:'1', sg:['εἶπον','에이폰','나는 말했다'], pl:['εἴπομεν','에이포멘','우리는 말했다']},
     {p:'2', sg:['εἶπες','에이페스','너는 말했다'], pl:['εἴπετε','에이페테','너희는 말했다']},
     {p:'3', sg:['εἶπε(ν)','에이페','그는 말했다'], pl:['εἶπον','에이폰','그들은 말했다']},
   ]},
@@ -1323,16 +1374,6 @@ CONJUGATIONS['lego'] = [
   ]},
   { tense:'단순과거', voice:'중간', forms:[
     {p:'1', sg:['εἰπόμην','에이포멘','나는(위해) 말했다'], pl:['εἰπόμεθα','에이포메따','우리는(위해) 말했다']},
-    {p:'2', sg:['εἴπου','에이푸','너는(위해) 말했다'], pl:['εἴπεσθε','에이페스떼','너희는(위해) 말했다']},
-    {p:'3', sg:['εἴπετο','에이페토','그는(위해) 말했다'], pl:['εἴποντο','에이폰토','그들은(위해) 말했다']},
-  ]},
-  { tense:'제2단순과거', voice:'능동', forms:[
-    {p:'1', sg:['εἶπον','에이폰','나는 말했다 (제2)'], pl:['εἴπομεν','에이포멘','우리는 말했다']},
-    {p:'2', sg:['εἶπες','에이페스','너는 말했다'], pl:['εἴπετε','에이페테','너희는 말했다']},
-    {p:'3', sg:['εἶπε(ν)','에이페','그는 말했다'], pl:['εἶπον','에이폰','그들은 말했다']},
-  ]},
-  { tense:'제2단순과거', voice:'중간', forms:[
-    {p:'1', sg:['εἰπόμην','에이포멘','나는(위해) 말했다 (제2)'], pl:['εἰπόμεθα','에이포메따','우리는(위해) 말했다']},
     {p:'2', sg:['εἴπου','에이푸','너는(위해) 말했다'], pl:['εἴπεσθε','에이페스떼','너희는(위해) 말했다']},
     {p:'3', sg:['εἴπετο','에이페토','그는(위해) 말했다'], pl:['εἴποντο','에이폰토','그들은(위해) 말했다']},
   ]},
@@ -1642,7 +1683,7 @@ CONJUGATIONS['echo'] = [
     {p:'3', sg:['εἴχετο','에이케토','그는(위해) 가지고 있었다'], pl:['εἴχοντο','에이콘토','그들은(위해) 가지고 있었다']},
   ]},
   { tense:'단순과거', voice:'능동', forms:[
-    {p:'1', sg:['ἔσχον','에스콘','나는 가졌다 (제2)'], pl:['ἔσχομεν','에스코멘','우리는 가졌다']},
+    {p:'1', sg:['ἔσχον','에스콘','나는 가졌다'], pl:['ἔσχομεν','에스코멘','우리는 가졌다']},
     {p:'2', sg:['ἔσχες','에스케스','너는 가졌다'], pl:['ἔσχετε','에스케테','너희는 가졌다']},
     {p:'3', sg:['ἔσχε(ν)','에스케','그는 가졌다'], pl:['ἔσχον','에스콘','그들은 가졌다']},
   ]},
@@ -1655,11 +1696,6 @@ CONJUGATIONS['echo'] = [
     {p:'1', sg:['ἐσχόμην','에스코멘','나는(위해) 가졌다'], pl:['ἐσχόμεθα','에스코메따','우리는(위해) 가졌다']},
     {p:'2', sg:['ἔσχου','에스쿠','너는(위해) 가졌다'], pl:['ἔσχεσθε','에스케스떼','너희는(위해) 가졌다']},
     {p:'3', sg:['ἔσχετο','에스케토','그는(위해) 가졌다'], pl:['ἔσχοντο','에스콘토','그들은(위해) 가졌다']},
-  ]},
-  { tense:'제2단순과거', voice:'능동', forms:[
-    {p:'1', sg:['ἔσχον','에스콘','나는 가졌다 (제2)'], pl:['ἔσχομεν','에스코멘','우리는 가졌다']},
-    {p:'2', sg:['ἔσχες','에스케스','너는 가졌다'], pl:['ἔσχετε','에스케테','너희는 가졌다']},
-    {p:'3', sg:['ἔσχε(ν)','에스케','그는 가졌다'], pl:['ἔσχον','에스콘','그들은 가졌다']},
   ]},
 ];
 
@@ -1886,7 +1922,7 @@ let filteredCards = [];
 let currentCardIdx = 0;
 let isFlipped = false;
 let knownSet = new Set();
-let activeFilters = { tense: new Set(['현재','미래','미완료','단순과거','제2단순과거']), voice: new Set(['능동','수동','중간']), verb: new Set(VERBS.map(v=>v.id)) };
+let activeFilters = { tense: new Set(['현재','미래','미완료','단순과거']), voice: new Set(['능동','수동','중간']), verb: new Set(VERBS.map(v=>v.id)) };
 let viewMode = 'card';
 
 function buildCards() {
@@ -1894,23 +1930,14 @@ function buildCards() {
   VERBS.forEach(verb => {
     const conjs = CONJUGATIONS[verb.id] || [];
     conjs.forEach(conj => {
-      conj.forms.forEach(row => {
-        ['sg','pl'].forEach(num => {
-          const f = row[num];
-          allCards.push({
-            verbId: verb.id,
-            verbGreek: verb.greek,
-            verbPron: verb.pron,
-            verbMeaning: verb.meaning,
-            tense: conj.tense,
-            voice: conj.voice,
-            person: row.p,
-            number: num === 'sg' ? '단수' : '복수',
-            greek: f[0],
-            pron: f[1],
-            meaning: f[2],
-          });
-        });
+      allCards.push({
+        verbId:    verb.id,
+        verbGreek: verb.greek,
+        verbPron:  verb.pron,
+        verbMeaning: verb.meaning,
+        tense: conj.tense,
+        voice: conj.voice,
+        forms: conj.forms, // [{p, sg:[greek,pron,meaning], pl:[greek,pron,meaning]}, ...]
       });
     });
   });
@@ -1933,7 +1960,7 @@ function updateStats() {
   document.getElementById('progressText').textContent = `${known} / ${filteredCards.length}`;
 }
 
-function cardKey(c) { return `${c.verbId}_${c.tense}_${c.voice}_${c.person}_${c.number}`; }
+function cardKey(c) { return `${c.verbId}_${c.tense}_${c.voice}`; }
 
 function tenseColor(t) {
   if(t==='현재') return 'var(--blue)';
@@ -1953,21 +1980,31 @@ function renderCard(idx) {
   badge.style.background = tenseColor(c.tense) + '33';
   badge.style.color = tenseColor(c.tense);
   badge.style.border = `1px solid ${tenseColor(c.tense)}`;
-  document.getElementById('cardGreek').textContent = c.greek;
-  document.getElementById('cardHint').textContent = `${c.person}인칭 ${c.number} | ${c.verbGreek} (${c.verbPron})`;
-  document.getElementById('cardPron').textContent = `(${c.pron})`;
-  document.getElementById('cardMeaning').textContent = c.meaning;
-  document.getElementById('cardAnalysis').textContent = `${c.tense}시제 · ${c.voice}태 · ${c.person}인칭 ${c.number}`;
-  document.getElementById('cardVerb').textContent = `어원: ${c.verbGreek} (${c.verbPron}) — ${c.verbMeaning}`;
+  // Front: 1인칭 단수 대표형
+  const rep = c.forms[0].sg;
+  document.getElementById('cardGreek').textContent = rep[0];
+  document.getElementById('cardHint').textContent = `${c.verbGreek} (${c.verbPron}) — ${c.verbMeaning}`;
+  // Back: 6형태 패러다임 테이블
+  document.getElementById('cardPron').textContent = ``;
+  document.getElementById('cardMeaning').innerHTML = `
+    <table class="paradigm-back-table">
+      <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+      <tbody>
+        ${c.forms.map(row => `
+          <tr>
+            <td class="pb-person">${row.p}인</td>
+            <td class="pb-cell"><div class="pb-greek">${row.sg[0]}</div><div class="pb-meaning">${row.sg[2]}</div></td>
+            <td class="pb-cell"><div class="pb-greek">${row.pl[0]}</div><div class="pb-meaning">${row.pl[2]}</div></td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
+  document.getElementById('cardAnalysis').textContent = ``;
+  document.getElementById('cardVerb').textContent = `${c.verbGreek} (${c.verbPron}) — ${c.verbMeaning}`;
   document.getElementById('cardCountDisplay').textContent = `${idx + 1} / ${filteredCards.length}`;
   const inner = document.getElementById('flashcardInner');
   inner.classList.remove('flipped');
   isFlipped = false;
-  if(knownSet.has(cardKey(c))) {
-    inner.style.opacity = '0.7';
-  } else {
-    inner.style.opacity = '1';
-  }
+  inner.style.opacity = knownSet.has(cardKey(c)) ? '0.7' : '1';
 }
 
 function flipCard() {
@@ -2042,10 +2079,17 @@ function renderSetCGrid() {
     el.className = 'mini-card' + (known ? ' known' : '');
     el.style.borderLeft = `3px solid ${tenseColor(c.tense)}`;
     el.innerHTML = `
-      <div class="mini-greek">${c.greek}</div>
-      <div class="mini-pron">(${c.pron})</div>
-      <div class="mini-meaning">${c.meaning}</div>
-      <div class="mini-tag">${c.tense} · ${c.voice}태 · ${c.person}인칭 ${c.number} | ${c.verbGreek}</div>
+      <div class="mini-card-head">
+        <span class="mini-greek">${c.verbGreek}</span>
+        <span class="paradigm-badge" style="color:${tenseColor(c.tense)}">${c.tense} · ${c.voice}태</span>
+      </div>
+      <table class="mini-paradigm">
+        ${c.forms.map(row => `<tr>
+          <td class="mp-person">${row.p}인</td>
+          <td class="mp-form"><span class="mp-greek">${row.sg[0]}</span></td>
+          <td class="mp-form"><span class="mp-greek">${row.pl[0]}</span></td>
+        </tr>`).join('')}
+      </table>
       ${known ? '<div class="mini-known-badge">✓ 암기</div>' : ''}
     `;
     el.onclick = () => { currentCardIdx = i; setViewMode('card'); renderCard(i); };
@@ -2056,18 +2100,25 @@ function renderSetCGrid() {
 function renderBrowseGrid() {
   const grid = document.getElementById('browseGrid');
   const cards = getFilteredCards();
-  document.getElementById('browseCount').textContent = cards.length + '개 형태';
+  document.getElementById('browseCount').textContent = cards.length + '개 패러다임';
   grid.innerHTML = '';
   cards.forEach((c,i) => {
     const el = document.createElement('div');
     el.className = 'mini-card';
     el.style.borderLeft = `3px solid ${tenseColor(c.tense)}`;
     el.innerHTML = `
-      <div class="mini-greek">${c.greek}</div>
-      <div class="mini-pron">(${c.pron})</div>
-      <div class="mini-meaning">${c.meaning}</div>
-      <div class="mini-tag">${c.tense} · ${c.voice}태 · ${c.person}인칭 ${c.number}</div>
-      <div class="mini-tag" style="color:var(--gold)">${c.verbGreek} — ${c.verbMeaning}</div>
+      <div class="mini-card-head">
+        <span class="mini-greek">${c.verbGreek}</span>
+        <span class="paradigm-badge" style="color:${tenseColor(c.tense)}">${c.tense} · ${c.voice}태</span>
+      </div>
+      <table class="mini-paradigm">
+        ${c.forms.map(row => `<tr>
+          <td class="mp-person">${row.p}인</td>
+          <td class="mp-form"><span class="mp-greek">${row.sg[0]}</span></td>
+          <td class="mp-form"><span class="mp-greek">${row.pl[0]}</span></td>
+        </tr>`).join('')}
+      </table>
+      <div class="mini-tag" style="color:var(--text3);margin-top:5px">${c.verbMeaning}</div>
     `;
     grid.appendChild(el);
   });
