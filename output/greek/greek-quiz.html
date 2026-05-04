@@ -448,6 +448,10 @@ body::before {
     탭 2 — 어휘
     <span class="tab-sub">32개 단어 뜻 맞히기</span>
   </button>
+  <button class="tab-btn" id="tab3" onclick="switchTab('stem')">
+    탭 3 — 어간 변화
+    <span class="tab-sub">제2단순과거 불규칙 어간</span>
+  </button>
 </div>
 
 <!-- 프로그레스 -->
@@ -460,6 +464,14 @@ body::before {
     <div class="progress-fill" id="progressFill" style="width:0%"></div>
   </div>
 </div>
+
+<!-- 어간 참고표 (탭 3 전용) -->
+<details id="stemRef" style="display:none;margin-bottom:16px;max-width:540px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;">
+  <summary style="cursor:pointer;color:var(--gold);font-size:13px;font-weight:600;list-style:none;display:flex;align-items:center;gap:6px;">
+    📖 어간 참고표 (탭 하여 펼치기)
+  </summary>
+  <table id="stemRefTable" style="width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;"></table>
+</details>
 
 <!-- 퀴즈 카드 -->
 <div class="quiz-card" id="quizCard">
@@ -531,6 +543,41 @@ const VOCAB_LIST = [
   // 접속사 1개
   { greek:"καί",       pron:"카이",     kr:"그리고",          pos:"접속사" },
 ];
+
+// ════════════════════════════════════════════════
+// 1-B. 제2단순과거 어간 데이터
+// ════════════════════════════════════════════════
+const AOR2_DATA = [
+  { verb:'γινώσκω', pron:'기노스코', meaning:'알다',
+    stem:'ἐγνω-', stemPron:'에그노',
+    note:'현재어간 γινωσκ- → 제2과거어간 ἐγνω- (어간 단축)',
+    act:['ἔγνων','ἔγνως','ἔγνω','ἔγνωμεν','ἔγνωτε','ἔγνωσαν'],
+    mid:['ἐγνώμην','ἔγνω','ἐγνώτο','ἐγνώμεθα','ἐγνώσθε','ἐγνώντο'],
+    pass:['ἐγνώσθην','ἐγνώσθης','ἐγνώσθη','ἐγνώσθημεν','ἐγνώσθητε','ἐγνώσθησαν']
+  },
+  { verb:'λαμβάνω', pron:'람바노', meaning:'취하다/받다',
+    stem:'ἐλαβ-', stemPron:'엘라브',
+    note:'현재어간 λαμβαν- → 제2과거어간 ἐλαβ- (불규칙 단축)',
+    act:['ἔλαβον','ἔλαβες','ἔλαβε(ν)','ἐλάβομεν','ἐλάβετε','ἔλαβον'],
+    mid:['ἐλαβόμην','ἐλάβου','ἐλάβετο','ἐλαβόμεθα','ἐλάβεσθε','ἐλάβοντο'],
+    pass:['ἐλήφθην','ἐλήφθης','ἐλήφθη','ἐλήφθημεν','ἐλήφθητε','ἐλήφθησαν']
+  },
+  { verb:'λέγω', pron:'레고', meaning:'말하다',
+    stem:'εἰπ-', stemPron:'에이프',
+    note:'미래 ἐρῶ (완전 불규칙!) / 제2과거어간 εἰπ-',
+    act:['εἶπον','εἶπες','εἶπε(ν)','εἴπομεν','εἴπετε','εἶπον'],
+    mid:['εἰπόμην','εἴπου','εἴπετο','εἰπόμεθα','εἴπεσθε','εἴποντο'],
+    pass:['ἐρρήθην','ἐρρήθης','ἐρρήθη','ἐρρήθημεν','ἐρρήθητε','ἐρρήθησαν']
+  },
+  { verb:'ἔχω', pron:'에코', meaning:'가지고 있다',
+    stem:'ἐσχ-', stemPron:'에스크',
+    note:'미완료 εἶχον (가산모음!) / 제2과거어간 ἐσχ-',
+    act:['ἔσχον','ἔσχες','ἔσχε(ν)','ἔσχομεν','ἔσχετε','ἔσχον'],
+    mid:['ἐσχόμην','ἔσχου','ἔσχετο','ἐσχόμεθα','ἔσχεσθε','ἔσχοντο'],
+    pass:['ἐσχέθην','ἐσχέθης','ἐσχέθη','ἐσχέθημεν','ἐσχέθητε','ἐσχέθησαν']
+  },
+];
+const PERSON_LABELS_STEM = ['1단','2단','3단','1복','2복','3복'];
 
 // ════════════════════════════════════════════════
 // 2. 동사 데이터 (기존 그대로)
@@ -701,11 +748,79 @@ function isCorrectVocab(item, chosen){
 }
 
 // ════════════════════════════════════════════════
+// 4-B. 어간 퀴즈 로직
+// ════════════════════════════════════════════════
+function buildStemPool(){
+  const pool = [];
+  const VM = { act:'능동', mid:'중간', pass:'수동' };
+  AOR2_DATA.forEach(d => {
+    // Type A: 주어진 활용형 → 원형 맞히기 (능동+중간 12형씩)
+    ['act','mid'].forEach(v => {
+      d[v].forEach((form, i) => {
+        pool.push({
+          type:'A', greek:form, answer:d.verb,
+          options: AOR2_DATA.map(x => x.verb),
+          hint:`${PERSON_LABELS_STEM[i]} ${VM[v]}태 — 이 형태의 원형은?`,
+          feedback:`정답: ${d.verb} (${d.meaning})\n💡 ${d.note}`,
+          d
+        });
+      });
+    });
+    // Type B: 원형 → 제2단순과거 어간 맞히기
+    pool.push({
+      type:'B', greek:d.verb, answer:d.stem,
+      options: AOR2_DATA.map(x => x.stem),
+      hint:'제2단순과거 어간은?',
+      feedback:`정답: ${d.stem} (${d.stemPron})\n💡 ${d.note}`,
+      d
+    });
+    // Type C: 원형 → 제2단순과거 1인칭 단수 맞히기 (능동/중간)
+    ['act','mid'].forEach(v => {
+      pool.push({
+        type:'C', greek:d.verb, answer:d[v][0],
+        options: AOR2_DATA.map(x => x[v][0]),
+        hint:`제2단순과거 ${VM[v]}태 1인칭 단수는?`,
+        feedback:`정답: ${d[v][0]}\n💡 ${d.note}`,
+        d
+      });
+    });
+  });
+  return pool;
+}
+function isCorrectStem(item, chosen){ return item.answer === chosen; }
+
+function buildStemRefTable(){
+  const tbl = document.getElementById('stemRefTable');
+  if(!tbl) return;
+  const hdStyle = 'padding:6px 10px;text-align:left;color:var(--muted);font-size:10px;letter-spacing:0.06em;border-bottom:1px solid var(--border);';
+  const tdStyle = 'padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);';
+  const grStyle = 'font-family:"Times New Roman",serif;color:var(--greek);font-size:14px;';
+  tbl.innerHTML = `
+    <thead><tr>
+      <th style="${hdStyle}">원형</th>
+      <th style="${hdStyle}">의미</th>
+      <th style="${hdStyle}">현재어간</th>
+      <th style="${hdStyle}">제2과거어간</th>
+      <th style="${hdStyle}">1인칭 단수</th>
+    </tr></thead>
+    <tbody>
+      ${AOR2_DATA.map(d=>`<tr>
+        <td style="${tdStyle}"><span style="${grStyle}">${d.verb}</span> <span style="color:var(--hint);font-size:10px">${d.pron}</span></td>
+        <td style="${tdStyle};color:var(--muted)">${d.meaning}</td>
+        <td style="${tdStyle}"><span style="${grStyle};color:var(--blue);font-size:12px">${d.note.split('→')[0].replace('현재어간 ','').trim()}</span></td>
+        <td style="${tdStyle}"><span style="${grStyle};color:var(--gold)">${d.stem}</span> <span style="color:var(--hint);font-size:10px">${d.stemPron}</span></td>
+        <td style="${tdStyle}"><span style="${grStyle}">${d.act[0]}</span></td>
+      </tr>`).join('')}
+    </tbody>`;
+}
+
+// ════════════════════════════════════════════════
 // 5. 공통 상태 & 탭 전환
 // ════════════════════════════════════════════════
 let currentTab = 'verb';
 let verbPool = [];
 let vocabPool = [];
+let stemPool = [];
 let session = [];
 let current = 0;
 let score = 0;
@@ -723,6 +838,9 @@ function switchTab(tab){
   currentTab=tab;
   document.getElementById('tab1').classList.toggle('active', tab==='verb');
   document.getElementById('tab2').classList.toggle('active', tab==='vocab');
+  document.getElementById('tab3').classList.toggle('active', tab==='stem');
+
+  const stemRef = document.getElementById('stemRef');
 
   if(tab==='verb'){
     document.getElementById('mainTitle').textContent='동사 해석 퀴즈';
@@ -732,8 +850,8 @@ function switchTab(tab){
     document.getElementById('quizCard').classList.remove('vocab-mode');
     document.getElementById('resultScreen').classList.remove('vocab-result');
     document.getElementById('resultCircle').classList.remove('vocab-circle');
-    document.getElementById('retryBtn').className='retry-btn';
-  } else {
+    stemRef.style.display = 'none';
+  } else if(tab==='vocab'){
     document.getElementById('mainTitle').textContent='어휘 퀴즈';
     document.getElementById('mainSubtitle').textContent='Vocabulary · 32 Words';
     document.getElementById('nextBtn').className='next-btn vocab';
@@ -741,6 +859,17 @@ function switchTab(tab){
     document.getElementById('resultScreen').classList.add('vocab-result');
     document.getElementById('resultCircle').classList.add('vocab-circle');
     document.getElementById('retryBtn').className='retry-btn vocab-retry';
+    stemRef.style.display = 'none';
+  } else { // stem
+    document.getElementById('mainTitle').textContent='어간 변화 퀴즈';
+    document.getElementById('mainSubtitle').textContent='제2단순과거 불규칙 어간 · 4 Verbs';
+    document.getElementById('nextBtn').className='next-btn';
+    document.getElementById('retryBtn').className='retry-btn';
+    document.getElementById('quizCard').classList.remove('vocab-mode');
+    document.getElementById('resultScreen').classList.remove('vocab-result');
+    document.getElementById('resultCircle').classList.remove('vocab-circle');
+    stemRef.style.display = 'block';
+    buildStemRefTable();
   }
 
   // 결과화면 숨기고 새 세션 시작
@@ -755,9 +884,12 @@ function startSession(){
   if(currentTab==='verb'){
     verbPool=buildVerbPool();
     session=shuffle(verbPool).slice(0,10);
-  } else {
+  } else if(currentTab==='vocab'){
     vocabPool=buildVocabPool();
     session=shuffle(vocabPool).slice(0,10);
+  } else { // stem
+    stemPool=buildStemPool();
+    session=shuffle(stemPool).slice(0,10);
   }
   current=0; score=0; sessionLog=[]; answered=false;
   document.getElementById('resultScreen').classList.remove('show');
@@ -779,18 +911,21 @@ function renderQuestion(){
   document.getElementById('scoreLabel').textContent=`${score} / ${current}`;
   document.getElementById('progressFill').style.width=`${(current/10)*100}%`;
 
-  // 어휘 탭: 품사 태그 표시
+  // 태그 표시
   const tag=document.getElementById('wordTag');
   if(currentTab==='vocab'){
     tag.textContent=item.pos; tag.style.display='inline-block';
+  } else if(currentTab==='stem'){
+    tag.textContent=item.hint; tag.style.display='inline-block';
   } else {
     tag.style.display='none';
   }
 
   // 보기 생성
-  const opts = currentTab==='verb'
-    ? generateVerbOptions(item, verbPool.length?verbPool:buildVerbPool())
-    : generateVocabOptions(item);
+  let opts;
+  if(currentTab==='verb')       opts = generateVerbOptions(item, verbPool.length?verbPool:buildVerbPool());
+  else if(currentTab==='vocab') opts = generateVocabOptions(item);
+  else                          opts = shuffle([...item.options]); // stem: fixed 4 options
   const shuffled=shuffle(opts);
 
   const container=document.getElementById('optionsContainer');
@@ -815,13 +950,17 @@ function selectOption(btn,chosen,item,opts){
   if(answered) return;
   answered=true;
 
-  const correct = currentTab==='verb' ? isCorrectVerb(item,chosen) : isCorrectVocab(item,chosen);
+  const correct = currentTab==='verb' ? isCorrectVerb(item,chosen)
+                : currentTab==='vocab' ? isCorrectVocab(item,chosen)
+                : isCorrectStem(item,chosen);
   const btns=document.querySelectorAll('.option-btn');
   btns.forEach(b=>{
     b.disabled=true;
     const text=b.querySelector('span:nth-child(2)').textContent;
     const icon=b.querySelector('.result-icon');
-    const isRight = currentTab==='verb' ? isCorrectVerb(item,text) : isCorrectVocab(item,text);
+    const isRight = currentTab==='verb' ? isCorrectVerb(item,text)
+                  : currentTab==='vocab' ? isCorrectVocab(item,text)
+                  : isCorrectStem(item,text);
     if(isRight){ b.classList.add('reveal'); icon.textContent='✓'; }
   });
 
@@ -847,9 +986,12 @@ function showFeedback(correct,item){
     const td=item.tense==='단순과거'?'제1단순과거':item.tense;
     if(correct){ fb.className='feedback show correct-fb'; fb.textContent=`✓ 정답! — ${item.greek} = ${td} ${item.voice} ${item.personLabel} "${item.answer}"`; }
     else { fb.className='feedback show wrong-fb'; fb.textContent=`✗ 오답 — 정답: ${td} ${item.voice} ${item.personLabel} "${item.answer}"`; }
-  } else {
+  } else if(currentTab==='vocab'){
     if(correct){ fb.className='feedback show correct-fb'; fb.textContent=`✓ 정답! — ${item.greek} (${item.pron}) = ${item.kr}`; }
     else { fb.className='feedback show wrong-fb'; fb.textContent=`✗ 오답 — 정답: ${item.kr}  (${item.greek} · ${item.pron})`; }
+  } else { // stem
+    if(correct){ fb.className='feedback show correct-fb'; fb.textContent=`✓ 정답! — ${item.answer}`; }
+    else { fb.className='feedback show wrong-fb'; fb.textContent=`✗ 오답 — ${item.feedback}`; }
   }
 }
 
@@ -890,8 +1032,10 @@ function showResult(){
       if(currentTab==='verb'){
         const td=log.item.tense==='단순과거'?'제1단순과거':log.item.tense;
         div.innerHTML=`<span class="review-icon">✗</span><span class="review-greek">${log.item.greek}</span><span class="review-answer">내 답: <span style="color:var(--red)">${log.chosen}</span><br>정답: <strong>${log.item.answer}</strong><br><span style="color:var(--hint);font-size:11px">${td} · ${log.item.voice} · ${log.item.personLabel}</span></span>`;
-      } else {
+      } else if(currentTab==='vocab'){
         div.innerHTML=`<span class="review-icon">✗</span><span class="review-greek">${log.item.greek}</span><span class="review-answer">내 답: <span style="color:var(--red)">${log.chosen}</span><br>정답: <strong>${log.item.kr}</strong><br><span style="color:var(--hint);font-size:11px">${log.item.pos} · ${log.item.pron}</span></span>`;
+      } else { // stem
+        div.innerHTML=`<span class="review-icon">✗</span><span class="review-greek">${log.item.greek}</span><span class="review-answer">내 답: <span style="color:var(--red)">${log.chosen}</span><br>정답: <strong>${log.item.answer}</strong><br><span style="color:var(--hint);font-size:11px">${log.item.hint}</span></span>`;
       }
       reviewItems.appendChild(div);
     });
