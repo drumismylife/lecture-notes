@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 8주차: 이슬람교에 대한 이해</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   COLOR SYSTEM — 딥 세피아 + 파피루스
+══════════════════════════════════════════ */
+:root {
+  --bg:           #14100a;
+  --card:         #1e1710;
+  --subcard:      #261e14;
+  --border:       #3a2e1e;
+  --border-light: #4a3a26;
+
+  --gold:         #c4955a;
+  --gold-bright:  #d4a870;
+  --gold-dim:     #8a6a3a;
+  --gold-pale:    rgba(196,149,90,.12);
+
+  --text-main:    #f0ebe0;
+  --text-sub:     #a09070;
+  --text-hint:    #6b5a40;
+  --text-em:      #d4b87a;
+
+  --badge-video:  #5a7a4a;
+  --badge-era:    #6a5a3a;
+  --badge-figure: #4a6a7a;
+  --badge-event:  #7a5a3a;
+  --badge-creed:  #6a4a7a;
+  --badge-compare:#3a6a5a;
+
+  /* 시대별 색상 */
+  --era-form:     #4a7a6a;   /* 형성기 */
+  --era-split:    #7a5a4a;   /* 분열기 */
+  --era-modern:   #4a5a7a;   /* 현대 */
+
+  --radius:       6px;
+  --radius-sm:    4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-main);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+/* ══════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════ */
+.page-header {
+  background: linear-gradient(160deg, #1e1208 0%, #2a1c0e 50%, #1a140a 100%);
+  border-bottom: 2px solid var(--gold-dim);
+  padding: 28px 24px 22px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: 'Historia Ecclesiae';
+  position: absolute;
+  right: 16px; top: 12px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: rgba(196,149,90,.07);
+  letter-spacing: .04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.header-tag {
+  display: inline-block;
+  background: var(--gold-dim);
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.header-week {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.header-latin {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+}
+.header-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.header-pill {
+  background: rgba(196,149,90,.1);
+  border: 1px solid rgba(196,149,90,.25);
+  color: var(--text-sub);
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+/* ══════════════════════════════════════════
+   TABS
+══════════════════════════════════════════ */
+.tab-bar {
+  display: flex;
+  background: #0e0b06;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px 8px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-hint);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: .02em;
+}
+.tab-btn:hover { color: var(--text-sub); }
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.tab-content { display: none; padding-top: 24px; }
+.tab-content.active { display: block; }
+
+/* ══════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════ */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 14px;
+}
+.sec-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.sec-badge.video   { background: var(--badge-video);  color: #d0ead0; }
+.sec-badge.era     { background: var(--badge-era);    color: #e8d8b0; }
+.sec-badge.creed   { background: var(--badge-creed);  color: #d8c8f0; }
+.sec-badge.compare { background: var(--badge-compare);color: #c0dcd8; }
+.sec-badge.figure  { background: var(--badge-figure); color: #c0d8e8; }
+.sec-badge.event   { background: var(--badge-event);  color: #e8d0c0; }
+
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--gold-dim), transparent);
+}
+
+/* ══════════════════════════════════════════
+   VIDEO CARD
+══════════════════════════════════════════ */
+.video-card {
+  background: #1a160c;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--badge-video);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.video-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.video-num {
+  background: var(--badge-video);
+  color: #d0ead0;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.video-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-main);
+}
+.video-rows { display: flex; flex-direction: column; gap: 8px; }
+.video-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+.video-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  padding-top: 1px;
+}
+.video-body {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+.video-body strong { color: var(--text-em); font-weight: 600; }
+
+/* ══════════════════════════════════════════
+   DOCTRINE CARD
+══════════════════════════════════════════ */
+.creed-card {
+  background: #1e1a14;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.creed-header {
+  background: rgba(106,74,122,.25);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 18px;
+}
+.creed-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d8c8f0;
+  margin-bottom: 2px;
+}
+.creed-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  color: var(--text-hint);
+  font-style: italic;
+}
+.creed-body { padding: 14px 18px; }
+.creed-section { margin-bottom: 12px; }
+.creed-section:last-child { margin-bottom: 0; }
+.creed-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 5px;
+}
+.creed-text {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+.creed-text strong { color: var(--text-em); }
+
+/* 대립 주장 */
+.claim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+.claim-box {
+  background: var(--subcard);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  border-top: 2px solid;
+}
+.claim-box.islam  { border-top-color: #6aaa6a; }
+.claim-box.christ { border-top-color: #6a8aaa; }
+.claim-side {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin-bottom: 5px;
+}
+.claim-box.islam  .claim-side { color: #8aaa8a; }
+.claim-box.christ .claim-side { color: #8aaaca; }
+.claim-content {
+  font-size: 12px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+
+/* 공의회 결정 */
+.council-box {
+  background: var(--subcard);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-top: 6px;
+}
+.council-box .creed-text { font-size: 13px; }
+
+/* 현대 의의 */
+.modern-box {
+  background: #ede8d022;
+  border: 1px solid #4a3a2a;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   COMPARE CARD
+══════════════════════════════════════════ */
+.compare-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.compare-header {
+  background: rgba(58,106,90,.2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c0dcd8;
+  letter-spacing: .04em;
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.compare-col {
+  padding: 14px 16px;
+}
+.compare-col:first-child {
+  border-right: 1px solid var(--border);
+}
+.compare-col-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.compare-col-sub {
+  font-size: 11px;
+  color: var(--text-hint);
+  margin-bottom: 10px;
+  font-style: italic;
+  font-family: 'Crimson Pro', serif;
+}
+.compare-row { margin-bottom: 9px; }
+.compare-row-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.compare-row-text {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+/* 경전 비교용 (2항목이 아닌 다항목) */
+.scripture-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.scripture-col {
+  padding: 14px 16px;
+}
+.scripture-col:first-child { border-right: 1px solid var(--border); }
+.scripture-col-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.scripture-row { margin-bottom: 9px; }
+.scripture-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.scripture-text {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════
+   FIGURE CARD
+══════════════════════════════════════════ */
+.figure-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.figure-head {
+  background: rgba(74,106,122,.25);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.figure-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.figure-date {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  color: var(--text-hint);
+  font-style: italic;
+}
+.figure-body { padding: 14px 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.figure-row {}
+.figure-row-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 4px;
+}
+.figure-row-text {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+.figure-row.full { grid-column: 1/-1; }
+
+/* ══════════════════════════════════════════
+   EVENT CARD
+══════════════════════════════════════════ */
+.event-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold-bright);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.event-date-badge {
+  background: var(--gold-dim);
+  color: var(--bg);
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.event-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.event-rows { display: flex; flex-direction: column; gap: 8px; }
+.event-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+.event-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+.event-text {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+.event-text strong { color: var(--text-em); }
+
+/* ══════════════════════════════════════════
+   TIMELINE (탭 3)
+══════════════════════════════════════════ */
+.timeline-wrap { padding-bottom: 20px; }
+
+.era-block { margin-bottom: 32px; }
+.era-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.era-dot-large {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.era-label {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.era-range {
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-hint);
+}
+.era-line-right {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, currentColor, transparent);
+  opacity: .3;
+}
+
+/* 시대별 색상 */
+.era-form-color  { color: #6aaa8a; }
+.era-split-color { color: #aa8a6a; }
+.era-modern-color{ color: #6a8aaa; }
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 72px 16px 1fr;
+  gap: 0 12px;
+  margin-bottom: 0;
+  position: relative;
+}
+.tl-year {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  text-align: right;
+  padding-top: 3px;
+  white-space: nowrap;
+}
+.tl-spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tl-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-dim);
+  background: var(--bg);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.tl-line {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  min-height: 12px;
+}
+.tl-content {
+  padding-bottom: 18px;
+}
+.tl-event {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 3px;
+}
+.tl-persons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.tl-person {
+  background: rgba(196,149,90,.12);
+  border: 1px solid rgba(196,149,90,.2);
+  color: var(--gold-dim);
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+.tl-meaning {
+  font-size: 12px;
+  color: var(--text-hint);
+  line-height: 1.6;
+}
+/* last item — no line */
+.timeline-item:last-child .tl-line { display: none; }
+
+/* ══════════════════════════════════════════
+   SUMMARY BOX (핵심 포인트)
+══════════════════════════════════════════ */
+.summary-box {
+  background: linear-gradient(135deg, #1e1a0e, #1a160a);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-top: 32px;
+}
+.summary-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.summary-title::before {
+  content: '★';
+  font-size: 12px;
+}
+.summary-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.summary-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.65;
+}
+.summary-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  text-align: right;
+}
+.summary-list li strong { color: var(--text-em); }
+
+/* ══════════════════════════════════════════
+   BACK NAV
+══════════════════════════════════════════ */
+.back-nav {
+  padding: 14px 0 0;
+  font-size: 12px;
+}
+.back-nav a {
+  color: var(--text-hint);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color .2s;
+}
+.back-nav a:hover { color: var(--gold); }
+
+/* ══════════════════════════════════════════
+   PRINT
+══════════════════════════════════════════ */
+@media print {
+  .tab-bar { display: none; }
+  .tab-content { display: block !important; }
+  body { background: #14100a; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 15mm; }
+  .page-header { break-inside: avoid; }
+  .creed-card, .compare-card, .figure-card, .event-card { break-inside: avoid; }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .claim-grid, .compare-grid, .scripture-grid, .figure-body { grid-template-columns: 1fr; }
+  .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .scripture-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .figure-row.full { grid-column: 1; }
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrapper">
+    <div class="back-nav"><a href="../../index.html">← 목록으로</a></div>
+    <div class="header-tag">교회사개론 I · 61049</div>
+    <div class="header-week">8주차 · 2026년 4월 24일 (금)</div>
+    <div class="header-title">이슬람교에 대한 이해</div>
+    <div class="header-latin">Understanding Islam — Al-Islām · Tawḥīd · Umma</div>
+    <div class="header-pills">
+      <span class="header-pill">유튜브 영상 3편 정리</span>
+      <span class="header-pill">담당: 김태식 교수</span>
+      <span class="header-pill">중간고사 주차</span>
+    </div>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes', this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary', this)">🔍 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline', this)">📅 연대기</button>
+</div>
+
+<div class="wrapper">
+
+<!-- ══════════════════════════════════════════
+     탭 1: 강의노트
+══════════════════════════════════════════ -->
+<div id="tab-notes" class="tab-content active">
+
+  <!-- 영상 개요 -->
+  <div class="sec-head">
+    <span class="sec-badge video">영상</span>
+    <div class="sec-title">영상 3편 개요</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-card-header">
+      <span class="video-num">영상 1</span>
+      <span class="video-title">이슬람 신학 기초 강의</span>
+    </div>
+    <div class="video-rows">
+      <div class="video-row">
+        <span class="video-label">핵심 배경</span>
+        <span class="video-body">유대교·기독교·이슬람은 모두 유일신을 믿는 공통점이 있으나, <strong>예수의 위치</strong>와 <strong>경전 인정 범위</strong>에서 차이를 보임. 이슬람 신학의 핵심은 타워히드(Tawḥīd, 유일신관). 이슬람을 피상적 이미지가 아닌 신학 내용으로 이해할 것을 강조.</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">사전 개념</span>
+        <span class="video-body">타워히드(Tawḥīd) / 하니프(Ḥanīf) / 야수랄라(사도) / 꾸란과 성경의 경전관 차이 / 원죄론 유무</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">시청 포인트</span>
+        <span class="video-body">① 이슬람이 무함마드를 새 종교 창시자로 보지 않는 이유 ② 예수에 대한 이슬람의 이해 ③ 아브라함을 하니프로 보는 의미 ④ 기독교 원죄론과 이슬람의 차이</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-card-header">
+      <span class="video-num">영상 2</span>
+      <span class="video-title">이슬람교의 탄생과 무함마드</span>
+    </div>
+    <div class="video-rows">
+      <div class="video-row">
+        <span class="video-label">핵심 배경</span>
+        <span class="video-body">7세기 아라비아 반도는 유목·약탈 경제 기반의 다신교 사회. 메카는 인도양~지중해 교역로의 요충지로 유대교·기독교가 이미 알려져 있었음. 유일신 신앙은 부족 대립을 통제하는 이념적 수단이기도 했음.</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">사전 개념</span>
+        <span class="video-body">헤지라(Hijra) / 움마(Umma) / 칼리파(Khalīfa) / 사라센 제국 / 지하드(Jihād) / 경전의 백성(Ahl al-Kitāb)</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">시청 포인트</span>
+        <span class="video-body">① 이슬람 탄생의 종교적·경제적 배경 ② 무함마드의 삶과 계시 수령 과정 ③ 헤지라가 이슬람 원년이 된 이유 ④ 메카 정복과 사라센 제국 출범</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-card-header">
+      <span class="video-num">영상 3</span>
+      <span class="video-title">순니파와 시아파의 분열</span>
+    </div>
+    <div class="video-rows">
+      <div class="video-row">
+        <span class="video-label">핵심 배경</span>
+        <span class="video-body">632년 무함마드 사망 후 후계자(칼리파) 선출 문제. <strong>혈통(알리) vs 공동체 합의(아부 바크르)</strong> 충돌. 680년 카르발라 학살로 분열이 신앙 정체성의 차원으로 심화됨.</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">사전 개념</span>
+        <span class="video-body">칼리파(Khalīfa) / 이맘(Imām) / 피트나(Fitna, 내전) / 아슈라(ʿĀshūrāʾ) / 가이바(Ghayba, 은둔) / 벨라야테 파키흐(Wilāyat al-Faqīh) / 와하비즘(Wahhabism)</span>
+      </div>
+      <div class="video-row">
+        <span class="video-label">시청 포인트</span>
+        <span class="video-body">① 알리가 세 번 칼리파직에서 배제된 과정 ② 카르발라 전투의 전개와 시아파 신학에서의 의미 ③ 순니·시아파의 이맘 이해 차이 ④ 현대 중동 대리전과 1400년 분열의 연속성</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 교리 논쟁 -->
+  <div class="sec-head">
+    <span class="sec-badge creed">교리</span>
+    <div class="sec-title">교리 논쟁</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="creed-card">
+    <div class="creed-header">
+      <div class="creed-title">이슬람의 유일신관 — 타워히드 (Tawḥīd)</div>
+      <div class="creed-sub">Islam vs. Christianity · Monotheism Debate</div>
+    </div>
+    <div class="creed-body">
+      <div class="creed-section">
+        <div class="creed-label">논쟁 배경</div>
+        <div class="creed-text">아라비아 반도의 다신교 전통 속에서 유대교·기독교의 유일신 신앙이 전파됨. 무함마드는 이 위에서 알라(Allāh)만을 유일신으로 선포. 유일신관은 단순 신학 원리를 넘어 부족 통합의 이념적 토대가 되었음.</div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">주요 주장</div>
+        <div class="claim-grid">
+          <div class="claim-box islam">
+            <div class="claim-side">이슬람 (Islam)</div>
+            <div class="claim-content">알라 외에 다른 신 없음. 무함마드는 알라의 최후 사도. 예수를 포함한 어떤 존재에게도 신성 부여 불가. 인간과 신은 중재자 없이 직접 소통.</div>
+          </div>
+          <div class="claim-box christ">
+            <div class="claim-side">기독교 (Christianity)</div>
+            <div class="claim-content">예수에게 인성과 신성을 동시에 부여. 성부·성자·성령 삼위일체론(Trinitas). 예수의 대속(贖罪)으로 인류 구원.</div>
+          </div>
+        </div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">공의회 결정</div>
+        <div class="council-box">
+          <div class="creed-text"><strong>니케아 공의회(Concilium Nicaenum) 325년</strong> — 성자의 완전한 신성·성부와의 동일본질(ὁμοούσιος, homoousios) 확정. 이슬람은 이 결정을 타워히드 위배로 봄.</div>
+        </div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">현대 의의</div>
+        <div class="modern-box">이슬람-기독교 신학 대화의 핵심 쟁점. 주목할 점: 초기 기독교의 에비온파(Ebionites)·아리우스파(Arians)·시리아의 파울루스파 등도 유일신관을 위해 예수의 신성을 반대했음. 기독교는 니케아 공의회를 통해 삼위일체론을 공식화하면서 이들을 비주류로 만들었고, 이슬람 또한 이 유일신관 전통의 연장선상에서 이해할 수 있음.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creed-card">
+    <div class="creed-header">
+      <div class="creed-title">원죄론(Peccatum Originale)에 대한 이슬람과 기독교의 차이</div>
+      <div class="creed-sub">Original Sin · Atonement · Salvation</div>
+    </div>
+    <div class="creed-body">
+      <div class="creed-section">
+        <div class="creed-label">논쟁 배경</div>
+        <div class="creed-text">에덴동산 아담의 범죄 이후 죄의 상속 여부와 구원 방식에 관한 근본적 차이. 이 차이는 성직자 제도·중재자 신학·구원론 전체의 구조 차이로 이어짐.</div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">주요 주장</div>
+        <div class="claim-grid">
+          <div class="claim-box islam">
+            <div class="claim-side">이슬람 (Islam)</div>
+            <div class="claim-content">하나님이 아담의 죄를 그 자리에서 용서하셨으며, 죄는 후손에게 상속되지 않음. 따라서 대속 불필요. 개인의 죄는 기도(살라트, Ṣalāt)로 직접 용서 구함.</div>
+          </div>
+          <div class="claim-box christ">
+            <div class="claim-side">기독교 (Christianity)</div>
+            <div class="claim-content">아담의 죄를 하나님이 용서하지 않으셨으며 후손에게 상속됨(원죄론). 예수 그리스도의 희생으로 대속·구원. 성직자(목사·신부) 제도가 이 신학적 구조에서 파생.</div>
+          </div>
+        </div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">현대 의의</div>
+        <div class="modern-box">원죄론 유무가 <strong>성직자 제도의 존재 여부</strong>를 결정함. 이슬람은 인간과 신 사이의 중재자(성직자)를 두지 않기 때문에 별도의 성직자 제도가 없음. 이맘(Imām)은 예배를 인도하는 역할이지 중재자가 아님.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 비교 -->
+  <div class="sec-head">
+    <span class="sec-badge compare">비교</span>
+    <div class="sec-title">비교 분석</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 순니파 vs 시아파 -->
+  <div class="compare-card">
+    <div class="compare-header">순니파(Sunnī) vs 시아파(Shīʿa) — 분파 비교</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-title">순니파 (Sunnī)</div>
+        <div class="compare-col-sub">전체 무슬림의 85~90%</div>
+        <div class="compare-row">
+          <div class="compare-row-label">신학 입장</div>
+          <div class="compare-row-text">무함마드의 순나(Sunna, 관습)와 공동체 합의(이즈마으, Ijmāʿ)를 기준으로 칼리파 선출. 혈통보다 공동체 동의가 우선.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">역사적 공헌</div>
+          <div class="compare-row-text">이슬람 법학 4대 학파(하나피·말리키·샤피이·한발리) 체계화. 질서와 통합 중시의 현실주의 정치신학.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">한계</div>
+          <div class="compare-row-text">와하비즘(Wahhabism) 등 극단주의와 연계 가능성. IS·알카에다의 사상적 뿌리.</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-title">시아파 (Shīʿa)</div>
+        <div class="compare-col-sub">전체 무슬림의 10~15%</div>
+        <div class="compare-row">
+          <div class="compare-row-label">신학 입장</div>
+          <div class="compare-row-text">무함마드의 혈통(알리→후세인→12이맘)만이 정당한 이맘. 이맘은 무류성(이스마, ʿIṣma) 보유.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">역사적 공헌</div>
+          <div class="compare-row-text">저항과 순교의 신학. 권력에 대한 지속적 비판 전통. 이란 이슬람 공화국의 신학적 기반.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">한계</div>
+          <div class="compare-row-text">이맘 은둔(가이바) 이후 통치 공백 문제. 벨라야테 파키흐의 권위주의적 적용 가능성.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 꾸란 vs 성경 -->
+  <div class="compare-card">
+    <div class="compare-header">꾸란(Qurʾān) vs 구약·신약 성경 — 경전의 권위와 형성 과정에 대한 이슬람의 이해</div>
+    <div class="scripture-grid">
+      <div class="scripture-col">
+        <div class="scripture-col-title">꾸란 (Qurʾān)</div>
+        <div class="scripture-row">
+          <div class="scripture-label">형성</div>
+          <div class="scripture-text">무함마드 한 사람을 통해 약 23년(610~632년)간 계시됨. 단일 기록자·단일 기간으로 왜곡 가능성이 가장 낮다고 주장.</div>
+        </div>
+        <div class="scripture-row">
+          <div class="scripture-label">권위</div>
+          <div class="scripture-text">이슬람 법·윤리·신앙의 최고 권위. 아랍어 원문 보존을 절대 원칙으로 삼음.</div>
+        </div>
+        <div class="scripture-row">
+          <div class="scripture-label">이슬람 평가</div>
+          <div class="scripture-text">앞선 경전들의 왜곡을 바로잡기 위해 신이 내린 최종·완성된 계시.</div>
+        </div>
+      </div>
+      <div class="scripture-col">
+        <div class="scripture-col-title">구약·신약 성경</div>
+        <div class="scripture-row">
+          <div class="scripture-label">형성</div>
+          <div class="scripture-text">구약은 약 1,500년간 26명 이상 기록. 신약은 약 100년간 9명 기록. (→ 정경 형성 과정은 5~7주 가톨릭 기독교시대 강의와 연결)</div>
+        </div>
+        <div class="scripture-row">
+          <div class="scripture-label">권위</div>
+          <div class="scripture-text">유대교·기독교 신앙 공동체의 영적·윤리적 토대.</div>
+        </div>
+        <div class="scripture-row">
+          <div class="scripture-label">이슬람 평가</div>
+          <div class="scripture-text">인간에 의해 후대에 첨삭·왜곡된 문서. 이슬람이 꾸란을 통해 바로잡고자 한 대상.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인물 -->
+  <div class="sec-head">
+    <span class="sec-badge figure">인물</span>
+    <div class="sec-title">주요 인물</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="figure-card">
+    <div class="figure-head">
+      <span class="figure-name">무함마드 (Muḥammad)</span>
+      <span class="figure-date">570 ~ 632 AD</span>
+    </div>
+    <div class="figure-body">
+      <div class="figure-row">
+        <div class="figure-row-label">배경</div>
+        <div class="figure-row-text">아라비아 반도 메카 쿠라이시(Quraysh)족 출생. 어린 시절 부모를 잃고 할아버지·숙부 손에 양육. 상인으로 성장 후 25세에 카디자(Khadīja)와 결혼. 40세에 히라 산 동굴에서 천사 지브릴로부터 첫 계시 수령.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">신학 입장</div>
+        <div class="figure-row-text">타워히드(유일신관). 스스로를 새 종교 창시자가 아닌 아브라함·모세·예수에 이은 최후 예언자(Khātam al-Nabiyyīn)로 규정.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">역사적 공헌</div>
+        <div class="figure-row-text">이슬람 공동체(움마) 창설. 메디나 헌장을 통한 신정일치 국가 수립. 아라비아 반도 정치적 통일. 꾸란 계시 수령.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">한계</div>
+        <div class="figure-row-text">유대인·기독교인의 냉대 이후 이들 공동체와의 관계가 점차 갈등으로 전환. 지하드를 통한 확장 과정에서 폭력 수반.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="figure-card">
+    <div class="figure-head">
+      <span class="figure-name">알리 이븐 아비 탈리브 (ʿAlī ibn Abī Ṭālib)</span>
+      <span class="figure-date">600 ~ 661 AD</span>
+    </div>
+    <div class="figure-body">
+      <div class="figure-row">
+        <div class="figure-row-label">배경</div>
+        <div class="figure-row-text">무함마드의 사촌이자 사위(딸 파티마의 남편). 10세부터 무함마드의 집에서 양육. 이슬람 최초의 남성 신자. 우후드 전투 등에서 무함마드를 끝까지 수행.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">신학 입장</div>
+        <div class="figure-row-text">무함마드의 혈통이 공동체를 이끌어야 한다는 입장. 모든 신자의 평등과 무함마드의 가르침을 공동체 운영 원칙으로 고수.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">역사적 공헌</div>
+        <div class="figure-row-text">세 번의 칼리파직 배제에도 공동체 분열을 막기 위해 인내. 4대 칼리파 즉위 후 부패 총독 전원 해임·보조금 균등 지급 등 평등 개혁 단행. 시아파 신학의 창시적 인물.</div>
+      </div>
+      <div class="figure-row">
+        <div class="figure-row-label">한계</div>
+        <div class="figure-row-text">시핀(Ṣiffīn) 전투 협상 수용으로 강경파(하와리지파, Khārijites)가 이탈. 결국 하와리지파 자객에게 암살됨.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 사건 -->
+  <div class="sec-head">
+    <span class="sec-badge event">사건</span>
+    <div class="sec-title">핵심 사건</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-header">
+      <span class="event-date-badge">680년 10월 10일</span>
+      <span class="event-title">카르발라(Karbalāʾ) 전투</span>
+    </div>
+    <div class="event-rows">
+      <div class="event-row">
+        <span class="event-label">배경</span>
+        <span class="event-text">야지드(Yazīd)가 무아위야의 아들로 칼리파직을 이슬람 역사 최초로 <strong>세습</strong>. 알리의 차남 후세인에게 충성 서약 요구. 후세인 거부.</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">전개</span>
+        <span class="event-text">이라크 쿠파(Kūfa) 시아파 세력 2만 명이 서약하며 후세인 초청 → 야지드군이 쿠파를 장악하고 연락 차단 → 후세인 일행 72명이 카르발라 사막에서 포위 → 사흘간 물 차단 → 후세인 전사, 수급 다마스쿠스로 이송, 여성·아이 포로.</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">결과</span>
+        <span class="event-text">후세인 일행 전원 전사·포로. 유일한 생존자는 병중의 아들 1명.</span>
+      </div>
+      <div class="event-row">
+        <span class="event-label">의의</span>
+        <span class="event-text">시아파 역사의 최대 비극. 매년 <strong>아슈라(ʿĀshūrāʾ)</strong>에 추모. 40일 후 카르발라까지 80km 도보 순례 <strong>아르바인(Arbaʿīn)</strong> 거행(전 세계 수천만 명 참여). 정의의 순교 서사가 시아파 저항 신학과 정치 신학의 토대.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="summary-box">
+    <div class="summary-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <ul class="summary-list">
+      <li>
+        <span class="summary-num">①</span>
+        <span><strong>이슬람은 새 종교가 아니다</strong> — 무함마드는 스스로를 아브라함·모세·예수에 이은 최후 예언자로 보았으며, 이슬람은 왜곡된 유일신 신앙을 회복하려는 운동으로 자신을 규정한다. 에비온파·아리우스파 등 초기 기독교 내 유일신론 흐름과 신학 구조상 연속성이 있다.</span>
+      </li>
+      <li>
+        <span class="summary-num">②</span>
+        <span><strong>순니-시아 분열은 신학 이전에 권력 문제였다</strong> — 632년 칼리파 선출 당시 혈통(알리)과 공동체 합의(아부 바크르)의 충돌에서 비롯되었으며, 680년 카르발라 학살로 신앙 정체성의 차원으로 심화되었다. 1400년이 지난 지금도 중동 지정학의 핵심 구도로 작동하고 있다.</span>
+      </li>
+      <li>
+        <span class="summary-num">③</span>
+        <span><strong>원죄론의 유무가 교회 구조 전체를 결정한다</strong> — 이슬람이 성직자 제도를 두지 않는 신학적 근거는 원죄론과 대속론의 부재에 있다. 인간과 신 사이의 중재자가 불필요하기 때문에 별도의 성직자 계층 없이 이맘(예배 인도자)만 두는 구조가 형성된다. 기독교 교회론과의 근본적 차이점.</span>
+      </li>
+    </ul>
+  </div>
+
+</div><!-- /tab-notes -->
+
+<!-- ══════════════════════════════════════════
+     탭 2: 핵심정리
+══════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-content">
+
+  <div class="sec-head">
+    <span class="sec-badge creed">교리</span>
+    <div class="sec-title">핵심 교리 개념 정리</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="creed-card">
+    <div class="creed-header">
+      <div class="creed-title">타워히드 (Tawḥīd) — 이슬람 신학의 근본</div>
+    </div>
+    <div class="creed-body">
+      <div class="creed-section">
+        <div class="creed-label">정의</div>
+        <div class="creed-text">오직 하나의 신(알라)만을 믿는 이슬람의 핵심 신학 원리. 무함마드나 예수 등 어떤 인간·예언자에게도 신성 부여 금지.</div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">기독교와의 차이</div>
+        <div class="claim-grid">
+          <div class="claim-box islam">
+            <div class="claim-side">이슬람</div>
+            <div class="claim-content">유일신. 중재자 없는 직접 소통. 성직자 제도 없음. 원죄 없음 → 대속 불필요.</div>
+          </div>
+          <div class="claim-box christ">
+            <div class="claim-side">기독교</div>
+            <div class="claim-content">삼위일체(Trinitas). 예수를 통한 중재. 성직자 제도. 원죄론 → 대속론.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="creed-card">
+    <div class="creed-header">
+      <div class="creed-title">이맘(Imām) — 순니파 vs 시아파의 이해 차이</div>
+    </div>
+    <div class="creed-body">
+      <div class="creed-section">
+        <div class="claim-grid">
+          <div class="claim-box islam">
+            <div class="claim-side">순니파의 이맘</div>
+            <div class="claim-content">뛰어난 학자이자 예배 인도자. 신과 인간 사이의 중재 능력 없음. 조건 충족 시 누구든 가능. 과거 법학파 해석 체계를 따름.</div>
+          </div>
+          <div class="claim-box christ">
+            <div class="claim-side">시아파의 이맘</div>
+            <div class="claim-content">신의 대리자. 이스마(ʿIṣma, 무류성) 보유. 무함마드→알리 혈통에서만 계승 가능. 현존 아야톨라의 파트와가 현행 법으로 효력.</div>
+          </div>
+        </div>
+      </div>
+      <div class="creed-section">
+        <div class="creed-label">12대 이맘 은둔 이후</div>
+        <div class="council-box">
+          <div class="creed-text">873년경 12대 이맘 <strong>가이바(Ghayba, 은둔)</strong> → 호메이니의 <strong>벨라야테 파키흐(Wilāyat al-Faqīh)</strong> 이론으로 공백 해결 → 1979년 이란 이슬람 공화국 헌법에 반영 → 선거로 뽑히지 않은 아야톨라(최고 지도자)가 국가 최고 권위 보유</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-head">
+    <span class="sec-badge compare">비교</span>
+    <div class="sec-title">핵심 용어 대조표</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-card">
+    <div class="compare-header">이슬람 핵심 용어 정리</div>
+    <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Tawḥīd (타워히드)</span>
+        <span style="font-size:13px; color:var(--text-sub);">유일신관. 이슬람 신학의 근본 원리. 알라 외 신 없음.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Hijra (헤지라)</span>
+        <span style="font-size:13px; color:var(--text-sub);">622년 무함마드의 메카→메디나 이주. 이슬람 달력 원년(AH 1). 혈연→신앙 공동체 전환의 상징.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Umma (움마)</span>
+        <span style="font-size:13px; color:var(--text-sub);">이슬람 신앙 공동체. 혈연이 아닌 신앙으로 묶인 공동체.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Khalīfa (칼리파)</span>
+        <span style="font-size:13px; color:var(--text-sub);">예언자의 후계자. 종교+군사+사법 최고 권력. 분열의 핵심 쟁점.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Ḥanīf (하니프)</span>
+        <span style="font-size:13px; color:var(--text-sub);">순수한 유일신 신앙인. 이슬람에서 아브라함을 지칭하는 용어. 이슬람이 새 종교가 아님의 근거.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Fitna (피트나)</span>
+        <span style="font-size:13px; color:var(--text-sub);">혼란과 내전. 이슬람 최초 내전(1차 피트나)은 알리의 4대 칼리파 즉위 후 발발.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">ʿĀshūrāʾ (아슈라)</span>
+        <span style="font-size:13px; color:var(--text-sub);">이슬람력 1월 10일. 카르발라 전투 후세인 추모일. 시아파 신앙의 핵심 의식.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline;">
+        <span style="font-family:'Crimson Pro',serif; font-size:13px; color:var(--gold); font-style:italic;">Ghayba (가이바)</span>
+        <span style="font-size:13px; color:var(--text-sub);">12대 이맘의 은둔(873년경). 시아파 12이맘파 신학의 핵심. 재림 대기 중.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <ul class="summary-list">
+      <li>
+        <span class="summary-num">①</span>
+        <span><strong>이슬람은 새 종교가 아니다</strong> — 무함마드는 스스로를 아브라함·모세·예수에 이은 최후 예언자로 보았으며, 이슬람은 왜곡된 유일신 신앙을 회복하려는 운동으로 자신을 규정한다.</span>
+      </li>
+      <li>
+        <span class="summary-num">②</span>
+        <span><strong>순니-시아 분열은 신학 이전에 권력 문제였다</strong> — 632년 칼리파 선출의 혈통 vs 합의 충돌에서 비롯, 680년 카르발라로 신앙 정체성의 차원으로 심화. 현재 중동 지정학의 핵심 구도.</span>
+      </li>
+      <li>
+        <span class="summary-num">③</span>
+        <span><strong>원죄론의 유무가 교회 구조 전체를 결정한다</strong> — 이슬람의 성직자 제도 부재는 원죄론·대속론의 부재에서 비롯된다. 중재자가 불필요하므로 성직자 계층 없이 이맘(예배 인도자)만 둠.</span>
+      </li>
+    </ul>
+  </div>
+
+</div><!-- /tab-summary -->
+
+<!-- ══════════════════════════════════════════
+     탭 3: 연대기
+══════════════════════════════════════════ -->
+<div id="tab-timeline" class="tab-content">
+
+  <div style="margin-bottom: 20px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); font-size: 12px; color: var(--text-hint);">
+    📌 이 타임라인은 매주 누적됩니다. 기말 직전에는 학기 전체 흐름이 한눈에 표시됩니다.
+  </div>
+
+  <div class="timeline-wrap">
+
+    <!-- 이슬람 형성기 -->
+    <div class="era-block">
+      <div class="era-title-bar">
+        <div class="era-dot-large" style="background:#6aaa8a;"></div>
+        <span class="era-label era-form-color">이슬람 형성기</span>
+        <span class="era-range">570 ~ 632 AD</span>
+        <div class="era-line-right era-form-color"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">570년경</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">무함마드(Muḥammad) 메카 출생</div>
+          <div class="tl-persons"><span class="tl-person">무함마드</span></div>
+          <div class="tl-meaning">메카는 인도양~지중해 교역로 요충지. 어린 시절부터 유대교·기독교를 자연스럽게 접하며 성장.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">610년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">히라 산 동굴에서 첫 계시 수령</div>
+          <div class="tl-persons"><span class="tl-person">무함마드</span><span class="tl-person">지브릴(가브리엘)</span></div>
+          <div class="tl-meaning">이슬람 계시의 시작. 이후 23년간 계시 수령 → 꾸란(Qurʾān) 완성.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">622년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">헤지라(Hijra) — 메카→메디나 이주</div>
+          <div class="tl-persons"><span class="tl-person">무함마드</span></div>
+          <div class="tl-meaning">이슬람 달력 원년(AH 1). 혈연 중심 부족사회에서 신앙 중심 공동체(움마, Umma)로 전환. 신정일치 공동체 메디나 헌장 수립.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">630년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">메카 정복 · 사라센 제국 출범</div>
+          <div class="tl-persons"><span class="tl-person">무함마드</span></div>
+          <div class="tl-meaning">카바(Kaʿba) 신전 우상 360여 개 파괴. 아라비아 반도 통일. 이슬람이 지역 신앙에서 제국적 종교로 전환.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">632년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">무함마드 사망 · 초대 칼리파 아부 바크르 선출</div>
+          <div class="tl-persons"><span class="tl-person">무함마드</span><span class="tl-person">아부 바크르</span><span class="tl-person">알리 (배제)</span></div>
+          <div class="tl-meaning">순니파-시아파 분열의 역사적 기원. 칼리파직은 종교·군사·사법 최고 권력. 알리는 시신 수습 중 현장 부재로 배제.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이슬람 내부 분열기 -->
+    <div class="era-block">
+      <div class="era-title-bar">
+        <div class="era-dot-large" style="background:#aa8a6a;"></div>
+        <span class="era-label era-split-color">이슬람 내부 분열기</span>
+        <span class="era-range">656 ~ 680 AD</span>
+        <div class="era-line-right era-split-color"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">656년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">알리, 4대 칼리파 즉위 · 1차 피트나(Fitna) 발발</div>
+          <div class="tl-persons"><span class="tl-person">알리</span><span class="tl-person">아이샤</span><span class="tl-person">무아위야</span></div>
+          <div class="tl-meaning">이슬람 최초 내전. 낙타 전투(무함마드의 부인 아이샤의 반란)와 시핀 전투(무아위야의 도전). 하와리지파(Khārijites) 분리 이탈.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">661년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">알리 암살 (향년 60세)</div>
+          <div class="tl-persons"><span class="tl-person">알리</span><span class="tl-person">이분 물잠(암살자)</span></div>
+          <div class="tl-meaning">시아파에게 알리의 죽음은 예언자 혈통의 정의가 권력에 짓밟힌 사건. 시아파 저항·순교 신학의 뿌리.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">680년<br/>10.10</div>
+        <div class="tl-spine"><div class="tl-dot" style="border-color: #c4955a; width:12px; height:12px;"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">카르발라(Karbalāʾ) 전투 — 후세인 학살</div>
+          <div class="tl-persons"><span class="tl-person">후세인(무함마드 외손자)</span><span class="tl-person">야지드</span></div>
+          <div class="tl-meaning">시아파 역사 최대 비극. 72명 vs 수천~35,000명. 매년 아슈라(ʿĀshūrāʾ) 추모, 40일 후 아르바인(Arbaʿīn) 80km 도보 순례(전 세계 수천만 명). 정의의 순교 서사 → 시아파 저항 신학의 토대.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 교리 확립 및 현대 -->
+    <div class="era-block">
+      <div class="era-title-bar">
+        <div class="era-dot-large" style="background:#6a8aaa;"></div>
+        <span class="era-label era-modern-color">교리 확립 · 현대</span>
+        <span class="era-range">873 AD ~ 현재</span>
+        <div class="era-line-right era-modern-color"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">873년경</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">12대 이맘 은둔 (가이바, Ghayba)</div>
+          <div class="tl-persons"><span class="tl-person">12대 이맘</span></div>
+          <div class="tl-meaning">시아파 12이맘파(Ithnāʿashariyya)의 신학적 근거. 종말 직전 재림하여 정의를 회복할 것이라 믿음. 벨라야테 파키흐 이론의 토대.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-year">1979년</div>
+        <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-event">이란 이슬람 혁명 · 이슬람 공화국 수립</div>
+          <div class="tl-persons"><span class="tl-person">호메이니</span></div>
+          <div class="tl-meaning">벨라야테 파키흐(Wilāyat al-Faqīh, 이슬람 법학자의 통치) 원리가 헌법에 반영. 1400년 전 무함마드 후계 문제가 현대 국가 헌법 설계 원리로 직결. 사우디(순니)와 이란(시아) 패권 갈등 본격화.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline-wrap -->
+
+  <div class="summary-box">
+    <div class="summary-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <ul class="summary-list">
+      <li>
+        <span class="summary-num">①</span>
+        <span><strong>이슬람은 새 종교가 아니다</strong> — 무함마드는 스스로를 아브라함·모세·예수에 이은 최후 예언자로 보았으며, 이슬람은 왜곡된 유일신 신앙을 회복하려는 운동으로 자신을 규정한다.</span>
+      </li>
+      <li>
+        <span class="summary-num">②</span>
+        <span><strong>순니-시아 분열은 신학 이전에 권력 문제였다</strong> — 632년 칼리파 선출의 혈통 vs 합의 충돌에서 비롯, 680년 카르발라로 신앙 정체성의 차원으로 심화. 현재 중동 지정학의 핵심 구도.</span>
+      </li>
+      <li>
+        <span class="summary-num">③</span>
+        <span><strong>원죄론의 유무가 교회 구조 전체를 결정한다</strong> — 이슬람의 성직자 제도 부재는 원죄론·대속론의 부재에서 비롯된다. 중재자가 불필요하므로 성직자 계층 없이 이맘(예배 인도자)만 둠.</span>
+      </li>
+    </ul>
+  </div>
+
+</div><!-- /tab-timeline -->
+
+</div><!-- /wrapper -->
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

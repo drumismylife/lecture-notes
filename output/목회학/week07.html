@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 7주차 — 목회와 설교 · 목회자의 준비</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+Mono&display=swap');
+
+  :root {
+    --bg:        #0f1a12;
+    --card:      #172018;
+    --subcard:   #1e2a20;
+    --green:     #7ab87a;
+    --green-dim: #4a8a4a;
+    --bible:     #a8d4a8;
+    --cream:     #d4c9a8;
+    --amber:     #c49a3c;
+    --terra:     #c96b5a;
+    --text:      #e8ede8;
+    --muted:     #9aaa9a;
+    --border:    #2a3a2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, #0a1209 0%, #172018 60%, #1a2e1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(122,184,122,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .badge-subject  { background: rgba(122,184,122,0.15); color: var(--green); border: 1px solid rgba(122,184,122,0.3); }
+  .badge-week     { background: rgba(212,201,168,0.12); color: var(--cream); border: 1px solid rgba(212,201,168,0.25); }
+  .badge-exam     { background: rgba(201,107,90,0.15);  color: var(--terra); border: 1px solid rgba(201,107,90,0.35); }
+  .badge-text     { background: rgba(196,154,60,0.15);  color: var(--amber); border: 1px solid rgba(196,154,60,0.3); }
+  .badge-green    { background: rgba(122,184,122,0.12); color: var(--green); border: 1px solid rgba(122,184,122,0.25); }
+
+  .page-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .page-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: #111a12;
+    padding: 0 24px;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--green);
+  }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px 2px 0 0;
+  }
+
+  /* ── CONTENT ── */
+  .tab-pane { display: none; padding: 28px 24px 48px; max-width: 900px; margin: 0 auto; }
+  .tab-pane.active { display: block; }
+
+  /* ── SECTION HEADING ── */
+  .section-heading {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cream);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-heading .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .section-heading:first-child { margin-top: 0; }
+
+  /* ── PRINCIPLE BLOCK ── */
+  .principle {
+    background: var(--card);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .principle-title {
+    font-weight: 700;
+    color: var(--cream);
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .principle-thesis {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 6px;
+    background: rgba(122,184,122,0.06);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
+  }
+  .principle-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .principle-desc ul {
+    margin-left: 18px;
+    margin-top: 4px;
+  }
+  .principle-desc li { margin-bottom: 2px; }
+  .principle-bible {
+    font-size: 12px;
+    color: var(--bible);
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 4px 0 0;
+    border-top: 1px solid rgba(168,212,168,0.1);
+    margin-top: 6px;
+  }
+
+  /* ── BIBLE BLOCK ── */
+  .bible-block {
+    background: var(--subcard);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .bible-ref {
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--bible);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .bible-text { font-size: 13px; color: var(--bible); font-style: italic; margin-bottom: 6px; }
+  .bible-interp { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .bible-apply { font-size: 13px; color: var(--text); }
+  .bible-divider { height: 1px; background: rgba(168,212,168,0.1); margin: 6px 0; }
+
+  /* ── MINISTRY CARD ── */
+  .ministry-card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+  }
+  .ministry-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .ministry-title { font-weight: 700; color: var(--cream); font-size: 14px; }
+  .ministry-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 4px 10px;
+    font-size: 12.5px;
+    margin-bottom: 4px;
+  }
+  .ministry-label { color: var(--green); font-weight: 600; }
+  .ministry-value { color: var(--muted); }
+  .ministry-value ul { margin-left: 16px; }
+  .ministry-value li { margin-bottom: 2px; }
+
+  /* ── TEACHER QUOTE ── */
+  .teacher-quote {
+    background: rgba(122,184,122,0.04);
+    border-left: 3px solid var(--green-dim);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .teacher-label {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-dim);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── TEXTBOOK BLOCK ── */
+  .textbook-block {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(122,184,122,0.15);
+  }
+  .textbook-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .textbook-title { font-weight: 700; color: var(--cream); font-size: 13px; }
+  .textbook-quote {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .textbook-list {
+    margin: 8px 0 0 20px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .textbook-list li { margin-bottom: 3px; }
+  .textbook-list li strong { color: var(--text); }
+
+  /* ── PASTOR CARD ── */
+  .pastor-card {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+  }
+  .pastor-card-header {
+    background: linear-gradient(90deg, rgba(122,184,122,0.12), transparent);
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pastor-role-icon { font-size: 18px; }
+  .pastor-card-title { font-weight: 700; color: var(--cream); font-size: 14px; }
+  .pastor-list {
+    padding: 12px 18px;
+  }
+  .pastor-item {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px;
+  }
+  .pastor-item:last-child { border-bottom: none; }
+  .pastor-num {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 12px;
+    min-width: 20px;
+    margin-top: 1px;
+  }
+  .pastor-text { color: var(--text); }
+  .pastor-text .sub { color: var(--muted); font-size: 12px; }
+
+  /* ── FIELD BLOCK ── */
+  .field-block {
+    background: #1a2a1a;
+    border-left: 3px solid var(--green-dim);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .field-title { font-weight: 700; color: var(--text); font-size: 13px; margin-bottom: 10px; }
+  .field-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 5px 10px;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .field-label { color: var(--green-dim); font-weight: 600; font-size: 12px; padding-top: 1px; }
+  .field-value { color: var(--muted); }
+
+  /* ── EXAM BLOCK ── */
+  .exam-block {
+    background: #2d1a16;
+    border: 1px solid rgba(201,107,90,0.35);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .exam-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .exam-title { color: var(--terra); font-weight: 700; font-size: 13px; }
+  .exam-content { color: #d4a59a; font-size: 13px; line-height: 1.7; }
+  .exam-content ul { margin-left: 18px; }
+  .exam-content li { margin-bottom: 3px; }
+
+  /* ── REFLECTION BLOCK ── */
+  .reflection-block {
+    background: #1e261e;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .reflection-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .reflection-q {
+    font-size: 13px;
+    color: var(--bible);
+    margin-bottom: 5px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .reflection-q::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    color: var(--green-dim);
+    font-weight: 700;
+  }
+
+  /* ── NUMBERED LIST ── */
+  .num-list {
+    counter-reset: nl;
+    margin-bottom: 14px;
+  }
+  .num-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px;
+    counter-increment: nl;
+  }
+  .num-item:last-child { border-bottom: none; }
+  .num-circle {
+    min-width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(122,184,122,0.15);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .num-content { color: var(--text); }
+  .num-content .sub { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 24px 0;
+  }
+
+  /* ── KEY PRINCIPLES FOOTER ── */
+  .key-principles {
+    background: linear-gradient(135deg, #172018, #1a2e1a);
+    border: 1px solid rgba(122,184,122,0.2);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-top: 36px;
+  }
+  .key-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .key-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .key-item {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .key-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(122,184,122,0.3);
+    font-family: 'Noto Serif KR', serif;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .key-text {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .key-grid { grid-template-columns: 1fr; }
+    .tab-btn { padding: 12px 14px; font-size: 12px; }
+    .page-header { padding: 20px 16px 14px; }
+    .tab-pane { padding: 20px 14px 40px; }
+    .ministry-row { grid-template-columns: 70px 1fr; }
+    .field-row { grid-template-columns: 48px 1fr; }
+  }
+
+  @media print {
+    .tab-nav { display: none; }
+    .tab-pane { display: block !important; page-break-after: always; }
+    body { background: white; color: black; }
+    .page-header { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="page-header">
+  <div class="header-meta">
+    <span class="badge badge-subject">목회학 · 63117</span>
+    <span class="badge badge-week">7주차 · 2026-04-20</span>
+    <span class="badge badge-exam">중간고사 당일</span>
+    <span class="badge badge-text">이영호 교수</span>
+  </div>
+  <h1 class="page-title">목회와 설교 &amp; 목회자의 준비</h1>
+  <p class="page-subtitle">현대 목회 실제 — 좋은 설교의 요건 · 설교 자기 평가 · 부교역자 준비</p>
+</header>
+
+<!-- ══ TAB NAV ══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab(event,'note')">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(event,'summary')">📋 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(event,'field')">⛪ 현장적용</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     TAB 1: 강의노트
+═══════════════════════════════════════════ -->
+<section class="tab-pane active" id="tab-note">
+
+  <!-- 목회와 설교 -->
+  <h2 class="section-heading"><span class="dot"></span>Ⅰ. 목회와 설교</h2>
+
+  <div class="principle">
+    <div class="principle-title">설교자의 세 가지 고민과 해결책</div>
+    <div class="principle-thesis">본문 연구 → 묵상 → 바른 적용 = 좋은 설교</div>
+    <div class="principle-desc">
+      설교자의 주요 고민:
+      <ul>
+        <li>① 본문 선정의 어려움 — 강해 설교(단락별 계획) 또는 주제별 계획으로 해결</li>
+        <li>② 내용 구성의 어려움 — 본문 석의 + 적용의 균형</li>
+        <li>③ 청중의 삶 변화 — 설교 후 성도가 구체적 행동을 결심하고 순종하게 함</li>
+      </ul>
+    </div>
+    <div class="principle-bible">성경 근거: 딤후 3:16–17 — 모든 성경은 하나님의 감동으로 된 것으로 교훈과 적용에 유익함</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title">좋은 설교의 네 가지 요건</div>
+    <div class="principle-thesis">충분한 연구 + 묵상 + 스스로 주제 도출 + 청중 공감 = 좋은 설교</div>
+    <div class="principle-desc">
+      <ul>
+        <li>① 본문을 충분히 연구(석의)할 것 — 역본 비교, 원어 확인, 주석 참조</li>
+        <li>② 본문과 청중의 삶을 연결하는 묵상 — 본문과 씨름하며 쉽게 소화시키는 과정</li>
+        <li>③ 설교자가 스스로 주제·대지를 찾아낼 것 — 표절·편집이 아닌 창작</li>
+        <li>④ 청중이 공감하는 언어로 주의를 집중시킬 것</li>
+      </ul>
+    </div>
+    <div class="principle-bible">성경 근거: 느 8:8 — 하나님의 율법책을 낭독하고 그 뜻을 해석하여 백성이 깨닫게 함</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title">설교의 목적: 청중의 삶의 변화</div>
+    <div class="principle-thesis">청중이 "무엇을 해야 하는지" 분명히 알고 순종하게 하는 것이 좋은 설교</div>
+    <div class="principle-desc">설교가 끝난 후 청중이 본문의 주제를 한 문장으로 표현할 수 있어야 한다. "좋은 말씀입니다"로 끝나는 것이 아니라 실제 삶 속에서 그렇게 사는 것.</div>
+    <div class="principle-bible">성경 근거: 약 1:22 — 말씀을 행하는 자가 되고 듣기만 하는 자가 되지 말라</div>
+  </div>
+
+  <div class="textbook-block">
+    <div class="textbook-header">
+      <span class="badge badge-green">참고 도서</span>
+      <span class="textbook-title">설교학 핵심 참고 문헌</span>
+    </div>
+    <ul class="textbook-list">
+      <li><strong>해돈 로빈슨</strong> 『강해 설교』 — 강해 설교의 이론적 기초</li>
+      <li><strong>권호 교수</strong> 『본문이 살아있는 설교』 — 한국적 맥락의 설교학</li>
+    </ul>
+  </div>
+
+  <div class="ministry-card">
+    <div class="ministry-header">
+      <span class="badge badge-green">사역 · 설교</span>
+      <span class="ministry-title">설교 유형 세 가지</span>
+    </div>
+    <div class="ministry-row">
+      <span class="ministry-label">청교도형</span>
+      <span class="ministry-value">스펄전·마틴 로이드 존스·조나단 에드워즈 — 신학 있는 설교, 20대부터 깊은 연구 필요</span>
+    </div>
+    <div style="height:6px"></div>
+    <div class="ministry-row">
+      <span class="ministry-label">복음주의형</span>
+      <span class="ministry-value">빌리 그레이엄·이동원 목사 — 경건주의 기반 삼대지 설교, 본문 묵상 + 청중 공감 중심</span>
+    </div>
+    <div style="height:6px"></div>
+    <div class="ministry-row">
+      <span class="ministry-label">결론</span>
+      <span class="ministry-value">"나는 어떤 유형의 설교자가 되겠다" — 결심이 있으면 그 유형이 될 확률이 높다</span>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="ministry-header">
+      <span class="badge badge-green">사역 · 설교 자기 평가</span>
+      <span class="ministry-title">4단계 설교 자기 평가</span>
+    </div>
+    <div class="ministry-row">
+      <span class="ministry-label">목적</span>
+      <span class="ministry-value">설교는 준비로 끝나는 것이 아니라 평가를 통해 성장한다</span>
+    </div>
+    <div style="height:8px"></div>
+    <div class="num-list">
+      <div class="num-item">
+        <div class="num-circle">1</div>
+        <div class="num-content">본문 연구를 철저히 하였는가? <span class="sub">역본 비교, 원어 확인, 주석 참조</span></div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">2</div>
+        <div class="num-content">연구 결과를 잘 구성하여 전달했는가? <span class="sub">아웃라인의 논리적 일관성 — 대지가 왔다 갔다 하지 않는가</span></div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">3</div>
+        <div class="num-content">청중이 본문의 내용·의미·교훈을 충분히 이해했는가?</div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">4</div>
+        <div class="num-content">청중이 무엇을 해야 되는지 분명히 알았는가? <span class="sub">실천 팁: 소모임 전 설교를 한 단어·한 문장으로 적어보게 할 것</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 목회자의 준비 -->
+  <h2 class="section-heading"><span class="dot"></span>Ⅱ. 목회자의 준비 &amp; 부교역자로의 준비</h2>
+
+  <div class="principle">
+    <div class="principle-title">목회를 구성하는 세 가지 요소</div>
+    <div class="principle-thesis">목회의 제일 중요한 요소는 목회자 자신이다</div>
+    <div class="principle-desc">① 목회자 자신 &nbsp;② 목회자가 목회하는 교회 &nbsp;③ 교회를 둘러싼 환경<br>
+    핵심: 하나님과 어떤 생명의 관계를 맺고 있는지, 실제적 지식과 기술을 갖추었는지</div>
+    <div class="principle-bible">성경 근거: 딤전 4:16 — 네 자신과 가르침을 살펴 이 일을 계속하라</div>
+  </div>
+
+  <div class="textbook-block">
+    <div class="textbook-header">
+      <span class="badge badge-green">김남준</span>
+      <span class="textbook-title">『부교역자 리바이벌』 — 부교역자 준비 6가지</span>
+    </div>
+    <div class="textbook-quote">"묘목이 아니었던 거목은 없다" — 모든 준비의 과정을 통해 큰 나무가 된다</div>
+    <ul class="textbook-list" style="margin-top:10px">
+      <li><strong>① 리더십</strong> — 목표·방향 제시, 성도를 이끄는 힘</li>
+      <li><strong>② 부부가 함께 하는 사역</strong> — 신앙의 모범을 삶으로 보임</li>
+      <li><strong>③ 말씀과 지식</strong> — 로고스(이성·지식)·에토스(성품)·파토스(정서) ← 아리스토텔레스 수사학</li>
+      <li><strong>④ 동역자들의 아름다운 연합(관계)</strong> — 진정성 있는 인간관계 능력</li>
+      <li><strong>⑤ 교양과 섬김</strong></li>
+      <li><strong>⑥ 기도</strong></li>
+    </ul>
+  </div>
+
+  <div class="teacher-quote">
+    <div class="teacher-label">교수 강조</div>
+    "영적 리더십은 단순히 배움으로 되는 것이 아니라 하나님을 만남으로 된다. 하나님의 부르심을 확신하고 어떤 사명을 주는지 확실한 리더에게 영적 리더십이 주어진다." (김남준)
+  </div>
+
+  <div class="textbook-block">
+    <div class="textbook-header">
+      <span class="badge badge-green">김남준</span>
+      <span class="textbook-title">영적 리더십을 위한 5가지</span>
+    </div>
+    <ul class="textbook-list">
+      <li><strong>① 하나님과 인격적인 만남</strong></li>
+      <li><strong>② 성령 충만함의 경험</strong></li>
+      <li><strong>③ 은혜를 사모함</strong></li>
+      <li><strong>④ 하나님의 일에 대한 열정</strong></li>
+      <li><strong>⑤ 자기 깨어짐</strong> — 하나도 버릴 것이 없는 중요한 요소</li>
+    </ul>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title">부교역자의 신학적 준비</div>
+    <div class="principle-thesis">이론신학과 실천신학 모두 준비되어야 한다</div>
+    <div class="principle-desc">
+      <ul>
+        <li><strong>성서신학</strong>: 성경을 이해하고 가르칠 수 있는 준비, 매일 묵상 — "깊으면 묵상도 쉽다"</li>
+        <li><strong>조직신학</strong>: 교리를 분명히 설명할 수 있는 준비, 성도의 질문에 답변 가능</li>
+        <li><strong>실천신학</strong>: 설교·예배·전도·상담·소그룹·교회행정·성장 전략</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="ministry-header">
+      <span class="badge badge-green">사역 · 부교역자 기술</span>
+      <span class="ministry-title">사역 기술 7가지 (목회의 기본)</span>
+    </div>
+    <div class="num-list">
+      <div class="num-item">
+        <div class="num-circle">1</div>
+        <div class="num-content">전도 + 새신자 양육(일대일) <span class="sub">새신자를 어떤 교재로, 어떻게 접근할지 알고 있을 것</span></div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">2</div>
+        <div class="num-content">소그룹 인도 능력</div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">3</div>
+        <div class="num-content">성경 공부 인도</div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">4</div>
+        <div class="num-content">제자훈련</div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">5</div>
+        <div class="num-content">설교</div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">6</div>
+        <div class="num-content">상담 <span class="sub">어려움에 겪은 사람들의 마음을 위로하고 하나님을 만날 수 있도록 돕는 것</span></div>
+      </div>
+      <div class="num-item">
+        <div class="num-circle">7</div>
+        <div class="num-content">교회 행정 <span class="sub">박영철: "교회를 교회되게 하는 모든 활동" / "목표 달성을 위해 교인들이 협력하는 과정"</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="teacher-quote">
+    <div class="teacher-label">교수 강조</div>
+    "너도 한때는 미숙한 사람이었다, 형제나 자매들처럼 그들을 가르쳐라." (김남준이 부사역자들을 보며 받은 하나님의 감동) — 의사의 인턴·레지던트 과정처럼, 목회도 현장에서 선배 목사에게 배우는 수련 과정이 반드시 필요하다.
+  </div>
+
+  <div class="principle">
+    <div class="principle-title">좋은 목회자가 되기 위한 준비 종합</div>
+    <div class="principle-thesis">준비된 사람을 하나님이 사용하신다</div>
+    <div class="principle-desc">인품의 준비 + 영혼 사랑의 마음 + 성경적 지식 + 목회 기술 → 내가 준비한 만큼 하나님이 사용하신다</div>
+    <div class="principle-bible">성경 근거: 빌 4:9 — 너희는 내게 배우고 듣고 본 바를 행하라 / 고전 4:15 — 그리스도 안에서 일만 스승은 있지만 아비는 없다</div>
+  </div>
+
+  <!-- Key Principles -->
+  <div class="key-principles">
+    <div class="key-title">🌿 오늘 목회 핵심 원칙 3가지</div>
+    <div class="key-grid">
+      <div class="key-item">
+        <div class="key-num">1</div>
+        <div class="key-text">좋은 설교는 본문 석의 → 묵상 → 바른 적용의 과정이며, 청중이 "무엇을 해야 하는지" 분명히 알게 한다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">2</div>
+        <div class="key-text">목회의 제일 중요한 요소는 목회자 자신이며, 영적 리더십은 배움이 아니라 하나님을 만남으로써 얻어진다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">3</div>
+        <div class="key-text">준비된 사람을 하나님이 사용하신다. 인품·영혼 사랑·성경 지식·목회 기술의 통합적 준비가 부교역자의 사명이다</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TAB 2: 핵심정리
+═══════════════════════════════════════════ -->
+<section class="tab-pane" id="tab-summary">
+
+  <h2 class="section-heading"><span class="dot"></span>핵심 원칙 요약</h2>
+
+  <div class="exam-block">
+    <div class="exam-header">
+      <span class="badge badge-exam">시험</span>
+      <span class="exam-title">좋은 설교의 요건 4가지</span>
+    </div>
+    <div class="exam-content">
+      <ul>
+        <li>① 본문 충분 연구(석의) — 역본 비교, 원어, 주석</li>
+        <li>② 묵상 — 본문과 청중의 삶을 연결하는 과정</li>
+        <li>③ 설교자가 스스로 주제·대지 도출 — 표절·편집 아닌 창작</li>
+        <li>④ 바른 적용 — 청중이 무엇을 해야 하는지 분명히 알게 함</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-header">
+      <span class="badge badge-exam">시험</span>
+      <span class="exam-title">설교 자기 평가 4단계</span>
+    </div>
+    <div class="exam-content">
+      <ul>
+        <li>① 본문 연구 철저성</li>
+        <li>② 구성·전달의 논리적 일관성</li>
+        <li>③ 청중의 내용 이해도</li>
+        <li>④ 청중의 적용 명확성 (한 문장·단어 테스트)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-header">
+      <span class="badge badge-exam">시험</span>
+      <span class="exam-title">목회를 구성하는 세 가지 요소</span>
+    </div>
+    <div class="exam-content">목회자 / 교회 / 환경 → 가장 중요한 것은 <strong>목회자 자신</strong></div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-header">
+      <span class="badge badge-exam">시험</span>
+      <span class="exam-title">부교역자 영적 리더십 5가지 (김남준)</span>
+    </div>
+    <div class="exam-content">
+      <ul>
+        <li>① 하나님과 인격적인 만남</li>
+        <li>② 성령 충만함의 경험</li>
+        <li>③ 은혜를 사모함</li>
+        <li>④ 하나님의 일에 대한 열정</li>
+        <li>⑤ 자기 깨어짐</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="section-heading"><span class="dot"></span>목회자상</h2>
+
+  <div class="pastor-card">
+    <div class="pastor-card-header">
+      <span class="pastor-role-icon">⛪</span>
+      <span class="pastor-card-title">담임목사 — 교회가 기대하는 5가지</span>
+    </div>
+    <div class="pastor-list">
+      <div class="pastor-item"><div class="pastor-num">①</div><div class="pastor-text">탁월한 설교 능력 <span class="sub">가장 중요한 요소</span></div></div>
+      <div class="pastor-item"><div class="pastor-num">②</div><div class="pastor-text">훌륭한 인품 <span class="sub">성도와의 관계</span></div></div>
+      <div class="pastor-item"><div class="pastor-num">③</div><div class="pastor-text">지성과 영성의 소유자</div></div>
+      <div class="pastor-item"><div class="pastor-num">④</div><div class="pastor-text">성실한 사람 <span class="sub">한결같음</span></div></div>
+      <div class="pastor-item"><div class="pastor-num">⑤</div><div class="pastor-text">갈등을 잘 해결하는 행정력</div></div>
+    </div>
+  </div>
+
+  <div class="pastor-card">
+    <div class="pastor-card-header">
+      <span class="pastor-role-icon">📋</span>
+      <span class="pastor-card-title">전도사 — 교회가 기대하는 4가지</span>
+    </div>
+    <div class="pastor-list">
+      <div class="pastor-item"><div class="pastor-num">①</div><div class="pastor-text">열정이 있는 사람</div></div>
+      <div class="pastor-item"><div class="pastor-num">②</div><div class="pastor-text">다음 세대와 잘 어울리는 사람</div></div>
+      <div class="pastor-item"><div class="pastor-num">③</div><div class="pastor-text">다양한 일을 소화할 수 있는 사람 <span class="sub">컴퓨터, 동영상 편집, 음향 등</span></div></div>
+      <div class="pastor-item"><div class="pastor-num">④</div><div class="pastor-text">배우려는 자세를 가진 사람</div></div>
+    </div>
+  </div>
+
+  <div class="pastor-card">
+    <div class="pastor-card-header">
+      <span class="pastor-role-icon">🤝</span>
+      <span class="pastor-card-title">부목사 — 교회가 기대하는 5가지</span>
+    </div>
+    <div class="pastor-list">
+      <div class="pastor-item"><div class="pastor-num">①</div><div class="pastor-text">담임목사와 좋은 관계를 맺는 사람</div></div>
+      <div class="pastor-item"><div class="pastor-num">②</div><div class="pastor-text">순종하는 사람</div></div>
+      <div class="pastor-item"><div class="pastor-num">③</div><div class="pastor-text">겸손한 사람</div></div>
+      <div class="pastor-item"><div class="pastor-num">④</div><div class="pastor-text">최선을 다하는 사람 <span class="sub">잔꾀가 아닌 지혜</span></div></div>
+      <div class="pastor-item"><div class="pastor-num">⑤</div><div class="pastor-text">사역에 선한 열매(흔적)를 남기는 사람</div></div>
+    </div>
+  </div>
+
+  <div class="key-principles">
+    <div class="key-title">🌿 오늘 목회 핵심 원칙 3가지</div>
+    <div class="key-grid">
+      <div class="key-item">
+        <div class="key-num">1</div>
+        <div class="key-text">좋은 설교는 본문 석의 → 묵상 → 바른 적용의 과정이며, 청중이 "무엇을 해야 하는지" 분명히 알게 한다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">2</div>
+        <div class="key-text">목회의 제일 중요한 요소는 목회자 자신이며, 영적 리더십은 배움이 아니라 하나님을 만남으로써 얻어진다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">3</div>
+        <div class="key-text">준비된 사람을 하나님이 사용하신다. 인품·영혼 사랑·성경 지식·목회 기술의 통합적 준비가 부교역자의 사명이다</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TAB 3: 현장적용
+═══════════════════════════════════════════ -->
+<section class="tab-pane" id="tab-field">
+
+  <h2 class="section-heading"><span class="dot"></span>현장 적용 시나리오</h2>
+
+  <div class="field-block">
+    <div class="field-title">설교 자기 평가 — 실천 방법</div>
+    <div class="field-row">
+      <span class="field-label">상황</span>
+      <span class="field-value">매주 설교를 하지만 발전이 더딘 목회자 / 성도의 반응만으로는 객관적 평가가 어렵다</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">진단</span>
+      <span class="field-value">성도들은 대부분 "은혜 받았다"고만 말하고, 목회자 스스로 평가 기준이 없음</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">실천</span>
+      <span class="field-value">소그룹·성경 공부 시작 전, 지난 주 설교를 "한 문장·한 단어"로 적어보게 하기 → 결과가 본문 주제와 다르면 연구·구성·전달 중 무엇을 보완할지 파악</span>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">강해 설교로 본문 선정 문제 해결하기</div>
+    <div class="field-row">
+      <span class="field-label">상황</span>
+      <span class="field-value">설교할 때마다 본문 선정이 막막한 초기 목회자</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">진단</span>
+      <span class="field-value">본문 선정이 즉흥적이면 설교의 연속성과 균형이 깨진다</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">실천</span>
+      <span class="field-value">① 강해 설교: 특정 성경서를 정해 주석책의 단락 구조 따라 연간 계획 수립 &nbsp;② 주제별: 참고 도서 선정 후 교인들에게 미리 공지 (표절 오해 방지)</span>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">청소년 전도사로의 준비</div>
+    <div class="field-row">
+      <span class="field-label">상황</span>
+      <span class="field-value">청소년 대상 설교 사역 중인 신학대학원 1학기 학생</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">진단</span>
+      <span class="field-value">교회가 전도사에게 가장 기대하는 것: 열정 + 다음 세대와 어울리는 능력 + 다양한 실무 기술</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">실천</span>
+      <span class="field-value">섬김의 마음으로 컴퓨터·동영상·음향 등 실무 기술 개발, 청소년 언어와 문화에 적극적으로 적응 / 허드 일이 아니라 하나님의 몸된 교회를 섬기는 것</span>
+    </div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">부교역자 사역지 시작 — 사역지 선택</div>
+    <div class="field-row">
+      <span class="field-label">상황</span>
+      <span class="field-value">졸업 후 사역지를 어떻게 구할 것인가</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">진단</span>
+      <span class="field-value">지인의 추천과 공개 모집 모두 하나님의 방법이다</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">실천</span>
+      <span class="field-value">두 경로를 병행하되 어느 경로든 하나님의 인도로 받아들이고 최선을 다해 준비할 것. 부교역자 시절 뿌린 것을 나중에 거두게 하신다.</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="section-heading"><span class="dot"></span>사역 방법론</h2>
+
+  <div class="ministry-card">
+    <div class="ministry-header">
+      <span class="badge badge-green">사역 · 전도 & 양육</span>
+      <span class="ministry-title">전도 + 새신자 양육</span>
+    </div>
+    <div class="ministry-row"><span class="ministry-label">목적</span><span class="ministry-value">잃어버린 영혼을 인도하고 교회 공동체의 일원으로 정착시킴</span></div>
+    <div class="ministry-row"><span class="ministry-label">핵심 원리</span><span class="ministry-value">전도한 사람을 양육해야 한다 — 전도로 끝이 아니라 일대일 양육이 이어져야</span></div>
+    <div class="ministry-row"><span class="ministry-label">방법</span><span class="ministry-value">어떤 교재로, 어떻게 접근할지 사전에 숙지하고 있을 것</span></div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="ministry-header">
+      <span class="badge badge-green">사역 · 소그룹</span>
+      <span class="ministry-title">소그룹 인도</span>
+    </div>
+    <div class="ministry-row"><span class="ministry-label">목적</span><span class="ministry-value">소규모 공동체를 통해 친밀한 관계 형성과 성경 적용</span></div>
+    <div class="ministry-row"><span class="ministry-label">방법</span><span class="ministry-value">성경 공부 / 제자훈련 / 돌봄 — 3~5명 단위의 모임 인도 능력 개발</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="section-heading"><span class="dot"></span>자기 성찰 질문</h2>
+
+  <div class="reflection-block">
+    <div class="reflection-title">✦ 목회자 자기 성찰</div>
+    <div class="reflection-q">나는 어떤 유형의 설교자가 되고 싶은가? 청교도형·복음주의형 중 나의 은사와 성향에 맞는 방향을 결심했는가?</div>
+    <div class="reflection-q">지난 설교에서 청중이 "무엇을 해야 하는지" 분명히 알았을까? 한 문장으로 요약한다면 본문의 주제와 일치하는가?</div>
+    <div class="reflection-q">나는 매일 묵상을 통해 하나님을 만나고 있는가? 영적 리더십의 원천인 하나님과의 인격적 만남이 있는가?</div>
+    <div class="reflection-q">부교역자로서 나는 선한 흔적을 남기고 있는가? 지나가는 사람이 아니라 선한 열매를 남기는 사람인가?</div>
+    <div class="reflection-q">나에게 주어진 은사는 무엇인가? 설교·양육·전도·행정·상담 중 하나님이 주신 재능을 발견하고 개발하고 있는가?</div>
+  </div>
+
+  <div class="key-principles">
+    <div class="key-title">🌿 오늘 목회 핵심 원칙 3가지</div>
+    <div class="key-grid">
+      <div class="key-item">
+        <div class="key-num">1</div>
+        <div class="key-text">좋은 설교는 본문 석의 → 묵상 → 바른 적용의 과정이며, 청중이 "무엇을 해야 하는지" 분명히 알게 한다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">2</div>
+        <div class="key-text">목회의 제일 중요한 요소는 목회자 자신이며, 영적 리더십은 배움이 아니라 하나님을 만남으로써 얻어진다</div>
+      </div>
+      <div class="key-item">
+        <div class="key-num">3</div>
+        <div class="key-text">준비된 사람을 하나님이 사용하신다. 인품·영혼 사랑·성경 지식·목회 기술의 통합적 준비가 부교역자의 사명이다</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  function switchTab(e, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+</script>
+</body>
+</html>

@@ -175,7 +175,9 @@ const SITE_DATA = {
         { week: 7, title: "교회사개론 I — Historia Ecclesiae", date: "2026.04.17", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week07.html" }
           ] },
-        { week: 8, title: "중간고사", date: "2026.05", files: [] },
+        { week: 8, title: "이슬람교에 대한 이해", date: "2026.04.24", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week08.html" }
+          ] },
         { week: 9, title: "스콜라 신학", date: "2026.05", files: [] },
         { week: 10, title: "종교개혁의 배경", date: "2026.05", files: [] },
         { week: 11, title: "루터와 개혁 운동", date: "2026.05", files: [] },

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 9주차 — 목회 리더십 & 서번트 리더십</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+  :root {
+    --bg:         #0f1a12;
+    --card:       #172018;
+    --card-sub:   #1e2a20;
+    --card-deep:  #151e16;
+    --green:      #7ab87a;
+    --green-soft: #a8d4a8;
+    --green-dim:  #4a8a4a;
+    --cream:      #d4c9a8;
+    --cream-dim:  #b8ad90;
+    --red:        #c96b5a;
+    --red-bg:     #2d1a16;
+    --amber:      #c49a3c;
+    --amber-bg:   #2a2010;
+    --text:       #e8ede8;
+    --text-sub:   #9aaa9a;
+    --border:     #2a3a2a;
+    --tab-active: #7ab87a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── 배경 텍스처 ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(122,184,122,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(122,184,122,0.03) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── 헤더 ── */
+  .page-header {
+    position: relative; z-index: 1;
+    padding: 36px 32px 28px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #111e13 0%, transparent 100%);
+  }
+  .header-meta {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    padding: 3px 9px; border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .badge-course { background: var(--green-dim); color: #c8e8c8; }
+  .badge-week   { background: var(--card-sub); color: var(--green); border: 1px solid var(--green-dim); }
+  .badge-exam   { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+
+  .page-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--cream); line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .page-sub {
+    font-size: 12px; color: var(--text-sub);
+    letter-spacing: .02em;
+  }
+
+  /* ── 탭 네비 ── */
+  .tab-nav {
+    position: relative; z-index: 1;
+    display: flex; border-bottom: 1px solid var(--border);
+    background: var(--card-deep);
+    padding: 0 32px;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    padding: 14px 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-sub);
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active { color: var(--tab-active); border-bottom-color: var(--tab-active); }
+  .tab-btn:hover:not(.active) { color: var(--text); }
+
+  /* ── 콘텐츠 ── */
+  .tab-content { display: none; position: relative; z-index: 1; }
+  .tab-content.active { display: block; }
+
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 32px 64px;
+  }
+
+  /* ── 섹션 제목 ── */
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--cream);
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 16px;
+    background: var(--green);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  .sub-title {
+    font-size: 13px; font-weight: 700;
+    color: var(--green);
+    margin: 20px 0 8px;
+    letter-spacing: .02em;
+  }
+
+  /* ── 원칙 블록 ── */
+  .principle-block {
+    border-left: 3px solid var(--green);
+    background: var(--card);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .principle-title {
+    font-weight: 700; color: var(--cream);
+    font-size: 14px; margin-bottom: 6px;
+  }
+  .principle-body {
+    color: var(--text); font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .principle-bible {
+    font-size: 12px; color: var(--green-soft);
+    font-style: italic;
+  }
+
+  /* ── 비교 테이블 ── */
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    margin-bottom: 16px; font-size: 13px;
+  }
+  .compare-table th {
+    background: var(--card-sub);
+    color: var(--green);
+    padding: 9px 14px; text-align: left;
+    font-weight: 700; font-size: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table td {
+    background: var(--card);
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table .label-col {
+    color: var(--cream); font-weight: 700;
+    width: 22%;
+  }
+
+  /* ── 인용 블록 ── */
+  .quote-block {
+    background: var(--card-sub);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green-dim);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    color: var(--green-soft);
+    font-size: 13px;
+  }
+
+  /* ── 교수 설명 블록 ── */
+  .prof-block {
+    background: var(--card-sub);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 13px;
+  }
+  .prof-block::before {
+    content: '📖 강의 강조';
+    display: block;
+    font-style: normal;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: .05em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  /* ── 시험 블록 ── */
+  .exam-block {
+    background: var(--red-bg);
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .exam-block .exam-header {
+    display: flex; align-items: center; gap: 7px;
+    margin-bottom: 7px;
+  }
+  .exam-block .exam-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--red); letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+  .exam-block .exam-body {
+    color: #e8c4bc; font-size: 13px;
+  }
+  .exam-block .exam-body strong { color: var(--red); }
+
+  /* ── 목회자상 카드 ── */
+  .pastor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; margin-bottom: 16px;
+  }
+  .pastor-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    page-break-inside: avoid;
+  }
+  .pastor-card-icon {
+    font-size: 20px; margin-bottom: 7px;
+  }
+  .pastor-card-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--green); letter-spacing: .06em;
+    text-transform: uppercase; margin-bottom: 5px;
+  }
+  .pastor-card-title {
+    font-size: 14px; font-weight: 700;
+    color: var(--cream); margin-bottom: 6px;
+  }
+  .pastor-card-body {
+    font-size: 12px; color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  /* ── 사역 카드 ── */
+  .ministry-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .ministry-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 3px;
+    letter-spacing: .05em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .mb-servant  { background: rgba(122,184,122,0.15); color: var(--green); }
+  .mb-authority{ background: rgba(212,201,168,0.12); color: var(--cream); }
+  .mb-bible    { background: rgba(168,212,168,0.12); color: var(--green-soft); }
+
+  .ministry-title {
+    font-size: 14px; font-weight: 700;
+    color: var(--cream); margin-bottom: 8px;
+  }
+  .ministry-rows { display: flex; flex-direction: column; gap: 5px; }
+  .ministry-row {
+    display: flex; gap: 10px;
+    font-size: 12px;
+  }
+  .ministry-row .row-label {
+    flex-shrink: 0; width: 72px;
+    color: var(--green); font-weight: 700;
+    font-size: 11px;
+  }
+  .ministry-row .row-val { color: var(--text); }
+
+  /* ── 현장 블록 ── */
+  .field-block {
+    background: #1a2a1a;
+    border-left: 3px solid var(--green-dim);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .field-block .field-title {
+    font-size: 13px; font-weight: 700;
+    color: var(--green-soft); margin-bottom: 9px;
+  }
+  .field-row { font-size: 12px; margin-bottom: 4px; }
+  .field-row .frow-label {
+    font-weight: 700; color: var(--green);
+    margin-right: 5px;
+  }
+  .field-row .frow-val { color: var(--text-sub); }
+
+  /* ── 성찰 블록 ── */
+  .reflect-block {
+    background: #1e261e;
+    border: 1px dashed var(--green-dim);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .reflect-block .reflect-header {
+    font-size: 11px; font-weight: 700;
+    color: var(--green); letter-spacing: .05em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .reflect-block ul {
+    list-style: none; padding: 0;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .reflect-block li {
+    font-size: 13px; color: var(--green-soft);
+    padding-left: 18px; position: relative;
+  }
+  .reflect-block li::before {
+    content: '?';
+    position: absolute; left: 0;
+    color: var(--green); font-weight: 700;
+  }
+
+  /* ── 구분선 ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* ── 핵심 원칙 3가지 ── */
+  .core-principles {
+    background: linear-gradient(135deg, #172018 0%, #1e2a20 100%);
+    border: 1px solid var(--green-dim);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 36px;
+    page-break-inside: avoid;
+  }
+  .core-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .core-title::before { content: '✦'; color: var(--green); }
+  .core-item {
+    display: flex; gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .core-num {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--green-dim);
+    color: #c8e8c8;
+    font-size: 11px; font-weight: 700;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .core-text {
+    font-size: 13px; color: var(--text);
+    line-height: 1.7;
+  }
+  .core-text strong { color: var(--cream); }
+
+  /* ── 유틸 ── */
+  .text-sm  { font-size: 12px; }
+  .text-sub { color: var(--text-sub); }
+  .text-green { color: var(--green-soft); }
+  .text-cream { color: var(--cream); }
+  .mt-8  { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+
+  ul.dot-list {
+    list-style: none; padding: 0;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  ul.dot-list li {
+    font-size: 13px; color: var(--text);
+    padding-left: 14px; position: relative;
+  }
+  ul.dot-list li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--green); font-weight: 700;
+  }
+
+  .highlight { color: var(--green-soft); font-weight: 700; }
+  .greek { font-style: italic; color: var(--cream-dim); font-size: 12px; }
+
+  /* ── 4요소 테이블 ── */
+  .four-ele-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; margin-bottom: 16px;
+  }
+  @media (max-width: 640px) {
+    .four-ele-grid { grid-template-columns: repeat(2, 1fr); }
+    .pastor-grid   { grid-template-columns: 1fr; }
+  }
+  .ele-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .ele-label {
+    font-size: 10px; font-weight: 700;
+    color: var(--text-sub); letter-spacing: .05em;
+    text-transform: uppercase; margin-bottom: 5px;
+  }
+  .ele-val {
+    font-size: 14px; font-weight: 700;
+    color: var(--cream);
+  }
+  .ele-sub { font-size: 11px; color: var(--text-sub); margin-top: 3px; }
+
+  /* ── 간디 목록 ── */
+  .gandhi-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px; margin-bottom: 12px;
+  }
+  .gandhi-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text-sub);
+  }
+  .gandhi-item .g-num {
+    font-size: 10px; font-weight: 700;
+    color: var(--red); margin-bottom: 3px;
+  }
+
+  /* ── 인쇄 ── */
+  @media print {
+    .tab-nav { display: none; }
+    .tab-content { display: block !important; }
+    body { background: #0f1a12; color: var(--text); font-size: 11pt; }
+    .page-header { padding: 20px 24px; }
+    .content-wrap { padding: 16px 24px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<header class="page-header">
+  <div class="header-meta">
+    <span class="badge badge-course">목회학 · 63117</span>
+    <span class="badge badge-week">9주차 · 2026-05-04</span>
+    <span class="badge badge-exam">중간 이후 첫 강의</span>
+  </div>
+  <h1 class="page-title">목회 리더십 — 권력과 권위,<br>서번트 리더십</h1>
+  <p class="page-sub">이영호 교수 · 한국침례신학대학교 대학원 · Pastoral Ministry</p>
+</header>
+
+<!-- ── 탭 ── -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab(this,'tab-note')">📋 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(this,'tab-core')">⭐ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(this,'tab-apply')">🌱 현장적용</button>
+</nav>
+
+<!-- ════════════════════════════════════════
+     탭 1 — 강의노트
+════════════════════════════════════════ -->
+<div id="tab-note" class="tab-content active">
+<div class="content-wrap">
+
+  <!-- ▌강의 1 -->
+  <h2 class="section-title">강의 1 · 목회 리더십: 권력과 권위</h2>
+
+  <!-- 목회 리더십의 고유성 -->
+  <p class="sub-title">1. 목회 리더십의 고유성</p>
+  <div class="principle-block">
+    <div class="principle-title">교회 리더십 ≠ 일반 조직 리더십</div>
+    <div class="principle-body">
+      일반 조직(기업)의 리더는 급여·직위 등 <span class="highlight">권력(Power)</span>으로 구성원을 강제·통제한다.<br>
+      교회 목회자는 <span class="highlight">권위(Authority)와 영향력</span>으로 교인을 이끌어야 한다.
+    </div>
+    <div class="principle-bible">마 28:18~20 — "하늘과 땅의 모든 엑수시아(ἐξουσία)를 내게 주셨으니"</div>
+  </div>
+
+  <div class="principle-block">
+    <div class="principle-title">동기부여 (Motivation)</div>
+    <div class="principle-body">
+      사람의 내면을 자극하여 스스로 목표를 향해 행동하도록 이끄는 과정.<br>
+      교회에서의 동기부여 = <span class="highlight">"은혜를 받게 하는 것"</span> — 하나님의 은혜를 통해 자발적 헌신을 이끔.
+    </div>
+    <div class="principle-bible">일반 조직: 경제적 이익·지위 획득 / 교회 성도: 하나님의 위로 + 가치 있는 일에 자발적 헌신</div>
+  </div>
+
+  <div class="quote-block">
+    "동기부여는 외적 강제가 아니라 내적 확신을 통해 성도가 사역에 자발적으로 참여하는 것이다."
+  </div>
+
+  <!-- 권력 vs 권위 -->
+  <p class="sub-title">2. 권력(Power) vs. 권위(Authority)</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>권력 (Power)</th>
+        <th>권위 (Authority · ἐξουσία)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label-col">정의</td>
+        <td>타인의 저항에도 자신의 의지를 관철시키는 능력</td>
+        <td>정당하다고 인정되어 자발적으로 복종하도록 이끄는 힘</td>
+      </tr>
+      <tr>
+        <td class="label-col">출처</td>
+        <td>외부에서 주어짐 (지위·임명·선출)</td>
+        <td>내부에서 획득됨 (인정과 신뢰)</td>
+      </tr>
+      <tr>
+        <td class="label-col">작용</td>
+        <td>사람을 <strong>움직임</strong></td>
+        <td>사람을 <strong>변화</strong>시킴</td>
+      </tr>
+      <tr>
+        <td class="label-col">성격</td>
+        <td>강압적</td>
+        <td>자발적</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상</span></div>
+    <div class="exam-body">
+      <strong>"권위 없는 권력은 폭력이고, 권력 없는 권위는 무기력하다."</strong><br>
+      헬라어 <strong>ἐξουσία(엑수시아)</strong> = 하나님께서 위임하신 권위 (마 28:18)
+    </div>
+  </div>
+
+  <!-- 리더십 형성 3경로 -->
+  <p class="sub-title">3. 교회 리더십 형성의 세 경로</p>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-authority">① 신적 위임 (Divine Commission)</span>
+    <div class="ministry-rows">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">하나님이 그를 교회 지도자로 세우심</span></div>
+      <div class="ministry-row"><span class="row-label">확인 방법</span><span class="row-val">교회 공동체의 공식적 안수 (초대교회 전통)</span></div>
+      <div class="ministry-row"><span class="row-label">결과</span><span class="row-val">법적 지위 획득</span></div>
+      <div class="ministry-row"><span class="row-label">성경</span><span class="row-val">갈 1:1 (바울의 신적 사도권) · 행 13:2~3 (바나바·사울 안수 파송) · 딛 1:5</span></div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">② 교회 공동체의 인정</span>
+    <div class="ministry-rows">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">합법적 절차(청빙·안수)를 통한 공식 인정</span></div>
+      <div class="ministry-row"><span class="row-label">결과</span><span class="row-val">임명권·인사권·재정권 등 파워(Power) 형성 + 구성원 신뢰</span></div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-bible">③ 개인적 형성 — 영성·지성·인성</span>
+    <div class="ministry-rows">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">본인의 하나님과의 관계·전문성·성품을 통해 교인들로부터 신뢰 획득</span></div>
+      <div class="ministry-row"><span class="row-label">결과</span><span class="row-val">획득된 권위 (Authority) 형성</span></div>
+      <div class="ministry-row"><span class="row-label">성경</span><span class="row-val">딤전 4:12 — "믿는 자의 본이 되어"</span></div>
+    </div>
+  </div>
+
+  <!-- 영적 권위 형성 -->
+  <p class="sub-title">4. 영적 권위(Spiritual Authority) 형성 구조</p>
+
+  <div class="pastor-grid">
+    <div class="pastor-card">
+      <div class="pastor-card-icon">📖</div>
+      <div class="pastor-card-label">지성 · 로고스(Logos)</div>
+      <div class="pastor-card-title">전문성</div>
+      <div class="pastor-card-body">설교 능력 · 성경·신학적 탁월성 · 사역 전문성 · 인간관계 기술 → 신뢰 → 권위</div>
+    </div>
+    <div class="pastor-card">
+      <div class="pastor-card-icon">🕊️</div>
+      <div class="pastor-card-label">영성 · 에토스(Ethos)</div>
+      <div class="pastor-card-title">하나님과의 관계</div>
+      <div class="pastor-card-body">하나님과의 만남 → 변화된 성품 · 감동력 · "하나님을 느끼게 하는 능력" → 권위</div>
+    </div>
+    <div class="pastor-card">
+      <div class="pastor-card-icon">✝️</div>
+      <div class="pastor-card-label">인성 · 에토스(Ethos)</div>
+      <div class="pastor-card-title">예수님을 닮은 성품</div>
+      <div class="pastor-card-body">말과 삶의 일치 · 도덕적 신뢰 · 자기 부인 → 성도의 존경 → 권위</div>
+    </div>
+  </div>
+
+  <div class="quote-block">"사람은 메시지보다 삶에 반응한다." — 에토스적 권위</div>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상</span></div>
+    <div class="exam-body">
+      <strong>영적 권위 형성 핵심 명제 4가지</strong><br>
+      ① 영적 권위는 말이 아니라 <strong>삶</strong>에서 나온다<br>
+      ② 권위는 주장하는 것이 아니라 <strong>드러나는</strong> 것이다<br>
+      ③ 영적 권위를 추구할수록 약해지고, <strong>하나님</strong>을 추구할수록 강해진다<br>
+      ④ "사람은 <strong>권력</strong>을 따르지만, 영혼은 <strong>권위</strong>를 따른다"
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ▌강의 2 -->
+  <h2 class="section-title">강의 2 · 서번트 리더십 (Servant Leadership)</h2>
+
+  <!-- 이론 배경 -->
+  <p class="sub-title">1. 이론적 배경</p>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-authority">로버트 K. 그린리프 (Robert K. Greenleaf)</span>
+    <div class="ministry-rows mt-8">
+      <div class="ministry-row"><span class="row-label">생애</span><span class="row-val">미국 AT&T 38년 근무 · 부사장 역임 · 퇴직 후 강의·컨설팅</span></div>
+      <div class="ministry-row"><span class="row-label">영감</span><span class="row-val">헤르만 헤세 『동방순례(Journey to the East)』 읽고 서번트 리더십 구상</span></div>
+      <div class="ministry-row"><span class="row-label">출판</span><span class="row-val">1977년 저서 출판으로 전 세계에 확산</span></div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    그린리프 유일한 창시자 아님 — 고든 코스비(Gordon Cosby) 목사 등 1950년대 이미 논의.
+    그린리프를 통해 개념이 체계화·확산. 국내 참고: 문병하 교수 「목회 사역 활성화를 위한 서번트 리더십 개발 연구」(한국복음주의실천신학회).
+  </div>
+
+  <!-- 동방순례 교훈 -->
+  <p class="sub-title">2. 『동방순례』의 교훈</p>
+  <div class="field-block">
+    <div class="field-title">레오(Leo)의 이야기</div>
+    <div class="field-row"><span class="frow-label">상황:</span><span class="frow-val">레오(종)가 함께할 때 순례단이 원만히 진행</span></div>
+    <div class="field-row"><span class="frow-label">전환:</span><span class="frow-val">레오가 사라지자 순례단 붕괴</span></div>
+    <div class="field-row"><span class="frow-label">반전:</span><span class="frow-val">레오가 사실 교단의 최고 지도자였음</span></div>
+    <div class="field-row"><span class="frow-label">결론:</span><span class="frow-val"><strong>위대한 지도자는 처음에 서번트(종)로 보인다</strong></span></div>
+  </div>
+  <div class="quote-block">"너희 중에 으뜸이 되고자 하는 자는 모든 사람의 종이 되어야 하리라" (막 10:44)</div>
+
+  <!-- 5대 핵심 가치 -->
+  <p class="sub-title">3. 그린리프의 서번트 리더십 5대 핵심 가치</p>
+
+  <div class="principle-block">
+    <div class="principle-title">① 섬김이 먼저다</div>
+    <div class="principle-body">리더십의 출발은 권력이 아니라 섬김. "나는 리더인가, 아니면 섬기는 사람인가?" 끊임없이 자문.</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">② 타인의 성장을 최우선으로 한다</div>
+    <div class="principle-body">진정한 리더는 자기 이익이 아닌 구성원의 성장을 추구. 평가 기준: <span class="highlight">"이 사람들은 더 나은 사람이 되었는가?"</span></div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">③ 경청과 공감</div>
+    <div class="principle-body">리더십은 말이 아니라 <span class="highlight">듣는 것</span>에서 시작. 팔로워(follower)의 감정·상황에 대한 적극적 공감.</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">④ 설득 중심의 리더십</div>
+    <div class="principle-body">강요·통제가 아닌 <span class="highlight">관계 기반의 설득과 감동</span>으로 사람을 변화시킴.</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">⑤ 공동체를 세우는 것이 목적</div>
+    <div class="principle-body">개인 중심이 아닌 <span class="highlight">공동체 전체의 건강한 성장</span>. 건강한 관계 구조 형성이 목표.</div>
+  </div>
+
+  <!-- 도덕적 권위 4가지 -->
+  <p class="sub-title">4. 서번트 리더의 도덕적 권위 형성 (4가지 희생)</p>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">① 경제적 희생 — 절제와 포기</span>
+    <div class="ministry-rows mt-8">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">자기 유익이 아닌 자기 희생을 통해 타인의 유익 추구 → 신뢰 형성</span></div>
+    </div>
+  </div>
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">② 사회적 희생 — 자기 부인과 용서</span>
+    <div class="ministry-rows mt-8">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">바른 가치를 위한 자기 부인 (성경적 개념) + 잘못에 사과, 타인에 용서</span></div>
+    </div>
+  </div>
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">③ 정신적 희생 — 쾌락보다 학습</span>
+    <div class="ministry-rows mt-8">
+      <div class="ministry-row"><span class="row-label">내용</span><span class="row-val">개인 즐거움보다 학습 우선 → 리더의 겸손이 구성원의 창의성·학습 능력 향상</span></div>
+    </div>
+  </div>
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">④ 영적 희생 — 겸손과 용기</span>
+    <div class="ministry-rows mt-8">
+      <div class="ministry-row"><span class="row-label">겸손</span><span class="row-val">하나님 앞에서 자신이 누구인지 앎 + 타인 존중 (자기를 낮추는 것 이상)</span></div>
+      <div class="ministry-row"><span class="row-label">용기</span><span class="row-val">옳은 것·하나님의 뜻을 위해 어려움을 감수하고 나아가는 삶</span></div>
+    </div>
+  </div>
+
+  <!-- 간디 -->
+  <p class="sub-title">5. 마하트마 간디 — "파멸로 이끄는 일곱 가지"</p>
+  <div class="gandhi-list">
+    <div class="gandhi-item"><div class="g-num">파멸 ①</div>땀 흘리지 않고 얻는 富</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ②</div>양심을 저버린 기쁨</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ③</div>인격을 상실한 지식</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ④</div>도덕성이 결여된 장사</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ⑤</div>인류애를 잊은 과학</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ⑥</div>희생이 없는 종교</div>
+    <div class="gandhi-item"><div class="g-num">파멸 ⑦</div>원칙이 사라진 정치</div>
+  </div>
+  <div class="quote-block">"서번트 리더는 목적과 수단을 분리하지 않는다 — 옳은 목표라도 옳은 수단이 아니면 선택하지 않는다."</div>
+
+  <!-- 4요소 -->
+  <p class="sub-title">6. 서번트 리더십의 4요소 정리</p>
+  <div class="four-ele-grid">
+    <div class="ele-card">
+      <div class="ele-label">태도</div>
+      <div class="ele-val">겸손</div>
+      <div class="ele-sub">타인에 대한 존중</div>
+    </div>
+    <div class="ele-card">
+      <div class="ele-label">본질</div>
+      <div class="ele-val">섬김</div>
+      <div class="ele-sub">경청·배려·성장 지원</div>
+    </div>
+    <div class="ele-card">
+      <div class="ele-label">대상</div>
+      <div class="ele-val">다른 사람</div>
+      <div class="ele-sub">공동체 구성원</div>
+    </div>
+    <div class="ele-card">
+      <div class="ele-label">동기</div>
+      <div class="ele-val">사랑</div>
+      <div class="ele-sub">자기희생적 아가페</div>
+    </div>
+  </div>
+
+  <!-- 성경적 근거 -->
+  <p class="sub-title">7. 서번트 리더십의 성경적 근거</p>
+
+  <div class="principle-block">
+    <div class="principle-title">본을 보이심 (요 13:14~15)</div>
+    <div class="principle-body">예수님의 발 씻김 → "내가 너희 발을 씻었으니 너희도 서로 씻어 주는 것이 옳다" → 섬기는 본을 몸소 보이심.</div>
+    <div class="principle-bible">요 13:14~15</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">자기 희생 (막 10:45)</div>
+    <div class="principle-body">"인자가 온 것은 섬김을 받으려 함이 아니라 섬기려 하고 자기 목숨을 많은 사람의 대속물로 주려 함이라"</div>
+    <div class="principle-bible">막 10:45</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">섬김의 대상 (마 18:5)</div>
+    <div class="principle-body">"지극히 작은 자 하나를 영접하는 것이 섬김이다" — 힘없는 타인을 영접하는 것이 섬김의 실천.</div>
+    <div class="principle-bible">마 18:5</div>
+  </div>
+  <div class="principle-block">
+    <div class="principle-title">겸손과 자기 부인 (막 10:43~44)</div>
+    <div class="principle-body">이방인 권세자들의 지배 방식과 대조 — "너희 중에 크고자 하는 자는 섬기는 자가 되고, 으뜸이 되려는 자는 종이 되라"</div>
+    <div class="principle-bible">막 10:43~44</div>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상</span></div>
+    <div class="exam-body">
+      <strong>"서번트 리더십의 뿌리는 그린리프가 아니라 성경이다."</strong><br>
+      — 예수님의 세 가지 리더십 실천: ① 본을 보이심 ② 자기 희생 ③ 겸손과 자기 부인
+    </div>
+  </div>
+
+  <!-- 오늘 핵심 원칙 -->
+  <div class="core-principles">
+    <div class="core-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>권력이 아니라 권위로 이끌라.</strong> 목회자의 리더십은 지위에서 오는 권력이 아니라, 영성·지성·인성을 통해 성도들로부터 자발적으로 인정받는 영적 권위에서 비롯된다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>삶 자체가 설교다.</strong> 영적 권위는 말로 주장할수록 약해지고, 하나님 앞에 진실하게 살수록 강해진다. 사람은 메시지보다 삶에 반응한다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>섬김이 먼저다.</strong> 서번트 리더십은 그린리프의 이론이기 이전에 예수님의 삶이다. 목회자는 지시·통제보다 경청·공감·자기희생으로 성도의 자발적 헌신을 이끌어야 한다.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════════════════════
+     탭 2 — 핵심정리
+════════════════════════════════════════ -->
+<div id="tab-core" class="tab-content">
+<div class="content-wrap">
+
+  <h2 class="section-title">핵심 개념 정리</h2>
+
+  <p class="sub-title">① 권력 vs. 권위 — 핵심 명제</p>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상 — 정의</span></div>
+    <div class="exam-body">
+      <strong>권력 (Power):</strong> 타인의 저항에도 자신의 의지를 관철시키는 능력 — 외부 부여, 지위에서 나옴<br><br>
+      <strong>권위 (Authority · ἐξουσία 엑수시아):</strong> 정당하다고 인정되어 자발적으로 복종하도록 이끄는 힘 — 내부 획득, 삶에서 나옴<br><br>
+      <strong>결론:</strong> "권위 없는 권력은 폭력이고, 권력 없는 권위는 무기력하다."<br>
+      "사람은 권력을 따르지만, 영혼은 권위를 따른다."
+    </div>
+  </div>
+
+  <p class="sub-title">② 교회 리더십 형성 3경로 — 요약</p>
+
+  <table class="compare-table">
+    <thead><tr><th>경로</th><th>내용</th><th>결과</th><th>성경</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="label-col">신적 위임</td>
+        <td>하나님이 세우심</td>
+        <td>법적 지위</td>
+        <td>갈 1:1 · 행 13:2~3</td>
+      </tr>
+      <tr>
+        <td class="label-col">공동체 인정</td>
+        <td>안수·청빙 절차</td>
+        <td>파워(Power) 형성</td>
+        <td>딛 1:5</td>
+      </tr>
+      <tr>
+        <td class="label-col">개인적 형성</td>
+        <td>영성·지성·인성 탁월</td>
+        <td>권위(Authority) 획득</td>
+        <td>딤전 4:12</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="sub-title">③ 영적 권위 형성 4대 명제</p>
+
+  <ul class="dot-list">
+    <li>영적 권위는 말이 아니라 <span class="highlight">삶</span>에서 나온다</li>
+    <li>권위는 주장하는 것이 아니라 <span class="highlight">드러나는</span> 것이다</li>
+    <li>영적 권위를 추구할수록 약해지고, <span class="highlight">하나님</span>을 추구할수록 강해진다</li>
+    <li>영적 권위는 영향력을 얻기 위한 수단이 아니라 <span class="highlight">하나님 앞의 삶의 결과</span>다</li>
+  </ul>
+
+  <hr class="divider">
+
+  <h2 class="section-title">서번트 리더십 핵심 정리</h2>
+
+  <p class="sub-title">④ 5대 핵심 가치 — 그린리프</p>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상</span></div>
+    <div class="exam-body">
+      <strong>① 섬김이 먼저</strong> — 리더십의 출발은 권력이 아니라 섬김<br>
+      <strong>② 타인의 성장 최우선</strong> — "이 사람들은 더 나은 사람이 되었는가?"<br>
+      <strong>③ 경청과 공감</strong> — 리더십은 말이 아니라 듣는 것에서 시작<br>
+      <strong>④ 설득 중심</strong> — 강요가 아닌 관계·감동으로 변화<br>
+      <strong>⑤ 공동체를 세움</strong> — 개인이 아닌 공동체 전체의 성장
+    </div>
+  </div>
+
+  <p class="sub-title">⑤ 도덕적 권위 형성 4가지 희생</p>
+
+  <table class="compare-table">
+    <thead><tr><th>희생 유형</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td class="label-col">경제적 희생</td><td>절제와 포기 — 자기 희생으로 타인 유익 추구 → 신뢰 형성</td></tr>
+      <tr><td class="label-col">사회적 희생</td><td>자기 부인과 용서 — 바른 가치를 위한 자기 부인, 사과와 용서</td></tr>
+      <tr><td class="label-col">정신적 희생</td><td>쾌락보다 학습 우선 — 리더의 겸손이 구성원 창의성·학습 향상</td></tr>
+      <tr><td class="label-col">영적 희생</td><td>겸손(타인 존중) + 용기(하나님의 뜻을 위한 어려움 감수)</td></tr>
+    </tbody>
+  </table>
+
+  <p class="sub-title">⑥ 서번트 리더십 4요소</p>
+
+  <div class="four-ele-grid">
+    <div class="ele-card"><div class="ele-label">태도</div><div class="ele-val">겸손</div><div class="ele-sub">타인 존중</div></div>
+    <div class="ele-card"><div class="ele-label">본질</div><div class="ele-val">섬김</div><div class="ele-sub">경청·배려·성장</div></div>
+    <div class="ele-card"><div class="ele-label">대상</div><div class="ele-val">다른 사람</div><div class="ele-sub">공동체 구성원</div></div>
+    <div class="ele-card"><div class="ele-label">동기</div><div class="ele-val">사랑</div><div class="ele-sub">자기희생적 사랑</div></div>
+  </div>
+
+  <p class="sub-title">⑦ 예수님의 서번트 리더십 실천 3가지</p>
+
+  <div class="exam-block">
+    <div class="exam-header"><span class="exam-label">📌 시험 출제 예상 — 성경적 근거</span></div>
+    <div class="exam-body">
+      <strong>① 본을 보이심</strong> — 발 씻김 (요 13:14~15)<br>
+      <strong>② 자기 희생</strong> — 목숨을 대속물로 (막 10:45)<br>
+      <strong>③ 겸손과 자기 부인</strong> — "으뜸이 되려는 자는 종이 되라" (막 10:43~44)<br><br>
+      <strong>핵심 결론: "서번트 리더십의 뿌리는 그린리프가 아니라 성경이다."</strong>
+    </div>
+  </div>
+
+  <!-- 오늘 핵심 원칙 -->
+  <div class="core-principles">
+    <div class="core-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>권력이 아니라 권위로 이끌라.</strong> 목회자의 리더십은 지위에서 오는 권력이 아니라, 영성·지성·인성을 통해 성도들로부터 자발적으로 인정받는 영적 권위에서 비롯된다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>삶 자체가 설교다.</strong> 영적 권위는 말로 주장할수록 약해지고, 하나님 앞에 진실하게 살수록 강해진다. 사람은 메시지보다 삶에 반응한다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>섬김이 먼저다.</strong> 서번트 리더십은 그린리프의 이론이기 이전에 예수님의 삶이다. 목회자는 지시·통제보다 경청·공감·자기희생으로 성도의 자발적 헌신을 이끌어야 한다.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════════════════════════════
+     탭 3 — 현장적용
+════════════════════════════════════════ -->
+<div id="tab-apply" class="tab-content">
+<div class="content-wrap">
+
+  <h2 class="section-title">현장 적용</h2>
+
+  <div class="field-block">
+    <div class="field-title">현장 ① 청소년 사역자로서의 권위 형성</div>
+    <div class="field-row"><span class="frow-label">상황:</span><span class="frow-val">청소년들은 강압적 지시에 반응하지 않고, 오히려 반발함</span></div>
+    <div class="field-row"><span class="frow-label">진단:</span><span class="frow-val">청소년에게 필요한 것은 권력이 아니라 진정성 있는 관계와 권위 — 삶으로 보이는 것</span></div>
+    <div class="field-row"><span class="frow-label">실천:</span><span class="frow-val">설교 이전에 함께 시간을 보내며 경청하는 서번트 리더의 태도. "이 학생들은 더 나은 사람이 되었는가?"를 사역의 기준으로 삼기</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">현장 ② 부사역자의 권위 형성 전략</div>
+    <div class="field-row"><span class="frow-label">상황:</span><span class="frow-val">지위·법적 권력이 제한된 부사역자 상태</span></div>
+    <div class="field-row"><span class="frow-label">진단:</span><span class="frow-val">신적 위임·공동체 인정보다 개인적 형성(영성·지성·인성)이 지금 당장 집중할 수 있는 경로</span></div>
+    <div class="field-row"><span class="frow-label">실천:</span><span class="frow-val">딤전 4:12 — "연소함을 무시당하지 말고 말과 행실과 사랑과 믿음과 정결에서 본이 되어라". 전문성(설교·성경연구)과 인성(삶의 일관성)을 동시에 개발</span></div>
+  </div>
+
+  <div class="field-block">
+    <div class="field-title">현장 ③ 교회 내 갈등 상황에서의 서번트 리더십</div>
+    <div class="field-row"><span class="frow-label">상황:</span><span class="frow-val">의견 충돌이 있는 성도 또는 장로·집사와의 관계</span></div>
+    <div class="field-row"><span class="frow-label">진단:</span><span class="frow-val">권력으로 밀어붙이면 갈등이 심화되고 신뢰가 무너짐</span></div>
+    <div class="field-row"><span class="frow-label">실천:</span><span class="frow-val">경청·공감으로 먼저 다가가고, 설득 중심의 리더십으로 방향을 제시. 필요시 자기 잘못에 사과하는 사회적 희생으로 도덕적 권위를 높임</span></div>
+  </div>
+
+  <hr class="divider">
+  <h2 class="section-title">사역 방법론</h2>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-servant">사역 · 리더십</span>
+    <div class="ministry-title">동기부여하는 목회 리더십</div>
+    <div class="ministry-rows">
+      <div class="ministry-row"><span class="row-label">목적</span><span class="row-val">성도가 외적 강제 없이 내적 확신으로 사역에 자발적 참여하도록 이끔</span></div>
+      <div class="ministry-row"><span class="row-label">핵심 원리</span><span class="row-val">은혜를 받게 하는 것 = 하나님과의 만남을 촉진하는 것</span></div>
+      <div class="ministry-row"><span class="row-label">방법</span><span class="row-val">목회자의 영성·지성·인성 개발 + 경청·공감·설득 + 자기 희생의 본을 보임</span></div>
+      <div class="ministry-row"><span class="row-label">성경 근거</span><span class="row-val">딤전 4:12 · 막 10:44~45 · 요 13:14~15</span></div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge mb-authority">사역 · 영적 권위</span>
+    <div class="ministry-title">영적 권위 형성을 위한 개인 훈련</div>
+    <div class="ministry-rows">
+      <div class="ministry-row"><span class="row-label">영성</span><span class="row-val">말씀·순종·기도를 통한 하나님과의 관계 유지 (영적 권위의 핵심 뿌리)</span></div>
+      <div class="ministry-row"><span class="row-label">지성</span><span class="row-val">성경·신학 연구 깊이 심화 · 설교 탁월성 개발 · 전도·소그룹 인도 능력 향상</span></div>
+      <div class="ministry-row"><span class="row-label">인성</span><span class="row-val">말과 삶의 일치 · 도덕적 신뢰 유지 · 자기 부인의 훈련</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2 class="section-title">성찰 질문</h2>
+
+  <div class="reflect-block">
+    <div class="reflect-header">🙏 목회자 자기 성찰</div>
+    <ul>
+      <li>나는 지금 성도들을 권력으로 이끌고 있는가, 아니면 권위로 이끌고 있는가?</li>
+      <li>내 영적 권위의 근거는 어디에 있는가 — 지위인가, 삶인가?</li>
+      <li>"나는 리더인가, 아니면 섬기는 사람인가?" — 지난 한 주를 돌아볼 때 내 답은 무엇인가?</li>
+      <li>내 사역 안에서 "이 사람들은 더 나은 사람이 되었는가?"라고 물을 때 진실한 대답은 무엇인가?</li>
+      <li>나는 어떤 희생(경제적·사회적·정신적·영적)을 통해 도덕적 권위를 세워가고 있는가?</li>
+      <li>하나님을 추구하는가, 아니면 영향력을 추구하는가? 그 순서가 바른가?</li>
+    </ul>
+  </div>
+
+  <!-- 오늘 핵심 원칙 -->
+  <div class="core-principles">
+    <div class="core-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>권력이 아니라 권위로 이끌라.</strong> 목회자의 리더십은 지위에서 오는 권력이 아니라, 영성·지성·인성을 통해 성도들로부터 자발적으로 인정받는 영적 권위에서 비롯된다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>삶 자체가 설교다.</strong> 영적 권위는 말로 주장할수록 약해지고, 하나님 앞에 진실하게 살수록 강해진다. 사람은 메시지보다 삶에 반응한다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>섬김이 먼저다.</strong> 서번트 리더십은 그린리프의 이론이기 이전에 예수님의 삶이다. 목회자는 지시·통제보다 경청·공감·자기희생으로 성도의 자발적 헌신을 이끌어야 한다.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(btn, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>

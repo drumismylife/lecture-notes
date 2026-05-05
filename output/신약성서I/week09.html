@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>누가복음 전체 — 신약성서 I 9주차</title>
+<style>
+  :root {
+    --bg:        #150f1a;
+    --card:      #1e1526;
+    --card2:     #261c30;
+    --card3:     #2d2040;
+    --purple:    #9b7fc7;
+    --purple2:   #c4a8e8;
+    --lavender:  #b8a8d4;
+    --gold:      #d4a84b;
+    --teal:      #5bb8c4;
+    --exam:      #c96b5a;
+    --exam-bg:   #2d1a16;
+    --term:      #7ab87a;
+    --term-bg:   #172217;
+    --rose:      #c47a8a;
+    --blue:      #6a9fd8;
+    --text:      #ede8f5;
+    --text2:     #9e96aa;
+    --border:    #3a2d4a;
+    --border2:   #4a3d5a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, #0d0912 0%, #1a0f2e 55%, #110c1a 100%);
+    border-bottom: 2px solid var(--border);
+    padding: 28px 32px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: 'Κατὰ Λουκᾶν';
+    position: absolute; right: 28px; top: 14px;
+    font-size: 44px; font-style: italic;
+    color: rgba(155,127,199,0.07);
+    letter-spacing: 3px;
+    font-family: Georgia, serif;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
+  .badge {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 3px;
+  }
+  .b-week   { background: var(--purple);  color: #fff; }
+  .b-date   { background: var(--card2);   color: var(--lavender); border: 1px solid var(--border2); }
+  .b-prof   { background: var(--card2);   color: var(--lavender); border: 1px solid var(--border2); }
+  .b-merged { background: var(--teal);    color: #0d1a1c; }
+  .header-title {
+    font-size: 26px; font-weight: 800;
+    color: var(--text); letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 13px; color: var(--text2);
+  }
+  .header-sub span { color: var(--purple2); font-weight: 600; }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex; gap: 0;
+    background: var(--card); border-bottom: 2px solid var(--border);
+    padding: 0 28px;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--text2); font-size: 13px; font-weight: 600;
+    padding: 13px 20px; border-bottom: 3px solid transparent;
+    margin-bottom: -2px; transition: all 0.2s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: var(--purple2); }
+  .tab-btn.active { color: var(--purple2); border-bottom-color: var(--purple); }
+
+  /* ── CONTENT AREA ── */
+  .tab-content { display: none; padding: 28px 32px 60px; max-width: 960px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .sec-head {
+    display: flex; align-items: center; gap: 12px;
+    margin: 32px 0 14px;
+  }
+  .sec-num {
+    background: var(--purple); color: #fff;
+    font-size: 10px; font-weight: 800;
+    padding: 3px 9px; border-radius: 3px;
+    letter-spacing: 0.1em; white-space: nowrap;
+  }
+  .sec-title {
+    font-size: 16px; font-weight: 800;
+    color: var(--purple2); letter-spacing: -0.3px;
+  }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border2), transparent); }
+
+  .sub-head {
+    font-size: 13px; font-weight: 700;
+    color: var(--lavender);
+    margin: 20px 0 8px;
+    padding-left: 10px;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .card2 {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  /* ── BLOCK TYPES ── */
+  .block-bg {
+    background: var(--card);
+    border-left: 3px solid #6b5a8a;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .block-theol {
+    background: var(--card);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .block-exam {
+    background: var(--exam-bg);
+    border: 1px solid var(--exam);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .block-term {
+    background: var(--term-bg);
+    border: 1px solid var(--term);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .block-prof {
+    background: #1a1528;
+    border-left: 3px solid #6b5a8a;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: var(--lavender);
+    font-size: 13px;
+  }
+  .block-text {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+
+  /* block label badges */
+  .blk-label {
+    display: inline-block;
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px;
+    margin-bottom: 8px;
+  }
+  .lbl-bg    { background: #6b5a8a; color: #fff; }
+  .lbl-theol { background: var(--purple); color: #fff; }
+  .lbl-exam  { background: var(--exam); color: #fff; }
+  .lbl-term  { background: var(--term); color: #1a2a1a; }
+  .lbl-prof  { background: #4a3a6a; color: var(--lavender); }
+  .lbl-text  { background: #3a3050; color: var(--purple2); }
+  .lbl-compare { background: var(--teal); color: #0d1a1c; }
+  .lbl-merged  { background: var(--teal); color: #0d1a1c; }
+
+  /* ── TYPOGRAPHY ── */
+  .blk-title {
+    font-size: 14px; font-weight: 700;
+    color: var(--purple2); margin-bottom: 8px;
+  }
+  .blk-title-exam { color: var(--exam); }
+  .blk-title-term { color: var(--term); }
+
+  p, li { color: var(--text); font-size: 13.5px; line-height: 1.8; }
+  ul { padding-left: 18px; }
+  ul li { margin-bottom: 3px; }
+  strong { color: var(--purple2); font-weight: 700; }
+  em     { color: var(--gold); font-style: normal; font-weight: 600; }
+
+  /* scripture */
+  .scripture {
+    font-family: 'Noto Serif KR', Georgia, serif;
+    color: var(--purple2);
+    background: rgba(155,127,199,0.08);
+    border-left: 3px solid var(--purple);
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 0 5px 5px 0;
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  .greek {
+    font-family: 'Times New Roman', Georgia, serif;
+    color: var(--gold);
+    font-size: 13px;
+    background: rgba(212,168,75,0.07);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  .compare-table th {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 8px 12px;
+    border: 1px solid var(--border2);
+    color: #fff;
+  }
+  .th-matt { background: #2a3a5a; }
+  .th-mark { background: #4a2a1a; }
+  .th-luke { background: #1a3a2a; }
+  .th-john { background: #3a2a4a; }
+  .th-topic{ background: var(--card3); color: var(--lavender); }
+  .compare-table td {
+    font-size: 12.5px; padding: 9px 12px;
+    border: 1px solid var(--border);
+    vertical-align: top; line-height: 1.65;
+  }
+  .td-topic { background: var(--card2); color: var(--text2); font-weight: 600; font-size: 12px; }
+  .td-matt  { background: rgba(42,58,90,0.4); }
+  .td-mark  { background: rgba(74,42,26,0.4); }
+  .td-luke  { background: rgba(26,58,42,0.5); }
+  .td-john  { background: rgba(58,42,74,0.4); }
+  .td-highlight { color: var(--purple2); font-weight: 700; }
+
+  /* ── THEOL STRUCTURE ── */
+  .theol-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .theol-key {
+    color: var(--text2); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .theol-val { color: var(--text); }
+
+  /* ── FEATURE CARDS (5대 특징) ── */
+  .feature-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .feature-card {
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: 7px; padding: 14px 15px;
+    border-top: 3px solid var(--purple);
+  }
+  .feature-card.f-gentile { border-top-color: var(--teal); }
+  .feature-card.f-women  { border-top-color: var(--rose); }
+  .feature-card.f-poor   { border-top-color: var(--gold); }
+  .feature-card.f-spirit { border-top-color: var(--blue); }
+  .feature-card.f-prayer { border-top-color: var(--lavender); }
+  .f-icon { font-size: 18px; margin-bottom: 6px; }
+  .f-title { font-size: 13px; font-weight: 800; margin-bottom: 6px; }
+  .f-gentile .f-title { color: var(--teal); }
+  .f-women  .f-title  { color: var(--rose); }
+  .f-poor   .f-title  { color: var(--gold); }
+  .f-spirit .f-title  { color: var(--blue); }
+  .f-prayer .f-title  { color: var(--lavender); }
+  .f-body { font-size: 12px; color: var(--text2); line-height: 1.65; }
+  .f-body li { margin-bottom: 2px; list-style: none; padding-left: 12px; position: relative; }
+  .f-body li::before { content: '→'; position: absolute; left: 0; color: var(--border2); font-size: 10px; top: 2px; }
+
+  /* ── TEXTCRIT BOX ── */
+  .textcrit-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .tc-cell {
+    background: var(--card3); border: 1px solid var(--border2);
+    border-radius: 6px; padding: 12px 14px;
+  }
+  .tc-label { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .tc-matt .tc-label { color: #7a9fd8; }
+  .tc-luke .tc-label { color: #7ac47a; }
+  .tc-greek-text { font-size: 12px; color: var(--gold); font-family: Georgia, serif; line-height: 1.7; }
+  .tc-korean     { font-size: 12.5px; color: var(--text2); margin-top: 5px; line-height: 1.65; }
+
+  /* ── HAVRUTA CARDS ── */
+  .q-card {
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: 7px; padding: 14px 16px;
+    margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start;
+  }
+  .q-num {
+    background: var(--purple); color: #fff;
+    font-size: 11px; font-weight: 800;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .q-body {}
+  .q-question { font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .q-points   { font-size: 12px; color: var(--text2); line-height: 1.65; }
+  .q-points li { margin-bottom: 2px; }
+
+  /* ── TERM CARD ── */
+  .term-card {
+    background: var(--term-bg); border: 1px solid var(--term);
+    border-radius: 7px; overflow: hidden; margin-bottom: 10px;
+  }
+  .term-head {
+    background: rgba(122,184,122,0.12);
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--term);
+  }
+  .term-num-badge {
+    background: var(--term); color: #1a2a1a;
+    font-size: 11px; font-weight: 800;
+    padding: 2px 8px; border-radius: 3px;
+  }
+  .term-name-kr { font-size: 14px; font-weight: 800; color: var(--term); }
+  .term-name-en { font-size: 11px; color: var(--text2); margin-left: auto; font-style: italic; }
+  .term-body { padding: 12px 14px; }
+  .term-def  { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .term-row  { display: grid; grid-template-columns: 72px 1fr; gap: 4px; margin-bottom: 4px; font-size: 12.5px; }
+  .term-lbl  { color: var(--term); font-weight: 700; font-size: 11px; letter-spacing: 0.06em; padding-top: 1px; }
+  .term-val  { color: var(--text2); line-height: 1.65; }
+
+  /* ── EXAM SUMMARY ── */
+  .exam-item {
+    background: var(--exam-bg); border: 1px solid var(--exam);
+    border-radius: 6px; padding: 12px 14px; margin-bottom: 10px;
+  }
+  .exam-label {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+    color: var(--exam); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .exam-q { font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .exam-a { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .exam-a li { margin-bottom: 3px; }
+
+  /* ── KEY CONCEPTS ── */
+  .key-box {
+    background: linear-gradient(135deg, #1a1030, #1e1526);
+    border: 1px solid var(--purple);
+    border-radius: 8px; padding: 18px 20px;
+    margin-top: 28px;
+  }
+  .key-box-title {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+    color: var(--purple); text-transform: uppercase;
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .key-box-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .key-concepts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .key-chip {
+    background: rgba(155,127,199,0.12);
+    border: 1px solid var(--border2);
+    color: var(--purple2);
+    font-size: 12.5px; font-weight: 600;
+    padding: 5px 13px; border-radius: 20px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* ── MERGED NOTICE ── */
+  .merged-notice {
+    background: rgba(91,184,196,0.08);
+    border: 1px solid rgba(91,184,196,0.3);
+    border-radius: 6px; padding: 10px 14px;
+    font-size: 12px; color: var(--teal);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #111; }
+    .tab-bar { display: none; }
+    .tab-content { display: block !important; max-width: 100%; padding: 16px 20px; }
+    .page-header { background: #1a0f2e; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 15mm 12mm; }
+    .card, .card2, .block-bg, .block-theol, .block-exam, .block-term { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE HEADER ══ -->
+<div class="page-header">
+  <div class="header-badges">
+    <span class="badge b-week">9주차</span>
+    <span class="badge b-date">2026-04-30</span>
+    <span class="badge b-prof">이영민 교수</span>
+    <span class="badge b-merged">7주차 + 9주차 합본</span>
+  </div>
+  <div class="header-title">누가복음 전체 정리</div>
+  <div class="header-sub">
+    신약성서 I · 한국침례신학대학교 대학원 ·
+    <span>Luke-Acts 2부작 · Κατὰ Λουκᾶν</span>
+  </div>
+</div>
+
+<!-- ══ TAB BAR ══ -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0)">📖 강의 노트</button>
+  <button class="tab-btn" onclick="switchTab(1)">⭐ 핵심 정리 · 용어</button>
+  <button class="tab-btn" onclick="switchTab(2)">🗣️ 하브루타</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 1 — 강의 노트
+══════════════════════════════════════ -->
+<div class="tab-content active">
+
+  <div class="merged-notice">
+    📌 이 노트는 <strong>7주차(4/16) 누가복음 도입</strong>과 <strong>9주차(4/30) 누가복음 후반부</strong>를 통합한 누가복음 전체 강의 노트입니다.
+  </div>
+
+  <!-- BLOCK 1: 위상 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 01</span>
+    <span class="sec-title">누가복음의 위상과 개요</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">누가복음의 위상</div>
+    <ul>
+      <li>르낭(Ernest Renan, 프랑스 합리주의자): <strong>"누가복음은 세상에서 가장 아름다운 책"</strong></li>
+      <li>Powell: "뮤지컬 같다" — 탄생 내러티브의 노래들(마리아의 찬송·사가랴의 찬송·시므온의 찬송), 예술가들의 시선을 끄는 장면이 많음</li>
+      <li><strong>신약성서 중 가장 긴 책</strong> (24장)</li>
+    </ul>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">누가복음 — 사도행전 2부작 (Two-Volume Work)</div>
+    <ul>
+      <li>처음부터 두 권으로 기획된 작품 — <em>투 볼륨 원북(Two-volume one-book)</em></li>
+      <li>이유: 당시 사본 한 권의 최대 수용량 초과 → 두 권으로 나눌 수밖에 없었음</li>
+      <li>근거: 눅 1:1-4 서문 → 행 1:1-2 <strong>"내가 먼저 쓴 글에는 … 기록하였노라"</strong> 로 자연스럽게 연결</li>
+      <li>누가복음 + 사도행전 합치면 신약성서 분량의 약 27% — 단일 저자 기준 최다</li>
+    </ul>
+  </div>
+
+  <!-- BLOCK 2: 저자 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 02</span>
+    <span class="sec-title">저자</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">저자 정보 — 익명성과 전승</div>
+    <ul>
+      <li><strong>익명으로 기록됨</strong> — 제목 "누가에 따른 복음(Κατὰ Λουκᾶν)"은 후대 첨가</li>
+      <li>Codex Sinaiticus(א 01, 4세기, 영국 국립도서관 소장) 실물에서 확인 가능
+        <br><span style="font-size:12px; color: var(--text2)">→ 링크: <span class="greek">https://codexsinaiticus.org/en/</span></span></li>
+      <li>"Κατά(까따) + 이름" = <strong>"누가가 써놓은 것에 따른 것"</strong> — 저자 소유 표시가 아님, 그 내용의 출처를 가리킴</li>
+      <li>초기 교회 전승: <strong>골 4:14의 "사랑받는 의사 누가"</strong>를 저자로 여김<br>
+        <span class="greek">ἀσπάζεται ὑμᾶς Λουκᾶς ὁ ἰατρὸς ὁ ἀγαπητὸς καὶ Δημᾶς</span></li>
+    </ul>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">저자는 어떤 사람이었나</div>
+    <ul>
+      <li>① <strong>교육 수준이 높음</strong> — 헬라어 문법을 거의 철저히 준수, 풍부한 어휘·문장력 (속격·대격 등 격변화 정확)</li>
+      <li>② 신약성경 다른 문헌에 없는 <strong>800여 단어</strong> 사용 (누가복음+사도행전)</li>
+      <li>③ 의사 관련 어휘가 많다는 주장도 있음 (일부 학자의 견해)</li>
+      <li>④ 유대인/이방인 여부 확정 불가 — 양쪽 요소가 잘 혼재됨</li>
+      <li>⑤ 예수의 생애·사역을 직접 <strong>조사(ἀκριβῶς 카레블리 / 자세히)</strong>했고 목격자·말씀의 일꾼 된 자들의 문헌 참조</li>
+      <li>⑥ 마가복음·Q자료 + 추가 <strong>L자료</strong> 사용</li>
+    </ul>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">우리 단락 (We-passages / We-sections)</div>
+    <ul>
+      <li>사도행전에 갑자기 <strong>1인칭 복수("우리가")</strong>로 서술하는 구절들</li>
+      <li>행 16:10-17; 20:5-15; 21:1-18; 27:1-28:16</li>
+      <li>예: <span class="greek">행 16:10a</span> — <em>"바울이 그 환상을 보았을 때 우리가 곧 마게도냐로 떠나기를 힘쓰니"</em></li>
+      <li>→ 저자가 바울의 선교 여행에 동행했다는 언어적 근거</li>
+      <li>→ 누가복음-사도행전 <strong>동일 저자설</strong>의 핵심 증거</li>
+    </ul>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">사본 문화 — 집필의 비용과 공동체</div>
+    <ul>
+      <li>당시 문서 집필은 혼자 하지 않음 — 시작부터 끝까지 <strong>공동체 참여</strong>가 일반적</li>
+      <li>→ 학자들이 "마태 공동체 / 마가 공동체 / 누가 공동체 / 요한 공동체" 이야기하는 이유</li>
+      <li>파피루스·나무판(왁스 코팅) — 상당히 고가 / 필사자의 기술은 별도로 배워야 하는 특수 기술</li>
+      <li>칼럼 수·줄 수가 정해져 있고 그에 따라 비용 책정 (Codex Sinaiticus = 4칼럼 체계)</li>
+      <li>→ <strong>데오빌로가 연구·저술의 재정 후원자</strong>였을 가능성이 높음</li>
+    </ul>
+  </div>
+
+  <!-- BLOCK 3: 수신자 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 03</span>
+    <span class="sec-title">수신자: 데오빌로</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-text">
+    <span class="blk-label lbl-text">본문</span>
+    <div class="scripture">
+      "우리 중에 이루어진 사실에 대하여 처음부터 목격자와 말씀의 일꾼 된 자들이 전하여 준 그대로 내력을 저술하려고 붓을 든 사람이 많은지라 그 모든 일을 근원부터 자세히 미루어 살핀 나도 데오빌로 각하에게 차례대로 써 보내는 것이 좋은 줄 알았노니 이는 각하가 알고 있는 바를 더 확실하게 하려 함이로라" (눅 1:1-4)
+    </div>
+    <div style="margin-top:10px; font-size:13px; color: var(--text2);">
+      <strong style="color:var(--lavender);">문학적:</strong> 고전 헬라 문학의 서문(προοίμιον) 형식 — 헌사·연구방법·목적을 밝히는 정제된 문장<br>
+      <strong style="color:var(--lavender);">역사적:</strong> 마가복음·Q자료 외 여러 문서 자료가 이미 존재했음을 암시<br>
+      <strong style="color:var(--lavender);">신학적:</strong> 기록 목적 = "알고 있는 바를 더 확실하게(ἐπιγινώσκω — 심화된 앎)" 하려 함
+    </div>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">데오빌로 (Θεόφιλος / Theophilus)</div>
+    <ul>
+      <li>이름의 뜻: <span class="greek">θεός(하나님) + φίλος(친구/사랑)</span> = <strong>"하나님의 친구"</strong> / "하나님을 사랑하는 자"</li>
+      <li>"각하(高下)" 번역: 원어 <span class="greek">κράτιστος</span>(가장 높으신 분)를 번역하는 과정에서 당시 한국어 어휘로 선택</li>
+      <li><strong>현재까지 고증:</strong> 1세기 문서에서 이 이름이 사람에게 붙여진 기록 — <em>아직 발견 안 됨</em></li>
+    </ul>
+    <div style="margin-top: 12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="card2" style="margin:0;">
+        <div style="font-size:11px; font-weight:800; color:var(--teal); margin-bottom:6px;">해석 ① 실존 개인</div>
+        <div style="font-size:12.5px; color:var(--text2);">누가의 연구·저술을 지원한 실존 후원자. 당시 고가의 사본 제작 비용을 감당한 재정 지원자.</div>
+      </div>
+      <div class="card2" style="margin:0;">
+        <div style="font-size:11px; font-weight:800; color:var(--gold); margin-bottom:6px;">해석 ② 상징적 독자</div>
+        <div style="font-size:12.5px; color:var(--text2);">"하나님을 사랑하는 모든 독자"를 가리키는 상징적 이름. 단수 표기이나 공동체 전체를 대표.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 4: 위치 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 04</span>
+    <span class="sec-title">누가복음의 위치 — 마가복음 확장 구조</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-compare">비교</span>
+    <div class="blk-title">공관복음 저자별 확장 방식</div>
+    <table class="compare-table" style="margin-top:10px;">
+      <thead>
+        <tr>
+          <th class="th-topic" style="width:90px;">복음서</th>
+          <th class="th-matt">마태복음</th>
+          <th class="th-mark">마가복음</th>
+          <th class="th-luke">누가복음</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-topic">대상</td>
+          <td class="td-matt">유대인 그리스도인</td>
+          <td class="td-mark">로마(이방인) 그리스도인</td>
+          <td class="td-luke td-highlight">문화적으로 다양한 청중</td>
+        </tr>
+        <tr>
+          <td class="td-topic">사용 자료</td>
+          <td class="td-matt">마가 + Q + <strong>M자료</strong></td>
+          <td class="td-mark">저본(底本) — 원석</td>
+          <td class="td-luke">마가 + Q + <strong>L자료</strong></td>
+        </tr>
+        <tr>
+          <td class="td-topic">구성 방식</td>
+          <td class="td-matt">5대 강화 삽입 / 교실·랍비 분위기</td>
+          <td class="td-mark">가장 짧음 / 빠르고 간결한 서사</td>
+          <td class="td-luke td-highlight">긴 예루살렘 여정(9:51-19:44)에 L자료 집중</td>
+        </tr>
+        <tr>
+          <td class="td-topic">분위기</td>
+          <td class="td-matt">교실 — 라비와 제자</td>
+          <td class="td-mark">현장감 — 즉각적 행동</td>
+          <td class="td-luke td-highlight">동행·여행 — 길 위의 배움</td>
+        </tr>
+        <tr>
+          <td class="td-topic">표현 방식</td>
+          <td class="td-matt">마가 내용 일부 순화 (예: 야고보·요한 부탁 → 어머니로 순화)</td>
+          <td class="td-mark">원본 — 감정도 그대로 (예수님의 화 표현)</td>
+          <td class="td-luke">표현 순화 + 설명 추가 (보다 넓은 청중 고려)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block-prof">
+    <span class="blk-label lbl-prof" style="font-style:normal;">교수 설명</span><br>
+    "마가복음이 가장 먼저 쓰였고 마태와 누가가 필요에 따라 자신이 전하고자 하는 청중에 맞게 표현을 달리하고 그분들이 더 흡수할 수 있게끔 표현을 바꿔서 전달해요. 이것은 지금은 거의 대부분 받아들여지는 이론에 가까워요."
+  </div>
+  <div class="block-prof">
+    <span class="blk-label lbl-prof" style="font-style:normal;">교수 설명</span><br>
+    "누가는 표현들을 순화하기도 하고 설명을 더하기도 합니다. Powell에 따르면 누가복음 내용의 약 절반 정도가 다른 복음서에는 나오지 않는 자료들로 구성되어 있습니다." (Powell, p.164)
+  </div>
+
+  <!-- BLOCK 5: 5대 신학 특징 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 05</span>
+    <span class="sec-title">누가복음 5대 신학 특징</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <!-- 특징 1: 이방인 -->
+  <div class="block-theol">
+    <span class="blk-label lbl-theol">신학 ①</span>
+    <div class="blk-title">이스라엘을 넘어 이방인까지</div>
+    <div class="theol-row"><span class="theol-key">정의</span><span class="theol-val">누가복음은 처음부터 이방인을 향한 하나님의 구원 의도를 일관되게 강조한다</span></div>
+    <div class="theol-row"><span class="theol-key">성경 근거</span><span class="theol-val"></span></div>
+    <ul style="padding-left:18px; margin-bottom:8px;">
+      <li><strong>족보:</strong> 아브라함(마태) → 아담 → 하나님까지 소급 (눅 3:38)<br>
+        <span class="greek">…τοῦ Ἀδὰμ τοῦ θεοῦ</span> — 속격 연속 구조, "하나님의 아들까지"</li>
+      <li><strong>시므온의 찬송:</strong> "이방을 비추는 빛이요 주의 백성 이스라엘의 영광이니이다" (눅 2:32)</li>
+      <li><strong>나사렛 설교 (눅 4:25-27):</strong> 엘리야→사렙다 과부(이방인) / 엘리사→나아만(이방인)
+        <br>"이스라엘에 많은 과부/나병환자가 있었으되 오직 이방인에게만 보내심을 받았다"
+        <br>→ 청중이 진노하여 절벽으로 밀어붙이려 함 — 메시지의 파급력을 보여줌</li>
+      <li><strong>남방 여왕·니느웨 사람들</strong> (눅 11:31-32) — 이방인이 오히려 이스라엘을 정죄</li>
+    </ul>
+    <div class="theol-row"><span class="theol-key">신학적 의의</span><span class="theol-val">이방인 선교의 성서적 정당성 제공 — 사도행전의 세계 선교로 자연스럽게 연결</span></div>
+    <div class="theol-row"><span class="theol-key">현대 적용</span><span class="theol-val">문화·민족의 경계를 넘는 복음의 보편성 확인</span></div>
+  </div>
+
+  <!-- 특징 2: 여성 -->
+  <div class="block-theol">
+    <span class="blk-label lbl-theol">신학 ②</span>
+    <div class="blk-title">여성들의 이야기가 많아졌다</div>
+    <div class="theol-row"><span class="theol-key">정의</span><span class="theol-val">공관복음 대비 누가복음은 여성 인물과 에피소드를 현저히 많이 기록한다</span></div>
+    <div class="theol-row"><span class="theol-key">성경 근거</span><span class="theol-val"></span></div>
+    <ul style="padding-left:18px; margin-bottom:8px;">
+      <li><strong>마리아 (1:26-56)</strong> — 마태는 요셉 중심, 누가는 마리아 중심</li>
+      <li><strong>엘리사벳 (1:24-25, 41-55)</strong></li>
+      <li><strong>여선지자 안나</strong> — 84세 과부 (2:36-38)</li>
+      <li><strong>마리아와 마르다 (10:38-42)</strong></li>
+      <li><strong>나인성 과부 (7:11-17)</strong></li>
+      <li><strong>여인들의 재정 지원 (8:1-3)</strong> — 자주장사 등 사업가 여성 포함</li>
+    </ul>
+    <div class="theol-row"><span class="theol-key">신학적 의의</span><span class="theol-val">1세기 여성의 사회·경제적 활동을 재평가할 근거 제공; 사역에서 여성의 역할에 대한 성서적 토대</span></div>
+  </div>
+
+  <!-- 특징 3: 약자 -->
+  <div class="block-theol">
+    <span class="blk-label lbl-theol">신학 ③</span>
+    <div class="blk-title">사회 약자에 대한 관심</div>
+    <div class="theol-row"><span class="theol-key">정의</span><span class="theol-val">경제적 빈자·민족적 소외자에 대한 예수님의 관심을 일관되게 강조한다</span></div>
+    <div class="theol-row"><span class="theol-key">성경 근거</span><span class="theol-val"></span></div>
+    <ul style="padding-left:18px; margin-bottom:8px;">
+      <li>나사렛 선언: <em>"가난한 자에게 복음을 … 눌린 자를 자유롭게"</em> (눅 4:18)</li>
+      <li>평지 팔복: <em>"너희 가난한 자는 복이 있나니 하나님의 나라가 너희 것임이요"</em> (눅 6:20)</li>
+      <li>어리석은 부자의 비유 (눅 12:13-21) — "곡식 쌓아 둘 곳이 없으니" → 나눔의 부재</li>
+      <li>부자와 나사로 (눅 16:19-31) — 나눔의 부재가 심판의 근거</li>
+      <li>선한 사마리아인의 비유 (눅 10:29-37) — 민족적 경계를 넘은 섬김</li>
+      <li>치료받고 감사한 사마리아인 (눅 17:11-19)</li>
+    </ul>
+    <div class="theol-row"><span class="theol-key">신학적 의의</span><span class="theol-val">하나님 나라의 가치 vs 당시 사회적 가치의 충돌 지점에서 예수님의 선택이 드러남</span></div>
+  </div>
+
+  <div class="block-prof">
+    <span class="blk-label lbl-prof" style="font-style:normal;">교수 설명 — '성경적'의 의미</span><br>
+    "'성경적'이라는 말의 두 가지 의미: ①성경에 기록되어 있기 때문에 성경적이다 vs ②성경의 메시지를 이해해서 그 뜻에 속하는 이해다. 우리는 놀랍게도 첫 번째 옵션을 많이 택해요. 하나님 나라의 가치와 사회적 가치가 부딪힐 때 성경적인 것이 나와요."
+  </div>
+
+  <!-- 특징 4: 성령 -->
+  <div class="block-theol">
+    <span class="blk-label lbl-theol">신학 ④</span>
+    <div class="blk-title">성령 강조</div>
+    <div class="theol-row"><span class="theol-key">정의</span><span class="theol-val">공관복음 중 성령의 역할을 가장 명시적·광범위하게 기술한다</span></div>
+    <div class="theol-row"><span class="theol-key">성경 근거</span><span class="theol-val"></span></div>
+    <ul style="padding-left:18px; margin-bottom:10px;">
+      <li><strong>성령 충만한 인물들:</strong> 침례 요한(1:15), 엘리사벳(1:41), 사가랴(1:67), 시므온(2:25)</li>
+      <li><strong>예수님께 임한 성령:</strong> 3:22; 4:1, 14, 18</li>
+      <li><strong>사도행전과 연결:</strong> <em>"오직 성령이 너희에게 임하시면 … 땅 끝까지 증인이 되리라"</em> (행 1:8)</li>
+    </ul>
+    <div class="sub-head" style="margin-top:8px;">🔬 본문비평 포인트 — 눅 11:13 vs 마 7:11</div>
+    <div class="textcrit-grid">
+      <div class="tc-cell tc-matt">
+        <div class="tc-label">마태 7:11</div>
+        <div class="tc-greek-text">δώσει ἀγαθὰ τοῖς αἰτοῦσιν αὐτόν</div>
+        <div class="tc-korean"><strong>"좋은 것들을(ἀγαθά)</strong> 주시지 않겠느냐"<br>→ 마태 사본에서 ἀγαθά를 다르게 표현한 사본 <em>아직 미발견</em> (확정)</div>
+      </div>
+      <div class="tc-cell tc-luke">
+        <div class="tc-label">누가 11:13</div>
+        <div class="tc-greek-text">δώσει πνεῦμα ἅγιον τοῖς αἰτοῦσιν αὐτόν</div>
+        <div class="tc-korean"><strong>"성령을(πνεῦμα ἅγιον)</strong> 주시지 않겠느냐"<br>→ 누가는 명시적으로 성령을 선물로 특정</div>
+      </div>
+    </div>
+    <div class="theol-row"><span class="theol-key">신학적 의의</span><span class="theol-val">성령은 개인 은사를 넘어 선교·증언·공동체를 이끄는 능력의 근거 — 사도행전으로 이어지는 신학적 축</span></div>
+  </div>
+
+  <!-- 특징 5: 기도 -->
+  <div class="block-theol">
+    <span class="blk-label lbl-theol">신학 ⑤</span>
+    <div class="blk-title">기도 강조 — 누가복음에만 나오는 기도 언급들</div>
+    <div class="theol-row"><span class="theol-key">정의</span><span class="theol-val">예수님의 기도 생활을 공관복음 대비 훨씬 상세히 기록한다</span></div>
+    <div class="theol-row"><span class="theol-key">성경 근거</span><span class="theol-val">(아래 병행구에서 누가복음에만 기도 언급이 추가된 것들)</span></div>
+    <ul style="padding-left:18px; margin-bottom:8px;">
+      <li>침례 받으시고 <strong>기도하실 때</strong> 하늘이 열림 (눅 3:21 — 마태·마가 병행구에 기도 없음)</li>
+      <li>열두 사도 선택 전날 <strong>밤새 기도</strong> (눅 6:12-13 — 마태·마가에 없음)</li>
+      <li>베드로의 고백 직전 <strong>따로 기도하심</strong> (눅 9:18 — 마태·마가에 없음)</li>
+      <li>주기도문 가르침의 계기: 제자가 기도하시는 것을 목격 후 요청 (눅 11:1)</li>
+      <li>베드로를 위한 <strong>중보기도</strong> (눅 22:32)</li>
+    </ul>
+    <div class="theol-row"><span class="theol-key">신학적 의의</span><span class="theol-val">중요한 사역 결정 앞에 기도가 선행됨 — 기도는 단순 기록이 아니라 신학적 강조 장치</span></div>
+  </div>
+
+  <!-- BLOCK 6: 본문비평 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 06</span>
+    <span class="sec-title">본문비평 사례 — 마태 vs 누가 팔복</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-exam">
+    <span class="blk-label lbl-exam">시험 출제 예상</span>
+    <div class="blk-title blk-title-exam">마태(5:3) vs 누가(6:20) 팔복 비교</div>
+    <div class="textcrit-grid">
+      <div class="tc-cell tc-matt">
+        <div class="tc-label">마태복음 5:3</div>
+        <div class="tc-greek-text">Μακάριοι οἱ πτωχοὶ τῷ πνεύματι,<br>ὅτι αὐτῶν ἐστιν ἡ βασιλεία τῶν οὐρανῶν.</div>
+        <div class="tc-korean">"<strong>심령이 가난한 자</strong>는 복이 있나니<br>천국이 <strong>그들의</strong> 것임이요"<br>→ τῷ πνεύματι 추가 — 내적 영적 상태 강조<br>→ 3인칭(αὐτῶν) — 보편적 서술</div>
+      </div>
+      <div class="tc-cell tc-luke">
+        <div class="tc-label">누가복음 6:20</div>
+        <div class="tc-greek-text">Μακάριοι οἱ πτωχοί,<br>ὅτι ὑμετέρα ἐστὶν ἡ βασιλεία τοῦ θεοῦ.</div>
+        <div class="tc-korean">"<strong>너희 가난한 자</strong>는 복이 있나니<br>하나님의 나라가 <strong>너희</strong> 것임이요"<br>→ τῷ πνεύματι 없음 — 실제 빈자 지칭<br>→ 2인칭(ὑμετέρα) — 직접 호칭</div>
+      </div>
+    </div>
+    <div class="sub-head" style="margin-top:14px;">해석 접근법 3가지</div>
+    <ul>
+      <li><strong style="color:var(--exam);">① 한 구절만 택하고 다른 구절 외면</strong> — 권장하지 않음</li>
+      <li><strong style="color:var(--gold);">② 한 구절(주로 마태)로 다른 구절을 해석</strong> — 가장 흔하나 누가의 독립적 메시지 약화</li>
+      <li><strong style="color:var(--term);">③ 두 구절 모두 살리고 조화시키기</strong> — 교수 권장 방향</li>
+    </ul>
+    <div style="margin-top:10px; font-size:12.5px; color:var(--text2);">
+      📌 CNTTS 사본 장치 6:20 참조 — 일부 사본에 <span class="greek">τῷ πνεύματι</span> 삽입 흔적 = <strong>수정자(Corrector)의 손</strong>
+    </div>
+  </div>
+
+  <div class="block-prof">
+    <span class="blk-label lbl-prof" style="font-style:normal;">교수 설명 — 수정자와 성령 감동</span><br>
+    "사본들이 메시지를 살아있는 것으로 봤다는 표시입니다. 수정자(Corrector)들은 성경을 고치려 한 게 아니라 메시지를 잘 전달하기 위해 노력한 흔적이에요. 성령의 감동은 역사적 과정을 포함합니다."
+  </div>
+
+  <!-- BLOCK 7: L자료 -->
+  <div class="sec-head">
+    <span class="sec-num">SECTION 07</span>
+    <span class="sec-title">L자료 — 누가복음만의 이야기들</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="block-bg">
+    <span class="blk-label lbl-bg">배경</span>
+    <div class="blk-title">L자료 (Lukan Special Material)</div>
+    <p style="margin-bottom:10px; font-size:13px; color:var(--text2);">Powell: 누가복음 내용의 약 <strong>절반</strong>이 다른 복음서에 없는 자료 (p.164) — 대부분 <em>긴 예루살렘 여정(눅 9:51-19:44)</em> 안에 배치</p>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px;">
+      <div class="card2" style="margin:0; padding:10px 12px;">
+        <div style="font-size:10px; font-weight:800; color:var(--gold); margin-bottom:5px;">비유</div>
+        <ul style="font-size:12px; padding-left:14px;">
+          <li>선한 사마리아인 (10:29-37)</li>
+          <li>어리석은 부자 (12:13-21)</li>
+          <li>탕자 비유 (15:11-32)</li>
+          <li>부자와 나사로 (16:19-31)</li>
+          <li>과부와 불의한 재판관 (18:1-8)</li>
+          <li>바리새인과 세리 (18:9-14)</li>
+        </ul>
+      </div>
+      <div class="card2" style="margin:0; padding:10px 12px;">
+        <div style="font-size:10px; font-weight:800; color:var(--rose); margin-bottom:5px;">인물 에피소드</div>
+        <ul style="font-size:12px; padding-left:14px;">
+          <li>마르다와 마리아 (10:38-42)</li>
+          <li>나인성 과부 (7:11-17)</li>
+          <li>삭개오 (19:1-10)</li>
+          <li>치료받고 감사한 사마리아인 (17:11-19)</li>
+          <li>엠마오 도상 (24:13-35)</li>
+        </ul>
+      </div>
+      <div class="card2" style="margin:0; padding:10px 12px;">
+        <div style="font-size:10px; font-weight:800; color:var(--teal); margin-bottom:5px;">탄생 내러티브</div>
+        <ul style="font-size:12px; padding-left:14px;">
+          <li>마리아의 찬송 (1:46-55)</li>
+          <li>사가랴의 찬송 (1:67-79)</li>
+          <li>시므온의 찬송 (2:29-32)</li>
+          <li>목자들의 방문 (2:8-20)</li>
+          <li>열두 살 예수 성전 방문 (2:41-52)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Concepts -->
+  <div class="key-box">
+    <div class="key-box-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="key-concepts">
+      <span class="key-chip">🌍 이방인을 향한 보편적 복음</span>
+      <span class="key-chip">📜 L자료와 누가만의 전승</span>
+      <span class="key-chip">✏️ 수정자(Corrector)와 살아있는 성경 전수</span>
+    </div>
+  </div>
+
+</div><!-- /tab1 -->
+
+
+<!-- ══════════════════════════════════════
+     TAB 2 — 핵심 정리 · 용어
+══════════════════════════════════════ -->
+<div class="tab-content">
+
+  <!-- 시험 예상 -->
+  <div class="sec-head">
+    <span class="sec-num">시험 대비</span>
+    <span class="sec-title">핵심 출제 예상 항목</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="exam-item">
+    <div class="exam-label">시험 예상 ①</div>
+    <div class="exam-q">누가복음의 저자에 대해 알 수 있는 것은?</div>
+    <div class="exam-a">
+      <ul>
+        <li>익명으로 기록됨; 제목은 후대 첨가 ("Κατὰ Λουκᾶν")</li>
+        <li>교육 수준이 높음 — 신약성서에 없는 800여 단어 사용 (누가+사도행전)</li>
+        <li>초기 교회 전승: 골 4:14 "사랑받는 의사 누가"</li>
+        <li>사도행전 "우리 단락"(We-passages)으로 바울의 동행자임을 시사</li>
+        <li>마가복음·Q자료·L자료를 활용</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-item">
+    <div class="exam-label">시험 예상 ②</div>
+    <div class="exam-q">누가복음의 5대 신학 특징을 설명하라</div>
+    <div class="exam-a">
+      <ul>
+        <li><strong>① 이방인 포용:</strong> 족보(하나님까지), 시므온 찬송, 나사렛 설교(엘리야·엘리사 사례)</li>
+        <li><strong>② 여성 강조:</strong> 마리아·엘리사벳·안나·마르다와 마리아·여인들의 재정 지원</li>
+        <li><strong>③ 사회 약자:</strong> 가난한 자·사마리아인·세리에 대한 일관된 관심</li>
+        <li><strong>④ 성령 강조:</strong> 성령 충만 인물들, 눅 11:13 "성령을 주시리라"(마태 7:11 "좋은 것들"과 대비)</li>
+        <li><strong>⑤ 기도 강조:</strong> 주요 사건 앞에 기도 언급이 누가복음에만 추가됨</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-item">
+    <div class="exam-label">시험 예상 ③</div>
+    <div class="exam-q">마태 5:3과 누가 6:20의 차이를 설명하고 해석 방향을 논하라</div>
+    <div class="exam-a">
+      <ul>
+        <li>마태: "심령이 가난한 자(τῷ πνεύματι)" — 영적 내면 상태 강조, 3인칭</li>
+        <li>누가: "너희 가난한 자" — 실제 경제적 빈자 지칭, 2인칭 직접 호칭</li>
+        <li>일부 사본에 누가 6:20에 τῷ πνεύματι 삽입 흔적(수정자의 손) — 조화 시도</li>
+        <li>권장 해석: 두 구절 모두 살려 조화시키기 (교수 권장)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exam-item">
+    <div class="exam-label">시험 예상 ④</div>
+    <div class="exam-q">누가복음-사도행전이 2부작임을 보여주는 근거는?</div>
+    <div class="exam-a">
+      <ul>
+        <li>눅 1:1-4 서문 → 행 1:1-2에서 "내가 먼저 쓴 글에는…"으로 명시적 연결</li>
+        <li>당시 사본 최대 수용량을 초과하여 두 권으로 분권</li>
+        <li>동일한 수신자 데오빌로에게 헌정</li>
+        <li>성령·기도·이방인 주제가 사도행전으로 이어짐</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 용어집 -->
+  <div class="sec-head">
+    <span class="sec-num">용어집</span>
+    <span class="sec-title">이번 주차 용어 후보 (6/4 제출)</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-num-badge">01</span>
+      <span class="term-name-kr">우리 단락</span>
+      <span class="term-name-en">We-passages / We-sections</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">사도행전에서 저자가 갑자기 1인칭 복수("우리가")로 서술하는 구절들로, 저자가 바울의 선교 여행에 직접 동행했음을 시사하는 언어적 증거</div>
+      <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">행 16:10-17; 20:5-15; 21:1-18; 27:1-28:16 — "우리가 곧 마게도냐로 떠나기를 힘쓰니" (행 16:10a)</span></div>
+      <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">누가-사도행전 동일 저자설의 핵심 언어적 근거; 저자의 현장성과 역사적 신뢰성을 지지하는 자료</span></div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-num-badge">02</span>
+      <span class="term-name-kr">수정자</span>
+      <span class="term-name-en">Corrector</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">사본 필사 이후 다른 필사자가 원본 위에 수정·보완을 가한 흔적 또는 그 행위자. 성경 훼손이 아니라 메시지를 살아있는 것으로 여겨 더 잘 전달하려 한 노력의 증거로 이해됨.</div>
+      <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">눅 6:20 — 일부 사본에 τῷ πνεύματι("심령이") 삽입 흔적 (CNTTS 사본 장치 6:20 참조)</span></div>
+      <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">사본학에서 원본과 수정본을 구분 표기; 수정이 많을수록 활발한 전승을 의미하며 오히려 신뢰성 증거로 해석</span></div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-num-badge">03</span>
+      <span class="term-name-kr">L자료</span>
+      <span class="term-name-en">L Source / Lukan Special Material</span>
+    </div>
+    <div class="term-body">
+      <div class="term-def">누가복음에만 나타나는 독자적 전승으로, 마가복음이나 Q자료로 설명되지 않는 누가복음 고유의 이야기·비유·자료</div>
+      <div class="term-row"><span class="term-lbl">성경 근거</span><span class="term-val">선한 사마리아인(눅 10), 탕자(눅 15), 부자와 나사로(눅 16), 삭개오(눅 19) 등</span></div>
+      <div class="term-row"><span class="term-lbl">학술 맥락</span><span class="term-val">두 자료 가설의 확장인 네 자료 가설(마가·Q·M·L)의 구성 요소; 누가복음 내용의 약 절반을 차지 (Powell, p.164)</span></div>
+    </div>
+  </div>
+
+  <div class="key-box">
+    <div class="key-box-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="key-concepts">
+      <span class="key-chip">🌍 이방인을 향한 보편적 복음</span>
+      <span class="key-chip">📜 L자료와 누가만의 전승</span>
+      <span class="key-chip">✏️ 수정자(Corrector)와 살아있는 성경 전수</span>
+    </div>
+  </div>
+
+</div><!-- /tab2 -->
+
+
+<!-- ══════════════════════════════════════
+     TAB 3 — 하브루타
+══════════════════════════════════════ -->
+<div class="tab-content">
+
+  <div class="sec-head">
+    <span class="sec-num">하브루타</span>
+    <span class="sec-title">누가복음의 신학적 특징과 현대적 의미</span>
+    <span class="sec-line"></span>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q1</div>
+    <div class="q-body">
+      <div class="q-question">르낭이 누가복음을 "세상에서 가장 아름다운 책"이라 한 이유는 무엇이며, 당신은 동의하는가?</div>
+      <div class="q-points">
+        <ul>
+          <li>탄생 내러티브의 노래들(마리아·사가랴·시므온의 찬송) — 문학적 아름다움</li>
+          <li>약자·이방인·여성을 향한 따뜻한 시선 — 인간적 울림</li>
+          <li>비교: 마태(법·교훈 중심), 마가(속도·긴장감) — 누가만의 서정성</li>
+          <li>논점: '아름다운 책'은 미학적 평가인가, 신학적 평가인가?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q2</div>
+    <div class="q-body">
+      <div class="q-question">누가복음의 이방인 포용이 유대인 독자들에게 어떤 반응을 불러일으켰을까? (눅 4:28-29 참조)</div>
+      <div class="q-points">
+        <ul>
+          <li>나사렛 설교 직후 청중이 진노 → 절벽으로 밀어붙이려 함 (눅 4:28-29)</li>
+          <li>논점: 선택받은 민족 의식 vs 하나님의 보편적 은혜</li>
+          <li>엘리야·엘리사 사례가 왜 그토록 분노를 유발했는가?</li>
+          <li>현대 적용: 배타성을 극복하는 복음이란 무엇인가?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q3</div>
+    <div class="q-body">
+      <div class="q-question">마태의 "심령이 가난한 자"(5:3)와 누가의 "너희 가난한 자"(6:20)는 어떻게 조화롭게 해석할 수 있는가?</div>
+      <div class="q-points">
+        <ul>
+          <li>영적 빈곤(마태) vs 물질적 빈곤(누가) — 두 차원이 배타적인가 상호보완적인가?</li>
+          <li>누가의 2인칭("너희") — 예수님이 말씀하시는 청중은 누구인가?</li>
+          <li>사본 수정자가 두 구절을 조화시키려 한 흔적(τῷ πνεύματι 삽입)이 의미하는 바는?</li>
+          <li>하나님 나라는 영적인 나라인가, 사회적 변혁을 포함하는가?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q4</div>
+    <div class="q-body">
+      <div class="q-question">누가복음이 여성과 약자를 강조하는 것은 단순한 사회적 관심인가, 신학적 의도인가?</div>
+      <div class="q-points">
+        <ul>
+          <li>이방인·여성·빈자가 함께 묶이는 누가복음의 구조 — 우연인가 의도인가?</li>
+          <li>하나님 나라의 가치 vs 당시 사회적 가치의 충돌 지점에서 예수님의 선택</li>
+          <li>사도행전까지 이어지는 포용의 확장(오순절 → 이방인 교회)</li>
+          <li>현대 교회 사역에서 사회적 약자를 향한 관심의 신학적 근거</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-num">Q5</div>
+    <div class="q-body">
+      <div class="q-question">사본 수정자(Corrector)의 존재는 성경의 권위를 약화시키는가, 아니면 오히려 신뢰성을 높이는가?</div>
+      <div class="q-points">
+        <ul>
+          <li>Bart Ehrman의 주장: 수정 = 인위적 변경 → 원본 신뢰 불가</li>
+          <li>반론: 수정 흔적이 투명하게 남아있음 → 오히려 더 정직한 전승</li>
+          <li>논점: 성령의 감동은 '완벽한 단어 기록'인가, '역사적 과정 속의 보존'인가?</li>
+          <li>정경화 과정도 인간의 역사적 과정 — 그것이 신앙과 배치되는가?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-box">
+    <div class="key-box-title">오늘의 핵심 신학 개념 3가지</div>
+    <div class="key-concepts">
+      <span class="key-chip">🌍 이방인을 향한 보편적 복음</span>
+      <span class="key-chip">📜 L자료와 누가만의 전승</span>
+      <span class="key-chip">✏️ 수정자(Corrector)와 살아있는 성경 전수</span>
+    </div>
+  </div>
+
+</div><!-- /tab3 -->
+
+<script>
+  function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+    document.querySelectorAll('.tab-content').forEach((c,i) => c.classList.toggle('active', i===idx));
+  }
+</script>
+</body>
+</html>
