@@ -63,7 +63,9 @@ const SITE_DATA = {
         { week: 6, title: "목회자의 영성 관리", date: "2026.04.13.", files: [
 	  { type: "notes", label: "강의노트", href: "output/목회학/week06.html" }
 	  ] },
-        { week: 7, title: "교육 목회", date: "2026.04", files: [] },
+        { week: 7, title: "목회와 설교 & 목회자의 준비", date: "2026.04.21", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week07.html" }
+          ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
         { week: 9, title: "선교와 전도 사역", date: "2026.05", files: [] },
         { week: 10, title: "소그룹 목회", date: "2026.05", files: [] },
