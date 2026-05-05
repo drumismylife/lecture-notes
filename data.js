@@ -63,7 +63,7 @@ const SITE_DATA = {
         { week: 6, title: "목회자의 영성 관리", date: "2026.04.13.", files: [
 	  { type: "notes", label: "강의노트", href: "output/목회학/week06.html" }
 	  ] },
-        { week: 7, title: "목회와 설교 & 목회자의 준비", date: "2026.04.21", files: [
+        { week: 7, title: "목회와 설교 & 목회자의 준비", date: "2026.04.20", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week07.html" }
           ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
@@ -144,7 +144,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/신약성서I/week07.html" }
           ] },
         { week: 8, title: "중간고사", date: "2026.05", files: [] },
-        { week: 9, title: "누가복음 전체 정리", date: "2026.05.07", files: [
+        { week: 9, title: "누가복음 전체 정리", date: "2026.04.30", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week09.html" }
           ] },
         { week: 10, title: "예루살렘 입성과 논쟁", date: "2026.05", files: [] },
