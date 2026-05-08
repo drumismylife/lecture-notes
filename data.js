@@ -189,7 +189,9 @@ const SITE_DATA = {
         { week: 9, title: "제3부 새로운 상황 (AD 175–313)", date: "2026.05.01", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week09.html" }
           ] },
-        { week: 10, title: "종교개혁의 배경", date: "2026.05", files: [] },
+        { week: 10, title: "기독교 로마제국시대 II", date: "2026.05.08", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week10.html" }
+          ] },
         { week: 11, title: "루터와 개혁 운동", date: "2026.05", files: [] },
         { week: 12, title: "칼빈과 개혁 교회", date: "2026.06", files: [] },
         { week: 13, title: "침례교의 역사와 신학", date: "2026.06", files: [] },

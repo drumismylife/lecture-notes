@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10주차 — 제국의 교회화 | 교회사개론 I</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #14100a;
+  --card:      #1e1710;
+  --card2:     #261e14;
+  --card3:     #2e2418;
+  --gold:      #c4955a;
+  --gold2:     #d4a870;
+  --gold-dim:  #8a6535;
+  --gold-pale: #3a2c18;
+  --text:      #f0ebe0;
+  --text2:     #a09070;
+  --text3:     #6b5a40;
+  --green:     #7ab87a;
+  --green-bg:  #1a2e1a;
+  --blue:      #7aaad4;
+  --blue-bg:   #1a2030;
+  --amber:     #c49a3c;
+  --amber-bg:  #2a2010;
+  --terra:     #c96b5a;
+  --terra-bg:  #2a1810;
+  --border:    rgba(196,149,90,0.18);
+  --border2:   rgba(196,149,90,0.08);
+
+  /* Era colors */
+  --era-apostolic: #4a90d9;
+  --era-catholic:  #c96b5a;
+  --era-roman:     #c49a3c;
+  --era-medieval:  #9b7fd4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header {
+  background: linear-gradient(135deg, #0e0b06 0%, #1e1508 50%, #2a1c0a 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 28px 18px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text3);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: color .2s;
+  margin-bottom: 8px;
+}
+.back-link:hover { color: var(--gold); }
+.header-week {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--gold-dim);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.header-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold-dim);
+  margin-top: 3px;
+}
+.header-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.meta-pill {
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  color: var(--gold2);
+  font-size: 10.5px;
+  padding: 2px 10px;
+  border-radius: 20px;
+  letter-spacing: .06em;
+}
+
+/* ─── TABS ─── */
+.tab-bar {
+  display: flex;
+  gap: 2px;
+  padding: 0 28px;
+  background: #0e0b06;
+  border-bottom: 1px solid var(--border2);
+}
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text3);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 18px;
+  cursor: pointer;
+  letter-spacing: .04em;
+  transition: all .2s;
+}
+.tab-btn:hover { color: var(--text2); }
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* ─── CONTENT AREA ─── */
+.tab-content { display: none; padding: 28px; max-width: 900px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* ─── SECTION HEADER ─── */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 16px;
+}
+.sec-head:first-child { margin-top: 0; }
+.sec-badge {
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ─── PROFESSOR CALLOUT ─── */
+.prof-block {
+  border-left: 2px solid var(--text3);
+  background: rgba(107,90,64,.1);
+  border-radius: 0 4px 4px 0;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.prof-block .prof-label {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text3);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* ─── TIMELINE ─── */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-pale), var(--border), transparent);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 20px;
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 13px 15px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -20px; top: 18px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 2px solid var(--gold);
+}
+.tl-year {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold2);
+  letter-spacing: .08em;
+  margin-bottom: 3px;
+}
+.tl-event {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.45;
+}
+.tl-person {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  color: var(--gold2);
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+.tl-sig {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+/* ─── PERSON CARD ─── */
+.person-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.person-head {
+  background: linear-gradient(135deg, var(--card2), var(--card3));
+  border-bottom: 1px solid var(--border2);
+  padding: 13px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.person-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.person-dates {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--text3);
+}
+.person-body { padding: 14px 16px; }
+.person-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 6px 10px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  align-items: baseline;
+}
+.p-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding-top: 1px;
+}
+.p-val { color: var(--text2); line-height: 1.6; }
+.divider { height: 1px; background: var(--border2); margin: 8px 0; }
+
+/* ─── DOCTRINE BLOCK ─── */
+.doctrine-block {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.doctrine-head {
+  background: linear-gradient(135deg, #1e1508, #2a1c0a);
+  border-bottom: 1px solid var(--border2);
+  padding: 13px 16px;
+}
+.doctrine-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.doctrine-subtitle {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--text3);
+}
+.doctrine-body { padding: 14px 16px; }
+.doc-section { margin-bottom: 13px; }
+.doc-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border2);
+}
+.doc-text { font-size: 12.5px; color: var(--text2); line-height: 1.65; }
+.doc-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.doc-side {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.doc-side-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  letter-spacing: .08em;
+  margin-bottom: 5px;
+}
+.council-result {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 5px 5px 0;
+  padding: 10px 13px;
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+.modern-sig {
+  background: #201a10;
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* ─── COMPARE BLOCK ─── */
+.compare-block {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.compare-head {
+  background: linear-gradient(135deg, #1e1508, #2a1c0a);
+  border-bottom: 1px solid var(--border2);
+  padding: 12px 16px;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.compare-col {
+  padding: 14px 16px;
+  border-right: 1px solid var(--border2);
+}
+.compare-col:last-child { border-right: none; }
+.compare-col-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold2);
+  margin-bottom: 10px;
+  font-family: 'Noto Serif KR', serif;
+}
+.compare-row { margin-bottom: 10px; }
+.compare-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 3px;
+}
+.compare-val { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.compare-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.compare-three .compare-col { border-right: 1px solid var(--border2); }
+.compare-three .compare-col:last-child { border-right: none; }
+.sim-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  margin-bottom: 6px;
+}
+.sim-calvin { background: rgba(196,149,90,.15); color: var(--amber); }
+.sim-luther { background: rgba(122,170,212,.15); color: var(--blue); }
+.sim-wesley { background: rgba(122,184,122,.15); color: var(--green); }
+
+/* ─── EXAM SECTION (Tab 2) ─── */
+.exam-group { margin-bottom: 28px; }
+.exam-type-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border2);
+}
+.exam-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.badge-ox   { background: rgba(122,184,122,.2); color: var(--green); border: 1px solid rgba(122,184,122,.3); }
+.badge-sa   { background: rgba(122,170,212,.2); color: var(--blue);  border: 1px solid rgba(122,170,212,.3); }
+.badge-essay{ background: rgba(196,154,60,.2);  color: var(--amber); border: 1px solid rgba(196,154,60,.3); }
+
+.exam-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.exam-q {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.exam-q-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.exam-q-text { flex: 1; }
+.toggle-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text3);
+  font-size: 10px;
+  margin-top: 2px;
+  transition: transform .2s;
+}
+.exam-card.open .toggle-icon { transform: rotate(180deg); }
+.exam-a {
+  display: none;
+  background: var(--card2);
+  border-top: 1px solid var(--border2);
+  padding: 11px 14px 11px 44px;
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.exam-card.open .exam-a { display: block; }
+.ans-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 5px;
+}
+.ox-result {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ox-o { color: var(--green); }
+.ox-x { color: var(--terra); }
+.ans-point { font-size: 12px; color: var(--text2); }
+
+/* ─── CUMULATIVE TIMELINE (Tab 3) ─── */
+.ctl-era {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.ctl-era::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 30px; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--era-color, var(--gold)), transparent);
+  opacity: .4;
+}
+.ctl-era-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.ctl-era-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--era-color, var(--gold));
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 8px var(--era-color, var(--gold));
+  flex-shrink: 0;
+  position: absolute;
+  left: 0; top: 5px;
+}
+.ctl-era-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--era-color, var(--gold));
+}
+.ctl-era-range {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--text3);
+}
+.ctl-item {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-left: 2px solid var(--era-color, var(--gold));
+  border-radius: 0 5px 5px 0;
+  padding: 9px 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.ctl-year-tag {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--gold2);
+  margin-bottom: 2px;
+}
+.ctl-event-name { font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.ctl-sig { color: var(--text3); line-height: 1.5; }
+
+/* ─── CORE POINTS BOX ─── */
+.core-points {
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-top: 32px;
+}
+.core-points-head {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.core-point {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.core-num {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 1px solid var(--border);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+/* ─── MISC UTILS ─── */
+.ul-dot {
+  list-style: none;
+  padding: 0;
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.ul-dot li { padding-left: 14px; position: relative; }
+.ul-dot li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+em { font-style: normal; color: var(--gold); }
+strong { font-weight: 700; color: var(--text); }
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: #fff; color: #111; }
+  .site-header { position: static; background: #1a1208; }
+  .tab-bar { display: none; }
+  .tab-content { display: block !important; page-break-before: always; max-width: 100%; padding: 16px; }
+  .tab-content:first-of-type { page-break-before: auto; }
+  .tab-content::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 2px solid #c4955a;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    color: #c4955a;
+  }
+  .exam-a { display: block !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 15mm; }
+  .tl-item, .person-card, .doctrine-block, .exam-card { page-break-inside: avoid; }
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a class="back-link" href="../../index.html">← 목차로 돌아가기</a>
+  <div class="header-top">
+    <div>
+      <div class="header-week">교회사개론 I · 10주차 · 2026-05-08</div>
+      <div class="header-title">기독교 로마제국시대 II</div>
+      <div class="header-sub">De Ecclesia Imperiali — 제국의 교회화 (313–499)</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <span class="meta-pill">담당: 김태식 교수</span>
+    <span class="meta-pill">교과코드 61049</span>
+    <span class="meta-pill">교재 pp. 68–76</span>
+    <span class="meta-pill">기말고사 6/12</span>
+  </div>
+</header>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('exam',this)">📝 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline',this)">📜 연대기</button>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 1 : 강의노트
+════════════════════════════════════════════ -->
+<div class="tab-content active" id="tab-notes" data-label="강의노트">
+
+  <!-- 교수 강조 총괄 -->
+  <div class="sec-head">
+    <span class="sec-badge">교수 강조</span>
+    <span class="sec-title">오늘 수업의 핵심 구분</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명</div>
+    "313년 밀라노 칙령은 기독교를 국교로 선포한 것이 아니라, 로마의 합법적 종교 중 하나로 인정한 것이다. 국교 선포는 380년 테오도시우스 황제의 칙령이다."
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명</div>
+    "콘스탄틴이 진짜 회심했느냐는 교회사의 논란이다. 비판론: 제국 통일을 위한 정치적 결정. 지지론: 자녀들을 신앙으로 양육했다."
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명</div>
+    "아리우스는 자신의 주장을 노래로 만들어 부두 하역 노동자, 거리의 노점상, 어린 학생들이 부르도록 했다. 당시 신학 논쟁의 대중화 방식이었다."
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명</div>
+    "에드워드 기본(Edward Gibbon)은 『로마제국 쇠망사』에서 '기독교 신자들은 겨우 정(ι) 하나를 사이에 두고 싸웠다'고 비판했다. 호모우시오스(ὁμοούσιος, 동일본질) vs 호모이우시오스(ὁμοιούσιος, 유사본질)."
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명</div>
+    "침례교는 순수한 교회론을 가진다. 도나투스주의자들처럼 신앙고백한 자만이 교인이 된다. 이 논쟁은 오늘날도 마찬가지다 — 이단에서 침례를 받고 왔다면 재침례를 해야 하는가?"
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명 — 구원론 비유</div>
+    "칼빈주의: 고쳤다고 선포했지만 여전히 병이 내 속에 잠복해 있다고 느끼는 상태. 루터: 왔다갔다 — 죄인이면서 동시에 의인(simul iustus et peccator). 웨슬리안: 완전히 나은 건강한 사람으로서 더 건강을 유지하기 위해 사는 상태. 웨슬리는 동방 교부들을 연구한 사람이다. 그가 만든 잡지 이름이 '아르미니우스'였다."
+  </div>
+  <div class="prof-block">
+    <div class="prof-label">🎓 교수 설명 — 오리겐의 만인구원론</div>
+    "오리겐의 만인구원론(apokatastasis) — 사탄도 나중에 회복된다는 주장. 오늘날 몰트만, 칼 바르트 같은 신학자들에게서 보편구원론적 경향으로 나타난다는 비판이 있다."
+  </div>
+
+  <!-- 제4부 개요 -->
+  <div class="sec-head">
+    <span class="sec-badge">제4부</span>
+    <span class="sec-title">제국의 교회화 — 배경 (313–499)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="tl-item" style="background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:13px 15px;margin-bottom:14px;">
+    <ul class="ul-dot">
+      <li>콘스탄틴은 가톨릭 기독교시대의 막을 내리고 <em>기독교 제국 시대(312–590)</em>를 여는 인물</li>
+      <li>3세기: 30명이나 되는 황제 교체, 극심한 혼란 — "혼란과 무질서가 제국 전체를 휩쓸었다"</li>
+      <li>디오클레티안(Diocletian, 284–305 재위): 로마 제국 말기 현상의 시작; 기독교 최후·최대 박해</li>
+      <li>395년 테오도시우스 사망 후 동서 분열 → 476년 서로마 게르만족에 의해 멸망</li>
+    </ul>
+  </div>
+
+  <!-- 주요 연대기 -->
+  <div class="sec-head">
+    <span class="sec-badge">연대기</span>
+    <span class="sec-title">핵심 사건 연대표</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">312년</div>
+      <div class="tl-event">밀비안 다리 전투 (Battle of Milvian Bridge)</div>
+      <div class="tl-person">콘스탄틴</div>
+      <div class="tl-sig">꿈속에서 십자가와 "이 표적으로 정복하라(Hoc Signo Victor Eris)" — 막센티우스 격파, 기독교 귀의의 계기. 경쟁자 장인·아들도 살해한 잔혹한 통치자이기도 함.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">313년 5월</div>
+      <div class="tl-event">밀라노 칙령 (Edict of Milan)</div>
+      <div class="tl-person">콘스탄틴</div>
+      <div class="tl-sig">기독교를 <em>로마의 합법적 종교 중 하나</em>로 공인. 신앙의 자유 전면 허용, 몰수 재산 반환, 손해 배상. 사실 황제의 칙령이 아니라 지방 장관들에게 하달된 지침서. 기독교 성직자 면세 혜택.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">321년</div>
+      <div class="tl-event">주일(일요일) 법정 공휴일 선포</div>
+      <div class="tl-person">콘스탄틴</div>
+      <div class="tl-sig">이전까지 노예·종들에게는 휴일이 없었음. 역사적으로 중요한 전환. 한국은 100년 가까이 됨. "기독교적으로는 태양의 일종의 표현"으로 해석.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">325년 6월~8월</div>
+      <div class="tl-event">제1차 공의회 — 니케아 공의회 (Council of Nicaea)</div>
+      <div class="tl-person">콘스탄틴 / 아리우스 / 아타나시우스 / 알렉산더</div>
+      <div class="tl-sig">황제가 마차를 보내 318명 감독을 소집; 군대로 포위 — "교리적으로 통일 못하면 못 나가." 세 파(아리우스파·중도파·알렉산더파) 대립. 결론: <em>동일본질(ὁμοούσιος)</em> 채택, 아리우스 유배. 니케아 신경 성립.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">330년</div>
+      <div class="tl-event">비잔티움 → 콘스탄티노플 천도</div>
+      <div class="tl-person">콘스탄틴</div>
+      <div class="tl-sig">324년 "새로운 로마(Nova Roma)"로 공포, 330년 확정. 동방의 페르시아·북방의 게르만족 위협에 대응. 소아시아와 유럽의 중간 지역. 이 도시는 비잔티움 → 콘스탄티노플 → 이스탄불로 이름 변화.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">336년 / 350년</div>
+      <div class="tl-event">크리스마스 도입 및 선포</div>
+      <div class="tl-sig">336년 로마교회 크리스마스 최초 도입; 350년 예수 탄생일로 공식 선포.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">380년 (381 또는 392년)</div>
+      <div class="tl-event">기독교 국교 선포</div>
+      <div class="tl-person">테오도시우스 (Theodosius)</div>
+      <div class="tl-sig">"우리가 통치하는 모든 백성들은 사도 베드로가 로마인들에게 전한 종교를 신봉해야 한다." 비기독교 신자 처벌. <em>시민종교(civil religion)</em> 성립 — 미국 교회에 십자가와 성조기가 함께 있는 것과 유사. 알렉산드리아 도서관 50만 권 파피루스 소실.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">395년</div>
+      <div class="tl-event">테오도시우스 사망 → 로마 제국 동서 분열</div>
+      <div class="tl-sig">서로마(호노리우스) / 동로마(아르카디우스). 실권은 황제가 아니라 게르만 군인에게.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">476년</div>
+      <div class="tl-event">서로마 제국 멸망</div>
+      <div class="tl-sig">게르만족 용병대장 오도아케르에 의해 마지막 황제 강제 퇴위. 서방에서 교황이 새로운 지배자로 등장. 동로마는 1453년 오스만 터키에 의해 멸망.</div>
+    </div>
+  </div>
+
+  <!-- 콘스탄틴의 부정적 측면 -->
+  <div class="sec-head">
+    <span class="sec-badge">교회화의 역설</span>
+    <span class="sec-title">국교화의 부정적 영향</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tl-item" style="background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:13px 15px;margin-bottom:22px;">
+    <ul class="ul-dot">
+      <li>황제가 국가 관리들을 다루듯 감독들을 지휘 — 순수한 신학적 문제에 간섭·명령</li>
+      <li>정치적 야망에 불타는 자들도 교회 안으로 들어옴 → 교회 순수성 훼손</li>
+      <li>세속화와 정치적 목적을 위해 종교가 사용되는 시대 개막</li>
+      <li>아타나시우스: 황제와의 관계에 따라 50년간 5차례 유배 — "세상에 맞선 아타나시우스"</li>
+    </ul>
+  </div>
+
+  <!-- 주요 인물 -->
+  <div class="sec-head">
+    <span class="sec-badge">인물</span>
+    <span class="sec-title">핵심 인물 정리</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 콘스탄틴 -->
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">콘스탄틴 (Constantine)</span>
+      <span class="person-dates">재위 306–337 / 337년 사망</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <span class="p-label">배경</span>
+        <span class="p-val">콘스탄티우스 클로루스의 아들. 312년 밀비안 다리 전투 승리 후 기독교 귀의. 죽기 직전 니코메디아의 유세비우스에게 침례 수세(늦은 침례 관행).</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">신학 입장</span>
+        <span class="p-val">기독교를 공인·우대했으나 진정한 회심 여부는 역사적 논란. 신학 논쟁에서는 통일을 원했을 뿐 교리 자체에 깊은 관심을 갖지 않았다는 평가도 있음.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">역사적 공헌</span>
+        <span class="p-val">313년 밀라노 칙령 · 321년 주일 공휴일 · 325년 니케아 공의회 소집 · 330년 콘스탄티노플 천도 · 십자가형 폐지 · 웅장한 교회 건축물 건축.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">한계</span>
+        <span class="p-val">아들·장인 살해 등 정치적 잔혹함 유지. 황제가 교회 교리·행정에 직접 개입하는 선례 수립 → 이후 황제들의 교회 간섭 정당화.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 아리우스 -->
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">아리우스 (Arius)</span>
+      <span class="person-dates">약 250–336년</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <span class="p-label">배경</span>
+        <span class="p-val">알렉산드리아 바우칼리스 교회 목사. 감독 알렉산더(Alexander)와 성자의 신성 여부로 충돌. 자신의 주장을 <em>노래</em>로 만들어 대중에게 전파(부두 하역 노동자·거리 노점상·어린 학생들).</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">신학 입장</span>
+        <span class="p-val">성자(로고스)는 성부에 의해 창조된 피조된 존재. 성부와 본질이 다름. <em>"있지 않았던 때가 있었다(there was a time when he was not)"</em>. 예수는 반신(half-god)이지 완전한 하나님이 아님.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">역사적 공헌</span>
+        <span class="p-val">삼위일체 논쟁을 촉발시켜 니케아 신경 성립의 계기를 만듦. 신학의 대중화 방식(노래) 활용.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">한계</span>
+        <span class="p-val">325년 니케아 공의회에서 이단으로 정죄·유배. 오직 두 감독만 서명 거부 — 아리우스파로서 함께 유배.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 아타나시우스 -->
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">아타나시우스 (Athanasius)</span>
+      <span class="person-dates">296–373년</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <span class="p-label">배경</span>
+        <span class="p-val">알렉산더 감독의 후계자로 니케아 공의회 이후 알렉산드리아 감독직 계승. 초반기 아리우스파가 우세한 상황에서 등장하여 판세를 바꿈.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">신학 입장</span>
+        <span class="p-val">성부와 성자는 <em>동일본질(ὁμοούσιος, homoousios)</em>. 성자는 영원하신 분, 피조물이 아님. <strong>"아들이 피조물이라면 피조물을 믿어서 구원받는 것인가?"</strong></span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">역사적 공헌</span>
+        <span class="p-val">아리우스파에 맞서 정통 삼위일체 신학 수호. 니케아 신경 정착의 핵심 인물. 이후 신학자들(Basil, Gregory of Nazianzus 등)에게 지대한 영향.</span>
+      </div>
+      <div class="divider"></div>
+      <div class="person-row">
+        <span class="p-label">한계</span>
+        <span class="p-val">황제와의 관계에 따라 50년간 5차례 유배. <em>"세상에 맞선 아타나시우스(Athanasius contra mundum)"</em>.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 교리 논쟁 -->
+  <div class="sec-head">
+    <span class="sec-badge">교리</span>
+    <span class="sec-title">삼위일체 논쟁 (Trinitarian Controversy)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="doctrine-block">
+    <div class="doctrine-head">
+      <div class="doctrine-title">삼위일체 논쟁 / 아리우스 논쟁</div>
+      <div class="doctrine-subtitle">Trinitarian Controversy — ἡ περὶ τριάδος ἔρις</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doc-section">
+        <div class="doc-section-label">① 논쟁 배경</div>
+        <div class="doc-text">4세기 신학자들의 공통 고민: <em>"셋이 하나 속에, 하나가 셋 속에 — 어떻게?"</em> 알렉산드리아 바우칼리스 교회 목사 아리우스가 감독 알렉산더와 신학적 충돌. 아리우스가 자신의 주장을 <em>노래</em>로 만들어 대중에게 전파 → 신학 논쟁의 사회적 확산. 니코메디아(정치 수도)와 알렉산드리아(학문 수도) 두 세력 다툼으로 변질.</div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-section-label">② 주요 주장 대립</div>
+        <div class="doc-two-col">
+          <div class="doc-side">
+            <div class="doc-side-label">🔴 아리우스파</div>
+            성자는 피조된 존재; 성부와 본질이 다름. <em>"없었던 때가 있었다."</em> 변할 수 있는 가능성 있는 존재 → 완전한 신이 아님. 니코메디아 감독 유세비우스 지지.
+          </div>
+          <div class="doc-side">
+            <div class="doc-side-label">🟢 아타나시우스파</div>
+            성부와 성자는 <em>동일본질(ὁμοούσιος)</em>. 성자는 영원하신 분, 창조되지 않고 잉태됨. 아들이 피조물이면 그를 믿어도 구원 불가. 알렉산드리아 감독 알렉산더→아타나시우스 계승.
+          </div>
+        </div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-section-label">③ 공의회 결정 — 니케아 (325년)</div>
+        <div class="council-result">
+          황제 콘스탄틴 소집, 318명 감독 참석. 세 파(아리우스파·중도파·아타나시우스파) 대립. 결정: <strong>"진정한 하나님 가운데 진정한 하나님, 창조되지 않고 잉태되었으며, 성부와 동일한 본질(True God of true God, begotten not made, of one substance with the Father)"</strong> → 아리우스 정죄·유배. 니케아 신경(Nicene Creed) 성립.
+        </div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-section-label">④ 현대적 의의</div>
+        <div class="modern-sig">오늘날 로마가톨릭·동방정교회·성공회·대부분의 개신교가 채용하는 정통 삼위일체 신학의 기준. Semi-아리우스주의(homoiousios, 유사본질)의 등장 → 기본(Gibbon): "글자 하나(ι, iota) 차이로 싸웠다"는 비판. 그러나 신학적으로 본질적 차이. 오늘날 여호와의 증인 등에서 아리우스적 주장 지속.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doctrine-block">
+    <div class="doctrine-head">
+      <div class="doctrine-title">필리오케 논쟁 (Filioque Controversy)</div>
+      <div class="doctrine-subtitle">동서 교회 분열의 결정적 명분 — 1054년 대분열</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doc-section">
+        <div class="doc-section-label">① 논쟁 배경</div>
+        <div class="doc-text">589년 톨레도 공의회: 서방교회(로마)가 니케아 신경에 "성자로부터(Filioque, 필리오케)" 구절을 추가. "성령은 성부와 성자로부터 발출한다"는 서방 입장. 동방교회는 이 임의적 수정을 거부.</div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-section-label">② 주요 주장 대립</div>
+        <div class="doc-two-col">
+          <div class="doc-side">
+            <div class="doc-side-label">🔵 서방(로마가톨릭)</div>
+            성령은 성부<em>와 성자로부터</em> 발출 (double procession). 필리오케 구절 신경에 삽입. 589년 톨레도 공의회에서 결정.
+          </div>
+          <div class="doc-side">
+            <div class="doc-side-label">🟡 동방(동방정교)</div>
+            성령은 성부에게서<em>만</em> 발출 (성자를 통해 나옴). 신경의 임의 수정은 불가. 325년 니케아 원문 고수.
+          </div>
+        </div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-section-label">③ 결과 및 의의</div>
+        <div class="council-result">
+          1054년 동서 교회 대분열(Great Schism)의 결정적 명분. 325년 니케아, 381년 콘스탄티노플의 삼위일체 논쟁에서 시작된 동서 대립의 결론. 오늘날 로마가톨릭·동방정교회 화해의 가장 큰 장벽.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 비교 -->
+  <div class="sec-head">
+    <span class="sec-badge">비교</span>
+    <span class="sec-title">도나투스주의 vs 어거스틴</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-head">교회 순결성과 성례전 유효성 논쟁</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-name">도나투스주의자들 (Donatists)</div>
+        <div class="compare-row">
+          <div class="compare-label">신학 입장</div>
+          <div class="compare-val">교회 거룩성은 <em>개인의 거룩성</em>에 의존. 배교자·범죄자 지도자가 베푼 성례전은 무효. "감독이 없이는 침례가 없다(no bishop, no baptism)." 교회 밖에는 구원 없음.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">역사적 공헌</div>
+          <div class="compare-val">교회 순수성(purity) 개념 강조. 침례교의 순수 교회론과 유사한 신학적 선례.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">한계</div>
+          <div class="compare-val">엄격한 치리로 공교회와 분열. 성령을 특정 교회·인물에 제한하는 문제.</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-name">어거스틴 (Augustine)</div>
+        <div class="compare-row">
+          <div class="compare-label">신학 입장</div>
+          <div class="compare-val">교회 거룩성은 <em>그리스도에게</em> 있음. 성례전 효력은 집행자가 아니라 그리스도에게 속함. 교회는 알곡과 가라지가 함께 있을 수 있음(마 13장). 삼위일체 이름으로 행한 침례는 유효.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">역사적 공헌</div>
+          <div class="compare-val">성례전 신학의 객관성 확립. 후대 로마가톨릭·개신교 성례론의 기반.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">한계</div>
+          <div class="compare-val">406년 이후 이견자들에게 강압(coercion) 사용 → 중세 종교재판(Inquisitions)·십자군(Crusades)의 이론적 근거가 됨.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 구원론 3비교 -->
+  <div class="sec-head">
+    <span class="sec-badge">비교</span>
+    <span class="sec-title">구원론 비교 — 칼빈·루터·웨슬리 (교수 강의 정리)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-head">거듭난 신자의 죄성(罪性) 이해 비교</div>
+    <div class="compare-three compare-grid">
+      <div class="compare-col">
+        <span class="sim-badge sim-calvin">칼빈주의 / 어거스틴</span>
+        <div class="compare-row">
+          <div class="compare-label">핵심 입장</div>
+          <div class="compare-val">거듭나도 죄성이 지속적으로 사로잡음. 의인이 되어도 죄의 본성이 남아 계속 끌고 감.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">비유</div>
+          <div class="compare-val">고쳤다고 선포했지만 여전히 병이 내 속에 잠복해 있다고 느끼는 상태.</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <span class="sim-badge sim-luther">루터 (Lutheran)</span>
+        <div class="compare-row">
+          <div class="compare-label">핵심 입장</div>
+          <div class="compare-val">동시에 죄인이며 의인 (simul iustus et peccator). 양자 사이에서 왔다갔다 하는 긴장.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">비유</div>
+          <div class="compare-val">어떨 때는 건강한 것 같고, 어떨 때는 아직 다 낫지 않은 것 같은 상태.</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <span class="sim-badge sim-wesley">웨슬리안 (Wesleyan)</span>
+        <div class="compare-row">
+          <div class="compare-label">핵심 입장</div>
+          <div class="compare-val">거듭날 때 죄성이 죽고 의의 본성이 살아남. 성결(holiness)로 나아가는 성화의 삶. 동방 교부들의 낙관론 영향. 감리교→성결교→순복음·구세군의 신학적 뿌리.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">비유</div>
+          <div class="compare-val">완전히 나은 건강한 사람으로서 더 건강을 유지하기 위해 운동하며 살아가는 상태.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오리겐 보충 -->
+  <div class="sec-head">
+    <span class="sec-badge">학자</span>
+    <span class="sec-title">오리겐 (Origen, 185–254) — 강의 보충</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tl-item" style="background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:13px 15px;margin-bottom:10px;">
+    <ul class="ul-dot">
+      <li><em>헥사플라(Hexapla)</em>: 히브리어 원문 + 그리스어 번역본 5개를 병행 편집한 구약 대역 성경. 단편만 현존.</li>
+      <li>우의적(알레고리) 해석 선호: 문자적 의미 → 도덕적 적용 → 영적 의미 3단계</li>
+      <li><em>영혼선재설</em>: 플라톤 철학의 영향 — 영혼이 천상에서 존재하다가 육체라는 감옥에 갇힘 → 육체 부활 부인</li>
+      <li><em>만인구원설(apokatastasis)</em>: 모든 피조물, 심지어 사탄도 언젠가 하나님과의 교제 회복 → 지옥이 텅 빔</li>
+      <li>서방교회: 파면(정죄). 동방교회: 반대. → "정통신학의 아버지"이자 "이단의 아버지" 동시 호칭</li>
+      <li>현대: 몰트만, 칼 바르트 등의 보편구원론적 경향과 연결하는 비판이 있음</li>
+    </ul>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="core-points">
+    <div class="core-points-head">⭐ 오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="core-point">
+      <div class="core-num">1</div>
+      <div><strong>313·380년의 구별:</strong> 밀라노 칙령(313)은 종교의 자유(합법화)이고, 테오도시우스 칙령(380)이 비로소 기독교를 유일 국교로 선포한 것이다. 이 두 사건을 혼동하지 말 것.</div>
+    </div>
+    <div class="core-point">
+      <div class="core-num">2</div>
+      <div><strong>니케아 공의회의 핵심:</strong> 아리우스 vs 아타나시우스 논쟁에서 "동일본질(ὁμοούσιος)"이 채택됨. 글자 하나(ι) 차이인 "유사본질(ὁμοιούσιος)"과의 구별이 시험 필수 포인트.</div>
+    </div>
+    <div class="core-point">
+      <div class="core-num">3</div>
+      <div><strong>도나투스 논쟁의 현대적 의미:</strong> 성례전의 유효성은 집행자의 거룩성에 달려있는가(도나투스) vs 그리스도에게 달려있는가(어거스틴). 이 논쟁은 오늘날 이단 출신 신자의 재침례 문제, 목회자 윤리 문제로 그대로 이어진다.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 2 : 핵심정리 (시험대비)
+════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-exam" data-label="핵심정리 — 시험대비">
+
+  <!-- OX -->
+  <div class="exam-group">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-ox">OX 문제</span>
+      <span style="font-size:11px;color:var(--text3);">답안을 클릭하여 확인</span>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">1</span>
+        <span class="exam-q-text">313년 밀라노 칙령은 기독교를 로마의 국교로 선포했다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-x">✗</div>
+        <div class="ans-point">합법적 종교 중 하나로 <em>공인</em>한 것. 국교 선포는 380년 테오도시우스 황제 칙령.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">2</span>
+        <span class="exam-q-text">니케아 공의회(325)는 성자가 성부와 동일본질(ὁμοούσιος)이라고 결정했다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-o">○</div>
+        <div class="ans-point">아타나시우스파의 주장이 채택됨. 아리우스파는 정죄·유배. 오직 두 감독만 서명 거부.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">3</span>
+        <span class="exam-q-text">아리우스는 성자가 성부와 동일한 영원한 하나님이라고 주장했다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-x">✗</div>
+        <div class="ans-point">아리우스는 성자를 피조된 존재로 주장. <em>"있지 않았던 때가 있었다."</em> 이는 아타나시우스의 반대 입장.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">4</span>
+        <span class="exam-q-text">콘스탄틴 황제는 321년에 일요일을 법정 공휴일로 지정했다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-o">○</div>
+        <div class="ans-point">이전까지 노예·종들에게는 휴일이 없었음. 한국은 주일 공휴일이 100년 가까이 된 역사.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">5</span>
+        <span class="exam-q-text">도나투스주의자들은 배교자가 베푼 침례도 삼위일체의 이름으로 행했으면 유효하다고 주장했다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-x">✗</div>
+        <div class="ans-point">도나투스주의는 정반대. 성례전 유효성은 집행자의 거룩성에 달림. 성례전의 객관적 유효성을 주장한 것은 <em>어거스틴</em>.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">6</span>
+        <span class="exam-q-text">필리오케(Filioque) 논쟁은 동서 교회 분열(1054)의 결정적 명분이 되었다.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ox-result ox-o">○</div>
+        <div class="ans-point">589년 서방교회의 니케아 신경 일방적 수정이 단초. "성령은 성부와 성자로부터"(서방) vs "성부에게서만"(동방). 1054년 대분열로 귀결.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 -->
+  <div class="exam-group">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-sa">단답 문제</span>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">1</span>
+        <span class="exam-q-text">아리우스의 핵심 주장을 한 문장으로 쓰시오.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point">성자(로고스)는 성부에 의해 창조된 피조물이며, 있지 않았던 때가 있었다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">2</span>
+        <span class="exam-q-text">니케아 공의회(325)에서 채택된 핵심 교리 용어(헬라어)와 그 의미는?</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point"><em>ὁμοούσιος (homoousios)</em> — 동일본질. 성자는 성부와 본질이 동일하다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">3</span>
+        <span class="exam-q-text">313년 밀라노 칙령과 380년 테오도시우스 칙령의 차이를 쓰시오.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point">313년: 기독교를 로마의 합법적 종교 중 하나로 공인, 신앙의 자유 허용.<br>380년: 기독교를 로마 제국의 <em>유일한 국교</em>로 선포, 비기독교 신자 처벌.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">4</span>
+        <span class="exam-q-text">도나투스주의와 어거스틴의 성례전 유효성 논쟁에서 각각의 핵심 입장은?</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point">도나투스: 성례전 효력은 집행자의 거룩성에 달림 (배교자의 성례는 무효).<br>어거스틴: 효력은 <em>그리스도</em>에게 달림 (삼위일체 이름으로 행하면 유효).</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">5</span>
+        <span class="exam-q-text">서로마 제국이 멸망한 연도와 원인은?</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point">476년. 게르만족 용병대장 오도아케르에 의해 마지막 황제 강제 퇴위.</div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">6</span>
+        <span class="exam-q-text">오리겐의 만인구원설을 지칭하는 용어와 그 내용은?</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">정답</div>
+        <div class="ans-point"><em>apokatastasis (만유회복설)</em>. 모든 피조물, 심지어 사탄도 언젠가 하나님과의 교제가 회복된다는 주장. 서방교회는 파면, 동방교회는 반대.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 약술 -->
+  <div class="exam-group">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-essay">약술 문제</span>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">1</span>
+        <span class="exam-q-text">콘스탄틴의 기독교 정책이 교회에 미친 긍정적·부정적 영향을 서술하시오.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">모범 답안 틀</div>
+        <div class="ans-point">
+          <strong>① 긍정적 영향:</strong> 313년 밀라노 칙령으로 박해 종식·재산 반환·성직자 면세 혜택. 321년 주일 공휴일 지정. 325년 니케아 공의회 소집으로 정통 교리 확정. 웅장한 교회 건축물 건축. 십자가형 폐지.<br><br>
+          <strong>② 부정적 영향:</strong> 황제가 순수한 신학 문제에 간섭·명령. 정치적 야망으로 교회 입문자 급증 → 교회 순수성 훼손. 세속화·국가교회(state church)의 시작. 아타나시우스처럼 황제의 기분에 따라 유배되는 선례 수립.
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card" onclick="toggleExam(this)">
+      <div class="exam-q">
+        <span class="exam-q-num">2</span>
+        <span class="exam-q-text">니케아 공의회(325)의 배경, 핵심 논쟁, 결정 내용, 의의를 서술하시오.</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="exam-a">
+        <div class="ans-label">모범 답안 틀</div>
+        <div class="ans-point">
+          <strong>① 배경:</strong> 아리우스와 알렉산더 감독의 충돌. 성자의 신성 여부 논쟁이 동방 두 교회 세력 다툼으로 확산. 황제 콘스탄틴이 제국 통일을 위해 소집.<br><br>
+          <strong>② 논쟁:</strong> 아리우스파(성자는 피조물, 없었던 때가 있었다) vs 아타나시우스파(성자는 성부와 동일본질, 영원하신 분).<br><br>
+          <strong>③ 결정:</strong> 동일본질(ὁμοούσιος) 채택. 아리우스 정죄·유배. 니케아 신경 성립.<br><br>
+          <strong>④ 의의:</strong> 정통 삼위일체 교리의 기준 확립. 오늘날 대부분의 교회가 채용하는 신앙고백의 기반.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TAB 3 : 누적 연대기 (사도시대 → 로마제국시대)
+════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-timeline" data-label="누적 연대기">
+
+  <!-- 사도시대 -->
+  <div class="ctl-era" style="--era-color: var(--era-apostolic);">
+    <div class="ctl-era-dot"></div>
+    <div class="ctl-era-head" style="padding-left:20px;">
+      <div>
+        <div class="ctl-era-name">🕊️ 기독교 형성·사도시대</div>
+        <div class="ctl-era-range">30 – 100 AD</div>
+      </div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-apostolic);">
+      <div class="ctl-year-tag">30 AD</div>
+      <div class="ctl-event-name">예수 그리스도의 사역·부활, 오순절, 예루살렘 교회 형성</div>
+      <div class="ctl-sig">기독교의 기원; 사도 베드로·바울 중심의 선교 시작</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-apostolic);">
+      <div class="ctl-year-tag">48–57 AD</div>
+      <div class="ctl-event-name">사도 바울의 1·2·3차 전도여행</div>
+      <div class="ctl-sig">이방 선교 확장; 은혜·믿음·칭의 신학 정초; 신약 서신 기록</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-apostolic);">
+      <div class="ctl-year-tag">66–70 AD</div>
+      <div class="ctl-event-name">유대인 항쟁 & 예루살렘 함락 (로마 티투스 장군)</div>
+      <div class="ctl-sig">성전 파괴; 기독교의 유대교로부터 최종 분리 계기</div>
+    </div>
+  </div>
+
+  <!-- 가톨릭 기독교시대 -->
+  <div class="ctl-era" style="--era-color: var(--era-catholic);">
+    <div class="ctl-era-dot"></div>
+    <div class="ctl-era-head" style="padding-left:20px;">
+      <div>
+        <div class="ctl-era-name">⛪ 가톨릭 기독교시대</div>
+        <div class="ctl-era-range">100 – 313 AD</div>
+      </div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-catholic);">
+      <div class="ctl-year-tag">2세기</div>
+      <div class="ctl-event-name">영지주의·마르키온파 이단 도전 / 이레네우스 『이단 논박』</div>
+      <div class="ctl-sig">정통 신앙의 기준 확립; 감독제(episcopate) 강화</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-catholic);">
+      <div class="ctl-year-tag">2~3세기</div>
+      <div class="ctl-event-name">로마 제국의 기독교 박해 / 순교자들의 신앙 증언</div>
+      <div class="ctl-sig">터툴리안: "순교자들의 피는 교회의 씨앗"; 교부들의 변증 활동</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-catholic);">
+      <div class="ctl-year-tag">185~254</div>
+      <div class="ctl-event-name">오리겐 (Origen) — 헥사플라, 만인구원설, 영혼선재설</div>
+      <div class="ctl-sig">"정통신학의 아버지"이자 "이단의 아버지"; 알레고리 해석법</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-catholic);">
+      <div class="ctl-year-tag">3세기</div>
+      <div class="ctl-event-name">노바티안 분쟁 · 도나투스 분쟁 · 재침례 논쟁</div>
+      <div class="ctl-sig">배교자 처리 문제; 교회 순수성 vs 용서의 논쟁; 키프리안 순교(258)</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-catholic);">
+      <div class="ctl-year-tag">3세기</div>
+      <div class="ctl-event-name">신약 정경 형성 과정 / 사도신경 초기 형태</div>
+      <div class="ctl-sig">이단 대응으로 정경 기준 확립; 세례 신앙고백으로서의 신경 사용</div>
+    </div>
+  </div>
+
+  <!-- 기독교 로마제국시대 -->
+  <div class="ctl-era" style="--era-color: var(--era-roman);">
+    <div class="ctl-era-dot"></div>
+    <div class="ctl-era-head" style="padding-left:20px;">
+      <div>
+        <div class="ctl-era-name">🏛️ 기독교 로마제국시대</div>
+        <div class="ctl-era-range">313 – 590 AD</div>
+      </div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">312년</div>
+      <div class="ctl-event-name">밀비안 다리 전투 — 콘스탄틴의 기독교 귀의</div>
+      <div class="ctl-sig">"이 표적으로 정복하라(Hoc Signo Victor Eris)"</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">313년</div>
+      <div class="ctl-event-name">밀라노 칙령 (Edict of Milan) — 기독교 합법화</div>
+      <div class="ctl-sig">신앙의 자유 전면 허용; 국교 선포는 아님(합법 종교 중 하나)</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">321년</div>
+      <div class="ctl-event-name">주일(일요일) 법정 공휴일 선포</div>
+      <div class="ctl-sig">최초의 법정 휴일; 노예·종들에게도 쉼 제공</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">325년</div>
+      <div class="ctl-event-name">제1차 니케아 공의회 — 삼위일체 교리 확정</div>
+      <div class="ctl-sig">동일본질(ὁμοούσιος) 채택; 아리우스 정죄; 니케아 신경 성립</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">330년</div>
+      <div class="ctl-event-name">콘스탄티노플 건설 — 동방 새 수도</div>
+      <div class="ctl-sig">비잔티움 → 콘스탄티노플 → 이스탄불 (동서 교회 분열의 지리적 기반)</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">380년</div>
+      <div class="ctl-event-name">테오도시우스 칙령 — 기독교 국교 선포</div>
+      <div class="ctl-sig">유일 국교; 비기독교 신자 처벌; 시민종교(civil religion) 성립</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">395년</div>
+      <div class="ctl-event-name">로마 제국 동서 분열 (테오도시우스 사망)</div>
+      <div class="ctl-sig">서로마(호노리우스) / 동로마(아르카디우스); 실권은 게르만 군인에게</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">476년</div>
+      <div class="ctl-event-name">서로마 제국 멸망</div>
+      <div class="ctl-sig">게르만족 용병대장 오도아케르; 서방에서 교황이 새 지배자로 등장</div>
+    </div>
+    <div class="ctl-item" style="--era-color:var(--era-roman);">
+      <div class="ctl-year-tag">589년</div>
+      <div class="ctl-event-name">톨레도 공의회 — 필리오케(Filioque) 결정</div>
+      <div class="ctl-sig">서방교회 니케아 신경 수정 → 1054년 동서 대분열의 명분</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleExam(card) {
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>

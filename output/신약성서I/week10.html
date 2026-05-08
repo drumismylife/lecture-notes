@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I | 10주차 — 누가복음 마지막 이야기</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #150f1a;
+  --card:       #1e1526;
+  --card2:      #261c30;
+  --card3:      #2d2040;
+  --purple:     #9b7fc7;
+  --purple-dim: #6b4fa0;
+  --purple-glow:#c4a8e8;
+  --lavender:   #b8a8d4;
+  --gold:       #c9a84c;
+  --gold-dim:   #8a6820;
+  --terra:      #c96b5a;
+  --terra-dim:  #8a3a28;
+  --green:      #7ab87a;
+  --green-dim:  #3a7a3a;
+  --teal:       #5ab8c8;
+  --text:       #ede8f5;
+  --text2:      #9e96aa;
+  --text3:      #6a6278;
+  --border:     rgba(155,127,199,0.18);
+  --border2:    rgba(155,127,199,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(135deg, #0e0916 0%, #1e1040 40%, #2a1560 70%, #1a0c2e 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: 'Εὐαγγέλιον κατὰ Λουκᾶν';
+  position: absolute;
+  right: -10px; top: 12px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: rgba(155,127,199,0.08);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 20%;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,127,199,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.badge-week { color: var(--purple); border-color: var(--purple-dim); background: rgba(155,127,199,0.08); }
+.badge-date { color: var(--lavender); border-color: rgba(184,168,212,0.2); background: rgba(184,168,212,0.05); }
+.badge-exam { color: var(--terra); border-color: var(--terra-dim); background: rgba(201,107,90,0.1); }
+.badge-term { color: var(--green); border-color: var(--green-dim); background: rgba(122,184,122,0.1); }
+
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.header-sub {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--lavender);
+  letter-spacing: 0.03em;
+}
+.header-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.pill {
+  font-size: 10.5px;
+  color: var(--text2);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+/* ─── TABS ─── */
+.tab-bar {
+  display: flex;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.tab-btn {
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text3);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--lavender); }
+.tab-btn.active { color: var(--purple-glow); border-bottom-color: var(--purple); background: rgba(155,127,199,0.05); }
+
+/* ─── CONTENT ─── */
+.tab-content { display: none; padding: 24px 28px 48px; max-width: 960px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* ─── SECTION HEADS ─── */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 14px;
+}
+.sec-head:first-child { margin-top: 8px; }
+.sec-num {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--purple-dim);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--purple-glow);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--purple-dim), transparent); }
+
+.sub-head {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lavender);
+  margin: 20px 0 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--gold);
+}
+
+/* ─── BLOCKS ─── */
+.block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.block-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 본문 블록 */
+.block-scripture {
+  background: var(--card);
+  border: 1px solid rgba(155,127,199,0.2);
+  border-left: 3px solid var(--purple);
+  border-radius: 0 8px 8px 0;
+}
+.block-scripture .block-label { color: var(--purple-glow); }
+
+/* 교수설명 블록 */
+.block-prof {
+  background: rgba(30,21,38,0.8);
+  border: 1px solid rgba(107,79,160,0.2);
+  border-left: 3px solid var(--purple-dim);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+.block-prof .block-label { color: var(--lavender); font-style: normal; }
+
+/* 시험 블록 */
+.block-exam {
+  background: rgba(45,26,22,0.8);
+  border: 1px solid rgba(201,107,90,0.25);
+  border-left: 3px solid var(--terra);
+  border-radius: 0 8px 8px 0;
+}
+.block-exam .block-label { color: var(--terra); }
+
+/* 신학 블록 */
+.block-theology {
+  background: var(--card2);
+  border: 1px solid rgba(155,127,199,0.15);
+  border-radius: 8px;
+}
+.block-theology .block-label { color: var(--purple-glow); }
+
+/* 용어 블록 */
+.block-term {
+  background: rgba(20,38,20,0.6);
+  border: 1px solid rgba(122,184,122,0.2);
+  border-radius: 8px;
+}
+.block-term .block-label { color: var(--green); }
+
+/* 배경 블록 */
+.block-bg {
+  background: rgba(18,22,38,0.7);
+  border: 1px solid rgba(90,184,200,0.15);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+}
+.block-bg .block-label { color: var(--teal); }
+
+/* ─── BIBLE QUOTE ─── */
+.bible-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  color: var(--purple-glow);
+  background: rgba(155,127,199,0.06);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  line-height: 1.85;
+  border-left: 2px solid rgba(155,127,199,0.3);
+}
+.bible-ref {
+  font-size: 11px;
+  color: var(--purple-dim);
+  margin-top: 4px;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+}
+
+/* ─── GREEK ─── */
+.greek {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--gold);
+  background: rgba(201,168,76,0.07);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  border: 1px solid rgba(201,168,76,0.12);
+}
+.greek-word {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+}
+.greek-inline {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* ─── TABLE ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin: 10px 0;
+}
+thead tr { background: rgba(155,127,199,0.12); }
+thead th {
+  padding: 7px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--purple-glow);
+  letter-spacing: 0.06em;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border2);
+  vertical-align: top;
+  color: var(--text2);
+  line-height: 1.6;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(155,127,199,0.03); }
+.td-hl { color: var(--purple-glow); font-weight: 600; }
+.td-gold { color: var(--gold); font-weight: 600; }
+.td-center { text-align: center; }
+
+/* ─── LIST ITEMS ─── */
+.item-list { list-style: none; margin: 6px 0; }
+.item-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.item-list li::before {
+  content: '◆';
+  color: var(--purple-dim);
+  font-size: 7px;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.item-list.gold li::before { color: var(--gold-dim); }
+.item-list.terra li::before { color: var(--terra-dim); }
+.item-list.green li::before { color: var(--green-dim); }
+
+/* ─── GRID ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+/* ─── EXCLUSIVE STORY CARDS ─── */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+.story-card {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  border-top: 2px solid var(--purple-dim);
+  transition: border-top-color 0.2s;
+}
+.story-card:hover { border-top-color: var(--purple); }
+.story-ch {
+  font-size: 9.5px;
+  color: var(--purple-dim);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+.story-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ─── KEY TERM CARD ─── */
+.term-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.term-head {
+  background: linear-gradient(135deg, rgba(155,127,199,0.15), rgba(107,79,160,0.1));
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.term-name-ko {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+.term-name-gr {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+}
+.term-body { padding: 12px 16px; }
+.term-row { display: flex; gap: 8px; padding: 4px 0; font-size: 12px; }
+.term-label {
+  color: var(--purple-dim);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  min-width: 65px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  padding-top: 1px;
+}
+.term-val { color: var(--text2); line-height: 1.6; }
+
+/* ─── DISCUSSION CARDS ─── */
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.q-num {
+  background: var(--purple-dim);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.q-body { flex: 1; }
+.q-text { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.55; }
+.q-point { font-size: 11.5px; color: var(--lavender); line-height: 1.6; }
+.q-point strong { color: var(--purple-glow); }
+
+/* ─── COMPARE SECTION ─── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.compare-card {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.compare-head {
+  padding: 8px 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.compare-head.mark { background: rgba(234,88,12,0.15); color: #ea580c; border-bottom: 1px solid rgba(234,88,12,0.2); }
+.compare-head.luke { background: rgba(122,184,122,0.12); color: var(--green); border-bottom: 1px solid rgba(122,184,122,0.15); }
+.compare-body { padding: 10px 14px; }
+.compare-body ul { list-style: none; }
+.compare-body ul li {
+  font-size: 12px;
+  color: var(--text2);
+  padding: 3px 0;
+  border-bottom: 1px solid var(--border2);
+  line-height: 1.6;
+}
+.compare-body ul li:last-child { border-bottom: none; }
+
+/* ─── AUGUSTINE TABLE ─── */
+.aug-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.aug-col-head {
+  padding: 8px 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.aug-col-head.text { background: rgba(90,184,200,0.08); color: var(--teal); }
+.aug-col-head.interp { background: rgba(155,127,199,0.08); color: var(--purple-glow); }
+.aug-row {
+  display: contents;
+}
+.aug-cell {
+  padding: 7px 14px;
+  font-size: 12px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border2);
+}
+.aug-cell:nth-child(odd) { border-right: 1px solid var(--border2); background: rgba(0,0,0,0.1); }
+.aug-cell:nth-child(even) { color: var(--lavender); }
+.aug-cell.highlight { color: var(--purple-glow); font-weight: 600; }
+
+/* ─── JERUSALEM MAP ─── */
+.jer-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 10px 0;
+}
+.jer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 12px;
+}
+.jer-ref {
+  font-family: 'Crimson Pro', serif;
+  color: var(--gold);
+  font-size: 11.5px;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+.jer-desc { color: var(--text2); }
+.jer-desc strong { color: var(--purple-glow); }
+.jer-connector {
+  text-align: center;
+  color: var(--purple-dim);
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ─── EXAM CHECKLIST ─── */
+.exam-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border2);
+  font-size: 12.5px;
+}
+.exam-item:last-child { border-bottom: none; }
+.exam-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terra);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.exam-text { color: var(--text2); line-height: 1.6; }
+.exam-text strong { color: var(--text); }
+.exam-text em { color: var(--gold); font-style: normal; }
+
+/* ─── POWELL QUOTE ─── */
+.powell-quote {
+  background: linear-gradient(135deg, rgba(30,21,38,0.9), rgba(20,13,28,0.9));
+  border: 1px solid rgba(155,127,199,0.15);
+  border-radius: 10px;
+  padding: 20px 24px;
+  position: relative;
+  margin: 12px 0;
+}
+.powell-quote::before {
+  content: '"';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 60px;
+  color: rgba(155,127,199,0.2);
+  line-height: 1;
+}
+.powell-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  color: var(--lavender);
+  line-height: 1.9;
+  font-style: italic;
+}
+.powell-src {
+  font-size: 11px;
+  color: var(--purple-dim);
+  margin-top: 10px;
+  text-align: right;
+  font-family: 'Crimson Pro', serif;
+}
+
+/* ─── LOST MOTIF ─── */
+.motif-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.motif-card {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+.motif-icon { font-size: 22px; margin-bottom: 6px; }
+.motif-title { font-size: 12.5px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.motif-ref { font-family: 'Crimson Pro', serif; font-size: 11.5px; color: var(--gold); margin-bottom: 6px; }
+.motif-desc { font-size: 11.5px; color: var(--text2); line-height: 1.6; }
+.motif-connect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-dim);
+  font-size: 18px;
+}
+
+/* ─── SPLANCHNIZOMAI HIGHLIGHT ─── */
+.word-highlight {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 8px 0;
+}
+.word-main {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
+.word-trans {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* ─── UTILS ─── */
+p { font-size: 12.5px; color: var(--text2); line-height: 1.75; margin-bottom: 8px; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--text); font-weight: 600; }
+em.gold { color: var(--gold); font-style: normal; }
+em.terra { color: var(--terra); font-style: normal; }
+em.green { color: var(--green); font-style: normal; }
+em.teal { color: var(--teal); font-style: normal; }
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 24px 0;
+}
+
+/* ─── TODAY'S CONCEPTS ─── */
+.today-card {
+  background: linear-gradient(135deg, rgba(26,16,50,0.9), rgba(20,13,32,0.9));
+  border: 1px solid rgba(155,127,199,0.25);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-top: 32px;
+}
+.today-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple-dim);
+  margin-bottom: 12px;
+}
+.today-concepts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.concept-chip {
+  background: rgba(155,127,199,0.1);
+  border: 1px solid rgba(155,127,199,0.2);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple-glow);
+}
+.concept-chip span {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--lavender);
+  margin-top: 2px;
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: #150f1a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .tab-bar { display: none; }
+  .tab-content { display: block !important; padding: 16px; }
+  .tab-content + .tab-content { page-break-before: always; }
+  @page { size: A4; margin: 12mm; }
+  .block, .q-card, .motif-pair, .compare-grid { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-meta">
+    <span class="badge badge-week">10주차</span>
+    <span class="badge badge-date">2026-05-07 (목)</span>
+    <span class="badge badge-exam">중간 4/23 완료</span>
+    <span class="badge badge-term">용어집 6/4 제출</span>
+  </div>
+  <div class="header-title">누가복음 마지막 이야기</div>
+  <div class="header-sub">Luke's Unique Narratives · 마가복음 비교 · 예루살렘 신학</div>
+  <div class="header-pills">
+    <span class="pill">담당: 이영민 교수</span>
+    <span class="pill">교재: 파월 신약개론 179-80</span>
+    <span class="pill">참조: 눅 2–24장</span>
+    <span class="pill">PPT 슬라이드 1-16</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes', this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary', this)">🎯 핵심정리 · 용어</button>
+  <button class="tab-btn" onclick="switchTab('havruta', this)">🗣️ 하브루타</button>
+</div>
+
+<!-- ===== TAB 1: 강의노트 ===== -->
+<div id="tab-notes" class="tab-content active">
+
+  <!-- § 1. 복음서 논의 서론 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 1</span>
+    <div class="sec-title">강의 오프닝 — 복음을 설명할 수 있는 사람</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 교수설명</div>
+    <p>신약성서학을 공부하며 마지막쯤에 정립된 가치관: <strong>"복음을 공유하고 싶다."</strong> 4복음서가 같은 사건을 다르게 기록한 것은 "편집의 충돌"이 아니라 복음을 풍성하게 해주는 것이다.</p>
+    <p>복음을 이해하는 폭이 넓어지면 → 다른 사람에게도 더 풍성하게 전달할 수 있다. 신학교에서 배우는 모든 것이 그 복음을 더 잘 나누기 위한 것.</p>
+  </div>
+
+  <!-- § 2. 누가복음 독점 이야기들 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 2</span>
+    <div class="sec-title">누가복음만이 전해주는 이야기들 (슬라이드 2)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="story-ch">1장</div>
+      <div class="story-title">마리아의 찬가</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">2장</div>
+      <div class="story-title">목자들의 찬양</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">2장</div>
+      <div class="story-title">구유의 아기 예수님</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">2장</div>
+      <div class="story-title">열두 살 예수님</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">6장</div>
+      <div class="story-title">평지수훈</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">7장</div>
+      <div class="story-title">나인성 과부의 아들</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">10장</div>
+      <div class="story-title">선한 사마리아인</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">10장</div>
+      <div class="story-title">마리아와 마르다</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">12장</div>
+      <div class="story-title">어리석은 부자</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">15장</div>
+      <div class="story-title">어떤 아버지와 두 아들 <span style="color:var(--text3);font-size:10px;">(≠탕자)</span></div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">18장</div>
+      <div class="story-title">바리새인과 세리</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">19장</div>
+      <div class="story-title">삭개오</div>
+    </div>
+    <div class="story-card">
+      <div class="story-ch">24장</div>
+      <div class="story-title">엠마오의 두 제자</div>
+    </div>
+  </div>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 문학적 특징 — 찬가(노래)가 많다</div>
+    <p>마리아·사가랴·목자들·시므온의 찬가가 누가복음 초반에 집중. 파월: <strong>"예술적이고 미학적으로 아름다운 복음서"</strong>라는 평가와 연결됨.</p>
+    <p><strong>인물 명명 원칙:</strong> "어떤 사람" = 행동이 중요 / 이름 있는 인물 = 인물 자체가 중요</p>
+  </div>
+
+  <!-- § 3. 구유 해석 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 3</span>
+    <div class="sec-title">구유(마구간) 해석의 새 가능성</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-bg">
+    <div class="block-label">🏛️ 역사적 배경</div>
+    <p><strong>전통적 해석:</strong> 마구간 = 집 외부의 분리된 공간</p>
+    <p><strong>새로운 연구:</strong> 당시 주택 구조상 동물에게 먹이를 주는 공간이 집 안에 있었을 가능성. <em class="teal">καταλύματι (katalyma)</em> — "여관"이 아니라 "거실/머무는 곳"에 가까운 번역 가능성도 있음.</p>
+    <p style="color:var(--terra);font-size:11.5px;margin-top:6px;">⚠ 두 가능성 모두 열어둘 것 — 아직 단정 짓기 이름.</p>
+  </div>
+
+  <!-- § 4. 열두 살 예수님 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 4</span>
+    <div class="sec-title">열두 살 예수님 (눅 2:41-50)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-scripture">
+    <div class="block-label">📖 성경 본문 (눅 2:49)</div>
+    <div class="bible-quote">
+      "어찌하여 나를 찾으셨나이까 내가 내 아버지 집에 있어야 될 줄을 알지 못하셨나이까"
+    </div>
+    <div class="greek">
+      τί ὅτι ἐζητεῖτέ με; οὐκ ᾔδειτε ὅτι <strong>ἐν τοῖς τοῦ πατρός μου</strong> δεῖ εἶναί με;
+    </div>
+  </div>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 헬라어 해석 포인트 — "집"이 아니라 "일들"</div>
+    <ul class="item-list">
+      <li><strong>ἐν τοῖς τοῦ πατρός μου</strong> — 데이티브(dative): "아버지의 일들 <em>안에</em>" (범주 안에 있음)</li>
+      <li>개역개정의 "집"은 원문에 없음 — 더 정확한 번역: <em class="gold">"아버지의 일들 안에 있는 것"</em></li>
+      <li><strong>δεῖ (데이)</strong> = "꼭 해야만 한다" — 강한 필연성</li>
+      <li>직역: <em>"내가 아버지의 일들 안에 있는 것이 꼭 필요한 줄 알지 못하셨어요?"</em></li>
+    </ul>
+  </div>
+
+  <!-- § 5. 침례 요한의 대답 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 5</span>
+    <div class="sec-title">침례 요한의 대답 (눅 3:10-14)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>청중</th>
+        <th>질문</th>
+        <th>요한의 대답</th>
+        <th>핵심 가치</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-hl">무리 (일반인)</td>
+        <td>"우리가 무엇을 하리이까?"</td>
+        <td>옷·음식을 나눠줘라</td>
+        <td class="td-gold">나눔·공유</td>
+      </tr>
+      <tr>
+        <td class="td-hl">세리</td>
+        <td>"우리는 무엇을 하리이까?"</td>
+        <td>부과된 것 외에 거두지 말라</td>
+        <td class="td-gold">권력 자제</td>
+      </tr>
+      <tr>
+        <td class="td-hl">군인</td>
+        <td>"우리는 무엇을 하리이까?"</td>
+        <td>강탈·거짓 고발 금지, 급료에 만족</td>
+        <td class="td-gold">절제·정직</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 교수설명</div>
+    <p>침례 요한의 핵심 역할은 <strong>예수님을 가리키는 것</strong>. 각 사회 계층에게 실천 윤리를 구체적으로 제시하는 것은 누가복음의 특성(청중의 다양성)을 보여줌.</p>
+  </div>
+
+  <!-- § 6. 평지수훈 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 6</span>
+    <div class="sec-title">평지수훈 (눅 6:20-26)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="two-col">
+    <div class="block block-scripture" style="margin-bottom:0">
+      <div class="block-label">복(μακάριος) — 받을 자들</div>
+      <ul class="item-list">
+        <li>가난한 자 → 하나님 나라</li>
+        <li>지금 주린 자 → 배부름</li>
+        <li>지금 우는 자 → 웃음</li>
+        <li>핍박받는 자 → 하늘의 상급</li>
+      </ul>
+    </div>
+    <div class="block block-exam" style="margin-bottom:0">
+      <div class="block-label">화(οὐαί) — 경고받을 자들</div>
+      <ul class="item-list terra">
+        <li>부요한 자 → 이미 위로 받음</li>
+        <li>배부른 자 → 주리리로다</li>
+        <li>웃는 자 → 애통하리로다</li>
+        <li>칭찬받는 자 → 화가 있도다</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block block-prof" style="margin-top:10px;">
+    <div class="block-label">🎓 교수설명 — 사회학적 관점</div>
+    <p>가난의 원인: 개인적 실패보다 <strong>사회구조적 요인</strong>이 큼 (선교학 교과서 도시선교 관점). 하나님 나라의 가치는 사회적 경계(마운틴/mountain)를 사랑으로 넘어가게 한다. 마태복음의 "마음이 가난한 자"와 달리 누가는 <em class="gold">실제 가난한 사람들</em>에게 직접 선포.</p>
+  </div>
+
+  <!-- § 7. 나인성 과부 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 7</span>
+    <div class="sec-title">나인성 과부의 아들 (눅 7:11-16)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-scripture">
+    <div class="block-label">📖 성경 본문 (눅 7:13-15)</div>
+    <div class="bible-quote">
+      "주께서 과부를 보시고 불쌍히 여기사 '울지 말라' 하시고 가까이 가서 그 관에 손을 대시니 멘 자들이 서는지라 예수께서 이르시되 '청년아, 내가 네게 말하노니 일어나라' 하시매 죽었던 자가 일어나 앉고"
+    </div>
+  </div>
+
+  <div class="word-highlight">
+    <span class="word-main">σπλαγχνίζομαι</span>
+    <span class="word-trans">스플랑크니조마이 — "불쌍히 여기다" / 내장(σπλάγχνα)이 움직인다 → 강렬한 내면의 동정심</span>
+  </div>
+
+  <div class="block block-bg">
+    <div class="block-label">🏛️ 역사적 배경 — 관에 손을 댄다는 것의 의미</div>
+    <p>유대 정결법: 시체·관 접촉 = <strong>부정(不淨)해짐</strong> → 제사장들은 피했다. 그럼에도 예수님은 서슴없이 관에 손을 대심 → 하나님 나라의 가치가 율법적 금기를 넘어섬.</p>
+    <p style="margin-top:6px;"><em class="teal">쿰란(에세네파) 공동체 문헌:</em> 보물 지도에 "관 밑"에 보물을 숨겼다는 기록이 있음 — 사람들이 꺼리는 장소를 역설적으로 활용한 사례.</p>
+  </div>
+
+  <!-- § 8. 마르다와 마리아 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 8</span>
+    <div class="sec-title">마르다와 마리아 (눅 10:38-42)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-scripture">
+    <div class="block-label">📖 성경 본문 (눅 10:41-42)</div>
+    <div class="bible-quote">
+      "마르다야 마르다야 네가 많은 일로 염려하고 근심하나 몇 가지만 하든지 혹은 한 가지만이라도 족하니라. 마리아는 이 좋은 편을 택하였으니 빼앗기지 아니하리라."
+    </div>
+    <div class="greek">
+      Μάρθα Μάρθα, <strong>μεριμνᾷς καὶ θορυβάζῃ</strong> περὶ <strong>πολλά</strong>, ἑνὸς δέ ἐστιν <strong>χρεία</strong>· Μαριὰμ γὰρ τὴν <strong>ἀγαθὴν μερίδα</strong> ἐξελέξατο ἥτις οὐκ ἀφαιρεθήσεται αὐτῆς.
+    </div>
+  </div>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 헬라어 핵심 분석</div>
+    <table>
+      <thead>
+        <tr><th>헬라어 단어</th><th>의미</th><th>교수 설명</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-gold">μεριμνᾷς (메리므나스)</td>
+          <td class="td-hl">염려하다</td>
+          <td>생각이 분산되고 복잡해지는 상태</td>
+        </tr>
+        <tr>
+          <td class="td-gold">θορυβάζῃ (토뤼바제)</td>
+          <td class="td-hl">근심·소란스럽다</td>
+          <td>"멘붕" — 정리가 안 되는 상태</td>
+        </tr>
+        <tr>
+          <td class="td-gold">ἑνὸς χρεία (헤노스 크레이아)</td>
+          <td class="td-hl">하나의 필요</td>
+          <td>음식이 아닐 수 있음 — 말씀의 관계를 가리킬 가능성</td>
+        </tr>
+        <tr>
+          <td class="td-gold">ἀγαθὴν μερίδα (아가덴 메리다)</td>
+          <td class="td-hl">좋은 편/부분</td>
+          <td>γὰρ(왜냐하면) = 이유 설명 → 마르다-마리아 대비</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:8px;"><em class="lavender">주님이 꾸짖으신 것이 아니라, 마르다의 상황을 공감하면서 더 중요한 것을 알려주신 것.</em></p>
+  </div>
+
+  <!-- § 9. 선한 사마리아인 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 9</span>
+    <div class="sec-title">선한 사마리아인 (눅 10:29-37)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-scripture">
+    <div class="block-label">📖 성경 본문 — 예수님의 반전 질문</div>
+    <div class="bible-quote">
+      질문자: "그러면 내 이웃이 누구니이까?" (자기를 옳게 보이려고)<br>
+      예수님: "네 생각에는 이 세 사람 중에 누가 강도 만난 자의 <strong>이웃이 되었겠느냐</strong>?"
+    </div>
+    <p style="font-size:11.5px;color:var(--text2);margin-top:8px;">핵심 반전: "이웃이 누구냐" → "누가 이웃이 되었느냐" — 수동적 규정에서 능동적 실천으로</p>
+  </div>
+
+  <div class="sub-head">어거스틴의 알레고리적 해석 (슬라이드 9)</div>
+
+  <div class="aug-table">
+    <div class="aug-col-head text">본문 요소</div>
+    <div class="aug-col-head interp">어거스틴 해석</div>
+    <div class="aug-cell">예루살렘</div><div class="aug-cell">하늘 도성</div>
+    <div class="aug-cell">여리고</div><div class="aug-cell">죽을 운명</div>
+    <div class="aug-cell">강도 만난 자</div><div class="aug-cell">아담 (타락한 인류)</div>
+    <div class="aug-cell">강도들</div><div class="aug-cell">악마와 그 천사들</div>
+    <div class="aug-cell">옷을 벗김</div><div class="aug-cell">영생을 빼앗음</div>
+    <div class="aug-cell">제사장·레위인</div><div class="aug-cell">구약의 율법 (해결 불가)</div>
+    <div class="aug-cell highlight">선한 사마리아인</div><div class="aug-cell highlight">예수 그리스도</div>
+    <div class="aug-cell">짐승에 태움</div><div class="aug-cell">예수님의 몸</div>
+    <div class="aug-cell">여관</div><div class="aug-cell">교회</div>
+    <div class="aug-cell">여관 주인</div><div class="aug-cell">바울 사도</div>
+    <div class="aug-cell">데나리온 둘</div><div class="aug-cell">하나님 사랑·이웃 사랑</div>
+  </div>
+
+  <div class="block block-bg" style="margin-top:10px;">
+    <div class="block-label">🏛️ 전승 계보</div>
+    <p>오리겐 (초안) → 암브로시우스 (발전) → <strong>어거스틴</strong> (체계화·설교집) → 베다 (전승)</p>
+    <p style="margin-top:6px;color:var(--terra);font-size:11.5px;">⚠ 현대 해석학: 본문의 역사적·문학적 의도를 우선시 — 알레고리 과도 적용의 한계 존재. 은혜가 되는 해석이지만 원래 문맥("이웃됨의 실천")을 놓치지 않도록 주의.</p>
+  </div>
+
+  <!-- § 10. 어리석은 부자 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 10</span>
+    <div class="sec-title">어리석은 부자 (눅 12:16-21)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-scripture">
+    <div class="block-label">📖 성경 본문 (눅 12:20-21)</div>
+    <div class="bible-quote">
+      "하나님은 이르시되, '어리석은 자여 오늘 밤에 네 영혼을 도로 찾으리니, 그러면 네 준비한 것이 누구의 것이 되겠느냐?' … 자기를 위하여 재물을 쌓아 두고 하나님께 대하여 부요하지 못한 자가 이와 같으니라"
+    </div>
+  </div>
+
+  <p>누가복음 재물 경고의 핵심: <strong>자기를 위한 축적</strong> vs <strong>하나님께 대한 부요함</strong> — 나눔을 통한 하나님 나라의 가치 실현.</p>
+
+  <!-- § 11. 잃어버린 예수님 모티프 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 11</span>
+    <div class="sec-title">"잃어버린 예수님" 모티프 (슬라이드 11)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
+    <div class="motif-pair" style="flex:1;margin:0;">
+      <div class="motif-card">
+        <div class="motif-icon">🧒</div>
+        <div class="motif-title">열두 살 예수님</div>
+        <div class="motif-ref">눅 2:41-50</div>
+        <div class="motif-desc">부모가 예수님을 잃어버렸다가 성전에서 발견 → 부모가 말씀을 깨닫지 못함</div>
+      </div>
+      <div class="motif-card">
+        <div class="motif-icon">🚶</div>
+        <div class="motif-title">엠마오의 두 제자</div>
+        <div class="motif-ref">눅 24:13-35</div>
+        <div class="motif-desc">제자들이 예수님을 알아보지 못하다가 알아본 순간 사라짐</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block block-prof">
+    <div class="block-label">🎓 교수설명 — 수미상관적 구조</div>
+    <p>누가복음의 처음(2장)과 끝(24장)에 예수님을 "잃어버렸다가 찾는" 패턴이 반복 → 누가복음 전체의 문학적 틀(frame). 학자들이 이 공통점을 의미 있는 구조로 제시.</p>
+  </div>
+
+  <!-- § 12. 마가복음과의 비교 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 12</span>
+    <div class="sec-title">마가복음과의 비교 (슬라이드 12-14)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-head mark">마가복음</div>
+      <div class="compare-body">
+        <ul>
+          <li>날것·구어체 헬라어 (비문학적)</li>
+          <li>역사적 정보 제한적</li>
+          <li>예수님 인간적 감정 직접 묘사</li>
+          <li>예수님 능력·권위 직접적 강조</li>
+          <li>가족을 부정적으로 묘사 (막 3:31-35)</li>
+          <li>제자들: 몰이해·부정적 묘사 두드러짐</li>
+          <li>제자들이 잠든 이유: "눈이 피곤함"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-head luke">누가복음</div>
+      <div class="compare-body">
+        <ul>
+          <li>세련된 문학 헬라어 (비전문가 아님)</li>
+          <li>황제·총독·대제사장 실명 제공</li>
+          <li>예수님 감정 묘사 축소·정제</li>
+          <li>약해 보일 수 있는 표현 삭제</li>
+          <li>가족을 긍정적으로 묘사 (눅 8:19-21)</li>
+          <li>제자들: 교회 지도자 모범으로 묘사</li>
+          <li>잠든 이유: <em class="green">"슬픔으로 인하여"</em> (λύπη)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="block block-prof" style="margin-top:10px;">
+    <div class="block-label">🎓 제자들 묘사 비교 — 핵심 헬라어</div>
+    <div class="greek">
+      눅 22:45: <strong>ἀπὸ τῆς λύπης</strong> (아포 테스 뤼페스) — "슬픔으로 인하여" 잠듦<br>
+      막 14:40: <strong>οἱ ὀφθαλμοὶ καταβαρυνόμενοι</strong> — "눈이 심히 피곤함"<br>
+      마 26:43: <strong>οἱ ὀφθαλμοὶ βεβαρημένοι</strong> — "눈이 피곤함"
+    </div>
+    <p>누가만 <em class="gold">λύπη(슬픔)</em>을 원인으로 제시 → 제자들을 감정 있는 인간적 존재로 공감 가능하게 묘사.</p>
+  </div>
+
+  <!-- § 13. 예루살렘 신학 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 13</span>
+    <div class="sec-title">누가복음의 예루살렘 신학 (슬라이드 15)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="jer-flow">
+    <div class="jer-item">
+      <span class="jer-ref">1:5-9</span>
+      <span class="jer-desc"><strong>시작</strong> — 성전에서 사가랴에게 천사가 나타남 (예루살렘 = 출발)</span>
+    </div>
+    <div class="jer-connector">↓</div>
+    <div class="jer-item">
+      <span class="jer-ref">2:22-52</span>
+      <span class="jer-desc">아기 예수 정결의식 · <strong>12살 예수님 성전 방문</strong></span>
+    </div>
+    <div class="jer-connector">↓</div>
+    <div class="jer-item">
+      <span class="jer-ref">9:51-19:40</span>
+      <span class="jer-desc"><strong>예루살렘 여정</strong> — 누가복음 독특한 대단원 (약 10장 분량)</span>
+    </div>
+    <div class="jer-connector">↓</div>
+    <div class="jer-item">
+      <span class="jer-ref">19:41-44</span>
+      <span class="jer-desc">예루살렘 성을 보시고 <strong>우심</strong></span>
+    </div>
+    <div class="jer-connector">↓</div>
+    <div class="jer-item">
+      <span class="jer-ref">24:1-43</span>
+      <span class="jer-desc">부활하신 예수님이 예루살렘 내/주위에서 <strong>나타나심</strong></span>
+    </div>
+    <div class="jer-connector">↓</div>
+    <div class="jer-item">
+      <span class="jer-ref">24:44-53</span>
+      <span class="jer-desc"><strong>예루살렘에 머물라</strong> → 성전에서 찬송하며 끝 (사도행전으로 연결)</span>
+    </div>
+  </div>
+
+  <div class="block block-theology" style="margin-top:10px;">
+    <div class="block-label">⛪ 신학적 의의</div>
+    <p>예루살렘은 누가복음-사도행전 2부작의 <strong>구속사적 중심축</strong>. 복음이 예루살렘에서 완성되어(눅) → 예루살렘에서 시작해 땅끝까지 나아감(행 1:8).</p>
+  </div>
+
+  <!-- § 14. Powell 평가 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 14</span>
+    <div class="sec-title">Powell이 제시하는 누가복음 (슬라이드 16)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="powell-quote">
+    <div class="powell-text">
+      "신학자들은 이 복음서에 대해 어떻게 생각할까? 솔직히 말해서 많은 신학자들은 누가복음에 분명하고 체계적인 신학이 눈에 띠지 않는다고 다소 아쉬워한다 … 그러나 누가에게는 팬들(fans)이 많다 … 누가복음의 가장 주목할 만한 점은 이러한 다양한 관심사들을 매우 자연스럽게 한데 모아 <strong>정서적으로는 영감 있고 미학적으로는 아름다운 내러티브</strong>로 이끌어 낸 것이다."
+    </div>
+    <div class="powell-src">— 파월, 『현대인을 위한 신약개론』, pp.179-80</div>
+  </div>
+
+  <div class="two-col" style="margin-top:10px;">
+    <div class="block" style="margin-bottom:0">
+      <div class="block-label" style="color:var(--text3);">아쉬워하는 학자들</div>
+      <p style="font-size:12px;">"체계적 신학이 눈에 띄지 않는다" / 심지어 "사고의 조리가 없는 사람(muddle-headed)"이라고도</p>
+    </div>
+    <div class="block" style="margin-bottom:0">
+      <div class="block-label" style="color:var(--green);">누가의 팬들 (다양)</div>
+      <ul class="item-list green" style="font-size:11.5px;">
+        <li>예전(liturgy) 사랑하는 신자</li>
+        <li>복음 전도자</li>
+        <li>사회 활동가</li>
+        <li>경건한 기도자</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TODAY'S CONCEPTS -->
+  <div class="today-card">
+    <div class="today-title">⭐ 오늘의 핵심 신학 개념 3가지</div>
+    <div class="today-concepts">
+      <div class="concept-chip">
+        σπλαγχνίζομαι
+        <span>스플랑크니조마이 — 내장이 움직이는 동정심<br>누가복음 소외자 신학의 핵심 동사</span>
+      </div>
+      <div class="concept-chip">
+        예루살렘 신학
+        <span>시작→여정→완성의 구속사적 중심<br>사도행전으로 이어지는 연결 고리</span>
+      </div>
+      <div class="concept-chip">
+        ἑνὸς χρεία
+        <span>마르다-마리아 "하나의 필요"<br>말씀 경청의 우선성 vs 섬김의 긴장</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-notes -->
+
+<!-- ===== TAB 2: 핵심정리 · 용어 ===== -->
+<div id="tab-summary" class="tab-content">
+
+  <div class="sec-head">
+    <span class="sec-num">🎯</span>
+    <div class="sec-title">시험 대비 — 핵심 출제 포인트</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-exam">
+    <div class="block-label">⚠ 기말고사 6/11 대비 — 반드시 암기</div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>누가복음 독점 본문 목록</strong> — 최소 5개 이상 열거 가능해야 함 (마리아 찬가·목자·구유·12살 예수·평지수훈·나인성 과부·선한 사마리아인·마르다마리아·어리석은 부자·탕자·삭개오·엠마오)</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>마르다-마리아 헬라어:</strong> <em>μεριμνᾷς(염려) / θορυβάζῃ(근심) / ἑνὸς χρεία(하나의 필요) / ἀγαθὴν μερίδα(좋은 편)</em></div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>열두 살 예수 원문:</strong> <em>ἐν τοῖς τοῦ πατρός μου</em> — "집"이 아닌 "아버지의 일들 안에"</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>예루살렘 신학 구조:</strong> 시작(1:5-9) → 여정(9:51-19:40) → 완성(24:44-53) — 수미상관</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>어거스틴 선한 사마리아인 해석 체계:</strong> 오리겐(초안) → 암브로시우스 → 어거스틴(체계화) → 베다(전승)</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>마가 vs 누가 비교:</strong> 헬라어 수준 / 제자 묘사 / 감정 묘사 / 가족 묘사 차이 설명 가능할 것</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>제자들 잠든 이유 비교:</strong> 눅 22:45 <em>ἀπὸ τῆς λύπης(슬픔으로)</em> vs 막 14:40 <em>καταβαρυνόμενοι(눈이 피곤함)</em></div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>σπλαγχνίζομαι 의미:</strong> 내장이 움직이는 강렬한 동정심 — 누가복음 소외자 신학 핵심 동사</div>
+    </div>
+    <div class="exam-item">
+      <div class="exam-dot"></div>
+      <div class="exam-text"><strong>Powell 누가복음 인용구:</strong> <em>"정서적으로는 영감 있고 미학적으로는 아름다운 내러티브"</em> (pp.179-80)</div>
+    </div>
+  </div>
+
+  <!-- 용어집 -->
+  <div class="sec-head">
+    <span class="sec-num">📝</span>
+    <div class="sec-title">용어집 후보 항목 <span class="badge badge-term" style="font-size:9px;vertical-align:middle;margin-left:8px;">6/4 제출</span></div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name-ko">알레고리적 해석</span>
+      <span class="term-name-gr">Allegorical Interpretation</span>
+    </div>
+    <div class="term-body">
+      <div class="term-row">
+        <span class="term-label">정의</span>
+        <span class="term-val">성경 본문의 각 요소를 다른 신학적·영적 개념에 대응시켜 해석하는 방법. 문자적 의미 너머의 상징적 의미를 강조함.</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">성경 근거</span>
+        <span class="term-val">눅 10:29-37 선한 사마리아인 비유 — 어거스틴의 알레고리 해석 사례</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">학술 맥락</span>
+        <span class="term-val">오리겐을 통해 알렉산드리아 학파 중심으로 발전. 초기 교회에 광범위하게 수용됨. 현대 역사-문법적 해석학은 본문의 역사적·문학적 의도를 우선시하며 알레고리 과도 적용의 한계를 지적.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name-ko">스플랑크니조마이</span>
+      <span class="term-name-gr">σπλαγχνίζομαι</span>
+    </div>
+    <div class="term-body">
+      <div class="term-row">
+        <span class="term-label">정의</span>
+        <span class="term-val">"불쌍히 여기다" — 내장(σπλάγχνα)이 움직인다는 의미의 동사. 단순한 감정이 아닌 강렬한 내면의 동정심과 즉각적 행동을 함께 함축.</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">성경 근거</span>
+        <span class="term-val">눅 7:13 (나인성 과부); 눅 10:33 (선한 사마리아인); 눅 15:20 (탕자 비유의 아버지)</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">학술 맥락</span>
+        <span class="term-val">공관복음서에서 예수님의 감정을 표현하는 핵심 동사 중 하나. 누가복음에서 특히 소외된 자(과부·이방인·죄인)를 향한 예수님의 연민을 묘사할 때 반복 사용됨. 하나님 나라의 가치가 사회적 경계를 넘어선다는 신학적 메시지와 연결됨.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-head">
+      <span class="term-name-ko">예루살렘 여정</span>
+      <span class="term-name-gr">Jerusalem Journey (눅 9:51-19:40)</span>
+    </div>
+    <div class="term-body">
+      <div class="term-row">
+        <span class="term-label">정의</span>
+        <span class="term-val">예수님이 갈릴리 사역을 마치고 예루살렘을 향해 올라가는 여정을 중심 축으로 구성된 누가복음 특유의 대단원. 약 10장에 걸쳐 누가복음 독점 비유들이 집중적으로 배치됨.</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">성경 근거</span>
+        <span class="term-val">눅 9:51 "예수께서 승천하실 기약이 차가매 예루살렘을 향하여 올라가기로 굳게 결심하시고"</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">학술 맥락</span>
+        <span class="term-val">마태·마가에는 없는 누가복음의 구조적 특징. 예루살렘이 구속사의 완성 장소임을 신학적으로 강조. 사도행전 1:8 "예루살렘과 온 유대와 사마리아와 땅 끝"과 연결되는 선교 신학의 기초.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 누가복음 신학 요약 -->
+  <div class="sec-head">
+    <span class="sec-num">📊</span>
+    <div class="sec-title">누가복음 신학 요약 비교표</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>신학 주제</th>
+        <th>누가복음 특징</th>
+        <th>대표 본문</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-hl">소외자 신학</td>
+        <td>여성·세리·사마리아인·가난한 자 중심</td>
+        <td>나인성 과부, 삭개오, 탕자</td>
+      </tr>
+      <tr>
+        <td class="td-hl">재물 경계</td>
+        <td>부자에 대한 경고 반복 (화·어리석은 부자)</td>
+        <td>6:24-26; 12:16-21; 16:19-31</td>
+      </tr>
+      <tr>
+        <td class="td-hl">기도 강조</td>
+        <td>예수님의 기도 장면 빈번 등장</td>
+        <td>3:21; 6:12; 9:18; 22:41-44</td>
+      </tr>
+      <tr>
+        <td class="td-hl">예루살렘 신학</td>
+        <td>시작·끝·여정 모두 예루살렘 중심</td>
+        <td>1:5-9; 9:51; 24:44-53</td>
+      </tr>
+      <tr>
+        <td class="td-hl">성령 강조</td>
+        <td>성령의 역할 두드러짐 (사도행전 연결)</td>
+        <td>1:35; 3:22; 4:1; 24:49</td>
+      </tr>
+      <tr>
+        <td class="td-hl">찬가·예배</td>
+        <td>초반부 찬가 집중 — 예술적 복음서</td>
+        <td>1:46-55; 1:68-79; 2:29-32</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div><!-- end tab-summary -->
+
+<!-- ===== TAB 3: 하브루타 ===== -->
+<div id="tab-havruta" class="tab-content">
+
+  <div class="sec-head">
+    <span class="sec-num">🗣️</span>
+    <div class="sec-title">하브루타 토론 준비 — 10주차 주제</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="block block-bg" style="margin-bottom:20px;">
+    <div class="block-label">💡 이번 주 하브루타 포인트</div>
+    <p>누가복음의 독점 이야기들은 <strong>경계를 넘는 복음</strong>의 구체적 사례들. 선한 사마리아인·마르다마리아·나인성 과부를 통해 오늘날 사역 현장에서의 적용을 함께 토론해 보세요.</p>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card">
+    <div class="q-num">1</div>
+    <div class="q-body">
+      <div class="q-text">마르다와 마리아 — "한 가지만이라도 족하니라"에서 "하나"는 음식인가, 말씀인가? 어떻게 해석하겠는가?</div>
+      <div class="q-point">
+        <strong>논점 A:</strong> 헬라어 ἑνὸς χρεία(하나의 필요) + γὰρ(왜냐하면) = 마리아가 택한 "그것(말씀 경청)"이 하나 → 관계가 핵심<br>
+        <strong>논점 B:</strong> 문맥상 음식 준비를 하던 중이므로 "한 가지 음식만으로도 충분하다"는 실용적 의미일 수도<br>
+        <strong>논점 C:</strong> 두 해석 모두 결국 "단순화"의 권고 → 어느 쪽이 더 원문에 충실한가?
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card">
+    <div class="q-num">2</div>
+    <div class="q-body">
+      <div class="q-text">마르다가 틀렸는가, 아니면 우선순위의 문제인가? 섬김(디아코니아)과 말씀 경청은 대립인가 보완인가?</div>
+      <div class="q-point">
+        <strong>논점 A:</strong> 주님이 꾸짖지 않으셨다 — 마르다의 섬김 자체가 잘못은 아님<br>
+        <strong>논점 B:</strong> "마음이 분주한 것"(θορυβάζῃ)이 문제 — 많은 일 자체가 아닌 내면 상태<br>
+        <strong>논점 C:</strong> 사역 현장에서 "마르다 모드"로만 살아갈 때 어떤 위험이 있는가?
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card">
+    <div class="q-num">3</div>
+    <div class="q-body">
+      <div class="q-text">어거스틴의 알레고리 해석은 은혜가 되는가, 지나친 해석인가? 비유를 해석하는 기준은 무엇인가?</div>
+      <div class="q-point">
+        <strong>논점 A:</strong> 알레고리 해석의 장점 — 구원론·교회론으로 풍성하게 확장, 초기 교회에서 널리 수용<br>
+        <strong>논점 B:</strong> 알레고리 해석의 한계 — 본문의 직접 맥락 ("이웃됨의 실천") 약화<br>
+        <strong>논점 C:</strong> 비유 해석의 원칙: 하나의 핵심 진리 vs 모든 세부 요소에 의미 부여
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card">
+    <div class="q-num">4</div>
+    <div class="q-body">
+      <div class="q-text">나인성 과부 — 정결법의 금기(관 접촉)를 넘어선 예수님의 행동은 오늘날 우리에게 어떤 도전을 주는가?</div>
+      <div class="q-point">
+        <strong>논점 A:</strong> 당시 종교적·문화적 금기를 넘어서는 것 — 오늘날 교회의 "건드리지 않는 영역"은 무엇인가?<br>
+        <strong>논점 B:</strong> σπλαγχνίζομαι (불쌍히 여김) → 즉각적 행동 — 감정이 행동을 촉발하는 구조<br>
+        <strong>논점 C:</strong> 사역자로서 "정결하게 유지"하려는 마음과 "소외된 자에게 다가가는 것" 사이의 긴장
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card">
+    <div class="q-num">5</div>
+    <div class="q-body">
+      <div class="q-text">누가복음의 독점 이야기들(사마리아인·삭개오·탕자·평지수훈)은 오늘날 "경계를 넘는 복음"의 모델로 어떻게 적용될 수 있는가?</div>
+      <div class="q-point">
+        <strong>논점 A:</strong> 선교학적 관점 — 사회적 마운틴(경계)을 사랑으로 넘어가는 것의 구체적 방법<br>
+        <strong>논점 B:</strong> 가난의 원인: 개인적 vs 사회구조적 → 복음이 사회 변화와 어떻게 연결되는가?<br>
+        <strong>논점 C:</strong> 청소년 사역 현장에서 누가복음의 "소외자 복음"을 어떻게 적용할 수 있는가?
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block block-theology">
+    <div class="block-label">🎯 토론 심화 — 누가복음의 독특성과 아름다움</div>
+    <p>파월은 누가복음을 "정서적으로는 영감 있고 미학적으로는 아름다운 내러티브"라 했습니다. 우리가 오늘 다룬 이야기들 중 <em class="gold">가장 마음에 남는 이야기는 무엇인가?</em> 왜 그 이야기가 마음에 와닿았는가? — 이것이 바로 누가의 팬이 다양한 이유입니다.</p>
+  </div>
+
+  <!-- TODAY'S CONCEPTS -->
+  <div class="today-card">
+    <div class="today-title">⭐ 오늘의 핵심 신학 개념 3가지</div>
+    <div class="today-concepts">
+      <div class="concept-chip">
+        소외자 복음
+        <span>누가복음 독점 이야기들의 일관된 주제<br>여성·세리·사마리아인·가난한 자</span>
+      </div>
+      <div class="concept-chip">
+        알레고리 해석
+        <span>오리겐→어거스틴 전통<br>은혜 vs 본문 맥락 상실의 긴장</span>
+      </div>
+      <div class="concept-chip">
+        예루살렘 신학
+        <span>시작·여정·완성의 구속사적 구조<br>누가-행전 2부작의 뼈대</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-havruta -->
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
