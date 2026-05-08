@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 9주차: 새로운 상황 (AD 175–313)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #14100a;
+  --card:      #1e1710;
+  --card2:     #261e14;
+  --card3:     #2e2418;
+  --gold:      #c4955a;
+  --gold2:     #d4a870;
+  --gold-dim:  #8a6535;
+  --text:      #f0ebe0;
+  --text2:     #a09070;
+  --text3:     #6b5a40;
+  --ox:        #7ab87a;
+  --ox-bg:     #1a2e1a;
+  --sa:        #7aaad4;
+  --sa-bg:     #1a2435;
+  --es:        #c49a3c;
+  --es-bg:     #2a2010;
+  --exam:      #c96b5a;
+  --exam-bg:   #2e1a16;
+  --border:    rgba(196,149,90,0.18);
+  --border2:   rgba(196,149,90,0.08);
+  /* era colors */
+  --apo:   #5b8dd9;
+  --cath:  #c96b5a;
+  --rom:   #c49a3c;
+  --med:   #8b6abf;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: linear-gradient(135deg, #0e0b06 0%, #1e1508 40%, #2a1c0a 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 28px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.header-left { display: flex; flex-direction: column; gap: 2px; }
+.header-course {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -.01em;
+}
+.header-latin {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: .03em;
+}
+.week-badge {
+  background: var(--gold);
+  color: #14100a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 61px;
+  z-index: 90;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 11px 22px;
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+  letter-spacing: .04em;
+}
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.tab-btn:hover:not(.active) { color: var(--text2); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── LAYOUT ── */
+.container { max-width: 900px; margin: 0 auto; padding: 28px 20px 60px; }
+
+/* ── SECTION HEADS ── */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 14px;
+}
+.sec-num {
+  background: var(--gold);
+  color: #14100a;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -.01em;
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+.sub-head {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold2);
+  margin: 20px 0 8px;
+  padding-left: 10px;
+  border-left: 3px solid var(--gold-dim);
+  letter-spacing: .03em;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.card2 {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+/* ── EVENT CARD ── */
+.event-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--gold2);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.event-year {
+  display: inline-block;
+  background: var(--gold2);
+  color: #14100a;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  font-family: 'Crimson Pro', serif;
+  letter-spacing: .04em;
+}
+.event-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.event-body { font-size: 12px; color: var(--text2); line-height: 1.65; }
+.event-body li { margin-left: 14px; margin-bottom: 2px; }
+.event-body strong { color: var(--text); font-weight: 600; }
+
+/* ── PERSON CARD ── */
+.person-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.person-head {
+  background: linear-gradient(135deg, var(--card2), var(--card3));
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.person-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.person-name-latin {
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text3);
+}
+.person-dates {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  color: var(--text3);
+}
+.person-body { padding: 14px 16px; }
+.person-section {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border2);
+}
+.person-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.person-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 5px;
+}
+.person-text { font-size: 12px; color: var(--text2); line-height: 1.65; }
+.person-text li { margin-left: 14px; margin-bottom: 2px; }
+.person-text strong { color: var(--text); font-weight: 600; }
+
+/* ── DOCTRINE CARD ── */
+.doctrine-card {
+  background: #1e1a14;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.doctrine-head {
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--card3), #1e1710);
+  border-bottom: 1px solid var(--border);
+}
+.doctrine-title { font-size: 13px; font-weight: 700; color: var(--gold); }
+.doctrine-sub { font-size: 11px; color: var(--text3); margin-top: 1px; font-family: 'Crimson Pro', serif; font-style: italic; }
+.doctrine-body { padding: 14px 16px; }
+.doctrine-debate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.debate-side {
+  background: var(--card);
+  border-radius: 6px;
+  padding: 10px 12px;
+  border-top: 2px solid;
+}
+.debate-side.a { border-top-color: var(--exam); }
+.debate-side.b { border-top-color: var(--sa); }
+.debate-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.debate-side.a .debate-label { color: var(--exam); }
+.debate-side.b .debate-label { color: var(--sa); }
+.debate-text { font-size: 11.5px; color: var(--text2); line-height: 1.6; }
+.debate-text li { margin-left: 12px; margin-bottom: 2px; }
+.doctrine-decision {
+  background: var(--card2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text2);
+}
+.doctrine-modern {
+  background: #ede8d014;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text2);
+}
+.doctrine-label-sm {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 4px;
+}
+
+/* ── PROFESSOR QUOTE ── */
+.prof-quote {
+  border-left: 2px solid var(--text3);
+  padding: 8px 14px;
+  margin: 10px 0;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  background: rgba(196,149,90,0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ── GROWTH REASONS ── */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+.reason-item {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.reason-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.reason-text { font-size: 11px; color: var(--text2); line-height: 1.5; }
+.reason-text strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 12px; }
+
+/* ── COMPARISON TABLE ── */
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.cmp-table thead tr { background: var(--card3); }
+.cmp-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border2);
+}
+.cmp-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.cmp-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.cmp-table td:first-child { color: var(--gold); font-weight: 600; font-size: 11px; }
+
+/* ── TAB 2: EXAM ── */
+.exam-section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 10px;
+}
+.exam-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.exam-badge.ox   { background: var(--ox-bg);   color: var(--ox);   border: 1px solid var(--ox); }
+.exam-badge.sa   { background: var(--sa-bg);   color: var(--sa);   border: 1px solid var(--sa); }
+.exam-badge.es   { background: var(--es-bg);   color: var(--es);   border: 1px solid var(--es); }
+.exam-badge.all  { background: var(--exam-bg); color: var(--exam); border: 1px solid var(--exam); }
+.exam-sec-title { font-size: 12px; font-weight: 700; color: var(--text2); }
+
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.q-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.q-head:hover { background: rgba(196,149,90,0.05); }
+.q-type {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  letter-spacing: .06em;
+}
+.q-type.ox  { background: var(--ox-bg);   color: var(--ox); }
+.q-type.sa  { background: var(--sa-bg);   color: var(--sa); }
+.q-type.es  { background: var(--es-bg);   color: var(--es); }
+.q-text { font-size: 12.5px; color: var(--text); flex: 1; line-height: 1.6; }
+.q-arrow {
+  font-size: 10px;
+  color: var(--text3);
+  flex-shrink: 0;
+  transition: transform .2s;
+  margin-top: 2px;
+}
+.q-card.open .q-arrow { transform: rotate(180deg); }
+.q-ans {
+  display: none;
+  padding: 0 14px 12px 44px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.q-card.open .q-ans { display: block; }
+.ans-ox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.ox-mark {
+  font-family: 'Crimson Pro', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+.ox-mark.o { color: var(--ox); }
+.ox-mark.x { color: var(--exam); }
+.ans-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 3px;
+}
+.ans-text { color: var(--text2); }
+.ans-text li { margin-left: 14px; margin-bottom: 2px; }
+.ans-guide {
+  color: var(--text3);
+  font-style: italic;
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+}
+
+/* ── TAB 3: TIMELINE ── */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold2), var(--gold-dim), transparent);
+}
+.tl-era {
+  margin-bottom: 6px;
+}
+.tl-era-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  position: relative;
+}
+.tl-era-head::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--bg);
+}
+.tl-era-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+.tl-era-range {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--text3);
+}
+
+.tl-item {
+  position: relative;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border-radius: 0 6px 6px 0;
+  border-left: 2px solid;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold2);
+}
+.tl-year {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold2);
+  margin-bottom: 2px;
+  letter-spacing: .04em;
+}
+.tl-event { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.tl-detail { font-size: 11px; color: var(--text2); line-height: 1.55; }
+.tl-persons { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.tl-person {
+  font-size: 10px;
+  background: var(--card2);
+  color: var(--gold-dim);
+  padding: 1px 7px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+}
+.tl-sig { font-size: 11px; color: var(--text3); font-style: italic; margin-top: 3px; font-family: 'Crimson Pro', serif; }
+
+/* era color variants */
+.era-apo .tl-era-head::before { border-color: var(--apo); }
+.era-apo .tl-era-label { background: rgba(91,141,217,.15); color: var(--apo); border: 1px solid rgba(91,141,217,.3); }
+.era-apo .tl-item { background: rgba(91,141,217,.05); border-left-color: var(--apo); }
+
+.era-cath .tl-era-head::before { border-color: var(--cath); }
+.era-cath .tl-era-label { background: rgba(201,107,90,.15); color: var(--cath); border: 1px solid rgba(201,107,90,.3); }
+.era-cath .tl-item { background: rgba(201,107,90,.05); border-left-color: var(--cath); }
+
+.era-rom .tl-era-head::before { border-color: var(--rom); }
+.era-rom .tl-era-label { background: rgba(196,154,60,.15); color: var(--rom); border: 1px solid rgba(196,154,60,.3); }
+.era-rom .tl-item { background: rgba(196,154,60,.05); border-left-color: var(--rom); }
+
+/* ── KEY POINTS ── */
+.key-points {
+  background: linear-gradient(135deg, #1e1a10, #261e10);
+  border: 1px solid var(--gold-dim);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-top: 28px;
+}
+.key-head {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.key-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.key-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.key-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+  flex-shrink: 0;
+  width: 20px;
+}
+.key-text { font-size: 12.5px; color: var(--text2); line-height: 1.65; }
+.key-text strong { color: var(--text); }
+
+/* ── INFO ROW ── */
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.info-pill {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  color: var(--text3);
+}
+.info-pill span { color: var(--text2); }
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; color: #111; }
+  .tab-bar, .site-header { position: static; }
+  .tab-content { display: block !important; }
+  .q-ans { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <div class="header-course">교회사개론 I · 61049 · 김태식 교수</div>
+    <div class="header-title">제3부 새로운 상황 (AD 175–313)</div>
+    <div class="header-latin">Nova Conditio — The Church Under Pressure and Growth</div>
+  </div>
+  <div class="week-badge">9주차 · 2026.05.01</div>
+</header>
+
+<!-- TAB BAR -->
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes',this)">📜 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('exam',this)">✍️ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline',this)">📅 연대기</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     TAB 1: 강의노트
+══════════════════════════════════════════════ -->
+<div id="tab-notes" class="tab-content active">
+<div class="container">
+
+  <div class="info-row">
+    <div class="info-pill">시기: <span>AD 175 ~ 313년</span></div>
+    <div class="info-pill">핵심어: <span>교회 성장 · 배교자 논쟁 · 신학자들</span></div>
+    <div class="info-pill">다음 주: <span>안디옥·알렉산드리아 학파 · 어거스틴</span></div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <div class="sec-title">교회 성공의 이유 — 기독교 급성장의 다섯 원인</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">AD 175–313 배경</div>
+    <div class="event-title">로마 제국의 내외적 혼란과 기독교 팽창</div>
+    <div class="event-body">
+      <ul>
+        <li><strong>이민족 침투:</strong> 프랑크족(236), 고트족(247~251), 사산조 페르시아(260~268)</li>
+        <li><strong>황제 권력 내분:</strong> 제국 내부 정변 — 30명이나 되는 황제 교체</li>
+        <li><strong>태양신 숭배:</strong> Commodus(182~192), Septimus Severus(193~211), Caracalla(211~218), Elagabalus(218~222), Aurelian(270~275) 황제들이 태양(Sol)을 최고신으로 확립. 오렐리우스부터 콘스탄티누스까지 모든 황제가 "정복되지 않는 태양"(Sol Invictus, unconquered sun)에게 충성 맹세</li>
+        <li><strong>철학적 도전:</strong> 플라톤 철학·신플라톤 철학(Plotinus, 205~270) 2세기 중·후반 유입 → 초기 기독교 신학에 영향</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    "로마 제국이 안으로는 황제 권력 다툼에 의해 혼돈에 빠지게 되고, 외부적으로는 여러 이민족들이 침투하면서 로마 제국 자체가 악화되는 상황이었습니다. 그러나 이런 여러 가지 어려움 가운데서도 기독교는 상당히 성장했습니다. 그 이유가 바로 일신론입니다."
+  </div>
+
+  <div class="reasons-grid">
+    <div class="reason-item">
+      <div class="reason-num">①</div>
+      <div class="reason-text"><strong>일신론의 호소력</strong>다신론의 분산된 신권에 비해 출생~죽음까지 관장하는 강력한 단일 신</div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">②</div>
+      <div class="reason-text"><strong>강한 도덕 기준</strong>그리스·로마 신들의 비윤리성과 대비되는 구약 율법의 도덕성</div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">③</div>
+      <div class="reason-text"><strong>죽음 이후의 약속</strong>어느 종교보다 명확한 내세관과 부활 신앙</div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">④</div>
+      <div class="reason-text"><strong>직접 체험 의식</strong>침례(세례)와 성만찬을 통한 실체적 안도감·소속감</div>
+    </div>
+    <div class="reason-item">
+      <div class="reason-num">⑤</div>
+      <div class="reason-text"><strong>계층 초월 포용</strong>남녀노소·빈부귀천 모두를 형제자매로 받아들임</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <div class="sec-title">기독교의 팽창 — 선교사들과 그들의 방법</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="card">
+    <div class="event-year">190년 이후 ~ 325년</div>
+    <div class="event-title" style="margin-bottom:8px;">지리적·조직적 팽창의 증거</div>
+    <div class="event-body">
+      <ul>
+        <li>감독 리스트 190년 이후 추적 가능 → 이미 각 도시에 감독이 존재했다는 증거</li>
+        <li>초대교회 역사가 유세비우스(Eusebius) 315년경 감독 취임</li>
+        <li>오리겐·판필루스(Pamphilus) 240~309년 활동</li>
+        <li><strong>325년 니케아 공의회:</strong> 팔레스타인 감독 15명 포함 광범위한 지역 감독들 참석 — 안디옥, 알렉산드리아, 에데사, 가파도기아, 아르메니아, 폰투스, 비투니아, 프리기아, 소아시아, 발칸반도, 이탈리아, 시실리, 독일, 영국제도, 스페인, 북아프리카, 카르타고, 이집트</li>
+        <li><strong>핍박 휴지기(203~250, 260~303):</strong> 교회 개척·예배·선교 급성장, 건물 건축 시작</li>
+        <li><strong>선교 담당자:</strong> 군인·선원·상인·여행자·순례자(itinerants)·나그네·예언자·교사들</li>
+        <li><strong>변증학교:</strong> 알렉산드리아의 클레멘트 — 부유하고 학식 있는 사람들에게 복음 가르침. 클레멘트 피신 후 오리겐이 17세에 계승</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="sec-head">
+    <span class="sec-num">03</span>
+    <div class="sec-title">핍박 중 배교자 논쟁 — 노바티안주의 분열</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    "핍박이 주어졌을 때 신앙을 저버린 사람들이 다시 교회 안으로 들어오려고 할 때 이 사람들을 어떻게 교회가 처리해야 될까가 문제가 됐습니다."
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">250년 데키우스(Decius) 박해 이후</div>
+    <div class="event-title">노바티안주의 분열 (Novatianist Schism)</div>
+    <div class="event-body">
+      <ul>
+        <li><strong>키프리안(Cyprian):</strong> 박해 중 피신 후 귀환 → "고문과 육체적 연약함(비자발적)으로 인해 배교한 자와 자발적으로 배교한 자를 구별하여 죄의 경중에 따라 차등 고행제도(penance) 후 수용"</li>
+        <li><strong>집사 펠리키시무스(Felicissimus) · 노바투스(Novatus):</strong> 다섯 명의 장로와 함께 키프리안이 안수받는 것에 반대 → 키프리안이 이들을 개인적으로 파문</li>
+        <li><strong>노바티안(Novatian):</strong> 로마교회에 나타나 "살인·간음·배교의 대죄를 지은 자들은 교회가 사할 수 있는 권한이 없다" (엄격주의)</li>
+        <li><strong>코넬리우스(Cornelius):</strong> "감독에게는 심각한 죄도 사해줄 수 있는 권한이 있다" → 다수의 지지로 감독직 취임</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-head">주요 회의 결과</div>
+  <div class="card2">
+    <div class="event-body">
+      <ul>
+        <li><strong>251년 5월 카르타고 1차 회의:</strong> 펠리키시무스와 다섯 장로 파문, 더 긴 고행과 핍박자들에게 형벌 가하기로 결정</li>
+        <li><strong>252년 카르타고 2차 회의:</strong> 진실로 참회한 자 즉각 수용 결의</li>
+        <li><strong>코넬리우스:</strong> 로마에서 60명의 감독들로 구성된 시노드(synod) 소집 → 카르타고 결정 확정, 노바티안과 추종자들 파문</li>
+        <li><strong>결과:</strong> 노바티안주의자들은 큰 세력 못 얻음, 그러나 6세기 이후에도 존속. 아리안 논쟁의 니케아신경 옹호론자들에 의해 주장 지지받음</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <div class="sec-title">재침례 논쟁 (The Rebaptismal Controversy)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">성례전의 효력 주체 논쟁</div>
+      <div class="doctrine-sub">"이단들에 의해 주어진 침례는 정당한가? — No bishop, no baptism!"</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doctrine-debate">
+        <div class="debate-side a">
+          <div class="debate-label">키프리안 측 (카르타고)</div>
+          <div class="debate-text">
+            <ul>
+              <li>성령은 오직 가톨릭 교회에만 존재</li>
+              <li>배교자·이단자의 성례는 무효</li>
+              <li>"감독이 없이는 침례도 없다"</li>
+              <li>재침례(rebaptism) 필요</li>
+              <li>카르타고·이코늄·시나다 회의에서 지지</li>
+            </ul>
+          </div>
+        </div>
+        <div class="debate-side b">
+          <div class="debate-label">스테파노(Stephen) 측 (로마)</div>
+          <div class="debate-text">
+            <ul>
+              <li>분파주의자·이단이든 삼위의 이름으로 행한 침례는 유효</li>
+              <li>집행자의 자격과 무관하게 효력 인정</li>
+              <li>키프리안을 "거짓 그리스도인, 거짓 사도"라 칭함</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="doctrine-decision">
+        <div class="doctrine-label-sm">최종 결론</div>
+        256년 9월 87명의 감독 회의: 재침례의 필요성에 만장일치 동의 (키프리안 측 승). 그러나 258년 9월 14일 키프리안은 발레리아누스 황제 치하에서 <strong>참수 순교</strong>. 키프리안의 견해는 아프리카에 남아 특히 도나투스주의자들 속에서 지속됨
+      </div>
+      <div class="doctrine-modern">
+        <div class="doctrine-label-sm">이후 어거스틴의 정리</div>
+        "주는 자의 자격과 무관, <strong>받는 자의 신앙 + 그리스도의 효력</strong>의 결합이 성례의 효력을 결정한다"
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="sec-head">
+    <span class="sec-num">05</span>
+    <div class="sec-title">도나투스주의 분열 (The Donatist Schism)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    "교회는 정말로 신앙 참된 신앙인들만 구성돼야 하는 것이냐 아니면 교회 안에는 알곡과 가라지가 동시에 있을 수 있느냐의 문제입니다. 신자 침례도 사실은 알곡들로만 구성된 교회를 사실은 희망하는 것이죠."
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">도나투스파 vs 어거스틴 — 교회 본질 논쟁</div>
+      <div class="doctrine-sub">교회 거룩성의 근거: 구성원의 순결 vs 그리스도의 임재</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doctrine-debate">
+        <div class="debate-side a">
+          <div class="debate-label">도나투스파 (엄격주의)</div>
+          <div class="debate-text">
+            <ul>
+              <li>교회는 순수한 성도(알곡)만으로 구성</li>
+              <li>성령이 이미 죄인들에게서 떠났다</li>
+              <li>그들의 모든 의식은 무효</li>
+              <li>세속 권력의 교회 간섭 거부</li>
+              <li>자신들만이 "순수한 교회"</li>
+              <li>침례에 의한 중생 인정, 유아침례 시행</li>
+            </ul>
+          </div>
+        </div>
+        <div class="debate-side b">
+          <div class="debate-label">어거스틴 (관용주의)</div>
+          <div class="debate-text">
+            <ul>
+              <li>교회 안에 알곡과 가라지 공존 가능</li>
+              <li>교회 거룩성은 그리스도의 임재에 달림</li>
+              <li>성례전 효력은 집행자가 아닌 그리스도에게 있음</li>
+              <li>구원의 효력은 받는 자의 믿음에 있음</li>
+              <li>406년 이후: 강압도 사용 가능하다 주장</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="doctrine-decision">
+        <div class="doctrine-label-sm">전개 · 결과</div>
+        316년: 도나투스가 카르타고 강경파 감독으로 추대 → 카르타고에 감독 두 명 공존 → 북아프리카 교회 약 100년간 내분. 콘스탄티누스: 처음 이단 규정·박해 → 321년 태도 전환, 완전한 신앙·예배 자유(주일 칙령) 부여
+      </div>
+      <div class="doctrine-modern">
+        <div class="doctrine-label-sm">역사적 영향</div>
+        어거스틴의 강압 사용 논리(406년~) → 중세 종교재판(inquisitions)·십자군(crusades)의 이론적 근거가 됨. 어거스틴 시대 전까지 도나투스주의자들은 북아프리카 교회 지배권을 놓고 가톨릭 교회와 경쟁
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="sec-head">
+    <span class="sec-num">06</span>
+    <div class="sec-title">수도원 운동의 태동</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">271년경</div>
+    <div class="event-title">기독교 영성과 삶의 새로운 형태 — 은둔 운동</div>
+    <div class="event-body">
+      <ul>
+        <li><strong>배경:</strong> 순교자들의 영향 + 교회 공인 이후 비대화·재정 축적·정치적 야망 가진 자들의 유입 → 교회 세속화 반발</li>
+        <li><strong>안토니(Anthony):</strong> 271년 영적 순례를 위해 사막으로 도피 — 대표적 은둔자로 알려짐</li>
+        <li><strong>의의:</strong> 순교 정신의 은둔적 계승 → 수도원(修道院) 운동으로 발전</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="sec-head">
+    <span class="sec-num">07</span>
+    <div class="sec-title">이 시기의 주요 학자들</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- 터툴리안 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">터툴리안 <span class="person-name-latin">Quintus Septimius Florens Tertullianus</span></div>
+      </div>
+      <div class="person-dates">약 155~230년</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경</div>
+        <div class="person-text">
+          <ul>
+            <li>북아프리카 카르타고의 비기독교 가정 출생, 아버지는 총독관저의 백부장</li>
+            <li>법률 공부하여 변호사 지망 → 195년 순교자들의 순교 모습에 감동받아 개종</li>
+            <li>초대교회 교부이자 평신도 신학자</li>
+            <li>206년경 몬타니즘에 잠시 가담</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">역사적 공헌</div>
+        <div class="person-text">
+          <ul>
+            <li><strong>교회사 최초 라틴어 신학 저술</strong> → 서방 신학 언어 체계 정립</li>
+            <li><strong>삼위일체(Trinitas) 용어 최초 사용</strong>, 라틴어 신앙 용어 982개 창안</li>
+            <li>오리겐과 함께 2~3세기 가장 뛰어난 기독교 저술가·신학자</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">삼위일체론 정립</div>
+        <div class="person-text">
+          <ul>
+            <li><strong>본질(substantia):</strong> '물질'이 아닌 '소유권/세력'의 의미</li>
+            <li><strong>위(persona):</strong> '사람'이 아닌 '법적 행동을 취하는 당사자'의 의미 — "내가 아버지로서 행동하느냐, 교수로서 행동하느냐"</li>
+            <li>→ 세 당사자(성부·성자·성령)가 하나의 소유권(본질, 곧 신적 주권)을 공유</li>
+            <li>원죄 사상: 아담의 죄가 유전 형질처럼 후손에게 전달 (서방 신학 유입, 동방교회 영향 없음)</li>
+            <li>"모든 신자는 다 사제, 교회란 성도가 스스로 다스리는 곳"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">주요 주장</div>
+        <div class="person-text">
+          <ul>
+            <li>"순교자들의 피는 교회의 씨앗이다" / "박해는 그리스도인의 무죄를 변증한다"</li>
+            <li>"아테네와 예루살렘 사이에 무슨 공통점이 있단 말이냐?" (헬라 철학 혼합 반대)</li>
+            <li>"하나님의 아들이 죽으셨다는 사실은 어리석기 때문에 믿을 만하다. 묻히신 분이 부활하셨다는 사실은 불가능하기 때문에 확실하다." (역설의 신앙)</li>
+            <li>"믿기 위하여 탐구하고, 그리고 멈춰라"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">저서</div>
+        <div class="person-text">변증서, 프락세아스에 대하여(삼위일체 주장), 마르시온에 대하여, 그리스도의 육신론, 우상숭배론, 회개, 겸손, 호교서, 이단 규정, 부인에게 등 다수 현존</div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">한계</div>
+        <div class="person-text">몬타니즘 가담으로 주류 교회와 결별, 지나친 엄격성</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    "터툴리안의 THM 논문을 쓴 적 있는데, 한 줄 한 줄이 다 다른 사람의 어떤 사상을 다 담은 것이거든요. 그 시기에 이렇게 많은 책들을 섭렵하고 이러한 사상들을 이렇게 쓸 수 있다는 것이 정말 대단하지 않을 수 없습니다."
+  </div>
+
+  <!-- 클레멘트 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">클레멘트 <span class="person-name-latin">Clement of Alexandria</span></div>
+      </div>
+      <div class="person-dates">약 150~215년</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경</div>
+        <div class="person-text">알렉산드리아 출신, 철학 공부 후 성인 때 개종. 오리겐과 함께 신앙과 철학 양자 조화 추구. 박해 시 알렉산드리아로 피신하며 오리겐에게 학교 위임</div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">신학 입장</div>
+        <div class="person-text">
+          <ul>
+            <li>"그리스 철학과 유대의 전통은 그리스도를 안내했던 몽학 선생이었다" → 철학은 기독교를 위한 예비 단계</li>
+            <li>신앙과 지성적 지성이 우월 (영지주의의 거짓 지성을 기독교 진실한 지성으로 대체)</li>
+            <li>로고스 강조: "하나님은 창조물 속에 진리의 씨앗들을 심어 주셨다"</li>
+            <li>성경을 알레고리(풍유적) 해석</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">공헌 · 저서</div>
+        <div class="person-text">가장 오래된 찬송가인 "선한 목자" 작사자로 알려짐. 저서: 헬라인들에 대한 설교, 가정교사, 잡록(Stromata). 클레멘트의 사상 체계는 오리겐에 의해 더 널리 알려짐</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오리겐 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">오리겐 <span class="person-name-latin">Origen</span></div>
+      </div>
+      <div class="person-dates">185~254년</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경</div>
+        <div class="person-text">
+          <ul>
+            <li>185년 이집트 알렉산드리아 출생. 202년 부친 레오니데스(Leonides) 순교 → "가족을 위해 그리스도를 부인하지 말라" 편지로 용기 북돋움</li>
+            <li>자신도 순교 시도했으나 어머니가 옷을 감춰 실패 → 일곱 형제자매 부양 (세속 장서들을 팔아 생활)</li>
+            <li>금욕적 삶: 옷 한 벌, 신발 없이 생활. <strong>스스로 거세</strong></li>
+            <li>203년(18세) 클레멘트의 교리문답 학교 계승. 232년 가이사라(Caesarea) 이주</li>
+            <li>215~220년 출판 시작 — 부유한 친구 덕에 7명의 속기사 고용, 2천여 편 이상 저술</li>
+            <li>250년 데키우스 황제의 투옥·고문, 254년 고문 후유증으로 69세 별세</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">주요 공헌 — 헥사플라 (Hexapla)</div>
+        <div class="person-text">
+          <ul>
+            <li>히브리어 원문 + 히브리어 본문의 그리스어 음역 + 아킬라역 + 심마쿠스역 + 70인역 + 테오도티온 개정본 — <strong>6종 병렬 대역 성경</strong> 편찬</li>
+            <li>600년대까지 원본 존재, 현재 단편만 남음</li>
+            <li>구약 각 권 수십 권의 주석 + 수백 편 설교 추가</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">신학 입장</div>
+        <div class="person-text">
+          <ul>
+            <li>풍유적 해석: 문자적 → 도덕적 → 영적(알레고리) 해석</li>
+            <li>영혼 선재설: 전생의 행위에 따라 현세 상태 결정</li>
+            <li>육체 부활 부인</li>
+            <li>성부 하나님은 저속한 세계와 직접 접촉 불가 → 영원하신 아들이 대신 세상 창조 (플라톤주의 영향)</li>
+            <li><strong>만인구원설:</strong> 모든 피조물이 언젠가 하나님과 화해 (사탄도 포함) → "지옥은 텅 비게 될 것"</li>
+            <li>"헬라인을 구하기 위해서는 헬라인이 되어야 한다"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">영향 · 평가</div>
+        <div class="person-text">
+          <ul>
+            <li>5세기 모든 유명 신학자들이 오리겐의 영향을 절대적으로 받음: Athanasius, Basil, Gregory of Nazianzus, Gregory of Nyssa, Didymus the Blind, Hilary of Potiers, Ambrose, Jerome, Rufinus</li>
+            <li>저서: 제일 원리(De Principiis — 최초의 조직신학), 헥사플라, 켈수스에 반대하여</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">한계 · 정죄</div>
+        <div class="person-text">
+          <ul>
+            <li>알렉산드리아 주교 데메트리우스(Demetrius)에 의해 파면, 로마 포함 서방 교회 전체 파면 수용 (동방 교회 대부분은 반대)</li>
+            <li>5세기 초 비판 시작 → 553년 동방의 콘스탄티노플 공의회에서 정죄</li>
+            <li>서방에서는 13세기까지 계속 연구됨</li>
+            <li><strong>"정통 신학의 아버지"</strong> vs <strong>"이단의 아버지"</strong> 두 평가 공존</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    "제롬이라는 사람의 말에 따르면 어떤 사람이 한평생 읽어도 못다 읽을 만큼 많은 책들을 저술했다고 합니다. 부유한 친구 덕에 일곱 명의 속기사들을 고용할 수가 있었습니다."
+  </div>
+
+  <!-- 힙폴리투스 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">힙폴리투스 <span class="person-name-latin">Hippolytus</span></div>
+      </div>
+      <div class="person-dates">약 170년 이전 ~ 235년경</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경 · 신학</div>
+        <div class="person-text">
+          <ul>
+            <li>그리스 동쪽 출신. 빅토르(Victor, 189~198) 하에서 장로로 임명</li>
+            <li>이레네우스의 영향을 받아 <strong>로고스 신학</strong>의 강력한 주창자</li>
+            <li>노에투스·사벨리우스·클레오메네스의 <strong>양태론(modalism)</strong> 비판</li>
+            <li>로고스는 성부께 종속</li>
+            <li>"만약 하나님이 원하시면, 그분은 인간을 하나님으로 만드실 수 있다"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">저서</div>
+        <div class="person-text">The Philosophumena, Refutation of All Heresies, The Chronicles, The Apostolic Tradition</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 노바티안 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">노바티안 <span class="person-name-latin">Novatian</span></div>
+      </div>
+      <div class="person-dates">251년경 독립</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경 · 신학</div>
+        <div class="person-text">
+          <ul>
+            <li>251년 가톨릭 교회에서 물러나 독립 교회 구성</li>
+            <li>터툴리안 이후 라틴어로 저술한 중요한 신학자</li>
+            <li>마르키온·가현설주의자·양자주의자·양태론주의자 비판</li>
+            <li>터툴리안과 같이 종교적 엄격함 유지</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">저서</div>
+        <div class="person-text">The Trinity, Jewish Foods, The Shows, The Good of Modesty (터툴리안·키프리안의 글을 통해 알려짐)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 키프리안 -->
+  <div class="person-card">
+    <div class="person-head">
+      <div>
+        <div class="person-name">키프리안 <span class="person-name-latin">Cyprian</span></div>
+      </div>
+      <div class="person-dates">약 200~258년</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">배경</div>
+        <div class="person-text">
+          <ul>
+            <li>터툴리안과 오리겐의 영향. 카르타고 출생, 부유한 부모 밑에서 수사학자·법률가로 성장</li>
+            <li>245년경 회심, 248/249년 카르타고 주교. 데키우스 박해 시 피신</li>
+            <li>258년 9월 14일 발레리아누스 황제 치하에서 참수 순교</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">핵심 신학 주장</div>
+        <div class="person-text">
+          <ul>
+            <li>"교회는 하나이며 보편적이다(The Church is both one and universal)" — 세우신 분이 하나이기 때문</li>
+            <li>베드로의 우월성(The Unity of the Church에서) — 교황제 신학의 기초</li>
+            <li>구원은 그리스도의 신부인 교회에만 의존</li>
+            <li><strong>"교회 밖에는 구원이 없다(Extra ecclesiam nulla salus)"</strong></li>
+            <li><strong>"감독이 없이는 침례도 없다(No bishop, no baptism!)"</strong></li>
+            <li>침례·성찬식·안수와 같은 성례전들은 오직 교회에서만, 감독들에 의해서만 시행</li>
+          </ul>
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">역사적 의의 · 한계</div>
+        <div class="person-text">교회 통일성·보편성 신학 정립. 재침례 주장과 도나투스 논쟁의 씨앗 제공</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY POINTS -->
+  <div class="key-points">
+    <div class="key-head">오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="key-item">
+      <div class="key-num">1</div>
+      <div class="key-text"><strong>로마 제국의 혼란이 기독교 성장의 토양이 됐다.</strong> 이민족 침투·황제 내분·태양신 숭배라는 내외적 위기 속에서, 일신론의 강력한 호소력·도덕 기준·내세관·의식·계층 초월 포용이라는 다섯 가지 요인이 기독교를 제국 전역의 종교로 성장시켰다.</div>
+    </div>
+    <div class="key-item">
+      <div class="key-num">2</div>
+      <div class="key-text"><strong>박해기 배교자 논쟁은 교회의 본질과 성례 신학의 핵심 논쟁이었다.</strong> 노바티안 논쟁·재침례 논쟁·도나투스 분열은 단순한 권징 문제를 넘어 "교회 거룩성의 근거는 구성원인가 그리스도인가", "성례 효력의 주체는 집행자인가 그리스도인가"를 다룬 신학적 논쟁이었다. 어거스틴의 강압 논리는 중세 종교재판·십자군의 이론적 선례가 됐다.</div>
+    </div>
+    <div class="key-item">
+      <div class="key-num">3</div>
+      <div class="key-text"><strong>터툴리안·클레멘트·오리겐·힙폴리투스·키프리안은 서방·동방 신학의 기초를 형성했다.</strong> 터툴리안은 삼위일체 언어를, 클레멘트·오리겐은 헬레니즘-기독교 조화 시도를, 힙폴리투스는 로고스 신학을, 키프리안은 교회 통일성 신학을 정립했다. 오리겐의 경우 "정통 신학의 아버지"와 "이단의 아버지"라는 상반된 평가가 공존한다.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 2: 핵심정리
+══════════════════════════════════════════════ -->
+<div id="tab-exam" class="tab-content">
+<div class="container">
+
+  <!-- OX -->
+  <div class="exam-section-head">
+    <span class="exam-badge ox">OX 문제</span>
+    <span class="exam-sec-title">정답 클릭하여 확인</span>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">로마 제국 시대 기독교 성장의 주요 원인 중 하나는 다신론보다 강력한 도덕 기준이었다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark o">O</span><span class="ans-text">정답: O</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">그리스·로마 신들은 비윤리적 행동(살인, 불륜, 다툼 등)을 보였으나, 기독교는 구약 율법에 기초한 강한 도덕 기준을 제시했다. 이것이 다신론 세계 속에서 기독교의 강력한 호소력 중 하나였다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">노바티안은 배교자를 회개 후 교회가 수용해야 한다고 주장했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark x">X</span><span class="ans-text">정답: X</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">노바티안은 살인·간음·배교의 대죄를 지은 자는 교회가 용서할 권한이 없다는 엄격주의 입장을 취했다. 배교자 수용을 주장한 것은 코넬리우스와 키프리안 측이었다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">키프리안은 이단자가 삼위일체의 이름으로 베푼 침례도 유효하다고 주장했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark x">X</span><span class="ans-text">정답: X</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">키프리안은 성령이 가톨릭 교회 안에만 계시므로 이단자의 침례는 무효이며 재침례가 필요하다고 주장했다. 삼위의 이름으로 행한 침례는 집행자와 무관하게 유효하다고 주장한 것은 로마 감독 스테파노(Stephen)였다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">터툴리안은 라틴어로 최초로 신학을 저술하고 삼위일체(Trinitas) 용어를 최초로 사용했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark o">O</span><span class="ans-text">정답: O</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">터툴리안은 982개의 라틴어 신앙 용어를 창안하고 삼위일체(Trinitas) 용어를 신학에 처음 사용한 서방 신학의 선구자다. 오리겐과 함께 2~3세기 가장 뛰어난 기독교 저술가로 평가받는다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">어거스틴은 도나투스파와 마찬가지로 교회는 순수한 성도만으로 구성되어야 한다고 주장했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark x">X</span><span class="ans-text">정답: X</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">어거스틴은 교회 안에 알곡과 가라지가 공존할 수 있으며, 교회의 거룩성은 그리스도께서 그 안에 계심에 달려 있다고 주장했다. 순수한 성도만의 교회를 주장한 것은 도나투스파였다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">오리겐은 모든 피조물이 결국 하나님과 화해한다는 만인구원설을 주장하여 파문당했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark o">O</span><span class="ans-text">정답: O</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">사탄까지 구원받는다는 오리겐의 만인구원설은 알렉산드리아 주교 데메트리우스에 의해 파면되었고 서방 교회 전체가 이를 수용했다. 5세기 초 비판 시작, 553년 동방의 콘스탄티노플 공의회에서 정죄.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">힙폴리투스는 양태론(modalism)을 지지했다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark x">X</span><span class="ans-text">정답: X</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">힙폴리투스는 노에투스·사벨리우스·클레오메네스의 양태론을 강력히 비판하며 로고스 신학을 주창했다. 이레네우스의 영향을 받아 로고스는 성부께 종속된다고 보았다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">오리겐의 헥사플라 원본은 오늘날 완전한 형태로 보존되어 있다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark x">X</span><span class="ans-text">정답: X</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">헥사플라 원본은 600년대까지 존재했으나 오늘날은 단편만 남아 있다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type ox">OX</span>
+      <span class="q-text">도나투스 논쟁에서 어거스틴의 강압 사용 논리는 이후 중세 종교재판과 십자군의 이론적 근거가 되었다.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-ox"><span class="ox-mark o">O</span><span class="ans-text">정답: O</span></div>
+      <div class="ans-label">해설</div>
+      <div class="ans-text">406년 이후 어거스틴은 의견을 달리하는 자들을 회유하기 위해 강압도 사용 가능하다고 주장했으며, 이것이 중세 신문(inquisitions)과 십자군(crusades)의 이론적 근거가 되었다.</div>
+    </div>
+  </div>
+
+  <!-- 단답 -->
+  <div class="exam-section-head" style="margin-top: 28px;">
+    <span class="exam-badge sa">단답 문제</span>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">초대교회가 로마 제국 하에서 급성장한 다섯 가지 원인을 간략히 나열하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">① 일신론의 강력한 호소력 ② 강한 도덕적 가르침 ③ 죽음 이후 삶의 약속 ④ 침례·성만찬 등 직접 체험할 수 있는 의식 ⑤ 신분·성별·계층을 초월한 포용</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">도나투스 논쟁에서 어거스틴이 주장한 교회 거룩성의 근거는 무엇인가?</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">교회의 거룩성은 구성원의 거룩성이 아니라 그리스도께서 교회 안에 계신가 여부에 달려 있다. 성례전의 효력도 집행자가 아닌 그리스도에게 있으며, 구원의 효력은 받는 자의 믿음에 있다.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">터툴리안이 정립한 삼위일체에서 '본질(substantia)'과 '위(persona)'의 의미를 각각 설명하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">본질(substantia): '물질'이 아닌 '소유권' 혹은 '세력'의 의미 — 세 위격이 하나의 신적 주권을 공유함. 위(persona): '사람'이 아닌 '법적 행동을 취하는 당사자'의 의미 — 아버지로서·교수로서 행동하는 방식처럼 행동의 당사자를 뜻함.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">오리겐이 편찬한 헥사플라(Hexapla)에 포함된 여섯 가지 본문을 나열하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">① 히브리어 원문 ② 히브리어 본문의 그리스어 음역 ③ 아킬라역 ④ 심마쿠스역 ⑤ 70인역(七十人譯) ⑥ 테오도티온 개정본</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">키프리안의 교회론에서 가장 유명한 두 가지 명제(라틴어 포함)를 쓰시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">① "교회 밖에는 구원이 없다(Extra ecclesiam nulla salus)" ② "감독이 없이는 침례도 없다(No bishop, no baptism!)"</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type sa">단답</span>
+      <span class="q-text">수도원 운동이 이 시기에 등장한 배경을 두 가지로 설명하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">정답</div>
+      <div class="ans-text">① 순교자들의 영향 — 순교 정신을 은둔적 방식으로 계승하려는 운동. ② 교회 공인 이후 비대화·재정 축적·정치적 야망을 가진 자들의 유입으로 인한 교회 세속화에 대한 반발.</div>
+    </div>
+  </div>
+
+  <!-- 약술 -->
+  <div class="exam-section-head" style="margin-top: 28px;">
+    <span class="exam-badge es">약술 문제</span>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type es">약술</span>
+      <span class="q-text">도나투스 논쟁에서 도나투스파와 어거스틴의 교회론 차이를 비교 설명하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">모범 답안 틀</div>
+      <div class="ans-text">
+        <ul>
+          <li>① <strong>도나투스파의 입장:</strong> 교회는 순수한 성도(알곡)만으로 구성되어야 하며, 배교자·죄인을 포함한 교회는 참 교회가 아님. 성령이 이미 죄인에게서 떠났으므로 그들의 성례는 무효. 세속 권력의 교회 간섭 거부.</li>
+          <li>② <strong>어거스틴의 입장:</strong> 교회 안에는 알곡과 가라지가 공존할 수 있음. 인간이 누가 알곡인지 판단할 수 없기 때문. 교회의 거룩성은 구성원이 아닌 그리스도의 임재에서 비롯됨.</li>
+          <li>③ <strong>성례 효력 문제:</strong> 어거스틴은 성령의 효력이 집행자가 아닌 그리스도께 있으며, 구원의 효력은 받는 자의 믿음에 있다고 주장.</li>
+          <li>④ <strong>역사적 영향:</strong> 어거스틴의 강압 사용 논리(406년~) → 중세 종교재판(inquisitions)·십자군(crusades)의 이론적 선례. 침례교 신자침례론과 도나투스파 교회론의 연결점 — 신앙고백자 중심 교회론의 역사적 뿌리.</li>
+        </ul>
+      </div>
+      <div class="ans-guide">※ 서술 시: 두 입장 대비 → 성례론 연결 → 역사적 영향 순으로 전개할 것</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type es">약술</span>
+      <span class="q-text">터툴리안과 오리겐의 헬라 철학에 대한 태도를 비교하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">모범 답안 틀</div>
+      <div class="ans-text">
+        <ul>
+          <li>① <strong>터툴리안 (반헬레니즘):</strong> 기독교와 헬라 철학의 혼합에 강력 반대. "아테네와 예루살렘이 무슨 관계가 있느냐?" 철학은 기독교를 오염시킨다. "믿기 위하여 탐구하고, 그리고 멈춰라." 역설의 신앙 강조.</li>
+          <li>② <strong>오리겐 (친헬레니즘):</strong> 플라톤주의를 수용하여 기독교 신학과 조화 시도. 영혼 선재설·육체 부활 부인 등에 플라톤 철학이 깊이 반영. "헬라인을 구하기 위해서는 헬라인이 되어야 한다."</li>
+          <li>③ <strong>결과:</strong> 터툴리안 노선 → 신앙의 순수성·서방 신학 언어 정립. 오리겐 노선 → 신학의 지적 체계화에 기여하나 만인구원설 등 이단 정죄라는 한계도 낳음.</li>
+        </ul>
+      </div>
+      <div class="ans-guide">※ 두 인물의 입장 대비 → 각 결과의 교회사적 의미 연결</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggleQ(this)">
+    <div class="q-head">
+      <span class="q-type es">약술</span>
+      <span class="q-text">오리겐에 대한 두 가지 상반된 평가("정통 신학의 아버지" / "이단의 아버지")의 근거를 설명하시오.</span>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-ans">
+      <div class="ans-label">모범 답안 틀</div>
+      <div class="ans-text">
+        <ul>
+          <li>① <strong>"정통 신학의 아버지":</strong> 헥사플라 편찬(6종 병렬 대역 성경), 2천여 편 이상 저술, 구약 전권 주석, 최초의 조직신학적 저술(제일 원리), 5세기 모든 주요 신학자(아타나시우스·바실·그레고리 등)에게 절대적 영향.</li>
+          <li>② <strong>"이단의 아버지":</strong> 만인구원설(사탄 포함), 육체 부활 부인, 영혼 선재설, 플라톤 철학의 과도한 수용 → 알렉산드리아 주교 데메트리우스에 의해 파면, 서방 교회 전체 수용. 553년 동방 공의회에서도 정죄.</li>
+          <li>③ <strong>평가:</strong> 방대한 학문적 공헌과 신학적 일탈이 공존하는 복합적 인물. 오늘날 오리겐과 어거스틴이 교회 교부들의 중심으로 함께 연구됨.</li>
+        </ul>
+      </div>
+      <div class="ans-guide">※ 공헌 → 한계 → 종합 평가 순서로 균형 있게 서술</div>
+    </div>
+  </div>
+
+  <!-- 인물 비교표 -->
+  <div class="exam-section-head" style="margin-top: 28px;">
+    <span class="exam-badge all">인물 비교표</span>
+    <span class="exam-sec-title">이 시기의 주요 학자들</span>
+  </div>
+
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>인물</th>
+        <th>연도</th>
+        <th>핵심 기여</th>
+        <th>신학 특징</th>
+        <th>한계·논쟁점</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>터툴리안</td>
+        <td>155~230</td>
+        <td>삼위일체(Trinitas) 최초 사용, 라틴어 신학 982개 용어 창안, 최초 라틴어 신학 저술</td>
+        <td>헬라 철학 혼합 강력 반대, 역설의 신앙, 원죄론 서방 유입</td>
+        <td>몬타니즘 가담, 지나친 엄격성</td>
+      </tr>
+      <tr>
+        <td>클레멘트</td>
+        <td>150~215</td>
+        <td>알렉산드리아 학파 기초, "선한 목자" 찬송가 작사</td>
+        <td>철학=기독교 몽학 선생, 로고스 강조, 알레고리 해석</td>
+        <td>업적이 오리겐에 의해 가려짐</td>
+      </tr>
+      <tr>
+        <td>오리겐</td>
+        <td>185~254</td>
+        <td>헥사플라 편찬, 2천여 편 저술, 최초 조직신학(제일 원리), 5세기 신학자 전체에 절대적 영향</td>
+        <td>헬레니즘-기독교 조화, 알레고리 해석, "헬라인이 되어야"</td>
+        <td>만인구원설·육체부활 부인·영혼선재설 → 파문·정죄</td>
+      </tr>
+      <tr>
+        <td>힙폴리투스</td>
+        <td>~170 이전</td>
+        <td>로고스 신학 주창, Apostolic Tradition 저술</td>
+        <td>양태론 비판, 로고스는 성부께 종속</td>
+        <td>종속론적 성자론</td>
+      </tr>
+      <tr>
+        <td>노바티안</td>
+        <td>251년경 독립</td>
+        <td>라틴어 신학 저술 지속 (터툴리안 이후)</td>
+        <td>엄격주의, 배교자 절대 수용 불가</td>
+        <td>독립 교회 구성, 소수파로 전락</td>
+      </tr>
+      <tr>
+        <td>키프리안</td>
+        <td>200~258</td>
+        <td>교회 통일성·보편성 신학 정립, 카르타고 공의회 주도</td>
+        <td>Extra ecclesiam nulla salus, 교황제 기초, 재침례 주장</td>
+        <td>박해 시 피신 논란, 도나투스 분열의 씨앗 제공</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 3: 연대기
+══════════════════════════════════════════════ -->
+<div id="tab-timeline" class="tab-content">
+<div class="container">
+
+  <div style="font-size:11px;color:var(--text3);margin-bottom:20px;font-family:'Crimson Pro',serif;font-style:italic;">
+    * 이 타임라인은 매 주차마다 항목이 누적됩니다. 기말고사 전에 학기 전체 흐름을 한눈에 볼 수 있도록 설계되었습니다.
+  </div>
+
+  <div class="timeline">
+
+    <!-- 가톨릭 기독교시대 (연속) -->
+    <div class="tl-era era-cath">
+      <div class="tl-era-head">
+        <span class="tl-era-label">⛪ 가톨릭 기독교시대</span>
+        <span class="tl-era-range">100 AD – 313 AD</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 155~230</div>
+        <div class="tl-event">터툴리안 활동 — 삼위일체(Trinitas) 최초 사용</div>
+        <div class="tl-detail">라틴어 신앙 용어 982개 창안. 교회사 최초 라틴어 신학 저술. 서방 신학 언어의 기초 정립.</div>
+        <div class="tl-persons"><span class="tl-person">터툴리안</span></div>
+        <div class="tl-sig">서방 신학의 언어를 만든 인물</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 175~313</div>
+        <div class="tl-event">새로운 상황 — 로마 제국 혼란 속 기독교 급성장</div>
+        <div class="tl-detail">이민족 침투(프랑크족 236, 고트족 247~251, 사산조 페르시아 260~268). 태양신(Sol Invictus) 숭배. 그러나 일신론·도덕 기준·내세관·의식·계층 초월 포용이라는 다섯 가지 요인으로 급성장.</div>
+        <div class="tl-sig">로마 제국의 위기가 역설적으로 기독교 성장의 토양이 됨</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 203~250 / 260~303</div>
+        <div class="tl-event">박해 휴지기 — 교회 급성장 및 건물 건축</div>
+        <div class="tl-detail">핍박이 그친 시기에 교회 개척·예배·선교 급성장. 감독 리스트 190년 이후 추적 가능. 안디옥, 알렉산드리아, 카르타고, 이집트, 영국제도 등 제국 전역으로 확산.</div>
+        <div class="tl-persons"><span class="tl-person">유세비우스</span><span class="tl-person">오리겐</span><span class="tl-person">판필루스</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 185~254</div>
+        <div class="tl-event">오리겐 활동 — 헥사플라 편찬 / 조직신학의 기초</div>
+        <div class="tl-detail">18세(203년) 교리문답 학교 계승. 232년 가이사라 이주. 2천여 편 이상 저술. 헥사플라(히브리어+그리스어 6종 병렬 대역 성경) 편찬. 만인구원설·영혼선재설로 파문. 553년 동방 공의회에서 정죄.</div>
+        <div class="tl-persons"><span class="tl-person">오리겐</span></div>
+        <div class="tl-sig">"정통 신학의 아버지" vs "이단의 아버지" 두 평가 공존</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 250년 이후</div>
+        <div class="tl-event">노바티안주의 분열 (Novatianist Schism)</div>
+        <div class="tl-detail">데키우스 박해(250년) → 배교자 대량 발생 → 재수용 여부 논쟁. 엄격주의(노바티안) vs 관용주의(코넬리우스·키프리안). 251년 카르타고 1차 회의: 고행 후 수용 결정. 코넬리우스 감독 취임, 노바티안 파문.</div>
+        <div class="tl-persons"><span class="tl-person">노바티안</span><span class="tl-person">코넬리우스</span><span class="tl-person">키프리안</span></div>
+        <div class="tl-sig">교회 권징의 범위·용서의 한계에 관한 최초의 본격 신학 논쟁</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 255~256년</div>
+        <div class="tl-event">재침례 논쟁 (Rebaptismal Controversy)</div>
+        <div class="tl-detail">이단자·배교자가 베푼 침례의 유효성 논쟁. 키프리안: "감독이 없이는 침례도 없다(No bishop, no baptism!)" 재침례 필요. 스테파노: 삼위의 이름으로 행한 침례는 집행자와 무관하게 유효. 256년 87명 감독 회의: 재침례 필요성 동의.</div>
+        <div class="tl-persons"><span class="tl-person">키프리안</span><span class="tl-person">스테파노</span></div>
+        <div class="tl-sig">성례 효력의 주체 논쟁 — 이후 어거스틴의 정리로 연결</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 258년 9월 14일</div>
+        <div class="tl-event">키프리안 순교</div>
+        <div class="tl-detail">발레리아누스(Valerianus) 황제 치하에서 참수. 키프리안의 재침례 견해는 아프리카에 남아 도나투스주의자들 속에서 지속됨.</div>
+        <div class="tl-persons"><span class="tl-person">키프리안</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 271년경</div>
+        <div class="tl-event">수도원 운동 태동 — 안토니, 사막으로 도피</div>
+        <div class="tl-detail">순교자 정신의 은둔적 계승. 교회 세속화 반발. 안토니(Anthony)가 영적 순례를 위해 사막으로 도피 — 대표적 은둔자. 수도원(修道院) 운동으로 발전.</div>
+        <div class="tl-persons"><span class="tl-person">안토니</span></div>
+        <div class="tl-sig">교회 세속화에 대한 영적 저항 운동</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">AD 316년 ~ 321년</div>
+        <div class="tl-event">도나투스주의 분열 (Donatist Schism)</div>
+        <div class="tl-detail">디오클레티안 박해 때 시작. 316년: 도나투스가 카르타고 강경파 감독으로 추대 → 카르타고에 감독 두 명 공존, 북아프리카 교회 약 100년간 내분. 321년: 콘스탄티누스, 완전한 신앙·예배 자유(주일) 부여. 어거스틴 시대 전까지 북아프리카 교회 지배권 경쟁. 406년 어거스틴의 강압 사용 논리 → 중세 종교재판·십자군의 이론적 선례.</div>
+        <div class="tl-persons"><span class="tl-person">도나투스</span><span class="tl-person">어거스틴(후대)</span><span class="tl-person">콘스탄티누스</span></div>
+        <div class="tl-sig">교회 본질 논쟁 — 가시적 교회의 순결성 vs 혼재 가능성</div>
+      </div>
+
+    </div><!-- era-cath end -->
+
+    <!-- 기독교 로마제국시대 예고 -->
+    <div class="tl-era era-rom" style="margin-top:16px;">
+      <div class="tl-era-head">
+        <span class="tl-era-label">🏛️ 기독교 로마제국시대 (예고)</span>
+        <span class="tl-era-range">313 AD – 590 AD</span>
+      </div>
+      <div class="tl-item" style="opacity:.55;">
+        <div class="tl-year">AD 313년</div>
+        <div class="tl-event">밀라노 칙령 — 기독교 공인</div>
+        <div class="tl-detail">콘스탄티누스 황제. 다음 주 10주차에서 본격 다룸.</div>
+        <div class="tl-persons"><span class="tl-person">콘스탄티누스</span></div>
+      </div>
+    </div>
+
+  </div><!-- timeline end -->
+
+  <div class="key-points" style="margin-top:28px;">
+    <div class="key-head">9주차 연대기 핵심 정리</div>
+    <div class="key-item">
+      <div class="key-num">1</div>
+      <div class="key-text"><strong>AD 175~313년:</strong> 로마 제국 혼란 속 기독교 급성장 — 일신론·도덕·내세관·의식·포용의 다섯 요인</div>
+    </div>
+    <div class="key-item">
+      <div class="key-num">2</div>
+      <div class="key-text"><strong>배교자 논쟁 3단계:</strong> 노바티안 분열(250년대) → 재침례 논쟁(255~256년) → 도나투스 분열(316년~)</div>
+    </div>
+    <div class="key-item">
+      <div class="key-num">3</div>
+      <div class="key-text"><strong>주요 신학자:</strong> 터툴리안(삼위일체 언어) → 클레멘트·오리겐(헬레니즘 조화) → 힙폴리투스(로고스) → 키프리안(교회 통일성)</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleQ(card) {
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>
