@@ -149,7 +149,9 @@ const SITE_DATA = {
         { week: 9, title: "누가복음 전체 정리", date: "2026.04.30", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week09.html" }
           ] },
-        { week: 10, title: "예루살렘 입성과 논쟁", date: "2026.05", files: [] },
+        { week: 10, title: "누가복음 마지막 이야기", date: "2026.05.07", files: [
+            { type: "notes", label: "강의노트", href: "output/신약성서I/week10.html" }
+          ] },
         { week: 11, title: "종말 설교 — 마태복음 24-25장", date: "2026.05", files: [] },
         { week: 12, title: "수난 내러티브 I", date: "2026.06", files: [] },
         { week: 13, title: "수난 내러티브 II와 부활", date: "2026.06", files: [] },
