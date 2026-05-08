@@ -1,3 +1,5 @@
 anthropic>=0.40.0
 pdfminer.six>=20221105
 python-pptx>=0.6.21
+
+watchdog>=4.0

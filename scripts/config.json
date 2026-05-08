@@ -1,0 +1,61 @@
+{
+  "subjects": {
+    "교회사": {
+      "claude_url": "https://claude.ai/project/019cc723-2aea-747a-9967-a8968e325dbb",
+      "output_folder": "교회사",
+      "semester_folder": "교회사",
+      "keywords": [
+        "교회사",
+        "church",
+        "history"
+      ]
+    },
+    "기독교철학": {
+      "claude_url": "https://claude.ai/project/019cbe5e-5c32-74a7-923f-e26eb80936f0",
+      "output_folder": "기독교철학",
+      "semester_folder": "기독교철학",
+      "keywords": [
+        "기독교철학",
+        "phil",
+        "철학"
+      ]
+    },
+    "목회학": {
+      "claude_url": "https://claude.ai/project/019cc722-2f73-7360-9b72-d722554ead36",
+      "output_folder": "목회학",
+      "semester_folder": "목회학",
+      "keywords": [
+        "목회학",
+        "ministry",
+        "목회"
+      ]
+    },
+    "신약성서I": {
+      "claude_url": "https://claude.ai/project/019cbe61-aecd-740e-8e23-68658a880cea",
+      "output_folder": "신약성서I",
+      "semester_folder": "신약성서",
+      "keywords": [
+        "신약",
+        "nt",
+        "성서",
+        "신약성서"
+      ]
+    },
+    "헬라어": {
+      "claude_url": "https://claude.ai/project/019cc721-10e4-7324-b073-747c4f56f909",
+      "output_folder": "greek",
+      "semester_folder": "헬라어",
+      "keywords": [
+        "헬라어",
+        "greek",
+        "그리스"
+      ]
+    }
+  },
+  "paths": {
+    "semester_base": "~/Desktop/대학원/1학기",
+    "lecture_notes_root": "~/Desktop/대학원/lecture-notes",
+    "downloads": "~/Downloads",
+    "watch_folder": "~/Desktop/대학원/lecture-notes/input"
+  }
+}
