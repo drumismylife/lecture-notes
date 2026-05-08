@@ -28,10 +28,10 @@ const SITE_DATA = {
         { week: 6, title: "시제/태 정리, 전체복습 등", date: "2026.04.13", files: [
 	  { type: "notes", label: "강의노트", href: "output/greek/week06.html" }
 	  ] },
-        { week: 7, title: "동사의 시제 복습 & 명사(제2변화) 입문", date: "2026.04.18", files: [
+        { week: 7, title: "동사의 시제 복습 & 명사(제2변화) 입문", date: "2026.04.20", files: [
             { type: "notes", label: "강의노트", href: "output/greek/week07.html" }
           ] },
-        { week: 8, title: "8주차 강의노트", date: "2026.04.28", files: [
+        { week: 8, title: "8주차 강의노트", date: "2026.04.27", files: [
             { type: "notes", label: "강의노트", href: "output/greek/week08.html" }
           ] },
         { week: 9, title: "동사 — 미래", date: "2026.05", files: [] },
@@ -186,7 +186,7 @@ const SITE_DATA = {
         { week: 8, title: "이슬람교에 대한 이해", date: "2026.04.24", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week08.html" }
           ] },
-        { week: 9, title: "제3부 새로운 상황 (AD 175–313)", date: "2026.05.06", files: [
+        { week: 9, title: "제3부 새로운 상황 (AD 175–313)", date: "2026.05.01", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week09.html" }
           ] },
         { week: 10, title: "종교개혁의 배경", date: "2026.05", files: [] },
