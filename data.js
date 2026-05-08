@@ -186,7 +186,9 @@ const SITE_DATA = {
         { week: 8, title: "이슬람교에 대한 이해", date: "2026.04.24", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week08.html" }
           ] },
-        { week: 9, title: "스콜라 신학", date: "2026.05", files: [] },
+        { week: 9, title: "제3부 새로운 상황 (AD 175–313)", date: "2026.05.06", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week09.html" }
+          ] },
         { week: 10, title: "종교개혁의 배경", date: "2026.05", files: [] },
         { week: 11, title: "루터와 개혁 운동", date: "2026.05", files: [] },
         { week: 12, title: "칼빈과 개혁 교회", date: "2026.06", files: [] },
