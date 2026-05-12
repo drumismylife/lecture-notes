@@ -116,7 +116,9 @@ const SITE_DATA = {
         { week: 9, title: "존 헨리 뉴먼", date: "2026.04.29", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week09.html" }
           ] },
-        { week: 10, title: "Ricken — 종교철학 I", date: "2026.05", files: [] },
+        { week: 10, title: "템플 그랜딘을 통해 사유하기", date: "2026.05.05", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week10.html" }
+          ] },
         { week: 11, title: "Ricken — 종교철학 II", date: "2026.05", files: [] },
         { week: 12, title: "기독교와 포스트모더니즘", date: "2026.06", files: [] },
         { week: 13, title: "과학과 종교", date: "2026.06", files: [] },

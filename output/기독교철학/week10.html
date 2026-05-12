@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 9주차 — 템플 그랜딘을 통해 사유하기</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   디자인 시스템 — 딥 슬레이트 + 앰버
+═══════════════════════════════════════════ */
+:root {
+  --bg:           #12100e;
+  --card:         #1c1814;
+  --subcard:      #252018;
+  --card-border:  #2e2820;
+  --amber:        #c49a3c;
+  --amber-light:  #e8c97a;
+  --amber-dim:    #7a5e1e;
+  --amber-bg:     #1e1a0e;
+  --sage:         #8aab8a;
+  --sage-bg:      #1a2a1e;
+  --sage-border:  #5a8a6a;
+  --terra:        #c96b5a;
+  --terra-bg:     #2d1a16;
+  --terra-border: #c96b5a;
+  --text-main:    #ede8df;
+  --text-sub:     #9e9688;
+  --text-dim:     #6b6457;
+  --border:       #2e2820;
+  --white:        #ffffff;
+  --inset:        #16130f;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 9pt;
+  line-height: 1.75;
+  color: var(--text-main);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ── 탭 시스템 ── */
+.tab-wrap { max-width: 860px; margin: 0 auto; padding: 0 0 24px; }
+
+.tab-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(18,16,14,.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+}
+
+.tab-meta {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0 8px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.tab-meta-badge {
+  font-size: 6.5pt; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--amber);
+  background: var(--amber-bg); border: 1px solid var(--amber-dim);
+  padding: 2px 8px; border-radius: 3px;
+}
+.tab-meta-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 10pt; font-weight: 700; color: var(--text-main);
+}
+.tab-meta-sub { font-size: 7.5pt; color: var(--text-sub); margin-left: auto; }
+
+.tab-btns {
+  display: flex; gap: 0;
+  padding: 8px 0 0;
+}
+.tab-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 8pt; font-weight: 600; color: var(--text-dim);
+  padding: 6px 16px 8px; border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s; letter-spacing: .04em;
+}
+.tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
+.tab-btn:hover:not(.active) { color: var(--text-sub); }
+
+.tab-pane { display: none; padding: 20px 20px 0; }
+.tab-pane.active { display: block; }
+
+/* ── 섹션 구분 ── */
+.sec-head {
+  display: flex; align-items: center; gap: 8px;
+  margin: 24px 0 12px;
+}
+.sec-badge {
+  font-size: 6pt; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--bg);
+  background: var(--amber); padding: 2px 8px; border-radius: 2px;
+  white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 10.5pt; font-weight: 700; color: var(--amber-light);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--amber-dim), transparent); }
+
+.sub-head {
+  font-size: 8.5pt; font-weight: 700; color: var(--amber);
+  margin: 16px 0 8px; padding-left: 10px;
+  border-left: 3px solid var(--amber);
+  letter-spacing: .04em;
+}
+
+/* ── 기본 카드 ── */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+}
+.card-inner {
+  background: var(--subcard); border: 1px solid var(--border);
+  border-radius: 6px; padding: 11px 14px; margin-top: 8px;
+}
+
+/* ── 영화 소개 블록 ── */
+.film-hero {
+  background: linear-gradient(135deg, #1a150a 0%, #1c1814 60%, #1a1208 100%);
+  border: 1px solid var(--amber-dim);
+  border-radius: 10px; padding: 20px 20px 16px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.film-hero::before {
+  content: 'Temple Grandin';
+  position: absolute; right: -8px; top: 8px;
+  font-family: 'EB Garamond', serif; font-size: 42pt; font-style: italic;
+  color: rgba(196,154,60,.06); white-space: nowrap; pointer-events: none;
+}
+.film-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--amber-bg); border: 1px solid var(--amber-dim);
+  color: var(--amber); font-size: 6.5pt; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 9px; border-radius: 3px; margin-bottom: 8px;
+}
+.film-title {
+  font-family: 'Noto Serif KR', serif; font-size: 15pt;
+  font-weight: 700; color: var(--amber-light); margin-bottom: 3px;
+}
+.film-sub { font-size: 7.5pt; color: var(--text-sub); margin-bottom: 12px; }
+.film-body { font-size: 8.5pt; line-height: 1.85; color: var(--text-main); }
+
+/* ── 교수 설명 블록 ── */
+.prof-block {
+  background: var(--inset); border-left: 3px solid var(--amber-dim);
+  border-radius: 0 6px 6px 0; padding: 12px 14px; margin-bottom: 10px;
+}
+.prof-label {
+  font-size: 6.2pt; font-weight: 700; letter-spacing: .1em; color: var(--amber);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.prof-body {
+  font-size: 8.5pt; line-height: 1.85; color: var(--text-main);
+  font-style: italic;
+}
+
+/* ── 인용 블록 ── */
+.quote-block {
+  background: var(--inset); border-left: 2px solid var(--text-dim);
+  border-radius: 0 6px 6px 0; padding: 12px 14px; margin-bottom: 10px;
+}
+.quote-label {
+  font-size: 6.2pt; font-weight: 700; letter-spacing: .1em;
+  color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px;
+}
+.quote-text {
+  font-family: 'EB Garamond', serif; font-size: 10pt; line-height: 1.8;
+  font-style: italic; color: var(--text-main);
+}
+.quote-source {
+  font-size: 6.5pt; color: var(--text-dim); margin-top: 6px;
+  font-style: normal; font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ── 개념 카드 ── */
+.concept-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 13px 15px; margin-bottom: 10px;
+}
+.concept-term {
+  font-size: 10pt; font-weight: 700; color: var(--amber-light); margin-bottom: 3px;
+}
+.concept-orig {
+  font-family: 'JetBrains Mono', monospace; font-size: 8pt;
+  color: var(--amber); background: var(--amber-bg);
+  padding: 1px 7px; border-radius: 3px; display: inline-block; margin-bottom: 7px;
+}
+.concept-def {
+  font-size: 8.5pt; line-height: 1.8; color: var(--text-main); margin-bottom: 7px;
+}
+.concept-apply {
+  font-size: 8pt; line-height: 1.75; color: var(--text-sub);
+  background: var(--subcard); border-radius: 5px; padding: 8px 10px;
+  border-left: 2px solid var(--amber-dim);
+}
+
+/* ── 논증 블록 ── */
+.arg-wrap { margin-bottom: 10px; }
+.arg-label {
+  font-size: 7pt; font-weight: 700; letter-spacing: .1em;
+  color: var(--amber); text-transform: uppercase; margin-bottom: 6px;
+}
+.arg-step {
+  border-radius: 6px; padding: 10px 13px; margin-bottom: 4px;
+  font-size: 8.5pt; line-height: 1.8;
+}
+.arg-premise { background: #1e1c18; border: 1px solid #2e2820; }
+.arg-argument { background: #252018; border: 1px solid #3a3020; }
+.arg-conclusion {
+  background: var(--amber-bg); border: 1px solid var(--amber-dim);
+  border-left: 3px solid var(--amber); color: var(--amber-light);
+}
+.arg-step-label {
+  font-size: 6pt; font-weight: 700; letter-spacing: .1em;
+  color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px;
+}
+.arg-conclusion .arg-step-label { color: var(--amber); }
+
+/* ── 핵심명제 ── */
+.prop-block {
+  background: #2a2010; border-left: 3px solid var(--amber);
+  border-radius: 0 6px 6px 0; padding: 11px 14px; margin-bottom: 8px;
+}
+.prop-num {
+  font-family: 'EB Garamond', serif; font-size: 18pt;
+  color: var(--amber-dim); line-height: 1; margin-bottom: 4px;
+}
+.prop-text { font-size: 9pt; line-height: 1.75; color: var(--amber-light); font-weight: 600; }
+.prop-sub { font-size: 7.8pt; color: var(--text-sub); margin-top: 3px; line-height: 1.65; }
+
+/* ── 시험 배지 블록 ── */
+.exam-block {
+  background: var(--terra-bg); border: 1px solid var(--terra-border);
+  border-radius: 7px; padding: 12px 14px; margin-bottom: 8px;
+}
+.exam-badge {
+  display: inline-block; background: var(--terra); color: #fff;
+  font-size: 6pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; margin-bottom: 8px;
+}
+.exam-item {
+  display: flex; align-items: flex-start; gap: 7px;
+  font-size: 8.5pt; line-height: 1.75; color: #e8b8b0; margin-bottom: 5px;
+}
+.exam-item::before { content: '◆'; color: var(--terra); font-size: 7pt; flex-shrink: 0; margin-top: 3px; }
+
+/* ── 활동지 블록 ── */
+.act-block {
+  background: var(--sage-bg); border: 1px solid var(--sage-border);
+  border-radius: 7px; padding: 13px 14px; margin-bottom: 10px;
+}
+.act-badge {
+  display: inline-block; background: var(--sage-border); color: #fff;
+  font-size: 6pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; margin-bottom: 8px;
+}
+.act-title { font-size: 9pt; font-weight: 700; color: var(--sage); margin-bottom: 6px; }
+.act-content { font-size: 8.5pt; line-height: 1.8; color: #c8ddc8; margin-bottom: 8px; }
+.act-q-label {
+  font-size: 6.5pt; font-weight: 700; letter-spacing: .1em; color: var(--sage);
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.act-q { font-size: 8.5pt; line-height: 1.8; color: #b8d0b8; font-style: italic; }
+
+/* ── 비교 카드 ── */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.compare-col {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 14px;
+}
+.compare-col-title {
+  font-size: 9pt; font-weight: 700; color: var(--amber-light);
+  margin-bottom: 10px; padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+}
+.compare-row { margin-bottom: 8px; }
+.compare-axis {
+  font-size: 6.5pt; font-weight: 700; letter-spacing: .08em;
+  color: var(--amber-dim); text-transform: uppercase; margin-bottom: 2px;
+}
+.compare-val { font-size: 8pt; line-height: 1.65; color: var(--text-main); }
+
+/* ── 시사점 그리드 ── */
+.insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.insight-card {
+  background: var(--subcard); border: 1px solid var(--border);
+  border-radius: 7px; padding: 11px 13px;
+}
+.insight-num {
+  font-family: 'EB Garamond', serif; font-size: 16pt;
+  color: var(--amber-dim); line-height: 1; margin-bottom: 5px;
+}
+.insight-title { font-size: 8pt; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
+.insight-body { font-size: 7.8pt; line-height: 1.7; color: var(--text-sub); }
+
+/* ── 구분선 ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+/* ── 하단 요약 ── */
+.summary-bar {
+  background: var(--amber-bg); border: 1px solid var(--amber-dim);
+  border-radius: 8px; padding: 14px 16px; margin-top: 24px;
+}
+.summary-bar-title {
+  font-size: 7pt; font-weight: 700; letter-spacing: .1em; color: var(--amber);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.summary-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 8.5pt; line-height: 1.7; color: var(--amber-light);
+  margin-bottom: 6px;
+}
+.summary-dot { color: var(--amber); flex-shrink: 0; margin-top: 2px; }
+
+/* ── 글자 스타일 ── */
+.orig { font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--amber); }
+strong { color: var(--amber-light); font-weight: 700; }
+em { color: var(--text-sub); font-style: italic; }
+
+/* ── 인쇄 ── */
+@media print {
+  body { background: #0a0806; }
+  .tab-btns { display: none; }
+  .tab-pane { display: block !important; }
+  .tab-header { position: static; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card, .film-hero, .concept-card { page-break-inside: avoid; }
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="tab-wrap">
+  <!-- ══ 헤더 ══ -->
+  <div class="tab-header">
+    <div class="tab-meta">
+      <span class="tab-meta-badge">기독교철학 · 61083</span>
+      <span class="tab-meta-title">9주차 — 영화 <em style="font-style:normal;color:var(--amber-light);">템플 그랜딘</em>을 통해 사유하기</span>
+      <span class="tab-meta-sub">2026-05-05 · 심상우 교수 · 영화 특강</span>
+    </div>
+    <div class="tab-btns">
+      <button class="tab-btn active" onclick="switchTab('note',this)">📝 강의노트</button>
+      <button class="tab-btn" onclick="switchTab('core',this)">🎯 핵심정리</button>
+      <button class="tab-btn" onclick="switchTab('compare',this)">⚖️ 비교표</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       TAB 1 — 강의노트
+  ══════════════════════════════════════ -->
+  <div class="tab-pane active" id="pane-note">
+
+    <!-- PART 1. 영화 소개 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 01</span>
+      <span class="sec-title">영화 소개 — Temple Grandin (2010, HBO)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="film-hero">
+      <div class="film-tag">🎬 영화 특강</div>
+      <div class="film-title">템플 그랜딘</div>
+      <div class="film-sub">Temple Grandin · 2010 · HBO · 감독 Mick Jackson · 주연 Claire Danes · 에미상 5관왕</div>
+      <div class="film-body">
+        템플 그랜딘은 세 살 때 자폐 진단을 받는다. 1950년대는 자폐라는 개념 자체가 생소했던 시대로, 의사와 아버지 모두 시설 입소를 권고한다. 그러나 <strong>어머니</strong>는 이 아이를 '다른 방식으로 존재하는 사람'으로 보고 직접 돌보며 일반학교로 진학시킨다.<br><br>
+        고등학교에서 만난 <strong>칼록(Carlock) 선생님</strong>이 그녀가 세상을 이미지로 사고한다는 사실을 알아채고 그 능력을 계발하도록 격려하며 대학 진학을 이끌어낸다. 대학에서 사회적 어려움을 겪으면서도 학업을 마치고, 결국 콜로라도 주립대학 동물학 교수가 된다.<br><br>
+        동물의 감각과 공포를 이미지로 직접 체험하는 능력 덕분에 <strong>미국 도축시설의 60% 이상</strong>이 그녀가 설계한 인도적 시스템을 채택하게 된다. 타임지 '세계에서 가장 영향력 있는 인물 100인' 선정.
+      </div>
+    </div>
+
+    <div class="sub-head">영화가 주는 시사점</div>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-num">01</div>
+        <div class="insight-title">다름은 결핍이 아닌 존재 방식</div>
+        <div class="insight-body">자폐라는 '비정상'으로 분류되던 특성이 오히려 동물 세계를 이해하는 탁월한 능력의 원천이 되었다</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">02</div>
+        <div class="insight-title">소명은 고침이 아닌 인정에서</div>
+        <div class="insight-body">타고난 방식을 억압하지 않고 꽃피울 때, 그 사람만이 줄 수 있는 기여가 세상에 나온다</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">03</div>
+        <div class="insight-title">공동체적 인정의 힘</div>
+        <div class="insight-body">어머니, 칼록 선생님처럼 그녀를 '주체로 호명한' 사람들이 없었다면 이 모든 일은 불가능했을 것이다</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">04</div>
+        <div class="insight-title">언어 너머의 인식</div>
+        <div class="insight-body">이미지로 사고하는 템플은 언어 중심 인식이 '유일한 정상'이라는 가정 자체에 물음표를 던진다</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PART 2. 교수 강의 흐름 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 02</span>
+      <span class="sec-title">교수 강의 핵심 흐름</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="sub-head">교수 개인 경험 — ADHD 아동과의 수업</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명</div>
+      <div class="prof-body">
+        그 아이에게 '머리에서 빼고 싶은 것, 집어넣고 싶은 것'을 그림으로 표현하게 했더니 자살 생각이 첫 번째로 나왔습니다. 굉장히 두렵고 전율이 오는 순간이었습니다. 이후 ADHD의 특성을 공부해 긍정적인 면을 수업에서 함께 나눴더니, 그 아이가 이렇게 말했습니다: "선생님, 제 특성을 긍정적으로 얘기한 분이 유일합니다."
+      </div>
+    </div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수의 통찰 — 명사 vs 동사</div>
+      <div class="prof-body">
+        선생님이나 부모가 "너는 이 범주 안에서 살아가야 해"라고 말하면 그 아이는 영원히 그 범주 안에 머물게 됩니다. 우리는 사람을 <strong>동사적 존재</strong>로 부르는 것이 아니라 <strong>명사적 존재</strong>로 고정시킬 때가 많습니다. 그것이 가장 큰 문제입니다.
+      </div>
+    </div>
+
+    <div class="sub-head">템플 그랜딘 해설 — 자폐와 성취</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명</div>
+      <div class="prof-body">
+        자폐아가 학사·석사·박사학위를 취득하고 콜로라도 주립대 동물학 교수가 됩니다. 미국 공장의 60% 이상이 그녀의 관점과 시스템을 수용하고 있습니다. 자폐증 극복은 단순한 의지 요인만으로 설명될 수 없습니다. <strong>뇌의 특성과 그러한 능력을 인정해주고 이해해주는 사람들이 반드시 있었다는 것</strong>, 또 그녀 스스로도 특별함을 장애가 아닌 자원으로 활용할 수 있었다는 것이 핵심입니다.
+      </div>
+    </div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 반사실적 질문</div>
+      <div class="prof-body">
+        그녀가 어릴 적 평생 보호시설에 감금되었다고 가정해 본다면? 축산업계에 새로운 혁명을 일으킨 선구자도, 자폐 연구의 기여자도 존재하지 않았을 것입니다. 이유야 어쨌든, 그만의 세계를 보고 인식하고 이해하는 것 — 이것은 매우 중요한 일입니다.
+      </div>
+    </div>
+
+    <div class="sub-head">템플의 말 — 동물과의 교감</div>
+
+    <div class="quote-block">
+      <div class="quote-label">📖 인용 — 템플 그랜딘의 고백</div>
+      <div class="quote-text">
+        소를 만져보기 전까지는 머릿속으로만 생각했습니다. 도축장에서 소에 손을 대어보았을 때, 나는 그 소가 화가 났는지 아닌지 느낄 수 있었습니다. 손으로 확실하게 눌러주지 않으면 소가 물러섭니다. 그렇게 잡아주는 것이 소를 편하게 하는 효과가 있습니다. 소라는 존재에 대해 친밀감을 느낄 수 있었습니다. <strong>동물과 교감하려면 동물을 만져야 합니다.</strong>
+      </div>
+      <div class="quote-source">출처: 영화 〈Temple Grandin〉(2010) 강의 중 교수 인용</div>
+    </div>
+
+    <div class="sub-head">영화 마지막 연설 장면</div>
+
+    <div class="quote-block">
+      <div class="quote-label">📖 인용 — 영화 결말부 연설</div>
+      <div class="quote-text">
+        전 완치된 게 아닙니다. 평생 자폐이겠죠. 엄마는 제가 말을 못할 거라는 진단을 이겼어요. 그리고 제가 말을 하게 되자 학교에 입학했어요. 저는 단지 다를 뿐입니다. 저는 세상을 다르게 봅니다. 그래서 사람들이 보지 못하는 것까지 자세히 볼 수 있습니다. 모든 것이 낯설었지만 그것들이 새로운 세상으로 나아갈 수 있는 문이 되었어요. <strong>문이 열렸고 제가 걸어왔습니다.</strong>
+      </div>
+      <div class="quote-source">출처: 영화 〈Temple Grandin〉(2010) 클로징 장면</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PART 3. 신학적 성찰 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 03</span>
+      <span class="sec-title">신학적 성찰</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="sub-head">① 창조 다양성과 Imago Dei 재해석</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 신학적 질문 1</div>
+      <div class="prof-body">
+        인간은 인간에게 정작 무엇인가? 하나님은 왜 다양한 방식으로 인간을 창조하셨을까? 전통적인 신학은 <strong>결핍의 언어</strong>로 인간을 이해해왔지만, 이 영화는 오히려 존재적 다양성을 새롭게 알게 합니다. 창세기 1장 <strong>'심히 좋았더라'</strong>라는 선언을 재해석해야 합니다 — 존재는 고쳐야 할 대상이 아니라 하나님의 창조적 다양성을 드러내는 하나의 창조 방식입니다.
+      </div>
+    </div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 Imago Dei — 전통적 해석의 문제</div>
+      <div class="prof-body">
+        하나님의 형상 <span class="orig">(Imago Dei)</span>은 전통적으로 이성·언어 능력에 근거해 설명되어 왔습니다. 그런데 만약 하나님의 형상이 특정 기능이나 능력에 달려 있다면, 템플과 같은 존재는 처음부터 하나님 형상 밖에 있게 됩니다. 그러나 성경의 창조 신학은 그렇게 말하지 않습니다. <strong>다양성은 왜곡이 아니라 오히려 창조 자체의 풍요로움을 드러내는 방식입니다.</strong>
+      </div>
+    </div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 신 계시의 통로 확장</div>
+      <div class="prof-body">
+        하나님은 오직 언어와 개념을 통해서만 자신을 드러내시는가? 아니면 <strong>감각, 이미지, 관계, 몸의 경험</strong>을 통해서도 드러내시는가? 만일 후자라면, 템플과 같은 존재는 단순한 이해의 대상이 아니라 하나님과의 관계를 새롭게 증언하는 <strong>살아있는 통로</strong>가 될 수 있습니다. 우리는 하나님을 우리의 인식 방식 안에 가두어 이해하려고 했던 것은 아닌가요?
+      </div>
+    </div>
+
+    <div class="sub-head">② 약함과 소명 — 바울 신학과의 연결</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 신학적 질문 2</div>
+      <div class="prof-body">
+        템플의 삶은 고통과 배제의 역사였습니다 — 사회적 고립, 의사소통의 어려움, 반복되는 오해들. 그러나 어쩌면 그녀에게 그것은 하나의 소명처럼 여겨지지 않았을까요? <strong>"내 약함 가운데서 능력이 완전해진다"</strong>(고후 12:9)고 고백했던 바울처럼, 구원은 결핍의 제거가 아니라 결핍을 통한 새로운 의미의 창조가 아닐까요? 이것은 단순한 직업이 아니라 소명의 문제입니다. 하나님은 각 사람을 각각의 방식으로 세상에 기여하도록 부르십니다.
+      </div>
+    </div>
+
+    <div class="sub-head">③ 레비나스의 타자와 동물 윤리</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 신학적 질문 3 — 타자의 얼굴 (le visage)</div>
+      <div class="prof-body">
+        템플의 업적은 기술이 아니라 <strong>동물의 고통을 최소화하는 윤리적 설계</strong>였습니다. 소들이 도축시설에서 경험하는 불안과 공포를 신학적으로 읽어야 합니다. 타자는 단순한 대상이 아니라 나에게 책임을 요구하는 존재입니다. 동물 역시 레비나스적 의미에서 '얼굴 <span class="orig">(le visage)</span>'을 가진 존재로 볼 수 있지 않을까요?
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-label">📖 성경과의 연결 — 마 25:40</div>
+      <div class="quote-text">"지극히 작은 자에게 한 것이 곧 내게 한 것이다" — 이 말씀이 도축장의 소들에게까지 확장될 수 있을지 생각해보게 됩니다.</div>
+      <div class="quote-source">마태복음 25:40 / 강의 중 교수 인용</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PART 4. 이미지 사고와 언어 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 04</span>
+      <span class="sec-title">철학적 분석 I — 이미지 사고와 언어의 기원</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="sub-head">인류의 이미지→언어 진화론적 관점</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명 — 라스코 동굴벽화</div>
+      <div class="prof-body">
+        인류는 오랫동안 로고스 <span class="orig">(Logos)</span>, 즉 언어·개념 중심으로 세계를 인식해왔습니다. 그러나 선사시대 <strong>라스코(Lascaux) 동굴벽화</strong>를 보십시오. 구석기 인류는 언어보다 이미지를 먼저 발전시켰습니다. 이미지를 그려놓고 사냥 연습을 했던 것입니다. 언어를 발명하는 순간 인간은 세상을 개념으로 이해하기 시작합니다. 이것은 세상을 효율적으로 지배하는 힘이 됩니다 — 사물과 현상에 이름을 붙임으로써 세계는 더 이상 두렵고 모호한 것이 아니라 <strong>관리 가능한 대상</strong>으로 전환됩니다.
+      </div>
+    </div>
+
+    <div class="arg-wrap">
+      <div class="arg-label">⚙ 논증 — 언어의 이중성: 지배와 위로</div>
+      <div class="arg-step arg-premise">
+        <div class="arg-step-label">전제</div>
+        인간은 언어를 통해 세계를 분류·명명함으로써 관리 가능한 대상으로 전환한다
+      </div>
+      <div class="arg-step arg-argument">
+        <div class="arg-step-label">논증 ① 지배로서의 언어</div>
+        언어는 자연, 타자, 동물을 개념으로 정리하여 다루기 쉬운 대상으로 바꾼다. 이 힘은 외부 세계 지배에서 더 나아가 인간 스스로에게도 작동한다 — "나는 성공한 사람 / 실패자"라는 언어로 자신을 규정한다.
+      </div>
+      <div class="arg-step arg-argument">
+        <div class="arg-step-label">논증 ② 불안 위로로서의 언어</div>
+        인간은 알기 위해서가 아니라 <strong>불안을 견디기 위해</strong> 이름을 붙인다. 이름 붙일 수 없는 것, 정의되지 않은 것에 대한 두려움 때문에 경계를 짓는다. "하나님"이라는 이름이 고유명사가 되는 순간, 그 이름이 담을 수 없는 가능성들이 떨어져나간다.
+      </div>
+      <div class="arg-step arg-conclusion">
+        <div class="arg-step-label">결론</div>
+        우리가 "이해했다"고 말할 때, 그것은 세계 자체에 접근한 것이 아니라 세계를 우리의 인식 안에 맞게 <strong>축소·구성</strong>한 결과일 수 있다. 진정한 이해는 복잡함과 모호함을 언어로 단순화하지 않고 견디는 능력에서 시작된다.
+      </div>
+    </div>
+
+    <div class="sub-head">AI — 언어 능력의 극단적 고양</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명 — AI와 언어의 한계</div>
+      <div class="prof-body">
+        오늘날 인공지능은 인간의 언어 능력이 극단적으로 고양된 상태입니다. AI는 방대한 언어 패턴을 빠르게 연결하며 인간보다 더 정교하게 세계를 개념화할 수 있습니다. 그러나 AI는 <strong>감각적 경험이나 직접적인 몸의 접촉이 없습니다.</strong> 세계를 점점 더 잘 설명하면서도 덜 경험하게 될 가능성이 있습니다.<br><br>
+        인간은 과연 세계를 이해하기 위해 언어를 사용하는가, 아니면 세계가 주는 불안을 견디기 위해 언어를 사용하는가? 언어를 통한 이해를 넘어서 감각과 경험, 관계를 통해 세계를 이해하는 것 — 이 점에서 인간은 세계의 지배자가 아니라 <strong>세계와 다시 관계 맺는 존재</strong>로 새롭게 이해될 수 있습니다.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PART 5. 현상학 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 05</span>
+      <span class="sec-title">철학적 분석 II — 현상학 (Phänomenologie)</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 현상학 도입</div>
+      <div class="prof-body">
+        근대 이전의 철학들은 이미지보다는 언어를 통해 세계를 구조화하는 데 오랫동안 경도되어 있었습니다. 현상학은 그것을 넘어 이미지·감각·경험 자체를 면밀히 들여다보는 눈을 가져옵니다. 템플의 삶을 현상학적 차원에서 이끌어가면, 주관적 경험이 어떻게 현실과 이해를 형성하는지를 매우 잘 보여줍니다.
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-term">지향성 (Intentionalität)</div>
+      <div class="concept-orig">독 Intentionalität | 브렌타노(Brentano) → 후설(Husserl)</div>
+      <div class="concept-def">
+        <strong>의식은 항상 무언가를 향해 있다.</strong> 모든 의식은 특정 대상에 대한 의식이다. '나는 영화를 본다'는 단순한 행동이 아니라 대상에 대한 의식 행위다.
+      </div>
+      <div class="concept-apply">
+        <strong>적용 — 거짓말의 지향성:</strong> 거짓말 행위도 그 지향성(무엇을 위해, 두려움 때문에, 누군가를 보호하기 위해)을 봐야 한다. 행위의 옳고 그름 이전에 그 지향성과 의도가 핵심이다. → 데리다적 관점<br><br>
+        <strong>신학적 함의:</strong> 신앙 행위도 그 지향성을 물어야 한다 — 두려움에서 나온 신앙인가, 사랑에서 나온 신앙인가?
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-term">에포케 (Epoché)</div>
+      <div class="concept-orig">그 ἐποχή / 독 Epoché | 후설(Husserl)</div>
+      <div class="concept-def">
+        일상적 판단과 선입견을 <strong>'판단 중지(괄호 치기)'</strong>하고 경험 자체를 있는 그대로 탐구하는 태도. 현상의 본질에 근접하게 접근할 수 있는 방법이다.
+      </div>
+      <div class="concept-apply">
+        <strong>교수 설명:</strong> "나무는 갈색이야"라고 판단을 내리면 나무의 본질을 볼 수 없다. 판단을 중지할 때 비로소 더 많은 것들이 보인다.<br><br>
+        <strong>신학적 함의:</strong> 장애인을 볼 때 '결핍'이라는 판단을 에포케(중지)하면, 그들이 드러내는 창조의 풍요로움이 비로소 보인다.
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-term">생활세계 (Lebenswelt)</div>
+      <div class="concept-orig">독 Lebenswelt | 후설(Husserl)</div>
+      <div class="concept-def">
+        이론적 관찰 이전에 인간이 일상적으로 살아가며 경험하는 <strong>주관적이고 선반성적인 세계</strong>. 각자의 시선 안에서 세계를 경험하는 것.
+      </div>
+      <div class="concept-apply">
+        <strong>적용:</strong> 템플의 생활세계는 자폐 스펙트럼으로 인해 일반인과 다른 인지적 틀로 구성되어 있으며, 그것이 오히려 동물의 공포와 불안을 감각적으로 이해하는 전문 지식과 혁신의 원천이 되었다. 그녀의 생활세계가 일반인과 다르다는 것 — 그것이 그녀의 혁신을 가능하게 했다.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PART 6. 상호주관성과 타자 -->
+    <div class="sec-head">
+      <span class="sec-badge">PART 06</span>
+      <span class="sec-title">철학적 분석 III — 상호주관성과 타자</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-term">상호주관성 (Intersubjektivität) — 부버의 나-너</div>
+      <div class="concept-orig">독 Intersubjektivität | 마르틴 부버(Martin Buber)</div>
+      <div class="concept-def">
+        주체-객체 관계 대신 <strong>주체-주체 관계</strong>를 중심에 두며, 상호 공존과 인정을 강조하는 인식론. 나-너 <span class="orig">(Ich-Du)</span> 관계 — 타인을 수단이나 사물로 보는 나-그것 <span class="orig">(Ich-Es)</span> 관계를 극복하고, 선입견과 편견을 내려놓은 진정한 만남에서 관계가 성립한다.
+      </div>
+      <div class="concept-apply">
+        <strong>한계:</strong> 부버는 상호작용을 강조하지만 그 과정에서 타자를 나의 범주 안에 두려는 경향이 남아있다 — 레비나스는 이를 비판한다.
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-term">타자의 얼굴 — 레비나스</div>
+      <div class="concept-orig">불 le visage | 에마뉘엘 레비나스(Emmanuel Lévinas)</div>
+      <div class="concept-def">
+        타자는 우리의 인식과 이해의 범주를 <strong>늘 벗어난 존재</strong>다. 관계는 대칭적일 수 없다. 타자가 나에게 말을 걸어올 때, 이미 나는 그 이전부터 책임의 볼모로 잡혀있다는 사실을 인지해야 한다.
+      </div>
+      <div class="concept-apply">
+        <strong>적용:</strong> 템플의 윤리적 설계 — 동물을 수단이 아닌 '얼굴 있는 존재'로 보는 것 자체가 레비나스적 타자 윤리의 실천이었다.
+      </div>
+    </div>
+
+    <div class="sub-head">칼록 선생님 — 타자를 주체로 호명하기</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명</div>
+      <div class="prof-body">
+        칼록 선생님은 자신의 인식 체계를 강요하지 않고 그녀의 감각적 사고방식을 인정함으로써 그녀를 <strong>주체로 호명</strong>했습니다. 그만이 가지고 있는 이야기를 존중하고, 다르다는 것을 인정해 주었습니다. 그것이 그녀의 세계를 확장시켰습니다.<br><br>
+        교회 현장에서 선생으로서 여러분은 어떻게 하고 있습니까? <strong>칼록 선생님과 같은 자리를 갖고 있습니까?</strong> 어머니, 칼록 선생님, 그리고 믿어주고 신뢰해준 몇몇의 사람들로 인해 템플은 확장된 세계를 열어갈 수 있었습니다.
+      </div>
+    </div>
+
+    <div class="sub-head">상호인정과 권력 — 지배와 굴복을 넘어서</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명</div>
+      <div class="prof-body">
+        타자와 주체적으로 동등하게 만나려면 <strong>자기주장과 상호 긴장</strong>이 필요합니다. 자기주장이 없으면 상대를 주체로 인정하지 못하고, 자기주장만 있으면 상대가 굴복하게 됩니다. 지배와 굴복의 관계가 아닌 <strong>상호 인정의 관계</strong>를 만들어가야 합니다.<br><br>
+        템플 그랜딘과 동물의 관계는 주체-대상의 관계가 아니라 <strong>주체-주체로서의 관계</strong>, 상대의 주체를 세워주고 존중하는 상호주관적 만남의 관계였습니다.
+      </div>
+    </div>
+
+    <div class="sub-head">권력과 상호작용 — 푸코(Foucault)적 관점</div>
+
+    <div class="prof-block">
+      <div class="prof-label">📣 교수 설명</div>
+      <div class="prof-body">
+        권력은 억압적이고 위계적인 것만이 아닙니다. <strong>미세한 수준에서 개인들의 상호작용 속에서 발생</strong>합니다. 사랑의 관계에서도 한쪽이 다른 쪽을 조종하려는 욕구, 통제력의 불균형이 존재할 수 있습니다. 권력은 명백한 강제가 아니라 유혹을 통해서도 이루어집니다. 우리들은 늘 다름들을 인정해야 한다고 말하지만 — 실제로 그렇게 살고 있는가?
+      </div>
+    </div>
+
+    <!-- 활동지 -->
+    <hr class="divider">
+    <div class="sec-head">
+      <span class="sec-badge">활동지</span>
+      <span class="sec-title">프락시스활동지 작성 방향</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-badge">활동지 ①</div>
+      <div class="act-title">나의 고유한 소명 성찰</div>
+      <div class="act-content">하나님은 각 사람을 각각의 방식으로 창조하셨고, 그 다름 안에 소명이 있다. 템플의 이미지 사고는 단점이 아니라 동물복지 혁신의 자원이 되었다. 결핍을 통해 새로운 의미를 창조해 내는 것이 구원의 한 방식일 수 있다.</div>
+      <div class="act-q-label">✏ 실천 질문</div>
+      <div class="act-q">나는 어떤 고유한 방식으로 세계를 인식하는가? 내가 약점이라 여겼던 특성이 사실 하나님이 주신 소명의 도구가 될 수 있지 않은가? 지금 나의 사역 현장에서 그 특성은 어떻게 발현되고 있는가?</div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-badge">활동지 ②</div>
+      <div class="act-title">칼록 선생님처럼 — 교회 현장의 적용</div>
+      <div class="act-content">칼록 선생님은 자신의 인식 체계를 강요하지 않고 템플의 방식을 인정함으로써 그녀를 주체로 세웠다. '다른 방식으로 존재하는 사람들'을 어떻게 대하느냐가 목회자의 핵심 자질이다.</div>
+      <div class="act-q-label">✏ 실천 질문</div>
+      <div class="act-q">나는 설교와 목회 현장에서 다른 방식으로 존재하는 사람들을 교정 대상으로 보는가, 아니면 주체로 호명하는가? 내 사역 안에 칼록 선생님의 자리가 있는가?</div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-badge">활동지 ③</div>
+      <div class="act-title">언어와 신 — 하나님을 언어 안에 가두지 않기</div>
+      <div class="act-content">인간은 언어로 세계를 관리하듯 하나님도 개념 안에 가두려 한다. 그러나 하나님은 감각, 이미지, 관계, 몸의 경험을 통해서도 자신을 드러내신다. 이미지 사고자 템플은 그 역으로 '언어 없이도 하나님이 만나진다'는 가능성을 시사한다.</div>
+      <div class="act-q-label">✏ 실천 질문</div>
+      <div class="act-q">내 신학과 설교가 하나님을 특정 언어·개념 안에 가두고 있지는 않은가? 언어 너머의 하나님 경험을 어떻게 회중과 나눌 수 있는가?</div>
+    </div>
+
+    <!-- 하단 핵심명제 요약 -->
+    <div class="summary-bar">
+      <div class="summary-bar-title">📌 오늘 핵심 명제 3가지</div>
+      <div class="summary-item">
+        <span class="summary-dot">◆</span>
+        <span><strong>창조적 다양성</strong> — 장애는 결핍이 아니라 하나님의 창조 다양성을 드러내는 또 다른 방식이다; 창세기 1:31 '심히 좋았더라'의 재해석</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-dot">◆</span>
+        <span><strong>언어의 이중성</strong> — 언어는 세계를 이해하게 하는 동시에 세계를 축소·경계 짓는다; 인간은 앎을 위해서가 아니라 불안을 견디기 위해 이름을 붙인다</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-dot">◆</span>
+        <span><strong>주체로 호명하기</strong> — 타자를 주체로 인정하는 상호주관적 만남(부버의 나-너, 레비나스의 책임)이 교육과 목회와 신앙의 본질이다</span>
+      </div>
+    </div>
+
+  </div><!-- /pane-note -->
+
+
+  <!-- ══════════════════════════════════════
+       TAB 2 — 핵심정리
+  ══════════════════════════════════════ -->
+  <div class="tab-pane" id="pane-core">
+
+    <div class="sec-head" style="margin-top:8px;">
+      <span class="sec-badge">핵심명제</span>
+      <span class="sec-title">이번 강의 3대 핵심 명제</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="prop-block">
+      <div class="prop-num">01</div>
+      <div class="prop-text">창조적 다양성 — 장애는 결핍이 아닌 하나님의 창조 방식이다</div>
+      <div class="prop-sub">창세기 1:31 '심히 좋았더라'는 특정 기능을 갖춘 존재만을 향한 선언이 아니다. Imago Dei는 이성·언어 능력에만 국한되지 않는다. 다양성은 왜곡이 아니라 창조 자체의 풍요로움이다.</div>
+    </div>
+
+    <div class="prop-block">
+      <div class="prop-num">02</div>
+      <div class="prop-text">언어의 이중성 — 이해는 세계에 대한 접근이 아니라 세계를 축소한 결과일 수 있다</div>
+      <div class="prop-sub">인간은 앎을 위해서가 아니라 불안을 견디기 위해 이름을 붙인다. '하나님'이라는 개념도 예외가 아니다. 진정한 이해는 복잡함을 견디는 능력에서 시작된다.</div>
+    </div>
+
+    <div class="prop-block">
+      <div class="prop-num">03</div>
+      <div class="prop-text">주체로 호명하기 — 상호주관적 만남이 교육·목회·신앙의 본질이다</div>
+      <div class="prop-sub">부버의 나-너(Ich-Du), 레비나스의 타자 책임. 칼록 선생님은 자신의 인식 체계를 강요하지 않고 템플을 주체로 세웠다. 지배와 굴복이 아닌 상호 인정의 관계가 필요하다.</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="sec-head">
+      <span class="sec-badge">논증</span>
+      <span class="sec-title">핵심 논증 — 언어의 이중성</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="arg-wrap">
+      <div class="arg-step arg-premise">
+        <div class="arg-step-label">전제</div>
+        인간은 언어를 통해 세계를 분류·명명함으로써 관리 가능한 대상으로 전환한다
+      </div>
+      <div class="arg-step arg-argument">
+        <div class="arg-step-label">논증 ① 지배로서의 언어</div>
+        언어는 자연·타자·동물을 개념으로 정리하여 다루기 쉬운 대상으로 바꾼다. 이 힘은 외부 세계 지배를 넘어 인간 스스로에게도 작동한다 — "나는 성공한 사람/실패자"라는 언어로 자신을 규정하게 된다.
+      </div>
+      <div class="arg-step arg-argument">
+        <div class="arg-step-label">논증 ② 불안 위로로서의 언어</div>
+        인간은 알기 위해서가 아니라 불안을 견디기 위해 이름을 붙인다. "하나님"이라는 이름이 고유명사가 되는 순간, 그 이름이 담을 수 없는 신비의 가능성들이 떨어져나간다.
+      </div>
+      <div class="arg-step arg-conclusion">
+        <div class="arg-step-label">결론</div>
+        "이해했다"고 말할 때 그것은 세계 자체에 접근한 것이 아니라 세계를 우리의 인식 안에 맞게 <strong>축소·구성</strong>한 결과다. 진정한 이해는 모호함을 견디는 능력에서 시작된다.
+      </div>
+    </div>
+
+    <div class="arg-wrap">
+      <div class="arg-label">⚙ 논증 — 창조적 다양성과 소명</div>
+      <div class="arg-step arg-premise">
+        <div class="arg-step-label">전제</div>
+        하나님은 인간을 각기 다른 방식으로 창조하셨다 (창 1:31 "심히 좋았더라")
+      </div>
+      <div class="arg-step arg-argument">
+        <div class="arg-step-label">논증</div>
+        자폐적 인지방식은 결핍이 아니라 세계를 다르게 접속하는 고유한 창조 방식이다 — 템플의 이미지 사고는 동물 세계를 이해하는 탁월한 경로가 되었다. "내 약함 가운데서 능력이 완전해진다" (고후 12:9)
+      </div>
+      <div class="arg-step arg-conclusion">
+        <div class="arg-step-label">결론</div>
+        존재의 다양성은 창조자 하나님의 풍요로움을 드러내는 방식이며, 장애는 교정 대상이 아니라 하나님 형상의 또 다른 표현이다.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="sec-head">
+      <span class="sec-badge">시험대비</span>
+      <span class="sec-title">기말고사 예상 출제 항목</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="exam-block">
+      <div class="exam-badge">⚠ 기말 예상 — 6/9</div>
+      <div class="exam-item">현상학 3개념 각각의 정의와 상호 연관성 — 지향성 <span class="orig">(Intentionalität)</span>, 에포케 <span class="orig">(Epoché)</span>, 생활세계 <span class="orig">(Lebenswelt)</span></div>
+      <div class="exam-item">부버의 나-너 <span class="orig">(Ich-Du)</span> vs 나-그것 <span class="orig">(Ich-Es)</span> 구별, 레비나스의 타자 철학과의 차이점</div>
+      <div class="exam-item">언어의 이중성 논증 구조 서술 — 지배로서의 언어 / 불안 위로로서의 언어</div>
+      <div class="exam-item">이미지 사고와 언어 사고의 대비를 통한 인간 인식의 본질 논의</div>
+      <div class="exam-item"><span class="orig">Imago Dei</span>의 전통적 해석(이성·언어 능력 중심)과 창조 다양성 신학적 재해석 비교 서술</div>
+    </div>
+
+    <div class="summary-bar" style="margin-top:16px;">
+      <div class="summary-bar-title">📌 오늘 핵심 명제 3가지</div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>창조적 다양성</strong> — 장애는 결핍이 아니라 창조 다양성이다; 창 1:31 재해석</span></div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>언어의 이중성</strong> — 언어는 이해이자 동시에 세계를 축소하는 권력이다</span></div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>주체로 호명하기</strong> — 상호주관적 만남(부버·레비나스)이 목회의 본질이다</span></div>
+    </div>
+
+  </div><!-- /pane-core -->
+
+
+  <!-- ══════════════════════════════════════
+       TAB 3 — 비교표
+  ══════════════════════════════════════ -->
+  <div class="tab-pane" id="pane-compare">
+
+    <div class="sec-head" style="margin-top:8px;">
+      <span class="sec-badge">비교 01</span>
+      <span class="sec-title">이미지 사고 vs 언어 사고</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-title">🖼 이미지 사고 — 템플 그랜딘</div>
+        <div class="compare-row">
+          <div class="compare-axis">방법론</div>
+          <div class="compare-val">감각·이미지로 세계를 직접 체험; 사물을 사진처럼 저장·재현</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">인식의 기초</div>
+          <div class="compare-val">몸의 경험, 직접적 접촉, 비언어적 감각 정보</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">언어와의 관계</div>
+          <div class="compare-val">개념을 이미지로 변환하여 이해; 추상적 감정 개념 처리 어려움</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">기독교 접점</div>
+          <div class="compare-val">창조 다양성, Imago Dei 재해석; 감각·이미지를 통한 신 경험 가능성</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-title">🔤 언어 사고 — 근대적 인간</div>
+        <div class="compare-row">
+          <div class="compare-axis">방법론</div>
+          <div class="compare-val">개념·언어로 세계를 분류·관리·통제; 사물에 이름을 붙여 다루기 쉬운 대상으로 전환</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">인식의 기초</div>
+          <div class="compare-val">로고스(Logos), 이성, 개념적 추상화</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">언어와의 관계</div>
+          <div class="compare-val">세계를 언어로 환원하여 이해; 언어 이전의 감각 세계를 밀어냄</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">기독교 접점</div>
+          <div class="compare-val">교의학·언어신학 전통; 이성적 언어로 신학화 — 단, 하나님을 개념 안에 가둘 위험</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="sec-head">
+      <span class="sec-badge">비교 02</span>
+      <span class="sec-title">부버 vs 레비나스 — 타자 철학</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-title">👤 마르틴 부버 (Martin Buber)</div>
+        <div class="compare-row">
+          <div class="compare-axis">방법론</div>
+          <div class="compare-val">대화철학, 상호주관성 <span class="orig">(Intersubjektivität)</span></div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">관계의 기초</div>
+          <div class="compare-val">나-너 <span class="orig">(Ich-Du)</span> 관계 — 선입견을 내려놓은 인격적 만남</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">타자 이해</div>
+          <div class="compare-val">상호 동등한 인격으로서의 만남; 그러나 여전히 상호성 안에서 타자를 나의 범주로 이해하려는 경향</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">기독교 접점</div>
+          <div class="compare-val">인격적 하나님과의 나-너 관계; 대화로서의 신앙</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-title">👤 에마뉘엘 레비나스 (Lévinas)</div>
+        <div class="compare-row">
+          <div class="compare-axis">방법론</div>
+          <div class="compare-val">현상학적 윤리학; 타자의 무한한 초월성</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">관계의 기초</div>
+          <div class="compare-val">타자의 얼굴 <span class="orig">(le visage)</span> — 나의 범주를 늘 벗어나는 존재</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">타자 이해</div>
+          <div class="compare-val">관계는 비대칭적; 타자가 말을 걸기 이전부터 이미 나는 책임의 볼모다</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">기독교 접점</div>
+          <div class="compare-val">"지극히 작은 자에게 한 것이 내게 한 것" (마 25:40); 타자 책임이 신앙의 선행 조건</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="sec-head">
+      <span class="sec-badge">비교 03</span>
+      <span class="sec-title">Imago Dei — 전통적 해석 vs 창조 다양성 신학</span>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-title">전통적 해석</div>
+        <div class="compare-row">
+          <div class="compare-axis">기초</div>
+          <div class="compare-val">이성·언어 능력(Logos)에 근거</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">장애 이해</div>
+          <div class="compare-val">결핍, 교정이 필요한 상태</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">창조의 목적</div>
+          <div class="compare-val">능력을 갖춘 주체로서의 인간</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">문제점</div>
+          <div class="compare-val">특정 기능이 없는 존재는 형상 밖으로 밀려남</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-title">창조 다양성 신학 (이 강의의 제안)</div>
+        <div class="compare-row">
+          <div class="compare-axis">기초</div>
+          <div class="compare-val">"심히 좋았더라" (창 1:31) — 존재 자체에 대한 근원적 긍정</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">장애 이해</div>
+          <div class="compare-val">또 다른 방식으로 세계를 더 깊이 접속하는 창조 방식</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">창조의 목적</div>
+          <div class="compare-val">다양성 자체가 창조의 풍요로움을 드러냄</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-axis">기여</div>
+          <div class="compare-val">하나님은 감각·이미지·몸의 경험을 통해서도 자신을 드러내심</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-bar" style="margin-top:24px;">
+      <div class="summary-bar-title">📌 오늘 핵심 명제 3가지</div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>창조적 다양성</strong> — 장애는 결핍이 아니라 창조 다양성이다; 창 1:31 재해석</span></div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>언어의 이중성</strong> — 언어는 이해이자 동시에 세계를 축소하는 권력이다</span></div>
+      <div class="summary-item"><span class="summary-dot">◆</span><span><strong>주체로 호명하기</strong> — 상호주관적 만남(부버·레비나스)이 목회의 본질이다</span></div>
+    </div>
+
+  </div><!-- /pane-compare -->
+
+</div><!-- /tab-wrap -->
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pane-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
