@@ -34,7 +34,7 @@ const SITE_DATA = {
         { week: 8, title: "8주차 강의노트", date: "2026.04.27", files: [
             { type: "notes", label: "강의노트", href: "output/greek/week08.html" }
           ] },
-        { week: 9, title: "동사 — 미래", date: "2026.05", files: [] },
+        { week: 9, title: "중간고사", date: "2026.05.04", files: [] },
         { week: 10, title: "어휘 · 명사 · 관사 · 관계대명사 · 형용사", date: "2026.05.11", files: [
             { type: "notes", label: "강의노트", href: "output/greek/week10.html" }
           ] },
