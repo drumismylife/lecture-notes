@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 10주차 — 현대인의 종교 성향 변화와 교회의 대응</title>
+<style>
+  :root {
+    --bg-page: #0f1a12;
+    --bg-card: #172018;
+    --bg-subcard: #1e2a20;
+    --bg-field: #1a2a1a;
+    --bg-reflection: #1e261e;
+    --bg-exam: #2d1a16;
+    --bg-task: #2a2010;
+    --green-main: #7ab87a;
+    --green-soft: #4a8a4a;
+    --green-bible: #a8d4a8;
+    --cream: #d4c9a8;
+    --amber: #c49a3c;
+    --terracotta: #c96b5a;
+    --text-main: #e8ede8;
+    --text-sub: #9aaa9a;
+    --text-dim: #6a7a6a;
+    --border-card: #2a3a2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Noto Serif KR', 'Malgun Gothic', '맑은 고딕', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  .page-header {
+    background: linear-gradient(135deg, #0f1a12 0%, #172018 50%, #1a2818 100%);
+    border-bottom: 1px solid var(--green-soft);
+    padding: 28px 32px 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .meta-badge {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .badge-subject { background: #1e3a1e; color: var(--green-main); border: 1px solid var(--green-soft); }
+  .badge-week   { background: #1a2a18; color: var(--cream); border: 1px solid #3a4a2a; }
+  .badge-date   { background: transparent; color: var(--text-sub); border: 1px solid #2a3a2a; }
+  .page-title {
+    font-size: 20px;
+    color: var(--cream);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .page-title span { color: var(--green-main); }
+
+  /* ── 탭 ── */
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    padding: 16px 32px 0;
+    border-bottom: 1px solid var(--border-card);
+    background: var(--bg-page);
+    position: sticky;
+    top: 88px;
+    z-index: 90;
+  }
+  .tab-btn {
+    padding: 9px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-sub);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text-main); }
+  .tab-btn.active {
+    color: var(--green-main);
+    border-bottom-color: var(--green-main);
+    font-weight: 600;
+  }
+
+  /* ── 본문 ── */
+  .tab-content { display: none; padding: 28px 32px 60px; max-width: 960px; }
+  .tab-content.active { display: block; }
+
+  /* ── 섹션 제목 ── */
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--green-main);
+    text-transform: uppercase;
+    margin: 32px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #2a3a2a;
+    font-weight: 700;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* ── 카드 기본 ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+
+  /* ── [원칙] ── */
+  .principle-card {
+    border-left: 3px solid var(--green-main);
+    background: var(--bg-card);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .principle-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .principle-claim {
+    font-size: 13px;
+    color: var(--green-main);
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background: #1a2a1a;
+    border-radius: 4px;
+  }
+  .principle-body { font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+  .principle-bible {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--green-bible);
+    font-family: 'Courier New', monospace;
+    padding-top: 8px;
+    border-top: 1px solid #2a3a2a;
+  }
+
+  /* ── [성경] ── */
+  .bible-card {
+    background: var(--bg-subcard);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border: 1px solid #2a3a2a;
+  }
+  .bible-ref {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green-bible);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+  }
+  .bible-text {
+    font-size: 13px;
+    color: var(--green-bible);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: #162016;
+    border-radius: 4px;
+    line-height: 1.7;
+  }
+  .bible-interp { font-size: 13px; color: var(--text-sub); margin-bottom: 6px; }
+  .bible-apply  { font-size: 13px; color: var(--text-main); }
+  .bible-divider { border: none; border-top: 1px dashed #2a3a2a; margin: 8px 0; }
+
+  /* ── [목회자상] ── */
+  .pastor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pastor-card {
+    background: var(--bg-subcard);
+    border: 1px solid #2a3a2a;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .pastor-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: #1e3a1e;
+    color: var(--green-main);
+    border: 1px solid var(--green-soft);
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .pastor-card p { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+
+  /* ── [사역] ── */
+  .ministry-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .ministry-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 9px;
+    border-radius: 12px;
+    background: #1a2e1a;
+    color: var(--green-main);
+    border: 1px solid var(--green-soft);
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .ministry-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 4px 12px;
+    margin-top: 4px;
+  }
+  .ministry-label {
+    font-size: 11px;
+    color: var(--green-main);
+    font-weight: 700;
+    padding-top: 1px;
+    letter-spacing: 0.04em;
+  }
+  .ministry-value { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+
+  /* ── [현장] ── */
+  .field-card {
+    background: var(--bg-field);
+    border-left: 3px solid var(--green-soft);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .field-title { font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
+  .field-row { display: grid; grid-template-columns: 52px 1fr; gap: 4px 12px; margin-bottom: 4px; }
+  .field-label { font-size: 11px; color: var(--green-soft); font-weight: 700; padding-top: 2px; }
+  .field-value { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+
+  /* ── [교재] ── */
+  .text-card {
+    background: var(--bg-subcard);
+    border: 1px solid #2a3a2a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .text-author-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 9px;
+    border-radius: 12px;
+    background: #1e3a1e;
+    color: var(--green-main);
+    border: 1px solid var(--green-soft);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .text-quote {
+    font-style: italic;
+    color: var(--text-sub);
+    font-size: 13px;
+    line-height: 1.8;
+    padding-left: 12px;
+    border-left: 2px solid var(--green-soft);
+    margin: 8px 0;
+  }
+
+  /* ── [교수설명] ── */
+  .prof-card {
+    background: #161e16;
+    border: 1px solid #2a3a2a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .prof-quote {
+    font-style: italic;
+    color: var(--text-sub);
+    font-size: 13px;
+    line-height: 1.85;
+    position: relative;
+    padding-left: 16px;
+  }
+  .prof-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-size: 22px;
+    color: var(--green-soft);
+    font-style: normal;
+    line-height: 1;
+  }
+
+  /* ── [시험] ── */
+  .exam-card {
+    background: var(--bg-exam);
+    border: 1px solid var(--terracotta);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .exam-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 9px;
+    border-radius: 12px;
+    background: #3d1a14;
+    color: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .exam-title { font-size: 13px; font-weight: 700; color: var(--terracotta); margin-bottom: 6px; }
+  .exam-body  { font-size: 13px; color: #d4a49a; line-height: 1.8; }
+
+  /* ── 통계 테이블 ── */
+  .stat-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  .stat-table th {
+    font-size: 11px;
+    color: var(--green-main);
+    font-weight: 700;
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #2a3a2a;
+    letter-spacing: 0.04em;
+  }
+  .stat-table td {
+    font-size: 12px;
+    color: var(--text-sub);
+    padding: 5px 10px;
+    border-bottom: 1px solid #1e2a1e;
+    line-height: 1.6;
+  }
+  .stat-table tr:last-child td { border-bottom: none; }
+  .stat-highlight { color: var(--cream) !important; font-weight: 600; }
+
+  /* ── 핵심 원칙 박스 ── */
+  .core-principles {
+    background: #162016;
+    border: 1px solid var(--green-soft);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 36px;
+  }
+  .core-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green-main);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .core-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .core-num {
+    min-width: 22px;
+    height: 22px;
+    background: var(--green-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .core-text { font-size: 13px; color: var(--text-main); line-height: 1.75; }
+
+  /* ── 구분선 ── */
+  .divider {
+    border: none;
+    border-top: 1px solid #2a3a2a;
+    margin: 24px 0;
+  }
+
+  /* ── ul/li 공통 ── */
+  ul.content-list {
+    padding-left: 18px;
+    margin-top: 6px;
+  }
+  ul.content-list li {
+    font-size: 13px;
+    color: var(--text-sub);
+    margin-bottom: 4px;
+    line-height: 1.75;
+  }
+  ul.content-list li strong { color: var(--cream); }
+
+  /* ── 인쇄 ── */
+  @media print {
+    .tab-nav { display: none; }
+    .tab-content { display: block !important; page-break-after: always; }
+    .page-header { position: static; }
+    .tab-btn { display: none; }
+    body { background: #fff; color: #111; font-size: 11pt; }
+    .principle-card, .bible-card, .ministry-card, .field-card,
+    .text-card, .prof-card, .exam-card, .pastor-card, .card {
+      page-break-inside: avoid;
+      border: 1px solid #ccc !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     페이지 헤더
+════════════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="header-meta">
+    <span class="meta-badge badge-subject">목회학</span>
+    <span class="meta-badge badge-week">10주차</span>
+    <span class="meta-badge badge-date">2026-05-11</span>
+  </div>
+  <div class="page-title">현대인의 <span>종교 성향 변화</span>와 교회의 대응</div>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     탭 네비게이션
+════════════════════════════════════════════════ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('note', this)">강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary', this)">핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('field', this)">현장적용</button>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     탭 1: 강의노트
+════════════════════════════════════════════════ -->
+<div id="tab-note" class="tab-content active">
+
+  <!-- I. 목회를 위한 3가지 고려 요소 -->
+  <div class="section-title">I. 목회를 위한 3가지 고려 요소</div>
+
+  <div class="principle-card">
+    <div class="principle-title">목회의 3요소 — 목회자 · 교회 · 환경(세상)</div>
+    <div class="principle-claim">목회는 목회자·교회·환경(세상)의 세 요소를 통합적으로 고려해야 한다.</div>
+    <div class="principle-body">
+      중간고사 전까지 목회자 자신(정체성·소명·영성)을 다루었다면, 이제는 세상 환경을 분석해야 한다.<br><br>
+      <strong style="color:var(--cream)">목회자의 권위(ἐξουσία) 획득 경로:</strong><br>
+      ① 신적 위임 + 공동체의 합법적 위임(청빙 절차) — 두 위임이 함께 이루어질 때 합법적 권위<br>
+      ② 권위 인정의 세 통로: 영성 / 전문성 / 인성<br>
+      ③ 준거적 권위(모범이 됨) — 성도가 자발적으로 따르게 하는 영향력<br><br>
+      권력(δύναμις, 뒤나미스)은 강제할 수 있는 힘이고, 권위(ἐξουσία, 엑수시아)는 자발적 순종을 이끄는 영향력이다.
+      권위는 하나님이 위임해 주셨지만, 그 권위를 인정받는 것은 목회자의 몫이다.
+    </div>
+    <div class="principle-bible">📖 딤전 4:12 — "말과 행실과 사랑과 믿음과 정절에 있어서 믿는 자에게 본이 되어"</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- II. 한국교회의 현실 -->
+  <div class="section-title">II. 한국교회의 현실 — 거센 도전에 직면한 기독교</div>
+
+  <div class="principle-card">
+    <div class="principle-title">교인 감소와 교회 존립 위기</div>
+    <div class="principle-claim">한국교회는 교인 감소·작은 교회 소멸·가나안 성도 증가라는 삼중 위기에 직면해 있다.</div>
+    <div class="principle-body">
+      팽창하는 사회와 교회의 시대(1세대 목회자들)는 끝나고, 축소하는 시대가 시작되었다.
+      그만한 카리스마를 가진 후계 세대가 나타나지 않고 있으며, 사회 전반의 탈종교화와 맞물려 있다.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--cream); margin-bottom:12px;">📊 한국교회 통계 현실 (한국교회 트렌드 2026)</div>
+    <table class="stat-table">
+      <tr>
+        <th>지표</th><th>수치</th><th>출처</th>
+      </tr>
+      <tr><td>성인 기독교인 비율</td><td class="stat-highlight">18.0%</td><td>한국 기독교 목회자 협의회</td></tr>
+      <tr><td>성인 기독교인 추산</td><td class="stat-highlight">약 771만 명</td><td>동상</td></tr>
+      <tr><td>가나안 성도(미출석)</td><td class="stat-highlight">약 100만 명</td><td>추정</td></tr>
+      <tr><td>교회 존립 걱정 목회자</td><td class="stat-highlight">62.8%</td><td>목회데이터 연구소</td></tr>
+      <tr><td>교인 감소 예상 목회자</td><td class="stat-highlight">60% 이상</td><td>동상</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--cream); margin-bottom:12px;">📊 연령별 무종교 인구 비율 (강의 강조)</div>
+    <table class="stat-table">
+      <tr><th>연령대</th><th>무종교 비율</th><th>비고</th></tr>
+      <tr><td>19~29세</td><td class="stat-highlight">76%</td><td>청년 세대 목회의 시급성</td></tr>
+      <tr><td>30대</td><td class="stat-highlight">약 70%</td><td></td></tr>
+      <tr><td>40대</td><td class="stat-highlight">64%</td><td></td></tr>
+      <tr><td>50대</td><td class="stat-highlight">55%</td><td></td></tr>
+      <tr><td>60세 이상</td><td class="stat-highlight">48%</td><td>60세 이상은 과반이 종교 보유</td></tr>
+      <tr><td>성별 차이</td><td colspan="2">남성 기독교인 10~13% / 여성 기독교인 약 23%</td></tr>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- III. 현대인의 종교 성향 5대 현상 -->
+  <div class="section-title">III. 현대인의 종교 성향 — 5대 현상</div>
+
+  <div class="principle-card">
+    <div class="principle-title">① 탈종교화 — 가치 추구 → 즐거움 추구</div>
+    <div class="principle-claim">모든 종교 인구가 감소하고 무종교 인구가 급증하고 있다.</div>
+    <div class="principle-body">
+      교회뿐 아니라 불교·천주교도 감소. 천주교는 한때 이탈자들이 성당으로 간다는 얘기가 있었으나 실제로는 왔다 갔다 하다 다 사라졌다.
+      가치 추구의 삶이 아닌 즐거움 추구의 삶. 죄책감 없이 즐거움을 누리되 신비적 체험은 원하는 SBNR(Spiritual But Not Religious) 경향.
+      점집이 사라진 것이 아니라 새 옷을 입고 등장 — 백화점 타로, AI 점, 유튜브 점.
+    </div>
+    <div class="principle-bible">📖 마 5:3 — "심령이 가난한 자는 복이 있나니" (심령의 가난 = 하나님 외에 의지할 것이 없는 상태)</div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">② 탈교회화 — 가나안 성도(Floating Christian)의 증가</div>
+    <div class="principle-claim">교회가 요구하는 전형적 성도의 모습을 거부하는 사람들이 약 100만 명에 달한다.</div>
+    <div class="principle-body">
+      <strong style="color:var(--cream)">가나안 성도의 두 유형:</strong><br>
+      · 닻형(Anchored) — 등록 교회가 있지만 잘 안 나감<br>
+      · 부평초형(Drifting) — 등록 교회 자체가 없음<br><br>
+      전형적인 '믿음 좋은 성도'의 기준에 부담: 주일 개근 / 봉사 / 새벽예배 / 헌금. 이것을 코로나 이후 유튜브로 대체.
+      코로나가 결정적 계기 — 집에서 유튜브로 예배드리다 편함을 느낌.
+      대표 유튜브 채널: 분당우리교회(이찬수), 선한목자교회(유기성 은퇴 전)
+    </div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">③ 개인화 — 구속받기를 싫어하는 사람들</div>
+    <div class="principle-claim">공동체성 거부, 식당봉사 거부, TV/유튜브로의 이탈이 가속화되고 있다.</div>
+    <div class="principle-body">
+      코로나 이후 주일 식사 회복 교회: 61.7% (외부업체 위탁 또는 아예 폐지 후 카페·도서관으로 전환).
+      온·오프라인 병행 — 현장 예배 + 줌(Zoom) 소그룹 구조가 확산 중.
+      특히 미국 이민교회에서 성도 만족도 높은 방식.
+    </div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">④ 영성화 — "종교는 싫지만 영성은 좋다" (SBNR)</div>
+    <div class="principle-claim">탈종교했지만 영적 갈망 자체는 사라지지 않았다.</div>
+    <div class="principle-body">
+      가나안 성도 중 52.2%가 "언젠가 교회에 나가고 싶다"고 응답.
+      단 3.7%만 "빨리 가고 싶다" — 복귀 의향은 있으나 시기 미정.
+      Smart Saints의 등장 — 코로나 이후 개인 신앙 활동은 오히려 증가:
+    </div>
+    <div style="margin-top:8px;">
+      <table class="stat-table">
+        <tr><th>지표</th><th>2017년</th><th>2023년</th></tr>
+        <tr><td>성경 읽기</td><td>49분</td><td class="stat-highlight">64분</td></tr>
+        <tr><td>기도 시간</td><td>22분</td><td class="stat-highlight">24분</td></tr>
+        <tr><td>QT 실천</td><td>21.0%</td><td class="stat-highlight">35.0%</td></tr>
+        <tr><td>개인 헌금액</td><td>175,700원</td><td class="stat-highlight">195,000원</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">⑤ 외로운 크리스천 — 현대인의 고독</div>
+    <div class="principle-claim">현대인의 외로움은 교회의 전도 접촉점이자 공동체 사역의 핵심 과제이다.</div>
+    <div class="principle-body">
+      <strong style="color:var(--cream)">외로움 통계 (엠브레인 트렌드모니터 2022):</strong>
+    </div>
+    <table class="stat-table" style="margin-top:8px;">
+      <tr><th>집단</th><th>외로움 비율</th></tr>
+      <tr><td>국민 평균</td><td class="stat-highlight">54.6%</td></tr>
+      <tr><td>개신교인 (교회 출석)</td><td class="stat-highlight">44.2%</td></tr>
+      <tr><td>교회 미출석자</td><td>51.9%</td></tr>
+      <tr><td>매주 주일예배 참석자</td><td>41.2%</td></tr>
+      <tr><td>한 달에 한 번 참석자</td><td>64.9%</td></tr>
+      <tr><td>소그룹 자주 참여</td><td class="stat-highlight">39.7% (최저)</td></tr>
+      <tr><td>소그룹 미참여</td><td>54.4%</td></tr>
+    </table>
+    <div class="principle-body" style="margin-top:10px;">
+      <strong style="color:var(--cream)">교회 안에서 외로움을 느끼는 이유:</strong><br>
+      ① 마음을 터놓을 사람이 없다 (45.5%) &nbsp;② 교회 활동에 참여 못할 때 (20.5%)<br>
+      ③ 같이 차·식사할 사람이 없을 때 (16.5%) &nbsp;④ 소속 부서가 없을 때 (6.2%)<br><br>
+      슈바르츠(자연적 교회 성장)의 핵심: 8가지 건강한 교회 특징 중 '사랑의 교제의 질'이 교회 건강도를 결정.
+      그 척도 = <em>"터놓고 이야기할 사람이 있는가"</em><br>
+      대표 사례: 우리들교회 — 소그룹에서 삶의 고통을 가감 없이 나눔. 개방적 공동체 문화.
+    </div>
+    <div class="principle-bible">📖 요 13:34–35 — "서로 사랑하라… 이로써 모든 사람이 너희가 내 제자인 줄 알리라"</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- IV. 기독교 감소의 원인 -->
+  <div class="section-title">IV. 기독교 감소의 원인 분석</div>
+
+  <div class="card">
+    <div class="card-title">외적 요인 (사회적)</div>
+    <ul class="content-list">
+      <li>출생률 감소 — 인구 자체의 감소</li>
+      <li>대체 종교 — 시민단체, 요가, 명상</li>
+      <li>종교 다원주의 확산</li>
+      <li>반기독교적 사회 분위기 / 반기독단체의 활동</li>
+      <li>놀이·오락 문화의 광범위한 확산</li>
+      <li>기독교에 호의적이지 않은 비기독교인 증가</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">내적 요인 (교회 내부) — <span style="color:var(--terracotta)">핵심 점검 필요</span></div>
+    <ul class="content-list">
+      <li><strong>영성의 상실</strong> — 가장 근본적 원인</li>
+      <li><strong>에토스(ethos)와 파토스(pathos)의 상실</strong></li>
+      <li><strong>신비 경험의 부재</strong> — 쇠퇴하는 교회에는 이성적·도덕적 요소만 남는다</li>
+      <li>교회의 내적 갈등과 분열</li>
+      <li>종교 시장의 수요와 공급의 불일치 — 성도가 원하는 교회를 찾기 쉽지 않음</li>
+    </ul>
+    <div style="margin-top:12px; padding:10px 14px; background:#1a1e1a; border-radius:6px; font-size:13px; color:var(--text-sub);">
+      <strong style="color:var(--cream)">역사적 경고 사례:</strong><br>
+      · 모라비안 공동체: 24시간 100년 기도의 역사 → 후예들이 그 영성을 잃어버림<br>
+      · 조나단 에드워즈의 교회(Enfield, CT): 설교에 부들부들 떨던 회중교회 → 후에 동성애 목사 부임 → 성령의 능력 소멸<br>
+      → 영성과 도덕적 기준을 지키지 않으면 교회는 능력을 잃는다
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- V. 탈교회 시대의 교회론 -->
+  <div class="section-title">V. 탈교회 시대의 교회론 — 4가지 모델</div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">선교적 교회론</span>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 명제</div>
+      <div class="ministry-value">선교는 교회 기능의 일부가 아니라 교회의 본질이다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">이론 배경</div>
+      <div class="ministry-value">레슬리 뉴비긴(Lesslie Newbigin) — 인도 선교 후 귀국, 선교지가 된 서구를 목격하고 제창. "한국 사회도 선교지가 되고 있다"</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">방법론</div>
+      <div class="ministry-value">선교사가 선교지에서 하듯 — 학교·카페·도서관·독서모임·스포츠 등 다양한 접촉면. 사회와 연결점을 갖는 교회</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">사례</div>
+      <div class="ministry-value">
+        ① 세이비어 교회(워싱턴 DC) — 빈민 주거개선, 노숙자 병원, '토기장이의 집' 카페<br>
+        ② 만화방 교회 — 도서관에 만화 비치, 아이들 유입<br>
+        ③ 카페 개척교회 — 평일 카페·영어교실 + 주일 예배<br>
+        ④ 착한 청년들의 모임 — SNS로 불신자 포함 모임 → 교회 연결
+      </div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">열매</div>
+      <div class="ministry-value">성도의 자발적 참여(61.9% 하나님 나라 확장 응답) / 지역사회 신뢰도 회복(24.6%) / 가나안 성도 복귀</div>
+    </div>
+    <div class="principle-bible" style="margin-top:10px;">📖 요 17:18 — "아버지께서 나를 세상에 보내신 것 같이 나도 그들을 세상에 보내었고"</div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">목양적 교회론</span>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 명제</div>
+      <div class="ministry-value">성도를 돌보고 치유하고 하나님 나라의 순례에 동행해야 한다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">목회자 역할</div>
+      <div class="ministry-value">ποιμήν(포이멘, 목자) — 동반자. 외로운 현대인의 인생길을 주님과 함께 동행하는 동반자</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 사역</div>
+      <div class="ministry-value">상호 책임(mutual accountability) / 서로 돌봄(mutual care)의 공동체 형성</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">성육신적 교회론</span>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 명제</div>
+      <div class="ministry-value">복음의 본질을 훼손하지 않고 가능한 모든 방법으로 세상과 동일시한다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">방법론</div>
+      <div class="ministry-value">사람들이 자신의 문화 속에서 예수님을 경험하게 함. 새로운 방식의 목회·선교·예배</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">주의점</div>
+      <div class="ministry-value">흉내 내면 절대 안 된다 — 자신의 은사와 교회 환경에 맞는 방식을 기도로 선택해야 함</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">가상 교회론</span>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 명제</div>
+      <div class="ministry-value">선교의 현장이 가상 공간으로 이동하고 있다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">현실</div>
+      <div class="ministry-value">TV → 유튜브(대중 → 개인 맞춤형) 전환. 교인이 원하는 온라인 사역 1위: 성경공부(32.3%), 찬양·예배팀(18.3%), 소그룹(16.0%)</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">AI 활용</div>
+      <div class="ministry-value">AI = 코파일럿(부기장). 설교를 쉽게 하기 위해서가 아니라 깊게 하기 위해서. 교회 선택에 AI를 활용하는 시대(재인 AI 사례)</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">전략</div>
+      <div class="ministry-value">홈페이지에 목회 철학·비전 명시 / 유튜브 설교 3회 이상 청취 후 방문하는 것이 현대인의 교회 선택 패턴</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- VI. 참된 교회의 본질 -->
+  <div class="section-title">VI. 참된 연합과 섬김의 교회 — 요한의 교회</div>
+
+  <div class="bible-card">
+    <div class="bible-ref">요 14:2 — οἰκία(오이키아) vs οἶκος(오이코스)</div>
+    <div class="bible-text">"내 아버지 집(ἐν τῇ οἰκίᾳ τοῦ πατρός μου)에 거할 곳(μοναί)이 많도다"</div>
+    <hr class="bible-divider">
+    <div class="bible-interp">
+      오이코스(οἶκος): 가문, 혈통의 의미 / 오이키아(οἰκία): 거주 공간, 함께 사는 장소.<br>
+      요 14:2의 오이키아 = 성부·성자·성령과 제자들이 함께 거하는 공동체 공간으로서의 교회.<br>
+      요 13–17장 고별강화는 예수님이 제자들의 보존(τηρεῖν, 테레인)을 위해 하신 말씀 — 새로운 공동체의 탄생.
+    </div>
+    <hr class="bible-divider">
+    <div class="bible-apply">
+      교회는 삼위일체 하나님이 임재하시는 '아버지의 집'으로서 서로 사랑하는 공동체가 되어야 한다.
+      외로운 현대인에게 진정한 가족 공동체를 제공하는 것이 전도의 핵심 접촉점이다.
+    </div>
+  </div>
+
+  <div class="bible-card">
+    <div class="bible-ref">요 1:39 — 마태복음의 전도 vs 요한복음의 전도</div>
+    <div class="bible-text">마태복음: "가서 제자 삼으라" (去전도) / 요한복음: "와서 보라(Come and See)" (來전도)</div>
+    <hr class="bible-divider">
+    <div class="bible-interp">공동체의 삶 자체가 전도의 도구. '와서 보라' = 서로 사랑하고 상호 책임지는 공동체의 모습을 보여주는 것.</div>
+    <hr class="bible-divider">
+    <div class="bible-apply">우리들교회의 소그룹 — 가감 없이 삶을 나누는 문화가 전도력이 됨. 이 시대의 전도는 진정한 공동체를 보여주는 것.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- VII. 시대에 맞는 전략 -->
+  <div class="section-title">VII. 시대에 맞는 전략적 선택</div>
+
+  <div class="principle-card">
+    <div class="principle-title">Simple Church — 선택과 집중</div>
+    <div class="principle-claim">교회의 5가지 기능 중 예배와 소그룹에 먼저 집중하라.</div>
+    <div class="principle-body">
+      교회의 5기능: 예배 / 교제 / 교육 / 봉사 / 전도(선교)<br>
+      슈바르츠의 에너지 전환의 법칙 — 한 가지를 잘 하면 나머지에도 영향을 미침. 다 안 되는데 다 하려고 하지 말고, 할 수 있는 것에 집중하면 나머지도 따라온다.<br><br>
+      <strong style="color:var(--cream)">집중 순서:</strong><br>
+      ① 예배 — 하나님을 만나게 하는 것 (영감 있는 예배, 임재가 있는 예배)<br>
+      ② 소그룹 — 터놓고 이야기할 수 있는 교제 공동체<br>
+      ③ 교육 — 성도의 영적 필요를 채우는 성경 교육
+    </div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">착한 행실(καλά ἔργα) — 매력 있는 교회의 비결</div>
+    <div class="principle-claim">착한 행실은 단순한 도덕이 아니라 하나님을 간절히 의지하고 그 뜻을 이루기 위한 몸부림이다.</div>
+    <div class="principle-body">
+      καλός(칼로스) = 착함 + 매력. 마태복음의 문맥(팔복)에서 읽어야 함 (양용의 교수 — 옥스퍼드 마태복음 전공).<br><br>
+      착한 행실 = ① 하나님을 간절히 의지 ② 하나님의 뜻을 이루기 위해 몸부림 ③ 핍박을 감수하며 뜻을 이루는 것<br><br>
+      세상 사람들은 이 몸부림에서 신비를 느낀다. "저런 어려움 속에서도 소망을 품네" — 이것이 전도력이다.
+    </div>
+    <div class="principle-bible">📖 마 5:16 — "너희 착한 행실을 보고 하늘에 계신 너희 아버지께 영광을 돌리게 하라"</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- VII-a. 탈교회 시대의 과제 -->
+  <div class="section-title">VIII. 탈교회 시대의 과제 — 7가지</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:14px;">교회가 반드시 응답해야 할 시대적 과제</div>
+    <table class="stat-table">
+      <tr><th>#</th><th>과제</th><th>핵심 내용</th></tr>
+      <tr>
+        <td class="stat-highlight">1</td>
+        <td>교회의 도덕성 회복</td>
+        <td>세상이 교회를 신뢰하지 않는 시대 — 말과 행실의 일치, 지도자의 도덕적 모범</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">2</td>
+        <td>교회를 대적하는 사상들에 대한 고민과 대처</td>
+        <td>포스트모더니즘, 상대주의, 반기독교 이데올로기에 대한 신학적·실천적 대응</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">3</td>
+        <td>과학적 무신론에 대한 대처</td>
+        <td>『신의 발자국』 등 기독교 변증학적 접근. 지성적으로 설득력 있는 신앙 제시</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">4</td>
+        <td>다양한 문화 트렌드에 대한 교회의 고민</td>
+        <td>OTT·디지털 문화·소비문화·개인화 트렌드를 이해하고 복음적으로 대응</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">5</td>
+        <td>교회의 본질 회복</td>
+        <td>성장·규모 중심에서 벗어나 예배·공동체·사랑이라는 본질로 돌아가는 것</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">6</td>
+        <td>다음 세대에 대한 관심과 배려</td>
+        <td>19~29세 무종교 76% — 청소년·청년 세대를 위한 맞춤형 목회 전략 필수</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">7</td>
+        <td>디지털 시대에 대한 연구와 대안 제시</td>
+        <td>AI·메타버스·유튜브 시대의 목회 방법론 연구. 콘텐츠와 플랫폼 준비</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- VIII. 무엇이 대안인가 + 조성돈 제안 -->
+  <div class="section-title">IX. 무엇이 대안인가 — 4가지 + 조성돈 교수의 제안</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">교회 회복을 위한 4가지 대안</div>
+    <div style="font-size:13px; color:var(--text-sub); line-height:1.85;">
+      <strong style="color:var(--cream)">① 이성적·감정적·도덕적·신비적 요소의 교회</strong><br>
+      쇠퇴하는 교회에는 이성적·도덕적 요소만 남는다. 신비(감정적 체험, 성령의 역사)가 회복되어야 한다.<br>
+      → 모라비안 공동체의 경고: 영성의 역사는 이어받아야 하지 않으면 사라진다.<br><br>
+      <strong style="color:var(--cream)">② 역동적 예배 · 성령의 강조 · 기도의 열심 · 전도 열정의 회복</strong><br>
+      이것이 교회의 생명이다. 이 네 가지가 살아있는 교회는 어떤 시대에도 성장한다.<br><br>
+      <strong style="color:var(--cream)">③ 팀 목회</strong><br>
+      1인 목회 시대를 넘어 다양한 은사를 가진 사역자들이 함께 협력하는 팀 목회 구조.<br>
+      수직적 관계에서 수평적 관계로의 전환.<br><br>
+      <strong style="color:var(--cream)">④ 이성에 호소하기보다 마음(감정)에 호소한다</strong><br>
+      현대인은 논리보다 감동, 정보보다 체험을 원한다. 설교와 예배가 마음을 움직여야 한다.
+    </div>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title">조성돈 교수의 제안 — 한국교회가 회복해야 할 6가지</div>
+    <div class="principle-claim">종교사회학적 분석에 기반한 한국교회 회복 방향</div>
+    <div class="principle-body">
+      <strong style="color:var(--cream)">① 이미지 고양</strong> — 교회의 공공 이미지를 개선하라. 세상이 교회를 어떻게 보는가를 직시하고 변화하라.<br>
+      <strong style="color:var(--cream)">② 신뢰</strong> — 목회자와 교회 기관에 대한 신뢰를 회복하라. 투명성·도덕성·약속 이행.<br>
+      <strong style="color:var(--cream)">③ 신비적 종교 기관</strong> — 이성·도덕만이 아니라 신비 체험(성령·기도·치유)을 제공하는 기관으로.<br>
+      <strong style="color:var(--cream)">④ 봉사하는 기관</strong> — 지역사회를 실질적으로 섬기는 교회. 선교적 교회론과 연결.<br>
+      <strong style="color:var(--cream)">⑤ 배타적 결속력에서 관용의 모습으로</strong> — "우리만 옳다"는 폐쇄성을 버리고 열린 공동체로.<br>
+      <strong style="color:var(--cream)">⑥ 가치의 추구</strong> — 즐거움 추구 시대에 삶의 의미와 가치를 제공하는 유일한 공동체로 자리매김.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- IX. 목회 패러다임 변화 -->
+  <div class="section-title">X. 목회 패러다임 변화의 방향 — 자기 혁신</div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">전통적 → 유기적 목회 패러다임</span>
+    <div class="ministry-row">
+      <div class="ministry-label">전통적</div>
+      <div class="ministry-value">형식·목사·건물 중심. 획일적인 프로그램. 수직적 관계 구조</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">유기적</div>
+      <div class="ministry-value">성도의 다양한 욕구에 대응. 성도 개인의 영적 성숙(Smart Saints) 지원. 성도의 신앙욕구의 다양성 파악</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 전환</div>
+      <div class="ministry-value">수직적 관계 → 수평적 관계. 평신도 사역자 발굴. 교회 건물 중심 → 소그룹 유기적 공동체 중심</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">소그룹 유기적 공동체 패러다임 — 4가지 특징</div>
+    <table class="stat-table">
+      <tr><th>#</th><th>특징</th><th>내용</th></tr>
+      <tr>
+        <td class="stat-highlight">①</td>
+        <td>공동체 영성의 회복</td>
+        <td>삶을 나누고 상호 돌봄. 초대교회의 전통으로 돌아가라 (행 2:42–46)</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">②</td>
+        <td>도덕적 탁월함</td>
+        <td>로마를 이길 수 있는 교회의 특징 — 도덕적으로 탁월한 삶의 방식이 전도력이 된다</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">③</td>
+        <td>맞춤형 신앙 콘텐츠</td>
+        <td>OTT 크리스천 시대 — 개인 맞춤형 신앙 콘텐츠(설교·교육·묵상)를 제공하라</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">④</td>
+        <td>평신도 사역자 발굴</td>
+        <td>수직적 관계 → 수평적 관계. 평신도가 선교사의 정체성으로 일상에서 사역하게 하라</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">높은 헌신과 영적 성취감을 주는 양육·성장 패러다임</div>
+    <ul class="content-list">
+      <li><strong>세상과 구별될 수 있고 하나님을 깊이 만난 참된 성도</strong>를 만들어야 한다</li>
+      <li><strong>높은 수준의 헌신도</strong>와 풍부한 종교 자원을 가진 공동체 — 헌신을 부담이 아닌 기쁨으로</li>
+      <li>충분히 <strong>영적 만족도</strong>를 경험할 수 있는 공동체를 만들어라</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">기독교의 생명력을 회복하라 — 3가지</div>
+    <div style="font-size:13px; color:var(--text-sub); line-height:1.85;">
+      <strong style="color:var(--cream)">① 온고지신(溫故知新) — 기도의 능력을 경험하게 하라</strong><br>
+      옛것(기도·성령·부흥의 역사)에서 새것을 배운다. 기도의 능력이 살아있는 교회를 만들어라.<br><br>
+      <strong style="color:var(--cream)">② 하나님을 경험하게 하라 — 하나님과 개인적인 깊은 관계를 갖게 하라</strong><br>
+      지식이 아닌 체험. 설교와 예배와 소그룹에서 하나님을 직접 만나게 하는 것이 목회의 핵심.<br><br>
+      <strong style="color:var(--cream)">③ 헌신과 순종의 기쁨을 알게 하라</strong><br>
+      헌신이 부담이 아닌 기쁨이 될 때 교회는 살아난다. 이것이 진정한 제자훈련의 열매.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- X. 설교·콘텐츠·이단 -->
+  <div class="section-title">XI. 실천 전략 — 설교 · 콘텐츠 · 이단 대처</div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">업그레이드된 설교</span>
+    <div class="ministry-row">
+      <div class="ministry-label">경쟁 구조</div>
+      <div class="ministry-value">최고의 설교자들과 경쟁한다 — 성도는 유튜브로 최고의 설교를 언제든 들을 수 있다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 원칙</div>
+      <div class="ministry-value">들리는 설교 / 메신저이자 메시지 (설교자의 삶 자체가 설교) / 나만의 스타일</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">실천 기준</div>
+      <div class="ministry-value">"설교의 시작은 설교를 듣고 실천하는 순간이다" (목회 트렌드 2026) — 듣기만 해서는 안 되고 삶에서 적용되어야 진짜 설교</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">콘텐츠와 플랫폼</span>
+    <div class="ministry-row">
+      <div class="ministry-label">나만의 콘텐츠</div>
+      <div class="ministry-value">설교 / 교육 / 상담 / 제자훈련 / 성경통독 — 자신만의 강점 영역에서 콘텐츠를 만들어라</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">플랫폼</div>
+      <div class="ministry-value">유튜브 / SNS(인스타·블로그) — 콘텐츠를 공유할 수 있는 공간. 홈페이지보다 SNS 활용이 더 효과적</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">마무리 명제</div>
+      <div class="ministry-value" style="color:var(--cream); font-weight:600;">"교회의 미래는 건물의 크기에 있지 않고, 사람을 살리는 공동체성의 회복에 있다"</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">이단에 대한 대처</span>
+    <div class="ministry-row">
+      <div class="ministry-label">분석 과제</div>
+      <div class="ministry-value">기존 신자들이 이단에 가는 이유를 파악하라 — 영적 갈망의 충족, 공동체 소속감, 확실한 답변 제공 등</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">예방 과제</div>
+      <div class="ministry-value">현 성도들이 이단에 가지 않게 예방하라 — 바른 성경교육, 강한 공동체, 건강한 영성 제공이 최선의 예방</div>
+    </div>
+  </div>
+
+  <!-- 외로운 사람을 위한 구체적 교회 사례 (슬라이드 24) -->
+  <hr class="divider">
+  <div class="section-title">보충: 외로운 사람을 위한 교회 사역 실제 사례 (슬라이드 24)</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">지역 교회의 외로움 해결 사역 사례</div>
+    <table class="stat-table">
+      <tr><th>교회</th><th>사역 내용</th></tr>
+      <tr>
+        <td class="stat-highlight">마포구 서현교회</td>
+        <td>주 4회 야쿠르트 배달과 안부 묻기 — 고립된 지역민에게 관계를 먼저 연결</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">마포구 신생명나무교회</td>
+        <td>노인들의 점심식사 제공 — 경제적 어려움과 외로움을 동시에 해결</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">부산 수영로교회</td>
+        <td>수영로 심리상담센터 운영 — 전문적 돌봄을 통한 지역사회 신뢰 구축</td>
+      </tr>
+    </table>
+    <div style="margin-top:10px; font-size:13px; color:var(--text-sub);">
+      → 선교적 교회론의 실천: 교회의 평판이 좋아지면 가나안 성도가 돌아오고, 불신자와의 접촉면이 생긴다.
+    </div>
+  </div>
+
+  <!-- 교수설명 -->
+  <div class="section-title">교수 강조 발언</div>
+
+  <div class="prof-card">
+    <div class="prof-quote">권력은 리더가 하고 싶은 일을 강제할 수 있는 힘이라면, 권위는 조직 구성원들이 자발적으로 따르게 하는 영향력입니다. 목회자는 준거적 파워(본이 됨)를 가질 때 성도들이 자발적으로 따릅니다. 권위(ἐξουσία)는 하나님이 위임해 주셨지만, 그 권위를 사람들로부터 인정받는 것은 목회자의 몫입니다.</div>
+  </div>
+
+  <div class="prof-card">
+    <div class="prof-quote">영성은 지식과 학위와 스펙으로 얻어지는 게 아닙니다. 하나님과의 만남을 통해서만 얻어지는 것입니다. 아무리 좋은 신학교를 나와도 하나님을 만나지 못하면 설교에 온기가 없어요. 목회자의 설교 파워는 "자기가 그 말씀대로 살아본 확신"에서 나옵니다.</div>
+  </div>
+
+  <div class="prof-card">
+    <div class="prof-quote">하나님 중심의 목회냐 소비자 중심의 목회냐 논쟁이 있지만, 이 양 끝단에서 선택하는 것은 목회자의 몫입니다. 교회 환경을 고려하면서 기도하며 지혜롭게 선택해야 합니다. 지역과 성도를 잘 분석하고, 그들이 어떤 필요를 갖고 있는지를 알아야 합니다.</div>
+  </div>
+
+  <div class="prof-card">
+    <div class="prof-quote">종교 시장이라는 관점에서 보면, 사람들이 원하는 물건을 사듯 원하는 교회를 찾습니다. 미스매치가 일어나고 있어요. 목회자는 지역과 성도를 분석하여 이 간극을 줄여야 합니다. 새들백교회 릭 워렌 목사는 개척 전 Saddleback Sam이라는 지역민 프로파일을 분석했습니다.</div>
+  </div>
+
+  <!-- 오늘의 핵심 원칙 -->
+  <div class="core-principles">
+    <div class="core-title">✦ 오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>분석하라</strong> — 목회자·교회·환경(세상)을 통합적으로 분석하라. 지역과 성도가 무엇을 필요로 하는지 알아야 미스매치를 줄이고 효과적으로 섬길 수 있다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>공동체를 세우라</strong> — 외로운 현대인에게 교회의 답은 '터놓고 이야기할 수 있는 소그룹'이다. 예배와 소그룹에 집중하면 나머지는 따라온다 (에너지 전환의 법칙).</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>몸부림치라</strong> — 착한 행실(καλός)의 전도력은 하나님을 간절히 의지하고 그 뜻을 이루기 위해 핍박을 감수하는 몸부림에서 나온다. 영성 없는 스펙은 설교의 온기를 빼앗는다.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     탭 2: 핵심정리
+════════════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-content">
+
+  <div class="section-title">핵심 개념 — 5대 현상</div>
+
+  <div class="principle-card">
+    <div class="principle-title">현대 한국 교회가 직면한 5대 현상</div>
+    <div class="principle-claim">탈종교화 / 탈교회화 / 개인화 / 영성화(SBNR) / 외로운 크리스천</div>
+    <div class="principle-body">
+      <strong style="color:var(--cream)">①탈종교화</strong> — 모든 종교 인구 감소, 젊은 층 무종교 76%(19~29세)<br>
+      <strong style="color:var(--cream)">②탈교회화</strong> — 가나안 성도 약 100만 명 (닻형·부평초형)<br>
+      <strong style="color:var(--cream)">③개인화</strong> — 구속 거부, 공동체성 거부, 유튜브 신앙<br>
+      <strong style="color:var(--cream)">④영성화(SBNR)</strong> — 종교는 싫지만 영성은 원함. 52.2%가 복귀 의향<br>
+      <strong style="color:var(--cream)">⑤외로운 크리스천</strong> — 국민 54.6% 외로움, 개신교인 44.2%. 소그룹 참여자 39.7%로 최저
+    </div>
+    <div class="principle-bible">📖 핵심 처방: 슈바르츠의 '사랑의 교제의 질' — 터놓고 이야기할 수 있는 공동체</div>
+  </div>
+
+  <div class="section-title">탈교회 시대의 4가지 교회론 — 비교</div>
+
+  <div class="card">
+    <table class="stat-table">
+      <tr>
+        <th>교회론</th><th>핵심 명제</th><th>목회자 역할</th><th>성경 근거</th>
+      </tr>
+      <tr>
+        <td class="stat-highlight">선교적</td>
+        <td>선교 = 교회의 본질</td>
+        <td>선교사 (지역사회 접촉)</td>
+        <td>요 17:18</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">목양적</td>
+        <td>성도를 돌보고 동행</td>
+        <td>목자·동반자 (ποιμήν)</td>
+        <td>요 10:11</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">성육신적</td>
+        <td>문화의 옷 입고 접근</td>
+        <td>문화 해석자</td>
+        <td>고전 9:22</td>
+      </tr>
+      <tr>
+        <td class="stat-highlight">가상</td>
+        <td>선교 현장 = 가상 공간</td>
+        <td>콘텐츠 생산자</td>
+        <td>막 16:15</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section-title">목회자의 권위론</div>
+
+  <div class="principle-card">
+    <div class="principle-title">ἐξουσία(엑수시아) — 위임된 권위</div>
+    <div class="principle-claim">권위는 하나님이 주시지만, 인정받는 것은 목회자의 몫이다.</div>
+    <div class="principle-body">
+      <strong style="color:var(--cream)">획득 경로:</strong> 신적 위임 + 공동체 합법적 위임 (청빙 절차)<br>
+      <strong style="color:var(--cream)">인정 통로:</strong> 영성 / 전문성 / 인성<br>
+      <strong style="color:var(--cream)">준거적 권위:</strong> 본(本)이 됨으로 자발적 순종 유도 — 딤전 4:12
+    </div>
+    <div class="principle-bible">δύναμις(권력, 강제적 힘) vs ἐξουσία(권위, 자발적 순종 유도)</div>
+  </div>
+
+  <div class="section-title">핵심 성경 개념</div>
+
+  <div class="bible-card">
+    <div class="bible-ref">요 14:2 — οἰκία(오이키아) / '아버지의 집'으로서의 교회</div>
+    <div class="bible-text">οἰκία(거주 공간·공동체) vs οἶκος(가문·혈통)</div>
+    <hr class="bible-divider">
+    <div class="bible-interp">고별강화(요 13–17장)는 제자들의 보존(τηρεῖν)을 위한 말씀. 삼위일체 하나님이 임재하시는 서로 사랑의 공동체.</div>
+    <hr class="bible-divider">
+    <div class="bible-apply"><strong>현장 적용:</strong> 와서 보라(Come and See) 전도 — 공동체의 삶 자체가 전도의 도구</div>
+  </div>
+
+  <div class="bible-card">
+    <div class="bible-ref">마 5:16 — 착한 행실(καλά ἔργα)의 신학적 의미</div>
+    <div class="bible-text">καλός = 착함 + 매력 (팔복의 문맥에서 읽어야 함)</div>
+    <hr class="bible-divider">
+    <div class="bible-interp">양용의 교수(마태복음 전공) — 착한 행실 = ① 하나님을 간절히 의지 ② 하나님 뜻을 이루기 위한 몸부림 ③ 핍박 감수</div>
+    <hr class="bible-divider">
+    <div class="bible-apply">세상 사람들이 이 몸부림에서 신비를 느끼고 하나님께 영광을 돌리게 된다</div>
+  </div>
+
+  <div class="section-title">조성돈 교수의 6가지 제안 (종교사회학)</div>
+
+  <div class="card">
+    <table class="stat-table">
+      <tr><th>#</th><th>제안</th><th>핵심</th></tr>
+      <tr><td class="stat-highlight">①</td><td>이미지 고양</td><td>세상이 교회를 어떻게 보는지 직시하고 변화</td></tr>
+      <tr><td class="stat-highlight">②</td><td>신뢰 회복</td><td>투명성·도덕성·약속 이행</td></tr>
+      <tr><td class="stat-highlight">③</td><td>신비적 종교 기관</td><td>성령·기도·치유 — 신비 체험 제공</td></tr>
+      <tr><td class="stat-highlight">④</td><td>봉사하는 기관</td><td>지역사회를 실질적으로 섬기는 교회</td></tr>
+      <tr><td class="stat-highlight">⑤</td><td>관용의 모습으로</td><td>배타적 결속력 → 열린 공동체</td></tr>
+      <tr><td class="stat-highlight">⑥</td><td>가치의 추구</td><td>삶의 의미·가치를 제공하는 유일한 공동체</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">목회 패러다임 변화 방향</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:10px;">전통적 → 유기적 목회 패러다임</div>
+    <table class="stat-table">
+      <tr><th>구분</th><th>전통적 목회</th><th>유기적 목회</th></tr>
+      <tr><td>중심</td><td>형식·목사·건물</td><td class="stat-highlight">성도의 다양한 욕구</td></tr>
+      <tr><td>관계</td><td>수직적</td><td class="stat-highlight">수평적 (팀 목회)</td></tr>
+      <tr><td>단위</td><td>교회 건물</td><td class="stat-highlight">소그룹 유기적 공동체</td></tr>
+      <tr><td>사역자</td><td>목사 중심</td><td class="stat-highlight">평신도 사역자 발굴</td></tr>
+      <tr><td>콘텐츠</td><td>획일적 프로그램</td><td class="stat-highlight">맞춤형 신앙 콘텐츠</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">시험 예상 문항</div>
+
+  <div class="exam-card">
+    <span class="exam-badge">시험 예상</span>
+    <div class="exam-title">① 현대 한국 교회가 직면한 5대 현상을 설명하고, 각각의 통계적 근거와 목회적 대응 방안을 서술하라.</div>
+    <div class="exam-body">탈종교화·탈교회화·개인화·영성화(SBNR)·외로운 크리스천 — 각 현상의 정의 + 통계 + 대응</div>
+  </div>
+
+  <div class="exam-card">
+    <span class="exam-badge">시험 예상</span>
+    <div class="exam-title">② 탈교회 시대의 4가지 교회론을 비교·서술하고, 각각의 성경적 근거를 제시하라.</div>
+    <div class="exam-body">선교적·목양적·성육신적·가상 교회론 — 정의, 특징, 대표 사례, 성경 근거</div>
+  </div>
+
+  <div class="exam-card">
+    <span class="exam-badge">시험 예상</span>
+    <div class="exam-title">③ 요 14:2의 오이키아(οἰκία) 개념을 설명하고, 이것이 외로운 현대인을 위한 교회론과 어떻게 연결되는지 논하라.</div>
+    <div class="exam-body">오이코스 vs 오이키아 구분 + 고별강화 구조 + 서로 사랑의 공동체 + 와서 보라 전도</div>
+  </div>
+
+  <div class="exam-card">
+    <span class="exam-badge">시험 예상</span>
+    <div class="exam-title">④ Simple Church 전략에서 '선택과 집중'의 의미를 설명하고, 슈바르츠의 에너지 전환의 법칙과 연결하여 서술하라.</div>
+    <div class="exam-body">교회 5기능 → 예배+소그룹 집중 → 에너지 전환 → 봉사·전도·교육으로 확산</div>
+  </div>
+
+  <div class="exam-card">
+    <span class="exam-badge">시험 예상</span>
+    <div class="exam-title">⑤ 목회자의 준거적 권위(ἐξουσία)란 무엇이며, 영성·전문성·인성을 통해 어떻게 획득되는지 설명하라.</div>
+    <div class="exam-body">권력(δύναμις) vs 권위(ἐξουσία) 구분 + 신적 위임·공동체 위임 + 준거적 파워(본이 됨)</div>
+  </div>
+
+  <div class="bible-card" style="margin-top:8px;">
+    <div class="bible-ref" style="color:var(--cream); font-size:14px; font-weight:700;">마무리 명제 (슬라이드 80)</div>
+    <div class="bible-text" style="font-size:14px; color:var(--cream);">"교회의 미래는 건물의 크기에 있지 않고, 사람을 살리는 공동체성의 회복에 있다."</div>
+  </div>
+
+  <div class="core-principles">
+    <div class="core-title">✦ 오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>분석하라</strong> — 목회자·교회·환경을 통합 분석. 지역과 성도의 필요를 알아야 미스매치를 줄인다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>공동체를 세우라</strong> — 외로운 현대인에게 '터놓고 이야기할 수 있는' 소그룹이 답이다. 선택과 집중.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>몸부림치라</strong> — 착한 행실(καλός)의 전도력은 하나님 뜻을 위해 핍박을 감수하는 몸부림에서 나온다.</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════════
+     탭 3: 현장적용
+════════════════════════════════════════════════ -->
+<div id="tab-field" class="tab-content">
+
+  <div class="section-title">사역 방법론</div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">예배 사역</span>
+    <div class="ministry-row">
+      <div class="ministry-label">목적</div>
+      <div class="ministry-value">하나님을 만나게 하는 것 — 성도가 교회에 오는 제1 이유</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 원리</div>
+      <div class="ministry-value">영감 있는 예배 / 하나님의 임재가 있는 예배. 설교 파워 = 말씀대로 살아본 확신</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">방법</div>
+      <div class="ministry-value">예배 준비·설교·기도에 집중 투자. 에스라 모델: 연구→준행→가르침 (스 7:10)</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">경계</div>
+      <div class="ministry-value">스펙은 있으나 온기 없는 설교 경계 (연세대 신학 사례). 영성은 하나님과의 만남에서만</div>
+    </div>
+    <div class="principle-bible" style="margin-top:10px;">📖 요 4:24 — "영과 진리로 예배할지니라"</div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">소그룹 사역</span>
+    <div class="ministry-row">
+      <div class="ministry-label">목적</div>
+      <div class="ministry-value">외로움 해소 / 교제 실현 / 터놓고 이야기할 수 있는 공동체</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">핵심 원리</div>
+      <div class="ministry-value">슈바르츠: 사랑의 교제의 질 = 교회 건강도. 척도 = "터놓고 이야기할 사람이 있는가"</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">방법</div>
+      <div class="ministry-value">상호 책임·서로 돌봄 구조. 우리들교회 모델 — 삶을 가감 없이 나누는 개방적 소그룹</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">온라인</div>
+      <div class="ministry-value">코로나 이후 줌(Zoom) 소그룹 효과적. 미국 이민교회에서 성도 만족도 높음</div>
+    </div>
+    <div class="principle-bible" style="margin-top:10px;">📖 행 2:42–46 — 초대교회의 교제와 나눔</div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">선교적 사역 (지역사회 접촉)</span>
+    <div class="ministry-row">
+      <div class="ministry-label">목적</div>
+      <div class="ministry-value">교회 평판 회복 / 가나안 성도 복귀 / 불신자 접촉면 마련</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">방법</div>
+      <div class="ministry-value">카페, 도서관, 독서모임, 운동, 영어교실 등 다양한 접촉면. 하나님 중심을 버리지 않으면서 사람들이 원하는 것을 파악</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">사례</div>
+      <div class="ministry-value">
+        · 세이비어교회(DC): 토기장이의 집 카페 + 빈민 주거 + 병원<br>
+        · 만화방 교회: 도서관 + 만화 → 아이들 유입<br>
+        · 카페 개척: 평일 카페·영어교실 + 주일 예배<br>
+        · 착한 청년들 모임: SNS 모집 → 건전한 교제 → 복음 제시
+      </div>
+    </div>
+    <div class="principle-bible" style="margin-top:10px;">📖 마 5:13–16 — 소금과 빛 / 착한 행실로 하나님께 영광</div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">온라인·AI 사역</span>
+    <div class="ministry-row">
+      <div class="ministry-label">목적</div>
+      <div class="ministry-value">플로팅 크리스천 연결 / 디지털 세대 접근 / 콘텐츠 전도</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">전략</div>
+      <div class="ministry-value">홈페이지에 목회 철학·비전 명시. 유튜브 설교 3회 이상이 현대인의 교회 선택 패턴. 블로그·인스타 꾸준한 콘텐츠</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">AI 원칙</div>
+      <div class="ministry-value">AI = 코파일럿(부기장). 설교를 쉽게가 아니라 깊게 하기 위해 활용. 재인 AI 사례 — 이미 교회 선택에 AI 사용 중</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">모델</div>
+      <div class="ministry-value">김광석 목사(울산) — 블로그 글이 공감·공유되며 개척 성공. 콘텐츠의 힘</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title">현장 시나리오</div>
+
+  <div class="field-card">
+    <div class="field-title">가나안 성도 재연결 전략</div>
+    <div class="field-row">
+      <div class="field-label">상황</div>
+      <div class="field-value">오랜 성도가 코로나 이후 유튜브 예배로만 생활. 교회 등록을 꺼리고, 이찬수·유기성 채널을 오가며 신앙생활 중</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">진단</div>
+      <div class="field-value">교회에서 실망 또는 전형적 요구(봉사·헌금·개근)에 부담. 낯선 곳에서 새신자가 되는 것 자체가 심리적 장벽. 한 번 떠나면 재진입이 어려운 구조</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">실천</div>
+      <div class="field-value">소그룹 먼저 연결 → 관계 형성 후 등록 유도. 선교적 접촉면(독서모임·카페) 통한 자연스러운 재진입. 등록 부담 낮추기</div>
+    </div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">청년 전도 — "착한 청년들의 모임" 모델</div>
+    <div class="field-row">
+      <div class="field-label">상황</div>
+      <div class="field-value">청년들이 "교회"라는 이름에 거부감. 전도 집회에 오지 않음. 종교는 싫지만 공동체와 의미는 원하는 SBNR 성향</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">진단</div>
+      <div class="field-value">교회가 세상으로 나가야 하는 시대. 불신자가 교회로 오는 것이 아니라 교회가 먼저 접촉면을 만들어야 함</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">실천</div>
+      <div class="field-value">SNS "착한 청년들의 모임" 광고 → 불신자 포함 모임 → 건전한 교제 → 교회 소개 → 묵상·성경공부 → 복음 제시 → 영접. 단계적 연결이 핵심</div>
+    </div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">개척교회 온라인 사역 전략</div>
+    <div class="field-row">
+      <div class="field-label">상황</div>
+      <div class="field-value">개척 초기, 건물·인지도 없음. 현대인은 교회를 선택할 때 유튜브 설교 최소 3회 청취 후 홈페이지 확인 → 방문</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">진단</div>
+      <div class="field-value">건물이 아니라 콘텐츠와 목회 철학이 사람을 끌어당긴다. 교인이 궁금해하는 것: 목사님 설교 / 교인들의 분위기 / 목회 철학</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">실천</div>
+      <div class="field-value">① 홈페이지에 목회 철학·비전 명시 ② 유튜브·블로그에 꾸준한 설교·묵상 콘텐츠 ③ AI를 코파일럿으로 설교 깊이 강화 ④ SNS로 교인들의 삶·활동 공유</div>
+    </div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">종교 시장 분석 — 릭 워렌 새들백 모델</div>
+    <div class="field-row">
+      <div class="field-label">상황</div>
+      <div class="field-value">교회 개척 또는 목회 지역 분석이 필요한 상황. 모든 교회가 같은 방식으로 하면 미스매치 발생</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">진단</div>
+      <div class="field-value">릭 워렌은 캘리포니아 세들백 지역 개척 전 "Saddleback Sam" — 중산층, 캐주얼한 문화, 반바지 선호 — 을 분석. 그에 맞는 방식으로 개척 성공</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">실천</div>
+      <div class="field-value">내가 목회할 지역의 사람들을 분석하라: 연령대 / 문화적 성향 / 경제적 수준 / 종교적 배경 / 필요. 기도와 분석을 병행. 흉내 내지 말고 나만의 방식을 개발</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">설교 업그레이드 전략</span>
+    <div class="ministry-row">
+      <div class="ministry-label">경쟁 현실</div>
+      <div class="ministry-value">성도는 유튜브로 최고의 설교자를 언제든 들을 수 있다. 더 이상 "우리 교회 목사님" 한 명의 독점 시대가 아님</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">들리는 설교</div>
+      <div class="ministry-value">논리보다 감동, 정보보다 체험. 이성에 호소하기보다 마음(감정)에 호소하라</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">메신저=메시지</div>
+      <div class="ministry-value">설교자의 삶 자체가 설교. "설교의 시작은 설교를 듣고 실천하는 순간이다" (목회 트렌드 2026)</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">나만의 스타일</div>
+      <div class="ministry-value">흉내 내면 절대 안 된다. 자신만의 은사·배경·스타일에서 나오는 진정성 있는 설교</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">콘텐츠 & 플랫폼 전략</span>
+    <div class="ministry-row">
+      <div class="ministry-label">나만의 강점</div>
+      <div class="ministry-value">설교 / 교육 / 상담 / 제자훈련 / 성경통독 — 자신의 강점 한 가지에 집중하여 콘텐츠화</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">플랫폼 구축</div>
+      <div class="ministry-value">유튜브·SNS·블로그 — 콘텐츠를 공유할 수 있는 나만의 공간. 홈페이지보다 SNS 채널이 현대인에게 더 효과적</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">OTT 크리스천</div>
+      <div class="ministry-value">넷플릭스처럼 원하는 콘텐츠를 원하는 시간에 — 맞춤형 신앙 콘텐츠 제공이 미래 목회의 핵심</div>
+    </div>
+  </div>
+
+  <div class="ministry-card">
+    <span class="ministry-badge">기독교 생명력 회복 전략</span>
+    <div class="ministry-row">
+      <div class="ministry-label">온고지신</div>
+      <div class="ministry-value">기도의 능력을 경험하게 하라. 부흥의 역사는 항상 기도에서 시작되었다</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">하나님 경험</div>
+      <div class="ministry-value">하나님과 개인적인 깊은 관계를 갖게 하라. 예배·소그룹·큐티에서 하나님을 직접 만나게 하라</div>
+    </div>
+    <div class="ministry-row">
+      <div class="ministry-label">헌신의 기쁨</div>
+      <div class="ministry-value">헌신과 순종의 기쁨을 알게 하라. 높은 헌신도 + 풍부한 영적 만족도 = 건강한 공동체</div>
+    </div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">이단 예방 목회 — 현장 전략</div>
+    <div class="field-row">
+      <div class="field-label">상황</div>
+      <div class="field-value">기존 신자들이 이단으로 이탈하는 현상이 증가. 이단은 영적 갈망·공동체 소속감·확실한 답변을 제공하며 유혹함</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">진단</div>
+      <div class="field-value">교회가 이단이 주는 것을 먼저 제공하지 못할 때 이탈 발생. 영성·공동체·명확한 진리 교육의 부재가 원인</div>
+    </div>
+    <div class="field-row">
+      <div class="field-label">실천</div>
+      <div class="field-value">① 이단이 가는 이유 파악 → ② 바른 성경교육으로 예방 → ③ 강한 소그룹 공동체 → ④ 충분한 영적 만족도 제공. 이단 예방의 최선은 건강한 교회를 만드는 것</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px;">하나님 중심 vs 소비자 중심 — 양 극단을 피하라</div>
+    <div style="font-size:13px; color:var(--text-sub); line-height:1.85;">
+      <strong style="color:var(--cream)">하나님 중심(개혁주의 관점):</strong> 예배의 순수성, 복음의 선포, 말씀 중심 — 여기에 집중하면 다른 것은 따라옴<br><br>
+      <strong style="color:var(--cream)">소비자 중심(성장주의 관점):</strong> 성도의 필요와 문화에 맞춤 — 접촉면 확대, 유연한 방식<br><br>
+      <strong style="color:var(--green-main)">결론:</strong> 선택은 목회자의 몫. 지역·교회·자신의 은사를 분석하여 기도하며 결정하라.
+      내가 지향하는 것은 하나님을 만나게 하는 것 — 모든 방법은 그 목적을 위한 수단이다.
+    </div>
+  </div>
+
+  <div class="core-principles">
+    <div class="core-title">✦ 오늘 목회 핵심 원칙 3가지</div>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <div class="core-text"><strong>분석하라</strong> — 목회자·교회·환경을 통합 분석. 지역과 성도의 필요를 알아야 미스매치를 줄이고 효과적으로 섬길 수 있다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <div class="core-text"><strong>공동체를 세우라</strong> — 외로운 현대인에게 교회의 답은 '터놓고 이야기할 수 있는 소그룹'이다. 예배와 소그룹에 집중하면 나머지는 따라온다.</div>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <div class="core-text"><strong>몸부림치라</strong> — 착한 행실(καλός)의 전도력은 하나님을 간절히 의지하고 그 뜻을 위해 핍박을 감수하는 몸부림에서 나온다. 영성 없는 스펙은 설교의 온기를 빼앗는다.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

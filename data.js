@@ -35,7 +35,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/greek/week08.html" }
           ] },
         { week: 9, title: "동사 — 미래", date: "2026.05", files: [] },
-        { week: 10, title: "동사 — 부정과거", date: "2026.05", files: [] },
+        { week: 10, title: "어휘 · 명사 · 관사 · 관계대명사 · 형용사", date: "2026.05.11", files: [
+            { type: "notes", label: "강의노트", href: "output/greek/week10.html" }
+          ] },
         { week: 11, title: "분사 I", date: "2026.05", files: [] },
         { week: 12, title: "분사 II", date: "2026.06", files: [] },
         { week: 13, title: "부정사와 종속절", date: "2026.06", files: [] },

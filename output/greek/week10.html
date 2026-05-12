@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 10주차 · 명사·관사·관계대명사·형용사</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b27;
+  --subcard: #1e2538;
+  --gold: #c9a84c;
+  --gold-dim: #a07c30;
+  --greek: #f0d080;
+  --blue: #7c9ed9;
+  --blue-dim: #4a6fa8;
+  --red: #e07b6a;
+  --red-bg: #3d1a1a;
+  --green: #6fcf97;
+  --green-bg: #1a2d1a;
+  --purple: #b48adc;
+  --purple-bg: #211a34;
+  --teal: #4ec9c9;
+  --teal-bg: #0e2428;
+  --text: #e8eaf0;
+  --text-sub: #9ba3b8;
+  --hint: #6b7490;
+  --border: #2a3050;
+  --border-light: #3a4268;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: linear-gradient(135deg, #080c14 0%, #0c1828 45%, #0e2030 100%);
+  border-bottom: 2px solid var(--border);
+  padding: 32px 36px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: 'Ἡ Γραμματική';
+  position: absolute; right: -8px; top: 10px;
+  font-style: italic; font-size: 56px;
+  color: rgba(201,168,76,.06);
+  white-space: nowrap; pointer-events: none;
+  font-family: Georgia, serif;
+}
+.header-pills {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;
+}
+.pill {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; padding: 3px 12px; border-radius: 20px;
+  text-transform: uppercase;
+}
+.pill-week { background: rgba(78,201,201,.15); color: var(--teal); border: 1px solid rgba(78,201,201,.35); }
+.pill-date { background: var(--subcard); color: var(--text-sub); border: 1px solid var(--border); }
+.pill-prof { background: rgba(201,168,76,.12); color: var(--gold); border: 1px solid rgba(201,168,76,.3); }
+.header-title {
+  font-size: 26px; font-weight: 700; color: #fff;
+  margin-bottom: 4px; letter-spacing: -.02em;
+}
+.header-sub {
+  font-size: 13px; color: var(--text-sub);
+}
+.header-greek {
+  font-size: 15px; color: var(--greek); font-style: italic;
+  margin-top: 6px; opacity: .8;
+}
+
+/* ── TABS ── */
+.tabs-wrap {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex; gap: 0;
+  position: sticky; top: 0; z-index: 100;
+}
+.tab-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--text-sub); font-size: 13px; font-weight: 600;
+  padding: 14px 20px; border-bottom: 2px solid transparent;
+  transition: all .2s; white-space: nowrap;
+  font-family: inherit;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── MAIN CONTENT ── */
+.main {
+  max-width: 940px; margin: 0 auto; padding: 32px 24px 80px;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION HEADS ── */
+.sec-head {
+  display: flex; align-items: center; gap: 12px;
+  margin: 40px 0 20px;
+}
+.sec-head:first-child { margin-top: 0; }
+.sec-badge {
+  background: var(--gold); color: #0d1117;
+  font-size: 9px; font-weight: 800;
+  letter-spacing: .12em; padding: 3px 10px; border-radius: 3px;
+  white-space: nowrap; text-transform: uppercase;
+}
+.sec-title {
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+.sub-title {
+  font-size: 13px; font-weight: 700; color: var(--teal);
+  margin: 24px 0 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--teal);
+}
+
+/* ── VOCAB CARDS ── */
+.vocab-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px; margin-bottom: 20px;
+}
+.vocab-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color .2s, transform .15s;
+  position: relative; overflow: hidden;
+}
+.vocab-card:hover { border-color: var(--gold-dim); transform: translateY(-1px); }
+.vocab-card.flip .vc-front { display: none; }
+.vocab-card.flip .vc-back { display: flex; }
+.vc-front {}
+.vc-back { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70px; }
+.vc-gender {
+  position: absolute; top: 8px; right: 10px;
+  font-size: 9px; font-weight: 700; letter-spacing: .08em;
+  padding: 1px 7px; border-radius: 10px;
+}
+.gender-m { background: rgba(124,158,217,.15); color: var(--blue); border: 1px solid rgba(124,158,217,.3); }
+.gender-f { background: rgba(224,123,106,.12); color: var(--red); border: 1px solid rgba(224,123,106,.3); }
+.gender-n { background: rgba(111,207,151,.12); color: var(--green); border: 1px solid rgba(111,207,151,.3); }
+.gender-v { background: rgba(201,168,76,.12); color: var(--gold); border: 1px solid rgba(201,168,76,.3); }
+.vc-greek {
+  font-size: 20px; color: var(--greek); margin-bottom: 2px;
+}
+.vc-pron { font-size: 11px; color: var(--text-sub); margin-bottom: 4px; }
+.vc-pos { font-size: 10px; color: var(--hint); }
+.vc-meaning {
+  font-size: 18px; font-weight: 700; color: var(--gold);
+  margin-bottom: 4px;
+}
+.vc-hint { font-size: 11px; color: var(--text-sub); }
+.vc-flip-hint {
+  font-size: 9px; color: var(--hint); margin-top: 8px;
+  text-align: right;
+}
+
+/* ── PREP CALLOUT ── */
+.callout {
+  border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.callout-tip { background: rgba(201,168,76,.08); border-left: 3px solid var(--gold); }
+.callout-info { background: rgba(78,201,201,.07); border-left: 3px solid var(--teal); }
+.callout-exam { background: var(--red-bg); border-left: 3px solid var(--red); }
+.callout-concept { background: rgba(180,138,220,.08); border-left: 3px solid var(--purple); }
+.callout-icon { font-size: 18px; flex-shrink: 0; line-height: 1.3; }
+.callout-body {}
+.callout-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.callout-tip .callout-title { color: var(--gold); }
+.callout-info .callout-title { color: var(--teal); }
+.callout-exam .callout-title { color: var(--red); }
+.callout-concept .callout-title { color: var(--purple); }
+.callout-text { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.callout-text strong { color: var(--text); }
+
+/* ── GRAMMAR RULE ── */
+.gram-rule {
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  background: var(--card);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+}
+.gram-rule-title {
+  font-size: 13px; font-weight: 700; color: var(--gold);
+  margin-bottom: 8px;
+}
+.gram-rule-body { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+.gram-rule-body strong { color: var(--text); }
+.gram-rule-body .greek { color: var(--greek); }
+
+/* ── PARADIGM TABLES ── */
+.para-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.para-head {
+  background: var(--subcard);
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.para-head-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.para-head-sub { font-size: 11px; color: var(--text-sub); }
+.para-head-badge {
+  margin-left: auto; font-size: 9px; font-weight: 700;
+  padding: 2px 8px; border-radius: 3px; letter-spacing: .08em;
+}
+.para-body { padding: 16px 18px; }
+
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+thead tr { }
+thead th {
+  background: rgba(30,37,56,.8);
+  color: var(--text-sub);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .06em;
+  padding: 8px 12px; text-align: center;
+  border: 1px solid var(--border);
+  text-transform: uppercase;
+}
+td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: middle;
+}
+tr:nth-child(even) td { background: rgba(30,37,56,.3); }
+.td-case {
+  text-align: left; font-size: 12px; font-weight: 600;
+  color: var(--text-sub); background: rgba(30,37,56,.5) !important;
+}
+.td-greek { color: var(--greek); font-size: 15px; }
+.td-m { color: var(--blue); }
+.td-f { color: var(--red); }
+.td-n { color: var(--green); }
+.td-gold { color: var(--gold); }
+
+/* 3-column gender comparison table */
+.gender-cols {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px; margin-bottom: 20px;
+}
+.gender-col {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+}
+.gender-col-head {
+  padding: 10px 14px;
+  font-size: 12px; font-weight: 700; letter-spacing: .06em;
+  text-align: center;
+}
+.gender-col-head.male { background: rgba(124,158,217,.12); color: var(--blue); border-bottom: 1px solid rgba(124,158,217,.25); }
+.gender-col-head.female { background: rgba(224,123,106,.1); color: var(--red); border-bottom: 1px solid rgba(224,123,106,.22); }
+.gender-col-head.neuter { background: rgba(111,207,151,.1); color: var(--green); border-bottom: 1px solid rgba(111,207,151,.22); }
+.gender-col table th {
+  background: rgba(20,25,40,.6);
+}
+
+/* ── EXAM BOX ── */
+.exam-box {
+  background: var(--red-bg);
+  border: 1px solid var(--red);
+  border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;
+}
+.exam-box-title {
+  font-size: 11px; font-weight: 800; color: var(--red);
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+}
+.exam-box-body { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+.exam-box-body strong { color: var(--text); }
+
+/* ── MEMORY TIP ── */
+.mem-tip {
+  background: rgba(201,168,76,.06);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px; margin-bottom: 16px;
+}
+.mem-tip-label {
+  font-size: 10px; font-weight: 700; color: var(--gold);
+  letter-spacing: .1em; margin-bottom: 6px; text-transform: uppercase;
+}
+.mem-tip-body { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.mem-tip-body strong { color: var(--gold); }
+.mem-tip-body .greek { color: var(--greek); }
+
+/* ── CONCEPT EXPLAINER ── */
+.concept-box {
+  background: var(--purple-bg);
+  border: 1px solid rgba(180,138,220,.25);
+  border-radius: 10px; padding: 20px 22px; margin-bottom: 20px;
+}
+.concept-title {
+  font-size: 15px; font-weight: 700; color: var(--purple);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.concept-body { font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+.concept-body strong { color: var(--text); }
+.concept-body .greek { color: var(--greek); }
+.concept-body .hl { color: var(--gold); font-weight: 600; }
+
+.analogy-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 16px;
+}
+.analogy-card {
+  background: rgba(20,15,40,.5);
+  border: 1px solid rgba(180,138,220,.2);
+  border-radius: 8px; padding: 14px 16px;
+}
+.analogy-lang { font-size: 10px; font-weight: 700; color: var(--purple); letter-spacing: .1em; margin-bottom: 6px; text-transform: uppercase; }
+.analogy-example { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+/* ── AGREEMENT VISUAL ── */
+.agree-flow {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin: 16px 0;
+}
+.agree-node {
+  background: var(--subcard);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px;
+  text-align: center; flex: 1; min-width: 120px;
+}
+.agree-node-label { font-size: 10px; color: var(--text-sub); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .08em; }
+.agree-node-greek { font-size: 18px; color: var(--greek); }
+.agree-node-ko { font-size: 11px; color: var(--hint); }
+.agree-arrow { font-size: 20px; color: var(--gold); flex-shrink: 0; }
+.agree-rule {
+  background: rgba(201,168,76,.08);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 8px; padding: 10px 18px;
+  font-size: 13px; color: var(--gold); text-align: center;
+  width: 100%; margin-top: 8px;
+}
+
+/* ── FLASHCARD SECTION ── */
+.flash-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px; margin-bottom: 20px;
+}
+.flash-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 0;
+  cursor: pointer; min-height: 120px;
+  position: relative; perspective: 600px;
+  overflow: hidden;
+}
+.flash-inner {
+  width: 100%; height: 100%; min-height: 120px;
+  transition: transform .4s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+.flash-front, .flash-back {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  min-height: 120px;
+  backface-visibility: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 14px;
+  border-radius: 8px;
+}
+.flash-back { transform: rotateY(180deg); background: var(--subcard); }
+.flash-greek { font-size: 22px; color: var(--greek); margin-bottom: 4px; }
+.flash-pron { font-size: 11px; color: var(--text-sub); margin-bottom: 2px; }
+.flash-pos { font-size: 10px; color: var(--hint); }
+.flash-meaning { font-size: 20px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+.flash-detail { font-size: 11px; color: var(--text-sub); text-align: center; }
+.flash-hint { font-size: 9px; color: var(--hint); margin-top: 8px; }
+
+/* ── MUST MEMORIZE ── */
+.must-box {
+  background: linear-gradient(135deg, rgba(201,168,76,.1), rgba(201,168,76,.05));
+  border: 1px solid rgba(201,168,76,.35);
+  border-radius: 10px; padding: 18px 22px; margin-top: 40px;
+}
+.must-title {
+  font-size: 13px; font-weight: 800; color: var(--gold);
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.must-items {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.must-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+}
+.must-num { font-size: 20px; font-weight: 900; color: rgba(201,168,76,.3); margin-bottom: 4px; }
+.must-greek { font-size: 17px; color: var(--greek); margin-bottom: 3px; }
+.must-ko { font-size: 12px; color: var(--text-sub); }
+
+/* ── FOOTER ── */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: var(--hint); max-width: 940px; margin: 0 auto;
+}
+
+/* ── PREPOSITION TABLE ── */
+.prep-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 10px; margin-bottom: 20px;
+}
+.prep-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+}
+.prep-greek { font-size: 18px; color: var(--greek); margin-bottom: 4px; }
+.prep-case { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--teal); margin-bottom: 6px; text-transform: uppercase; }
+.prep-meaning { font-size: 13px; color: var(--text-sub); }
+
+/* print */
+@media print {
+  body { background: white; color: black; }
+  .tabs-wrap { display: none; }
+  .tab-panel { display: block !important; }
+  .site-header { background: white; color: black; border-bottom: 2px solid #333; }
+  .header-title { color: black; }
+  table td, table th { border-color: #ccc; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- HEADER -->
+<div class="site-header">
+  <div class="header-pills">
+    <span class="pill pill-week">10주차</span>
+    <span class="pill pill-date">2026 · 05 · 11</span>
+    <span class="pill pill-prof">이영민 교수</span>
+    <span class="pill" style="background:rgba(224,123,106,.12);color:#e07b6a;border:1px solid rgba(224,123,106,.3);">후반기 2주차</span>
+  </div>
+  <div class="header-title">어휘 · 명사 · 관사 · 관계대명사 · 형용사</div>
+  <div class="header-sub">제1·2변화 명사 격변화 / 정관사 전체 / 관계대명사 / 형용사 제1·2변화</div>
+  <div class="header-greek">Ἡ Γραμματική — Κλίσις Ὀνομάτων</div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <button class="tab-btn active" onclick="switchTab('notes')">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary')">📌 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('flash')">🃏 암기카드</button>
+</div>
+
+<div class="main">
+
+<!-- ==================== TAB 1: NOTES ==================== -->
+<div class="tab-panel active" id="tab-notes">
+
+  <!-- SECTION: 개념 기초 -->
+  <div class="sec-head">
+    <span class="sec-badge">개념</span>
+    <div class="sec-title">근본 의문 해결 — 성·수·격이란 무엇인가?</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-title">🧩 "명사가 남성이면 형용사는 왜 남·여·중 3가지 형태가 다 있나요?"</div>
+    <div class="concept-body">
+      <strong>핵심 답변: 형용사는 혼자 쓰이지 않습니다.</strong> 형용사는 항상 명사를 꾸미거나 명사를 대신하는데, 그 명사의 성(남/여/중)·수(단/복)·격(주/속/여/대)에 <span class="hl">완전히 맞춰야 합니다.</span> 이것을 <strong>'일치(agreement)'</strong>라고 해요.<br><br>
+      예를 들어 "좋은 말씀" — <span class="greek">ὁ ἀγαθὸς λόγος</span>에서 λόγος(말씀)는 <strong>남성 명사</strong>이므로, 형용사 ἀγαθός도 남성 형태를 씁니다. 만약 꾸미는 명사가 여성이었다면 <span class="greek">ἀγαθή</span>, 중성이었다면 <span class="greek">ἀγαθόν</span>을 써야 해요.<br><br>
+      그래서 사전에서 형용사를 찾으면 항상 <strong>"남·여·중 3가지 형태"</strong>를 한꺼번에 표기합니다: <span class="greek">ἀγαθός, ή, όν</span>
+    </div>
+  </div>
+
+  <div class="concept-box" style="background:rgba(78,201,201,.06);border-color:rgba(78,201,201,.2);">
+    <div class="concept-title" style="color:var(--teal);">🌍 한국어와 비교해서 이해하기</div>
+    <div class="concept-body">
+      한국어에는 이런 성(gender) 구분이 없어서 낯설게 느껴지는 거예요. 그런데 <strong>영어</strong>에도 흔적이 남아있어요:<br><br>
+      • 영어: <em>he / she / it</em> — 사람·사물을 가리킬 때 성(性)을 구분합니다<br>
+      • 스페인어: <em>el libro bueno</em>(남성) / <em>la casa buena</em>(여성) — 형용사가 명사를 따라 변해요<br><br>
+      헬라어는 여기서 한 단계 더 나아가 <strong>격(格, case)도 어미로 표시</strong>합니다. 영어로 치면 "I / my / me"처럼 주격·속격·대격이 다른 형태인 것과 같아요. 헬라어는 이 변화를 명사·형용사·관사 <em>모두</em>가 함께합니다.
+      <div class="analogy-grid" style="margin-top:16px;">
+        <div class="analogy-card">
+          <div class="analogy-lang">영어 (대명사)</div>
+          <div class="analogy-example">I(주격) → my(속격) → me(대격)<br>주어 위치에 따라 형태 변화</div>
+        </div>
+        <div class="analogy-card">
+          <div class="analogy-lang">헬라어 (명사·형용사·관사)</div>
+          <div class="analogy-example">ὁ λόγος(주격) → τοῦ λόγου(속격) → τὸν λόγον(대격)<br>역할에 따라 명사도, 관사도 함께 변화</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept-box" style="background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.2);">
+    <div class="concept-title" style="color:var(--gold);">⚙️ 명사의 '성(性)'은 생물학적 성별과 다릅니다</div>
+    <div class="concept-body">
+      헬라어에서 명사의 성은 <strong>문법적 분류</strong>예요. 자연적 성별과 일치하는 경우도 있지만, 그렇지 않은 경우도 많아요:<br><br>
+      • <span class="greek">λόγος</span>(말씀) → <strong>남성</strong> (생명체 아님, 문법 분류)<br>
+      • <span class="greek">ζωή</span>(생명) → <strong>여성</strong> (생명체 아님, 문법 분류)<br>
+      • <span class="greek">τέκνον</span>(아이) → <strong>중성</strong> (사람인데도!)<br><br>
+      결론: <span class="hl">명사의 성은 단어를 외울 때 함께 외워야 합니다.</span> 사전에서 ὁ(남), ἡ(여), τό(중)로 표시돼 있어요.
+    </div>
+  </div>
+
+  <!-- 격 설명 -->
+  <div class="sub-title">격(格, Case) — 문장 속 역할을 어미로 표시</div>
+  <div class="callout callout-info">
+    <div class="callout-icon">📐</div>
+    <div class="callout-body">
+      <div class="callout-title">4격의 의미와 역할</div>
+      <div class="callout-text">
+        <strong>주격(主格, Nominative)</strong> — 문장의 주어. "~이/가" → <span style="color:var(--greek)">ὁ λόγος</span> (그 말씀이)<br>
+        <strong>속격(屬格, Genitive)</strong> — 소유·출처. "~의, ~로부터" → <span style="color:var(--greek)">τοῦ λόγου</span> (그 말씀의)<br>
+        <strong>여격(與格, Dative)</strong> — 간접목적어·도구·장소. "~에게, ~안에, ~으로" → <span style="color:var(--greek)">τῷ λόγῳ</span> (그 말씀에게/안에)<br>
+        <strong>대격(對格, Accusative)</strong> — 직접목적어·방향. "~을/를, ~로" → <span style="color:var(--greek)">τὸν λόγον</span> (그 말씀을)
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: VOCAB -->
+  <div class="sec-head">
+    <span class="sec-badge">어휘</span>
+    <div class="sec-title">10주차 어휘 목록</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">카드 클릭 → 뒤집기 (앞: 헬라어 / 뒤: 뜻)</div>
+      <div class="callout-text">ὁ = 남성, ἡ = 여성, τό = 중성. 단어와 함께 <strong>성(性)도 반드시 암기</strong>할 것.</div>
+    </div>
+  </div>
+
+  <div class="sub-title">남성·중성 명사 (2변화)</div>
+  <div class="vocab-grid" id="vocab-m"></div>
+
+  <div class="sub-title">여성 명사 (1변화)</div>
+  <div class="vocab-grid" id="vocab-f"></div>
+
+  <div class="sub-title">동사 · 전치사 · 불변화사</div>
+  <div class="vocab-grid" id="vocab-v"></div>
+
+  <div class="sub-title">형용사</div>
+  <div class="vocab-grid" id="vocab-adj"></div>
+
+  <!-- SECTION: 명사 변화 -->
+  <div class="sec-head">
+    <span class="sec-badge">문법 1</span>
+    <div class="sec-title">명사 격변화 (제1변화 · 제2변화)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">🗺️</div>
+    <div class="callout-body">
+      <div class="callout-title">변화 체계 한눈에</div>
+      <div class="callout-text">
+        <strong>제2변화 (α변화)</strong> → 주로 여성명사. 어미에 α/η가 특징.<br>
+        <strong>제1변화 (ο변화 / o-stems)</strong> → 남성·중성 명사. 어미에 ο/ω가 특징.<br>
+        예외 주의: 제1변화를 취하는 남성명사(<span style="color:var(--greek)">προφήτης, μαθητής</span>), 제2변화를 취하는 여성명사(<span style="color:var(--greek)">ἔρημος, ὁδός</span>)
+      </div>
+    </div>
+  </div>
+
+  <!-- 제2변화 남성 -->
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">제2변화 남성 명사 — <span style="color:var(--greek)">λόγος</span> (말씀)</div>
+        <div class="para-head-sub">2nd Declension Masculine · ο-변화</div>
+      </div>
+      <span class="para-head-badge" style="background:rgba(124,158,217,.15);color:var(--blue);border:1px solid rgba(124,158,217,.3);">남성 ὁ</span>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">격</th>
+            <th>단수</th>
+            <th>뜻(단수)</th>
+            <th>복수</th>
+            <th>뜻(복수)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ος</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀이</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">οι</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀들이</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ου</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀의</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ων</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀들의</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ῳ</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀에게</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">οις</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀들에게</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ον</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀을</td>
+            <td class="td-greek td-m">λόγ<strong style="color:var(--gold)">ους</strong></td>
+            <td style="font-size:12px;color:var(--hint);">그 말씀들을</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mem-tip" style="margin-top:14px;margin-bottom:0;">
+        <div class="mem-tip-label">🧠 암기법</div>
+        <div class="mem-tip-body">남성 어미 순서: <strong>-ος / -ου / -ῳ / -ον</strong> (단수) | <strong>-οι / -ων / -οις / -ους</strong> (복수)<br>
+        단수: <strong>"오스-우-오이-온"</strong> / 복수: <strong>"오이-온-오이스-우스"</strong>로 소리 내어 읽어보세요!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제2변화 중성 -->
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">제2변화 중성 명사 — <span style="color:var(--greek)">δῶρον</span> (선물)</div>
+        <div class="para-head-sub">2nd Declension Neuter</div>
+      </div>
+      <span class="para-head-badge" style="background:rgba(111,207,151,.1);color:var(--green);border:1px solid rgba(111,207,151,.25);">중성 τό</span>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">격</th>
+            <th>단수</th>
+            <th>복수</th>
+            <th style="font-size:11px;color:var(--text-sub)">남성과 차이</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-n">δῶρ<strong style="color:var(--gold)">ον</strong></td>
+            <td class="td-greek td-n">δῶρ<strong style="color:var(--gold)">α</strong></td>
+            <td style="font-size:12px;color:var(--hint);">단수 -ον (남과 같음)</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-n">δώρ<strong style="color:var(--gold)">ου</strong></td>
+            <td class="td-greek td-n">δώρ<strong style="color:var(--gold)">ων</strong></td>
+            <td style="font-size:12px;color:var(--hint);">남과 동일</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-n">δώρ<strong style="color:var(--gold)">ῳ</strong></td>
+            <td class="td-greek td-n">δώρ<strong style="color:var(--gold)">οις</strong></td>
+            <td style="font-size:12px;color:var(--hint);">남과 동일</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-n">δῶρ<strong style="color:var(--gold)">ον</strong></td>
+            <td class="td-greek td-n">δῶρ<strong style="color:var(--gold)">α</strong></td>
+            <td style="font-size:12px;color:var(--hint);">주격=대격 (중성 규칙!)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-tip" style="margin-top:14px;margin-bottom:0;padding:12px 16px;">
+        <div class="callout-icon">⭐</div>
+        <div class="callout-body">
+          <div class="callout-title">중성 명사의 철칙</div>
+          <div class="callout-text"><strong>주격 = 대격</strong> (단수: -ον = -ον / 복수: -α = -α). 속격·여격은 남성과 완전히 동일해요. 중성 복수 주·대격 어미 <strong>-α</strong>만 추가 암기!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제1변화 여성 -->
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">제1변화 여성 명사 — α변화 (3가지 패턴)</div>
+        <div class="para-head-sub">1st Declension Feminine · α-변화</div>
+      </div>
+      <span class="para-head-badge" style="background:rgba(224,123,106,.1);color:var(--red);border:1px solid rgba(224,123,106,.25);">여성 ἡ</span>
+    </div>
+    <div class="para-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <!-- 패턴 1: 순수 α -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;">패턴 ① 순수 α형<br><span style="color:var(--greek)">ἡμέρα</span> (날)</div>
+          <table>
+            <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+            <tbody>
+              <tr><td class="td-case">주</td><td class="td-greek td-f">-<strong style="color:var(--gold)">α</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αι</strong></td></tr>
+              <tr><td class="td-case">속</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ας</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ῶν</strong></td></tr>
+              <tr><td class="td-case">여</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ᾳ</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αις</strong></td></tr>
+              <tr><td class="td-case">대</td><td class="td-greek td-f">-<strong style="color:var(--gold)">αν</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ας</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 패턴 2: α/η 혼합 -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;">패턴 ② α/η 혼합형<br><span style="color:var(--greek)">δόξα</span> (영광)</div>
+          <table>
+            <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+            <tbody>
+              <tr><td class="td-case">주</td><td class="td-greek td-f">-<strong style="color:var(--gold)">α</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αι</strong></td></tr>
+              <tr><td class="td-case">속</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ης</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ῶν</strong></td></tr>
+              <tr><td class="td-case">여</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ῃ</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αις</strong></td></tr>
+              <tr><td class="td-case">대</td><td class="td-greek td-f">-<strong style="color:var(--gold)">αν</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ας</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 패턴 3: 순수 η -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;">패턴 ③ η형<br><span style="color:var(--greek)">ζωή</span> (생명)</div>
+          <table>
+            <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+            <tbody>
+              <tr><td class="td-case">주</td><td class="td-greek td-f">-<strong style="color:var(--gold)">η</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αι</strong></td></tr>
+              <tr><td class="td-case">속</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ης</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ῶν</strong></td></tr>
+              <tr><td class="td-case">여</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ῃ</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">αις</strong></td></tr>
+              <tr><td class="td-case">대</td><td class="td-greek td-f">-<strong style="color:var(--gold)">ην</strong></td><td class="td-greek td-f">-<strong style="color:var(--gold)">ας</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mem-tip" style="margin-top:14px;margin-bottom:0;">
+        <div class="mem-tip-label">🧠 암기법 — 여성 복수는 항상 고정!</div>
+        <div class="mem-tip-body">복수 패턴은 세 가지 모두 <strong>-αι / -ῶν / -αις / -ας</strong>로 동일해요. 복수는 한 번만 외우면 끝! 단수 속격·여격에서 α/η 구분에 집중하세요.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제1변화 남성 (특수) -->
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">제1변화 남성 명사 — <span style="color:var(--greek)">προφήτης / μαθητής</span></div>
+        <div class="para-head-sub">1st Declension Masculine (예외 — 의미는 남성, 변화는 제1변화)</div>
+      </div>
+      <span class="para-head-badge" style="background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.3);">⚠️ 특수형</span>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">격</th><th>단수 (선지자)</th><th>복수</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-case">주격</td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">ης</strong></td><td class="td-greek" style="color:var(--blue);">προφῆτ<strong style="color:var(--gold)">αι</strong></td></tr>
+          <tr><td class="td-case">속격</td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">ου</strong></td><td class="td-greek" style="color:var(--blue);">προφητ<strong style="color:var(--gold)">ῶν</strong></td></tr>
+          <tr><td class="td-case">여격</td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">ῃ</strong></td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">αις</strong></td></tr>
+          <tr><td class="td-case">대격</td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">ην</strong></td><td class="td-greek" style="color:var(--blue);">προφήτ<strong style="color:var(--gold)">ας</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="callout callout-tip" style="margin-top:14px;margin-bottom:0;padding:12px 16px;">
+        <div class="callout-icon">💡</div>
+        <div class="callout-body">
+          <div class="callout-title">제1변화 남성: 속격 단수가 -ου (남성 표지)</div>
+          <div class="callout-text">주격 단수 <strong>-ης</strong>로 끝나면 제1변화 남성. 속격이 <strong>-ου</strong>인 것이 순수 여성 명사(-ης → -ης)와 다른 점이에요.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제2변화 여성 특수 -->
+  <div class="callout callout-tip">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">제2변화를 취하는 여성 명사</div>
+      <div class="callout-text"><span style="color:var(--greek)">ἔρημος, ἡ</span>(광야, 빈들) / <span style="color:var(--greek)">ὁδός, ἡ</span>(길) — ὁ/ἡ로 표시된 성을 보고 판단. 어미는 남성과 동일한 -ος/-ου/-ῳ/-ον이지만 <strong>성은 여성</strong>. 관사가 ἡ로 표시됨.</div>
+    </div>
+  </div>
+
+  <!-- SECTION: 정관사 -->
+  <div class="sec-head">
+    <span class="sec-badge">문법 2</span>
+    <div class="sec-title">정관사 (The Definite Article)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">🔑</div>
+    <div class="callout-body">
+      <div class="callout-title">정관사 암기는 곧 전체 명사 문법의 지름길</div>
+      <div class="callout-text">정관사 변화표를 완전히 외우면, 명사·형용사·대명사 어미가 모두 비슷한 패턴으로 연결됩니다. <strong>정관사 표 암기 = 후반기 문법의 핵심 투자</strong>.</div>
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">정관사 전체 변화표</div>
+        <div class="para-head-sub">Definite Article — 남성(ὁ) · 여성(ἡ) · 중성(τό)</div>
+      </div>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">격</th>
+            <th colspan="2" style="color:var(--blue);">남성 ὁ</th>
+            <th colspan="2" style="color:var(--red);">여성 ἡ</th>
+            <th colspan="2" style="color:var(--green);">중성 τό</th>
+          </tr>
+          <tr>
+            <th style="text-align:left;font-size:10px;"> </th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-m">ὁ</td><td class="td-greek td-m">οἱ</td>
+            <td class="td-greek td-f">ἡ</td><td class="td-greek td-f">αἱ</td>
+            <td class="td-greek td-n">τό</td><td class="td-greek td-n">τά</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-m">τοῦ</td><td class="td-greek td-m">τῶν</td>
+            <td class="td-greek td-f">τῆς</td><td class="td-greek td-f">τῶν</td>
+            <td class="td-greek td-n">τοῦ</td><td class="td-greek td-n">τῶν</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-m">τῷ</td><td class="td-greek td-m">τοῖς</td>
+            <td class="td-greek td-f">τῇ</td><td class="td-greek td-f">ταῖς</td>
+            <td class="td-greek td-n">τῷ</td><td class="td-greek td-n">τοῖς</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-m">τόν</td><td class="td-greek td-m">τούς</td>
+            <td class="td-greek td-f">τήν</td><td class="td-greek td-f">τάς</td>
+            <td class="td-greek td-n">τό★</td><td class="td-greek td-n">τά</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--hint);margin-top:10px;">★ 중성 대격 단수 = τό (τόν 아님!). 주격과 동일.</div>
+      <div class="mem-tip" style="margin-top:14px;margin-bottom:0;">
+        <div class="mem-tip-label">🧠 암기 패턴 — 정관사</div>
+        <div class="mem-tip-body">
+          <strong>속격 복수는 항상 τῶν</strong> (성 무관)<br>
+          <strong>주격</strong>: ὁ / ἡ / τό — <span class="greek">호 / 헤 / 토</span> (여성만 ἡ, 나머지 τ-로 시작)<br>
+          <strong>여격</strong>: τῷ / τῇ / τῷ — 남·중 동형(τῷ), 여성만 τῇ<br>
+          <strong>복수 주격</strong>: οἱ / αἱ / τά — τ 없이 시작하는 특이 형태!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: 관계대명사 -->
+  <div class="sec-head">
+    <span class="sec-badge">문법 3</span>
+    <div class="sec-title">관계대명사 (Relative Pronoun)</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="gram-rule">
+    <div class="gram-rule-title">관계대명사의 역할과 구조</div>
+    <div class="gram-rule-body">
+      관계대명사는 두 문장을 연결합니다. "~하는 (사람/것)"으로 해석해요.<br>
+      예: <span class="greek">ὁ ἀπόστολος ὃν εἶδες</span> = "네가 본 그 사도"<br><br>
+      <strong>핵심 규칙:</strong> 관계대명사는 <strong>선행사(꾸미는 명사)와 성·수 일치</strong>, <strong>격은 자신이 속한 절의 문법적 역할</strong>에 따름.
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">관계대명사 변화표</div>
+        <div class="para-head-sub">Relative Pronoun — 정관사와 매우 유사 (τ→없음, 거친숨표 주의)</div>
+      </div>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">격</th>
+            <th colspan="2" style="color:var(--blue);">남성</th>
+            <th colspan="2" style="color:var(--red);">여성</th>
+            <th colspan="2" style="color:var(--green);">중성</th>
+          </tr>
+          <tr>
+            <th style="text-align:left;font-size:10px;"> </th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-m">ὅς</td><td class="td-greek td-m">οἵ</td>
+            <td class="td-greek td-f">ἥ</td><td class="td-greek td-f">αἵ</td>
+            <td class="td-greek td-n">ὅ</td><td class="td-greek td-n">ἅ</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-m">οὗ</td><td class="td-greek td-m">ὧν</td>
+            <td class="td-greek td-f">ἧς</td><td class="td-greek td-f">ὧν</td>
+            <td class="td-greek td-n">οὗ</td><td class="td-greek td-n">ὧν</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-m">ᾧ</td><td class="td-greek td-m">οἷς</td>
+            <td class="td-greek td-f">ᾗ</td><td class="td-greek td-f">αἷς</td>
+            <td class="td-greek td-n">ᾧ</td><td class="td-greek td-n">οἷς</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-m">ὅν</td><td class="td-greek td-m">οὕς</td>
+            <td class="td-greek td-f">ἥν</td><td class="td-greek td-f">ἅς</td>
+            <td class="td-greek td-n">ὅ</td><td class="td-greek td-n">ἅ</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mem-tip" style="margin-top:14px;margin-bottom:0;">
+        <div class="mem-tip-label">🧠 정관사 vs 관계대명사 구별법</div>
+        <div class="mem-tip-body">
+          <strong>정관사</strong>: 주격 남·복 = <span class="greek">οἱ</span>, 여·복 = <span class="greek">αἱ</span> (악센트 없음)<br>
+          <strong>관계대명사</strong>: 모든 형태에 <strong>거친 숨표(῾) 또는 악센트</strong>가 붙어있음 → ὅς, ἥ, ὅ …<br>
+          한눈에 구별: <strong>τ로 시작하면 정관사 / 거친 숨표면 관계대명사</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: 형용사 -->
+  <div class="sec-head">
+    <span class="sec-badge">문법 4</span>
+    <div class="sec-title">형용사 제1·2변화와 용법</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="gram-rule">
+    <div class="gram-rule-title">형용사의 핵심 원리 — 명사와 성·수·격 일치</div>
+    <div class="gram-rule-body">
+      형용사는 꾸미는 명사와 <strong>성(性)·수(數)·격(格) 세 가지를 반드시 일치</strong>시킵니다.<br>
+      남성 명사 → 형용사 남성형 / 여성 명사 → 형용사 여성형 / 중성 명사 → 형용사 중성형<br><br>
+      형용사 어미: 남성 = 제2변화(-ος/-ου/-ῳ/-ον) / 여성 = 제1변화(-η/-ης/-ῃ/-ην) / 중성 = 제2변화(-ον/-ου/-ῳ/-ον)
+    </div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-head">
+      <div>
+        <div class="para-head-title">형용사 제1·2변화 — <span style="color:var(--greek)">ἀγαθός, ή, όν</span> (좋은)</div>
+        <div class="para-head-sub">1st &amp; 2nd Declension Adjective</div>
+      </div>
+    </div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">격</th>
+            <th colspan="2" style="color:var(--blue);">남성</th>
+            <th colspan="2" style="color:var(--red);">여성</th>
+            <th colspan="2" style="color:var(--green);">중성</th>
+          </tr>
+          <tr>
+            <th style="text-align:left;font-size:10px;"> </th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+            <th style="font-size:10px;">단수</th><th style="font-size:10px;">복수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-m">ἀγαθός</td><td class="td-greek td-m">ἀγαθοί</td>
+            <td class="td-greek td-f">ἀγαθή</td><td class="td-greek td-f">ἀγαθαί</td>
+            <td class="td-greek td-n">ἀγαθόν</td><td class="td-greek td-n">ἀγαθά</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-m">ἀγαθοῦ</td><td class="td-greek td-m">ἀγαθῶν</td>
+            <td class="td-greek td-f">ἀγαθῆς</td><td class="td-greek td-f">ἀγαθῶν</td>
+            <td class="td-greek td-n">ἀγαθοῦ</td><td class="td-greek td-n">ἀγαθῶν</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-m">ἀγαθῷ</td><td class="td-greek td-m">ἀγαθοῖς</td>
+            <td class="td-greek td-f">ἀγαθῇ</td><td class="td-greek td-f">ἀγαθαῖς</td>
+            <td class="td-greek td-n">ἀγαθῷ</td><td class="td-greek td-n">ἀγαθοῖς</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-m">ἀγαθόν</td><td class="td-greek td-m">ἀγαθούς</td>
+            <td class="td-greek td-f">ἀγαθήν</td><td class="td-greek td-f">ἀγαθάς</td>
+            <td class="td-greek td-n">ἀγαθόν</td><td class="td-greek td-n">ἀγαθά</td>
+          </tr>
+          <tr>
+            <td class="td-case">호격</td>
+            <td class="td-greek td-m">ἀγαθέ</td><td class="td-greek td-m">ἀγαθοί</td>
+            <td class="td-greek td-f">ἀγαθή</td><td class="td-greek td-f">ἀγαθαί</td>
+            <td class="td-greek td-n">ἀγαθόν</td><td class="td-greek td-n">ἀγαθά</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 형용사 용법 -->
+  <div class="sub-title">형용사 3가지 용법</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+    <div class="para-wrap" style="margin-bottom:0;">
+      <div class="para-head" style="background:rgba(78,201,201,.1);">
+        <div>
+          <div class="para-head-title" style="color:var(--teal);">① 한정적 용법</div>
+          <div class="para-head-sub">"그 좋은 말씀은"</div>
+        </div>
+      </div>
+      <div class="para-body">
+        <div style="font-size:13px;color:var(--text-sub);line-height:1.9;">
+          <span style="color:var(--greek);">ὁ ἀγαθὸς λόγος</span><br>
+          <span style="color:var(--greek);">ὁ λόγος ὁ ἀγαθός</span><br>
+          <span style="color:var(--hint);font-size:12px;">→ 관사 + 형용사 + 명사<br>또는 관사 + 명사 + 관사 + 형용사</span>
+        </div>
+      </div>
+    </div>
+    <div class="para-wrap" style="margin-bottom:0;">
+      <div class="para-head" style="background:rgba(201,168,76,.08);">
+        <div>
+          <div class="para-head-title" style="color:var(--gold);">② 서술적 용법</div>
+          <div class="para-head-sub">"그 말씀은 좋다"</div>
+        </div>
+      </div>
+      <div class="para-body">
+        <div style="font-size:13px;color:var(--text-sub);line-height:1.9;">
+          <span style="color:var(--greek);">ὁ λόγος ἀγαθός</span><br>
+          <span style="color:var(--greek);">ἀγαθὸς ὁ λόγος</span><br>
+          <span style="color:var(--hint);font-size:12px;">→ 형용사가 관사 없이 위치<br>(εἰμί가 생략된 구조)</span>
+        </div>
+      </div>
+    </div>
+    <div class="para-wrap" style="margin-bottom:0;">
+      <div class="para-head" style="background:rgba(111,207,151,.08);">
+        <div>
+          <div class="para-head-title" style="color:var(--green);">③ 독립적 용법</div>
+          <div class="para-head-sub">"좋은 (남자/여자/것)"</div>
+        </div>
+      </div>
+      <div class="para-body">
+        <div style="font-size:13px;color:var(--text-sub);line-height:1.9;">
+          <span style="color:var(--greek);">ὁ ἀγαθός</span> = 그 좋은 남자<br>
+          <span style="color:var(--greek);">ἡ ἀγαθή</span> = 그 좋은 여자<br>
+          <span style="color:var(--greek);">τὸ ἀγαθόν</span> = 그 좋은 것<br>
+          <span style="color:var(--hint);font-size:12px;">→ 관사 + 형용사만 (명사 없음)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전치사 -->
+  <div class="sec-head">
+    <span class="sec-badge">어휘+</span>
+    <div class="sec-title">전치사 — 지배하는 격</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="prep-grid">
+    <div class="prep-card"><div class="prep-greek">εἰς + 대격</div><div class="prep-case">accusative</div><div class="prep-meaning">~안으로 (into)</div></div>
+    <div class="prep-card"><div class="prep-greek">πρός + 대격</div><div class="prep-case">accusative</div><div class="prep-meaning">~에게로, 곁에 (toward)</div></div>
+    <div class="prep-card"><div class="prep-greek">ἐν + 여격</div><div class="prep-case">dative</div><div class="prep-meaning">~안에 (in)</div></div>
+    <div class="prep-card"><div class="prep-greek">ἀπό + 속격</div><div class="prep-case">genitive</div><div class="prep-meaning">~에서, ~로부터 (from)</div></div>
+    <div class="prep-card"><div class="prep-greek">ἐκ(ἐξ) + 속격</div><div class="prep-case">genitive</div><div class="prep-meaning">~에서 밖으로 (out of)</div></div>
+    <div class="prep-card"><div class="prep-greek">διά + 속격</div><div class="prep-case">genitive</div><div class="prep-meaning">~통하여 (through)</div></div>
+    <div class="prep-card"><div class="prep-greek">διά + 대격</div><div class="prep-case">accusative</div><div class="prep-meaning">~때문에 (because of)</div></div>
+    <div class="prep-card"><div class="prep-greek">μετά + 속격</div><div class="prep-case">genitive</div><div class="prep-meaning">~와 함께 (with)</div></div>
+    <div class="prep-card"><div class="prep-greek">μετά + 대격</div><div class="prep-case">accusative</div><div class="prep-meaning">~ 후에 (after)</div></div>
+  </div>
+
+  <!-- 번역 연습 -->
+  <div class="sec-head">
+    <span class="sec-badge">연습</span>
+    <div class="sec-title">슬라이드 번역 연습 (해석)</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="para-wrap">
+    <div class="para-head"><div class="para-head-title">번역 연습 — 문장 해석</div></div>
+    <div class="para-body">
+      <table>
+        <thead><tr><th style="text-align:left;">헬라어</th><th style="text-align:left;">해석</th></tr></thead>
+        <tbody>
+          <tr><td class="td-greek" style="color:var(--greek);text-align:left;">δοῦλος γράφει λόγους.</td><td style="font-size:13px;color:var(--text-sub);">종이 말씀들을 쓴다.</td></tr>
+          <tr><td class="td-greek" style="color:var(--greek);text-align:left;">ψυχὴ βλέπει ζωήν.</td><td style="font-size:13px;color:var(--text-sub);">혼(목숨)이 생명을 본다.</td></tr>
+          <tr><td class="td-greek" style="color:var(--greek);text-align:left;">ἡ κακὴ καρδία τῶν ἀνθρώπων γινώσκει θάνατον.</td><td style="font-size:13px;color:var(--text-sub);">사람들의 나쁜 마음이 죽음을 안다.</td></tr>
+          <tr><td class="td-greek" style="color:var(--greek);text-align:left;">ὁ ἀπόστολος ὃν εἶδες ἀπῆλθεν.</td><td style="font-size:13px;color:var(--text-sub);">네가 본 그 사도는 떠났다.</td></tr>
+          <tr><td class="td-greek" style="color:var(--greek);text-align:left;">Ἐγώ εἰμι ὁ ἄρτος τῆς ζωῆς.</td><td style="font-size:13px;color:var(--text-sub);">나는 생명의 빵이다. (요 6:35)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MUST MEMORIZE -->
+  <div class="must-box">
+    <div class="must-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="must-items">
+      <div class="must-item">
+        <div class="must-num">①</div>
+        <div class="must-greek">ὁ / ἡ / τό</div>
+        <div class="must-ko">정관사 주격 단수 3성 — 남·여·중 구별의 출발점</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">②</div>
+        <div class="must-greek">τοῦ / τῆς / τῶν</div>
+        <div class="must-ko">정관사 속격 단수(남·여) + 복수(전체) — 가장 자주 등장</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">③</div>
+        <div class="must-greek">ὅς / ἥ / ὅ</div>
+        <div class="must-ko">관계대명사 주격 3성 — 거친 숨표로 정관사와 구별</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-notes -->
+
+<!-- ==================== TAB 2: SUMMARY ==================== -->
+<div class="tab-panel" id="tab-summary">
+
+  <div class="sec-head">
+    <span class="sec-badge">핵심</span>
+    <div class="sec-title">성·수·격 일치 원리 요약</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="agree-flow">
+    <div class="agree-node">
+      <div class="agree-node-label">명사 (주어)</div>
+      <div class="agree-node-greek">λόγος</div>
+      <div class="agree-node-ko">남성·단수·주격</div>
+    </div>
+    <div class="agree-arrow">→</div>
+    <div class="agree-node">
+      <div class="agree-node-label">정관사</div>
+      <div class="agree-node-greek">ὁ</div>
+      <div class="agree-node-ko">남성·단수·주격 맞춤</div>
+    </div>
+    <div class="agree-arrow">→</div>
+    <div class="agree-node">
+      <div class="agree-node-label">형용사</div>
+      <div class="agree-node-greek">ἀγαθός</div>
+      <div class="agree-node-ko">남성·단수·주격 맞춤</div>
+    </div>
+  </div>
+  <div class="agree-rule">세 가지가 모두 같은 성·수·격이어야 합니다 → <strong>ὁ ἀγαθὸς λόγος</strong> (그 좋은 말씀)</div>
+
+  <div class="sec-head" style="margin-top:32px;">
+    <span class="sec-badge">정리</span>
+    <div class="sec-title">어미 패턴 비교표</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="para-wrap">
+    <div class="para-head"><div class="para-head-title">명사·관사·형용사 어미 비교 (단수 기준)</div></div>
+    <div class="para-body">
+      <table>
+        <thead>
+          <tr>
+            <th>격</th>
+            <th style="color:var(--blue);">남성 명사<br>-ος형</th>
+            <th style="color:var(--blue);">관사(남)</th>
+            <th style="color:var(--red);">여성 명사<br>-η형</th>
+            <th style="color:var(--red);">관사(여)</th>
+            <th style="color:var(--green);">중성 명사<br>-ον형</th>
+            <th style="color:var(--green);">관사(중)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-case">주격</td>
+            <td class="td-greek td-m">-ος</td><td class="td-greek td-m">ὁ</td>
+            <td class="td-greek td-f">-η</td><td class="td-greek td-f">ἡ</td>
+            <td class="td-greek td-n">-ον</td><td class="td-greek td-n">τό</td>
+          </tr>
+          <tr>
+            <td class="td-case">속격</td>
+            <td class="td-greek td-m">-ου</td><td class="td-greek td-m">τοῦ</td>
+            <td class="td-greek td-f">-ης</td><td class="td-greek td-f">τῆς</td>
+            <td class="td-greek td-n">-ου</td><td class="td-greek td-n">τοῦ</td>
+          </tr>
+          <tr>
+            <td class="td-case">여격</td>
+            <td class="td-greek td-m">-ῳ</td><td class="td-greek td-m">τῷ</td>
+            <td class="td-greek td-f">-ῃ</td><td class="td-greek td-f">τῇ</td>
+            <td class="td-greek td-n">-ῳ</td><td class="td-greek td-n">τῷ</td>
+          </tr>
+          <tr>
+            <td class="td-case">대격</td>
+            <td class="td-greek td-m">-ον</td><td class="td-greek td-m">τόν</td>
+            <td class="td-greek td-f">-ην</td><td class="td-greek td-f">τήν</td>
+            <td class="td-greek td-n">-ον</td><td class="td-greek td-n">τό★</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--hint);margin-top:8px;">★ 중성 대격=주격. 남·중 속격·여격 동일. 여성만 다름.</div>
+    </div>
+  </div>
+
+  <div class="exam-box" style="margin-top:24px;">
+    <div class="exam-box-title">🔴 시험 주의 포인트</div>
+    <div class="exam-box-body">
+      <strong>① 중성 명사:</strong> 주격=대격 (단수 -ον/-ον, 복수 -α/-α)<br>
+      <strong>② 정관사 중성 대격:</strong> τό (τόν 아님!)<br>
+      <strong>③ 관계대명사 vs 정관사:</strong> 거친 숨표 유무로 구별<br>
+      <strong>④ 형용사 서술적 vs 한정적 용법:</strong> 관사 위치로 구별<br>
+      <strong>⑤ 제1변화 남성 명사 속격:</strong> -ου (여성 -ης와 다름)
+    </div>
+  </div>
+
+  <div class="must-box" style="margin-top:24px;">
+    <div class="must-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="must-items">
+      <div class="must-item">
+        <div class="must-num">①</div>
+        <div class="must-greek">ὁ / ἡ / τό</div>
+        <div class="must-ko">정관사 주격 단수 3성</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">②</div>
+        <div class="must-greek">τοῦ / τῆς / τῶν</div>
+        <div class="must-ko">속격 단수(남·여) + 복수(전 성)</div>
+      </div>
+      <div class="must-item">
+        <div class="must-num">③</div>
+        <div class="must-greek">ὅς / ἥ / ὅ</div>
+        <div class="must-ko">관계대명사 주격 (거친 숨표!)</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-summary -->
+
+<!-- ==================== TAB 3: FLASH ==================== -->
+<div class="tab-panel" id="tab-flash">
+
+  <div class="sec-head">
+    <span class="sec-badge">카드</span>
+    <div class="sec-title">암기카드 — 클릭하면 뒤집힙니다</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">🃏</div>
+    <div class="callout-body">
+      <div class="callout-title">사용법</div>
+      <div class="callout-text">카드를 클릭하면 앞뒤가 뒤집힙니다. 헬라어 보고 뜻 맞추기 → 뒤집어서 확인!</div>
+    </div>
+  </div>
+
+  <div class="sub-title">남성·중성 명사</div>
+  <div class="flash-grid" id="flash-m"></div>
+
+  <div class="sub-title">여성 명사</div>
+  <div class="flash-grid" id="flash-f"></div>
+
+  <div class="sub-title">동사 · 전치사</div>
+  <div class="flash-grid" id="flash-v"></div>
+
+  <div class="sub-title">형용사</div>
+  <div class="flash-grid" id="flash-adj"></div>
+
+</div><!-- /tab-flash -->
+
+</div><!-- .main -->
+
+<div class="page-footer">
+  <span>한국침례신학대학교 · 헬라어 I · 이영민 교수 · 2026학년도 1학기</span>
+  <span>10주차 강의노트 — 2026.05.11</span>
+</div>
+
+<script>
+// ── TAB SWITCH ──
+function switchTab(id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── VOCAB DATA ──
+const VOCAB_M = [
+  { g:'ἀδελφός, ὁ', p:'아델포스', m:'형제', gender:'m' },
+  { g:'ἄνθρωπος, ὁ', p:'안뜨로포스', m:'사람', gender:'m' },
+  { g:'ἀπόστολος, ὁ', p:'아포스톨로스', m:'사도', gender:'m' },
+  { g:'δοῦλος, ὁ', p:'둘로스', m:'종, 일꾼', gender:'m' },
+  { g:'θάνατος, ὁ', p:'다나토스', m:'죽음', gender:'m' },
+  { g:'ἱερόν, τό', p:'히에론', m:'성전', gender:'n' },
+  { g:'λόγος, ὁ', p:'로고스', m:'말씀', gender:'m' },
+  { g:'νόμος, ὁ', p:'노모스', m:'율법', gender:'m' },
+  { g:'οἶκος, ὁ', p:'오이코스', m:'집', gender:'m' },
+  { g:'υἱός, ὁ', p:'휘오스', m:'아들', gender:'m' },
+  { g:'δῶρον, τό', p:'도론', m:'선물', gender:'n' },
+  { g:'ἄγγελος, ὁ', p:'앙겔로스', m:'천사, 사자', gender:'m' },
+  { g:'κόσμος, ὁ', p:'코스모스', m:'우주, 세계', gender:'m' },
+  { g:'λίθος, ὁ', p:'리도스', m:'돌', gender:'m' },
+  { g:'μαθητής, ὁ', p:'마데테스', m:'제자', gender:'m' },
+  { g:'οὐρανός, ὁ', p:'우라노스', m:'하늘', gender:'m' },
+  { g:'προφήτης, ὁ', p:'프로페테스', m:'예언자', gender:'m' },
+  { g:'τέκνον, τό', p:'테크논', m:'아이', gender:'n' },
+  { g:'τόπος, ὁ', p:'토포스', m:'장소, 곳', gender:'m' },
+];
+
+const VOCAB_F = [
+  { g:'ἀλήθεια, ἡ', p:'알레데이아', m:'진리', gender:'f' },
+  { g:'βασιλεία, ἡ', p:'바실레이아', m:'왕국, 나라', gender:'f' },
+  { g:'γραφή, ἡ', p:'그라페', m:'문서, 성경', gender:'f' },
+  { g:'δόξα, ἡ', p:'독사', m:'영광', gender:'f' },
+  { g:'εἰρήνη, ἡ', p:'에이레네', m:'평화', gender:'f' },
+  { g:'ἐκκλησία, ἡ', p:'에클레시아', m:'교회', gender:'f' },
+  { g:'ἐντολή, ἡ', p:'엔톨레', m:'계명, 명령', gender:'f' },
+  { g:'ζωή, ἡ', p:'조에', m:'생명', gender:'f' },
+  { g:'ἡμέρα, ἡ', p:'헤메라', m:'날', gender:'f' },
+  { g:'καρδία, ἡ', p:'카르디아', m:'마음', gender:'f' },
+  { g:'παραβολή, ἡ', p:'파라볼레', m:'비유', gender:'f' },
+  { g:'φωνή, ἡ', p:'포네', m:'음성, 소리', gender:'f' },
+  { g:'ψυχή, ἡ', p:'프쉬케', m:'혼, 목숨, 마음', gender:'f' },
+  { g:'ὥρα, ἡ', p:'호라', m:'시간', gender:'f' },
+];
+
+const VOCAB_V = [
+  { g:'ἄγω', p:'아고', m:'내가 인도하다', gender:'v' },
+  { g:'βάλλω', p:'발로', m:'내가 던지다, 놓다', gender:'v' },
+  { g:'μένω', p:'메노', m:'내가 머물다', gender:'v' },
+  { g:'πέμπω', p:'펨포', m:'내가 보내다', gender:'v' },
+  { g:'φέρω', p:'페로', m:'내가 가져오다', gender:'v' },
+  { g:'καί', p:'카이', m:'그리고, ~와', gender:'v' },
+  { g:'εἰς + 대격', p:'에이스', m:'~안으로', gender:'v' },
+  { g:'ἐκ(ἐξ) + 속격', p:'에크/엑스', m:'~에서 밖으로', gender:'v' },
+  { g:'ἐν + 여격', p:'엔', m:'~안에', gender:'v' },
+  { g:'ἀπό + 속격', p:'아포', m:'~에서, ~로부터', gender:'v' },
+  { g:'πρός + 대격', p:'프로스', m:'~에게로', gender:'v' },
+  { g:'διά + 속격/대격', p:'디아', m:'통하여/때문에', gender:'v' },
+  { g:'μετά + 속격/대격', p:'메타', m:'함께/후에', gender:'v' },
+];
+
+const VOCAB_ADJ = [
+  { g:'ἀγαθός, ή, όν', p:'아가도스', m:'좋은, 착한', gender:'adj' },
+  { g:'κακός, ή, όν', p:'카코스', m:'나쁜', gender:'adj' },
+  { g:'καλός, ή, όν', p:'칼로스', m:'좋은, 아름다운', gender:'adj' },
+  { g:'μικρός, ά, όν', p:'미크로스', m:'작은, 적은', gender:'adj' },
+  { g:'νεκρός, ά, όν', p:'네크로스', m:'죽은', gender:'adj' },
+  { g:'δίκαιος, αία, ον', p:'디카이오스', m:'옳은', gender:'adj' },
+  { g:'ἅγιος, α, ον', p:'하기오스', m:'거룩한', gender:'adj' },
+  { g:'πιστός, ή, όν', p:'피스토스', m:'신실한', gender:'adj' },
+  { g:'μόνος, η, ον', p:'모노스', m:'유일한', gender:'adj' },
+  { g:'ἄλλος, η, ο', p:'알로스', m:'다른', gender:'adj' },
+  { g:'πρῶτος, η, ον', p:'프로토스', m:'처음의, 먼저인', gender:'adj' },
+  { g:'ἔσχατος, η, ον', p:'에스카토스', m:'마지막의', gender:'adj' },
+];
+
+const GENDER_LABEL = { m:'남성 ὁ', f:'여성 ἡ', n:'중성 τό', v:'동사/불변화', adj:'형용사' };
+const GENDER_CLASS = { m:'gender-m', f:'gender-f', n:'gender-n', v:'gender-v', adj:'gender-v' };
+
+function buildVocabCards(data, containerId) {
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML = data.map((w,i) => `
+    <div class="vocab-card" onclick="this.classList.toggle('flip')">
+      <span class="vc-gender ${GENDER_CLASS[w.gender]}">${GENDER_LABEL[w.gender]}</span>
+      <div class="vc-front">
+        <div class="vc-greek">${w.g}</div>
+        <div class="vc-pron">(${w.p})</div>
+        <div class="vc-flip-hint">탭하면 뜻 보기 ▶</div>
+      </div>
+      <div class="vc-back">
+        <div class="vc-meaning">${w.m}</div>
+        <div class="vc-hint">${w.g}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function buildFlashCards(data, containerId) {
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML = data.map((w,i) => `
+    <div class="flash-card" onclick="this.classList.toggle('flipped')">
+      <div class="flash-inner">
+        <div class="flash-front">
+          <div class="flash-greek">${w.g.split(',')[0]}</div>
+          <div class="flash-pron">(${w.p})</div>
+          <div class="flash-hint">클릭 → 뜻 보기</div>
+        </div>
+        <div class="flash-back">
+          <div class="flash-meaning">${w.m}</div>
+          <div class="flash-detail">${w.g}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Build on load
+buildVocabCards(VOCAB_M, 'vocab-m');
+buildVocabCards(VOCAB_F, 'vocab-f');
+buildVocabCards(VOCAB_V, 'vocab-v');
+buildVocabCards(VOCAB_ADJ, 'vocab-adj');
+buildFlashCards(VOCAB_M, 'flash-m');
+buildFlashCards(VOCAB_F, 'flash-f');
+buildFlashCards(VOCAB_V, 'flash-v');
+buildFlashCards(VOCAB_ADJ, 'flash-adj');
+</script>
+</body>
+</html>
