@@ -74,7 +74,9 @@ const SITE_DATA = {
         { week: 9, title: "목회 리더십 — 권력과 권위, 서번트 리더십", date: "2026.05.04", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week09.html" }
           ] },
-        { week: 10, title: "소그룹 목회", date: "2026.05", files: [] },
+        { week: 10, title: "현대인의 종교 성향 변화와 교회의 대응", date: "2026.05.11", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week10.html" }
+          ] },
         { week: 11, title: "갈등과 위기 관리", date: "2026.05", files: [] },
         { week: 12, title: "목회자 영성과 자기돌봄", date: "2026.06", files: [] },
         { week: 13, title: "디지털 시대의 목회", date: "2026.06", files: [] },
