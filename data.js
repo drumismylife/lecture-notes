@@ -204,7 +204,9 @@ const SITE_DATA = {
         { week: 10, title: "기독교 로마제국시대 II", date: "2026.05.08", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week10.html" }
           ] },
-        { week: 11, title: "루터와 개혁 운동", date: "2026.05", files: [] },
+        { week: 11, title: "11주차: 기독론 공의회 · 수도원 운동 · 어거스틴", date: "2026.05.15", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week11.html" }
+          ] },
         { week: 12, title: "칼빈과 개혁 교회", date: "2026.06", files: [] },
         { week: 13, title: "침례교의 역사와 신학", date: "2026.06", files: [] },
         { week: 14, title: "미 남침례회(SBC) 논쟁", date: "2026.06", files: [] },
