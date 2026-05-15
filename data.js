@@ -119,7 +119,9 @@ const SITE_DATA = {
         { week: 10, title: "템플 그랜딘을 통해 사유하기", date: "2026.05.05", files: [
             { type: "notes", label: "강의노트", href: "output/기독교철학/week10.html" }
           ] },
-        { week: 11, title: "Ricken — 종교철학 II", date: "2026.05", files: [] },
+        { week: 11, title: "임마누엘 칸트", date: "2026.05.12", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week11.html" }
+          ] },
         { week: 12, title: "기독교와 포스트모더니즘", date: "2026.06", files: [] },
         { week: 13, title: "과학과 종교", date: "2026.06", files: [] },
         { week: 14, title: "기독교 윤리의 철학적 기초", date: "2026.06", files: [] },
