@@ -77,7 +77,9 @@ const SITE_DATA = {
         { week: 10, title: "현대인의 종교 성향 변화와 교회의 대응", date: "2026.05.11", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week10.html" }
           ] },
-        { week: 11, title: "갈등과 위기 관리", date: "2026.05", files: [] },
+        { week: 11, title: "현대 목회와 예배", date: "2026.05.18", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week11.html" }
+          ] },
         { week: 12, title: "목회자 영성과 자기돌봄", date: "2026.06", files: [] },
         { week: 13, title: "디지털 시대의 목회", date: "2026.06", files: [] },
         { week: 14, title: "한국 교회 현황과 과제", date: "2026.06", files: [] },

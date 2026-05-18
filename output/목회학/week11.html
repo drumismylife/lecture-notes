@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 11주차 — 현대 목회와 예배</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=IM+Fell+English+SC&display=swap');
+
+  :root {
+    --bg-page: #0f1a12;
+    --bg-card: #172018;
+    --bg-subcard: #1e2a20;
+    --bg-dark: #0d1510;
+    --accent-green: #7ab87a;
+    --accent-green-soft: #5a9a5a;
+    --accent-green-dim: #3a6a3a;
+    --bible-text: #a8d4a8;
+    --cream: #d4c9a8;
+    --cream-dim: #b8ad8c;
+    --badge-exam: #c96b5a;
+    --badge-task: #c49a3c;
+    --text-primary: #e8ede8;
+    --text-secondary: #9aaa9a;
+    --text-muted: #6a7a6a;
+    --border-green: #3a5a3a;
+    --border-card: #2a3a2a;
+    --shadow: 0 4px 24px rgba(0,0,0,0.5);
+    --radius: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, #0d1a10 0%, #1a2e1a 50%, #0f1f12 100%);
+    border-bottom: 1px solid var(--border-green);
+    padding: 32px 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '✦';
+    position: absolute;
+    right: 40px; top: 20px;
+    font-size: 80px;
+    color: rgba(122,184,122,0.06);
+    font-family: serif;
+  }
+  .header-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .meta-badge {
+    background: var(--bg-subcard);
+    border: 1px solid var(--border-green);
+    color: var(--text-secondary);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+  }
+  .meta-badge.green { border-color: var(--accent-green-dim); color: var(--accent-green); }
+  .page-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .page-subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+  .refs-line {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-card);
+    color: var(--text-muted);
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+  .refs-line span { color: var(--text-secondary); margin-right: 4px; }
+
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--border-card);
+    padding: 0 40px;
+    gap: 4px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    padding: 14px 20px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+  .tab-btn.active {
+    color: var(--accent-green);
+    border-bottom-color: var(--accent-green);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── LAYOUT ── */
+  .content-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 40px 60px;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-heading {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-green-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border-green), transparent);
+  }
+
+  /* ── PRINCIPLE CARD ── */
+  .principle-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-left: 3px solid var(--accent-green);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .principle-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .principle-body {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+  .principle-body strong { color: var(--text-primary); font-weight: 500; }
+  .principle-bible {
+    background: rgba(122,184,122,0.07);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    color: var(--bible-text);
+    font-family: 'Noto Serif KR', serif;
+    margin-top: 8px;
+  }
+  .principle-icon { color: var(--accent-green); font-size: 13px; }
+
+  /* ── BIBLE CARD ── */
+  .bible-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .bible-header {
+    background: rgba(122,184,122,0.09);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-card);
+  }
+  .bible-ref {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bible-text);
+  }
+  .bible-body { padding: 16px 20px; }
+  .bible-section { margin-bottom: 12px; }
+  .bible-section:last-child { margin-bottom: 0; }
+  .bible-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .bible-text-mono {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--bible-text);
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  .bible-interp { color: var(--text-secondary); font-size: 13.5px; line-height: 1.8; }
+  .bible-apply { color: var(--text-primary); font-size: 13.5px; line-height: 1.8; }
+  .bible-divider {
+    border: none;
+    border-top: 1px solid var(--border-card);
+    margin: 10px 0;
+  }
+  .greek-term {
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 12.5px;
+  }
+
+  /* ── TEACHING CARD (교수설명) ── */
+  .teaching-card {
+    background: var(--bg-subcard);
+    border-left: 3px solid var(--accent-green-dim);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .teaching-card em { color: var(--cream-dim); font-style: normal; }
+
+  /* ── SOURCE CARD (교재) ── */
+  .source-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .source-header {
+    background: rgba(122,184,122,0.07);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-card);
+  }
+  .source-badge {
+    background: var(--accent-green-dim);
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .source-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .source-author {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+  .source-body { padding: 16px 20px; color: var(--text-secondary); font-size: 13.5px; line-height: 1.85; }
+  .source-body strong { color: var(--text-primary); font-weight: 500; }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  .data-table th {
+    background: rgba(122,184,122,0.1);
+    color: var(--accent-green);
+    font-weight: 600;
+    text-align: left;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-green);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .data-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-card);
+    color: var(--text-secondary);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .data-table td:first-child { color: var(--cream-dim); font-weight: 500; white-space: nowrap; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(122,184,122,0.03); }
+
+  /* ── NUMBERED LIST ── */
+  .num-list { list-style: none; padding: 0; }
+  .num-list li {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-card);
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.75;
+    align-items: flex-start;
+  }
+  .num-list li:last-child { border-bottom: none; }
+  .num-list .num {
+    background: var(--accent-green-dim);
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .num-list strong { color: var(--text-primary); }
+
+  /* ── EXAM CARD ── */
+  .exam-card {
+    background: #2d1a16;
+    border: 1px solid var(--badge-exam);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .exam-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .exam-badge {
+    background: var(--badge-exam);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+  }
+  .exam-topic { color: var(--badge-exam); font-size: 14px; font-weight: 600; font-family: 'Noto Serif KR', serif; }
+  .exam-body { color: #d4a0a0; font-size: 13.5px; line-height: 1.85; }
+  .exam-body strong { color: #e8b0a8; }
+
+  /* ── MINISTER CARD (목회자상) ── */
+  .minister-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .minister-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+  }
+  .minister-icon { font-size: 22px; margin-bottom: 8px; }
+  .minister-role {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent-green);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .minister-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+  .minister-desc strong { color: var(--text-primary); display: block; font-size: 14px; margin-bottom: 4px; }
+
+  /* ── FIELD CARD (현장) ── */
+  .field-card {
+    background: #1a2a1a;
+    border-left: 3px solid #4a8a4a;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .field-title { font-weight: 600; color: var(--cream); margin-bottom: 10px; font-family: 'Noto Serif KR', serif; font-size: 14px; }
+  .field-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 13.5px; }
+  .field-label {
+    background: rgba(74,138,74,0.2);
+    color: var(--accent-green);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+  .field-text { color: var(--text-secondary); line-height: 1.75; }
+
+  /* ── THREE PRINCIPLES (하단) ── */
+  .three-principles {
+    background: linear-gradient(135deg, #141f16, #1a2a1a);
+    border: 1px solid var(--border-green);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 32px;
+  }
+  .three-principles-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-green);
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .three-principles-title::before { content: '✦'; }
+  .principle-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .principle-item:last-child { margin-bottom: 0; }
+  .p-num {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 22px;
+    color: var(--accent-green-dim);
+    line-height: 1;
+    min-width: 24px;
+    margin-top: 2px;
+  }
+  .p-content { flex: 1; }
+  .p-title { font-weight: 600; color: var(--cream); margin-bottom: 3px; font-size: 14px; }
+  .p-desc { color: var(--text-secondary); font-size: 13px; line-height: 1.75; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-card);
+    margin: 24px 0;
+  }
+
+  /* ── WORSHIP ORDER TABLE ── */
+  .worship-order {
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .wo-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    border-bottom: 1px solid var(--border-card);
+  }
+  .wo-row:last-child { border-bottom: none; }
+  .wo-row.header { background: rgba(122,184,122,0.1); }
+  .wo-cell {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-right: 1px solid var(--border-card);
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .wo-cell:last-child { border-right: none; }
+  .wo-row.header .wo-cell { color: var(--accent-green); font-weight: 600; font-size: 11.5px; letter-spacing: 0.06em; }
+  .wo-row:nth-child(even) { background: rgba(255,255,255,0.01); }
+  .wo-order-name { color: var(--cream-dim); font-weight: 500; }
+  .wo-axis-god { color: rgba(122,184,122,0.6); font-size: 11px; font-weight: 600; }
+  .wo-axis-human { color: rgba(196,154,60,0.6); font-size: 11px; font-weight: 600; }
+
+  /* ── INLINE CHIPS ── */
+  .chip {
+    display: inline-block;
+    background: rgba(122,184,122,0.12);
+    color: var(--accent-green);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 8px;
+    border-radius: 3px;
+    margin: 1px 2px;
+    letter-spacing: 0.03em;
+  }
+  .chip.amber {
+    background: rgba(196,154,60,0.12);
+    color: var(--badge-task);
+  }
+  .chip.red {
+    background: rgba(201,107,90,0.12);
+    color: var(--badge-exam);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #111; }
+    .tab-nav { display: none; }
+    .tab-content { display: block !important; }
+    .page-header { background: #f5f5f0; border-bottom: 2px solid #aaa; }
+    .principle-card, .bible-card, .source-card, .exam-card, .field-card { page-break-inside: avoid; }
+    .three-principles { page-break-inside: avoid; }
+  }
+
+  /* ── OVERVIEW GRID ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .ov-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .ov-num { font-family: 'IM Fell English SC', serif; font-size: 28px; color: var(--accent-green-dim); line-height: 1; margin-bottom: 6px; }
+  .ov-label { font-size: 12.5px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
+  .ov-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- ══ HEADER ══ -->
+<header class="page-header">
+  <div class="header-meta">
+    <span class="meta-badge">목회학 · 63117</span>
+    <span class="meta-badge green">11주차</span>
+    <span class="meta-badge">2026. 05. 18</span>
+    <span class="meta-badge">이영호 교수</span>
+  </div>
+  <h1 class="page-title">현대 목회와 예배</h1>
+  <p class="page-subtitle">예배의 본질과 신학적 이해 · 건강한 교회의 예배 · 목회자의 예배 준비</p>
+  <div class="refs-line">
+    <span>참고문헌</span>
+    김석환, 『예배 구성요소와 순서의 신학적 이해』 (대서) &nbsp;|&nbsp;
+    이명희, 『현대 예배론』 (침례신학대학교 출판부) &nbsp;|&nbsp;
+    M. Horton, 『개혁주의 예배론』 (부흥과 개혁사) &nbsp;|&nbsp;
+    김덕수, 『건강한 목회를 통해 세워가는 건강한 교회』 (대서)
+  </div>
+</header>
+
+<!-- ══ TABS ══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('note', this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary', this)">📌 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('apply', this)">⛪ 현장적용</button>
+</nav>
+
+<!-- ════════════════════════════════
+     TAB 1 — 강의노트
+════════════════════════════════ -->
+<div id="tab-note" class="tab-content active">
+<div class="content-wrap">
+
+  <!-- 강의 개요 -->
+  <p class="section-heading">강의 개요</p>
+  <div class="overview-grid">
+    <div class="ov-card">
+      <div class="ov-num">I</div>
+      <div class="ov-label">예배의 중요성</div>
+      <div class="ov-desc">교회 본질과 예배<br>교회 건강·성장과 예배</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-num">II</div>
+      <div class="ov-label">예배의 신학</div>
+      <div class="ov-desc">삼중적 기능<br>언약 갱신 의식 (Horton)</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-num">III</div>
+      <div class="ov-label">예배 준비</div>
+      <div class="ov-desc">잘못된 예배 / 바른 예배<br>목회자의 7가지 준비</div>
+    </div>
+  </div>
+
+  <!-- 1. 목회에서 예배의 중요성 -->
+  <p class="section-heading">1. 목회에서 예배의 중요성</p>
+
+  <div class="principle-card">
+    <div class="principle-title"><span class="principle-icon">◈</span> 성도들은 어떤 예배를 기대하는가?</div>
+    <div class="principle-body">
+      영감 있는 예배 · 은혜로운 예배 · 감동 있는 예배 — 표현은 다르지만 공통 분모는 하나다.<br>
+      <strong>"거기서 하나님을 만났다."</strong> 예배의 본질적 정의는 <strong>만남</strong>이다.
+    </div>
+    <div class="principle-bible">
+      📖 요 4:23 &nbsp;—&nbsp; "아버지께 참되게 예배하는 자들은 영과 진리로 예배할 때가 오나니"
+    </div>
+  </div>
+
+  <div class="teaching-card">
+    "하나님을 만난 사람이 하나님을 만나게 하는 것이 목회다." <em>— 이영호 교수</em>
+  </div>
+
+  <div class="principle-card">
+    <div class="principle-title"><span class="principle-icon">◈</span> 예배는 교회가 존재하는 이유다</div>
+    <div class="principle-body">
+      교회의 다섯 가지 기능: <strong>예배 · 교제 · 교육 · 전도 · 봉사</strong>.<br>
+      예배가 첫 번째인 이유 — 교회의 본질이 <strong>성전(聖殿)</strong>이기 때문이다. 성전에는 항상 하나님의 영광이 임해야 하며, 그 영광이 있는 곳이 진정한 예배의 현장이다.<br><br>
+      크리스찬 A. 슈바르츠(『자연적 교회 성장』) — 6개 대륙 1,000개 교회 설문조사에서 건강한 교회의 8대 특징 중 하나로 <strong>'영감 있는 예배'</strong>를 확인. <strong>에너지 전환의 법칙:</strong> 8가지 질적 특징 중 예배 하나가 살아나면 다른 요소들도 연쇄적으로 살아난다.
+    </div>
+    <div class="principle-bible">
+      📖 출 40:34 — 성막에 임한 하나님의 영광<br>
+      📖 왕상 8:11 — "여호와의 영광이 여호와의 성전에 가득함이었더라"
+    </div>
+  </div>
+
+  <!-- 성전 성경 연구 -->
+  <p class="section-heading">성전·예배의 성경적 흐름</p>
+
+  <div class="bible-card">
+    <div class="bible-header">
+      <span class="bible-ref">🌿 에스겔서의 구조와 성전 환상</span>
+    </div>
+    <div class="bible-body">
+      <div class="bible-section">
+        <div class="bible-label">본 문</div>
+        <div class="bible-text-mono">
+          겔 44:4 — "여호와의 영광이 여호와의 성전에 가득한지라"<br>
+          겔 47:1 — "성전 앞면이 동쪽을 향하였는데 그 문지방 밑에서 물이 나와"<br>
+          겔 47:9 — "그 강물이 이르는 곳에 번성하는 모든 생물이 살고 고기가 심히 많으리니"<br>
+          겔 마지막 절 — <strong>여호와 삼마(יְהוָה שָׁמָּה)</strong> — "여호와께서 거기 계신다"
+        </div>
+      </div>
+      <hr class="bible-divider">
+      <div class="bible-section">
+        <div class="bible-label">해 석</div>
+        <div class="bible-interp">
+          에스겔서의 3부 구조: ①하나님의 영광이 성전을 떠남 → ②새 성전 환상 → ③새 성전에 영광이 돌아옴.<br>
+          바벨론 포로였던 에스겔은 예루살렘의 성전이 이미 하나님의 임재를 잃어버렸음을 환상으로 목격한다. 이스라엘의 미신적 신앙 — "성전이 있으니 예루살렘은 안전하다" — 은 무너진다. 겔 47장의 생명수 환상은 요 7:38과 연결되어 예수님과 교회를 통해 성취된다.
+        </div>
+      </div>
+      <hr class="bible-divider">
+      <div class="bible-section">
+        <div class="bible-label">적 용</div>
+        <div class="bible-apply">형식은 있으나 하나님이 떠나신 예배 vs. 하나님의 영광이 충만한 예배. 교회는 건물이 아니라 하나님의 임재가 있는 공동체다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bible-card">
+    <div class="bible-header">
+      <span class="bible-ref">🌿 성전이신 예수님 — 요한복음</span>
+    </div>
+    <div class="bible-body">
+      <div class="bible-section">
+        <div class="bible-label">본 문</div>
+        <div class="bible-text-mono">
+          요 1:14 — "말씀이 육신이 되어 우리 가운데 거하시매 <span class="greek-term">(ἐσκήνωσεν, 에스케노센)</span>"<br>
+          요 2:21 — "예수는 성전 된 자기 육체를 가리켜 말씀하신 것이라"<br>
+          요 4:14 — "내가 주는 물은 그 속에서 영생하도록 솟아나는 샘물이 되리라"<br>
+          요 7:38 — "나를 믿는 자는 성경에 이름과 같이 그 배에서 생수의 강이 흘러나오리라"
+        </div>
+      </div>
+      <hr class="bible-divider">
+      <div class="bible-section">
+        <div class="bible-label">해 석</div>
+        <div class="bible-interp">
+          <span class="greek-term">ἐσκήνωσεν</span> = '성막 안에 거한다'는 뜻. 이스라엘 진영 한가운데 성막이 있었던 것처럼, 예수님이 우리 가운데 성막(성전)으로 오셨다.<br>
+          겔 47장의 성전 생명수 환상 → 요 7:38로 성취. 성전에서 물이 흘러 사막을 살리듯, 예수님 안에 있는 성도에게서 생수의 강이 흘러나온다.
+        </div>
+      </div>
+      <hr class="bible-divider">
+      <div class="bible-section">
+        <div class="bible-label">적 용</div>
+        <div class="bible-apply">예수님이 성전 → 교회가 성전 → 성도 개인이 성전(성령의 전). 예배 후 삶의 자리에서 생명의 역사가 일어나야 한다. 예배는 교회 안에서 끝나지 않는다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 예배의 신학적 이해 -->
+  <p class="section-heading">2. 예배의 신학적 이해</p>
+
+  <div class="principle-card">
+    <div class="principle-title"><span class="principle-icon">◈</span> 예배의 삼중적 기능</div>
+    <div class="principle-body">
+      <table class="data-table" style="margin-top:8px;">
+        <thead><tr><th>기능</th><th>내용</th><th>신약 연결</th></tr></thead>
+        <tbody>
+          <tr><td>① 사죄</td><td>언약을 깨뜨린 죄인이 하나님 앞에 나아오는 방식. 레위기의 번제·속죄제가 모형.</td><td>예수님의 대속으로 완성. 예배는 죄 용서의 확신을 받는 자리.</td></tr>
+          <tr><td>② 언약</td><td>설교를 통해 언약의 내용(말씀)을 기억하고 갱신함.</td><td>성경 = 언약의 책. 설교 = 언약 선포.</td></tr>
+          <tr><td>③ 선교</td><td>예배 후 세상으로 파송됨. 생명의 역사가 삶의 자리로 확산.</td><td>요 7:38 — 배에서 생수의 강이 흘러나옴.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="teaching-card">
+    "요즘 교회에 사죄의 은혜가 너무 부족하다. 회개 없는 복음이 문제다. 구약에서 죄 한 번에 제물을 잡아야 했던 그 무게감과 예수님이 지불하신 대가를 기억할 때, 죄에 대한 감각이 회복된다." <em>— 이영호 교수</em>
+  </div>
+
+  <!-- Horton 언약 갱신 의식 -->
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">예배는 언약 갱신 의식이다</span>
+      <span class="source-author">Michael S. Horton, 『개혁주의 예배론』</span>
+    </div>
+    <div class="source-body">
+      <strong>핵심 주장:</strong> 예배 = 언약 갱신 의식(Covenant Renewal Ceremony).<br><br>
+
+      <strong>언약의 세 구성 요소:</strong>
+      <table class="data-table" style="margin-top:8px;">
+        <thead><tr><th>요소</th><th>구약</th><th>현재 예배</th></tr></thead>
+        <tbody>
+          <tr><td>주체 · 객체</td><td>하나님 ↔ 이스라엘 백성</td><td>하나님 ↔ 성도 공동체</td></tr>
+          <tr><td>언약의 내용</td><td>십계명 + 기타 율법</td><td>성경 전체</td></tr>
+          <tr><td>언약 의식</td><td>출 24:5-8 피 뿌림 / 창 15 횃불 / 창 17 할례</td><td>설교 + 성만찬</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <strong>대표적 언약 갱신 의식:</strong> 신 27:1-26; 수 8:30-35 — 여리고·아이 성 점령 후 그리심산·에발산에서 행한 의식. 아브라함이 처음 제단을 쌓은 세겜 근처, 언약의 성지에서 행함. 지파들이 번갈아 축복과 저주의 말씀에 "아멘"으로 응답.<br><br>
+      <strong>개신교 예배와의 연결:</strong> 언약의 내용 = 성경 → 예배의 핵심 = <strong>설교</strong>. 가톨릭/동방정교 = 의식(성례) 중심 / 개신교 = 말씀·설교 중심. 성도는 설교에 믿음으로 반응("아멘")함으로써 매주 언약을 갱신한다.
+    </div>
+  </div>
+
+  <!-- 예배의 신학적 의미 5가지 -->
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">예배의 신학적 의미 5가지</span>
+      <span class="source-author">이명희, 『현대 예배론』</span>
+    </div>
+    <div class="source-body">
+      <ul class="num-list">
+        <li><span class="num">1</span><div><strong>만남</strong> — 하나님의 인격과 사역을 찬양하면서 하나님께 영광을 돌리는 인격적 만남. 예배의 가장 핵심적 의미.</div></li>
+        <li><span class="num">2</span><div><strong>대화</strong> — 하나님과 그 백성 간의 대화. 진정한 예배는 항상 응답의 행위로 나타남. 이사야의 성전 대화(사 6장) — 죄의 고백 → 정결케 하심 → 소명의 응답.</div></li>
+        <li><span class="num">3</span><div><strong>영적 경축</strong> — 예수 그리스도를 축하하는 것. 예배는 영적 잔치이다.</div></li>
+        <li><span class="num">4</span><div><strong>영적 체험</strong> — 예배의 자리에 임하시는 하나님을 체험. 하나님과의 연합과 믿음의 실행.</div></li>
+        <li><span class="num">5</span><div><strong>언약 갱신</strong> — Horton의 언약 갱신 의식. 말씀 선포를 통해 매주 언약을 기억하고 새롭게 함.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3. 건강한 교회의 예배 -->
+  <p class="section-heading">3. 건강한 교회의 예배 — 김덕수</p>
+
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">건강한 교회의 예배 5가지 특징</span>
+      <span class="source-author">김덕수, 『건강한 목회를 통해 세워가는 건강한 교회』</span>
+    </div>
+    <div class="source-body">
+      <ul class="num-list">
+        <li><span class="num">1</span><div><strong>하나님 경배가 목적이다</strong> — 초점이 분명함. 인간을 기분 좋게 하기 위한 것이 아님. 하나님께 초점이 맞춰질 때 기쁨·평강·확신의 영적 만족이 부수적으로 따라옴.</div></li>
+        <li><span class="num">2</span><div><strong>삶을 변화시키는 예배</strong> — 가인의 예배(예배 후 형제를 죽임) vs 아벨의 예배. 예배 후 삶이 바뀌어야 한다. 교회를 선택할 때 성도들이 가장 중시하는 요소 = '생명력 있는 예배'(목회신학 설문조사).</div></li>
+        <li><span class="num">3</span><div><strong>삶의 현장으로 확산되는 예배</strong> — 예배의 감동이 교회 안에서만 끝나는 것이 아니라 성도의 일상 속에서 생명의 역사로 이어져야 한다.</div></li>
+        <li><span class="num">4</span><div><strong>성령의 이끌림을 받는 예배</strong> — 전통과 형식에 이끌리는 예배에서 성령에 이끌리는 예배로 전환. 냉랭하고 지루한 예배가 아니라 성령의 인도를 받는 살아있는 예배.</div></li>
+        <li><span class="num">5</span><div><strong>예배와 전도의 이분법 극복</strong> — 예배 따로, 전도 따로가 아니다. 신령과 진정으로 예배를 드릴 때 불신자도 하나님을 만나는 역사가 일어난다. 구도자 예배보다 더 중요한 것은 하나님을 느낄 수 있는 예배다.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="teaching-card">
+    "예배를 드린 사람들의 삶이 바뀌어야 한다. 우리가 '그 시간에 그냥 좋은 것'으로 목표를 삼는다면 너무 낮은 거다. 더 높은 목표를 가져야 한다." <em>— 이영호 교수 (김덕수 교재 강의 중)</em>
+  </div>
+
+  <!-- 4. 예배의 역사적 이해 -->
+  <p class="section-heading">4. 예배의 역사적 이해</p>
+
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">각 시대의 예배 특징</span>
+    </div>
+    <div class="source-body">
+      <table class="data-table">
+        <thead><tr><th>시대</th><th>특징</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>초기 교회</td><td>가정 중심, 형식보다 내용 우선</td><td>행 2:42 — 사도의 가르침, 교제, 떡 뗌, 기도</td></tr>
+          <tr><td>중세</td><td>성례전 중심</td><td>성찬·세례 의식이 예배의 핵심</td></tr>
+          <tr><td>개혁자들</td><td>설교 중심 예배</td><td>오직 성경(Sola Scriptura) → 말씀 선포의 회복</td></tr>
+          <tr><td>경건주의</td><td>개인 예배 중시, 만인 제사장 강조</td><td>모라비안 — 100년 기도(1727-1827), 파송 선교. 인구 대비 최대 선교사 파송.</td></tr>
+          <tr><td>침례교 특징</td><td>①초청이 있다 ②사도신경 고백 없음</td><td>자유로운 성령의 역사를 위한 예배 형식</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <strong>이머징 처치(Emerging Church)</strong> — 새로운 형태의 교회 운동. 새로운 방법을 추구하지만 본질에서는 <strong>제자도(Discipleship)</strong>를 강조. 성도의 능동적 참여를 위해 찬양 시간 확대(연속 3~4곡). 성만찬 등 의식을 통한 주님의 임재 경험 추구. 이 교수 평가: "찬양을 늘리는 것은 좋다. 그러나 언약의 내용(말씀·설교)을 잃으면 안 된다."
+    </div>
+  </div>
+
+  <!-- 5. 잘못된 예배 / 바른 예배 -->
+  <p class="section-heading">5. 잘못된 예배 vs 바른 예배 — 이명희</p>
+
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">잘못된 예배 5가지 / 바른 예배 6가지</span>
+      <span class="source-author">이명희, 『현대 예배론』 pp. 56-74</span>
+    </div>
+    <div class="source-body">
+      <strong style="color:var(--badge-exam);">❌ 잘못된 예배</strong>
+      <table class="data-table" style="margin-top:8px; margin-bottom:16px;">
+        <thead><tr><th>#</th><th>유형</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>사람을 위한 예배</td><td>예배는 하나님을 위한 것. 은혜는 하나님이 주권적으로 부어주시는 것이다.</td></tr>
+          <tr><td>2</td><td>주술적인 예배</td><td>우환을 막기 위한 수단으로 드리는 예배.</td></tr>
+          <tr><td>3</td><td>형식적인 예배</td><td>이사야 선지자가 지적한 예배(사 1:11-17). 마음 없이 드리는 형식.</td></tr>
+          <tr><td>4</td><td>오락적인 예배</td><td>문화 공연이나 연주회가 아니다.</td></tr>
+          <tr><td>5</td><td>의무적인 예배</td><td>두려움("안 드리면 벌 받는다")에서 드리는 예배.</td></tr>
+        </tbody>
+      </table>
+      <strong style="color:var(--accent-green);">✔ 바른 예배의 6가지 요소</strong>
+      <ul class="num-list" style="margin-top:8px;">
+        <li><span class="num">1</span><div>구원의 기쁨</div></li>
+        <li><span class="num">2</span><div>부활하신 예수님에 대한 경배</div></li>
+        <li><span class="num">3</span><div>하나님의 성품에 대한 찬양</div></li>
+        <li><span class="num">4</span><div>하나님의 역사에 대한 감사</div></li>
+        <li><span class="num">5</span><div>주님에 대한 신앙의 고백</div></li>
+        <li><span class="num">6</span><div>헌신과 봉헌의 표현 — 예배자 자신 전부를 하나님께 드리는 것</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6. 예배 순서와 신학적 의미 -->
+  <p class="section-heading">6. 예배 순서와 신학적 의미 — 김석환</p>
+
+  <div class="principle-card">
+    <div class="principle-title"><span class="principle-icon">◈</span> 예배 구성의 4가지 원리</div>
+    <div class="principle-body">
+      <table class="data-table" style="margin-top:6px;">
+        <thead><tr><th>원리</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>다양성의 원리</td><td>말·찬송·낭독 등 다양한 방법으로 표현한다.</td></tr>
+          <tr><td>주제의 원리</td><td>모든 예배에 통일된 주제가 있어야 한다.</td></tr>
+          <tr><td>교대의 원리</td><td>하나님과 예배자의 역할이 교대로 이루어진다.</td></tr>
+          <tr><td>대화의 원리</td><td>공동체가 대화를 통해 능동적으로 참여한다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">예배 구성: <span class="chip">하나님 편 — 선행적 임재</span> 예배로의 부름 / 성경 봉독 / 설교 / 축복 / 성찬 &nbsp;|&nbsp; <span class="chip amber">인간 편 — 응답</span> 죄의 고백 / 기도 / 찬송 / 봉헌</p>
+
+  <div class="worship-order">
+    <div class="wo-row header">
+      <div class="wo-cell">예배 순서</div>
+      <div class="wo-cell">신학적 의미</div>
+      <div class="wo-cell">실천적 요점</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">전주</div>
+      <div class="wo-cell">하나님의 임재, 예배의 준비 <span class="wo-axis-god">▶ 하나님</span></div>
+      <div class="wo-cell">마음을 가다듬고 하나님께 집중하는 시간</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">입례송</div>
+      <div class="wo-cell">예배 시작과 함께 드리는 찬양대의 찬양 <span class="wo-axis-human">▶ 인간</span></div>
+      <div class="wo-cell">예배 시작을 선포하는 음악적 표현</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">개회 찬송</div>
+      <div class="wo-cell">하나님의 성품을 찬양 <span class="wo-axis-human">▶ 인간</span></div>
+      <div class="wo-cell">신학적 깊이가 있는 찬양에 초점</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">개회 기도</div>
+      <div class="wo-cell">찬양·감사·죄의 고백·간구 <span class="wo-axis-human">▶ 인간</span></div>
+      <div class="wo-cell">목사가 예배의 시작에 맞추어 드리는 기도</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">대표 기도</div>
+      <div class="wo-cell">교회를 대표하는 기도 <span class="wo-axis-human">▶ 인간</span></div>
+      <div class="wo-cell">개인의 기도가 아님에 유의. 공동체 전체의 기도.</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">성경 봉독</div>
+      <div class="wo-cell">하나님께서 직접 말씀하심 <span class="wo-axis-god">▶ 하나님</span></div>
+      <div class="wo-cell">설교 본문과 별도 낭독 권장 (느 8:8)</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">설교</div>
+      <div class="wo-cell">언약 갱신 선포 <span class="wo-axis-god">▶ 하나님</span></div>
+      <div class="wo-cell">하나님을 대신하여 말씀을 전함. 예배의 중심.</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">봉헌</div>
+      <div class="wo-cell">자신을 드리는 헌신 <span class="wo-axis-human">▶ 인간</span></div>
+      <div class="wo-cell">돈이 아니라 자신 전체를 드린다는 의미</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">축도</div>
+      <div class="wo-cell">하나님의 이름으로 백성을 축복 <span class="wo-axis-god">▶ 하나님</span></div>
+      <div class="wo-cell">제사장의 축복 전통 (민 6:27). 파송의 의미 포함.</div>
+    </div>
+    <div class="wo-row">
+      <div class="wo-cell wo-order-name">후주</div>
+      <div class="wo-cell">예배의 정신을 담고 파송 <span class="wo-axis-god">▶ 하나님</span></div>
+      <div class="wo-cell">예배의 내용을 마음에 담고 세상으로 돌아가는 파송</div>
+    </div>
+  </div>
+
+  <!-- 7. 목회자의 예배 준비 -->
+  <p class="section-heading">7. 목회자의 예배 준비 7단계</p>
+
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">교재</span>
+      <span class="source-title">예배를 준비하고 인도할 때 꼭 알아야 할 것들</span>
+      <span class="source-author">이명희, 『현대 예배론』 pp. 56-74</span>
+    </div>
+    <div class="source-body">
+      <ul class="num-list">
+        <li><span class="num">1</span><div><strong>개인 예배에 충실하라</strong> — 하나님과의 만남은 개인 예배를 통해 얻어진다. 목회자가 먼저 하나님을 만나야 성도를 만나게 할 수 있다.</div></li>
+        <li><span class="num">2</span><div><strong>삶으로 예배하라</strong> — 설교자는 임산부처럼 말씀을 품고 살아야 한다. 아이를 가진 임산부가 먹는 것, 말, 행동을 조심하듯, 설교자는 늘 하나님 앞에서 삶으로 예배를 드려야 한다.</div></li>
+        <li><span class="num">3</span><div><strong>시간을 드려라</strong> — 특정 요일에 몰아서 준비하지 말고 <strong>일주일 내내 1시간씩</strong> 준비. 범사에 주님을 의지하며 기도하는 것이 핵심.</div></li>
+        <li><span class="num">4</span><div><strong>설교를 준비하라</strong> — <em>듣는 설교</em>(본문 연구, 깊이 있게 들음) + <em>들리는 설교</em>(청중의 삶에 공감). 묵상을 통해 깊이와 쉬움이 동시에 실현된다. 옥한흠 목사의 설교 원칙.</div></li>
+        <li><span class="num">5</span><div><strong>예배를 점검하라</strong> — 예배 순서 전체를 미리 점검. 예배의 흐름이 신학적으로 일관성이 있는지 확인.</div></li>
+        <li><span class="num">6</span><div><strong>예배 시설을 점검하라</strong> — 정돈된 예배당, 화장실 청결 등. 새신자·귀신자가 처음 들어왔을 때의 인상. <strong>"예배를 준비할 때 이미 예배가 시작되었다."</strong></div></li>
+        <li><span class="num">7</span><div><strong>성도에게 예배의 중요성을 교육하라</strong> — 예배 순서의 신학적 의미를 가르쳐야 한다. 준비된 성도가 준비된 예배를 만든다.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 핵심 3가지 -->
+  <div class="three-principles">
+    <div class="three-principles-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="principle-item">
+      <div class="p-num">I</div>
+      <div class="p-content">
+        <div class="p-title">예배의 본질은 만남이다</div>
+        <div class="p-desc">영감·은혜·감동이라는 말의 공통 분모는 "거기서 하나님을 만났다"는 것이다. 목회자는 예배를 통해 성도가 하나님을 만나도록 인도해야 한다.</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">II</div>
+      <div class="p-content">
+        <div class="p-title">예배의 목표는 감동에서 끝나지 않는다</div>
+        <div class="p-desc">성전에서 흘러나온 물이 사막을 강으로 바꾸듯, 예배를 통해 하나님을 만난 성도가 삶의 자리에서 생명의 역사를 일으키는 것이 예배의 완성이다(겔 47장 → 요 7:38).</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">III</div>
+      <div class="p-content">
+        <div class="p-title">목회자의 예배 준비는 곧 삶이다</div>
+        <div class="p-desc">설교자는 임산부처럼 말씀을 품고 살아야 하며, 예배를 준비하는 순간부터 이미 예배가 시작되었다. 개인 예배, 기도, 일상의 하나님 경외 없이 예배 인도는 불가능하다.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end content-wrap -->
+</div><!-- end tab-note -->
+
+
+<!-- ════════════════════════════════
+     TAB 2 — 핵심정리
+════════════════════════════════ -->
+<div id="tab-summary" class="tab-content">
+<div class="content-wrap">
+
+  <p class="section-heading">핵심 원칙 총정리</p>
+
+  <div class="exam-card">
+    <div class="exam-header">
+      <span class="exam-badge">시험대비</span>
+      <span class="exam-topic">예배의 본질과 삼중적 기능 — 반드시 암기</span>
+    </div>
+    <div class="exam-body">
+      <strong>예배의 본질:</strong> 하나님과 인간의 인격적 만남. 영감 있는 예배, 은혜로운 예배, 감동 있는 예배의 공통 분모 = <strong>"거기서 하나님을 만났다."</strong><br><br>
+      <strong>예배의 삼중적 기능:</strong>
+      ① <strong>사죄</strong> — 언약을 깨뜨린 죄인이 하나님 앞에 나아오는 방식 (레위기 제사 → 예수님의 대속)<br>
+      ② <strong>언약</strong> — 설교를 통해 언약의 내용(말씀)을 기억하고 갱신<br>
+      ③ <strong>선교</strong> — 예배 후 세상으로 파송, 삶의 자리에서 생명의 역사 확산
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-header">
+      <span class="exam-badge">시험대비</span>
+      <span class="exam-topic">Horton의 언약 갱신 의식 — 개혁주의 예배론 핵심</span>
+    </div>
+    <div class="exam-body">
+      <strong>M. Horton(『개혁주의 예배론』):</strong> 예배 = 언약 갱신 의식(Covenant Renewal Ceremony)<br><br>
+      언약의 3요소: ①주체(하나님)·객체(성도) ②언약의 내용(성경) ③언약 의식(설교 + 성찬)<br><br>
+      <strong>대표 사례:</strong> 수 8:30-35 — 여리고·아이 정복 후 그리심산·에발산에서 행한 언약 갱신 의식. 아브라함이 처음 제단을 쌓은 세겜 근처.<br><br>
+      <strong>결론:</strong> 개신교 예배의 핵심은 <strong>설교</strong>. 성도는 설교에 믿음으로 반응("아멘")함으로써 매주 언약을 갱신한다.
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-header">
+      <span class="exam-badge">시험대비</span>
+      <span class="exam-topic">건강한 교회의 예배 5가지 특징 — 김덕수</span>
+    </div>
+    <div class="exam-body">
+      ① 하나님 경배가 목적 (초점이 분명함)<br>
+      ② 삶을 변화시키는 예배<br>
+      ③ 삶의 현장으로 확산되는 예배<br>
+      ④ 전통·형식이 아닌 성령의 이끌림을 받는 예배<br>
+      ⑤ 예배와 전도의 이분법이 극복되는 예배
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-header">
+      <span class="exam-badge">시험대비</span>
+      <span class="exam-topic">잘못된 예배 5가지 / 바른 예배 6가지 — 이명희</span>
+    </div>
+    <div class="exam-body">
+      <strong>잘못된 예배:</strong> ①사람을 위한 예배 ②주술적 예배 ③형식적 예배 ④오락적 예배 ⑤의무적 예배<br><br>
+      <strong>바른 예배 요소:</strong> ①구원의 기쁨 ②부활하신 예수님 경배 ③하나님의 성품 찬양 ④하나님의 역사에 감사 ⑤신앙 고백 ⑥헌신과 봉헌
+    </div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-header">
+      <span class="exam-badge">시험대비</span>
+      <span class="exam-topic">목회자의 예배 준비 7단계</span>
+    </div>
+    <div class="exam-body">
+      ①개인 예배에 충실 ②삶으로 예배(임산부처럼 말씀을 품고) ③시간을 드려라(일주일 1시간씩) ④설교 준비(듣는 설교+들리는 설교) ⑤예배 점검 ⑥예배 시설 점검 ⑦성도 교육
+    </div>
+  </div>
+
+  <p class="section-heading">이상적 목회자상 — 예배와 관련하여</p>
+
+  <div class="minister-grid">
+    <div class="minister-card">
+      <div class="minister-icon">🔥</div>
+      <div class="minister-role">예배 인도자</div>
+      <div class="minister-desc"><strong>하나님과의 만남이 먼저</strong>개인 예배와 기도에 충실한 삶에서 예배 인도의 권위가 나온다. 영성은 쌓을 수 없고, 오직 하나님과의 관계에서만 얻어진다.</div>
+    </div>
+    <div class="minister-card">
+      <div class="minister-icon">📖</div>
+      <div class="minister-role">말씀의 종</div>
+      <div class="minister-desc"><strong>듣는 설교·들리는 설교</strong>본문을 깊이 연구하여(듣는 설교), 청중의 삶과 연결하여(들리는 설교) 언약의 내용을 선포하는 자.</div>
+    </div>
+    <div class="minister-card">
+      <div class="minister-icon">🌊</div>
+      <div class="minister-role">생명의 통로</div>
+      <div class="minister-desc"><strong>파송의 목회자</strong>예배가 교회 안에서 끝나지 않도록, 성도들이 삶의 자리에서 생수의 강이 흘러나오게 하는 자.</div>
+    </div>
+    <div class="minister-card">
+      <div class="minister-icon">🎯</div>
+      <div class="minister-role">예배 신학자</div>
+      <div class="minister-desc"><strong>예배의 의미를 가르치는 자</strong>예배 순서의 신학적 의미를 성도에게 교육하여, 성도가 준비된 예배자가 되도록 인도하는 자.</div>
+    </div>
+  </div>
+
+  <p class="section-heading">핵심 성경 구절 모음</p>
+
+  <table class="data-table">
+    <thead><tr><th>본문</th><th>주제</th><th>핵심 내용</th></tr></thead>
+    <tbody>
+      <tr><td>요 4:23</td><td>예배의 본질</td><td>신령과 진정으로 예배하는 자를 하나님이 찾으신다</td></tr>
+      <tr><td>출 40:34</td><td>성막의 영광</td><td>성막이 완성될 때 하나님의 영광이 임함</td></tr>
+      <tr><td>왕상 8:11</td><td>성전의 영광</td><td>솔로몬 성전에 여호와의 영광이 가득함</td></tr>
+      <tr><td>겔 47:1,9</td><td>성전의 생명수</td><td>성전 문지방에서 물이 흘러 생명의 역사가 일어남</td></tr>
+      <tr><td>요 1:14</td><td>성전이신 예수</td><td>말씀이 성막으로 우리 가운데 거하심 (ἐσκήνωσεν)</td></tr>
+      <tr><td>요 7:38</td><td>성도에서 흐르는 생수</td><td>믿는 자의 배에서 생수의 강이 흘러나옴</td></tr>
+      <tr><td>출 24:5-8</td><td>언약 의식</td><td>피로 언약을 맺는 의식 — 예배의 언약 갱신적 기원</td></tr>
+      <tr><td>민 6:27</td><td>축도의 기원</td><td>제사장들이 하나님의 이름으로 이스라엘을 축복함</td></tr>
+      <tr><td>느 8:8</td><td>성경 봉독</td><td>느헤미야의 율법 낭독 — 말씀의 중심성</td></tr>
+    </tbody>
+  </table>
+
+  <div class="three-principles">
+    <div class="three-principles-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="principle-item">
+      <div class="p-num">I</div>
+      <div class="p-content">
+        <div class="p-title">예배의 본질은 만남이다</div>
+        <div class="p-desc">영감·은혜·감동이라는 말의 공통 분모는 "거기서 하나님을 만났다"는 것이다. 목회자는 예배를 통해 성도가 하나님을 만나도록 인도해야 한다.</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">II</div>
+      <div class="p-content">
+        <div class="p-title">예배의 목표는 감동에서 끝나지 않는다</div>
+        <div class="p-desc">성전에서 흘러나온 물이 사막을 강으로 바꾸듯, 예배를 통해 하나님을 만난 성도가 삶의 자리에서 생명의 역사를 일으키는 것이 예배의 완성이다(겔 47장 → 요 7:38).</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">III</div>
+      <div class="p-content">
+        <div class="p-title">목회자의 예배 준비는 곧 삶이다</div>
+        <div class="p-desc">설교자는 임산부처럼 말씀을 품고 살아야 하며, 예배를 준비하는 순간부터 이미 예배가 시작되었다. 개인 예배, 기도, 일상의 하나님 경외 없이 예배 인도는 불가능하다.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end tab-summary -->
+
+
+<!-- ════════════════════════════════
+     TAB 3 — 현장적용
+════════════════════════════════ -->
+<div id="tab-apply" class="tab-content">
+<div class="content-wrap">
+
+  <p class="section-heading">현장 — 예배 인도 실제</p>
+
+  <div class="field-card">
+    <div class="field-title">🔎 상황 1 — 예배가 형식적으로 느껴질 때</div>
+    <div class="field-row"><span class="field-label">상황</span><div class="field-text">성도들이 예배 시간에 은혜를 받지 못하고, 예배가 의무처럼 느껴진다는 피드백이 온다.</div></div>
+    <div class="field-row"><span class="field-label">진단</span><div class="field-text">목회자 자신이 먼저 개인 예배에서 하나님을 만나고 있는지 점검. 예배의 초점이 하나님께 맞춰져 있는지, 또는 성도를 기분 좋게 하는 데 초점이 맞춰져 있는지 진단.</div></div>
+    <div class="field-row"><span class="field-label">처방</span><div class="field-text">이명희의 7단계 준비 적용 — 특히 ①개인 예배 ②삶으로 예배 ③일주일 1시간씩 설교 준비. 예배 순서의 신학적 의미를 성도에게 교육하여 성도가 능동적 예배자가 되도록 인도.</div></div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">🔎 상황 2 — 청소년 대상 예배 인도</div>
+    <div class="field-row"><span class="field-label">상황</span><div class="field-text">청소년들이 예배에 집중하지 못하고, 예배를 지루하거나 의무처럼 여긴다.</div></div>
+    <div class="field-row"><span class="field-label">진단</span><div class="field-text">예배가 오락적 예배(이명희 5가지 중 4번)로 흐를 위험 vs. 청소년의 능동적 참여를 이끌어낼 방법의 균형 필요. 이머징 처치의 통찰 — 성도가 수동적 존재가 아닌 능동적 참여자가 되어야 한다.</div></div>
+    <div class="field-row"><span class="field-label">처방</span><div class="field-text">찬양 시간 확대(연속 3~4곡)로 능동적 참여 유도. 단, 말씀(설교)의 중심성은 반드시 유지. 예배 순서의 의미를 청소년 눈높이로 교육. 예배 후 삶의 변화를 함께 나누는 나눔 시간 운영.</div></div>
+  </div>
+
+  <div class="field-card">
+    <div class="field-title">🔎 상황 3 — 예배와 삶의 분리 문제</div>
+    <div class="field-row"><span class="field-label">상황</span><div class="field-text">성도들이 주일 예배에서는 은혜를 받는 것처럼 보이지만, 주중에는 세상과 다를 바 없는 삶을 산다.</div></div>
+    <div class="field-row"><span class="field-label">진단</span><div class="field-text">예배의 삼중적 기능 중 '선교(파송)'가 작동하지 않는 상태. 예배가 사죄와 언약 기능에서 멈추고 세상으로 나아가지 않음. 가인의 예배 유형 — 예배 후 삶이 바뀌지 않음.</div></div>
+    <div class="field-row"><span class="field-label">처방</span><div class="field-text">겔 47장의 생명수 비전을 설교로 선포 — "예배는 교회 안에서 끝나지 않는다." 요 7:38 — 성도에게서 생수의 강이 흘러나와야 함을 반복 교육. 제자도 훈련과 예배를 연결하여 예배 후 파송의 의미를 구체화.</div></div>
+  </div>
+
+  <p class="section-heading">사역 방법론 — 예배 준비 실제</p>
+
+  <div class="source-card">
+    <div class="source-header">
+      <span class="source-badge">사역</span>
+      <span class="source-title">목회자의 주간 예배 준비 사이클</span>
+    </div>
+    <div class="source-body">
+      <table class="data-table">
+        <thead><tr><th>시기</th><th>준비 내용</th><th>원칙</th></tr></thead>
+        <tbody>
+          <tr><td>매일</td><td>개인 예배 / 말씀 묵상 / 기도</td><td>설교자는 임산부처럼 말씀을 품고 살아야 한다</td></tr>
+          <tr><td>월~수</td><td>설교 본문 연구 (듣는 설교)</td><td>깊이 있게 본문을 들어야 깊이 있게 선포할 수 있다</td></tr>
+          <tr><td>목~금</td><td>설교 적용 구상 (들리는 설교)</td><td>성도의 삶과 연결되는 설교 — 옥한흠 목사의 원칙</td></tr>
+          <tr><td>토요일</td><td>예배 순서 전체 점검 / 예배 시설 점검</td><td>"예배를 준비할 때 이미 예배가 시작되었다"</td></tr>
+          <tr><td>주일</td><td>예배 인도 / 성도와의 교제</td><td>하나님께 초점, 성도가 하나님을 만나도록 인도</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="section-heading">성찰 질문</p>
+
+  <div class="principle-card" style="background:#1e261e; border-left-color: var(--accent-green);">
+    <div class="principle-title" style="color:var(--bible-text);">🪞 예배 인도자로서의 자기 성찰</div>
+    <div class="principle-body" style="color:var(--bible-text);">
+      1. 나는 지난 한 주, 개인 예배에서 하나님을 실제로 만났는가? 아니면 형식적으로 시간을 채웠는가?<br><br>
+      2. 내가 인도하는 예배에서 성도들이 하나님을 만난다는 증거가 있는가? 그것이 어떤 모습으로 나타나는가?<br><br>
+      3. 나는 설교를 임산부처럼 말씀을 품고 준비하는가, 아니면 마감 전에 급하게 준비하는가?<br><br>
+      4. 우리 교회 예배는 삼중적 기능(사죄·언약·선교) 중 어느 부분이 약한가? 어떻게 강화할 수 있는가?<br><br>
+      5. 예배 후 성도들의 삶이 실제로 변화하고 있다는 증거를 나는 목격하고 있는가?
+    </div>
+  </div>
+
+  <div class="three-principles">
+    <div class="three-principles-title">오늘 목회 핵심 원칙 3가지</div>
+    <div class="principle-item">
+      <div class="p-num">I</div>
+      <div class="p-content">
+        <div class="p-title">예배의 본질은 만남이다</div>
+        <div class="p-desc">영감·은혜·감동이라는 말의 공통 분모는 "거기서 하나님을 만났다"는 것이다. 목회자는 예배를 통해 성도가 하나님을 만나도록 인도해야 한다.</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">II</div>
+      <div class="p-content">
+        <div class="p-title">예배의 목표는 감동에서 끝나지 않는다</div>
+        <div class="p-desc">성전에서 흘러나온 물이 사막을 강으로 바꾸듯, 예배를 통해 하나님을 만난 성도가 삶의 자리에서 생명의 역사를 일으키는 것이 예배의 완성이다(겔 47장 → 요 7:38).</div>
+      </div>
+    </div>
+    <div class="principle-item">
+      <div class="p-num">III</div>
+      <div class="p-content">
+        <div class="p-title">목회자의 예배 준비는 곧 삶이다</div>
+        <div class="p-desc">설교자는 임산부처럼 말씀을 품고 살아야 하며, 예배를 준비하는 순간부터 이미 예배가 시작되었다. 개인 예배, 기도, 일상의 하나님 경외 없이 예배 인도는 불가능하다.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end tab-apply -->
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
