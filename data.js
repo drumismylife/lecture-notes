@@ -38,7 +38,9 @@ const SITE_DATA = {
         { week: 10, title: "어휘 · 명사 · 관사 · 관계대명사 · 형용사", date: "2026.05.11", files: [
             { type: "notes", label: "강의노트", href: "output/greek/week10.html" }
           ] },
-        { week: 11, title: "분사 I", date: "2026.05", files: [] },
+        { week: 11, title: "형용사와 인칭대명사", date: "2026.05.18", files: [
+            { type: "notes", label: "강의노트", href: "output/greek/week11.html" }
+          ] },
         { week: 12, title: "분사 II", date: "2026.06", files: [] },
         { week: 13, title: "부정사와 종속절", date: "2026.06", files: [] },
         { week: 14, title: "신약 본문 독해 실습", date: "2026.06", files: [] },

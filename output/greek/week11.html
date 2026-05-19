@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 I — 11주차 형용사와 인칭대명사</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b27;
+    --subcard: #1e2538;
+    --border: #2a3050;
+    --gold: #c9a84c;
+    --gold-dim: #a07c30;
+    --greek: #f0d080;
+    --blue: #7c9ed9;
+    --blue-dim: #4a6fa8;
+    --red: #e07b6a;
+    --red-bg: #3d1a1a;
+    --red-border: #e07b6a;
+    --green: #6fcf97;
+    --green-bg: #1a2d1a;
+    --green-border: #6fcf97;
+    --purple: #b48ef0;
+    --purple-bg: #1e1530;
+    --text: #e8eaf0;
+    --muted: #9ba3b8;
+    --hint: #6b7490;
+    --active-tab: #c9a84c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2035 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 32px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'Ἑλληνική';
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    font-size: 56px; color: rgba(201,168,76,0.06); font-style: italic;
+    font-family: Georgia, serif; pointer-events: none;
+  }
+  .header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .week-badge {
+    background: var(--gold); color: #0d1117;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+    padding: 3px 12px; border-radius: 20px;
+  }
+  .exam-badge {
+    background: var(--red-bg); color: var(--red);
+    border: 1px solid var(--red-border);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .header h1 { font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .header-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .header-meta span { color: var(--gold); }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex; gap: 0;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--muted); font-size: 13px; font-weight: 600;
+    padding: 14px 20px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--active-tab); border-bottom-color: var(--active-tab); }
+
+  /* ── LAYOUT ── */
+  .tab-content { display: none; padding: 28px 28px 60px; max-width: 1100px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .sec {
+    display: flex; align-items: center; gap: 10px;
+    margin: 36px 0 18px;
+  }
+  .sec:first-child { margin-top: 0; }
+  .sec-num {
+    background: var(--gold); color: #0d1117;
+    font-size: 10px; font-weight: 900; letter-spacing: 0.1em;
+    padding: 2px 9px; border-radius: 3px;
+  }
+  .sec-title { font-size: 17px; font-weight: 800; color: var(--text); }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+  .subsec {
+    font-size: 13px; font-weight: 700; color: var(--gold);
+    padding-left: 12px; border-left: 3px solid var(--gold);
+    margin: 24px 0 12px;
+  }
+
+  /* ── GRAMMAR RULE BOX ── */
+  .rule-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .rule-title {
+    font-size: 13px; font-weight: 800; color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .rule-body { font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .rule-body strong { color: var(--text); }
+  .rule-body .gr { font-family: Georgia, serif; color: var(--greek); font-size: 14px; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .callout.tip { background: #2a2210; border-left: 3px solid var(--gold); }
+  .callout.warn { background: var(--red-bg); border-left: 3px solid var(--red); }
+  .callout.info { background: #0f1e30; border-left: 3px solid var(--blue); }
+  .callout.good { background: var(--green-bg); border-left: 3px solid var(--green); }
+  .callout-icon { font-size: 18px; flex-shrink: 0; }
+  .callout-body { flex: 1; font-size: 13px; line-height: 1.75; color: var(--muted); }
+  .callout-body strong { color: var(--text); }
+  .callout-body .gr { font-family: Georgia, serif; color: var(--greek); }
+  .callout-title { font-size: 12px; font-weight: 800; margin-bottom: 5px; }
+  .callout.tip .callout-title { color: var(--gold); }
+  .callout.warn .callout-title { color: var(--red); }
+  .callout.info .callout-title { color: var(--blue); }
+  .callout.good .callout-title { color: var(--green); }
+
+  /* ── PARADIGM TABLE ── */
+  .paradigm-wrap { overflow-x: auto; margin-bottom: 20px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--subcard); }
+  thead th {
+    padding: 9px 12px; font-size: 11px; font-weight: 700;
+    color: var(--muted); letter-spacing: 0.06em; text-align: center;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  thead th:last-child { border-right: none; }
+  tbody td {
+    padding: 9px 12px; border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border); text-align: center;
+    color: var(--muted); vertical-align: middle;
+  }
+  tbody td:last-child { border-right: none; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: rgba(201,168,76,0.05); }
+  .td-label {
+    text-align: left !important; font-weight: 700;
+    color: var(--text) !important; background: var(--card);
+    min-width: 60px;
+  }
+  .gr-cell { font-family: Georgia, serif; color: var(--greek); font-size: 15px; font-weight: 600; }
+  .gr-cell.blue { color: #7cc8ff; }
+  .gr-cell.red { color: #ff9980; }
+  .gr-cell.purple { color: var(--purple); }
+  .col-group-m { background: rgba(124,158,217,0.06); }
+  .col-group-f { background: rgba(255,160,128,0.06); }
+  .col-group-n { background: rgba(107,207,151,0.06); }
+  .section-divider {
+    background: var(--subcard) !important;
+    color: var(--gold) !important;
+    font-weight: 800 !important;
+    font-size: 11px !important;
+    letter-spacing: 0.1em;
+    text-align: center !important;
+  }
+
+  /* ── EXAMPLE SENTENCES ── */
+  .example-set { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .example-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px;
+  }
+  .ex-greek { font-family: Georgia, serif; color: var(--greek); font-size: 15px; margin-bottom: 4px; }
+  .ex-direct { color: var(--muted); font-size: 12px; }
+  .ex-analysis {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 11px; color: var(--hint); line-height: 1.8;
+  }
+  .ex-tag {
+    display: inline-block; background: var(--subcard);
+    border: 1px solid var(--border); border-radius: 3px;
+    font-size: 10px; color: var(--blue); padding: 1px 6px;
+    margin-right: 4px; font-weight: 600;
+  }
+
+  /* ── EXAM BOX ── */
+  .exam-box {
+    background: var(--red-bg); border: 1px solid var(--red-border);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;
+  }
+  .exam-box-title {
+    font-size: 11px; font-weight: 800; color: var(--red);
+    letter-spacing: 0.1em; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .exam-box-body { font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .exam-box-body strong { color: var(--text); }
+  .exam-box-body .gr { font-family: Georgia, serif; color: var(--greek); }
+
+  /* ── WORD GRID ── */
+  .word-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px; margin-bottom: 20px;
+  }
+  .word-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+    transition: border-color 0.2s;
+  }
+  .word-card:hover { border-color: var(--gold-dim); }
+  .wc-greek { font-family: Georgia, serif; color: var(--greek); font-size: 16px; font-weight: 600; }
+  .wc-pronun { font-size: 11px; color: var(--hint); margin: 2px 0; }
+  .wc-meaning { font-size: 12px; color: var(--text); font-weight: 600; }
+  .wc-note { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  /* ── USAGE PATTERN ── */
+  .pattern-row {
+    display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .pattern-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 220px;
+  }
+  .pattern-label {
+    font-size: 11px; font-weight: 800; color: var(--gold);
+    letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+  .pattern-example { font-family: Georgia, serif; color: var(--greek); font-size: 15px; }
+  .pattern-ko { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ── MEMORIZE BOX ── */
+  .memorize-box {
+    background: #2a2210; border-left: 3px solid var(--gold);
+    border-radius: 8px; padding: 16px 20px; margin-top: 32px;
+  }
+  .memorize-title {
+    font-size: 12px; font-weight: 800; color: var(--gold);
+    letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .memorize-items { display: flex; flex-direction: column; gap: 8px; }
+  .memorize-item {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(201,168,76,0.08); border-radius: 6px;
+    padding: 10px 14px;
+  }
+  .mem-num {
+    background: var(--gold); color: #0d1117;
+    font-size: 11px; font-weight: 900;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mem-content { font-size: 13px; color: var(--text); }
+  .mem-content .gr { font-family: Georgia, serif; color: var(--greek); }
+
+  /* ═══════════════════════════════════════════
+     TAB 3 — QUIZ
+  ═══════════════════════════════════════════ */
+  .quiz-intro {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 22px; margin-bottom: 24px;
+    text-align: center;
+  }
+  .quiz-intro p { font-size: 13px; color: var(--muted); }
+  .quiz-intro strong { color: var(--gold); }
+
+  .quiz-section-title {
+    font-size: 14px; font-weight: 800; color: var(--text);
+    margin: 28px 0 14px;
+    padding-left: 12px; border-left: 3px solid var(--blue);
+  }
+
+  .flash-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px; margin-bottom: 32px;
+  }
+  .flash-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; height: 130px;
+    cursor: pointer; position: relative;
+    perspective: 800px; transition: border-color 0.2s;
+  }
+  .flash-card:hover { border-color: var(--gold-dim); }
+  .flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+  .flash-inner {
+    width: 100%; height: 100%;
+    position: relative; transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+    transform-style: preserve-3d;
+  }
+  .flash-front, .flash-back {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 14px; border-radius: 10px;
+    backface-visibility: hidden;
+  }
+  .flash-front { background: var(--card); }
+  .flash-back { background: var(--subcard); transform: rotateY(180deg); }
+  .flash-greek { font-family: Georgia, serif; color: var(--greek); font-size: 22px; font-weight: 600; text-align: center; }
+  .flash-pronun { font-size: 11px; color: var(--hint); margin-top: 4px; }
+  .flash-tap { font-size: 10px; color: var(--hint); position: absolute; bottom: 8px; right: 10px; }
+  .flash-meaning { font-size: 15px; font-weight: 700; color: var(--text); text-align: center; }
+  .flash-pos { font-size: 11px; color: var(--blue); margin-top: 6px; }
+
+  /* fill-in quiz */
+  .fill-quiz { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .fq-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px;
+  }
+  .fq-question { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .fq-question .gr { font-family: Georgia, serif; color: var(--greek); font-size: 14px; }
+  .fq-input-row { display: flex; gap: 8px; align-items: center; }
+  .fq-input {
+    flex: 1; background: var(--subcard); border: 1px solid var(--border);
+    border-radius: 6px; padding: 8px 12px;
+    color: var(--text); font-size: 14px; font-family: Georgia, serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .fq-input:focus { border-color: var(--gold); }
+  .fq-input.correct { border-color: var(--green); background: rgba(111,207,151,0.08); color: var(--green); }
+  .fq-input.wrong { border-color: var(--red); background: rgba(224,123,106,0.08); color: var(--red); }
+  .fq-btn {
+    background: var(--subcard); border: 1px solid var(--border);
+    color: var(--muted); font-size: 12px; font-weight: 700;
+    padding: 8px 14px; border-radius: 6px; cursor: pointer;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .fq-btn:hover { background: var(--gold); color: #0d1117; border-color: var(--gold); }
+  .fq-feedback { font-size: 12px; margin-top: 6px; font-family: Georgia, serif; }
+  .fq-feedback.ok { color: var(--green); }
+  .fq-feedback.ng { color: var(--red); }
+
+  .quiz-reset {
+    background: none; border: 1px solid var(--border);
+    color: var(--muted); font-size: 12px; font-weight: 700;
+    padding: 8px 20px; border-radius: 6px; cursor: pointer;
+    display: block; margin: 0 auto 32px;
+    font-family: inherit; transition: all 0.2s;
+  }
+  .quiz-reset:hover { border-color: var(--gold); color: var(--gold); }
+
+  .score-bar {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 18px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .score-label { font-size: 12px; color: var(--muted); }
+  .score-val { font-size: 18px; font-weight: 900; color: var(--gold); }
+  .score-track { flex: 1; height: 6px; background: var(--subcard); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.4s; }
+
+  @media print {
+    .tab-bar { display: none; }
+    .tab-content { display: block !important; page-break-before: always; }
+    body { background: white; color: black; }
+    .header { background: white; border-bottom: 2px solid #ccc; }
+    .header::before { display: none; }
+    table { page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <span class="week-badge">11주차</span>
+    <span class="exam-badge">🎯 기말 6/15 범위</span>
+  </div>
+  <h1>형용사와 인칭대명사</h1>
+  <div class="header-meta">
+    2026년 5월 18일 &nbsp;·&nbsp; <span>이영민 교수</span> &nbsp;·&nbsp; 헬라어 I (신약학과)
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('note', this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="showTab('summary', this)">📌 핵심정리</button>
+  <button class="tab-btn" onclick="showTab('quiz', this)">🃏 암기퀴즈</button>
+</div>
+
+<!-- ═══════════════════ TAB 1: 강의노트 ═══════════════════ -->
+<div id="tab-note" class="tab-content active">
+
+  <!-- 섹션1: 형용사 -->
+  <div class="sec">
+    <span class="sec-num">01</span>
+    <span class="sec-title">형용사 (Adjective)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">형용사란 무엇인가?</div>
+    <div class="rule-body">
+      형용사는 명사의 성질이나 상태를 설명하는 단어입니다. 헬라어 형용사는 영어와 달리 형태 자체가 변합니다 — 
+      수식하는 명사의 <strong>성(남/여/중성)</strong>, <strong>수(단수/복수)</strong>, <strong>격(주/속/여/대/호격)</strong>에 
+      모두 맞춰서 어미가 바뀝니다. 이것을 <strong>일치(agreement)</strong>라고 합니다.<br><br>
+      헬라어 형용사는 크게 <strong>제1·2변화 형용사</strong>로 분류됩니다:
+      남성형은 2변화(λόγος형), 여성형은 1변화(ὥρα형/ζωή형), 중성형은 2변화(δῶρον형) 어미를 따릅니다.
+    </div>
+  </div>
+
+  <div class="subsec">이번 주 주요 형용사 어휘</div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="wc-greek">ἀγαθός, ή, όν</div>
+      <div class="wc-pronun">아가토스</div>
+      <div class="wc-meaning">좋은, 착한</div>
+      <div class="wc-note">남/여/중 어미 패턴의 기준 형용사</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">κακός, ή, όν</div>
+      <div class="wc-pronun">카코스</div>
+      <div class="wc-meaning">나쁜, 악한</div>
+      <div class="wc-note">ἀγαθός의 반대</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">καλός, ή, όν</div>
+      <div class="wc-pronun">칼로스</div>
+      <div class="wc-meaning">좋은, 아름다운</div>
+      <div class="wc-note">도덕적 아름다움 포함</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">μικρός, ά, όν</div>
+      <div class="wc-pronun">미크로스</div>
+      <div class="wc-meaning">작은, 적은</div>
+      <div class="wc-note">여성형 어미 -ά 주의</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">νεκρός, ά, όν</div>
+      <div class="wc-pronun">네크로스</div>
+      <div class="wc-meaning">죽은</div>
+      <div class="wc-note">영어 necro-의 어원</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">δίκαιος, αία, ον</div>
+      <div class="wc-pronun">디카이오스</div>
+      <div class="wc-meaning">옳은, 의로운</div>
+      <div class="wc-note">여성형 -αία가 특이한 패턴</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἅγιος, α, ον</div>
+      <div class="wc-pronun">하기오스</div>
+      <div class="wc-meaning">거룩한</div>
+      <div class="wc-note">성령 = ἅγιον πνεῦμα</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">πιστός, ή, όν</div>
+      <div class="wc-pronun">피스토스</div>
+      <div class="wc-meaning">신실한, 믿음직한</div>
+      <div class="wc-note">πίστις(믿음)과 같은 어근</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">μόνος, η, ον</div>
+      <div class="wc-pronun">모노스</div>
+      <div class="wc-meaning">유일한, 홀로인</div>
+      <div class="wc-note">mono-의 어원</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">πρῶτος, η, ον</div>
+      <div class="wc-pronun">프로토스</div>
+      <div class="wc-meaning">처음의, 먼저인</div>
+      <div class="wc-note">proto-의 어원</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἔσχατος, η, ον</div>
+      <div class="wc-pronun">에스카토스</div>
+      <div class="wc-meaning">마지막의</div>
+      <div class="wc-note">신학용어 eschatology의 어원</div>
+    </div>
+    <div class="word-card">
+      <div class="wc-greek">ἄλλος, η, ο</div>
+      <div class="wc-pronun">알로스</div>
+      <div class="wc-meaning">다른</div>
+      <div class="wc-note">중성 주·대격 어미가 -ο (관사처럼)</div>
+    </div>
+  </div>
+
+  <!-- 변화표 -->
+  <div class="subsec">제1·2변화 형용사 변화표 — ἀγαθός (좋은)</div>
+
+  <div class="callout info">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">핵심 패턴 읽기</div>
+      <strong>남성</strong>은 λόγος형(2변화), <strong>여성</strong>은 ζωή형(1변화), <strong>중성</strong>은 δῶρον형(2변화) 어미를 그대로 씁니다.
+      이미 배운 명사 변화표가 형용사에도 그대로 적용됩니다!
+    </div>
+  </div>
+
+  <div class="paradigm-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:70px;"></th>
+          <th class="col-group-m" colspan="2">남성 (Masculine)</th>
+          <th class="col-group-f" colspan="2">여성 (Feminine)</th>
+          <th class="col-group-n" colspan="2">중성 (Neuter)</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th class="col-group-m">단수</th>
+          <th class="col-group-m">복수</th>
+          <th class="col-group-f">단수</th>
+          <th class="col-group-f">복수</th>
+          <th class="col-group-n">단수</th>
+          <th class="col-group-n">복수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">주격</td>
+          <td class="gr-cell blue col-group-m">ἀγαθός</td>
+          <td class="gr-cell blue col-group-m">ἀγαθοί</td>
+          <td class="gr-cell red col-group-f">ἀγαθή</td>
+          <td class="gr-cell red col-group-f">ἀγαθαί</td>
+          <td class="gr-cell purple col-group-n">ἀγαθόν</td>
+          <td class="gr-cell purple col-group-n">ἀγαθά</td>
+        </tr>
+        <tr>
+          <td class="td-label">속격</td>
+          <td class="gr-cell blue col-group-m">ἀγαθοῦ</td>
+          <td class="gr-cell blue col-group-m">ἀγαθῶν</td>
+          <td class="gr-cell red col-group-f">ἀγαθῆς</td>
+          <td class="gr-cell red col-group-f">ἀγαθῶν</td>
+          <td class="gr-cell purple col-group-n">ἀγαθοῦ</td>
+          <td class="gr-cell purple col-group-n">ἀγαθῶν</td>
+        </tr>
+        <tr>
+          <td class="td-label">여격</td>
+          <td class="gr-cell blue col-group-m">ἀγαθῷ</td>
+          <td class="gr-cell blue col-group-m">ἀγαθοῖς</td>
+          <td class="gr-cell red col-group-f">ἀγαθῇ</td>
+          <td class="gr-cell red col-group-f">ἀγαθαῖς</td>
+          <td class="gr-cell purple col-group-n">ἀγαθῷ</td>
+          <td class="gr-cell purple col-group-n">ἀγαθοῖς</td>
+        </tr>
+        <tr>
+          <td class="td-label">대격</td>
+          <td class="gr-cell blue col-group-m">ἀγαθόν</td>
+          <td class="gr-cell blue col-group-m">ἀγαθούς</td>
+          <td class="gr-cell red col-group-f">ἀγαθήν</td>
+          <td class="gr-cell red col-group-f">ἀγαθάς</td>
+          <td class="gr-cell purple col-group-n">ἀγαθόν</td>
+          <td class="gr-cell purple col-group-n">ἀγαθά</td>
+        </tr>
+        <tr>
+          <td class="td-label">호격</td>
+          <td class="gr-cell blue col-group-m">ἀγαθέ</td>
+          <td class="gr-cell blue col-group-m">ἀγαθοί</td>
+          <td class="gr-cell red col-group-f">ἀγαθή</td>
+          <td class="gr-cell red col-group-f">ἀγαθαί</td>
+          <td class="gr-cell purple col-group-n">ἀγαθόν</td>
+          <td class="gr-cell purple col-group-n">ἀγαθά</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 형용사 용법 -->
+  <div class="subsec">형용사의 세 가지 용법</div>
+
+  <div class="callout tip">
+    <div class="callout-icon">🔑</div>
+    <div class="callout-body">
+      <div class="callout-title">판별 핵심 — 관사의 위치를 보라!</div>
+      형용사 용법 구별의 핵심은 <strong>관사(ὁ/ἡ/τό)가 형용사 바로 앞에 있는가?</strong>입니다.
+      관사가 형용사 앞에 있으면 <strong>한정적 용법</strong>, 없으면 <strong>서술적/독립적 용법</strong>입니다.
+    </div>
+  </div>
+
+  <div class="pattern-row">
+    <div class="pattern-card">
+      <div class="pattern-label">① 한정적 용법 — 꾸며주기 "좋은 그 말씀"</div>
+      <div class="pattern-example">ὁ ἀγαθὸς λόγος</div>
+      <div class="pattern-ko">관사 + 형용사 + 명사</div>
+      <div class="pattern-example" style="margin-top:8px;">ὁ λόγος ὁ ἀγαθός</div>
+      <div class="pattern-ko">명사 + 관사 + 형용사 (둘 다 한정)</div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-label">② 서술적 용법 — 서술하기 "그 말씀은 좋다"</div>
+      <div class="pattern-example">ὁ λόγος ἀγαθός</div>
+      <div class="pattern-ko">명사 + 형용사 (형용사 앞에 관사 없음)</div>
+      <div class="pattern-example" style="margin-top:8px;">ἀγαθὸς ὁ λόγος</div>
+      <div class="pattern-ko">형용사 + 명사 (형용사 앞에 관사 없음)</div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-label">③ 독립적 용법 — 명사처럼 행동</div>
+      <div class="pattern-example">ἀγαθός</div>
+      <div class="pattern-ko">→ "좋은 남자" (관사 없이)</div>
+      <div class="pattern-example" style="margin-top:6px;">ὁ ἀγαθός</div>
+      <div class="pattern-ko">→ "그 좋은 남자" (관사와 함께)</div>
+      <div class="pattern-example" style="margin-top:6px;">τὸ ἀγαθόν</div>
+      <div class="pattern-ko">→ "그 좋은 것" (추상명사화)</div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body">
+      <div class="callout-title">관사 없는 경우 — 문맥으로 판단</div>
+      <span class="gr">ἀγαθὸς λόγος</span>와 <span class="gr">λόγος ἀγαθός</span>는 형태만 보면 
+      "좋은 말씀"(한정)도 되고 "말씀은 좋다"(서술)도 됩니다.
+      <strong>관사가 없으면 문맥(context)으로 판단</strong>해야 합니다 — 이영민 교수님이 강조하신 포인트!
+    </div>
+  </div>
+
+  <div class="subsec">번역 연습 예문 분석</div>
+  <div class="example-set">
+    <div class="example-card">
+      <div class="ex-greek">ἀγαθὴ ἡ ἐκκλησία καὶ ἡ βασιλεία κακή.</div>
+      <div class="ex-direct">그 교회는 좋고 그 나라는 나쁘다.</div>
+      <div class="ex-analysis">
+        <span class="ex-tag">서술적</span> ἀγαθή — 관사 앞에 없음 → 서술 &nbsp;|&nbsp;
+        <span class="ex-tag">서술적</span> κακή — 관사 앞에 없음 → 서술
+      </div>
+    </div>
+    <div class="example-card">
+      <div class="ex-greek">ἡ κακὴ καρδία τῶν ἀνθρώπων γινώσκει θάνατον.</div>
+      <div class="ex-direct">사람들의 그 악한 마음은 죽음을 안다.</div>
+      <div class="ex-analysis">
+        <span class="ex-tag">한정적</span> ἡ κακὴ καρδία — 관사 + 형용사 + 명사 → 한정
+      </div>
+    </div>
+    <div class="example-card">
+      <div class="ex-greek">οἱ κακοὶ λύουσι τὸ ἱερόν.</div>
+      <div class="ex-direct">그 악한 자들이 그 성전을 파괴한다.</div>
+      <div class="ex-analysis">
+        <span class="ex-tag">독립적</span> οἱ κακοί — "그 악한 사람들" (명사 없이 독립 사용)
+      </div>
+    </div>
+  </div>
+
+  <!-- 섹션2: 인칭대명사 -->
+  <div class="sec">
+    <span class="sec-num">02</span>
+    <span class="sec-title">인칭대명사 (Personal Pronouns)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">대명사란 무엇인가?</div>
+    <div class="rule-body">
+      대명사는 앞서 나온 명사(=<strong>선행사</strong>)를 반복하지 않기 위해 사용합니다.
+      헬라어 대명사는 선행사와 <strong>성(gender)</strong>과 <strong>수(number)</strong>가 일치해야 합니다.
+      격은 문장 내 대명사의 문법적 역할에 따라 결정됩니다.
+    </div>
+  </div>
+
+  <div class="subsec">1·2인칭 대명사 변화표</div>
+  <div class="paradigm-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th colspan="2">1인칭 (나/우리)</th>
+          <th colspan="2">2인칭 (너/너희)</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>단수</th>
+          <th>복수</th>
+          <th>단수</th>
+          <th>복수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">주격</td>
+          <td class="gr-cell">ἐγώ</td>
+          <td class="gr-cell">ἡμεῖς</td>
+          <td class="gr-cell">σύ</td>
+          <td class="gr-cell">ὑμεῖς</td>
+        </tr>
+        <tr>
+          <td class="td-label">속격</td>
+          <td class="gr-cell">ἐμοῦ / μου</td>
+          <td class="gr-cell">ἡμῶν</td>
+          <td class="gr-cell">σοῦ / σου</td>
+          <td class="gr-cell">ὑμῶν</td>
+        </tr>
+        <tr>
+          <td class="td-label">여격</td>
+          <td class="gr-cell">ἐμοί / μοι</td>
+          <td class="gr-cell">ἡμῖν</td>
+          <td class="gr-cell">σοί / σοι</td>
+          <td class="gr-cell">ὑμῖν</td>
+        </tr>
+        <tr>
+          <td class="td-label">대격</td>
+          <td class="gr-cell">ἐμέ / με</td>
+          <td class="gr-cell">ἡμᾶς</td>
+          <td class="gr-cell">σέ / σε</td>
+          <td class="gr-cell">ὑμᾶς</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">강조형 vs 약형 — 언제 어떤 걸 써요?</div>
+      1·2인칭 속격/여격/대격은 <strong>강조형</strong>(ἐμοῦ, ἐμοί, ἐμέ)과 <strong>약형/단축형</strong>(μου, μοι, με)이 있습니다.<br>
+      • <strong>전치사 뒤</strong>: 강조형 사용 &nbsp; ἐξ ἐμοῦ (나로부터), ἐν ἐμοί (내 안에서)<br>
+      • <strong>일반 문장</strong>: 약형이 더 흔하게 사용됨<br>
+      • 단, <strong>πρός με</strong>는 강조형 없이 약형을 흔히 사용 (예외)
+    </div>
+  </div>
+
+  <div class="subsec">3인칭 대명사 — αὐτός 변화표</div>
+  <div class="paradigm-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-group-m" colspan="2">남성</th>
+          <th class="col-group-f" colspan="2">여성</th>
+          <th class="col-group-n" colspan="2">중성</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th class="col-group-m">단수</th>
+          <th class="col-group-m">복수</th>
+          <th class="col-group-f">단수</th>
+          <th class="col-group-f">복수</th>
+          <th class="col-group-n">단수</th>
+          <th class="col-group-n">복수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">주격</td>
+          <td class="gr-cell blue col-group-m">αὐτός</td>
+          <td class="gr-cell blue col-group-m">αὐτοί</td>
+          <td class="gr-cell red col-group-f">αὐτή</td>
+          <td class="gr-cell red col-group-f">αὐταί</td>
+          <td class="gr-cell purple col-group-n">αὐτό</td>
+          <td class="gr-cell purple col-group-n">αὐτά</td>
+        </tr>
+        <tr>
+          <td class="td-label">속격</td>
+          <td class="gr-cell blue col-group-m">αὐτοῦ</td>
+          <td class="gr-cell blue col-group-m">αὐτῶν</td>
+          <td class="gr-cell red col-group-f">αὐτῆς</td>
+          <td class="gr-cell red col-group-f">αὐτῶν</td>
+          <td class="gr-cell purple col-group-n">αὐτοῦ</td>
+          <td class="gr-cell purple col-group-n">αὐτῶν</td>
+        </tr>
+        <tr>
+          <td class="td-label">여격</td>
+          <td class="gr-cell blue col-group-m">αὐτῷ</td>
+          <td class="gr-cell blue col-group-m">αὐτοῖς</td>
+          <td class="gr-cell red col-group-f">αὐτῇ</td>
+          <td class="gr-cell red col-group-f">αὐταῖς</td>
+          <td class="gr-cell purple col-group-n">αὐτῷ</td>
+          <td class="gr-cell purple col-group-n">αὐτοῖς</td>
+        </tr>
+        <tr>
+          <td class="td-label">대격</td>
+          <td class="gr-cell blue col-group-m">αὐτόν</td>
+          <td class="gr-cell blue col-group-m">αὐτούς</td>
+          <td class="gr-cell red col-group-f">αὐτήν</td>
+          <td class="gr-cell red col-group-f">αὐτάς</td>
+          <td class="gr-cell purple col-group-n">αὐτό</td>
+          <td class="gr-cell purple col-group-n">αὐτά</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body">
+      <div class="callout-title">대명사 사용법 — 선행사와 성·수 일치</div>
+      <span class="gr">βλέπω τὸν μαθητὴν καὶ διδάσκω <strong>αὐτόν</strong>.</span> → 제자를 봄 (남성 단수 대격)<br>
+      <span class="gr">ἡ ἐκκλησία διδάσκει ἐμέ, καὶ ἐγὼ διδάσκω <strong>αὐτήν</strong>.</span> → 교회를 가리킴 (여성 단수 대격)<br>
+      <span class="gr">βλέπω τὰ τέκνα καὶ διδάσκω <strong>αὐτά</strong>.</span> → 아이들을 가리킴 (중성 복수 대격)
+    </div>
+  </div>
+
+  <!-- αὐτός 특수용법 -->
+  <div class="subsec">αὐτός의 특수 용법 — 대명사가 아닌 형용사로!</div>
+
+  <div class="rule-box">
+    <div class="rule-title">① 강조의 형용사 용법 — "~자신/~자체"</div>
+    <div class="rule-body">
+      <strong>서술적 위치</strong>(관사 바로 뒤가 아닌 위치)에 나오면 "~자신" 또는 "~자체"로 번역합니다.<br><br>
+      <span class="gr">αὐτὸς ὁ ἀπόστολος</span> → "그 사도 자신" &nbsp;&nbsp;
+      <span class="gr">ἡ ἐκκλησία αὐτή</span> → "그 교회 자체"<br>
+      <span class="gr">ἐγὼ αὐτός</span> → "나 자신"<br><br>
+      <strong>성경 예문:</strong> <span class="gr">Ἰησοῦς αὐτὸς οὐκ ἐβάπτιζεν ἀλλ᾽ οἱ μαθηταὶ αὐτοῦ</span> (요 4:2)<br>
+      → "예수님 자신은 침례를 주지 않으셨고 그의 제자들이 (주었다)"
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">② 일치의 형용사 용법 — "같은, 바로 그"</div>
+    <div class="rule-body">
+      드물게 나타나는 용법으로, <strong>수식적 위치</strong>(관사 + αὐτός + 명사)에 오면 "바로 그"로 번역합니다.<br><br>
+      <span class="gr">Ἐν αὐτῇ τῇ ὥρᾳ</span> → "바로 그 시간에" (눅 12:12 등)
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🎯</div>
+    <div class="callout-body">
+      <div class="callout-title">주격 대명사는 강조일 때만!</div>
+      헬라어 동사는 어미 자체에 인칭 정보가 담겨 있습니다.
+      그래서 <strong>1·2인칭 주격 대명사는 생략이 기본</strong>이고,
+      반드시 강조하거나 대조할 때만 씁니다.<br><br>
+      <span class="gr">ἐγὼ λέγω, σὺ δὲ γράφεις.</span><br>
+      → "나는 말하고, <strong>너는</strong> 쓴다." (나 ↔ 너 대조 강조)
+    </div>
+  </div>
+
+  <!-- 인칭대명사 용법 예문 -->
+  <div class="subsec">번역 연습</div>
+  <div class="example-set">
+    <div class="example-card">
+      <div class="ex-greek">ἐγὼ ἐβάπτισα ὑμᾶς ὕδατι, αὐτὸς δὲ βαπτίσει ὑμᾶς ἐν πνεύματι ἁγίῳ.</div>
+      <div class="ex-direct">나는 너희에게 물로 침례를 주었지만, 그는 너희에게 성령으로 침례를 줄 것이다. (막 1:8)</div>
+      <div class="ex-analysis">
+        <span class="ex-tag">강조</span> ἐγώ — "내가" (αὐτός와 대조) &nbsp;|&nbsp;
+        <span class="ex-tag">강조형용사</span> αὐτός — "그 자신이" (예수님 강조)
+      </div>
+    </div>
+    <div class="example-card">
+      <div class="ex-greek">βλέπομέν σε καὶ λέγομέν σοι παραβολήν.</div>
+      <div class="ex-direct">우리는 너를 보고 너에게 비유를 말한다.</div>
+      <div class="ex-analysis">
+        <span class="ex-tag">약형</span> σε — 2인칭 단수 대격 &nbsp;|&nbsp;
+        <span class="ex-tag">약형</span> σοι — 2인칭 단수 여격
+      </div>
+    </div>
+  </div>
+
+  <!-- 암기 필수 -->
+  <div class="memorize-box">
+    <div class="memorize-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="memorize-items">
+      <div class="memorize-item">
+        <span class="mem-num">1</span>
+        <div class="mem-content">
+          형용사 일치 공식: <span class="gr">ὁ ἀγαθὸς λόγος</span> (한정) vs <span class="gr">ὁ λόγος ἀγαθός</span> (서술) — 관사 위치가 핵심!
+        </div>
+      </div>
+      <div class="memorize-item">
+        <span class="mem-num">2</span>
+        <div class="mem-content">
+          1·2인칭 강조형/약형: <span class="gr">ἐμοῦ/μου · ἐμοί/μοι · ἐμέ/με</span> 및 <span class="gr">σοῦ/σου · σοί/σοι · σέ/σε</span>
+        </div>
+      </div>
+      <div class="memorize-item">
+        <span class="mem-num">3</span>
+        <div class="mem-content">
+          αὐτός 3용법: ①대명사 "그를" ②강조형용사 "<span class="gr">αὐτὸς ὁ ἀπ.</span>" = 사도 자신 ③일치형용사 "<span class="gr">ἐν αὐτῇ τῇ ὥρᾳ</span>" = 바로 그 시간에
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-note -->
+
+
+<!-- ═══════════════════ TAB 2: 핵심정리 ═══════════════════ -->
+<div id="tab-summary" class="tab-content">
+
+  <div class="sec">
+    <span class="sec-num">시험</span>
+    <span class="sec-title">형용사 핵심 정리</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-box-title">🚨 시험 포인트 ① — 형용사 변화</div>
+    <div class="exam-box-body">
+      형용사 어미: 남성 = <span class="gr">2변화(-ος/-οῦ/-ῳ/-όν)</span> &nbsp;·&nbsp; 여성 = <span class="gr">1변화(-ή/-ῆς/-ῇ/-ήν)</span> &nbsp;·&nbsp; 중성 = <span class="gr">2변화(-όν/-οῦ/-ῷ/-όν)</span><br>
+      형용사 어휘 표기: <span class="gr">ἀγαθός, ή, όν</span> → 사전형 = 남성 주격 단수 / ή = 여성 / όν = 중성
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-box-title">🚨 시험 포인트 ② — 형용사 용법 3종 구별</div>
+    <div class="exam-box-body">
+      <strong>한정적:</strong> 관사 + 형용사 + 명사 / 명사 + 관사 + 형용사 → "그 좋은 말씀"<br>
+      <strong>서술적:</strong> 관사 있는 명사 + 형용사(관사 없이) → "그 말씀은 좋다"<br>
+      <strong>독립적:</strong> 형용사가 명사 역할 → <span class="gr">οἱ κακοί</span> = "그 나쁜 사람들"
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-box-title">🚨 시험 포인트 ③ — 인칭대명사</div>
+    <div class="exam-box-body">
+      <strong>주격 대명사는 강조·대조할 때만</strong> 씁니다. 동사 어미에 인칭이 담겨 있기 때문.<br>
+      <strong>강조형</strong>(전치사 뒤): ἐξ ἐμοῦ / ἐν ἐμοί / δι᾽ ἐμοῦ<br>
+      <strong>약형</strong>(일반): μου / μοι / με &nbsp;·&nbsp; σου / σοι / σε<br>
+      <strong>예외:</strong> πρός με는 약형 흔히 사용
+    </div>
+  </div>
+
+  <div class="exam-box">
+    <div class="exam-box-title">🚨 시험 포인트 ④ — αὐτός의 세 가지 용법</div>
+    <div class="exam-box-body">
+      ① <strong>3인칭 대명사</strong>: 선행사와 성·수 일치 (격은 문장 역할에 따라)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="gr">διδάσκω αὐτόν</span> = 그를 가르친다 (선행사: 남성 명사)<br>
+      ② <strong>강조 형용사</strong>: 서술적 위치 → "~자신/~자체"<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="gr">αὐτὸς ὁ ἀπόστολος</span> = 그 사도 자신<br>
+      ③ <strong>일치 형용사</strong>: 수식적 위치 → "바로 그"<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="gr">ἐν αὐτῇ τῇ ὥρᾳ</span> = 바로 그 시간에
+    </div>
+  </div>
+
+  <!-- 3인칭 대명사 복습표 -->
+  <div class="sec" style="margin-top:32px;">
+    <span class="sec-num">표</span>
+    <span class="sec-title">3인칭 대명사 αὐτός 전체 변화</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="paradigm-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-group-m">남단</th>
+          <th class="col-group-f">여단</th>
+          <th class="col-group-n">중단</th>
+          <th class="col-group-m">남복</th>
+          <th class="col-group-f">여복</th>
+          <th class="col-group-n">중복</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">주격</td>
+          <td class="gr-cell blue col-group-m">αὐτός</td>
+          <td class="gr-cell red col-group-f">αὐτή</td>
+          <td class="gr-cell purple col-group-n">αὐτό</td>
+          <td class="gr-cell blue col-group-m">αὐτοί</td>
+          <td class="gr-cell red col-group-f">αὐταί</td>
+          <td class="gr-cell purple col-group-n">αὐτά</td>
+        </tr>
+        <tr>
+          <td class="td-label">속격</td>
+          <td class="gr-cell blue col-group-m">αὐτοῦ</td>
+          <td class="gr-cell red col-group-f">αὐτῆς</td>
+          <td class="gr-cell purple col-group-n">αὐτοῦ</td>
+          <td class="gr-cell blue col-group-m">αὐτῶν</td>
+          <td class="gr-cell red col-group-f">αὐτῶν</td>
+          <td class="gr-cell purple col-group-n">αὐτῶν</td>
+        </tr>
+        <tr>
+          <td class="td-label">여격</td>
+          <td class="gr-cell blue col-group-m">αὐτῷ</td>
+          <td class="gr-cell red col-group-f">αὐτῇ</td>
+          <td class="gr-cell purple col-group-n">αὐτῷ</td>
+          <td class="gr-cell blue col-group-m">αὐτοῖς</td>
+          <td class="gr-cell red col-group-f">αὐταῖς</td>
+          <td class="gr-cell purple col-group-n">αὐτοῖς</td>
+        </tr>
+        <tr>
+          <td class="td-label">대격</td>
+          <td class="gr-cell blue col-group-m">αὐτόν</td>
+          <td class="gr-cell red col-group-f">αὐτήν</td>
+          <td class="gr-cell purple col-group-n">αὐτό</td>
+          <td class="gr-cell blue col-group-m">αὐτούς</td>
+          <td class="gr-cell red col-group-f">αὐτάς</td>
+          <td class="gr-cell purple col-group-n">αὐτά</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memorize-box">
+    <div class="memorize-title">⭐ 오늘 암기 필수 형태 3가지</div>
+    <div class="memorize-items">
+      <div class="memorize-item">
+        <span class="mem-num">1</span>
+        <div class="mem-content">
+          형용사 용법 판별: 관사가 형용사 <strong>바로 앞</strong>에 있으면 한정, 없으면 서술/독립
+        </div>
+      </div>
+      <div class="memorize-item">
+        <span class="mem-num">2</span>
+        <div class="mem-content">
+          1·2인칭 주격은 강조·대조 때만: <span class="gr">ἐγὼ λέγω, σὺ δὲ γράφεις</span>
+        </div>
+      </div>
+      <div class="memorize-item">
+        <span class="mem-num">3</span>
+        <div class="mem-content">
+          αὐτός 위치 = 용법: 서술적 위치 → "자신", 수식적 위치 → "바로 그", 독립 → 대명사
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end tab-summary -->
+
+
+<!-- ═══════════════════ TAB 3: 암기퀴즈 ═══════════════════ -->
+<div id="tab-quiz" class="tab-content">
+
+  <div class="quiz-intro">
+    <p>카드를 <strong>클릭</strong>하면 뒤집힙니다. 아래 빈칸 문제도 도전해 보세요!</p>
+  </div>
+
+  <!-- 어휘 플래시카드 -->
+  <div class="quiz-section-title">📚 어휘 플래시카드 — 형용사</div>
+  <div class="flash-grid" id="adj-cards"></div>
+
+  <div class="quiz-section-title">👤 어휘 플래시카드 — 인칭대명사 형태</div>
+  <div class="flash-grid" id="pro-cards"></div>
+
+  <!-- 변화형 빈칸 퀴즈 -->
+  <div class="quiz-section-title">✏️ 변화형 빈칸 채우기</div>
+
+  <div class="score-bar">
+    <span class="score-label">정답률</span>
+    <span class="score-val" id="score-txt">0 / 0</span>
+    <div class="score-track"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
+  </div>
+
+  <div class="fill-quiz" id="fill-quiz"></div>
+  <button class="quiz-reset" onclick="resetQuiz()">🔄 퀴즈 초기화</button>
+
+</div><!-- end tab-quiz -->
+
+
+<script>
+// ── TAB SWITCHER ──
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── FLASHCARDS ──
+const adjCards = [
+  { gr: 'ἀγαθός, ή, όν', pr: '아가토스', ko: '좋은, 착한', pos: '형용사' },
+  { gr: 'κακός, ή, όν', pr: '카코스', ko: '나쁜, 악한', pos: '형용사' },
+  { gr: 'καλός, ή, όν', pr: '칼로스', ko: '좋은, 아름다운', pos: '형용사' },
+  { gr: 'μικρός, ά, όν', pr: '미크로스', ko: '작은, 적은', pos: '형용사' },
+  { gr: 'νεκρός, ά, όν', pr: '네크로스', ko: '죽은', pos: '형용사' },
+  { gr: 'δίκαιος, αία, ον', pr: '디카이오스', ko: '옳은, 의로운', pos: '형용사' },
+  { gr: 'ἅγιος, α, ον', pr: '하기오스', ko: '거룩한', pos: '형용사' },
+  { gr: 'πιστός, ή, όν', pr: '피스토스', ko: '신실한', pos: '형용사' },
+  { gr: 'μόνος, η, ον', pr: '모노스', ko: '유일한, 홀로인', pos: '형용사' },
+  { gr: 'πρῶτος, η, ον', pr: '프로토스', ko: '처음의, 먼저인', pos: '형용사' },
+  { gr: 'ἔσχατος, η, ον', pr: '에스카토스', ko: '마지막의', pos: '형용사' },
+  { gr: 'ἄλλος, η, ο', pr: '알로스', ko: '다른', pos: '형용사' },
+];
+
+const proCards = [
+  { gr: 'ἐγώ', pr: '에고', ko: '나 (1인칭 주격)', pos: '대명사' },
+  { gr: 'ἡμεῖς', pr: '헤메이스', ko: '우리 (1인칭 복수 주격)', pos: '대명사' },
+  { gr: 'σύ', pr: '쉬', ko: '너 (2인칭 주격)', pos: '대명사' },
+  { gr: 'ὑμεῖς', pr: '휘메이스', ko: '너희 (2인칭 복수 주격)', pos: '대명사' },
+  { gr: 'ἐμοῦ / μου', pr: '에무 / 무', ko: '나의 (속격)', pos: '강조형 / 약형' },
+  { gr: 'ἐμοί / μοι', pr: '에모이 / 모이', ko: '나에게 (여격)', pos: '강조형 / 약형' },
+  { gr: 'ἐμέ / με', pr: '에메 / 메', ko: '나를 (대격)', pos: '강조형 / 약형' },
+  { gr: 'αὐτός', pr: '아우토스', ko: '그 (남단 주격)', pos: '3인칭 대명사' },
+  { gr: 'αὐτή', pr: '아우테', ko: '그녀 (여단 주격)', pos: '3인칭 대명사' },
+  { gr: 'αὐτό', pr: '아우토', ko: '그것 (중단 주격)', pos: '3인칭 대명사' },
+  { gr: 'αὐτούς', pr: '아우투스', ko: '그들을 (남복 대격)', pos: '3인칭 대명사' },
+  { gr: 'αὐτάς', pr: '아우타스', ko: '그녀들을 (여복 대격)', pos: '3인칭 대명사' },
+];
+
+function makeFlashCards(cards, containerId) {
+  const container = document.getElementById(containerId);
+  cards.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'flash-card';
+    el.innerHTML = `
+      <div class="flash-inner">
+        <div class="flash-front">
+          <div class="flash-greek">${c.gr}</div>
+          <div class="flash-pronun">${c.pr}</div>
+          <div class="flash-tap">탭하여 확인</div>
+        </div>
+        <div class="flash-back">
+          <div class="flash-meaning">${c.ko}</div>
+          <div class="flash-pos">${c.pos}</div>
+        </div>
+      </div>`;
+    el.addEventListener('click', () => el.classList.toggle('flipped'));
+    container.appendChild(el);
+  });
+}
+
+makeFlashCards(adjCards, 'adj-cards');
+makeFlashCards(proCards, 'pro-cards');
+
+// ── FILL-IN QUIZ ──
+const questions = [
+  { q: 'ἀγαθός의 <strong>여성 단수 주격</strong>은?', a: 'ἀγαθή', hint: '1변화 여성 어미 -η' },
+  { q: 'ἀγαθός의 <strong>중성 복수 주격/대격</strong>은?', a: 'ἀγαθά', hint: '중성 복수 -α' },
+  { q: 'ἀγαθός의 <strong>남성 복수 속격</strong>은?', a: 'ἀγαθῶν', hint: '2변화 복수 속격 -ων' },
+  { q: '형용사 1인칭 대명사 <strong>단수 속격 강조형</strong>은?', a: 'ἐμοῦ', hint: '전치사 뒤에 주로 사용' },
+  { q: '형용사 1인칭 대명사 <strong>단수 여격 약형</strong>은?', a: 'μοι', hint: '악센트 없는 약형' },
+  { q: '2인칭 복수 <strong>주격</strong>은?', a: 'ὑμεῖς', hint: '1인칭 복수 ἡμεῖς와 비교' },
+  { q: '3인칭 대명사 <strong>여성 단수 여격</strong>은?', a: 'αὐτῇ', hint: '1변화 여격 어미 -ῇ' },
+  { q: '3인칭 대명사 <strong>남성 복수 대격</strong>은?', a: 'αὐτούς', hint: '2변화 복수 대격 -ούς' },
+  { q: '<span style="font-family:Georgia;color:#f0d080">ὁ ἀγαθὸς λόγος</span>의 형용사 용법은? (한정/서술/독립 중)', a: '한정', hint: '관사가 형용사 바로 앞에 있음' },
+  { q: '<span style="font-family:Georgia;color:#f0d080">ὁ λόγος ἀγαθός</span>의 형용사 용법은? (한정/서술/독립 중)', a: '서술', hint: '형용사 앞에 관사 없음' },
+  { q: '<span style="font-family:Georgia;color:#f0d080">οἱ κακοί</span> = 악한 ___들 (명사 없이 형용사만 사용)', a: '사람', hint: '독립적 용법' },
+  { q: 'αὐτός가 <strong>서술적 위치</strong>에 있으면 무슨 용법?', a: '강조 형용사', hint: '"~자신/~자체" 로 번역' },
+];
+
+let correct = 0, total = 0;
+
+function buildQuiz() {
+  const container = document.getElementById('fill-quiz');
+  container.innerHTML = '';
+  correct = 0; total = 0;
+  updateScore();
+
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'fq-card';
+    div.innerHTML = `
+      <div class="fq-question">${i+1}. ${q.q}</div>
+      <div class="fq-input-row">
+        <input class="fq-input" id="fq${i}" type="text" placeholder="답을 입력하세요" autocomplete="off" spellcheck="false">
+        <button class="fq-btn" onclick="checkAnswer(${i})">확인</button>
+      </div>
+      <div class="fq-feedback" id="fb${i}"></div>`;
+    container.appendChild(div);
+
+    document.getElementById('fq'+i).addEventListener('keydown', e => {
+      if (e.key === 'Enter') checkAnswer(i);
+    });
+  });
+}
+
+function checkAnswer(i) {
+  const inp = document.getElementById('fq'+i);
+  const fb = document.getElementById('fb'+i);
+  if (inp.disabled) return;
+
+  const userAns = inp.value.trim();
+  const correct_ans = questions[i].a;
+  const isCorrect = userAns === correct_ans || 
+                    userAns.toLowerCase() === correct_ans.toLowerCase();
+
+  inp.disabled = true;
+  total++;
+
+  if (isCorrect) {
+    inp.classList.add('correct');
+    fb.className = 'fq-feedback ok';
+    fb.textContent = '✓ 정답입니다!';
+    correct++;
+  } else {
+    inp.classList.add('wrong');
+    fb.className = 'fq-feedback ng';
+    fb.innerHTML = `✗ 정답: <span style="font-family:Georgia">${correct_ans}</span> (힌트: ${questions[i].hint})`;
+  }
+  updateScore();
+}
+
+function updateScore() {
+  const pct = total === 0 ? 0 : Math.round(correct / total * 100);
+  document.getElementById('score-txt').textContent = `${correct} / ${total}`;
+  document.getElementById('score-fill').style.width = pct + '%';
+}
+
+function resetQuiz() {
+  buildQuiz();
+  // also reset flash cards
+  document.querySelectorAll('.flash-card').forEach(c => c.classList.remove('flipped'));
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
