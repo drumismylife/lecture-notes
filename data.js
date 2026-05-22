@@ -170,7 +170,9 @@ const SITE_DATA = {
         { week: 11, title: "요한복음 — 첫 이야기", date: "2026.05.14", files: [
             { type: "notes", label: "강의노트", href: "output/신약성서I/week11.html" }
           ] },
-        { week: 12, title: "수난 내러티브 I", date: "2026.06", files: [] },
+        { week: 12, title: "12주차 요한복음 두 번째 이야기", date: "2026.05.21", files: [
+            { type: "notes", label: "강의노트", href: "output/신약성서I/week12.html" }
+          ] },
         { week: 13, title: "수난 내러티브 II와 부활", date: "2026.06", files: [] },
         { week: 14, title: "마태복음 신학 종합", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
