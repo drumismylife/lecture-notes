@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 12주차: 어거스틴·교황제도·동서분열</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #14100a;
+    --card:      #1e1710;
+    --card2:     #261e14;
+    --card3:     #2e2418;
+    --gold:      #c4955a;
+    --gold2:     #d4a870;
+    --gold-dim:  #7a5c30;
+    --text:      #f0ebe0;
+    --text2:     #a09070;
+    --text3:     #6b5a40;
+    --ox:        #7ab87a;
+    --ox-bg:     #1a2e1a;
+    --sa:        #7aaad4;
+    --sa-bg:     #1a2535;
+    --es:        #c49a3c;
+    --es-bg:     #2a2010;
+    --border:    rgba(196,149,90,0.25);
+    --border2:   rgba(196,149,90,0.12);
+
+    /* timeline era colors */
+    --era-apo:   #5b8dd9;
+    --era-cat:   #c4705a;
+    --era-rom:   #c4a040;
+    --era-med:   #9b70c4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    background: linear-gradient(135deg, #0e0b06 0%, #1e1510 40%, #2a1e0e 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: 'Historia Ecclesiae';
+    position: absolute;
+    right: 24px; top: 12px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 52px;
+    color: rgba(196,149,90,0.06);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+  .badge-week  { background: var(--gold); color: #0e0b06; }
+  .badge-part  { background: var(--card2); color: var(--gold); border: 1px solid var(--border); }
+  .badge-exam  { background: #3a2010; color: #e8904a; border: 1px solid rgba(232,144,74,0.4); }
+
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--text2);
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    background: #100d08;
+    border-bottom: 1px solid var(--border2);
+    padding: 0 24px;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--gold); }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── LAYOUT ── */
+  .main { max-width: 980px; margin: 0 auto; padding: 28px 24px 60px; }
+
+  /* ── SECTION HEADERS ── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 16px;
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--card2);
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 3px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold2);
+  }
+  .sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+  /* ── PROFESSOR QUOTE ── */
+  .prof-quote {
+    background: var(--card);
+    border-left: 2px solid var(--text3);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+    position: relative;
+  }
+  .prof-quote::before {
+    content: '교수 강조';
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .prof-quote p {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  /* ── EVENT CARD ── */
+  .event-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--gold2);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    margin: 10px 0;
+  }
+  .event-year {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: var(--gold2);
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 1px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .event-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .event-body {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .event-body li { margin-left: 16px; margin-bottom: 3px; }
+  .event-body strong { color: var(--text); }
+
+  /* ── PERSON CARD ── */
+  .person-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .person-head {
+    background: var(--card2);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .person-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+  .person-dates {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    color: var(--text2);
+    font-style: italic;
+  }
+  .person-body { padding: 16px 18px; }
+  .person-section {
+    margin-bottom: 12px;
+  }
+  .person-section:last-child { margin-bottom: 0; }
+  .person-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .person-section p, .person-section li {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-left: 12px;
+  }
+  .person-section li { margin-bottom: 2px; }
+  .person-section strong { color: var(--text); }
+
+  /* ── DOCTRINE CARD ── */
+  .doctrine-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .doctrine-head {
+    background: #1e1a14;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .doctrine-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .doctrine-latin {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text2);
+  }
+  .doctrine-body { padding: 0; }
+  .doctrine-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border2);
+  }
+  .doctrine-row:last-child { border-bottom: none; }
+  .doctrine-cell {
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  .doctrine-cell:first-child { border-right: 1px solid var(--border2); }
+  .doctrine-cell-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 6px;
+  }
+  .doctrine-cell strong { color: var(--text); }
+  .doctrine-full {
+    padding: 14px 18px;
+    border-top: 1px solid var(--border2);
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  .doctrine-full strong { color: var(--text); }
+  .doctrine-council {
+    background: #1a1608;
+    border-left: 3px solid var(--gold);
+    padding: 12px 18px;
+    margin: 0;
+    font-size: 13px;
+    color: var(--text2);
+  }
+  .doctrine-council strong { color: var(--gold); }
+  .doctrine-modern {
+    background: #ede8d008;
+    padding: 12px 18px;
+    font-size: 13px;
+    color: var(--text2);
+    font-style: italic;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-wrap {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .compare-title {
+    background: var(--card2);
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border2);
+  }
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  table.compare thead tr {
+    background: #1a1508;
+  }
+  table.compare thead th {
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--gold2);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+  }
+  table.compare td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border2);
+    color: var(--text2);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  table.compare tr:last-child td { border-bottom: none; }
+  table.compare tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  table.compare td:first-child {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  table.compare td strong { color: var(--text); }
+
+  /* ── SPECTRUM BAR ── */
+  .spectrum-wrap {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 18px;
+    margin: 10px 0;
+  }
+  .spectrum-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .spectrum-bar {
+    display: flex;
+    gap: 2px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .sp-seg {
+    flex: 1;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #0e0b06;
+  }
+  .sp-1 { background: #5b8dd9; }
+  .sp-2 { background: #7aaa7a; }
+  .sp-3 { background: #c4a040; }
+  .sp-4 { background: #e88060; }
+  .sp-5 { background: #c47070; }
+  .spectrum-desc {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+  }
+  .sp-desc-item {
+    font-size: 10px;
+    color: var(--text3);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── EXAM COMPONENTS ── */
+  .exam-group { margin-bottom: 28px; }
+  .exam-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .exam-type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .badge-ox   { background: var(--ox-bg);  color: var(--ox); border: 1px solid rgba(122,184,122,0.3); }
+  .badge-sa   { background: var(--sa-bg);  color: var(--sa); border: 1px solid rgba(122,170,212,0.3); }
+  .badge-es   { background: var(--es-bg);  color: var(--es); border: 1px solid rgba(196,154,60,0.3); }
+
+  .exam-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  .exam-q {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .exam-q-num {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+  .toggle-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--border2);
+    padding: 10px 18px;
+    text-align: left;
+    color: var(--text2);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s;
+  }
+  .toggle-btn:hover { background: rgba(196,149,90,0.05); }
+  .toggle-btn .arrow { transition: transform 0.2s; font-size: 10px; }
+  .toggle-btn.open .arrow { transform: rotate(90deg); }
+  .exam-answer {
+    display: none;
+    padding: 14px 18px;
+    border-top: 1px solid var(--border2);
+    background: rgba(0,0,0,0.2);
+  }
+  .exam-answer.visible { display: block; }
+
+  /* OX specific */
+  .ox-mark {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .ox-mark.o { color: var(--ox); }
+  .ox-mark.x { color: #d46060; }
+  .ox-explain { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+  /* SA specific */
+  .sa-answer {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .sa-answer strong { color: var(--gold); }
+
+  /* Essay skeleton */
+  .essay-skeleton { display: flex; flex-direction: column; gap: 8px; }
+  .es-step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .es-num {
+    background: var(--es-bg);
+    color: var(--es);
+    border: 1px solid rgba(196,154,60,0.3);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .es-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+  .es-text strong { color: var(--text); }
+  .es-guide {
+    font-size: 11px;
+    color: var(--text3);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--era-apo), var(--era-cat), var(--era-rom), var(--era-med));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--bg);
+  }
+  .tl-item.apo .tl-dot { border-color: var(--era-apo); }
+  .tl-item.cat .tl-dot { border-color: var(--era-cat); }
+  .tl-item.rom .tl-dot { border-color: var(--era-rom); }
+  .tl-item.med .tl-dot { border-color: var(--era-med); }
+
+  .tl-year {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+  .tl-item.apo .tl-year { color: var(--era-apo); }
+  .tl-item.cat .tl-year { color: var(--era-cat); }
+  .tl-item.rom .tl-year { color: var(--era-rom); }
+  .tl-item.med .tl-year { color: var(--era-med); }
+
+  .tl-event { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .tl-person {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--text3);
+    background: var(--card2);
+    border-radius: 10px;
+    padding: 1px 8px;
+    margin-bottom: 4px;
+  }
+  .tl-sig { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  .tl-era-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 24px 0 14px;
+    position: relative;
+  }
+  .tl-era-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+  .tl-era-badge.rom { background: #2e2010; color: var(--era-rom); border: 1px solid rgba(196,160,64,0.3); }
+  .tl-era-badge.med { background: #1e1030; color: var(--era-med); border: 1px solid rgba(155,112,196,0.3); }
+  .tl-era-line { flex: 1; height: 1px; background: var(--border2); }
+
+  /* ── KEY POINTS BOX ── */
+  .keypoints {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-top: 36px;
+  }
+  .keypoints-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .keypoints-title::before {
+    content: '★';
+    font-size: 14px;
+  }
+  .kp-list { display: flex; flex-direction: column; gap: 10px; }
+  .kp-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .kp-num {
+    background: var(--gold-dim);
+    color: var(--gold2);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .kp-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+  .kp-text strong { color: var(--text); }
+
+  /* ── UTILS ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-right: 4px;
+    letter-spacing: 0.04em;
+  }
+  .tag-rom { background: #2e2010; color: var(--era-rom); }
+  .tag-med { background: #1e1030; color: var(--era-med); }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; color: black; font-size: 10pt; }
+    .tab-bar { display: none; }
+    .tab-content { display: block !important; }
+    .page-header { background: #1a1a1a; }
+    .toggle-btn { display: none; }
+    .exam-answer { display: block !important; }
+    .person-card, .doctrine-card, .event-card, .exam-card { break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 18mm; }
+  }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- ─────── HEADER ─────── -->
+<div class="page-header">
+  <div class="header-meta">
+    <span class="badge badge-week">12주차</span>
+    <span class="badge badge-part">제4부 후반 · 제5부 도입</span>
+    <span class="badge badge-exam">기말 범위</span>
+    <span style="font-size:11px;color:var(--text3);">2026-05-22 (금)</span>
+  </div>
+  <div class="header-title">어거스틴 심화 · 교황제도 · 동서 교회 분열</div>
+  <div class="header-sub">Augustine · Papal Authority · The Great Schism — 교회사개론 I / 김태식 교수</div>
+</div>
+
+<!-- ─────── TAB BAR ─────── -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('notes', this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('exam', this)">✏️ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline', this)">📅 연대기</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 1 — 강의노트
+═══════════════════════════════════════════ -->
+<div id="tab-notes" class="tab-content active">
+<div class="main">
+
+  <!-- ① 어거스틴 도나투스 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 01</span>
+    <span class="sec-title">어거스틴 — 도나투스 논쟁 (교회 정치가)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <p>신학은 개인의 삶의 정황과 시기, 지역의 특색에 따라 달라진다. 성경은 하나지만 해석은 다양할 수밖에 없기 때문에, 삶의 정황과 개인적 성향에 따라 신학도 다양하게 형성된다.</p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <div class="person-name">어거스틴 <span style="font-size:14px;font-weight:400;">Augustine</span></div>
+      <div class="person-dates">354–430 · 히포(Hippo)의 감독 · 서방 신학의 아버지</div>
+    </div>
+    <div class="person-body">
+
+      <div class="person-section">
+        <div class="person-section-title">도나투스 논쟁 — 교회 순결주의 vs. 가톨릭 포용주의</div>
+        <ul>
+          <li><strong>도나투스주의자들:</strong> 로마 교회를 비판한 분파주의자, 극단적 정교분리파 — <strong>"교회란 순수한 신자들만 모여야 한다"</strong></li>
+          <li>이단자·배교자 출신이 집행하는 성례전은 효력이 없다고 주장</li>
+          <li><strong>어거스틴의 반박:</strong> 알곡과 가라지를 종말 때까지 공존함 — 누가 뽑을 것인가? (마 13:30)</li>
+          <li>성례전의 효력은 <strong>집행자의 거룩성이 아니라 그리스도께</strong> 있다</li>
+          <li>정당한 절차로 임명된 가톨릭 교회 사제들의 행위 = 그리스도의 행위</li>
+        </ul>
+      </div>
+
+      <div class="person-section">
+        <div class="person-section-title">종교재판의 이론적 토대 — 누가복음 14:23</div>
+        <ul>
+          <li><em>"강권하여 데려다가 내 집을 채우라"</em> — 이단자들을 강압적으로 정통 교회로 끌어올 수 있다는 논리로 발전</li>
+          <li>→ 후대 <strong>종교재판(Inquisition)</strong>의 이론적 근거가 됨 — 고문·화형·이단 심문</li>
+        </ul>
+      </div>
+
+      <div class="person-section">
+        <div class="person-section-title">역사적 공헌 · 한계</div>
+        <ul>
+          <li><strong>공헌:</strong> 가톨릭 정통 교회를 옹호, 교회의 보편성과 통일성 강조</li>
+          <li><strong>한계:</strong> 강권적 개종 논리는 중세 "교회 밖에는 구원이 없다"는 극단주의로 발전</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>사제 중심적 교회의 모습이 나중에 중세 가톨릭에서는 극단적으로 흘러 "가톨릭 교회 밖에서는 구원이 없다"(Extra Ecclesiam Nulla Salus)는 극단주의로 이어졌습니다.</p>
+  </div>
+
+  <!-- ② 펠라기우스 논쟁 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 02</span>
+    <span class="sec-title">펠라기우스 논쟁 — 은혜의 신학자 어거스틴</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">펠라기우스 논쟁 (Pelagianism)</div>
+      <div class="doctrine-latin">자유의지 vs. 하나님의 주권적 은혜</div>
+    </div>
+    <div class="doctrine-body">
+
+      <div class="doctrine-row">
+        <div class="doctrine-cell">
+          <div class="doctrine-cell-label">⚔️ 펠라기우스 주장</div>
+          <ul style="margin-left:14px;font-size:13px;color:var(--text2);line-height:1.7;">
+            <li>인간의 죄는 아담으로부터 <strong>유전되지 않음</strong></li>
+            <li>인간에게 <strong>자유의지</strong>가 있어 의롭게 되거나 불순종할 수 있음</li>
+            <li>죽음은 아담의 불순종의 결과가 아님</li>
+            <li>평생 죄 없이 살 가능성 존재</li>
+            <li>하나님은 누가 죄를 지을지 아시지만 <strong>미리 예정하지는 않으심</strong> (예지예정설)</li>
+          </ul>
+        </div>
+        <div class="doctrine-cell">
+          <div class="doctrine-cell-label">🛡️ 어거스틴의 반박</div>
+          <ul style="margin-left:14px;font-size:13px;color:var(--text2);line-height:1.7;">
+            <li>인간의 선행은 불필요 — <strong>오직 하나님의 값없는 은혜</strong>만이 구원을 줌</li>
+            <li>이 은혜는 그리스도의 사역으로, 보통 <strong>교회를 통해, 특히 성례전을 통해</strong> 임함</li>
+            <li>세례: 단순 의식이 아닌 <strong>중생의 은혜</strong>를 주는 실제적 행위</li>
+            <li>원죄의 유전 인정 — 인간은 스스로 의롭게 될 수 없음</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doctrine-council">
+        <strong>공의회 결정:</strong> 펠라기우스는 416년 밀레비스(Milevis) 종교회의에서 이단 규정, 431년 에베소(Ephesus) 공의회에서 최종 정죄
+      </div>
+
+      <div class="doctrine-modern">
+        현대 의의: 이 논쟁은 칼빈주의(예정론) vs. 알미니우스·웨슬리(예지예정, 협력설) 논쟁의 원형이며, 오늘날까지 구원론 신학의 핵심 쟁점으로 남아 있다.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 구원론 스펙트럼 -->
+  <div class="spectrum-wrap">
+    <div class="spectrum-title">구원론 스펙트럼 — 교수 보충 설명</div>
+    <div class="spectrum-bar">
+      <div class="sp-seg sp-1">칼빈주의</div>
+      <div class="sp-seg sp-2">알미니우스</div>
+      <div class="sp-seg sp-3">웨슬리</div>
+      <div class="sp-seg sp-4">열린신론</div>
+      <div class="sp-seg sp-5">만인구원</div>
+    </div>
+    <div class="spectrum-desc">
+      <div class="sp-desc-item">하나님의 주권적 예정. 은혜만으로 구원</div>
+      <div class="sp-desc-item">예지예정. 은혜 + 자유의지 협력설</div>
+      <div class="sp-desc-item">협력설. 성결·완전 성화 가능</div>
+      <div class="sp-desc-item">하나님도 인간의 미래를 모를 수 있음</div>
+      <div class="sp-desc-item">예수의 공로가 모든 사람에게 미침 (익명의 그리스도인)</div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>예지예정설의 핵심: 하나님이 주도적으로 결정하신 것이 아니라, 전지하시기 때문에 미리 아신 대로 그대로 예정된 것이다. 하나님의 책임 문제를 피하려는 입장. 칼빈주의의 가장 큰 비판 지점은 — "예정하셔 놓고 개인에게 책임을 물으면 누구 책임인가?"이다.</p>
+  </div>
+
+  <div class="prof-quote">
+    <p>익명의 그리스도인(Anonymous Christian): 복음을 듣지 못했더라도 양심껏 진리를 추구한 사람은 그리스도인일 가능성이 있다는 문화신학적 주장. 정통 개신교는 이를 받아들이지 않는다 — 복음이 전해져 예수 그리스도를 믿어야만 구원 받는다는 것이 우리의 입장이다.</p>
+  </div>
+
+  <!-- ③ 하나님의 도성 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 03</span>
+    <span class="sec-title">하나님의 도성 — De Civitate Dei (신국론)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">413–426 AD</div>
+    <div class="event-title">『신국론』(De Civitate Dei) 집필</div>
+    <div class="event-body">
+      <ul>
+        <li><strong>집필 계기:</strong> 56세에 서로마 함락(410년, 알라리크의 로마 약탈) 소식 들음</li>
+        <li><strong>집필 기간:</strong> 13년 (413년 시작 → 426년 완성), 50권 분량</li>
+        <li><strong>핵심 주장:</strong> 아담 이후 인류는 두 개의 도성에 살고 있다</li>
+        <li>→ <strong>세상의 도성:</strong> 일시적인 것을 향한 공통의 사랑으로 연대</li>
+        <li>→ <strong>하나님의 도성:</strong> 하나님을 향한 사랑으로 한데 묶임</li>
+        <li><strong>교회론:</strong> 교회란 하나님의 도성을 이루기 위해 노력하는 인간들의 공동체에 불과하다</li>
+        <li><strong>최후:</strong> 430년 반달족이 히포를 침략 — 76세에 사망. 사망 직전 모니카(어머니), 아데오다투스(아들), 이름 모를 여인의 이름을 불렀다고 전함</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ④ 교황제도 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 04</span>
+    <span class="sec-title">교황제도의 시작 — Papa (84페이지)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-quote">
+    <p>교황(Papa)의 원래 의미는 "아버지와 같은 돌봄"이다. 6세기경부터 오직 로마 감독만을 부르는 명칭이 되었다. 교황은 추기경단이 선출하는 로마 교회의 대표다.</p>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">452 AD</div>
+    <div class="event-title">훈족(흉노족) 침입 — 레오 감독의 정치적 역할 시작</div>
+    <div class="event-body">
+      <ul>
+        <li>중앙아시아에서 온 훈족(아틸라)이 알프스를 공략하고 북부 이탈리아 침입</li>
+        <li>로마 황제의 사절로 <strong>레오 감독</strong>을 파견 → 아틸라와 직접 담판</li>
+        <li>로마를 파괴하지 않겠다는 약속과 이탈리아 반도 전체에서의 철수 협상 성공</li>
+        <li>→ 로마 감독이 정치적 역할을 맡기 시작함: <strong>교황제도의 실질적 출발점</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <div class="person-name">레오 1세 <span style="font-size:14px;font-weight:400;">Leo I, 大교황</span></div>
+      <div class="person-dates">400–461 · 로마 감독 · 교황제도의 실질적 확립자</div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-section-title">수위권 주장의 성경적 근거</div>
+        <ul>
+          <li>마태복음 16:13-19 <em>"너는 베드로라, 이 반석 위에 내 교회를 세우리라"</em></li>
+          <li>누가복음 22:31-32 / 요한복음 21:15-17</li>
+          <li>→ 그리스도께서 베드로에게 교회를 맡기셨으므로, <strong>베드로의 후계자인 로마 감독이 전체 교회의 수장</strong>이 되어야 함</li>
+          <li>382년 로마교회 수위권 최초 주장</li>
+        </ul>
+      </div>
+      <div class="person-section">
+        <div class="person-section-title">역사적 공헌 · 한계</div>
+        <ul>
+          <li><strong>공헌:</strong> 451년 칼케돈 공의회 주도 — "레오가 말하니 베드로가 말하는 것"이라는 고백 유도</li>
+          <li><strong>결과:</strong> 동방 콘스탄티노플 총대주교와 동등한 권위 부여 → 동서 교회 두 수장 체제의 시초</li>
+          <li><strong>한계:</strong> 서방 교회의 입장이 약화되면서 결국 동서 분열로 이어짐</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>마태복음 16장의 "반석"을 베드로 개인으로 보는 것이 로마가톨릭의 입장이고, 베드로의 신앙고백이 반석이라고 보는 것이 개신교의 입장이다. 성경이 다의적으로 해석되기 때문에 교단과 신학이 다양해지는 것이다.</p>
+  </div>
+
+  <!-- ⑤ 성상파괴 논쟁 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 05</span>
+    <span class="sec-title">성상파괴 논쟁 — Iconoclasm (85~87페이지)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">성상파괴 논쟁 (Iconoclasm, 성상숭배 논쟁)</div>
+      <div class="doctrine-latin">726년 황제 레오 3세 성상숭배 반대운동 선포</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doctrine-row">
+        <div class="doctrine-cell">
+          <div class="doctrine-cell-label">🔨 성상파괴론자</div>
+          <ul style="margin-left:14px;font-size:13px;color:var(--text2);line-height:1.7;">
+            <li>모든 종교적 성상은 <strong>우상</strong> — "그리스도의 가르침에 어긋난다"</li>
+            <li>십자가·성경책·성찬 예품 등 전통적 기독교 상징으로 대체</li>
+            <li>이방 문화에서 온 관행, 성경에 근거 없음</li>
+          </ul>
+        </div>
+        <div class="doctrine-cell">
+          <div class="doctrine-cell-label">🖼️ 성상옹호론자</div>
+          <ul style="margin-left:14px;font-size:13px;color:var(--text2);line-height:1.7;">
+            <li>성상은 <strong>원형(하나님)을 상기시키는 보조 역할</strong> — 우상이 아님</li>
+            <li>예수님의 성육신 자체가 보이지 않는 하나님을 보여주는 것</li>
+            <li>글을 읽지 못하는 게르만 민족 전도에 필수적</li>
+            <li>아이콘(Icon): 나무·유리 위의 평면 그림 — 공인</li>
+          </ul>
+        </div>
+      </div>
+      <div class="doctrine-council">
+        <strong>제7차 공의회 (787년, 니케아):</strong> 350명 감독 참석 — 성상파괴운동 정죄, 평면 아이콘(Icon) 공인. 동방정교회는 아이콘 경배, 서방가톨릭은 3차원 동상도 허용
+      </div>
+      <div class="doctrine-modern">
+        결과: 성상 문제는 동서 교회 분열(1054년)의 중요한 배경 중 하나가 됨. 동방은 아이콘만, 서방은 3차원 동상까지 허용하고 마리아를 경배 대상으로 삼았다.
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 동방정교회 vs 서방가톨릭 비교 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 06</span>
+    <span class="sec-title">동방정교회 vs. 서방가톨릭교회 비교</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="compare-title">동방정교회(Eastern Orthodox) vs. 서방가톨릭교회(Roman Catholic) — 주요 차이점</div>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>동방정교회 🇬🇷</th>
+          <th>서방가톨릭교회 🇻🇦</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>교황 수위권</td><td>인정 안 함 — 모든 주교 동등</td><td>교황 수위권 인정</td></tr>
+        <tr><td>성상</td><td>평면 아이콘(Icon)만 공인, "경배" 아님</td><td>3차원 동상 허용, 경배 대상</td></tr>
+        <tr><td>성령 발출<br>(Filioque)</td><td>성부로부터만 발출</td><td>성부와 성자로부터 발출 (Filioque)</td></tr>
+        <tr><td>성찬 빵</td><td>발효된 빵(leavened) 사용</td><td>발효 안 된 빵(unleavened) 사용</td></tr>
+        <tr><td>성찬 분배</td><td>빵과 포도주 모두 수여</td><td>빵만 수여 (평신도)</td></tr>
+        <tr><td>사제 결혼</td><td>주교 제외 허용</td><td>금지 (독신제)</td></tr>
+        <tr><td>수염</td><td>허용 (기름)</td><td>금지 (민면)</td></tr>
+        <tr><td>마리아<br>원죄없는 잉태</td><td>거부 (마리아도 원죄 있음)</td><td>인정 — 1854년 교황 피오 9세 공포</td></tr>
+        <tr><td>구원 강조점</td><td>신화(神化, theosis) — 하나님 형상 복원</td><td>칭의, 원죄·은혜 강조 (어거스틴)</td></tr>
+        <tr><td>공의회</td><td>7차 공의회까지만 인정</td><td>이후 공의회도 권위 인정</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ⑦ 동서 교회 분열 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 07</span>
+    <span class="sec-title">동서 교회 분열의 배경 — Filioque 논쟁</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">589 AD — 톨레도 공의회</div>
+    <div class="event-title">Filioque 삽입 — 동서 분열의 신학적 도화선</div>
+    <div class="event-body">
+      <ul>
+        <li>서방교회(로마교구)가 니케아-콘스탄티노플 신경에 <strong>"성자로부터(Filioque)"</strong> 삽입</li>
+        <li>→ 성령이 성부로부터만 발출(동방) vs. 성부와 성자 모두로부터 발출(서방)</li>
+        <li>동방교회는 이를 거부 → 1054년 동서 교회 분열의 신학적 명분 제공</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="event-card" style="border-left-color: var(--era-med);">
+    <div class="event-year" style="background:#2a1a30;color:var(--era-med);">1054 AD</div>
+    <div class="event-title">동서 교회 대분열 — The Great Schism</div>
+    <div class="event-body">
+      <ul>
+        <li>로마가톨릭교회(서방) vs. 동방정교회(동방)로 완전히 갈라섬</li>
+        <li>주요 원인: Filioque 논쟁, 성상 문제, 교황 수위권 문제, 정치적 갈등</li>
+        <li><strong>325년 니케아 회의 → 381년 콘스탄티노플 삼위일체 위격논쟁 → 589년 Filioque 삽입 → 1054년 분열</strong>으로 이어지는 700년의 갈등</li>
+        <li>동방: 정통절(Feast of Orthodoxy) — 성상대의 승리를 기념하며 오늘날도 사순절 첫째 주일 진행</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑧ 야만족 선교 / 중세 도입 -->
+  <div class="sec-head">
+    <span class="sec-label">Section 08</span>
+    <span class="sec-title">야만족을 위한 선교 · 중세기독교 시대 도입 (88~89페이지)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="person-card">
+      <div class="person-head">
+        <div class="person-name">울필라스 <span style="font-size:13px;font-weight:400;">Ulfilas / Wulfila</span></div>
+        <div class="person-dates">311–383 · 고트족 선교사</div>
+      </div>
+      <div class="person-body">
+        <div class="person-section">
+          <ul>
+            <li>40년간 고트족(최초의 게르만족) 사역</li>
+            <li>성경을 <strong>고트어(Gothic)</strong>로 번역 (부분 번역)</li>
+            <li>게르만족 기독교화의 선구자</li>
+            <li>→ 독일 지역 선교의 토대</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="person-card">
+      <div class="person-head">
+        <div class="person-name">클로비스 <span style="font-size:13px;font-weight:400;">Clovis</span></div>
+        <div class="person-dates">481–511 · 프랑크 왕국 초대왕</div>
+      </div>
+      <div class="person-body">
+        <div class="person-section">
+          <ul>
+            <li>기독교 신자였던 부르군트 출신 공주와 혼인 후 기독교로 귀의</li>
+            <li>침례를 받음 → 왕국 전체가 기독교로 집단 개종</li>
+            <li><strong>중세 최초의 집단 개종 — 유럽 기독교화의 단적인 실례</strong></li>
+            <li>단점: 이교적 미신과 생활 태도를 그대로 교회 안으로 가지고 들어옴</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>집단 개종의 단점은 교회 안으로 이교적 미신과 생활 태도를 그대로 가지고 들어온다는 것이다. 오늘날도 마찬가지 — 차를 새로 사면 십자가를 걸어달라거나, 목사님께 무속적 인사를 하거나, 반드시 교회에서 안수기도를 받으려 하는 것도 이런 이교적 습관이 교회 안으로 스며든 현대적 사례다.</p>
+  </div>
+
+  <div class="event-card" style="border-left-color: var(--era-med);">
+    <div class="event-year" style="background:#2a1a30;color:var(--era-med);">800 AD</div>
+    <div class="event-title">로마 교황 레오 3세 → 샤를마뉴(Charlemagne)에게 황제관 수여</div>
+    <div class="event-body">
+      <ul>
+        <li>AD 800년부터 서유럽은 교황의 지배하에 머물게 됨</li>
+        <li>프랑크 왕국 → 신성로마제국의 시초</li>
+        <li>→ <strong>"교권과 속권의 권력 대결"</strong> 시작: 중세 최대 쟁점</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="keypoints">
+    <div class="keypoints-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="kp-list">
+      <div class="kp-item">
+        <div class="kp-num">1</div>
+        <div class="kp-text"><strong>어거스틴의 은혜신학은 교회사 신학 논쟁의 원형이다.</strong> 펠라기우스 논쟁(자유의지 vs. 은혜)은 칼빈주의-알미니우스주의-웨슬리-열린신론-만인구원주의까지 이어지는 구원론 스펙트럼의 뿌리다. 도나투스 논쟁의 "강권하여 채우라"는 논리는 중세 종교재판의 이론적 토대가 되었다.</div>
+      </div>
+      <div class="kp-item">
+        <div class="kp-num">2</div>
+        <div class="kp-text"><strong>교황제도는 정치적 필요에서 시작되었다.</strong> 레오 1세가 훈족 아틸라를 막아낸 사건(452년)이 로마 감독에게 정치적 권위를 부여했다. 성경적 근거(마 16:18-19)와 정치적 공백이 결합되어 교황(Papa)이라는 독특한 제도가 형성되었다.</div>
+      </div>
+      <div class="kp-item">
+        <div class="kp-num">3</div>
+        <div class="kp-text"><strong>동서 교회 분열(1054)은 갑작스러운 사건이 아니라 700년의 누적이었다.</strong> 325년 니케아부터 시작된 삼위일체 논쟁, 589년 Filioque 삽입, 성상파괴 논쟁이 복합적으로 작용했다. 신학·예배·정치·문화 모든 측면의 차이가 쌓여 결국 분열로 이어졌다.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+</div><!-- /tab-notes -->
+
+
+<!-- ═══════════════════════════════════════════
+     TAB 2 — 핵심정리 (시험대비)
+═══════════════════════════════════════════ -->
+<div id="tab-exam" class="tab-content">
+<div class="main">
+
+  <!-- OX -->
+  <div class="exam-group">
+    <div class="exam-group-title">
+      <span class="exam-type-badge badge-ox">OX 문제</span>
+      <span style="font-size:12px;color:var(--text3);">정답을 확인하려면 버튼을 누르세요</span>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">1.</span><span>어거스틴은 도나투스주의자들의 주장처럼 교회는 순수한 신자들만 모여야 한다고 주장했다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark x">✕</div>
+        <div class="ox-explain">어거스틴은 반대 입장이었다. 도나투스주의자들이 "순수한 신자들만 모여야 한다"는 순결주의를 주장한 반면, 어거스틴은 알곡과 가라지가 종말 때까지 공존한다고 반박했다 (마 13:30). 성례전의 효력은 집행자의 거룩성이 아니라 그리스도께 있다고 주장했다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">2.</span><span>펠라기우스는 원죄를 부인하고, 인간의 자유의지로 의롭게 될 수 있다고 주장했다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark o">○</div>
+        <div class="ox-explain">펠라기우스의 핵심 주장이다. 그는 인간의 죄가 아담으로부터 유전되지 않으며, 인간에게 의롭게 되거나 불순종할 자유의지가 있고, 심지어 평생 죄 없이 살 가능성도 있다고 주장했다. 어거스틴이 이를 반박하며 은혜신학을 체계화했다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">3.</span><span>레오 1세는 베드로의 신앙고백이 교회의 반석이라고 주장하여 교황 수위권의 근거로 삼았다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark x">✕</div>
+        <div class="ox-explain">레오 1세는 베드로 개인이 반석이라고 주장했다 — 로마가톨릭의 입장이다. 베드로의 신앙고백이 반석이라는 것은 개신교의 해석이다. 레오 1세는 그리스도께서 베드로에게 교회를 맡기셨으므로 베드로의 후계자인 로마 감독이 전체 교회의 수장이 되어야 한다고 주장했다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">4.</span><span>787년 제7차 공의회(니케아)는 성상파괴운동을 지지하고 모든 성상 제거를 결정했다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark x">✕</div>
+        <div class="ox-explain">반대다. 제7차 공의회는 성상파괴운동을 정죄하고 아이콘(평면 그림)을 공인했다. 성상옹호론자들의 입장이 공식적으로 채택되었다. 이 결정이 동방교회는 아이콘만, 서방교회는 3차원 동상까지 허용하는 차이를 낳았다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">5.</span><span>동서 교회 분열(1054년)의 신학적 계기 중 하나는 성령이 성부와 성자로부터 발출한다는 Filioque 논쟁이었다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark o">○</div>
+        <div class="ox-explain">589년 톨레도 공의회에서 서방교회가 니케아-콘스탄티노플 신경에 "Filioque(성자로부터)"를 삽입한 것을 동방교회가 거부하면서 분열의 신학적 명분이 되었다. 성상 문제, 교황 수위권 문제와 함께 1054년 최종 분열로 이어졌다.</div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">6.</span><span>동방정교회는 발효된 빵과 발효된 포도주를 성찬에 사용하며, 사제의 결혼을 허용한다.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 · 해설 보기</button>
+      <div class="exam-answer">
+        <div class="ox-mark x">✕</div>
+        <div class="ox-explain">동방정교회는 발효된 빵(leavened bread)을 사용하는 것은 맞다. 사제 결혼도 허용(주교 제외)하는 것도 맞다. 그러나 포도주가 아닌 빵과 포도주 모두 수여하는 것이 특징이다. 다만 질문에서 "발효된 포도주"라는 표현은 일반적으로 포도주 자체를 가리키므로 이 부분은 특이한 구분이 없다 — 핵심 차이는 빵(발효/비발효)과 성찬 분배 방식(빵+포도주 vs. 빵만)이다.</div>
+      </div>
+    </div>
+
+  </div><!-- /ox group -->
+
+  <!-- 단답 -->
+  <div class="exam-group">
+    <div class="exam-group-title">
+      <span class="exam-type-badge badge-sa">단답 문제</span>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">1.</span><span>어거스틴의 『신국론』(De Civitate Dei)에서 말하는 두 개의 도성의 이름과 각각의 특징을 쓰시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 보기</button>
+      <div class="exam-answer">
+        <div class="sa-answer">
+          <strong>① 세상의 도성(Earthly City):</strong> 일시적인 것을 향한 공통의 사랑으로 연대된 공동체<br>
+          <strong>② 하나님의 도성(City of God, De Civitate Dei):</strong> 하나님을 향한 사랑으로 한데 묶인 공동체<br>
+          → 교회는 하나님의 도성을 이루기 위해 노력하는 인간들의 공동체
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">2.</span><span>교황(Pope)의 원래 라틴어 명칭과 그 의미, 그리고 이 명칭이 오직 로마 감독만을 가리키게 된 시기는?</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 보기</button>
+      <div class="exam-answer">
+        <div class="sa-answer">
+          <strong>라틴어 명칭:</strong> 파파(Papa)<br>
+          <strong>의미:</strong> 아버지와 같은 돌봄<br>
+          <strong>로마 감독 전용 명칭이 된 시기:</strong> 6세기경
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">3.</span><span>예지예정설(Foreknowledge Predestination)의 핵심 내용을 한 문장으로 설명하고, 이것이 칼빈주의 예정론과 어떻게 다른지 쓰시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 보기</button>
+      <div class="exam-answer">
+        <div class="sa-answer">
+          <strong>예지예정설:</strong> 하나님이 주도적으로 예정하신 것이 아니라, 전지(全知)하시기 때문에 누가 구원받을지 미리 아신 대로 그렇게 된 것 (알미니우스/웨슬리의 입장)<br><br>
+          <strong>칼빈주의 예정론과의 차이:</strong> 칼빈주의는 하나님이 구원받을 자와 그렇지 않을 자를 주권적으로 미리 결정하셨다고 봄 (Double Predestination). 예지예정설은 구원의 책임이 하나님의 주권이 아닌 개인의 선택에 있다고 본다는 점에서 다름.
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">4.</span><span>동방정교회와 서방가톨릭교회 사이의 차이점을 성찬, 수염, 교황 수위권 측면에서 각각 쓰시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 보기</button>
+      <div class="exam-answer">
+        <div class="sa-answer">
+          <strong>성찬:</strong> 동방 — 빵과 포도주 모두 수여 / 서방 — 빵만 (평신도 기준)<br>
+          <strong>수염:</strong> 동방 — 허용 (사제 수염 기름) / 서방 — 금지 (민면)<br>
+          <strong>교황 수위권:</strong> 동방 — 인정 안 함, 모든 주교 동등 / 서방 — 교황 수위권 인정
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">5.</span><span>어거스틴이 누가복음 14:23을 이단 대처에 적용한 방식과, 이것이 후대에 끼친 역사적 영향은?</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 정답 보기</button>
+      <div class="exam-answer">
+        <div class="sa-answer">
+          <strong>적용:</strong> "강권하여 데려다가 내 집을 채우라" — 이단자들을 강압적·강권적으로 정통 교회로 이끌어 올 수 있다고 해석<br>
+          <strong>역사적 영향:</strong> 중세 종교재판(Inquisition)의 이론적 근거가 됨 — 정통 교리를 받아들이지 않는 이단자를 고문·심문·화형에 처하는 것을 정당화하는 데 사용됨
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sa group -->
+
+  <!-- 약술 -->
+  <div class="exam-group">
+    <div class="exam-group-title">
+      <span class="exam-type-badge badge-es">약술 문제</span>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">1.</span><span>어거스틴과 펠라기우스의 구원론 논쟁을 비교하고, 그 신학사적 의의를 서술하시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 모범 답안 뼈대 보기</button>
+      <div class="exam-answer">
+        <div class="essay-skeleton">
+          <div class="es-step">
+            <div class="es-num">①</div>
+            <div class="es-text"><strong>펠라기우스 주장:</strong> 아담으로부터 원죄가 유전되지 않음. 인간에게 자유의지가 있어 의롭게 되거나 불순종할 수 있음. 선행을 통한 구원 가능. 예지예정설 — 하나님이 아실 뿐 미리 예정하지는 않으심.
+              <div class="es-guide">→ 인간의 자유와 도덕적 책임 강조</div>
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">②</div>
+            <div class="es-text"><strong>어거스틴의 반박:</strong> 원죄의 유전 인정. 인간은 스스로 의롭게 될 수 없음. 오직 하나님의 값없는 은혜만이 구원을 줌. 이 은혜는 보통 교회와 성례전을 통해 임함.
+              <div class="es-guide">→ 하나님의 주권적 은혜 강조</div>
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">③</div>
+            <div class="es-text"><strong>공의회 결정:</strong> 416년 밀레비스, 431년 에베소 공의회에서 펠라기우스 이단 정죄.
+              <div class="es-guide">→ 어거스틴의 은혜신학이 서방교회의 정통으로 확립</div>
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">④</div>
+            <div class="es-text"><strong>신학사적 의의:</strong> 이 논쟁은 1,600년 이후까지 반복된다 — 칼빈주의(예정론) vs. 알미니우스·웨슬리(예지예정, 협력설) vs. 열린신론의 원형. 오늘날 침례교 신학(SBC 논쟁 포함)에서도 핵심 쟁점이다.
+              <div class="es-guide">→ 현대 교회의 구원론 논쟁은 어거스틴-펠라기우스 논쟁의 현대적 표현</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">2.</span><span>동서 교회 분열(1054년)의 원인을 신학적·역사적 측면에서 설명하고, 동방정교회와 서방가톨릭교회의 주요 차이점을 서술하시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 모범 답안 뼈대 보기</button>
+      <div class="exam-answer">
+        <div class="essay-skeleton">
+          <div class="es-step">
+            <div class="es-num">①</div>
+            <div class="es-text"><strong>신학적 원인:</strong> Filioque 논쟁 — 589년 톨레도 공의회에서 서방이 성령 발출에 "성자로부터(Filioque)"를 삽입. 동방은 이를 단독으로 결정할 수 없다며 거부.
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">②</div>
+            <div class="es-text"><strong>성상 문제:</strong> 서방은 3차원 동상을 경배 대상으로 허용. 동방은 평면 아이콘만 공인하고 "경배가 아니라 경의 표현"이라 구분.
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">③</div>
+            <div class="es-text"><strong>정치적·권위 원인:</strong> 교황 수위권 문제 — 로마 감독이 전체 교회의 수장임을 동방은 인정하지 않음. 콘스탄티노플 총대주교와의 권위 갈등.
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">④</div>
+            <div class="es-text"><strong>주요 차이점:</strong> 성찬(빵+포도주 vs. 빵만), 사제 결혼 허용 여부, 수염 허용 여부, 마리아 원죄 없는 잉태 인정 여부, 구원론 강조점(신화 vs. 칭의).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-card">
+      <div class="exam-q"><span class="exam-q-num">3.</span><span>레오 1세가 교황 수위권을 주장한 성경적 근거와 역사적 배경을 설명하고, 이 수위권 주장이 동서 교회 관계에 미친 영향을 서술하시오.</span></div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)"><span class="arrow">▶</span> 모범 답안 뼈대 보기</button>
+      <div class="exam-answer">
+        <div class="essay-skeleton">
+          <div class="es-step">
+            <div class="es-num">①</div>
+            <div class="es-text"><strong>성경적 근거:</strong> 마 16:18-19 "너는 베드로라, 이 반석 위에 내 교회를 세우리라" + 눅 22:31-32 + 요 21:15-17 → 베드로의 후계자인 로마 감독이 전체 교회의 수장이어야 한다는 논리.
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">②</div>
+            <div class="es-text"><strong>역사적 배경:</strong> 452년 훈족 아틸라 침입 시 레오 감독이 황제 사절로 파견되어 로마를 지켜냄 → 정치적 권위 획득. 서로마가 약화되면서 교회가 정치적 공백을 채우게 됨.
+            </div>
+          </div>
+          <div class="es-step">
+            <div class="es-num">③</div>
+            <div class="es-text"><strong>동서 관계에 미친 영향:</strong> 451년 칼케돈 공의회에서 콘스탄티노플 총대주교가 레오와 동등한 권위를 부여받아 동서 두 수장 체제 형성. 이것이 장기적으로 1054년 분열의 구조적 배경이 되었다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /essay group -->
+
+</div><!-- /main -->
+</div><!-- /tab-exam -->
+
+
+<!-- ═══════════════════════════════════════════
+     TAB 3 — 연대기 타임라인
+═══════════════════════════════════════════ -->
+<div id="tab-timeline" class="tab-content">
+<div class="main">
+
+  <div style="margin-bottom:24px;">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+      <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--era-apo);"><span style="width:10px;height:10px;border-radius:50%;background:var(--era-apo);display:inline-block;"></span>사도시대 (30–100)</span>
+      <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--era-cat);"><span style="width:10px;height:10px;border-radius:50%;background:var(--era-cat);display:inline-block;"></span>가톨릭 기독교시대 (100–313)</span>
+      <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--era-rom);"><span style="width:10px;height:10px;border-radius:50%;background:var(--era-rom);display:inline-block;"></span>로마제국시대 (313–590)</span>
+      <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--era-med);"><span style="width:10px;height:10px;border-radius:50%;background:var(--era-med);display:inline-block;"></span>중세기독교시대 (590–1500)</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- 로마제국시대 -->
+    <div class="tl-era-label">
+      <span class="tl-era-badge rom">🏛️ 기독교 로마제국시대 (313–590)</span>
+      <div class="tl-era-line"></div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 325</div>
+      <div class="tl-event">제1차 공의회 — 니케아 공의회</div>
+      <span class="tl-person">콘스탄틴 황제 소집 / 아리우스 vs. 아타나시우스</span>
+      <div class="tl-sig">삼위일체 교리 확정 — 성자는 성부와 동일본질(ὁμοούσιος, homoousios). 아리우스 이단 정죄</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 380</div>
+      <div class="tl-event">기독교 국교 선포</div>
+      <span class="tl-person">데오도시우스 황제</span>
+      <div class="tl-sig">이교도 제사 금지, 이방신전 파괴 — "종교에 의한 한 제국통일". 시민종교 시대 개막</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 381</div>
+      <div class="tl-event">제2차 공의회 — 콘스탄티노플</div>
+      <span class="tl-person">데오도시우스 황제 소집 / 동방 감독들만 참석</span>
+      <div class="tl-sig">니케아 신경 재확인. 콘스탄티노플 감독 = 로마 감독 바로 다음 위치. 동방 교회 정치적 세력 확대</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 395</div>
+      <div class="tl-event">로마 제국 동서 분열</div>
+      <span class="tl-person">데오도시우스 황제 사망 → 호노리우스(서방) · 아르카디우스(동방)</span>
+      <div class="tl-sig">서방 가톨릭 교회 / 동방 정교회 분리 체제의 정치적 기원. 476년 서로마, 1453년 동로마 순차 멸망</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 413–426</div>
+      <div class="tl-event">어거스틴 『신국론』(De Civitate Dei) 집필</div>
+      <span class="tl-person">어거스틴 (Augustine, 354–430)</span>
+      <div class="tl-sig">두 도성론 — 세상의 도성 vs. 하나님의 도성. 서방 신학의 근간. 원죄·예정·은혜 신학 체계화</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 416 · 431</div>
+      <div class="tl-event">펠라기우스 이단 정죄</div>
+      <span class="tl-person">펠라기우스 vs. 어거스틴</span>
+      <div class="tl-sig">416년 밀레비스 종교회의, 431년 에베소 공의회에서 최종 정죄. 어거스틴의 은혜신학이 서방 정통으로 확립</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 431</div>
+      <div class="tl-event">제3차 공의회 — 에베소</div>
+      <span class="tl-person">키릴 vs. 네스토리우스</span>
+      <div class="tl-sig">네스토리우스 정죄 — 마리아를 "하나님의 어머니(Theotokos)"로 공인. 네스토리우스파는 페르시아로 이동</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 451</div>
+      <div class="tl-event">제4차 공의회 — 칼케돈</div>
+      <span class="tl-person">레오 1세 주도 / 황제 마르키안 소집</span>
+      <div class="tl-sig">양성론 확정 — 예수 그리스도는 참 하나님이시고 참 사람이심, 신·인 양성이 혼돈·변화·분리·분열 없이 연합. 레오 = 베드로 발언</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 452</div>
+      <div class="tl-event">레오 감독의 훈족 아틸라 담판</div>
+      <span class="tl-person">레오 1세 (Leo I)</span>
+      <div class="tl-sig">교황제도의 실질적 출발점 — 로마 감독이 정치적 역할을 맡기 시작. 파파(Papa)라는 명칭이 로마 감독 전용이 됨</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 476</div>
+      <div class="tl-event">서로마 제국 멸망</div>
+      <span class="tl-person">게르만 용병대장 오도아케르</span>
+      <div class="tl-sig">로마 제국의 서쪽 종말. 서유럽 역사의 새로운 시작. 이후 교황이 서유럽의 정치적 권위의 공백을 채우게 됨</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 486</div>
+      <div class="tl-event">프랑크 왕국 수립 — 프랑스와 서유럽의 시초</div>
+      <span class="tl-person">클로비스 (Clovis, 481–511)</span>
+      <div class="tl-sig">게르만족 최초의 기독교 왕국. 클로비스의 기독교 개종으로 왕국 전체 집단 개종. 서유럽 기독교 문명의 기초</div>
+    </div>
+
+    <div class="tl-item rom">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 589</div>
+      <div class="tl-event">톨레도 공의회 — Filioque 삽입</div>
+      <span class="tl-person">서방교회(로마교구)</span>
+      <div class="tl-sig">니케아 신경에 "성자로부터(Filioque)" 추가 — 동방교회 거부. 동서 교회 분열의 신학적 도화선</div>
+    </div>
+
+    <!-- 중세 -->
+    <div class="tl-era-label">
+      <span class="tl-era-badge med">🗺️ 중세기독교 시대 (590–1517)</span>
+      <div class="tl-era-line"></div>
+    </div>
+
+    <div class="tl-item med">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 726</div>
+      <div class="tl-event">황제 레오 3세 — 성상숭배 반대운동 선포</div>
+      <span class="tl-person">레오 3세 황제 (717–741)</span>
+      <div class="tl-sig">"우상은 그리스도의 가르침에 어긋난다" — 성상파괴 논쟁(Iconoclasm) 시작</div>
+    </div>
+
+    <div class="tl-item med">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 787</div>
+      <div class="tl-event">제7차 공의회 — 제2차 니케아</div>
+      <span class="tl-person">총대주교 타라시우스 주도 / 350명 감독</span>
+      <div class="tl-sig">성상파괴운동 정죄, 아이콘(평면 그림) 공인. 동방교회는 아이콘만, 서방은 3차원 동상도 허용 — 이후 1054년 분열의 한 원인</div>
+    </div>
+
+    <div class="tl-item med">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 800</div>
+      <div class="tl-event">교황 레오 3세 → 샤를마뉴 황제관 수여</div>
+      <span class="tl-person">샤를마뉴 (Charlemagne)</span>
+      <div class="tl-sig">신성로마제국의 시초. 서유럽은 교황의 지배하에. 교권(教權)과 속권(俗權)의 갈등 시작</div>
+    </div>
+
+    <div class="tl-item med">
+      <div class="tl-dot"></div>
+      <div class="tl-year">AD 1054</div>
+      <div class="tl-event">동서 교회 대분열 — The Great Schism</div>
+      <span class="tl-person">동방 총대주교 / 서방 교황</span>
+      <div class="tl-sig">로마가톨릭교회(서방) vs. 동방정교회로 완전 분열. Filioque·성상·교황 수위권 복합 원인. 오늘날까지 지속되는 분열</div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- 핵심 포인트 -->
+  <div class="keypoints" style="margin-top:40px;">
+    <div class="keypoints-title">12주차 연대기 핵심 암기 포인트</div>
+    <div class="kp-list">
+      <div class="kp-item">
+        <div class="kp-num">①</div>
+        <div class="kp-text"><strong>380년 국교 / 381년 콘스탄티노플 / 395년 동서 분열:</strong> 데오도시우스 황제가 세 사건 모두의 중심. "데오도시우스 = 국교·동서 분열의 황제"로 암기</div>
+      </div>
+      <div class="kp-item">
+        <div class="kp-num">②</div>
+        <div class="kp-text"><strong>476년 서로마 멸망 → 486년 프랑크 왕국:</strong> 10년 간격. 서로마가 망하고 10년 후에 유럽의 새 역사가 시작됨</div>
+      </div>
+      <div class="kp-item">
+        <div class="kp-num">③</div>
+        <div class="kp-text"><strong>589 Filioque → 787 제7차 공의회 → 1054 분열:</strong> 동서 분열은 한 사건이 아니라 단계적 누적. "589 도화선 → 787 성상 → 1054 분열" 흐름으로 암기</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+</div><!-- /tab-timeline -->
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('visible');
+    answer.classList.toggle('visible', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.querySelector('.arrow').textContent = isOpen ? '▶' : '▼';
+    btn.childNodes[1].textContent = isOpen ? ' 정답 · 해설 보기' : ' 정답 · 해설 닫기';
+  }
+</script>
+</body>
+</html>
