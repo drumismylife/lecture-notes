@@ -127,7 +127,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/기독교철학/week11.html" },
             { type: "notes", label: "임마누엘 칸트", href: "output/기독교철학/week11b.html" }
           ] },
-        { week: 12, title: "기독교와 포스트모더니즘", date: "2026.06", files: [] },
+        { week: 12, title: "폴 리쾨르 — 실재에 관한 탐구로서의 철학과 신학", date: "2026.05.19", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week12.html" }
+          ] },
         { week: 13, title: "과학과 종교", date: "2026.06", files: [] },
         { week: 14, title: "기독교 윤리의 철학적 기초", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
