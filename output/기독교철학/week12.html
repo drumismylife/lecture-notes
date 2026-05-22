@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교철학 12주차 — 폴 리쾨르</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg:        #12100e;
+    --card:      #1c1814;
+    --subcard:   #252018;
+    --border:    #2e2820;
+    --amber:     #c49a3c;
+    --amber-dim: #8a6b28;
+    --amber-pale:#e8c97a;
+    --sage:      #8aab8a;
+    --sage-dim:  #5a7a5a;
+    --terra:     #c96b5a;
+    --terra-dim: #7a3a2a;
+    --green:     #5a8a6a;
+    --text-main: #ede8df;
+    --text-sub:  #9e9688;
+    --text-dim:  #6e6858;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    font-size: 9.2pt;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  .header {
+    background: linear-gradient(135deg, #1a1510 0%, #0e0c09 60%, #1c1208 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'Herméneutique';
+    position: absolute;
+    right: 20px; top: 8px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 38pt;
+    color: rgba(196,154,60,.07);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .badge-week {
+    background: var(--amber);
+    color: #0e0c09;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    padding: 2px 9px;
+    border-radius: 2px;
+  }
+  .badge-date {
+    font-size: 7pt;
+    color: var(--text-dim);
+    letter-spacing: .06em;
+  }
+  .header-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .header-latin {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--amber-dim);
+    letter-spacing: .04em;
+    margin-bottom: 8px;
+  }
+  .header-pills {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .pill {
+    background: rgba(196,154,60,.12);
+    border: 1px solid rgba(196,154,60,.25);
+    color: var(--text-sub);
+    font-size: 6.8pt;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* ── 탭 ── */
+  .tab-bar {
+    display: flex;
+    background: #0e0c09;
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    gap: 2px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 8.2pt;
+    font-weight: 500;
+    padding: 10px 16px 9px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+    letter-spacing: .04em;
+  }
+  .tab-btn:hover { color: var(--text-sub); }
+  .tab-btn.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ── 탭 패널 ── */
+  .tab-panel { display: none; padding: 24px 32px 40px; }
+  .tab-panel.active { display: block; }
+
+  /* ── 섹션 헤더 ── */
+  .sec-head {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 14px;
+  }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    color: var(--amber);
+    border: 1px solid var(--amber-dim);
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sec-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--amber-pale);
+    letter-spacing: -.01em;
+  }
+  .sec-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── 사상가 카드 ── */
+  .thinker-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .thinker-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--amber-pale);
+    margin-bottom: 2px;
+  }
+  .thinker-dates {
+    font-size: 7.5pt;
+    color: var(--text-dim);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .thinker-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 5px 12px;
+    font-size: 8pt;
+  }
+  .tg-label {
+    color: var(--text-dim);
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding-top: 1px;
+  }
+  .tg-val { color: var(--text-main); line-height: 1.6; }
+  .orig {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.8pt;
+    color: var(--amber-pale);
+  }
+
+  /* ── 사상사 타임라인 ── */
+  .timeline { position: relative; padding-left: 20px; margin-bottom: 8px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 6px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--amber-dim), transparent);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 14px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -14px; top: 6px;
+    width: 8px; height: 8px;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    background: var(--bg);
+  }
+  .tl-year {
+    font-family: 'EB Garamond', serif;
+    font-size: 9.5pt;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 1px;
+  }
+  .tl-title {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 2px;
+  }
+  .tl-body { font-size: 7.8pt; color: var(--text-sub); line-height: 1.6; }
+  .tl-insight {
+    font-size: 7.5pt;
+    color: var(--sage);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* ── 개념 카드 ── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .concept-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 12px 14px;
+  }
+  .concept-term {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 2px;
+  }
+  .concept-orig {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--amber-pale);
+    margin-bottom: 6px;
+  }
+  .concept-def { font-size: 7.8pt; color: var(--text-sub); line-height: 1.6; }
+
+  /* ── 교수설명 블록 ── */
+  .prof-block {
+    background: #1a1710;
+    border: 1px solid #2a2418;
+    border-left: 3px solid var(--sage);
+    border-radius: 5px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .prof-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .prof-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: rgba(138,171,138,.2);
+  }
+  .prof-title {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 5px;
+  }
+  .prof-body { font-size: 8pt; color: var(--text-sub); line-height: 1.72; }
+  .prof-body em {
+    color: var(--amber-pale);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* ── 슬라이드 전용 미언급 ── */
+  .slide-only {
+    background: #14120f;
+    border: 1px dashed #2e2820;
+    border-left: 3px dashed var(--text-dim);
+    border-radius: 5px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    opacity: .82;
+  }
+  .slide-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .slide-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: rgba(110,104,88,.2);
+  }
+
+  /* ── 논증 블록 ── */
+  .arg-block {
+    margin-bottom: 14px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .arg-title {
+    background: var(--subcard);
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--amber-pale);
+    padding: 8px 14px;
+    letter-spacing: .02em;
+  }
+  .arg-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0;
+  }
+  .arg-row + .arg-row { border-top: 1px solid var(--border); }
+  .arg-step {
+    background: #1a1610;
+    font-size: 6.8pt;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .arg-step.conclusion { color: var(--amber); }
+  .arg-content {
+    background: var(--card);
+    font-size: 7.8pt;
+    color: var(--text-sub);
+    padding: 10px 14px;
+    line-height: 1.68;
+  }
+  .arg-content.conclusion {
+    border-left: 3px solid var(--amber);
+    color: var(--text-main);
+  }
+
+  /* ── 핵심명제 ── */
+  .key-prop {
+    background: #1e1a0e;
+    border-left: 3px solid var(--amber);
+    border-radius: 3px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: 8.5pt;
+    color: var(--amber-pale);
+    line-height: 1.65;
+  }
+  .key-prop .orig { display: block; margin-top: 3px; font-size: 7.5pt; }
+
+  /* ── 시험 배지 ── */
+  .exam-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 9px 14px;
+    background: #1e1210;
+    border: 1px solid rgba(201,107,90,.25);
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .exam-badge {
+    background: var(--terra-dim);
+    color: var(--terra);
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid rgba(201,107,90,.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .exam-text { font-size: 8pt; color: var(--text-sub); line-height: 1.6; }
+
+  /* ── 활동지 ── */
+  .activity-card {
+    background: #111a14;
+    border: 1px solid rgba(90,138,106,.3);
+    border-left: 3px solid var(--green);
+    border-radius: 5px;
+    padding: 13px 16px;
+    margin-bottom: 10px;
+  }
+  .activity-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 5px;
+  }
+  .activity-title {
+    font-size: 8.8pt;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+  .activity-content { font-size: 7.8pt; color: var(--text-sub); line-height: 1.68; margin-bottom: 8px; }
+  .activity-q-label {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--sage);
+    margin-bottom: 4px;
+    letter-spacing: .06em;
+  }
+  .activity-q { font-size: 8pt; color: var(--text-main); line-height: 1.65; font-style: italic; }
+
+  /* ── 비교표 ── */
+  .compare-wrap { margin-bottom: 20px; }
+  .compare-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: var(--amber-pale);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 7.8pt; margin-bottom: 8px; }
+  .compare-table th {
+    background: var(--subcard);
+    color: var(--amber-pale);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 7.5pt;
+    letter-spacing: .04em;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table th:first-child { color: var(--text-dim); }
+  .compare-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(46,40,32,.6);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .compare-table tr:nth-child(even) td { background: rgba(28,24,20,.5); }
+  .compare-table td:first-child {
+    color: var(--amber);
+    font-weight: 600;
+    font-size: 7.5pt;
+    width: 90px;
+    white-space: nowrap;
+  }
+  .compare-table td:not(:first-child) { color: var(--text-sub); }
+
+  /* ── 전체 비교표 (탭3) ── */
+  .big-table { width: 100%; border-collapse: collapse; font-size: 7.8pt; margin-bottom: 20px; }
+  .big-table th {
+    background: #1a1610;
+    padding: 9px 12px;
+    text-align: left;
+    color: var(--amber-pale);
+    font-weight: 600;
+    font-size: 7.5pt;
+    letter-spacing: .04em;
+    border-bottom: 2px solid var(--amber-dim);
+  }
+  .big-table th:first-child { width: 80px; }
+  .big-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.65;
+    color: var(--text-sub);
+  }
+  .big-table tr:nth-child(even) td { background: rgba(28,24,20,.4); }
+  .big-table td:first-child {
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 8pt;
+  }
+  .big-table td strong { color: var(--text-main); font-weight: 600; }
+
+  /* ── 범례 ── */
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 7.5pt;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; color: var(--text-dim); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── 핵심정리 탭 내 구분 ── */
+  .summary-sec {
+    margin-bottom: 22px;
+  }
+  .summary-sec-title {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── 인용 블록 ── */
+  .quote-block {
+    background: var(--subcard);
+    border-left: 2px solid var(--text-dim);
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .quote-block p {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 9.5pt;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .quote-src { font-size: 7pt; color: var(--text-dim); }
+
+  /* ── 인쇄 ── */
+  @media print {
+    body { background: #12100e; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; page-break-after: always; }
+    .tab-panel:last-child { page-break-after: avoid; }
+    .header { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ 헤더 ══ -->
+<div class="header">
+  <div class="header-meta">
+    <span class="badge-week">12주차</span>
+    <span class="badge-date">2026 · 05 · 19 &nbsp;·&nbsp; 기독교철학 61083 &nbsp;·&nbsp; 심상우 교수</span>
+  </div>
+  <div class="header-title">폴 리쾨르 — 실재에 관한 탐구로서의 철학과 신학</div>
+  <div class="header-latin">Paul Ricœur · Herméneutique · identité narrative</div>
+  <div class="header-pills">
+    <span class="pill">해석학</span>
+    <span class="pill">서사적 정체성</span>
+    <span class="pill">자기 해석학</span>
+    <span class="pill">신학적 해석학</span>
+    <span class="pill">idem / ipse</span>
+  </div>
+</div>
+
+<!-- ══ 탭 바 ══ -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab(1)">✦ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab(2)">⇄ 비교표</button>
+</div>
+
+<!-- ════════════════════════════════════════
+     탭 1 : 강의노트
+════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-0">
+
+  <!-- 범례 -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--sage);"></div>
+      녹취 기반 (교수님 직접 발화)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--amber);"></div>
+      슬라이드 확인 내용
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--text-dim); border: 1px dashed var(--text-dim);"></div>
+      슬라이드 전용 (강의 미진행 — 배포 자료)
+    </div>
+  </div>
+
+  <!-- ① 사상가 카드 -->
+  <div class="sec-head">
+    <div class="sec-num">1</div>
+    <div class="sec-title">사상가 — 폴 리쾨르</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="thinker-card">
+    <div class="thinker-name">폴 리쾨르 Paul Ricœur</div>
+    <div class="thinker-dates">1913 · Valence, France — 2005 · Châtenay-Malabry, France</div>
+    <div class="thinker-grid">
+      <div class="tg-label">시대</div>
+      <div class="tg-val">20세기 프랑스 현상학·해석학</div>
+      <div class="tg-label">주요 저작</div>
+      <div class="tg-val">『의지와 비의지』, 『해석에 대하여』, 『자기 자신으로서의 타자』, 『비판과 확신』, 『기억·역사·망각』</div>
+      <div class="tg-label">핵심 개념</div>
+      <div class="tg-val">
+        <span class="orig">Herméneutique</span> 해석학 &nbsp;·&nbsp;
+        <span class="orig">identité narrative</span> 서사적 정체성 &nbsp;·&nbsp;
+        <span class="orig">Herméneutique du soi</span> 자기 해석학 &nbsp;·&nbsp;
+        <span class="orig">idem / ipse</span>
+      </div>
+      <div class="tg-label">철학의 사명</div>
+      <div class="tg-val">"철학의 사명은 개념들을 통해 실존을 해명하는 것이다." — 리쾨르의 텔로스(telos)</div>
+      <div class="tg-label">기독교 접점</div>
+      <div class="tg-val">개신교 가정 출신. 죄의 본질 = 왜곡된 해석. 신앙 = 새로운 해석의 능력. 성경 = "너의 삶을 다시 읽어라"</div>
+    </div>
+  </div>
+
+  <!-- ② 생애와 사상사 -->
+  <div class="sec-head">
+    <div class="sec-num">2</div>
+    <div class="sec-title">생애와 사상적 배경</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">1913 — 출생</div>
+      <div class="tl-title">프랑스 발랑스, 독실한 개신교 가정</div>
+      <div class="tl-body">모친은 유아기에 사망, 부친은 1차 세계대전에서 실종. 조부모·숙모 손에서 성장. 개신교 신앙이 평생의 사유 토대가 된다.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1935 — 파리 상경</div>
+      <div class="tl-title">아그레가시옹 준비 + 가브리엘 마르셀 사사</div>
+      <div class="tl-body">철학교사 자격시험(아그레가시옹)을 준비하며 파리에 올라와, 유신론적 실존주의자 가브리엘 마르셀(Gabriel Marcel, 1889–1973)의 세미나에 참석한다. '실존주의(existentialisme)'라는 용어를 최초로 사용한 인물이 마르셀이다.</div>
+      <div class="tl-insight">📢 수업 중 직접 소개: 마르셀은 지옥을 이렇게 정의했다 — "밥숟가락에 음식을 올려놓았을 때 낚아채 가는 곳이 지옥이다." 유황 불이 아니라, 생존에 꼭 필요한 것들을 빼앗아 가는 곳. 이 실존주의적 시선 속에서 리쾨르는 철학과 신학을 함께 사유하기 시작한다.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1939–1945 — 포로수용소</div>
+      <div class="tl-title">프랑스군 입대 → 독일군 포로 5년 · 후설 번역</div>
+      <div class="tl-body">2차 세계대전 발발 후 입대, 1년 만에 독일군에 잡혀 스위스 수용소에서 5년을 보낸다. 레비나스, 사르트르 등 지식인들이 함께 포로수용소 안에서 대학을 만들고, 책과 자료를 모아 공부한다. 리쾨르는 이 시기 후설의 저서들을 읽고 번역한다. 종전 후 1950년 후설의 『현상학의 이념들』을 프랑스어로 출간한다.</div>
+      <div class="tl-insight">📢 수업 코멘트: "번역이라는 것은 대단히 큰 일이에요. 그 세계를 어떤 언어로 옮겨야 할지, 그것을 내가 먼저 이해해야 하는 것이다. 번역을 하면서 깊이 있는 세계를 경험하게 됩니다." (우리나라 시민운동·통일운동 하다 감옥에서 고시 공부한 분들과 유사한 역설이라고 비유함)</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1948–1956 — 스트라스부르</div>
+      <div class="tl-title">대학 재직 · 철학 고전 독해 모임 · 신학·정치 활동</div>
+      <div class="tl-body">조르주 뒤스도르프와 함께 정기 철학 고전 독해 모임을 만들고, 신학·정치 실천운동에도 적극 가담한다. 스트라스부르는 프랑스 현상학의 중심지였다. 이 시기 해석학적 방법론이 구체화된다.</div>
+      <div class="tl-insight">📌 교수님 강조: "모든 학문은 그 시대사와 환경적 조건에 지배받을 수밖에 없다. 여러분의 신학도 그럴 것이고, 역사적·문화적 환경에 의해서 학문이 나오게 된다."</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1956–1967 — 소르본</div>
+      <div class="tl-title">소르본 재직 · "지적 사막" 경험</div>
+      <div class="tl-body">파리 진출이 목표이던 시대에 소르본은 최고의 자리였지만, 리쾨르는 동료·학생과의 관계를 "일종의 지적 사막"이라고 회고할 만큼 지적 교류의 결핍을 경험한다.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1967–1970 — 낭테르(파리10대학)</div>
+      <div class="tl-title">학장 취임 · 1968년 학생혁명 · 해석학자의 중재 실패</div>
+      <div class="tl-body">1967년 낭테르대학(파리10대학) 학장으로 부임. 1968년 학생혁명이 일어나자 정부·학교·학생 3자의 입장을 연결·중재하려 시도한다. 이것이 해석학의 실천이었다 — 서로 다른 입장들 사이에서 새로운 아이디어를 창출하는 것.</div>
+      <div class="tl-insight">📢 수업 직접 소개: "해석학자들은 서로 다르다는 것을 전제하고 관계 맺음을 해요. 나와 다르다고 '틀렸다'고 하지 않고, 어떻게 소통할 수 있을지 새로운 아이디어를 계속 냅니다. 그래서 해석학자들은 오래 살아요." 그러나 과격한 학생들에게는 '회색분자'처럼 보였고, 설에 의하면 쓰레기통을 씌우고 때렸다고 전해진다. 그 모멸감으로 리쾨르는 결국 프랑스를 떠나 루뱅대학·시카고대학으로 이동한다.</div>
+    </div>
+
+  </div>
+
+  <!-- ③ 리쾨르에게 영향을 미친 세 학자 -->
+  <div class="sec-head">
+    <div class="sec-num">3</div>
+    <div class="sec-title">리쾨르에게 영향을 미친 세 학자</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">영향1 — 달비에즈와 프로이트 비판</div>
+    <div class="prof-title">프로이트(Sigmund Freud) — 비판적 수용</div>
+    <div class="prof-body">
+      고교 시절 프로이트 전문가 롤랑 달비에즈(Roland Dalbiez, 1893–1976)에게 철학적 시선을 배운다. 프로이트는 인간의 성적 충동이 가장 본질적이며, 무의식을 언어 이전(pre-linguistic)의 영역으로 보았다. 리쾨르는 이를 비판한다 — <em>"무의식이라는 것들도 언어와 해석을 통해서만 이해될 수 있다."</em> 인간은 단순한 무의식적 본능에 의해 조정되는 존재가 아니라, 해석과 선택을 통해 <em>도덕적 주체</em>로 성장한다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">영향2 — 가브리엘 마르셀</div>
+    <div class="prof-title">마르셀(Gabriel Marcel, 1889–1973) — 기독교 실존주의</div>
+    <div class="prof-body">
+      마르셀은 하이데거·사르트르와 달리 <em>기독교 실존주의</em>를 강조했다. 인간 존재는 '신비'이지 '문제'가 아니다 — 논리적으로 분석될 수 있는 대상이 아니라 신뢰와 관계 속에서 이해해야 한다. 리쾨르는 이를 받아들여 존재를 해석의 과정으로 이해하는 방향으로 발전시킨다. 또한 마르셀의 타자 이해 — "너와 나의 관계가 중요하다" — 를 <em>'자기 이해'와 '타자 이해'로 발전</em>시켜, 자기와 타자는 상호적으로 형성된다고 본다. 나라는 존재는 독립된 존재가 아니라 <em>타자와의 관계 속에서 되어가는 존재</em>다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">영향3 — 칼 바르트</div>
+    <div class="prof-title">바르트(Karl Barth, 1886–1968) — 신앙의 실천적 확장</div>
+    <div class="prof-body">
+      바르트: <em>"성경은 단순한 글이 아니라, 역사적·언어적 맥락 속에서 해석될 때 신앙적 의미를 획득한다."</em> 바르트는 윤리를 신학의 하위 개념으로 보지만, 리쾨르는 <em>신앙이 윤리적 행위와 해석을 통해 구체적으로 실천</em>될 수 있어야 한다고 주장한다. 정의(justice)·사랑·역사적 책임 같은 사회적 문제에도 신앙이 반드시 연결되어야 한다.
+    </div>
+  </div>
+
+  <!-- ④ 핵심 개념 -->
+  <div class="sec-head">
+    <div class="sec-num">4</div>
+    <div class="sec-title">핵심 개념</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">해석학 Herméneutique</div>
+      <div class="concept-orig">프 Herméneutique</div>
+      <div class="concept-def">텍스트·상징·행위·삶의 표현물에 담긴 의미를 해석하는 작업. 과학이 주관을 배제하는 것과 달리, 해석학은 <strong>인식하는 자와 인식된 대상의 상호 관여</strong>를 인정하고 출발한다. 경험의 특정 맥락 안에서 누군가에게 나타나는 대상의 의미를 아는 데 관심을 가진다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">자기 해석학 Herméneutique du soi</div>
+      <div class="concept-orig">프 Herméneutique du soi</div>
+      <div class="concept-def">주체가 직접적으로 자신을 알 수 없으며, 이야기·증상·행위·제도 등 삶의 표현물들에 대한 해석을 통해서만 자기 이해에 도달한다. "나는 텍스트처럼 해석되어야 할 존재"다. 자기 이해 = 자기 해석.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">서사적 정체성 identité narrative</div>
+      <div class="concept-orig">프 identité narrative</div>
+      <div class="concept-def">인간이 자신의 삶을 이야기로 엮어가며 형성하는 정체성. 고정된 본질이 아니라 끊임없이 재구성된다. "나는 누구인가"는 내가 어떤 이야기를 살아가고 있는가의 문제다. 상처나 고정된 자기 규정("나는 그런 사람")은 이 서사를 닫아버린다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">idem / ipse 구분</div>
+      <div class="concept-orig">라 idem(동일성) / ipse(자기성)</div>
+      <div class="concept-def">idem = 생물학적·외적 연속성 (무엇인가 — "나는 같은 사람이다"). ipse = 약속·관계·윤리적 선택을 통해 시간을 가로질러 유지되는 자기성 (누구인가 — "나는 이런 사람이 되어가고 있다"). 리쾨르가 주목하는 정체성은 ipse다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">해석학적 순환</div>
+      <div class="concept-orig">프 Cercle herméneutique</div>
+      <div class="concept-def">부분을 이해하려면 전체가, 전체를 이해하려면 부분이 필요한 순환적·반복적 이해 과정. 완결되지 않으며 끊임없이 새로운 의미를 창출하는 창조적 과정. 독자의 전이해(pré-compréhension)가 텍스트와 만나 갱신된다. 리쾨르는 이를 자기 이해의 메커니즘으로 발전시킨다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">의심·재해석의 해석학</div>
+      <div class="concept-orig">프 Herméneutique du soupçon / de la restauration</div>
+      <div class="concept-def">의심의 해석학 — 텍스트에 숨겨진 권력·억압·무의식적 의미를 밝혀내는 작업 (니체·프로이트·마르크스). 재해석의 해석학 — 상징과 의미를 회복하여 인간 경험의 깊이를 이해하는 작업. 리쾨르는 이 둘을 함께 포함하는 해석학을 구성한다.</div>
+    </div>
+  </div>
+
+  <!-- ⑤ 주체의 문제 -->
+  <div class="sec-head">
+    <div class="sec-num">5</div>
+    <div class="sec-title">주체의 문제 — 나는 누구인가</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">데카르트 코기토 비판 — "나는 생각한다"에서 "나는 해석한다"로</div>
+    <div class="prof-body">
+      데카르트는 "나는 생각한다, 고로 존재한다(Cogito ergo sum)"를 통해 즉각적이고 확실한 자아를 인간 존재의 근거로 삼았다. 리쾨르는 이를 비판한다 — <em>코기토는 내가 생각한다는 사실을 제외하면 나에 대해 아무것도 말해주지 않는다. 설령 확고하다 하더라도 매우 공허하다.</em> 데카르트의 자아는 관계적 측면이 결여되어 있다.
+      <br><br>
+      리쾨르에게 인간의 주체는 단순히 "생각하는 것"을 넘어서, <em>"자신을 해석하고 이해하는 과정" 속에서 형성된다.</em> 자기 이해는 언어·역사·타인과의 관계 속에서 이루어지는 과정이다. 주체는 고정된 실체가 아니라 <em>해석을 통해 구성되는 존재</em>다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">자기 이해는 직접적으로 불가능하다 — 우회의 필요</div>
+    <div class="prof-body">
+      <em>"자기 이해는 타자와의, 상징과 이야기의 우회를 통해서만 가능하다. 나는 나를 직접적으로 이해할 수 있을까? 없다는 거야."</em><br><br>
+      나는 나 자신을 직접적으로 이해하지 않으며, 오히려 내 삶을 표현한 상징들을 경유하여 자기 이해에 도달한다. 그 상징들은 나에게서 나왔지만 내가 아는 나 자신보다 더 많은 뜻을 품고 있다. 따라서 나는 이 상징들을 해석함으로써 나 자신에 대한 이해 지평을 넓혀간다.
+      <br><br>
+      이것은 해석학적 순환의 구체적 적용이다 — 주체는 세계의 상징·텍스트·내러티브를 해석하면서, 그 과정이 다시 주체의 자기 이해를 갱신한다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 적용 · 녹취 기반</div>
+    <div class="prof-title">교회와 목회 현장에서의 적용 — 억눌린 이야기의 재해석</div>
+    <div class="prof-body">
+      <em>"교회에서도 묵혀놓고, 누르고 누르고 신앙의 힘으로 억눌러서 해결되는 게 아닙니다."</em> 예를 들어 애착 문제를 "엄마와 눈 마주침이 없어서 생긴 일"이라고만 치환해버리면 새로운 해석의 여지를 닫아버린다. "엄마 때문에 문제고, 나는 이렇게 불안할 수밖에 없다"는 식으로 고정되면 그 불행이 끊임없이 유지된다. 해석학적 순환은 새로운 의미를 창출하는 창조적 과정이어야 한다.
+    </div>
+  </div>
+
+  <!-- ⑥ 해석학 -->
+  <div class="sec-head">
+    <div class="sec-num">6</div>
+    <div class="sec-title">리쾨르의 해석학 — 하이데거·가다머를 넘어서</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">슬라이드 확인 내용</div>
+    <div class="prof-title">하이데거의 '이해 존재론' + 방법론 보완</div>
+    <div class="prof-body">
+      하이데거는 현상학으로부터 존재론적 함의를 이끌어내어 해석학을 "텍스트 해석 기술"이 아니라 <em>인간 존재 자체를 이해하는 철학(이해 존재론)</em>으로 전환시켰다. "이해는 단순한 공부 방법이 아니라, 인간이 존재하는 방식 그 자체다."<br><br>
+      그러나 하이데거에게는 구체적인 해석 방법이 부족했다. 리쾨르는 하이데거의 '이해 존재론'을 계승하되, <em>텍스트 읽는 방법·상징 해석·이야기 분석 같은 구체적인 해석 방법을 보강</em>하여 독창적인 철학적 해석학 체계를 세운다. 예: 고통을 느낀다는 것이 현상학이라면, 그 고통이 내 삶에서 무슨 의미인지 묻는 것이 해석학이다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">슬라이드 확인 내용</div>
+    <div class="prof-title">상징의 해석학 — 상징은 사유를 낳는다</div>
+    <div class="prof-body">
+      리쾨르에게 해석은 상징을 풀어내는 일이다. 상징이란 일차적인 의미가 흘러 넘쳐 이차적인 의미를 만들어낸 <em>이중적인 의미 표현</em>이다. 문자적인 의미 뒤편에서 감추어진 의미를 발견해 내는 것이 해석이 추구하는 바다.<br><br>
+      이 상징을 풀어내는 작업은 다른 사람을 이해하는 것을 넘어 <em>자기 자신에 대한 이해까지 포함</em>한다. 나는 다른 사람을 통해서 나 자신을 더 이해하게 된다 (가다머의 '지평 융합' 개념과 유사).
+    </div>
+  </div>
+
+  <!-- ⑦ 신학적 해석학 -->
+  <div class="sec-head">
+    <div class="sec-num">7</div>
+    <div class="sec-title">신학적 해석학 — 죄·신앙·구원의 재해석</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">죄의 본질 = 왜곡된 해석</div>
+    <div class="prof-body">
+      리쾨르의 해석학은 단순한 철학적 인간 이해를 넘어 깊은 신학적 의미로 이어진다. 성경 안에서 <em>죄의 본질은 단순한 도덕적 실패만이 아니라, 하나님과 타자와 세계를 왜곡하여 해석하는 데 있다.</em><br><br>
+      아담과 하와는 하나님을 더 이상 신뢰의 대상으로 보지 않고, 자신을 억압하는 존재로 해석하기 시작했다. 가인은 아벨을 형제가 아니라 경쟁자로 해석하기 시작했다. 인간의 타락은 결국 <em>관계의 왜곡된 해석</em>으로 시작된다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">신앙 = 새로운 해석의 능력 — 예수님의 시선</div>
+    <div class="prof-body">
+      반대로 신앙은 새로운 해석의 가능성을 열어준다. <em>예수님의 시선이 바로 그러했다.</em> 사람들은 세리와 죄인을 "버려진 사람"으로 해석했지만, 예수는 그들을 다시 보셨다. 사람들은 십자가를 실패와 저주의 상징으로 읽었지만, 복음은 그 십자가를 <em>사랑과 구원의 사건으로 다시 해석</em>한다.<br><br>
+      신학적 해석학은 결국 <em>하나님의 시선으로 세계와 인간을 다시 읽는 작업</em>이다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">서사적 정체성과 성경 — "너의 삶을 다시 읽어라"</div>
+    <div class="prof-body">
+      리쾨르의 해석학은 기독교 신앙과 깊게 만난다. 그는 인간 삶을 하나의 이야기로 이해했다 — 인간은 단순히 사건들의 집합이 아니라, 자신의 삶을 이야기로 엮어가며 정체성을 형성하는 존재다(서사적 정체성).<br><br>
+      신앙은 바로 이 인간의 이야기를 <em>하나님의 더 큰 이야기 안에 위치시키는 작업</em>이다. 성경은 인간에게 단순한 정보가 아니라, <em>"너의 삶을 다시 읽어라"</em>라고 요청하는 이야기다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 핵심 · 녹취 기반</div>
+    <div class="prof-title">베드로의 예 — 존재의 재해석으로서의 구원</div>
+    <div class="prof-body">
+      실패한 베드로는 스스로를 "배반자"로 해석했을 것이다. 그러나 부활하신 그리스도는 베드로를 실패로 규정하지 않고 다시 부르며 새로운 사명을 부여한다. <em>이것은 존재의 재해석이다.</em><br><br>
+      신앙은 과거를 삭제하는 것이 아니라, 새로운 의미 안에서 다시 읽게 하는 사건이다. 성찬·십자가·세례 같은 상징은 단순한 종교적 기호가 아니라, <em>인간 존재를 새롭게 이해하게 만드는 해석학적 사건</em>이다. 같은 현실도 어떤 해석 안에 놓이는가에 따라 전혀 다른 의미가 된다.
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 결론 · 녹취 기반</div>
+    <div class="prof-title">구원 = 해석학적 전환 · 설교의 풍요로움</div>
+    <div class="prof-body">
+      <em>"은혜는 존재를 새로운 시선으로 해석하게 만드는 사건이고, 구원은 단순히 죽은 이후의 문제가 아니라 지금 여기서 인간 존재를 새롭게 읽게 되는 해석학적 전환이 일어나게 되는 부분들이에요."</em><br><br>
+      교수님 목회 경험 나눔: "나이가 들어가니까 좋은 게 있어요. 성경을 읽으면 살아있는 메시지처럼 들린다. 이 메시지에 나의 삶도 어떻게 연결시켜 볼 수 있을까, 이 시선으로 사람들을 바라보면 설교도 굉장히 풍요로워집니다. 바울도 처음엔 공관복음과 너무 다르다고 느꼈지만, 지금은 이해된다 — 그 시대, 그 대상의 언어로 설명하지 않으면 안 됐던 것이다."
+    </div>
+  </div>
+
+  <!-- ⑧ 예술론 — 슬라이드 전용 -->
+  <div class="sec-head">
+    <div class="sec-num">8</div>
+    <div class="sec-title">예술론 · 렘브란트 · 철학상담</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="slide-only">
+    <div class="slide-label">슬라이드 배포 자료 — 강의에서 직접 다루지 않음</div>
+    <div class="prof-title" style="color:var(--text-sub); margin-bottom:6px;">예술론 — 미술과 자기 이해의 매개</div>
+    <div class="prof-body" style="color:var(--text-dim);">
+      미술 작품은 화가에게 자기 이해의 매개물이 된다. 화가가 특정 색채·형태·구도를 선택하는 과정은 자신의 내면을 표현하고 반영하는 방식이다. 그림 속에는 화가의 욕망·갈등·고뇌·상처가 투영되어 있지만, 그 증후들은 <em style="color:var(--text-sub)">상징화</em>된다. 증후를 상징화할 수 있다는 것은 화가가 내적 고통에 매몰되지 않고 그것을 극복했음을 의미한다. 미술 작품은 동시에 감상자에게도 이전에 보지 못했던 실재의 다양한 면모들과 마주치게 함으로써 이해 지평을 넓혀준다.
+      <br><br>
+      <em style="color:var(--text-sub)">📢 강의 중 잠깐 언급: "아이디어가 없고 삶이 무료해질 때 박물관에 가보면, 그림이 나한테 말을 걸어요. 그 말걸기와 서로 대화하는 과정이 해석학입니다."</em>
+      <br><br>
+      렘브란트의 자화상(1660년, 54세) 분석 · 철학상담 적용은 슬라이드 자료를 참고할 것.
+    </div>
+  </div>
+
+  <!-- ⑨ 활동지 -->
+  <div class="sec-head">
+    <div class="sec-num">9</div>
+    <div class="sec-title">프락시스 활동지</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-label">프락시스 활동지 ①</div>
+    <div class="activity-title">나는 어떤 이야기를 살아가고 있는가</div>
+    <div class="activity-content">리쾨르에 따르면 인간은 자기 삶을 이야기로 엮어가며 정체성을 형성하는 존재다(identité narrative). 나라는 존재는 독립된 실체가 아니라 타자와의 관계 속에서 '되어가는 존재'다. 상처나 고정된 자기 규정은 이 서사를 닫아버리고 새로운 해석의 여지를 막는다.</div>
+    <div class="activity-q-label">실천 질문</div>
+    <div class="activity-q">나는 지금 나 자신을 어떤 이야기로 설명하고 있는가? 나의 사역과 목회는 어떤 자기 서사 위에 세워져 있는가? 혹시 나도 "나는 원래 이런 사람이야"라는 고정된 서사 속에 있지는 않은가?</div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-label">프락시스 활동지 ②</div>
+    <div class="activity-title">해석학적 성경 읽기와 설교</div>
+    <div class="activity-content">성경은 인간에게 단순한 정보가 아니라 "너의 삶을 다시 읽어보라"고 끊임없이 요구하는 이야기다. 성찬·십자가·세례 같은 상징은 인간 존재를 새롭게 이해하게 만드는 해석학적 사건이다. 목회자가 다양한 삶의 경험을 쌓을수록 성경의 메시지는 더 풍요롭게 들린다. 주석가들의 시선을 통해 자신의 전이해(pré-compréhension)를 교정하는 것도 해석학적 작업이다.</div>
+    <div class="activity-q-label">실천 질문</div>
+    <div class="activity-q">나의 설교는 회중의 삶을 하나님의 더 큰 이야기 안에 위치시키고 있는가? 나는 어떤 전이해를 가지고 성경 본문에 접근하는가? 본문이 나한테 말 걸도록 내가 충분히 열려 있는가?</div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-label">프락시스 활동지 ③</div>
+    <div class="activity-title">왜곡된 해석에서 새로운 해석으로 — 목회 현장 적용</div>
+    <div class="activity-content">인간의 타락은 관계의 왜곡된 해석에서 시작된다(하나님을 억압자로, 형제를 경쟁자로). 신앙은 그 해석을 전환하는 능력이다. 예수께서 베드로를 실패로 규정하지 않고 다시 부르신 것은 '존재의 재해석'이다. 은혜는 존재를 새로운 시선으로 해석하게 만드는 사건이다.</div>
+    <div class="activity-q-label">실천 질문</div>
+    <div class="activity-q">내가 목양하는 성도 중에 스스로를 고정된 서사 속에 가두고 있는 사람이 있는가? 복음의 언어로 그 이야기를 어떻게 새롭게 열어줄 수 있는가? 나 자신은 내 고통을 어떤 해석의 틀로 읽고 있는가?</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════
+     탭 2 : 핵심정리
+════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-1">
+
+  <!-- 핵심명제 -->
+  <div class="summary-sec">
+    <div class="summary-sec-title">✦ 핵심명제 4가지</div>
+
+    <div class="key-prop">
+      <strong>① 철학의 사명</strong><br>
+      철학의 사명은 개념들을 통해 실존을 해명하는 것이다. — 이것이 리쾨르 해석학의 출발점(telos)이다.
+    </div>
+    <div class="key-prop">
+      <strong>② 자기 이해의 불가능성과 우회</strong><br>
+      자기 이해는 타자와 상징과 이야기의 우회를 통해서만 가능하다. 나는 나를 직접 이해할 수 없다.
+      <span class="orig">Herméneutique du soi — "나는 텍스트처럼 해석되어야 할 존재"</span>
+    </div>
+    <div class="key-prop">
+      <strong>③ 죄·신앙의 해석학적 이해</strong><br>
+      죄의 본질은 도덕적 실패만이 아니라, 하나님·타자·세계를 왜곡하여 해석하는 데 있다. 신앙은 세계를 다르게 읽는 능력이다.
+    </div>
+    <div class="key-prop">
+      <strong>④ 구원의 해석학적 전환</strong><br>
+      은혜는 존재를 새로운 시선으로 해석하게 만드는 사건이며, 구원은 지금 여기서 인간 존재를 새롭게 읽게 되는 해석학적 전환이다.
+    </div>
+  </div>
+
+  <!-- 논증 -->
+  <div class="summary-sec">
+    <div class="summary-sec-title">⟳ 핵심 논증</div>
+
+    <div class="arg-block">
+      <div class="arg-title">논증 1 — 자기 이해의 우회로 논증</div>
+      <div class="arg-row">
+        <div class="arg-step">전제</div>
+        <div class="arg-content">인간은 직접적으로 자기 자신을 이해할 수 없다. 데카르트의 코기토처럼 즉각적 확실성은 공허하다 — 내가 생각한다는 사실 외에 나에 대해 아무것도 말해주지 않는다.</div>
+      </div>
+      <div class="arg-row">
+        <div class="arg-step">논증</div>
+        <div class="arg-content">자기 이해는 이야기·상징·텍스트·타자와의 관계라는 우회를 통해서만 가능하다. 상징들은 나에게서 나왔지만 내가 아는 나보다 더 많은 뜻을 품고 있다. 나는 이것들을 해석함으로써 이해 지평을 넓힌다. (해석학적 순환)</div>
+      </div>
+      <div class="arg-row">
+        <div class="arg-step conclusion">결론</div>
+        <div class="arg-content conclusion">주체는 해석을 통해 구성되는 존재다. "나는 생각한다(Cogito)"가 아니라 "나는 나 자신을 해석한다(Herméneutique du soi)."</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">논증 2 — 신학적 해석학 논증</div>
+      <div class="arg-row">
+        <div class="arg-step">전제</div>
+        <div class="arg-content">인간은 세계를 '있는 그대로' 보지 않고 언제나 해석된 방식으로 본다. 모든 관계와 사건은 해석의 틀 안에서 의미를 가진다.</div>
+      </div>
+      <div class="arg-row">
+        <div class="arg-step">논증</div>
+        <div class="arg-content">죄의 본질은 도덕적 실패만이 아니라 하나님·타자·세계에 대한 왜곡된 해석이다. 아담과 하와 — 하나님을 억압자로 해석. 가인 — 아벨을 경쟁자로 해석. 반대로 신앙은 이 해석을 전환하는 능력이다. 예수의 시선이 세리와 죄인을, 십자가를 다시 읽었다.</div>
+      </div>
+      <div class="arg-row">
+        <div class="arg-step conclusion">결론</div>
+        <div class="arg-content conclusion">복음은 단순한 교리 전달이 아니라 인간 존재에 대한 새로운 해석의 가능성이다. 구원 = 지금 여기서의 해석학적 전환. 은혜 = 새로운 시선으로 읽게 되는 사건.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 시험 예상 -->
+  <div class="summary-sec">
+    <div class="summary-sec-title">⚠ 시험 예상 항목</div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <span class="exam-text">idem(동일성)과 ipse(자기성)의 구분을 설명하고, 서사적 정체성 개념과 연결하여 논술하라.</span>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <span class="exam-text">리쾨르의 해석학적 순환 개념을 설명하고, 성경 해석과 설교에 어떻게 적용될 수 있는지 논하라.</span>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <span class="exam-text">데카르트의 코기토에 대한 리쾨르의 비판 논지를 서술하라. "나는 생각한다"에서 "나는 해석한다"로의 전환이 갖는 의미는 무엇인가?</span>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <span class="exam-text">죄를 '왜곡된 해석'으로 보는 리쾨르의 관점을 성서적 사례와 함께 설명하고, 신앙과 구원에 대한 해석학적 이해를 논술하라.</span>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <span class="exam-text">프로이트와 리쾨르의 무의식 이해를 비교하고, 리쾨르가 해석학적 접근을 통해 어떻게 프로이트를 비판·수용했는지 서술하라.</span>
+    </div>
+  </div>
+
+  <!-- 인용 -->
+  <div class="summary-sec">
+    <div class="summary-sec-title">❝ 핵심 인용구</div>
+    <div class="quote-block">
+      <p>"철학의 사명은 개념들을 통해 실존을 해명하는 것이다."</p>
+      <div class="quote-src">— 폴 리쾨르 (강의 슬라이드 직접 인용)</div>
+    </div>
+    <div class="quote-block">
+      <p>"자기 이해는 타자와 상징과 이야기의 우회를 통해서만 가능하다. 나는 나를 직접적으로 이해할 수 없다."</p>
+      <div class="quote-src">— 리쾨르 (강의 녹취 기반 요약)</div>
+    </div>
+    <div class="quote-block">
+      <p>"은혜는 존재를 새로운 시선으로 해석하게 만드는 사건이고, 구원은 지금 여기서 인간 존재를 새롭게 읽게 되는 해석학적 전환이다."</p>
+      <div class="quote-src">— 심상우 교수 (강의 녹취)</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════
+     탭 3 : 비교표
+════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-2">
+
+  <!-- 비교표 1 : 리쾨르 vs 데카르트 -->
+  <div class="compare-wrap">
+    <div class="compare-title">비교 1 — 리쾨르 vs 데카르트 : 자기 이해의 방식</div>
+    <table class="compare-table">
+      <tr>
+        <th>비교 축</th>
+        <th>리쾨르 Paul Ricœur</th>
+        <th>데카르트 René Descartes</th>
+      </tr>
+      <tr>
+        <td>방법론</td>
+        <td>해석학적 우회 — 이야기·상징·타자를 통한 간접적 자기 이해 <span class="orig">(Herméneutique du soi)</span></td>
+        <td>직관적 코기토 — 즉각적이고 확실한 자기 이해 <span class="orig">(Cogito ergo sum)</span></td>
+      </tr>
+      <tr>
+        <td>자아 이해</td>
+        <td>주체는 해석을 통해 구성되는 존재. 관계적·역사적·언어적으로 형성됨</td>
+        <td>사유하는 자아가 모든 인식과 존재의 중심. 자율적·독립적·확실한 존재</td>
+      </tr>
+      <tr>
+        <td>종교의 기초</td>
+        <td>신앙도 해석이 필요하며 상징·내러티브를 통해 이해됨</td>
+        <td>이성적 자아의 확실성. 관계적·언어적 차원 결여</td>
+      </tr>
+      <tr>
+        <td>신앙-이성</td>
+        <td>해석을 통한 점진적·관계적 자기 이해 — 완결되지 않는 과정</td>
+        <td>의심할 수 없는 즉각적 확실성 — 공허하다(리쾨르의 평가)</td>
+      </tr>
+      <tr>
+        <td>기독교 접점</td>
+        <td>성경은 "너의 삶을 다시 읽어라"라는 요청. 구원 = 해석학적 전환</td>
+        <td>신앙의 언어적·공동체적 차원을 설명하기 어려움</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 비교표 2 : 리쾨르 vs 프로이트 -->
+  <div class="compare-wrap">
+    <div class="compare-title">비교 2 — 리쾨르 vs 프로이트 : 무의식과 인간 이해</div>
+    <table class="compare-table">
+      <tr>
+        <th>비교 축</th>
+        <th>리쾨르 Paul Ricœur</th>
+        <th>프로이트 Sigmund Freud</th>
+      </tr>
+      <tr>
+        <td>방법론</td>
+        <td>해석학 — 언어와 해석을 통한 의미 이해</td>
+        <td>정신분석 — 성적 충동과 무의식 메커니즘 분석</td>
+      </tr>
+      <tr>
+        <td>무의식 이해</td>
+        <td>무의식도 언어와 해석을 통해서만 이해될 수 있다. 언어 안에 존재함</td>
+        <td>무의식 = 언어 이전(pre-linguistic)의 비의식적 영역</td>
+      </tr>
+      <tr>
+        <td>인간의 본질</td>
+        <td>인간은 의미 해석 능력을 가진 존재. 해석과 선택을 통해 도덕적 주체로 성장</td>
+        <td>인간은 성적 충동과 무의식적 본능에 의해 조정되는 존재</td>
+      </tr>
+      <tr>
+        <td>종교 이해</td>
+        <td>신앙 = 새로운 해석의 능력. 윤리적 주체성 강조</td>
+        <td>종교를 환상으로 환원. 윤리적 주체성 부재</td>
+      </tr>
+      <tr>
+        <td>기독교 접점</td>
+        <td>인간 변화 가능성. 해석을 통한 서사 전환</td>
+        <td>환원적 설명 — 신앙의 초월적 차원 설명 불가</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 철학자 전체 비교표 -->
+  <div class="compare-wrap">
+    <div class="compare-title">전체 철학자 비교표 — 기독교철학 1학기 (중간고사 이후)</div>
+    <table class="big-table">
+      <tr>
+        <th>철학자</th>
+        <th>방법론</th>
+        <th>종교의 기초</th>
+        <th>신앙-이성 관계</th>
+        <th>기독교 접점</th>
+      </tr>
+      <tr>
+        <td>비트겐슈타인</td>
+        <td>분석철학·언어게임 <span class="orig">(Sprachspiel)</span></td>
+        <td>언어 공동체의 실천</td>
+        <td>신앙은 언어게임 내부 — 이성으로 환원 불가</td>
+        <td>예배·기도 언어의 고유성. 신앙의 자율성</td>
+      </tr>
+      <tr>
+        <td>윌리엄 제임스</td>
+        <td>실용주의·심리학</td>
+        <td>종교 경험의 효과와 실용적 가치</td>
+        <td>신앙의 결과의 유용성으로 판단</td>
+        <td>회심·신비체험의 실재성. 종교 경험의 다양성</td>
+      </tr>
+      <tr>
+        <td>존 헨리 뉴먼</td>
+        <td>가톨릭 신학·양심론</td>
+        <td>동의의 문법 <span class="orig">(Grammar of Assent)</span>, 양심</td>
+        <td>신앙과 이성의 상보적 관계. 교리의 발전</td>
+        <td>신앙의 합리적 정당성. 교리 발전론</td>
+      </tr>
+      <tr>
+        <td>레비나스</td>
+        <td>유대-현상학·타자철학</td>
+        <td>타자의 얼굴 <span class="orig">(le visage)</span>, 메시아적 책임</td>
+        <td>타자성에 대한 무한한 윤리적 책임</td>
+        <td>계시의 타자성. 이웃 사랑의 철학적 근거</td>
+      </tr>
+      <tr>
+        <td>슐라이어마허</td>
+        <td>낭만주의·감정론</td>
+        <td>절대의존의 감정 <span class="orig">(schlechthinnige Abhängigkeit)</span></td>
+        <td>감정이 신앙의 기초 — 이성 이전</td>
+        <td>경건주의·부흥운동 신학의 토대</td>
+      </tr>
+      <tr>
+        <td>칸트</td>
+        <td>비판철학·도덕론</td>
+        <td>도덕적 요청 — 이성의 한계 내 종교</td>
+        <td>이성이 신앙 영역을 제한함</td>
+        <td>도덕 신학·윤리 설교의 근거</td>
+      </tr>
+      <tr>
+        <td><strong>리쾨르</strong></td>
+        <td><strong>해석학·서사론</strong> <span class="orig">(Herméneutique)</span></td>
+        <td><strong>서사적 정체성, 자기 해석학</strong></td>
+        <td><strong>신앙도 해석이 필요. 해석학적 순환 속에서 신앙 이해</strong></td>
+        <td><strong>죄 = 왜곡된 해석. 구원 = 해석학적 전환. 성경 = 삶을 다시 읽게 하는 이야기</strong></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- ── 하단 핵심명제 (인쇄용) ── -->
+<div style="background:#0e0c09; border-top:1px solid var(--border); padding:14px 32px; display:flex; align-items:center; justify-content:space-between;">
+  <div style="font-size:7pt; color:var(--text-dim);">기독교철학 61083 · 심상우 교수 · 12주차 2026.05.19</div>
+  <div style="font-size:7pt; color:var(--amber-dim); font-family:'EB Garamond',serif; font-style:italic;">phil-12-ricoeur.html</div>
+</div>
+
+<script>
+  function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+    document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  }
+</script>
+</body>
+</html>

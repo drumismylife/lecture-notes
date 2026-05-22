@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>칸트 — 기독교철학 11주차</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12100e;--card:#1c1814;--card2:#252018;--card3:#2a2315;
+  --border:#3a3225;--amber:#c49a3c;--amber-dim:#8a6a22;--amber-pale:#2a2010;
+  --gold-text:#e8c97a;--sage:#8aab8a;--sage-dim:#5a8a6a;--sage-pale:#1a2a1e;
+  --terra:#c96b5a;--terra-pale:#2d1a16;
+  --text:#ede8df;--text2:#9e9688;--text3:#6b6457;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;font-size:9pt;line-height:1.7;color:var(--text);background:var(--bg);}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#1a1208,#251c0a,#1c1408);border-bottom:1px solid var(--border);padding:10mm 12mm 8mm;position:relative;overflow:hidden;}
+.header::before{content:'Immanuel Kant';position:absolute;right:-5mm;top:4mm;font-family:'EB Garamond',serif;font-size:52pt;font-style:italic;color:rgba(196,154,60,.06);white-space:nowrap;pointer-events:none;}
+.header-tag{display:inline-flex;align-items:center;gap:2mm;background:var(--amber);color:#12100e;font-size:6.5pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 10px;border-radius:2px;margin-bottom:3mm;}
+.header-week{font-size:7.5pt;color:var(--amber);font-weight:600;letter-spacing:.1em;margin-bottom:1.5mm;}
+.header-title{font-family:'Noto Serif KR',serif;font-size:20pt;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1.5mm;}
+.header-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:var(--text2);margin-bottom:4mm;}
+.header-pills{display:flex;gap:2mm;flex-wrap:wrap;}
+.pill{background:rgba(196,154,60,.12);border:1px solid rgba(196,154,60,.3);color:var(--amber);font-size:7pt;padding:2px 9px;border-radius:20px;font-weight:500;}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--border);background:#16130f;position:sticky;top:0;z-index:100;}
+.tab{flex:1;padding:3.5mm 4mm;font-size:8pt;font-weight:600;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-align:center;letter-spacing:.04em;}
+.tab:hover{color:var(--text2);background:rgba(196,154,60,.05);}
+.tab.active{color:var(--amber);border-bottom-color:var(--amber);background:rgba(196,154,60,.07);}
+.tab-content{display:none;padding:8mm 10mm 12mm;}
+.tab-content.active{display:block;}
+
+/* PART HEAD */
+.part-head{display:flex;align-items:center;gap:3mm;margin:8mm 0 5mm;}
+.part-badge{background:var(--amber);color:#12100e;font-size:7pt;font-weight:700;padding:2px 9px;border-radius:2px;letter-spacing:.06em;white-space:nowrap;}
+.part-title{font-family:'Noto Serif KR',serif;font-size:11.5pt;font-weight:700;color:var(--gold-text);}
+.part-line{flex:1;height:1px;background:linear-gradient(to right,var(--amber-dim),transparent);}
+
+/* SLIDE BADGE */
+.slide-only{display:inline-block;background:#1a2535;border:1px solid #2a4060;color:#7ab0d8;font-size:6pt;font-weight:700;padding:1px 6px;border-radius:3px;letter-spacing:.07em;margin-right:2mm;vertical-align:middle;}
+
+/* THINKER CARD */
+.thinker-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5mm 6mm;margin-bottom:5mm;position:relative;overflow:hidden;}
+.thinker-card::before{content:'Kritik der reinen Vernunft';position:absolute;right:-3mm;bottom:2mm;font-family:'EB Garamond',serif;font-style:italic;font-size:20pt;color:rgba(196,154,60,.05);white-space:nowrap;pointer-events:none;}
+.thinker-name{font-family:'Noto Serif KR',serif;font-size:14pt;font-weight:700;color:var(--amber);margin-bottom:.5mm;}
+.thinker-dates{font-size:7pt;color:var(--text3);font-family:'EB Garamond',serif;margin-bottom:3mm;}
+.thinker-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:3mm;}
+.thinker-item label{display:block;font-size:6.5pt;font-weight:700;letter-spacing:.1em;color:var(--amber-dim);text-transform:uppercase;margin-bottom:1mm;}
+.thinker-item p{font-size:8pt;color:var(--text2);line-height:1.6;}
+.thinker-claim{background:var(--amber-pale);border-left:3px solid var(--amber);border-radius:0 4px 4px 0;padding:3mm 4mm;margin-bottom:2mm;}
+.thinker-claim label{display:block;font-size:6.5pt;font-weight:700;letter-spacing:.1em;color:var(--amber);text-transform:uppercase;margin-bottom:1mm;}
+.thinker-claim p{font-size:8.5pt;color:var(--text);line-height:1.65;}
+.thinker-xian{background:var(--sage-pale);border-left:3px solid var(--sage-dim);border-radius:0 4px 4px 0;padding:3mm 4mm;}
+.thinker-xian label{display:block;font-size:6.5pt;font-weight:700;letter-spacing:.1em;color:var(--sage);text-transform:uppercase;margin-bottom:1mm;}
+.thinker-xian p{font-size:8.5pt;color:var(--text);line-height:1.65;}
+
+/* PROF BLOCK */
+.prof{background:var(--card2);border-left:3px solid var(--amber-dim);border-radius:0 5px 5px 0;padding:3mm 4.5mm;margin-bottom:3mm;font-size:8pt;line-height:1.65;color:var(--text2);font-style:italic;}
+.prof::before{content:'교수 설명 ';font-style:normal;font-weight:700;font-size:6.5pt;letter-spacing:.1em;color:var(--amber-dim);text-transform:uppercase;}
+
+/* CONCEPT CARD */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm;}
+.concept-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:4mm 4.5mm;}
+.concept-card.full{grid-column:1/-1;}
+.concept-term{font-size:9.5pt;font-weight:700;color:var(--amber);margin-bottom:.5mm;}
+.concept-orig{font-family:var(--mono);font-size:7.5pt;color:var(--gold-text);margin-bottom:2mm;opacity:.85;}
+.concept-def{font-size:8pt;color:var(--text2);line-height:1.65;margin-bottom:2mm;}
+.concept-note{background:var(--amber-pale);border-radius:4px;padding:2.5mm 3.5mm;font-size:7.8pt;color:var(--text);line-height:1.65;}
+.concept-note::before{content:'풀이 · ';font-weight:700;color:var(--amber);font-size:7pt;}
+
+/* ARGUMENT BLOCK */
+.arg{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:4mm;}
+.arg-title{background:var(--card3);padding:2.5mm 4.5mm;font-size:8pt;font-weight:700;color:var(--amber);letter-spacing:.04em;}
+.arg-row{display:grid;grid-template-columns:72px 1fr;border-top:1px solid var(--border);}
+.arg-label{background:#1e1c18;display:flex;align-items:center;justify-content:center;font-size:7pt;font-weight:700;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;padding:3mm 2mm;border-right:1px solid var(--border);}
+.arg-label.conc{color:var(--amber);}
+.arg-body{padding:3.5mm 4.5mm;font-size:8.5pt;line-height:1.65;color:var(--text);}
+.arg-row.conc-row .arg-body{border-left:3px solid var(--amber);}
+
+/* PROP */
+.prop{background:var(--amber-pale);border-left:3px solid var(--amber);border-radius:0 5px 5px 0;padding:3.5mm 5mm;margin-bottom:3mm;font-size:9pt;color:var(--gold-text);line-height:1.65;font-weight:500;}
+.prop::before{content:'핵심 명제 ';display:block;font-size:6.5pt;font-weight:700;letter-spacing:.1em;color:var(--amber-dim);text-transform:uppercase;margin-bottom:1.5mm;}
+
+/* QUOTE */
+.quote{border-left:2px solid var(--text3);padding:3mm 4.5mm;margin-bottom:3mm;color:var(--text2);font-style:italic;font-size:8.5pt;line-height:1.7;}
+.quote .src{display:block;font-style:normal;font-size:7pt;color:var(--text3);margin-top:1.5mm;font-family:var(--mono);}
+
+/* EXAM */
+.exam-item{background:var(--terra-pale);border:1px solid rgba(201,107,90,.35);border-radius:5px;padding:3mm 4mm;margin-bottom:2mm;display:flex;align-items:flex-start;gap:2.5mm;font-size:8.5pt;color:var(--text);}
+.exam-tag{background:var(--terra);color:#fff;font-size:6pt;font-weight:700;letter-spacing:.08em;padding:2px 6px;border-radius:3px;white-space:nowrap;margin-top:.5mm;flex-shrink:0;}
+
+/* ACTIVITY */
+.act-card{background:var(--sage-pale);border:1px solid rgba(90,138,106,.4);border-radius:6px;padding:4mm 5mm;margin-bottom:3mm;}
+.act-title{font-size:8.5pt;font-weight:700;color:var(--sage);margin-bottom:2mm;}
+.act-tag{display:inline-block;background:var(--sage-dim);color:#fff;font-size:6pt;font-weight:700;letter-spacing:.08em;padding:1px 7px;border-radius:3px;margin-right:2mm;margin-bottom:2mm;}
+.act-content{font-size:8pt;color:var(--text2);line-height:1.65;margin-bottom:2mm;}
+.act-q{background:rgba(138,171,138,.1);border-radius:4px;padding:2.5mm 3.5mm;font-size:8.5pt;color:var(--text);line-height:1.7;}
+.act-q::before{content:'✦ 실천 질문 · ';font-weight:700;color:var(--sage);font-size:7pt;}
+
+/* COMPARE TABLE */
+.compare-wrap{overflow-x:auto;margin-bottom:5mm;}
+.compare-table{width:100%;border-collapse:collapse;font-size:8pt;}
+.compare-table th{background:#201c14;color:var(--amber);font-weight:700;padding:3mm 3.5mm;text-align:left;border-bottom:1px solid var(--border);font-size:7.5pt;letter-spacing:.05em;}
+.compare-table td{padding:2.5mm 3.5mm;border-bottom:1px solid rgba(58,50,37,.5);vertical-align:top;color:var(--text2);line-height:1.6;}
+.compare-table tr:hover td{background:rgba(196,154,60,.03);}
+.philosopher{color:var(--amber);font-weight:700;white-space:nowrap;}
+.axis-label{display:inline-block;background:var(--card3);color:var(--text3);font-size:6pt;font-weight:700;padding:1px 6px;border-radius:3px;letter-spacing:.07em;margin-bottom:1mm;}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px dashed var(--border);margin:5mm 0;}
+
+/* 3-COLS BOX */
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin-bottom:4mm;}
+.mini-box{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;text-align:center;}
+.mini-box .mb-title{font-size:8.5pt;font-weight:700;margin-bottom:1mm;}
+.mini-box .mb-orig{font-family:var(--mono);font-size:7pt;color:var(--gold-text);margin-bottom:1.5mm;opacity:.85;}
+.mini-box .mb-body{font-size:7.5pt;color:var(--text3);line-height:1.55;}
+
+/* SUMMARY BOX */
+.summary-box{background:linear-gradient(135deg,#1e1a10,#201c12);border:1px solid var(--border);border-radius:8px;padding:5mm 6mm;margin-top:7mm;}
+.summary-box h3{font-family:'Noto Serif KR',serif;font-size:10pt;font-weight:700;color:var(--amber);margin-bottom:3mm;padding-bottom:2mm;border-bottom:1px solid var(--border);}
+.summary-item{display:flex;align-items:flex-start;gap:2.5mm;margin-bottom:2mm;font-size:8.5pt;color:var(--text);}
+.summary-num{background:var(--amber);color:#12100e;font-size:7pt;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.5mm;}
+
+/* PAGE FOOTER */
+.page-footer{background:#0e0c0a;border-top:1px solid var(--border);padding:3.5mm 10mm;font-size:6.5pt;color:var(--text3);display:flex;justify-content:space-between;align-items:center;}
+
+/* PRINT */
+@media print{
+  .tabs,.tab{display:none;}
+  .tab-content{display:block!important;padding:5mm 0;}
+  body{background:#fff;color:#111;}
+  .header{background:#fff;border-bottom:1px solid #ccc;padding:5mm 0;}
+  .header::before{display:none;}
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="header">
+  <div class="header-tag">📖 기독교철학 강의노트</div>
+  <div class="header-week">11주차 · 2026-05-12 · 심상우 교수</div>
+  <div class="header-title">임마누엘 칸트</div>
+  <div class="header-sub">Immanuel Kant — 순수한 이성 종교와 실천 · 도덕신학</div>
+  <div class="header-pills">
+    <span class="pill">비판철학</span>
+    <span class="pill">코페르니쿠스적 전환</span>
+    <span class="pill">정언명령</span>
+    <span class="pill">실천이성의 요청</span>
+    <span class="pill">이성신앙</span>
+    <span class="pill">미학 · 숭고</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('note',this)">📝 강의노트</div>
+  <div class="tab" onclick="switchTab('summary',this)">⭐ 핵심정리</div>
+  <div class="tab" onclick="switchTab('compare',this)">📊 비교표</div>
+</div>
+
+
+<!-- ════════ TAB 1 강의노트 ════════ -->
+<div class="tab-content active" id="tab-note">
+
+  <!-- PART 1 생애 -->
+  <div class="part-head">
+    <span class="part-badge">PART 1</span>
+    <span class="part-title">생애 · 배경</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="thinker-card">
+    <div class="thinker-name">임마누엘 칸트</div>
+    <div class="thinker-dates">Immanuel Kant · 1724–1804 · 쾨니히스베르크 (오늘날 러시아 칼리닌그라드)</div>
+    <div class="thinker-grid">
+      <div class="thinker-item">
+        <label>가정·배경</label>
+        <p>마구(馬具) 장인 아버지, 독실한 경건주의 기독교인 어머니. 11남매 중 넷째. 유아세례 때 '엠마누엘'이었으나, 히브리어 공부 후 스스로 '임마누엘'로 개명.</p>
+      </div>
+      <div class="thinker-item">
+        <label>주요 저작</label>
+        <p>『순수이성비판』(1781)<br>『실천이성비판』(1788)<br>『판단력비판』(1790)<br>『이성의 한계 안의 종교』(1793)</p>
+      </div>
+      <div class="thinker-item">
+        <label>생애 특기사항</label>
+        <p>13세 모친 별세 / 16세 쾨니히스베르크 대학 입학 / 1747–54년 가정교사 생활 / 1756–70년 사강사(학교 급여 없이 수강생에게 직접 강의료 수납) / 왕립도서관 사서 겸직 / 1770년 46세에 정교수 임용 / 평생 독신, 150km 밖 여행 없음</p>
+      </div>
+      <div class="thinker-item">
+        <label>핵심 개념</label>
+        <p>코페르니쿠스적 전환 / 선험적 형식 / 정언명령 / 실천이성의 요청 / 이성신앙 / 무관심한 만족 / 숭고</p>
+      </div>
+    </div>
+    <div class="thinker-claim">
+      <label>핵심 주장</label>
+      <p>인식이 대상을 따르는 것이 아니라, 대상이 우리의 선험적 인식 구조를 따른다. 도덕은 결과가 아닌 의무에 근거하며, 신의 존재는 이론이성이 아닌 실천이성의 요청으로 정당화된다.</p>
+    </div>
+    <div class="thinker-xian">
+      <label>기독교 접점</label>
+      <p>경건주의 가정 출신 / 이성의 한계를 인정함으로써 신앙의 자리를 마련 / 신을 도덕적 삶의 필연적 요청으로 이해하는 도덕신학 / 근본악 개념이 원죄론과 구조적으로 유사</p>
+    </div>
+  </div>
+
+  <div class="prof">"쾨니히스베르크에서 150킬로미터 이상 떠난 적이 없다. 그런데도 위대한 철학자가 되었다 — 그 시대 철학자들이 여행을 통해 학문을 발전시킨 것과 대조적으로, 칸트는 내면의 깊이로 철학을 전개했다."</div>
+  <div class="prof">"루소의 『에밀』을 읽다가 유일하게 산책 규칙을 깼다. 루소에게서 자유로운 존재로서의 인간을 발견한 것이다."</div>
+
+  <hr class="divider">
+
+  <!-- PART 2 인식론 -->
+  <div class="part-head">
+    <span class="part-badge">PART 2</span>
+    <span class="part-title">인식론 — 코페르니쿠스적 전환</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="prof">"칸트 이전 철학은 외부 세계가 우리 인식에 영향을 준다고 봤다. 칸트는 뒤집었다 — 우리의 인식이 외부 세계를 구성한다. 색안경을 끼면 세상이 그 색으로 보이듯이."</div>
+  <div class="prof">"경험주의(흄)는 모든 지식이 감각 경험에서 온다고 하고, 합리주의(데카르트)는 이성만으로 진리에 도달할 수 있다고 한다. 칸트는 이 둘을 선험적 구조 개념으로 종합한다."</div>
+
+  <div class="concept-grid">
+    <div class="concept-card full">
+      <div class="concept-term">코페르니쿠스적 전환</div>
+      <div class="concept-orig">kopernikanische Wende</div>
+      <div class="concept-def">인식의 방향을 역전시킨 것. "대상이 우리 인식을 규정하는 게 아니라, 우리의 인식 구조가 대상을 구성한다"는 칸트의 근본 발상 전환.</div>
+      <div class="concept-note">코페르니쿠스가 "지구가 태양 주위를 돈다"고 뒤집었듯, 칸트는 인식의 방향을 역전했다. 우리가 세상을 보는 방식은 세상 자체뿐 아니라 우리가 가진 인식의 틀에 달려 있다는 것.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">선험적 형식</div>
+      <div class="concept-orig">apriorische Formen · a priori</div>
+      <div class="concept-def">경험하기 전부터 우리 안에 이미 갖춰진 인식의 틀. 시간(Zeit), 공간(Raum), 인과성(Kausalität).</div>
+      <div class="concept-note">친구와 대화할 때 우리는 그 대화가 시간 속에서 흐르고 공간 안에서 이뤄진다고 자동으로 이해한다. 이 틀이 없으면 어떤 경험도 성립하지 않는다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">현상 vs. 물자체</div>
+      <div class="concept-orig">Phänomen vs. Ding an sich</div>
+      <div class="concept-def">우리가 인식하는 것은 어디까지나 현상(우리 인식 틀을 통해 나타난 것)뿐이며, 사물 자체(물자체)는 인식할 수 없다.</div>
+      <div class="concept-note">신, 영혼, 세계 전체는 '물자체'의 영역 — 이론이성으로는 접근할 수 없다. 이것이 바로 신앙이 설 자리가 열리는 이유다.</div>
+    </div>
+  </div>
+
+  <!-- 경험주의 vs 합리주의 vs 칸트 슬라이드 보강 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:3mm;letter-spacing:.05em;"><span class="slide-only">슬라이드</span> 경험주의 · 합리주의 · 칸트의 종합</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;">
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1.5mm;">경험주의 (흄)</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">모든 지식은 감각 경험에서 온다. 시간·공간도 경험을 통해 인식한다고 봄.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1.5mm;">합리주의 (데카르트)</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">순수한 이성으로 진리에 도달할 수 있다. 수학처럼 경험 없이도 안다고 봄.</div>
+      </div>
+      <div style="background:var(--amber-pale);border:1px solid var(--amber-dim);border-radius:5px;padding:3mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--amber);margin-bottom:1.5mm;">칸트의 종합</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.6;">경험을 통해 지식을 얻지만, 그 경험이 가능하려면 이미 우리 안에 선험적 틀(시간·공간·인과성)이 내재해 있어야 한다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 판단의 두 유형 슬라이드 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:2mm;"><span class="slide-only">슬라이드</span> 판단의 두 가지 유형</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;">
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">① 규정적 판단</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">이미 주어진 개념이나 법칙에 개별 사례를 끼워 맞추는 판단. 예: "이것은 사과다."</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">② 반성적 판단</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">기존 개념으로 포섭할 수 없어 새로운 개념을 만들어 내는 판단. 상상력이 핵심. 미적 판단이 여기에 해당.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PART 3 도덕론 -->
+  <div class="part-head">
+    <span class="part-badge">PART 3</span>
+    <span class="part-title">선험철학 — 도덕이론</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="prof">"거짓말 논쟁은 칸트 의무론의 극단을 보여주는 사례다. 독립군을 숨기고 있는데 일본 군사가 물어봐도 거짓말을 해서는 안 된다고 했다 — 동의 여부를 떠나, 그의 논리가 얼마나 철저한 의무론인지 보여주는 예시."</div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">선의지</div>
+      <div class="concept-orig">guter Wille</div>
+      <div class="concept-def">도덕적 가치의 유일한 근거. 어떤 행동이 도덕적인 이유는 좋은 결과 때문이 아니라, 의무에서 비롯된 의지 때문이다.</div>
+      <div class="concept-note">"이 세계 안에서, 아니 세계 밖에서도 선의지 말고는 무조건적으로 선한 것은 없다" (『도덕형이상학 정초』). 결과가 좋아도 의무에서 한 것이 아니면 도덕적 가치가 없다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">자율성 vs. 타율성</div>
+      <div class="concept-orig">Autonomie vs. Heteronomie</div>
+      <div class="concept-def">자율성: 오직 이성에 따라 스스로 도덕 법칙을 세우고 따르는 능력. 타율성: 욕망·습관·보상·처벌 같은 외부 동기에 의해 행동하는 것.</div>
+      <div class="concept-note">칸트의 도덕적 행위는 반드시 자율적이어야 한다. 신의 명령이 두려워서, 또는 천국에 가고 싶어서 착하게 사는 것은 타율성이므로 도덕적 가치가 없다.</div>
+    </div>
+    <div class="concept-card full">
+      <div class="concept-term">정언명령</div>
+      <div class="concept-orig">kategorischer Imperativ</div>
+      <div class="concept-def">조건 없이 무조건 따라야 할 도덕 명령. 상황·결과에 관계없이 항상 유효하다. 두 가지 핵심 정식:</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:2mm;">
+        <div class="concept-note"><strong style="color:var(--amber);">① 보편화의 원칙</strong><br>"네 행위의 준칙이 언제나 보편적 법칙이 될 수 있도록 행위하라."<br><span style="font-size:7pt;color:var(--text3);">→ 모든 사람이 따라도 모순이 없는가?</span></div>
+        <div class="concept-note"><strong style="color:var(--amber);">② 인간성의 원칙</strong><br>"인간을 수단으로만 대하지 말고, 언제나 동시에 목적으로 대하라."<br><span style="font-size:7pt;color:var(--text3);">→ 상대방의 존엄성을 존중하는가?</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 슬라이드 보강: 이성적 존재 / 자연적 존재 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:2mm;"><span class="slide-only">슬라이드</span> 인간의 이중 구조: 이성적 존재 / 자연적 존재</div>
+    <div style="font-size:8pt;color:var(--text2);line-height:1.7;">
+      칸트에 따르면 인간은 두 차원에서 동시에 존재한다. <strong style="color:var(--text);">이성적 존재로서의 인간</strong>은 스스로 도덕 법칙을 세우고 따르는 자율적 인격체다. 반면 <strong style="color:var(--text);">자연적 존재로서의 인간</strong>은 인과법칙에 지배되는 필연성의 영역에 속한다. 이 두 영역을 연결하는 것이 바로 <strong style="color:var(--amber);">의지(Wille)</strong>다 — 선험적인 도덕 명령을 경험적 행위로 실천하게 해주는 통로.
+    </div>
+  </div>
+
+  <div class="arg">
+    <div class="arg-title">논증 — 정언명령의 보편화 테스트 (거짓말 사례)</div>
+    <div class="arg-row">
+      <div class="arg-label">전제</div>
+      <div class="arg-body">도덕적으로 옳은 행위는 결과가 아니라 의무에 근거해야 한다. 어떤 행위의 준칙이 보편화될 때 모순이 생기면 그 행위는 금지된다.</div>
+    </div>
+    <div class="arg-row">
+      <div class="arg-label">논증</div>
+      <div class="arg-body">"모두가 거짓말해도 된다"는 준칙을 보편화하면 → 진실과 약속이라는 개념 자체가 무너짐 → 자기모순. 따라서 거짓말은 어떤 상황에서도 정언명령을 위반한다. 살인자가 숨은 사람을 물어봐도 칸트는 거짓말하면 안 된다고 주장했다.</div>
+    </div>
+    <div class="arg-row conc-row">
+      <div class="arg-label conc">결론</div>
+      <div class="arg-body">행위의 도덕성은 결과가 아닌 의무 여부에 달려 있다. 도덕 법칙은 이성 안에 선험적으로 내재하며, 보편화 가능한 준칙만이 도덕적으로 허용된다.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PART 4 종교철학 -->
+  <div class="part-head">
+    <span class="part-badge">PART 4</span>
+    <span class="part-title">종교철학 — 이성과 계시</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="prof">"칸트는 신을 제거한 것이 아니다. 이성의 범주로는 신에 접근할 수 없다는 한계를 인정한 뒤, 전혀 새로운 방식으로 신의 개념을 세워 놓는다 — 이론에서 실천으로의 이동."</div>
+  <div class="prof">"'나는 신앙의 자리를 마련하기 위해 지식을 포기한다' — 이성이 모든 것을 다 알 수 있다는 생각을 내려놓아야 오히려 신앙이 설 자리가 생긴다는 뜻이다."</div>
+  <div class="prof">"선한 사람이 고통받고 부정한 사람이 번영하는 현실 — 이 불일치를 해소하지 않으면 도덕 자체가 붕괴의 위협에 놓인다. 바로 이 지점에서 신의 요청이 등장한다: '나는 정의로워야 한다. 그러나 누가 나에게 나의 권리를 보장하는가?'"</div>
+  <div class="prof">"칸트에게 종교는 도덕의 근거가 아니라 그 결과다. 종교가 도덕 앞에 오면, 인간은 신의 명령·보상·처벌에 의해 행동하게 되어 도덕이 아닌 욕구 행위로 전락한다."</div>
+
+  <div class="quote">
+    나는 신앙의 자리를 마련하기 위해 지식을 포기해야 했다.
+    <span class="src">— 칸트, 『순수이성비판』 제2판 서문 (Bxxx) · 독: Ich mußte das Wissen aufheben, um zum Glauben Platz zu bekommen.</span>
+  </div>
+
+  <div class="quote">
+    신이 없다면, 모든 우리의 의무는 사라지게 될 것이다. 왜냐하면 안녕과 선행이 조화되지 않는 하나의 부조리가 있게 될 터인데, 그것은 또 다른 부조리를 용서하게 될 것이다. 나는 다른 이들에게 정의로워야 한다. 그러나 누가 나에게 나의 권리를 보장하는가?
+    <span class="src">— 칸트, 『판단력비판』 (1790)</span>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card full">
+      <div class="concept-term">이성의 한계 내의 종교</div>
+      <div class="concept-orig">Religion innerhalb der Grenzen der bloßen Vernunft (1793)</div>
+      <div class="concept-def">초자연적 계시나 의례가 아니라 순수 이성과 도덕성에 근거한 종교 이해. 칸트는 전통적 신 존재 증명(존재론적·우주론적·목적론적) 모두 결정적 인식을 제공하지 못한다고 비판한다.</div>
+      <div class="concept-note">칸트는 신을 부정한 것이 아니라, 신을 '아는' 방식을 이론(증명)에서 실천(요청)으로 이동시킨 것이다. "칸트는 종교를 도덕으로 환원했다"는 평가가 나오는 이유가 여기 있다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">최고선 (최상선)</div>
+      <div class="concept-orig">das höchste Gut</div>
+      <div class="concept-def">덕(Tugend)과 행복(Glückseligkeit)이 궁극적으로 일치하는 상태. 인간 이성이 필연적으로 요청하는 궁극적 이상.</div>
+      <div class="concept-note">현실에서 덕과 행복은 늘 일치하지 않는다. 이 불일치가 해소되지 않으면 "왜 굳이 선하게 살아야 하나?"라는 물음에 답할 수 없게 된다. 칸트는 최고선이 '경험에서 관찰'되는 게 아니라 '실천이성의 요청으로 연역'된다고 본다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">실천이성의 요청</div>
+      <div class="concept-orig">Postulate der praktischen Vernunft</div>
+      <div class="concept-def">도덕적 삶이 궁극적으로 의미 있으려면 반드시 전제되어야 하는 세 가지: 자유(Freiheit) · 영혼불멸(Unsterblichkeit) · 신의 존재(Existenz Gottes)</div>
+      <div class="concept-note">이 셋은 증명되는 게 아니라, 이성이 도덕적 삶의 정당성을 유지하기 위해 스스로 요청하는 조건이다. 신앙(Glaube)이지 지식(Wissen)이 아니다. "나는 신이 존재한다는 것을 알지는 못하지만, 믿지 않을 수도 없다."</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">이성신앙</div>
+      <div class="concept-orig">Vernunftglaube</div>
+      <div class="concept-def">맹목적 믿음이 아니라, 이성이 스스로의 한계를 인식하면서도 도덕적 삶을 유지하기 위해 선택하는 합리적 신앙.</div>
+      <div class="concept-note">칸트는 종교를 "우리의 모든 의무를 신의 명령으로 인식하는 것"이라고 정의한다. 신앙이 도덕의 외부 근거가 아니라, 도덕의 내적 완성을 향한 지평이 되어야 한다고 본 것이다.</div>
+    </div>
+  </div>
+
+  <!-- 동심원 도해 슬라이드 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:2mm;"><span class="slide-only">슬라이드</span> 역사적 종교 vs. 이성종교 — 동심원 비유</div>
+    <div style="display:flex;align-items:center;gap:5mm;">
+      <div style="flex-shrink:0;width:60px;height:60px;border-radius:50%;border:2px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;position:relative;">
+        <div style="width:30px;height:30px;border-radius:50%;background:var(--amber-pale);border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:6pt;color:var(--amber);font-weight:700;">이성<br>종교</span>
+        </div>
+      </div>
+      <div style="font-size:8pt;color:var(--text2);line-height:1.7;">
+        <strong style="color:var(--text);">바깥 원 (넓음)</strong> = 교리·전통·의례를 포함하는 역사적 종교<br>
+        <strong style="color:var(--amber);">안쪽 원 (좁음)</strong> = 순수한 도덕적 이성에 근거한 이성종교<br>
+        <span style="color:var(--text3);font-size:7.5pt;">역사적 종교가 참된 의미를 가지려면 반드시 그 핵심에 이성종교, 즉 도덕적 요구를 담고 있어야 한다. 칸트는 종교를 폐기하려는 게 아니라, 도덕적 이성의 토대 위에서 재구성하려 한 것이다.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arg">
+    <div class="arg-title">논증 — 실천이성의 요청으로서의 신</div>
+    <div class="arg-row">
+      <div class="arg-label">전제</div>
+      <div class="arg-body">도덕 법칙은 최고선(덕+행복의 궁극적 일치)을 요구한다. 그런데 현실에서 선한 사람이 고통받고 부정한 사람이 번영하는 경우가 빈번하다.</div>
+    </div>
+    <div class="arg-row">
+      <div class="arg-label">논증</div>
+      <div class="arg-body">이 불일치가 해소되지 않으면 도덕 자체가 무너진다. 최고선이 가능하려면 ① 도덕 행위를 스스로 선택할 자유, ② 도덕적 완성에 이르기 위한 무한한 시간(영혼불멸), ③ 덕과 행복의 궁극적 일치를 보장하는 질서의 보증자(신)가 반드시 요청된다.</div>
+    </div>
+    <div class="arg-row conc-row">
+      <div class="arg-label conc">결론</div>
+      <div class="arg-body">신의 존재는 이론이성으로 증명할 수 없지만, 도덕적 실천이성의 요청(Postulat)으로서 반드시 상정되어야 한다. 이것이 칸트의 도덕신학(moralische Theologie)이다.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PART 5 미학 -->
+  <div class="part-head">
+    <span class="part-badge">PART 5</span>
+    <span class="part-title">미학 — 판단력 비판 (Kritik der Urteilskraft)</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="prof">"칸트 미학에서 핵심은 두 세계를 연결하는 것이다. 순수이성비판은 사실의 세계(자연), 실천이성비판은 도덕의 세계를 다룬다. 이 둘 사이에는 큰 격차가 있는데, 판단력비판이 그 격차를 예술·미·숭고를 통해 이어준다."</div>
+
+  <!-- 쾌의 3분류 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:3mm;letter-spacing:.05em;"><span class="slide-only">슬라이드</span> 만족의 세 가지 종류</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;">
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;text-align:center;">
+        <div style="font-size:8.5pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">① 쾌락</div>
+        <div style="font-size:7pt;color:var(--gold-text);font-family:var(--mono);margin-bottom:1.5mm;">Angenehmes</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.55;">감각의 자극에서 오는 만족. 대상이 실제로 있어야만 한다. 개인마다 달라서 보편성이 없다.</div>
+      </div>
+      <div style="background:#1f1f10;border:1px solid var(--amber-dim);border-radius:5px;padding:3mm;text-align:center;">
+        <div style="font-size:8.5pt;font-weight:700;color:var(--amber);margin-bottom:1mm;">② 만족 (미)</div>
+        <div style="font-size:7pt;color:var(--gold-text);font-family:var(--mono);margin-bottom:1.5mm;">Schönes</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.55;">무관심한 만족. 대상의 현존과 무관하게, 오직 형식적 아름다움에서 오는 기쁨. 주관적이되 보편성을 요구한다.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm;text-align:center;">
+        <div style="font-size:8.5pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">③ 존중 (선)</div>
+        <div style="font-size:7pt;color:var(--gold-text);font-family:var(--mono);margin-bottom:1.5mm;">Gutes</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.55;">도덕적 의무에서 오는 만족. 이성의 명령에 따르는 존중의 감정.</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5mm;font-size:7.8pt;color:var(--text2);line-height:1.65;background:var(--amber-pale);border-radius:4px;padding:2.5mm 3.5mm;">
+      쾌락은 "나에게 즐거워서"이고 도덕적 존중은 "의무이기 때문에"다. 미(아름다움)만이 이 둘에 매이지 않는 <strong style="color:var(--amber);">자유로운 만족</strong>이다. "취미란 대상에 대해 무관심하게 만족하거나 불만족하는 능력이다. 이때 만족의 대상이 바로 아름답다고 일컬어진다."
+    </div>
+  </div>
+
+  <!-- 미적 판단의 4가지 조건 슬라이드 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:3mm;"><span class="slide-only">슬라이드</span> 미적 판단의 4가지 조건</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;">
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--amber);margin-bottom:1mm;">① 무관심한 관심</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.6;">실용적 목적이나 도덕적 의무 없이 순수하게 대상 자체를 즐기는 것. 산이나 꽃이 내 생존에 도움이 되지 않아도 아름답다고 느끼는 것이 바로 이것.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--amber);margin-bottom:1mm;">② 주관적 보편성</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.6;">미적 판단은 내 감정에서 나오지만, 다른 사람도 동의해야 한다고 요구한다. "이건 내 취향 아니지만 좋은 작품이긴 하다" — 이 역설이 주관적 보편성이다.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--amber);margin-bottom:1mm;">③ 목적 없는 합목적성</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.6;">특정 목적이 없는데도 마치 목적에 맞게 만들어진 것처럼 느껴지는 것. 추상화를 볼 때 아무 메시지 없이도 색·형·구도가 조화롭게 느껴지는 경험이 여기에 해당.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--amber);margin-bottom:1mm;">④ 주관적 필연성 · 공통감</div>
+        <div style="font-size:7.5pt;color:var(--text2);line-height:1.6;">아름다움을 보면 필연적으로 만족감을 느끼는 것. 이것이 가능한 이유는 인간에게 공통감(sensus communis)이 내재해 있기 때문이다. 아기가 위험에 처하면 본능적으로 보호하려는 마음처럼.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 숭고 -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;margin-bottom:4mm;">
+    <div style="font-size:7.5pt;font-weight:700;color:var(--amber);margin-bottom:3mm;"><span class="slide-only">슬라이드</span> 숭고 (das Erhabene) — 아름다움과의 차이</div>
+    <div style="font-size:8pt;color:var(--text2);line-height:1.7;margin-bottom:3mm;">
+      아름다움은 꽃처럼 <strong style="color:var(--text);">순수한 쾌(快)의 감정</strong>이다. 숭고는 다르다. <strong style="color:var(--text);">불쾌함과 쾌감이 동시에</strong> 느껴지며, 그 긴장 속에서 감정이 변환된다.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;">
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">수학적 숭고</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">밤하늘의 별, 한없이 펼쳐진 지평선처럼 너무 커서 상상력이 따라가지 못할 때 느끼는 것. 상상력이 좌절하지만, 그것을 생각할 수 있는 이성을 가졌다는 것에 경이감이 생긴다.</div>
+      </div>
+      <div style="background:var(--card2);border-radius:5px;padding:3mm 4mm;">
+        <div style="font-size:8pt;font-weight:700;color:var(--text2);margin-bottom:1mm;">역학적 숭고</div>
+        <div style="font-size:7.5pt;color:var(--text3);line-height:1.6;">폭풍우, 아찔한 절벽처럼 압도적인 자연의 힘 앞에서 느끼는 것. 단, 공포에 사로잡혀 굴복하면 숭고가 아니다. 안전한 곳에서 그 힘에 맞서는 자신 안의 정신적 힘을 발견할 때 숭고가 된다.</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5mm;font-size:7.8pt;color:var(--text2);line-height:1.65;background:var(--amber-pale);border-radius:4px;padding:2.5mm 3.5mm;">
+      <strong style="color:var(--amber);">신앙과 미신의 구분</strong>: 칸트는 자연의 힘에 굴복하여 두려움에 빠지는 것을 신앙이 아닌 미신이라고 본다. 진정한 신앙은 두려움을 직시하고 그에 맞서 자신 안의 정신적 힘, 즉 도덕적 감정을 발견할 때 형성된다. "숭고는 자연에 있는 것이 아니라 우리 마음 속에 있다."
+    </div>
+  </div>
+
+  <!-- 활동지 -->
+  <hr class="divider">
+  <div class="part-head">
+    <span class="part-badge" style="background:var(--sage-dim);">프락시스</span>
+    <span class="part-title" style="font-size:9.5pt;">활동지 — 목회 적용</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="act-card">
+    <span class="act-tag">활동지</span>
+    <div class="act-title">도덕 의무와 복음적 동기</div>
+    <div class="act-content">칸트는 도덕적 행위가 결과가 아닌 의무(Pflicht)에서 비롯되어야 한다고 본다. 기독교 윤리는 그리스도의 사랑(agapē)에 대한 응답으로서의 행위를 강조한다. 칸트는 도덕 법칙을 이성에서 발견하지만, 바울은 사랑이 율법의 완성이라고 말한다(롬 13:10).</div>
+    <div class="act-q">나는 설교와 목회 현장에서 성도들에게 "의무로서의 윤리"와 "은혜에 대한 응답으로서의 윤리" 중 어느 쪽을 더 강조하는가? 칸트적 의무론과 복음적 동기는 어떻게 통합될 수 있는가?</div>
+  </div>
+
+  <div class="act-card">
+    <span class="act-tag">활동지</span>
+    <div class="act-title">신의 요청과 목회적 하나님 이해</div>
+    <div class="act-content">칸트는 신을 이론적으로 증명하려 하지 않고, 도덕적 삶이 의미 있으려면 반드시 전제되어야 하는 존재로 이해한다. "신이 없다면 우리의 의무는 사라진다." 이것은 신앙을 감정이 아닌 이성적 삶의 요청으로 이해하는 방식이다.</div>
+    <div class="act-q">교인들에게 신의 존재를 "증명된 사실"이 아닌 "삶의 의미를 가능하게 하는 신앙"으로 받아들이도록 돕는 설교를 어떻게 구성할 수 있을까? 특히 고통 중에 하나님의 존재를 의심하는 교인에게 어떻게 적용할 수 있는가?</div>
+  </div>
+
+  <div class="act-card">
+    <span class="act-tag">활동지</span>
+    <div class="act-title">숭고의 경험과 예배</div>
+    <div class="act-content">칸트에게 진정한 숭고는 자연의 힘에 굴복하는 것이 아니라, 그 힘 앞에서 자신 안의 도덕적 감정을 발견하는 것이다. 두려움에 기반한 종교(미신)와 내면의 힘을 발견하는 참된 신앙을 칸트는 구분한다.</div>
+    <div class="act-q">우리 예배와 설교에서 하나님에 대한 "두려움"은 어떤 성격인가? 칸트적 의미에서 '숭고의 경험'으로서의 예배 — 즉 압도적인 하나님 앞에서 오히려 자신 안의 존엄성과 소명을 발견하는 예배 — 를 어떻게 구성할 수 있는가?</div>
+  </div>
+
+  <!-- 핵심 명제 -->
+  <div style="margin-top:5mm;">
+    <div class="prop">① 코페르니쿠스적 전환: 인식이 대상에 맞추는 것이 아니라, 대상이 우리의 선험적 인식 구조(시간·공간·인과성)에 맞춰진다. 이로써 신·영혼·세계 전체는 이론이성의 범주 밖에 놓이고, 신앙의 공간이 열린다.</div>
+    <div class="prop">② 도덕의 근거는 선의지(guter Wille): 결과가 아니라 의무(Pflicht)에서 비롯된 행위만이 도덕적 가치를 지닌다. 정언명령(kategorischer Imperativ)은 이 의무를 보편법칙 정식과 인간성 정식으로 구체화한다.</div>
+    <div class="prop">③ 실천이성의 요청으로서의 신(Postulat): 신의 존재는 이론이성으로 증명할 수 없지만, 도덕적 삶(최고선)이 헛되지 않기 위해 이성이 스스로 요청해야 하는 것이다. 종교는 도덕의 근거가 아니라 도덕을 완성하고 보증하는 역할이다.</div>
+  </div>
+
+</div><!-- /tab-note -->
+
+
+<!-- ════════ TAB 2 핵심정리 ════════ -->
+<div class="tab-content" id="tab-summary">
+
+  <div class="part-head">
+    <span class="part-badge">시험 대비</span>
+    <span class="part-title">출제 예상 문항</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트의 '코페르니쿠스적 전환(kopernikanische Wende)'이란 무엇이며, 인식론에서의 의미와 신학적 함의를 서술하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>정언명령(kategorischer Imperativ)의 두 가지 정식(보편화의 원칙·인간성의 원칙)을 각각 설명하고, 기독교 윤리와의 접점을 논하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트에게 신의 존재가 '실천이성의 요청(Postulat)'인 이유를 논증하고, 전통적 신존재 증명(존재론적·우주론적·목적론적)과의 차이를 비교하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트의 종교이해에서 "도덕이 종교에 선행한다"는 주장의 의미와 신학적 함의를 서술하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트의 '최고선(das höchste Gut)' 개념과 자유·영혼불멸·신의 존재 요청의 연결 구조를 설명하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트의 '이성신앙(Vernunftglaube)'은 무엇이며, 전통적 신앙 이해 및 슐라이어마허의 감정론적 신앙과 어떻게 다른지 논하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트 미학에서 '무관심한 만족(interesseloses Wohlgefallen)'과 '주관적 보편성(subjektive Allgemeinheit)'의 의미를 설명하라.</div>
+  <div class="exam-item"><span class="exam-tag">시험</span>칸트의 수학적 숭고와 역학적 숭고를 각각 설명하고, 신앙과 미신의 구분에 어떻게 연결되는지 서술하라.</div>
+
+  <hr class="divider">
+
+  <div class="part-head">
+    <span class="part-badge">원어 암기</span>
+    <span class="part-title">시험 필수 원어</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-bottom:4mm;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">kopernikanische Wende</div>
+      <div style="font-size:8pt;color:var(--text2);">코페르니쿠스적 전환</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">kategorischer Imperativ</div>
+      <div style="font-size:8pt;color:var(--text2);">정언명령</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">guter Wille</div>
+      <div style="font-size:8pt;color:var(--text2);">선의지</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">Autonomie / Heteronomie</div>
+      <div style="font-size:8pt;color:var(--text2);">자율성 / 타율성</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">das höchste Gut</div>
+      <div style="font-size:8pt;color:var(--text2);">최고선 (최상선)</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">Postulate der praktischen Vernunft</div>
+      <div style="font-size:8pt;color:var(--text2);">실천이성의 요청</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">Vernunftglaube</div>
+      <div style="font-size:8pt;color:var(--text2);">이성신앙</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">moralische Theologie</div>
+      <div style="font-size:8pt;color:var(--text2);">도덕신학</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">interesseloses Wohlgefallen</div>
+      <div style="font-size:8pt;color:var(--text2);">무관심한 만족</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">subjektive Allgemeinheit</div>
+      <div style="font-size:8pt;color:var(--text2);">주관적 보편성</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">Zweckmäßigkeit ohne Zweck</div>
+      <div style="font-size:8pt;color:var(--text2);">목적 없는 합목적성</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">sensus communis (라)</div>
+      <div style="font-size:8pt;color:var(--text2);">공통감</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">das Erhabene</div>
+      <div style="font-size:8pt;color:var(--text2);">숭고</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:5px;padding:3mm 4mm;">
+      <div style="font-family:var(--mono);font-size:8pt;color:var(--gold-text);margin-bottom:1mm;">Religion innerhalb der Grenzen der bloßen Vernunft</div>
+      <div style="font-size:8pt;color:var(--text2);">이성의 한계 안의 종교</div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <h3>오늘 핵심 명제 3가지</h3>
+    <div class="summary-item">
+      <span class="summary-num">1</span>
+      <span><strong style="color:var(--amber);">코페르니쿠스적 전환</strong> — 인식이 대상에 맞추는 것이 아니라 대상이 우리의 선험적 인식 구조를 따른다. 이로써 신·영혼·세계는 이론이성의 범주 밖에 놓이고, 신앙의 공간이 열린다.</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-num">2</span>
+      <span><strong style="color:var(--amber);">실천이성의 요청</strong> — 신의 존재는 이론적 증명의 대상이 아니라, 도덕적 삶(최고선)이 헛되지 않기 위해 이성이 스스로 요청하는 조건이다. 종교는 도덕의 근거가 아니라 도덕을 완성하고 보증하는 역할이다.</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-num">3</span>
+      <span><strong style="color:var(--amber);">이성신앙의 역설</strong> — "나는 신앙의 자리를 마련하기 위해 지식을 포기한다." 이성의 한계를 인정하는 것이 오히려 신앙을 가능하게 한다. 비이성적으로 보이는 이 태도가 이성이 자기 자신을 일관되게 유지하기 위한 합리적 선택이다.</span>
+    </div>
+  </div>
+
+</div><!-- /tab-summary -->
+
+
+<!-- ════════ TAB 3 비교표 ════════ -->
+<div class="tab-content" id="tab-compare">
+
+  <div class="part-head">
+    <span class="part-badge">비교</span>
+    <span class="part-title">칸트 vs. 이전 철학자들 — 종교철학 비교표</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>철학자</th><th>방법론</th><th>종교의 기초</th><th>신앙-이성 관계</th><th>기독교 신학 접점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="philosopher">비트겐슈타인<br><span style="font-size:7pt;color:var(--text3);">3주</span></td>
+          <td>분석철학 · 언어게임<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">Sprachspiel</span></td>
+          <td>언어 공동체의 삶의 형식<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">Lebensform</span></td>
+          <td>신앙은 언어게임 내부. 이성의 기준으로 판단하는 것은 범주 오류</td>
+          <td>예배·기도 언어의 고유성. 종교언어의 자율성 옹호</td>
+        </tr>
+        <tr>
+          <td class="philosopher">윌리엄 제임스<br><span style="font-size:7pt;color:var(--text3);">4주</span></td>
+          <td>실용주의 · 종교심리학</td>
+          <td>종교 경험의 실제적 효과. 열매로 진리 판단</td>
+          <td>신앙의 실용적 가치로 판단. 유용하면 진리</td>
+          <td>회심·신비체험의 심리학적 이해. 부흥신학과 연결</td>
+        </tr>
+        <tr>
+          <td class="philosopher">레비나스<br><span style="font-size:7pt;color:var(--text3);">6주</span></td>
+          <td>현상학 · 타자철학<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">l'Autre</span></td>
+          <td>타자의 얼굴(le visage) 앞의 윤리적 책임</td>
+          <td>윤리가 철학의 제1원리. 신은 타자성의 흔적</td>
+          <td>메시아적 종교. 계시와 타자-초월의 유사 구조</td>
+        </tr>
+        <tr>
+          <td class="philosopher">슐라이어마허<br><span style="font-size:7pt;color:var(--text3);">7주</span></td>
+          <td>낭만주의 · 감정론</td>
+          <td>절대의존의 감정<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">schlechthinnige Abhängigkeit</span></td>
+          <td>감정이 이성보다 종교의 더 근원적 토대</td>
+          <td>경건주의 · 체험 신앙 · 부흥운동의 신학적 기초</td>
+        </tr>
+        <tr style="background:rgba(196,154,60,.05);">
+          <td class="philosopher" style="color:var(--gold-text);">칸트 ★<br><span style="font-size:7pt;color:var(--amber-dim);">11주 (현재)</span></td>
+          <td>비판철학 · 도덕론<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">kritische Philosophie</span></td>
+          <td>도덕적 실천이성의 요청<br><span style="font-family:var(--mono);font-size:7pt;color:var(--gold-text);">Postulat der prak. Vernunft</span></td>
+          <td>이성의 한계를 인정함으로써 신앙의 공간이 열림. 이성신앙(Vernunftglaube)</td>
+          <td>도덕신학 · 신의 요청 · 근본악과 원죄론의 구조적 유사성</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <div class="part-head">
+    <span class="part-badge">심층 비교</span>
+    <span class="part-title">전통 신존재 증명 vs. 칸트의 실천이성 요청</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr><th>구분</th><th>전통 신존재 증명 (칸트가 비판)</th><th>칸트의 실천이성 요청</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="axis-label">영역</div></td>
+          <td>이론이성 (Theoretische Vernunft)</td>
+          <td>실천이성 (Praktische Vernunft)</td>
+        </tr>
+        <tr>
+          <td><div class="axis-label">방식</div></td>
+          <td>논증·증명 (Beweis) — 개념이나 인과관계로 신을 도출</td>
+          <td>요청·전제 (Postulat) — 도덕적 삶의 의미를 위해 필연적으로 가정</td>
+        </tr>
+        <tr>
+          <td><div class="axis-label">세 가지 유형</div></td>
+          <td>존재론적: "완전한 존재이므로 존재해야 한다"<br>우주론적: "세계에 원인이 있으므로 최초 원인이 있어야"<br>목적론적: "자연의 질서에는 설계자가 있다"</td>
+          <td>자유(Freiheit) · 영혼불멸(Unsterblichkeit) · 신의 존재(Existenz Gottes) — 이 세 가지가 함께 요청됨</td>
+        </tr>
+        <tr>
+          <td><div class="axis-label">칸트의 평가</div></td>
+          <td>세 가지 모두 결정적 인식을 제공하지 못한다. 이성의 월권이다.</td>
+          <td>증명이 아니라 신앙(Glaube). 하지만 도덕적 삶을 진지하게 받아들이는 한 부정할 수도 없다.</td>
+        </tr>
+        <tr>
+          <td><div class="axis-label">신학 함의</div></td>
+          <td>자연신학 (Natural Theology)</td>
+          <td>도덕신학 (Moralische Theologie)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <div class="part-head">
+    <span class="part-badge">비교</span>
+    <span class="part-title">칸트 vs. 슐라이어마허 — 종교의 근거</span>
+    <div class="part-line"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:5mm;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;">
+      <div style="font-size:10pt;font-weight:700;color:var(--amber);margin-bottom:.5mm;">임마누엘 칸트</div>
+      <div style="font-size:7pt;color:var(--text3);font-family:'EB Garamond',serif;font-style:italic;margin-bottom:3mm;">비판철학 · 도덕론</div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">종교의 기초</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">도덕적 실천이성의 요청. 신앙은 이성적 도덕 삶의 필연적 귀결.</div></div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">신앙-이성</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">이성의 한계를 인정함으로써 신앙의 공간이 열린다. 이성신앙(Vernunftglaube).</div></div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">종교의 역할</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">도덕을 완성·보증하는 역할. 종교는 도덕의 결과이지 근거가 아님.</div></div>
+      <div><div class="axis-label">신학 접점</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">도덕신학 · 신의 요청 · 근본악(원죄와 구조적 유사)</div></div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:4mm 5mm;">
+      <div style="font-size:10pt;font-weight:700;color:var(--sage);margin-bottom:.5mm;">프리드리히 슐라이어마허</div>
+      <div style="font-size:7pt;color:var(--text3);font-family:'EB Garamond',serif;font-style:italic;margin-bottom:3mm;">낭만주의 · 감정론</div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">종교의 기초</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">절대의존의 감정(schlechthinnige Abhängigkeit). 종교는 이성도 도덕도 아닌 감정에 근거.</div></div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">신앙-이성</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">감정이 이성보다 더 근원적인 종교의 토대. 신앙은 직관과 감각의 영역.</div></div>
+      <div style="margin-bottom:2mm;"><div class="axis-label">종교의 역할</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">종교는 지식·도덕과 독립된 고유한 영역. 절대자와의 직접적 관계 경험.</div></div>
+      <div><div class="axis-label">신학 접점</div><div style="font-size:8pt;color:var(--text);margin-top:1mm;line-height:1.6;">경건주의 · 체험 신앙 · 부흥운동의 신학적 기초</div></div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <h3>오늘 핵심 명제 3가지</h3>
+    <div class="summary-item">
+      <span class="summary-num">1</span>
+      <span><strong style="color:var(--amber);">코페르니쿠스적 전환 (kopernikanische Wende)</strong> — 인식이 대상에 맞추는 것이 아니라 대상이 우리의 선험적 인식 구조를 따른다. 이로써 신·영혼·세계는 이론이성의 범주 밖에 놓이고, 신앙의 공간이 열린다.</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-num">2</span>
+      <span><strong style="color:var(--amber);">실천이성의 요청 (Postulat)</strong> — 신의 존재는 이론적 증명의 대상이 아니라, 도덕적 삶(최고선)이 헛되지 않기 위해 이성이 스스로 요청하는 조건이다. 종교는 도덕의 근거가 아니라 도덕을 완성·보증하는 역할이다.</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-num">3</span>
+      <span><strong style="color:var(--amber);">이성신앙의 역설 (Vernunftglaube)</strong> — "나는 신앙의 자리를 마련하기 위해 지식을 포기한다." 이성의 한계를 인정하는 것이 오히려 신앙을 가능하게 한다. 이것이 칸트 종교철학의 핵심 역설이다.</span>
+    </div>
+  </div>
+
+</div><!-- /tab-compare -->
+
+<div class="page-footer">
+  <span>기독교철학 61083 · 심상우 교수 · 11주차 · 2026-05-12</span>
+  <span>임마누엘 칸트 — 순수한 이성 종교와 실천</span>
+</div>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
