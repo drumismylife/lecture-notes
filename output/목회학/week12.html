@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 13주차 | 목회와 교육 · 목회와 설교</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg-page:      #0f1a12;
+    --bg-card:      #172018;
+    --bg-subcard:   #1e2a20;
+    --bg-dark:      #0c1510;
+    --green-main:   #7ab87a;
+    --green-soft:   #4a8a4a;
+    --green-text:   #a8d4a8;
+    --cream:        #d4c9a8;
+    --cream-soft:   #b8ad90;
+    --text-main:    #e8ede8;
+    --text-sub:     #9aaa9a;
+    --text-muted:   #6a7a6a;
+    --red-badge:    #c96b5a;
+    --red-bg:       #2d1a16;
+    --red-border:   #c96b5a;
+    --amber:        #c49a3c;
+    --amber-bg:     #2a2010;
+    --blue-soft:    #6a9ab0;
+    --blue-bg:      #162028;
+    --border:       rgba(122,184,122,0.15);
+    --border-soft:  rgba(122,184,122,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  .page-header {
+    background: linear-gradient(160deg, #0c1a0e 0%, #172018 60%, #1a2a1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(122,184,122,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .meta-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .meta-badge.subject  { background: rgba(122,184,122,0.15); color: var(--green-text); border: 1px solid rgba(122,184,122,0.3); }
+  .meta-badge.week     { background: rgba(212,201,168,0.12); color: var(--cream); border: 1px solid rgba(212,201,168,0.25); }
+  .meta-badge.date     { background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.08); }
+  .page-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .page-title span { color: var(--green-main); }
+  .page-subtitle {
+    font-size: 12px;
+    color: var(--text-sub);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── 주제 탭 네비게이션 (교육 / 설교) ── */
+  .subject-nav {
+    display: flex;
+    gap: 0;
+    padding: 20px 40px 0;
+    border-bottom: 2px solid var(--border);
+    background: var(--bg-dark);
+  }
+  .subject-tab {
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .subject-tab:hover { color: var(--green-text); }
+  .subject-tab.active {
+    color: var(--green-main);
+    border-bottom-color: var(--green-main);
+  }
+  .subject-tab .tab-icon { margin-right: 7px; }
+  .subject-panel { display: none; }
+  .subject-panel.active { display: block; }
+
+  /* ── 서브 탭 (강의노트 / 핵심정리 / 현장적용) ── */
+  .subtab-bar {
+    display: flex;
+    gap: 0;
+    padding: 16px 40px 0;
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--bg-card);
+  }
+  .subtab-btn {
+    padding: 9px 22px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: all 0.2s;
+  }
+  .subtab-btn:hover { color: var(--green-text); }
+  .subtab-btn.active { color: var(--green-main); border-bottom-color: var(--green-soft); }
+  .subtab-content { display: none; padding: 32px 40px 48px; }
+  .subtab-content.active { display: block; }
+
+  /* ── 섹션 ── */
+  .section {
+    margin-bottom: 36px;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cream);
+    border-left: 4px solid var(--green-main);
+    padding-left: 14px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .section-title small {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── 원칙 블록 ── */
+  .principle-block {
+    background: var(--bg-subcard);
+    border-left: 3px solid var(--green-main);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .principle-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .principle-label {
+    font-size: 9px;
+    font-weight: 700;
+    background: rgba(122,184,122,0.15);
+    color: var(--green-text);
+    border: 1px solid rgba(122,184,122,0.3);
+    border-radius: 3px;
+    padding: 1px 7px;
+    letter-spacing: 0.06em;
+  }
+  .principle-body {
+    font-size: 13px;
+    color: var(--text-main);
+    line-height: 1.9;
+  }
+  .principle-verse {
+    margin-top: 10px;
+    font-size: 11.5px;
+    color: var(--green-text);
+    font-family: 'Noto Serif KR', serif;
+    border-top: 1px solid rgba(122,184,122,0.15);
+    padding-top: 8px;
+  }
+
+  /* ── 성경 블록 ── */
+  .bible-block {
+    background: var(--bg-subcard);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-soft);
+  }
+  .bible-ref {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-main);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .bible-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: var(--green-text);
+    font-style: italic;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    border-left: 2px solid rgba(122,184,122,0.3);
+  }
+  .bible-apply {
+    font-size: 12px;
+    color: var(--text-sub);
+  }
+
+  /* ── 교수 발언 블록 ── */
+  .prof-block {
+    background: #1a2a1c;
+    border: 1px solid rgba(122,184,122,0.2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .prof-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--green-soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .prof-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: var(--cream-soft);
+    font-style: italic;
+    line-height: 1.9;
+  }
+
+  /* ── 표 ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 12.5px;
+  }
+  th {
+    background: var(--bg-subcard);
+    color: var(--green-text);
+    font-weight: 700;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--green-soft);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-main);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(122,184,122,0.03); }
+
+  /* ── 시험 배지 블록 ── */
+  .exam-block {
+    background: var(--red-bg);
+    border: 1px solid var(--red-border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .exam-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--red-badge);
+    letter-spacing: 0.08em;
+    border: 1px solid var(--red-badge);
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .exam-q {
+    font-weight: 700;
+    font-size: 13px;
+    color: #e8b0a8;
+    margin-bottom: 6px;
+  }
+  .exam-a {
+    font-size: 12.5px;
+    color: var(--text-main);
+    line-height: 1.9;
+  }
+
+  /* ── 현장 블록 ── */
+  .field-block {
+    background: #1a2a1a;
+    border-left: 3px solid var(--green-soft);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .field-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green-main);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 4px 12px;
+    font-size: 12.5px;
+    margin-bottom: 4px;
+  }
+  .field-key { color: var(--text-muted); font-size: 11px; font-weight: 700; padding-top: 1px; letter-spacing: 0.04em; }
+  .field-val { color: var(--text-main); }
+
+  /* ── 성찰 블록 ── */
+  .reflect-block {
+    background: #1e261e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(122,184,122,0.12);
+  }
+  .reflect-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--green-soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .reflect-q {
+    font-size: 13px;
+    color: var(--green-text);
+    line-height: 1.9;
+  }
+  .reflect-q li {
+    list-style: none;
+    padding: 4px 0 4px 20px;
+    position: relative;
+  }
+  .reflect-q li::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    color: var(--green-soft);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ── 카드 그리드 ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .mini-card {
+    background: var(--bg-subcard);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border-soft);
+  }
+  .mini-card-icon { font-size: 20px; margin-bottom: 8px; }
+  .mini-card-title { font-size: 12px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+  .mini-card-body { font-size: 12px; color: var(--text-sub); line-height: 1.8; }
+
+  /* ── 숫자 리스트 ── */
+  .num-list { counter-reset: item; list-style: none; }
+  .num-list li {
+    counter-increment: item;
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 13px;
+    color: var(--text-main);
+    line-height: 1.8;
+  }
+  .num-list li:last-child { border-bottom: none; }
+  .num-list li::before {
+    content: counter(item);
+    min-width: 22px;
+    height: 22px;
+    background: var(--green-soft);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── 구분선 ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-soft);
+    margin: 28px 0;
+  }
+
+  /* ── 핵심 원칙 3가지 (하단) ── */
+  .three-principles {
+    background: linear-gradient(135deg, #13221a 0%, #172018 100%);
+    border: 1px solid rgba(122,184,122,0.2);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 36px;
+  }
+  .three-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green-main);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .p-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .p-num {
+    min-width: 28px; height: 28px;
+    background: rgba(122,184,122,0.15);
+    border: 1px solid rgba(122,184,122,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    color: var(--green-main);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .p-text { font-size: 13px; color: var(--text-main); line-height: 1.9; }
+  .p-text strong { color: var(--cream); }
+
+  /* ── 사례 블록 ── */
+  .case-block {
+    background: var(--amber-bg);
+    border: 1px solid rgba(196,154,60,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .case-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .case-text { font-size: 12.5px; color: var(--text-main); line-height: 1.9; }
+
+  /* ── 설교 평가 체크리스트 ── */
+  .checklist {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .checklist li {
+    background: var(--bg-subcard);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    border: 1px solid var(--border-soft);
+  }
+  .check-num {
+    min-width: 24px; height: 24px;
+    background: transparent;
+    border: 2px solid var(--green-soft);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: var(--green-main);
+    flex-shrink: 0;
+  }
+  .check-body { color: var(--text-main); line-height: 1.8; }
+  .check-sub { font-size: 11.5px; color: var(--text-sub); margin-top: 2px; }
+
+  /* ── 설교 유형 카드 ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .type-card {
+    background: var(--bg-subcard);
+    border-radius: 8px;
+    padding: 16px;
+    border-top: 3px solid var(--green-soft);
+    border-left: 1px solid var(--border-soft);
+    border-right: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .type-card-name { font-size: 12px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+  .type-card-preachers { font-size: 11px; color: var(--green-text); margin-bottom: 8px; }
+  .type-card-desc { font-size: 12px; color: var(--text-sub); line-height: 1.7; }
+
+  /* ── 태그 ── */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .tag-green { background: rgba(122,184,122,0.12); color: var(--green-text); border: 1px solid rgba(122,184,122,0.25); }
+  .tag-cream { background: rgba(212,201,168,0.1); color: var(--cream-soft); border: 1px solid rgba(212,201,168,0.2); }
+  .tag-red { background: rgba(201,107,90,0.12); color: #e8a09a; border: 1px solid rgba(201,107,90,0.3); }
+
+  /* ── 두 컬럼 비교 ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .compare-col {
+    background: var(--bg-subcard);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-soft);
+  }
+  .compare-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-text);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-soft);
+    letter-spacing: 0.04em;
+  }
+  .compare-col-body { font-size: 12.5px; color: var(--text-main); line-height: 1.9; }
+
+  /* ── 인쇄 ── */
+  @media print {
+    body { background: #0f1a12 !important; }
+    .subject-nav, .subtab-bar { display: none; }
+    .subject-panel, .subtab-content { display: block !important; }
+    .subtab-content { padding: 16px 20px; }
+    .page-header { padding: 20px; }
+    .principle-block, .exam-block, .field-block { page-break-inside: avoid; }
+    @page { margin: 15mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────── 페이지 헤더 ───────────── -->
+<div class="page-header">
+  <div class="header-meta">
+    <span class="meta-badge subject">목회학 · 63117</span>
+    <span class="meta-badge week">12주차</span>
+    <span class="meta-badge date">2026 · 05 · 25</span>
+    <span class="meta-badge date">이영호 교수</span>
+  </div>
+  <div class="page-title">목회와 <span>교육</span> &nbsp;·&nbsp; 목회와 <span>설교</span></div>
+  <div class="page-subtitle">교육 공동체로서의 교회 · 좋은 설교의 조건과 설교자 자기평가</div>
+</div>
+
+<!-- ───────────── 주제 탭 ───────────── -->
+<div class="subject-nav">
+  <button class="subject-tab active" onclick="switchSubject('edu', this)">
+    <span class="tab-icon">📚</span>목회와 교육
+  </button>
+  <button class="subject-tab" onclick="switchSubject('preach', this)">
+    <span class="tab-icon">🎙️</span>목회와 설교
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PANEL A : 목회와 교육
+════════════════════════════════════════ -->
+<div id="panel-edu" class="subject-panel active">
+
+  <!-- 서브탭 바 -->
+  <div class="subtab-bar">
+    <button class="subtab-btn active" onclick="switchSub('edu','note',this)">📋 강의노트</button>
+    <button class="subtab-btn" onclick="switchSub('edu','core',this)">🎯 핵심정리</button>
+    <button class="subtab-btn" onclick="switchSub('edu','field',this)">🌱 현장적용</button>
+  </div>
+
+  <!-- ── 강의노트 ── -->
+  <div id="edu-note" class="subtab-content active">
+
+    <div class="section">
+      <div class="section-title">Ⅰ. 교육의 중요성 — 세 가지 이유<small>왜 목회에서 교육이 핵심인가</small></div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">원칙 1</span>영적 양식의 공급 통로</div>
+        <div class="principle-body">
+          성도가 교회를 선택할 때 첫 번째 기준은 예배(설교), <strong>두 번째 기준은 교육 프로그램</strong>이다.
+          "내가 이 교회를 통해 어떻게 양육되고 영적으로 성장하는가"에 대한 기대 때문이다.
+          교육은 하나님을 알고 만나게 하는 근본적 통로다.
+        </div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">원칙 2</span>지도자 양성의 필수 도구</div>
+        <div class="principle-body">
+          Christian Schwarz 『자연적 교회 성장』 — 건강한 교회의 질적 특징 <strong>1순위: 지도자가 재생산되고 있는가</strong>.
+          목회자 혼자 모든 것을 감당하는 구조가 아니라, 교육을 통해 지도자를 세우고
+          그 지도자가 다른 성도를 돌보는 승법 번식(multiplication)의 구조를 만들어야 한다.
+        </div>
+        <div class="principle-verse">딤후 2:2 — "충성된 사람을 세우고 그들이 또 다른 사람을 가르치게 하라"</div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">원칙 3</span>성도의 역할 인식 교육</div>
+        <div class="principle-body">
+          신앙생활·교회 생활·집사 역할·봉사 방법은 "눈치껏 아는 것"이 아니라 제대로 가르쳐야 한다.
+          안다고 생각하지만 교육받지 않으면 눈치로만 아는 것이다.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅱ. 교회의 5대 기능과 교육의 위치<small>릭 워렌(새들백 교회) 분류 체계</small></div>
+
+      <table>
+        <thead>
+          <tr><th>구분</th><th>기능</th><th>비고</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>대내적 사역</td><td>예배 · 교재(친교) · 봉사</td><td style="color:var(--text-sub)">내부 공동체 기능</td></tr>
+          <tr><td>대외적 사역</td><td>전도</td><td style="color:var(--text-sub)">세상을 향한 사역</td></tr>
+          <tr><td style="color:var(--green-main);font-weight:700">중심적 사역</td><td style="color:var(--green-text);font-weight:700">교육 ← 핵심</td><td style="color:var(--green-text)">나머지 4기능을 가능케 함</td></tr>
+        </tbody>
+      </table>
+
+      <div class="prof-block">
+        <div class="prof-label">🎓 이영호 교수 강조</div>
+        <div class="prof-text">"교육이 중심에 있어야 나머지 네 가지 기능이 잘 된다. 예배·전도·교재·봉사가 왜 필요한지, 어떻게 하는지를 교육해야 한다. 교육이 잘 돼야 건강한 교회가 되고, 건강한 교회는 자연적으로 성장한다."</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅲ. 교회 = 언약 공동체 + 교육 공동체<small>성경적 교육 이해</small></div>
+
+      <div class="bible-block">
+        <div class="bible-ref">신명기 6장 · 수 24장 · 마 28:19-20</div>
+        <div class="bible-text">"그러므로 너희는 가서 모든 족속으로 제자를 삼아 … 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라" (마 28:20)</div>
+        <div class="bible-apply">교회의 핵심 사명 = 가르치는 것. 설교·소그룹 말씀 나눔·훈련 프로그램 모두 가르침의 형태다.</div>
+      </div>
+
+      <div class="bible-block">
+        <div class="bible-ref">에베소서 4:11 — 목사(ποιμήν, poimen)와 교사</div>
+        <div class="bible-text">"그가 어떤 사람은 목사와 교사로 삼으셨으니"</div>
+        <div class="bible-apply">목사(shepherd-teacher) = <strong>가르치는 목자</strong>. 설교를 포함한 목회자의 모든 활동이 교육적이다. 1년 행사 전체가 교육 커리큘럼이다.</div>
+      </div>
+
+      <div class="section-title" style="font-size:13px;margin-top:20px">교회 교육의 독특성 — 학교 교육과의 차이</div>
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-col-title">학교 교육 방식</div>
+          <div class="compare-col-body">지식 전달 중심<br>말로 가르침<br>인지적 이해 목표</div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-col-title">교회 교육 방식 (목회 교육)</div>
+          <div class="compare-col-body"><strong>삶의 변화</strong> + <strong>본을 보이며</strong> 가르침<br>에스라: 연구 → 준행 → 가르침 (스 7:10)<br>바울: "나를 본받으라" (고전 11:1)<br>고대 수사학: 로고스 + <strong>에토스(본)</strong> + 파토스</div>
+        </div>
+      </div>
+
+      <div class="prof-block">
+        <div class="prof-label">🎓 이영호 교수 강조</div>
+        <div class="prof-text">"교회 교육은 말로만 가르치는 것이 아니라 행동으로 보여주는 가르침이 있다. 가르치는 사람이 본을 보이며 가르친다 — 이것이 교회 교육의 가장 독특한 특징이다. 이것이 리더십의 관점에서 '준거적 파워'다."</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅳ. 담임 목사의 역할 = 교육 팀의 리더<small>엡 4:12-13, 15 — 성도를 온전하게 하여 봉사하게 하라</small></div>
+
+      <div class="card-grid">
+        <div class="mini-card">
+          <div class="mini-card-icon">🗺️</div>
+          <div class="mini-card-title">방향 설정</div>
+          <div class="mini-card-body">교육의 비전과 방향을 정하고 목표를 설정한다</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon">📅</div>
+          <div class="mini-card-title">계획 수립</div>
+          <div class="mini-card-body">단기·중기·장기 교육 계획 (연간 행사 포함)</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon">📖</div>
+          <div class="mini-card-title">커리큘럼 설계</div>
+          <div class="mini-card-body">성도 전체를 위한 교육 프로그램 구성</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon">👥</div>
+          <div class="mini-card-title">지도자 양성</div>
+          <div class="mini-card-body">교육을 통해 충성된 평신도 지도자를 세움</div>
+        </div>
+      </div>
+
+      <div class="principle-body" style="font-size:13px;color:var(--text-sub);padding:0 4px;">
+        → 목사의 임무 (엡 4:12-13): 성도를 <strong style="color:var(--cream)">온전하게</strong> 하여 → <strong style="color:var(--cream)">봉사</strong>의 일을 하게 하여 → <strong style="color:var(--cream)">교회를 세우는 자</strong>가 되게 함<br>
+        → "교육을 통해 영적 어린아이가 장성하고, 장성한 자가 다른 사람을 돌볼 수 있게 하는 것"
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅴ. 교육의 주체와 방법<small>누가, 어떻게 가르치는가</small></div>
+
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-col-title">주체 ①: 전문 목회자</div>
+          <div class="compare-col-body">목사와 교사<br>설교·성경 강의·훈련 프로그램 인도</div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-col-title">주체 ②: 준비된 평신도</div>
+          <div class="compare-col-body">딤후 2:2 — 충성된 사람이 또 다른 사람을 가르침<br><strong>내비게이터 선교단체 원리</strong>: 1인 양육 → 승법 번식</div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="case-label">📖 사례 — 내비게이터 & 사랑의 교회</div>
+        <div class="case-text">
+          내비게이터의 핵심: <strong>완비전(One Mission)</strong> — 한 사람을 양육하고 그 사람이 또 한 사람을 양육하면 온 세계가 전도된다.<br>
+          옥한흠 목사는 내비게이터의 교육 프로그램을 교회에 접목하여 <strong>제자훈련 중심의 사랑의 교회</strong>를 세웠다.
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>방법</th><th>내용</th><th>특징</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>교회학교 (부서별)</td><td>중등·고등·대학·청년부 등 연령별 교육</td><td style="color:var(--text-sub)">연령 단계별 접근</td></tr>
+          <tr><td>신앙 훈련 프로그램</td><td>새신자·회원·지도자·제자 훈련 (3~6개월 코스)</td><td style="color:var(--text-sub)">연령 초월 심화 훈련</td></tr>
+          <tr><td>소그룹 (구역/셀/목자)</td><td>성경 교육 + <strong>먼저 믿은 자의 삶의 본</strong></td><td style="color:var(--text-sub)">지식 + 삶의 적용</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅵ. 교육의 내용 — 단계별 커리큘럼<small>무엇을 가르칠 것인가</small></div>
+
+      <ol class="num-list">
+        <li><div><strong>기독교 기본 진리</strong> — 새신자를 위한 복음·신앙 기초 교육 (신 6장: "이 말씀을 마음에 새기고 부지런히 가르치라")</div></li>
+        <li><div><strong>교회 회원권 교육</strong> — 침례·교회 등록의 의미와 헌신 서약 (침례교 교회론의 독특성: 신자의 침례 + 회중주의). 새들백 교회 101과정 참조. "앞문을 높이면 뒷문도 높아진다"</div></li>
+        <li><div><strong>회원 성장 교육</strong> — 영적 성장·지도자가 될 수 있도록 양육</div></li>
+        <li><div><strong>봉사·섬김 교육</strong> — 어떤 마음·자세·방법으로 봉사할 것인가</div></li>
+      </ol>
+
+      <div class="case-block" style="margin-top:16px">
+        <div class="case-label">📖 실례 — 안종만 목사 (대전 대흥침례교회)</div>
+        <div class="case-text">
+          『기초 성경 공부』(복음 중심) 한 권을 평생 반복적으로 가르침.<br>
+          성도들의 불만에도 불구하고 → 시간이 흐르면서 <strong>복음이 분명한 건강하고 성장하는 교회</strong>로 성숙.<br>
+          <span style="color:var(--green-text)">"확실한 하나를 반복적으로 계속할 때 교회가 건강해지고 성장한다."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 핵심 원칙 3가지 -->
+    <div class="three-principles">
+      <div class="three-title">🌿 오늘 목회 핵심 원칙 3가지 — 교육 편</div>
+      <div class="p-item">
+        <div class="p-num">1</div>
+        <div class="p-text"><strong>목회는 교육이다</strong> — 교회의 모든 활동(예배·행사·소그룹)은 교육 커리큘럼이다. 담임 목사는 교육 팀의 리더로서 성도를 온전케 하여 봉사하는 자로 세우는 사명을 가진다. (엡 4:11-13)</div>
+      </div>
+      <div class="p-item">
+        <div class="p-num">2</div>
+        <div class="p-text"><strong>교육은 지식 전달이 아니라 삶의 변화다</strong> — 교회 교육은 말과 함께 행동으로 본을 보이며 가르친다(에스라·바울). 진리가 삶으로 이어지게 하는 "삶에 적용 가능한 가르침"이 목회 교육의 핵심이다.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-num">3</div>
+        <div class="p-text"><strong>분명한 나의 교육 무기를 갖춰라</strong> — 자신만의 커리큘럼(하나라도 깊고 확실한 것)을 가지고 반복적으로 가르칠 때 교회가 건강해진다. (승법 번식: 딤후 2:2)</div>
+      </div>
+    </div>
+
+  </div><!-- /edu-note -->
+
+  <!-- ── 핵심정리 탭 ── -->
+  <div id="edu-core" class="subtab-content">
+
+    <div class="section">
+      <div class="section-title">교육의 중요성 — 핵심 명제</div>
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 목회에서 교육이 중요한 세 가지 이유는?</div>
+        <div class="exam-a">
+          ① 성도에게 <strong>영적 양식을 공급</strong>하는 통로<br>
+          ② 성도를 <strong>지도자로 양성</strong> (슈바르츠: 건강한 교회 질적 특징 1순위)<br>
+          ③ 교회 안에서 <strong>성도의 역할을 인식</strong>하게 함
+        </div>
+      </div>
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 릭 워렌이 분류한 교회의 5대 기능에서 교육의 위치는?</div>
+        <div class="exam-a">
+          대내적 사역(예배·교재·봉사) + 대외적 사역(전도) + <strong>중심적 사역(교육)</strong><br>
+          → 교육이 중심이어야 나머지 4기능이 모두 잘 작동한다.
+        </div>
+      </div>
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 에베소서 4:11의 "목사와 교사"의 의미와 교육 목회와의 관계는?</div>
+        <div class="exam-a">
+          목사(ποιμήν, poimen) = <strong>가르치는 목자</strong> (shepherd-teacher)<br>
+          → 목사의 모든 사역이 교육적이며, 1년 행사 전체가 교육 커리큘럼이다.<br>
+          → 목사의 임무(엡 4:12-13): 성도를 <strong>온전하게</strong> → <strong>봉사</strong> → 교회를 <strong>세우는 자</strong>로
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">학교 교육 vs. 교회 교육 비교</div>
+      <table>
+        <thead><tr><th>구분</th><th>학교 교육</th><th>교회 교육</th></tr></thead>
+        <tbody>
+          <tr><td>목표</td><td>지식 전달</td><td><strong>삶의 변화</strong> + 하나님 경외</td></tr>
+          <tr><td>방법</td><td>말로 가르침</td><td>말 + <strong>행동으로 본을 보임</strong></td></tr>
+          <tr><td>내용</td><td>학문적 지식</td><td>언약의 말씀 + 삶에의 적용</td></tr>
+          <tr><td>성경 근거</td><td>—</td><td>에스라(준행·가르침), 바울(본이 되라)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">교육 커리큘럼 4단계</div>
+      <ol class="num-list">
+        <li><div><strong>기독교 기본 진리</strong> — 새신자 복음·신앙 기초</div></li>
+        <li><div><strong>교회 회원권 교육</strong> — 침례·등록 의미, 침례교 교회론 특수성</div></li>
+        <li><div><strong>회원 성장 교육</strong> — 영적 성장·지도자 훈련</div></li>
+        <li><div><strong>봉사·섬김 교육</strong> — 봉사의 자세와 방법</div></li>
+      </ol>
+    </div>
+
+  </div><!-- /edu-core -->
+
+  <!-- ── 현장적용 탭 ── -->
+  <div id="edu-field" class="subtab-content">
+
+    <div class="section">
+      <div class="section-title">사역 현장 적용</div>
+
+      <div class="field-block">
+        <div class="field-title">🌱 상황 1 — 청소년 사역에서의 교육 적용</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">청소년 대상 설교와 교육을 병행해야 하는 부사역자</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">설교는 하지만 체계적인 교육 커리큘럼이 없어 성장이 단편적이다</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">연령별 맞춤 교육 계획 수립 → 신앙 기초(복음) → 소그룹 돌봄 순서로 단계적 커리큘럼 설계. 한 가지 확실한 내용을 반복적으로 가르치는 '안종만 목사 원리' 적용.</div></div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-title">🌱 상황 2 — 평신도 지도자 양성 전략</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">목회자 혼자 모든 사역을 감당하고 있어 탈진 위기</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">슈바르츠의 '지도자 재생산' 원리가 작동하지 않는 상태</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">딤후 2:2 원리 적용: 충성된 평신도를 선별 → 훈련 → 그들이 또 다른 사람을 가르치게 함. 내비게이터 '완비전(One Mission)' 방식: 1:1 양육의 승법 번식 구조 형성.</div></div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-title">🌱 상황 3 — 새신자 정착과 교회 회원권 교육</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">새신자들이 등록 후 3개월 안에 떠나는 비율이 높다</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">"앞문이 낮고 뒷문이 높은" 구조 — 교회 등록의 의미와 헌신의 중요성을 가르치지 않음</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">새들백 교회 101과정 참조 → 새신자 교육을 교회 등록의 필수 과정으로 설계. 침례교 교회론(신자의 침례·회중주의)의 의미를 분명히 교육. "앞문을 높이면 뒷문도 높아진다."</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">성찰 질문</div>
+      <div class="reflect-block">
+        <div class="reflect-label">🌿 목회자 자기 성찰</div>
+        <ul class="reflect-q">
+          <li>나는 지금 어떤 교육 커리큘럼을 가지고 있는가? "분명한 나의 무기"가 있는가?</li>
+          <li>내 사역에서 성도들이 지식만 얻고 있는가, 아니면 삶의 변화를 경험하고 있는가?</li>
+          <li>나는 말로만 가르치는가, 아니면 에토스(본)를 보이며 가르치는가?</li>
+          <li>나의 사역 안에서 "충성된 사람"(딤후 2:2)을 세우기 위한 구체적 계획이 있는가?</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /edu-field -->
+
+</div><!-- /panel-edu -->
+
+
+<!-- ═══════════════════════════════════════
+     PANEL B : 목회와 설교
+════════════════════════════════════════ -->
+<div id="panel-preach" class="subject-panel">
+
+  <!-- 서브탭 바 -->
+  <div class="subtab-bar">
+    <button class="subtab-btn active" onclick="switchSub('preach','note',this)">📋 강의노트</button>
+    <button class="subtab-btn" onclick="switchSub('preach','core',this)">🎯 핵심정리</button>
+    <button class="subtab-btn" onclick="switchSub('preach','field',this)">🌱 현장적용</button>
+  </div>
+
+  <!-- ── 강의노트 ── -->
+  <div id="preach-note" class="subtab-content active">
+
+    <div class="section">
+      <div class="section-title">Ⅰ. 목회와 설교의 관계<small>참고: 해돈 로빈슨 『강해 설교』/ 권호 『본문이 살아있는 설교』</small></div>
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">핵심 명제</span>설교는 목회의 얼굴이다</div>
+        <div class="principle-body">
+          목회와 설교는 뗄 수 없는 밀접한 관계다. 설교를 좋아하는 목회자만이 목회가 즐겁다.
+          설교가 즐겁기 위해서는 설교를 잘해야 하고, 잘하기 위해서는 "좋은 설교가 무엇인지"를 먼저 알아야 한다.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅱ. 설교자의 세 가지 고민과 해결책</div>
+
+      <table>
+        <thead>
+          <tr><th>#</th><th>고민</th><th>해결책</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--green-main);font-weight:700">①</td>
+            <td><strong>본문 선정이 어렵다</strong></td>
+            <td>
+              <strong>강해 설교</strong>: 책 전체 구조 파악 → 단락별로 미리 계획 설정<br>
+              <span style="font-size:11.5px;color:var(--text-sub)">주제별 설교: 참고 도서를 미리 회중에게 공개 (표절 시비 예방)</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="color:var(--green-main);font-weight:700">②</td>
+            <td><strong>설교 내용 구성이 어렵다</strong></td>
+            <td>본문 <strong>해석</strong> + 해석에 기초한 <strong>적용</strong> 반드시 포함<br><span style="font-size:11.5px;color:var(--text-sub)">이것이 없으면 설교가 아니다</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--green-main);font-weight:700">③</td>
+            <td><strong>성도의 삶에 변화가 없다</strong></td>
+            <td>설교자가 <strong>"이 설교로 성도가 변화될 것"을 믿는 믿음</strong>이 있어야 함</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅲ. 좋은 설교의 5가지 조건</div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">조건 1</span>본문을 충분히 연구했다 — 석의(Exegesis)</div>
+        <div class="principle-body">
+          역본 비교(개역·쉬운 성경·표준새번역), 헬라어 원어 확인, 주석 참고.
+          <strong>일주일 내내 설교 준비</strong> — 월요일부터 본문 필사 시작.
+          청중이 쉽게 듣는가의 차이 = 설교자가 얼마나 많은 시간을 들여 "잘게 썰어 소화해서 쉽게 만들었느냐"에 달려 있다.
+        </div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">조건 2</span>충분히 묵상했다</div>
+        <div class="principle-body">
+          묵상 = <strong>본문과 청중의 삶을 연결시키는 과정</strong>.
+          청중이 하는 고민을 본문을 붙잡고 함께 씨름하는 것.
+          묵상이 충분해야 "숙성된 설교"가 나온다.
+          유튜브·숏폼 시대 — 지루하면 바로 이탈한다. 묵상이 깊을수록 쉽고 풍성한 설교가 된다.
+        </div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">조건 3</span>설교자가 스스로 주제와 대지를 찾아냈다</div>
+        <div class="principle-body">
+          <strong>표절·편집이 아니라 설교자의 고유한 창작</strong>.<br>
+          <strong>주제</strong> = 하나님이 그 회중에게 말씀하고 싶은 것을 한 문장으로 표현한 것.<br>
+          <strong>대지</strong> = 주제의 논리적 전개 (반드시 본문 안에서 나와야 함).<br>
+          예) 주제: "사랑하라" → 대지 ① 왜 사랑해야 하는가 ② 어떻게 사랑해야 하는가
+        </div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">조건 4</span>청중이 공감하는 언어로 주의를 집중시킨다</div>
+        <div class="principle-body">
+          청중의 상황을 알고, 집중을 이끌어내는 도입부.
+          기도하면서 첫 마디를 하나님의 인도 아래 결정.
+          공감하는 언어 = 좋은 설교의 필수 조건.
+        </div>
+      </div>
+
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">조건 5</span>바른 적용 — 청중이 무엇을 해야 하는지 분명히 안다</div>
+        <div class="principle-body">
+          "좋은 말씀이었습니다"로 끝나는 것이 아님.<br>
+          설교 후 <strong>구체적 결심 → 실제 행동 → 순종</strong>이 일어나야 진정한 좋은 설교.<br>
+          설교 시간: 저렇게 살아야겠다(감동) → 실제 삶에서 그렇게 사는 것(순종).
+        </div>
+      </div>
+
+      <div class="prof-block">
+        <div class="prof-label">🎓 이영호 교수 강조</div>
+        <div class="prof-text">"설교가 끝났는데 '오늘 그래서 어떻게 하는 거야'가 나오면 안 된다. 청중이 '내가 이렇게 살아야겠다, 이걸 해야겠다'고 구체적으로 결심하게 하라. 결심을 가지고 행동하면 좋은 설교이다."</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅳ. 성경적 설교 — 강해 설교와의 관계</div>
+      <div class="principle-block">
+        <div class="principle-title"><span class="principle-label">핵심</span>성경적 설교 = 설교자의 고민을 해결하는 방법</div>
+        <div class="principle-body">
+          본문의 의미를 깊이 연구하고 → 적용하게 하고 → 본문의 장르와 유형을 존중하며 설교하는 것.
+          강해 설교(expository preaching)와 유사하며, 설교자의 세 가지 고민을 구조적으로 해결한다.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅴ. 설교의 세 가지 유형 — 나의 설교 스타일 발견</div>
+
+      <div class="prof-block">
+        <div class="prof-label">🎓 이영호 교수 강조</div>
+        <div class="prof-text">"나는 어떤 유형의 설교자가 되겠다고 결심하면 그 유형의 설교자가 될 확률이 높아진다. 자신에게 맞는 설교 유형을 발견하라."</div>
+      </div>
+
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="type-card-name">개혁주의 청교도 설교</div>
+          <div class="type-card-preachers">스펄전 · 마틴 로이드 존스 · 조나단 에드워즈</div>
+          <div class="type-card-desc">신학이 있는 설교. 깊은 연구 필요. 20대부터 차분히 신학을 축적할 때 빛을 발한다.</div>
+        </div>
+        <div class="type-card">
+          <div class="type-card-name">복음주의 삼대지 설교</div>
+          <div class="type-card-preachers">빌리 그레이엄 · 찰스 스윈돌</div>
+          <div class="type-card-desc">경건주의 기반. 전도 중심. 명확한 3단 구조. 복음 초청에 강점.</div>
+        </div>
+        <div class="type-card">
+          <div class="type-card-name">본문 묵상 중심 설교</div>
+          <div class="type-card-preachers">이동원 목사</div>
+          <div class="type-card-desc">본문 해석 + 청중의 삶에 공감을 잘 일으킴. 강해와 적용의 균형.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="section-title">Ⅵ. 설교자의 자기 평가 — 4가지 체크리스트</div>
+
+      <div class="prof-block">
+        <div class="prof-label">🎓 이영호 교수 강조</div>
+        <div class="prof-text">"목회자는 설교를 늘 하지만 평가를 하지 않는다. 설교 후 자기 평가가 설교를 발전시킨다."</div>
+      </div>
+
+      <ul class="checklist">
+        <li>
+          <div class="check-num">①</div>
+          <div class="check-body">
+            <strong>본문 연구를 철저히 하였는가?</strong>
+            <div class="check-sub">역본 비교했는가? 헬라어 원어 찾아봤는가? 주석 참고했는가? 아니면 대충 아웃라인만 잡았는가?</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">②</div>
+          <div class="check-body">
+            <strong>연구 결과를 잘 구성하여 전달했는가?</strong>
+            <div class="check-sub">아웃라인이 논리적인가? 대지가 왔다 갔다 하지 않고 일관성이 있는가? 구슬이 서 말이어도 꿰어야 보배.</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">③</div>
+          <div class="check-body">
+            <strong>청중이 본문의 내용·의미·교훈을 충분히 이해했는가?</strong>
+            <div class="check-sub">설교자만 은혜롭고 청중은 무슨 말인지 모른다면 좋은 설교가 아니다.</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-num">④</div>
+          <div class="check-body">
+            <strong>청중이 무엇을 해야 하는지 분명히 알았는가?</strong>
+            <div class="check-sub">"설교가 끝나고 소모임 전에 오늘 설교를 한 단어나 한 문장으로 써 보라." 내가 의도한 명제와 다르게 적어냈다면 → 연구 부족 or 전달력 부족 or 구성 오류.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 핵심 원칙 3가지 -->
+    <div class="three-principles">
+      <div class="three-title">🌿 오늘 목회 핵심 원칙 3가지 — 설교 편</div>
+      <div class="p-item">
+        <div class="p-num">1</div>
+        <div class="p-text"><strong>좋은 설교는 충분한 연구·묵상·적용의 산물이다</strong> — 본문을 깊이 석의하고, 청중의 삶과 연결하여 묵상하고, 스스로 주제와 대지를 찾아, 청중이 무엇을 해야 하는지 분명히 알게 하라.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-num">2</div>
+        <div class="p-text"><strong>설교자의 고유한 창작이 좋은 설교를 만든다</strong> — 표절·편집이 아닌, 기도하며 본문과 씨름하여 스스로 주제와 대지를 찾아낼 때 설교자가 스스로 영감을 받는다. 그 영감이 청중에게 전달된다.</div>
+      </div>
+      <div class="p-item">
+        <div class="p-num">3</div>
+        <div class="p-text"><strong>설교 후 자기 평가가 설교 성장의 열쇠다</strong> — 4가지 체크리스트로 스스로 점검하라. "한 문장으로 써 보라"는 실용적 자기 평가 방법을 통해 지속적으로 발전하라.</div>
+      </div>
+    </div>
+
+  </div><!-- /preach-note -->
+
+  <!-- ── 핵심정리 ── -->
+  <div id="preach-core" class="subtab-content">
+
+    <div class="section">
+      <div class="section-title">좋은 설교 — 핵심 정리</div>
+
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 좋은 설교의 5가지 조건은?</div>
+        <div class="exam-a">
+          ① 본문을 충분히 <strong>연구</strong>했다 (석의, 역본·원어·주석)<br>
+          ② 충분히 <strong>묵상</strong>했다 (본문 ↔ 청중의 삶 연결)<br>
+          ③ 설교자가 <strong>스스로</strong> 주제와 대지를 찾아냈다 (고유한 창작)<br>
+          ④ 청중이 <strong>공감</strong>하는 언어로 주의를 집중시켰다<br>
+          ⑤ 바른 <strong>적용</strong>으로 청중이 무엇을 해야 하는지 <strong>분명히</strong> 안다
+        </div>
+      </div>
+
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 설교의 주제(명제)와 대지의 차이를 설명하라.</div>
+        <div class="exam-a">
+          <strong>주제</strong> = 하나님이 그 특정 회중에게 말씀하고 싶은 것을 <strong>한 문장</strong>으로 표현한 것.<br>
+          <strong>대지</strong> = 주제를 <strong>논리적 연관성</strong>으로 전개한 것 (반드시 본문 안에서 나와야 함).<br>
+          예) 주제: "사랑하라" → 대지 ① 왜 사랑해야 하는가 ② 어떻게 사랑해야 하는가
+        </div>
+      </div>
+
+      <div class="exam-block">
+        <div class="exam-badge">⚠ 시험 출제 예상 · 기말 6/15</div>
+        <div class="exam-q">Q. 설교자 자기 평가의 4가지 체크리스트는?</div>
+        <div class="exam-a">
+          ① 본문 연구를 철저히 하였는가?<br>
+          ② 연구 결과를 잘 구성하여 전달했는가? (논리적 아웃라인)<br>
+          ③ 청중이 본문의 내용·의미·교훈을 충분히 이해했는가?<br>
+          ④ 청중이 무엇을 해야 하는지 분명히 알았는가?<br>
+          <span style="color:var(--text-sub);font-size:11.5px">→ 실용적 방법: 소모임 전 "오늘 설교를 한 단어나 한 문장으로 써 보라"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">설교의 세 가지 유형 비교</div>
+      <table>
+        <thead><tr><th>유형</th><th>대표 설교자</th><th>핵심 특징</th></tr></thead>
+        <tbody>
+          <tr><td>개혁주의 청교도</td><td>스펄전, 로이드 존스, 에드워즈</td><td>신학 있는 설교, 20대부터 깊은 연구 축적</td></tr>
+          <tr><td>복음주의 삼대지</td><td>빌리 그레이엄, 찰스 스윈돌</td><td>경건주의 기반, 전도 중심, 명확한 3구조</td></tr>
+          <tr><td>본문 묵상 중심</td><td>이동원 목사</td><td>본문 해석 + 청중 삶 공감, 강해·적용 균형</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">묵상의 정의</div>
+      <div class="principle-block">
+        <div class="principle-body">
+          묵상 ≠ 단순 기도<br>
+          묵상 = <strong>본문과 청중의 삶을 연결시키는 과정</strong><br>
+          = 청중이 하는 고민을 본문을 붙잡고 설교자가 함께 씨름하는 것<br>
+          = 묵상이 충분할수록 → 쉽고 풍성한 설교 → 청중이 쉽게 이해하고 집중한다
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /preach-core -->
+
+  <!-- ── 현장적용 ── -->
+  <div id="preach-field" class="subtab-content">
+
+    <div class="section">
+      <div class="section-title">설교 사역 현장 적용</div>
+
+      <div class="field-block">
+        <div class="field-title">🎙️ 상황 1 — 청소년 설교: 본문 선정의 어려움</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">매주 청소년 설교를 해야 하는데 본문 선정이 매번 부담이다</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">즉흥적·단편적 본문 선택 → 전체 흐름이 없고 설교자도 소진된다</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">강해 설교 계획 수립: 예) 마가복음 전체 구조 파악 → 단락별로 학기 시작 전 설교 목록 확정. 청소년에게도 "이번 학기 마가복음을 함께 공부합니다"라고 미리 공지.</div></div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-title">🎙️ 상황 2 — 설교 후 변화 없는 성도들</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">설교는 하는데 성도들의 삶에 변화가 없는 것 같아 회의가 든다</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">적용이 추상적이거나, 설교자 자신이 변화를 기대하는 믿음이 없는 상태</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">① 설교마다 구체적 행동 적용 1가지를 명확히 제시. ② 소모임에서 "오늘 설교를 한 문장으로 써보기" 실천. ③ 설교자 스스로 "이 말씀이 내 삶을 먼저 변화시켰는가"를 점검.</div></div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-title">🎙️ 상황 3 — 설교 준비 시간 부족</div>
+        <div class="field-row"><div class="field-key">상황</div><div class="field-val">부사역자로 각종 사역을 감당하다 보면 설교 준비 시간이 늘 부족하다</div></div>
+        <div class="field-row"><div class="field-key">진단</div><div class="field-val">주말에 몰아서 준비 → 묵상이 없는 정보 전달식 설교가 되기 쉽다</div></div>
+        <div class="field-row"><div class="field-key">실천</div><div class="field-val">월요일 본문 필사 시작. 매일 5~10분이라도 본문 묵상. "잘게 썰어 소화"하는 과정이 일주일에 걸쳐 일어나도록 스케줄 재편. 강해 설교 계획으로 미리 준비 가능성 확보.</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">성찰 질문</div>
+      <div class="reflect-block">
+        <div class="reflect-label">🌿 목회자 자기 성찰</div>
+        <ul class="reflect-q">
+          <li>나는 어떤 유형의 설교자가 되고 싶은가? 그 방향으로 지금 준비하고 있는가?</li>
+          <li>나의 설교에는 해석과 적용이 균형 있게 있는가, 아니면 하나만 치우쳐 있는가?</li>
+          <li>마지막으로 한 설교를 한 문장으로 요약할 수 있는가? 청중도 그렇게 말할 수 있을까?</li>
+          <li>나는 설교 후 자기 평가를 하는가? 부족한 부분을 인식하고 보완하고 있는가?</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /preach-field -->
+
+</div><!-- /panel-preach -->
+
+<script>
+  function switchSubject(panelId, btn) {
+    document.querySelectorAll('.subject-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + panelId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function switchSub(prefix, tabId, btn) {
+    const panel = document.getElementById('panel-' + prefix);
+    panel.querySelectorAll('.subtab-content').forEach(c => c.classList.remove('active'));
+    panel.querySelectorAll('.subtab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(prefix + '-' + tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
