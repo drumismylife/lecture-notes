@@ -84,7 +84,7 @@ const SITE_DATA = {
         { week: 11, title: "현대 목회와 예배", date: "2026.05.18", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week11.html" }
           ] },
-        { week: 12, title: "week12", date: "2026.05.25", files: [
+        { week: 12, title: "목회와 교육 · 목회와 설교", date: "2026.05.25", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week12.html" }
           ] },
         { week: 13, title: "디지털 시대의 목회", date: "2026.06", files: [] },
@@ -258,6 +258,13 @@ const SITE_DATA = {
       icon: "🧩",
       desc: "중간고사 대비 문법 퀴즈 — 직접 풀며 점검",
       href: "output/greek/greek-quiz.html",
+      isNew: false
+    },
+    {
+      name: "문법 전체 요약 정리",
+      icon: "📋",
+      desc: "1학기 헬라어 문법 전체 요약 — 기말 과제 제출용",
+      href: "output/greek/greek-grammar-summary.html",
       isNew: true
     }
   ],
