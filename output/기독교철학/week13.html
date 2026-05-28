@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13주차 — 슐라이어마허 | 기독교철학</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── Design Token ─────────────────────────────────── */
+:root {
+  --bg:        #12100e;
+  --card:      #1c1814;
+  --card2:     #252018;
+  --card3:     #1a1612;
+  --border:    rgba(196,154,60,.18);
+  --border2:   rgba(196,154,60,.08);
+
+  --amber:     #c49a3c;
+  --amber2:    #e8c97a;
+  --amber3:    #f5e4a8;
+  --amber-dim: rgba(196,154,60,.12);
+
+  --sage:      #8aab8a;
+  --sage-dim:  rgba(138,171,138,.12);
+  --sage-bd:   rgba(138,171,138,.35);
+
+  --terra:     #c96b5a;
+  --terra-dim: rgba(201,107,90,.12);
+  --terra-bd:  rgba(201,107,90,.4);
+
+  --blue:      #6a9ecf;
+  --blue-dim:  rgba(106,158,207,.1);
+  --blue-bd:   rgba(106,158,207,.3);
+
+  --txt:       #ede8df;
+  --txt2:      #b8b0a0;
+  --txt3:      #7a7268;
+
+  --tab-h:     52px;
+  --r:         8px;
+}
+
+/* ─── Reset & Base ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px; line-height: 1.75;
+  color: var(--txt); background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ─── Header ────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #1a1208 0%, #0e0c08 60%, #1a1208 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 22px;
+  position: relative; overflow: hidden;
+}
+.site-header::before {
+  content: 'Schleiermacher';
+  position: absolute; right: 24px; top: 16px;
+  font-family: 'EB Garamond', serif;
+  font-size: 52px; font-style: italic;
+  color: rgba(196,154,60,.06);
+  white-space: nowrap; pointer-events: none;
+}
+.header-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.meta-badge {
+  background: var(--amber); color: #12100e;
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  padding: 2px 9px; border-radius: 3px;
+}
+.meta-week { color: var(--txt3); font-size: 12px; }
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px; font-weight: 700; color: var(--amber2);
+  letter-spacing: -.02em; margin-bottom: 4px;
+}
+.header-sub {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px; font-style: italic; color: var(--txt3);
+}
+.header-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.htag {
+  border: 1px solid var(--border); color: var(--txt2);
+  font-size: 11px; padding: 2px 8px; border-radius: 20px;
+}
+
+/* ─── Tab Bar ───────────────────────────────────────── */
+.tab-bar {
+  display: flex; background: var(--card3);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.tab-btn {
+  height: var(--tab-h); padding: 0 20px;
+  background: none; border: none; cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; font-weight: 500; color: var(--txt3);
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--amber2); }
+.tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* ─── Tab Panels ────────────────────────────────────── */
+.tab-panel { display: none; padding: 28px 28px 60px; max-width: 900px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+/* ─── Section Heading ───────────────────────────────── */
+.sec {
+  display: flex; align-items: center; gap: 10px;
+  margin: 32px 0 16px;
+}
+.sec:first-child { margin-top: 0; }
+.sec-num {
+  background: var(--amber); color: #12100e;
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  padding: 2px 8px; border-radius: 3px; white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; font-weight: 700; color: var(--amber2);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+/* ─── Thinker Card ──────────────────────────────────── */
+.thinker-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 22px; margin-bottom: 20px;
+  position: relative; overflow: hidden;
+}
+.thinker-card::before {
+  content: '1768–1834';
+  position: absolute; right: 16px; top: 14px;
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 18px; color: rgba(196,154,60,.15);
+}
+.thinker-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px; font-weight: 700; color: var(--amber);
+  margin-bottom: 2px;
+}
+.thinker-era { font-size: 12px; color: var(--txt3); margin-bottom: 14px; }
+.thinker-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.thinker-item { font-size: 13px; line-height: 1.6; }
+.thinker-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  color: var(--amber); text-transform: uppercase; margin-bottom: 4px;
+}
+.thinker-item.full { grid-column: 1 / -1; }
+.keyword-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.kw {
+  background: var(--amber-dim); border: 1px solid var(--border);
+  color: var(--amber2); font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 2px 8px; border-radius: 4px;
+}
+
+/* ─── Flow Box (Step) ───────────────────────────────── */
+.flow-wrap { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+.step-connector {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--amber); font-size: 14px; height: 18px;
+}
+.step-box {
+  background: var(--card2); border: 1px solid var(--border2);
+  border-radius: var(--r); padding: 14px 18px;
+}
+.step-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  color: var(--amber); text-transform: uppercase; margin-bottom: 6px;
+}
+.step-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; font-weight: 700; color: var(--txt);
+  margin-bottom: 4px;
+}
+.step-desc { font-size: 13px; color: var(--txt2); line-height: 1.7; }
+
+/* ─── Prof Block ────────────────────────────────────── */
+.prof-block {
+  background: var(--card);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 14px 18px; margin-bottom: 14px;
+  position: relative;
+}
+.prof-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  color: var(--amber); text-transform: uppercase; margin-bottom: 8px;
+}
+.prof-block p { font-size: 13.5px; color: var(--txt); line-height: 1.8; margin-bottom: 8px; }
+.prof-block p:last-child { margin-bottom: 0; }
+.prof-block em { color: var(--amber2); font-style: normal; font-weight: 600; }
+.prof-block strong { color: var(--amber3); }
+
+/* ─── Concept Card ──────────────────────────────────── */
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.concept-card {
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: var(--r); padding: 14px 16px;
+}
+.concept-card.full { grid-column: 1 / -1; }
+.concept-term {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 700; color: var(--amber2);
+  margin-bottom: 2px;
+}
+.concept-origin {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--amber); margin-bottom: 8px;
+}
+.concept-def { font-size: 12.5px; color: var(--txt2); line-height: 1.7; }
+.concept-note {
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border2);
+  font-size: 11.5px; color: var(--txt3); line-height: 1.6;
+}
+
+/* ─── Argument Block ────────────────────────────────── */
+.arg-block {
+  border-radius: var(--r); overflow: hidden;
+  margin-bottom: 14px; border: 1px solid var(--border2);
+}
+.arg-title {
+  background: var(--card2); padding: 10px 16px;
+  font-size: 12px; font-weight: 700; color: var(--amber);
+  letter-spacing: .04em;
+}
+.arg-row {
+  display: grid; grid-template-columns: 80px 1fr;
+  border-top: 1px solid var(--border2);
+}
+.arg-label {
+  background: #1e1c18; padding: 12px 14px;
+  font-size: 11px; font-weight: 700; color: var(--txt3);
+  letter-spacing: .06em; text-transform: uppercase;
+  display: flex; align-items: flex-start; padding-top: 14px;
+}
+.arg-content {
+  background: var(--card); padding: 12px 16px;
+  font-size: 13px; color: var(--txt); line-height: 1.75;
+}
+.arg-row.conclusion .arg-content {
+  border-left: 3px solid var(--amber);
+  color: var(--amber2); font-weight: 500;
+}
+
+/* ─── Compare Block ─────────────────────────────────── */
+.compare-block {
+  border-radius: var(--r); overflow: hidden;
+  margin-bottom: 14px; border: 1px solid var(--border2);
+}
+.compare-title {
+  background: var(--card2); padding: 10px 16px;
+  font-size: 12px; font-weight: 700; color: var(--amber);
+  letter-spacing: .04em;
+  border-bottom: 1px solid var(--border2);
+}
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.compare-col { padding: 14px 16px; }
+.compare-col:first-child { border-right: 1px solid var(--border2); }
+.compare-col-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 700; color: var(--amber);
+  margin-bottom: 10px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border2);
+}
+.compare-row {
+  display: grid; grid-template-columns: 90px 1fr;
+  border-top: 1px solid rgba(196,154,60,.06);
+  padding: 7px 0; font-size: 12.5px;
+}
+.compare-row:first-of-type { border-top: none; }
+.compare-ax { color: var(--amber); font-weight: 600; font-size: 11px; padding-top: 1px; }
+.compare-val { color: var(--txt2); line-height: 1.6; }
+.compare-highlight { color: var(--amber2); font-weight: 500; }
+.compare-footer {
+  grid-column: 1 / -1; padding: 10px 16px;
+  background: rgba(196,154,60,.04);
+  border-top: 1px solid var(--border2);
+  font-size: 12px; color: var(--txt3); line-height: 1.7;
+}
+
+/* ─── Proposition (핵심명제) ─────────────────────────── */
+.proposition {
+  background: #2a2010;
+  border-left: 3px solid var(--amber);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 14px 18px; margin-bottom: 10px;
+  font-size: 13.5px; color: var(--amber2); line-height: 1.75;
+  font-weight: 500;
+}
+.proposition .prop-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  color: var(--amber); text-transform: uppercase; margin-bottom: 6px;
+  opacity: .7;
+}
+
+/* ─── Exam Card ─────────────────────────────────────── */
+.exam-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.exam-item {
+  background: var(--terra-dim); border: 1px solid var(--terra-bd);
+  border-radius: var(--r); padding: 12px 16px;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.exam-badge {
+  background: var(--terra); color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: .08em;
+  padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0;
+  margin-top: 1px;
+}
+.exam-text { font-size: 13px; color: var(--txt); line-height: 1.65; }
+.exam-hint { font-size: 11.5px; color: var(--txt3); margin-top: 4px; }
+
+/* ─── Activity Card ─────────────────────────────────── */
+.activity-card {
+  background: var(--sage-dim); border: 1px solid var(--sage-bd);
+  border-radius: var(--r); padding: 16px 18px; margin-bottom: 12px;
+}
+.act-badge {
+  display: inline-block;
+  background: var(--sage); color: #0e1a0e;
+  font-size: 9px; font-weight: 700; letter-spacing: .08em;
+  padding: 2px 7px; border-radius: 3px; margin-bottom: 10px;
+}
+.act-title { font-size: 14px; font-weight: 700; color: var(--sage); margin-bottom: 8px; }
+.act-content { font-size: 13px; color: var(--txt2); line-height: 1.75; margin-bottom: 10px; }
+.act-q-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  color: var(--sage); text-transform: uppercase; margin-bottom: 6px;
+}
+.act-question { font-size: 13px; color: var(--txt); line-height: 1.75; font-style: italic; }
+
+/* ─── Timeline ──────────────────────────────────────── */
+.timeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 14px; }
+.tl-item { display: grid; grid-template-columns: 110px 20px 1fr; gap: 0 12px; }
+.tl-year { text-align: right; padding: 12px 0; font-size: 12px; color: var(--amber); font-weight: 600; }
+.tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); margin: 16px 0 0; flex-shrink: 0; }
+.tl-line { flex: 1; width: 1px; background: var(--border); margin-top: 2px; }
+.tl-item:last-child .tl-line { display: none; }
+.tl-body { padding: 10px 0 14px; }
+.tl-who { font-size: 13px; font-weight: 700; color: var(--txt); }
+.tl-what { font-size: 12px; color: var(--txt3); margin-top: 2px; line-height: 1.6; }
+
+/* ─── Summary Table ─────────────────────────────────── */
+.sum-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 14px; }
+.sum-table th {
+  background: var(--card2); color: var(--amber);
+  padding: 9px 12px; text-align: left;
+  font-weight: 600; font-size: 11px; letter-spacing: .05em;
+  border-bottom: 1px solid var(--border);
+}
+.sum-table td {
+  padding: 9px 12px; border-bottom: 1px solid var(--border2);
+  color: var(--txt2); vertical-align: top; line-height: 1.6;
+}
+.sum-table tr:last-child td { border-bottom: none; }
+.sum-table td:first-child { color: var(--amber2); font-weight: 600; }
+.sum-table tr:nth-child(even) td { background: rgba(196,154,60,.03); }
+
+/* ─── Divider ───────────────────────────────────────── */
+.divider {
+  height: 1px; background: var(--border2);
+  margin: 24px 0;
+}
+
+/* ─── Note Box ──────────────────────────────────────── */
+.note-box {
+  background: var(--blue-dim); border: 1px solid var(--blue-bd);
+  border-radius: var(--r); padding: 12px 16px; margin-bottom: 14px;
+  font-size: 12.5px; color: var(--txt2); line-height: 1.7;
+}
+.note-box strong { color: var(--blue); }
+
+/* ─── Util ──────────────────────────────────────────── */
+.mb8 { margin-bottom: 8px; }
+.mb16 { margin-bottom: 16px; }
+.txt2 { color: var(--txt2); }
+.txt3 { color: var(--txt3); }
+.small { font-size: 12px; }
+
+/* ─── Print ─────────────────────────────────────────── */
+@media print {
+  .tab-bar { display: none; }
+  .tab-panel { display: block !important; padding: 16px; }
+  body { background: white; color: #111; }
+  .site-header { background: #222; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-meta">
+    <span class="meta-badge">기독교철학 61083</span>
+    <span class="meta-week">13주차 · 2026-05-26 · 심상우 교수</span>
+  </div>
+  <div class="header-title">슐라이어마허 — 종교의 장애와 본질에 대하여</div>
+  <div class="header-sub">Friedrich Daniel Ernst Schleiermacher, 1768–1834</div>
+  <div class="header-tags">
+    <span class="htag">절대의존의 감정</span>
+    <span class="htag">Gefühl</span>
+    <span class="htag">우주의 직관</span>
+    <span class="htag">낭만주의 신학</span>
+    <span class="htag">보편 해석학</span>
+    <span class="htag">칸트 비교</span>
+    <span class="htag">교회론</span>
+  </div>
+</header>
+
+<!-- ══ TAB BAR ═════════════════════════════════════════ -->
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('note',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary',this)">⚡ 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('compare',this)">⚖️ 비교표</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 1 — 강의노트
+══════════════════════════════════════════════════════ -->
+<div id="tab-note" class="tab-panel active">
+
+  <!-- 사상가 카드 -->
+  <div class="thinker-card">
+    <div class="thinker-name">프리드리히 슐라이어마허</div>
+    <div class="thinker-era">Friedrich Daniel Ernst Schleiermacher · 독일 낭만주의 신학 · 19세기</div>
+    <div class="thinker-grid">
+      <div class="thinker-item">
+        <div class="thinker-label">주요 저작</div>
+        『종교론』(1799)<br>
+        『기독교 신앙』(1821–22)
+      </div>
+      <div class="thinker-item">
+        <div class="thinker-label">사상적 배경</div>
+        모라비아 경건주의 → 계몽주의(칸트) → 독일 낭만주의(슐레겔 등)
+      </div>
+      <div class="thinker-item full">
+        <div class="thinker-label">핵심 주장</div>
+        종교의 본질은 지식(형이상학)도 도덕(윤리)도 아니라,
+        무한자(하나님) 앞에서 자신이 전적으로 의존하고 있음을 느끼는
+        <em style="color:var(--amber2)">절대의존의 감정(Gefühl)</em>이다.
+        이 감정은 지식과 도덕 모두의 토대이자 통일체다.
+      </div>
+      <div class="thinker-item full">
+        <div class="thinker-label">기독교 접점</div>
+        예수를 <em style="color:var(--amber2)">하나님-의식(Gottesbewusstsein)이 완전히 구현된 인간</em>으로 이해.
+        신앙은 교리 동의가 아닌 경건(Frömmigkeit)한 감정의 응답이다.
+        현대 개신교 신학의 아버지, 보편 해석학의 창시자로 평가.
+      </div>
+    </div>
+    <div class="keyword-row">
+      <span class="kw">Gefühl</span>
+      <span class="kw">schlechthinnige Abhängigkeit</span>
+      <span class="kw">Anschauung des Universums</span>
+      <span class="kw">Frömmigkeit</span>
+      <span class="kw">Hermeneutik</span>
+      <span class="kw">Gottesbewusstsein</span>
+    </div>
+  </div>
+
+  <!-- STEP 0: 큰 그림 -->
+  <div class="sec">
+    <span class="sec-num">큰 그림</span>
+    <span class="sec-title">슐라이어마허 논리의 전체 흐름</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="note-box">
+    <strong>읽기 전에</strong> — 슐라이어마허의 논리는 하나의 긴 설득 구조입니다.
+    아래 5단계 흐름으로 먼저 파악하면, 각 개념이 어디에 속하는지 보입니다.
+  </div>
+
+  <div class="flow-wrap">
+    <div class="step-box">
+      <div class="step-label">STEP 1 · 문제 진단</div>
+      <div class="step-title">왜 교양인들은 종교를 멸시하는가?</div>
+      <div class="step-desc">18세기 독일 계몽주의 지성인들은 종교를 구시대의 유물로 취급했다. 슐라이어마허의 질문: "이게 종교 자체의 문제인가, 아니면 종교를 잘못 이해한 건 아닌가?"</div>
+    </div>
+    <div class="step-connector">↓</div>
+    <div class="step-box">
+      <div class="step-label">STEP 2 · 원인 분석</div>
+      <div class="step-title">종교 멸시의 3가지 원인</div>
+      <div class="step-desc">① 계몽주의의 이성 절대화 &nbsp;② 교회의 교의 경직화 &nbsp;③ 종교의 도덕 도구화</div>
+    </div>
+    <div class="step-connector">↓</div>
+    <div class="step-box">
+      <div class="step-label">STEP 3 · 핵심 주장</div>
+      <div class="step-title">진짜 종교는 절대의존의 감정(Gefühl)이다</div>
+      <div class="step-desc">지식도 도덕도 아닌 제3의 영역—감정(Gefühl)—이 종교의 본질. 칸트와의 결정적 차이.</div>
+    </div>
+    <div class="step-connector">↓</div>
+    <div class="step-box">
+      <div class="step-label">STEP 4 · 심화</div>
+      <div class="step-title">해석학 — 텍스트 이해의 기술</div>
+      <div class="step-desc">보편 해석학으로 확장: 성경 해석을 넘어 모든 언어 소통에 적용. 문법적 해석 + 심리적 해석.</div>
+    </div>
+    <div class="step-connector">↓</div>
+    <div class="step-box">
+      <div class="step-label">STEP 5 · 적용</div>
+      <div class="step-title">교회론 — 투쟁하는 교회 vs. 개선교회</div>
+      <div class="step-desc">종교의 생명력을 억누르는 제도화된 교회 비판. 진정한 교회란 성령의 살아있는 공동체.</div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="sec">
+    <span class="sec-num">STEP 1</span>
+    <span class="sec-title">왜 이 책을 썼는가 — 문제 진단</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 설명</div>
+    <p>슐라이어마허가 살던 18세기 말 독일은 계몽주의 시대였습니다. 당시 지성인들—철학·과학·예술에 밝은 교양인들—은 종교를 구시대의 유물이나 미신쯤으로 여기며 멸시했어요.</p>
+    <p>슐라이어마허는 이 상황을 보면서 물었습니다: <em>"이 사람들이 종교를 거부하는 게 정말 종교 자체의 문제인가, 아니면 종교를 잘못 이해하고 있는 건 아닌가?"</em></p>
+    <p>그래서 쓴 책이 『종교론』입니다. 부제 그대로—<em>교양 있는 경멸자들에게 보내는 연설</em>. 종교를 거부하는 지성인들에게 직접 말을 거는 방식으로 쓴 책이에요.</p>
+    <p>그의 진단: <strong>"당신들이 거부하는 건 진짜 종교가 아닙니다. 잘못 이해된 종교를 거부하고 있는 겁니다."</strong></p>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="sec">
+    <span class="sec-num">STEP 2</span>
+    <span class="sec-title">교양인들이 종교를 거부하는 3가지 원인</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 설명</div>
+    <p>슐라이어마허가 진단한 원인은 크게 세 가지입니다.</p>
+    <p><em>① 계몽주의가 이성을 절대화했다</em><br>
+    칸트의 『순수이성비판』 이후 지성인들은 이렇게 생각했어요: "경험으로 검증 안 되는 건 믿을 수 없다." 신의 존재, 영혼의 불멸 같은 건 이성으로 증명 불가능하니 지성인답게 거부해야 한다고 본 거죠.</p>
+    <p><em>② 기존 교회가 종교를 너무 딱딱하게 만들었다</em><br>
+    17세기 정통주의 교회는 종교를 교리 암기와 외적 의식으로만 채웠습니다. 경직된 도그마와 권위주의적 제도—교양인들 눈에는 시대에 뒤떨어진 권위주의로 보였죠.</p>
+    <p><em>③ 종교를 도덕이나 사회사업으로 축소시켰다</em><br>
+    당시 일부 기독교는 "착하게 살기 위한 수단"쯤으로 종교를 이해했어요. 이러면 굳이 종교가 필요한가요? 철학이나 윤리학으로 충분하잖아요. 종교가 철학의 부속물로 전락한 겁니다.</p>
+    <p><strong>핵심 포인트:</strong> 이 세 가지 모두 종교 자체의 문제가 아니라, <em>종교에 대한 잘못된 이해</em>에서 생긴 문제입니다.</p>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="sec">
+    <span class="sec-num">STEP 3</span>
+    <span class="sec-title">그렇다면 진짜 종교는 무엇인가 — 절대의존의 감정</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 설명 — 인간 정신의 세 기능</div>
+    <p>슐라이어마허의 가장 중요한 주장이 여기 나옵니다. 인간의 정신에는 세 가지 기능이 있어요:</p>
+    <p>
+      &nbsp;&nbsp;· <em>아는 것 (지식·지성)</em> → 철학·과학<br>
+      &nbsp;&nbsp;· <em>행동하는 것 (의지·실천)</em> → 도덕·윤리<br>
+      &nbsp;&nbsp;· <em>느끼는 것 (감정·Gefühl)</em> → 종교
+    </p>
+    <p>종교는 세 번째, 즉 <em>'감정'</em>의 영역입니다. 그런데 이 감정은 우리가 일상에서 말하는 기분이나 심리적 감정과 달라요.</p>
+    <p>슐라이어마허가 말하는 <em>Gefühl</em>은 <strong>"지성과 의지, 주관과 객관을 초월하는 무조건적인 것에 대한 직접적 자각"</strong>입니다.</p>
+    <p>쉽게 말하면 이런 느낌입니다: 별이 가득한 밤하늘을 바라볼 때, 사랑하는 사람의 죽음 앞에 설 때, 설명할 수 없는 경외감과 <em>"나는 이 거대한 무언가 앞에 그냥 놓여 있구나"</em> 하는 감각. 그것이 바로 슐라이어마허가 말하는 종교적 감정입니다.</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card">
+      <div class="concept-term">절대의존의 감정</div>
+      <div class="concept-origin">Gefühl der schlechthinnigen Abhängigkeit</div>
+      <div class="concept-def">내가 내 존재를 스스로 만들 수 없다는 자각. 무한자(하나님)에 의해 전적으로 살아 있음을 느끼는 실존적 감응. 『기독교 신앙』(1821)의 중심 개념.</div>
+      <div class="concept-note">⚠️ 흔히 "종교의 정의"로 오해되지만, 실제로는 경건(Frömmigkeit)—신앙인의 내면 태도—를 설명하는 개념.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">우주의 직관</div>
+      <div class="concept-origin">Anschauung des Universums</div>
+      <div class="concept-def">『종교론』(1799)에서 사용된 표현. 이성적 분석 이전에 존재 전체를 직접적으로 포착하는 방식. '우주'는 물리적 자연이 아닌 나를 둘러싼 모든 관계적 실재.</div>
+      <div class="concept-note">→ 후기(『기독교 신앙』)에서 '절대의존의 감정'으로 대체·정교화됨.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">경건</div>
+      <div class="concept-origin">Frömmigkeit</div>
+      <div class="concept-def">슐라이어마허가 말하는 종교적 체험의 내면적 태도. 자기중심성을 넘어 전체에 의존함을 자각하는 감정으로서, 교리 수용이나 도덕 실천보다 더 근원적인 신앙의 출발점.</div>
+      <div class="concept-note">그는 자신을 "더 높은 차원의 경건주의자"라 불렀다.</div>
+    </div>
+    <div class="concept-card">
+      <div class="concept-term">하나님-의식</div>
+      <div class="concept-origin">Gottesbewusstsein</div>
+      <div class="concept-def">예수 그리스도 안에서 완전하게 구현된 것. 슐라이어마허는 예수를 '하나님-의식이 완벽히 실현된 인간'으로 봤다. 속죄는 십자가의 대속이 아니라, 예수의 인격이 공동체의 종교 의식을 변화시키는 과정.</div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">중요한 구분 — Gefühl은 심리적 감정이 아니다</div>
+    <p>그는 이 감정을 두 가지 방식으로 표현합니다:</p>
+    <p>
+      &nbsp;&nbsp;· <em>『종교론』(1799):</em> "우주에 대한 직관과 감정" (Anschauung des Universums)<br>
+      &nbsp;&nbsp;· <em>『기독교 신앙』(1821):</em> "절대의존의 감정" (Gefühl der schlechthinnigen Abhängigkeit)
+    </p>
+    <p>두 표현 모두 같은 걸 말합니다: <strong>"나는 내 존재를 내가 만들 수 없다. 나는 나보다 훨씬 큰 무언가에 전적으로 의존하고 있다."</strong> 이 깊은 자각이 종교의 출발점이라는 겁니다.</p>
+    <p>그리고 그는 이 종교(감정)가 지식과 도덕의 <em>부속물</em>이 아니라, 오히려 그 <em>토대이자 통일체</em>라고 말합니다. 비유하자면: 빨강과 파랑이 '빛의 스펙트럼'이라는 더 넓은 틀 안에서 통합되듯, 지식(형이상학)과 도덕(윤리)은 종교라는 더 깊은 차원 안에서 통일성을 얻는다는 것.</p>
+  </div>
+
+  <!-- 논증 블록 -->
+  <div class="arg-block">
+    <div class="arg-title">논증 — 종교의 본질은 지식도 도덕도 아니다</div>
+    <div class="arg-row">
+      <div class="arg-label">전제 1</div>
+      <div class="arg-content">계몽주의는 종교를 형이상학(세계 지식)이나 도덕철학(행위 규범)의 일부로 이해했다.</div>
+    </div>
+    <div class="arg-row">
+      <div class="arg-label">전제 2</div>
+      <div class="arg-content">인간 정신에는 지식(지성)·행위(의지)와 구별되는 제3의 독자적 기능, 즉 감정(Gefühl)이 존재한다. 이것은 주관·객관을 초월하는 무조건적인 것에 대한 직접적 자각이다.</div>
+    </div>
+    <div class="arg-row">
+      <div class="arg-label">논증</div>
+      <div class="arg-content">종교를 지식이나 도덕으로 환원하면 종교 고유의 영역이 사라진다. 교양인들이 거부하는 것은 사실상 '진정한 종교'가 아닌 그 왜곡된 형태다.</div>
+    </div>
+    <div class="arg-row conclusion">
+      <div class="arg-label">결론</div>
+      <div class="arg-content">종교의 본질은 절대의존의 감정(Gefühl der schlechthinnigen Abhängigkeit)—무한자 앞에서 자신의 존재 전체가 그에게 의존함을 감각하는 경건한 자각이다. 이 감정은 지식과 도덕 모두의 토대이자 통일체다.</div>
+    </div>
+  </div>
+
+  <!-- STEP 4: 해석학 -->
+  <div class="sec">
+    <span class="sec-num">STEP 4</span>
+    <span class="sec-title">보편 해석학 — 읽어보라 하신 부분 (핵심 위주)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="note-box">
+    <strong>참고</strong> — 강의에서 비중이 낮았던 부분입니다. 핵심 개념만 기억하세요.
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 요약 — 해석학이란?</div>
+    <p><em>기존 해석학:</em> 성경이나 고전 문헌만을 해석하는 특수한 규칙들</p>
+    <p><em>슐라이어마허의 혁신:</em> "모든 언어적 소통에 다 통하는 보편 이론"으로 확장. 문학, 법, 철학 어디에도 동일하게 적용.</p>
+    <p><em>두 가지 해석 방법:</em><br>
+    &nbsp;&nbsp;· <strong>문법적 해석</strong> — 언어의 구조와 역사적 맥락 분석<br>
+    &nbsp;&nbsp;· <strong>심리적 해석</strong> — 저자의 의도·동기·무의식적 생각까지 재구성</p>
+    <p><em>목표:</em> <strong>"저자만큼, 때로는 저자보다 더 잘 이해하는 것"</strong><br>
+    방법: 해석학적 순환 — 부분(단어·문장) ↔ 전체(작품·저자 사상)를 반복적으로 오가며 의미를 심화함.</p>
+    <p><em>신학 적용:</em> 성경을 읽을 때도 문자만 보지 말고, 저자의 역사적 맥락(문법적)과 영적 의도(심리적)를 함께 보라—이것이 현대 성경 해석학의 출발점이 됩니다.</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card full">
+      <div class="concept-term">해석학적 순환</div>
+      <div class="concept-origin">hermeneutischer Zirkel</div>
+      <div class="concept-def">
+        부분과 전체를 반복적으로 오가며 이해를 심화하는 방법.<br>
+        단어 → 문장 → 단락 → 전체 작품 → 저자 사상 → 다시 단어로 돌아와 재해석.<br>
+        이 순환을 통해 저자 자신도 인식하지 못한 의도까지 발굴할 수 있다.
+      </div>
+      <div class="concept-note">
+        슐라이어마허 → 딜타이(Dilthey) → 하이데거 → 가다머(Gadamer)로 이어지는 해석학 전통의 출발점
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: 교회론 -->
+  <div class="sec">
+    <span class="sec-num">STEP 5</span>
+    <span class="sec-title">교회론 — 읽어보라 하신 부분 (핵심 위주)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">강의 설명 — 종교의 생명을 억누르는 교회</div>
+    <p>슐라이어마허는 종교의 본질이 내면의 자유로운 감응에 있기 때문에, 그것을 억누르는 외적 제도와 권력 구조를 비판했습니다. 그는 교회를 두 종류로 나눕니다:</p>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-title">투쟁하는 교회 vs. 개선적인 교회</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--sage)">🔥 투쟁하는 교회<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--txt3)">Kämpfende Kirche</span></div>
+        <div class="compare-row"><span class="compare-ax">상태</span><span class="compare-val compare-highlight">복음의 정신을 지키기 위해 세속 권력에 맞서 싸우는 교회</span></div>
+        <div class="compare-row"><span class="compare-ax">특징</span><span class="compare-val">성령과 카리스마가 살아 있는 영적 순례 공동체</span></div>
+        <div class="compare-row"><span class="compare-ax">구성</span><span class="compare-val">신앙인과 구도자 모두를 품는 열린 공동체. 질문하는 자, 신앙의 문턱에 있는 자도 환영</span></div>
+        <div class="compare-row"><span class="compare-ax">정체성</span><span class="compare-val">언제나 세속 권력과 거리를 유지하며 투쟁 중</span></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--terra)">🏛 개선적인 교회<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--txt3)">Siegende Kirche</span></div>
+        <div class="compare-row"><span class="compare-ax">상태</span><span class="compare-val compare-highlight" style="color:var(--terra)">제도화·권력화되어 자기 보존에 몰두하는 교회</span></div>
+        <div class="compare-row"><span class="compare-ax">특징</span><span class="compare-val">교리, 권위, 형식이 경외심의 자리를 대체. 종교의 자유로운 생명력 억압</span></div>
+        <div class="compare-row"><span class="compare-ax">문제</span><span class="compare-val">이미 신앙을 가진 자들의 폐쇄적 모임으로 전락. 구도자를 위한 공간 부재</span></div>
+        <div class="compare-row"><span class="compare-ax">현대 예</span><span class="compare-val">물량주의 성장, 건물 중심 위계, 신자 영적 자율성 억압</span></div>
+      </div>
+    </div>
+    <div class="compare-footer">
+      💬 <strong>교수님 코멘트:</strong> 슐라이어마허에게 진정한 교회는 '성령의 공동체'로서, 고정된 건물이나 조직이 아니라 지속적으로 살아 있는 영적 관계와 감응 안에서 형성되는 유기체입니다.
+    </div>
+  </div>
+
+  <!-- 젊은이들과 종교 -->
+  <div class="sec">
+    <span class="sec-num">보충</span>
+    <span class="sec-title">젊은이들 안에서 발견하는 종교의 본질 (슬라이드 보충)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">슬라이드 핵심 요약</div>
+    <p>슐라이어마허는 젊은이들이 가진 깊은 감정의 동요와 무한한 것을 향한 열망에 주목했습니다. 그들이 교리에는 냉소적일지 몰라도, <em>존재에 대한 깊은 감동·무한에 대한 감응·삶의 깊이와 연결되는 순간들</em>은 매우 종교적이라고 봤어요.</p>
+    <p>별이 가득한 밤하늘을 바라보며 말로 다 할 수 없는 감정을 느낄 때, 사랑과 죽음을 마주할 때—이런 순간들이 바로 종교적 체험의 초기 징후입니다.</p>
+    <p>요점: <strong>종교는 교회 안에서만 발견되는 것이 아니다.</strong> 예술을 감상할 때, 자연의 위대함에 감탄할 때, 사랑과 우정 속에서 관계의 깊이를 느낄 때도 종교적 감응이 일어난다.</p>
+  </div>
+
+  <!-- 평가 섹션 -->
+  <div class="sec">
+    <span class="sec-num">평가</span>
+    <span class="sec-title">슐라이어마허를 어떻게 평가할 것인가 (슬라이드 핵심)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-title">긍정 평가 vs. 비판 (바르트)</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--sage)">👍 긍정 평가 (틸리히 계열)</div>
+        <div class="compare-row"><span class="compare-ax">핵심</span><span class="compare-val compare-highlight">계몽주의 공격으로부터 종교를 지켜낸 혁신가. 종교를 철학의 시녀에서 독립시킴.</span></div>
+        <div class="compare-row"><span class="compare-ax">근거</span><span class="compare-val">당시 교회와 신학이 계몽주의에 무력해졌을 때, 계몽주의를 거부하는 대신 창조적으로 수용하며 종교의 본질을 새롭게 해석</span></div>
+        <div class="compare-row"><span class="compare-ax">기여</span><span class="compare-val">보편 해석학으로 현대 인문학 전반에 기여. "슐라이어마허 없이는 현대 신학도 없다"</span></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--terra)">👎 비판 (칼 바르트·신정통주의)</div>
+        <div class="compare-row"><span class="compare-ax">핵심</span><span class="compare-val compare-highlight" style="color:var(--terra)">'아래로부터의 신학' — 신학의 출발점이 하나님의 계시가 아닌 인간의 경험</span></div>
+        <div class="compare-row"><span class="compare-ax">문제점</span><span class="compare-val">하나님의 초월성과 객관적 계시의 우선성 약화. 범신론·불가지론 혐의 (스피노자와 유사하다는 비판)</span></div>
+        <div class="compare-row"><span class="compare-ax">한 줄 요약</span><span class="compare-val">"하나님이 인간 경험 안으로 흡수되어 버린다"</span></div>
+      </div>
+    </div>
+    <div class="compare-footer">
+      ⚖️ <strong>균형 잡기:</strong> 슐라이어마허 본인은 자신을 "더 높은 차원의 경건주의자"라 했습니다. 스피노자의 신은 비인격적 자연 원리인 반면, 그의 신은 종교적 경건의 대상이 되는 초월자입니다—철학적·신학적으로 중요한 차이가 있습니다.
+    </div>
+  </div>
+
+  <!-- 활동지 -->
+  <div class="sec">
+    <span class="sec-num">활동지</span>
+    <span class="sec-title">프락시스 활동지 참고</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="act-badge">PRAXIS</div>
+    <div class="act-title">절대의존의 감정과 나의 설교·목양</div>
+    <div class="act-content">슐라이어마허에 따르면 종교는 교리 이전에, 내 존재가 무한자에 전적으로 의존하고 있다는 감각(Gefühl)에서 출발한다. 진정한 신앙은 교리에 동의하는 것이 아니라 경건(Frömmigkeit)한 감응에서 시작된다.</div>
+    <div class="act-q-label">실천 질문</div>
+    <div class="act-question">나는 설교할 때 회중이 이 '절대의존의 감각'을 체험하도록 돕고 있는가? 아니면 정보를 전달하고 도덕을 강조하는 데 그치고 있는가?</div>
+  </div>
+
+  <div class="activity-card">
+    <div class="act-badge">PRAXIS</div>
+    <div class="act-title">내가 섬기는 교회는 어느 쪽인가</div>
+    <div class="act-content">슐라이어마허는 제도화·권력화된 개선교회(Siegende Kirche)를 비판하며, 진정한 교회는 투쟁하는 교회(Kämpfende Kirche)여야 한다고 봤다. 교회는 이미 신앙을 가진 자들만의 폐쇄적 모임이 아니라, 질문하는 자와 구도자에게도 열린 영적 학교여야 한다.</div>
+    <div class="act-q-label">실천 질문</div>
+    <div class="act-question">내가 섬기는 공동체에서 질문하는 자, 구도자, 신앙의 문턱에 있는 사람은 환영받고 있는가? 제도와 형식이 영적 감응보다 앞서고 있지는 않은가?</div>
+  </div>
+
+  <!-- 오늘 핵심 명제 3가지 -->
+  <div class="sec">
+    <span class="sec-num">오늘의 핵심</span>
+    <span class="sec-title">핵심 명제 3가지</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="proposition">
+    <div class="prop-label">명제 01</div>
+    종교는 지식(형이상학)도 도덕(윤리)도 아니다.<br>
+    그 본질은 <em style="color:var(--amber3)">절대의존의 감정(Gefühl der schlechthinnigen Abhängigkeit)</em>—<br>
+    무한자 앞에서 내 존재 전체가 그에게 의존하고 있음을 느끼는 실존적 감응이다.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">명제 02</div>
+    종교(감정)는 지식과 도덕의 부속물이 아니라 그 <em style="color:var(--amber3)">토대이자 통일체</em>다.<br>
+    칸트에게 종교는 도덕의 지지대였지만, 슐라이어마허에게 도덕과 지식은 종교라는 더 깊은 차원 위에 세워진다.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">명제 03</div>
+    진정한 교회는 <em style="color:var(--amber3)">투쟁하는 교회(Kämpfende Kirche)</em>다.<br>
+    제도화·권력화된 개선교회(Siegende Kirche)는 종교의 생명력을 억누른다.<br>
+    교회는 언제나 세속 권력과 거리를 유지하며, 질문하는 자에게도 열려 있어야 한다.
+  </div>
+
+</div><!-- /tab-note -->
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 2 — 핵심정리
+══════════════════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-panel">
+
+  <div class="sec">
+    <span class="sec-num">핵심</span>
+    <span class="sec-title">시험 대비 — 핵심 명제 모음</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="proposition">
+    <div class="prop-label">핵심 명제 01</div>
+    슐라이어마허의 <em style="color:var(--amber3)">Gefühl</em>은 심리적 감정이 아니다.<br>
+    "지성·의지·주관·객관을 초월하는 무조건적인 것에 대한 직접적 자각"—<br>
+    내 존재 전체가 무한자에게 의존하고 있음을 느끼는 실존적 감응이다.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">핵심 명제 02</div>
+    종교는 형이상학(지식)과 윤리(도덕)의 <em style="color:var(--amber3)">토대이자 통일체</em>다.<br>
+    두 영역이 세워지는 더 깊은 차원—빛의 스펙트럼 같은 통합의 원리.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">핵심 명제 03</div>
+    『종교론』(1799)의 "우주의 직관(Anschauung des Universums)" →<br>
+    『기독교 신앙』(1821)의 "절대의존의 감정(Gefühl der schlechthinnigen Abhängigkeit)"<br>
+    — 같은 것을 가리키는 두 표현. 후자가 더 정교화된 개념.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">핵심 명제 04</div>
+    진정한 교회는 <em style="color:var(--amber3)">투쟁하는 교회(Kämpfende Kirche)</em>.<br>
+    개선교회(Siegende Kirche)는 제도·권력에 포획되어 종교의 생명력을 잃은 상태.
+  </div>
+  <div class="proposition">
+    <div class="prop-label">핵심 명제 05</div>
+    해석학의 목표: <em style="color:var(--amber3)">"저자만큼, 때로는 저자보다 더 잘 이해하는 것"</em><br>
+    → 문법적 해석(언어·맥락) + 심리적 해석(저자 의도·무의식)의<br>
+    해석학적 순환(hermeneutischer Zirkel)으로 가능.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec">
+    <span class="sec-num">시험</span>
+    <span class="sec-title">출제예상 문항</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exam-list">
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">슐라이어마허가 진단한 교양인들의 종교 멸시 원인 3가지를 서술하시오.</div>
+        <div class="exam-hint">① 계몽주의 이성 중심주의 &nbsp;② 정통주의 교의의 경직성 &nbsp;③ 도덕화된 기독교(종교의 도구화)</div>
+      </div>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">슐라이어마허의 Gefühl(감정)의 의미를 설명하고, 일반적 심리 감정과 무엇이 다른지 서술하시오.</div>
+        <div class="exam-hint">지성·의지·주관·객관을 초월 / 무조건적인 것에 대한 직접적 자각 / 목적론적 의존(결정론적 의존이 아님)</div>
+      </div>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">칸트와 슐라이어마허의 종교 이해를 비교하시오. (방법론 / 종교의 기초 / 신앙-이성 관계)</div>
+        <div class="exam-hint">칸트: 도덕적 요청 / 실천이성 / 이성이 종교 한계 규정 &nbsp;↔&nbsp; 슐라이어마허: 절대의존의 감정 / 감정이 지식·도덕의 토대</div>
+      </div>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">투쟁하는 교회(Kämpfende Kirche)와 개선적인 교회(Siegende Kirche)를 구분하고, 현대 교회에 적용하시오.</div>
+        <div class="exam-hint">투쟁하는 교회=영적 순례 공동체·열린 구조 / 개선교회=제도화·자기보존·물량주의</div>
+      </div>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">슐라이어마허에 대한 긍정 평가와 바르트의 비판을 각각 서술하고, 목회자로서 자신의 입장을 제시하시오.</div>
+        <div class="exam-hint">긍정: 종교의 독자 영역 확보, 혁신적 해결책 / 비판: 아래로부터의 신학, 계시 우선성 약화, 범신론 혐의</div>
+      </div>
+    </div>
+    <div class="exam-item">
+      <span class="exam-badge">시험</span>
+      <div>
+        <div class="exam-text">슐라이어마허 해석학의 두 축과 해석학적 순환을 설명하시오.</div>
+        <div class="exam-hint">문법적 해석(언어구조·역사맥락) + 심리적 해석(저자의도·무의식) / 부분↔전체 반복 / 목표: 저자보다 더 잘 이해하기</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec">
+    <span class="sec-num">개념</span>
+    <span class="sec-title">원어 핵심 용어 정리</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <table class="sum-table">
+    <tr>
+      <th>한국어</th><th>원어 (독일어)</th><th>핵심 의미</th>
+    </tr>
+    <tr>
+      <td>절대의존의 감정</td>
+      <td><span class="kw">Gefühl der schlechthinnigen Abhängigkeit</span></td>
+      <td>내 존재 전체가 무한자에 의존함을 자각하는 실존적 감응. 경건의 핵심 정서.</td>
+    </tr>
+    <tr>
+      <td>우주의 직관</td>
+      <td><span class="kw">Anschauung des Universums</span></td>
+      <td>존재 전체를 이성 이전에 직접 포착하는 인식. 『종교론』의 핵심 표현.</td>
+    </tr>
+    <tr>
+      <td>경건</td>
+      <td><span class="kw">Frömmigkeit</span></td>
+      <td>신앙인의 내면적 태도. 절대의존의 감정이 발현되는 삶의 방식.</td>
+    </tr>
+    <tr>
+      <td>하나님-의식</td>
+      <td><span class="kw">Gottesbewusstsein</span></td>
+      <td>예수 안에서 완전히 구현된 것. 인간의 종교 의식의 완성 형태.</td>
+    </tr>
+    <tr>
+      <td>이해의 기술</td>
+      <td><span class="kw">Kunst des Verstehens</span></td>
+      <td>보편 해석학의 정의. 오해를 넘어 저자의 의도에 도달하는 창의적 노력.</td>
+    </tr>
+    <tr>
+      <td>해석학적 순환</td>
+      <td><span class="kw">hermeneutischer Zirkel</span></td>
+      <td>부분↔전체를 반복적으로 오가며 의미를 심화하는 해석 방법.</td>
+    </tr>
+    <tr>
+      <td>투쟁하는 교회</td>
+      <td><span class="kw">Kämpfende Kirche</span></td>
+      <td>복음의 정신을 지키며 세속 권력과 맞서는 살아있는 영적 공동체.</td>
+    </tr>
+    <tr>
+      <td>개선적인 교회</td>
+      <td><span class="kw">Siegende Kirche</span></td>
+      <td>제도화·권력화된 교회. 카리스마를 잃고 형식만 남은 상태.</td>
+    </tr>
+  </table>
+
+</div><!-- /tab-summary -->
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 3 — 비교표
+══════════════════════════════════════════════════════ -->
+<div id="tab-compare" class="tab-panel">
+
+  <div class="sec">
+    <span class="sec-num">비교 01</span>
+    <span class="sec-title">칸트 vs. 슐라이어마허 — 종교의 위치</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-title">종교의 기초 · 신앙-이성 관계 · 기독교 접점</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-name">임마뉘엘 칸트<br><span style="font-size:11px;color:var(--txt3);font-family:'EB Garamond',serif">Immanuel Kant, 1724–1804</span></div>
+        <div class="compare-row"><span class="compare-ax">방법론</span><span class="compare-val">비판철학, 이성 중심</span></div>
+        <div class="compare-row"><span class="compare-ax">종교의 기초</span><span class="compare-val compare-highlight">도덕적 요청 — 선을 행하는 이성적 의지 안에서 신이 인식됨</span></div>
+        <div class="compare-row"><span class="compare-ax">신앙-이성</span><span class="compare-val">이성이 종교의 영역과 한계를 규정. 순수이성으로는 신 존재 증명 불가. 실천이성에서 신은 도덕의 요청</span></div>
+        <div class="compare-row"><span class="compare-ax">쉽게 말하면</span><span class="compare-val">종교는 도덕을 실천하기 위한 지지대</span></div>
+        <div class="compare-row"><span class="compare-ax">기독교 접점</span><span class="compare-val">도덕 신학, 윤리적 설교의 근거</span></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-name">프리드리히 슐라이어마허<br><span style="font-size:11px;color:var(--txt3);font-family:'EB Garamond',serif">Schleiermacher, 1768–1834</span></div>
+        <div class="compare-row"><span class="compare-ax">방법론</span><span class="compare-val">낭만주의, 감정·내면 중심</span></div>
+        <div class="compare-row"><span class="compare-ax">종교의 기초</span><span class="compare-val compare-highlight">절대의존의 감정(Gefühl) — 도덕 이전, 사유 이전의 실존적 감응</span></div>
+        <div class="compare-row"><span class="compare-ax">신앙-이성</span><span class="compare-val">감정이 지식과 도덕 모두의 토대. 종교는 형이상학과 윤리를 통합하는 더 깊은 차원. 이성으로 환원 불가</span></div>
+        <div class="compare-row"><span class="compare-ax">쉽게 말하면</span><span class="compare-val">종교는 지식과 도덕이 세워지는 더 깊은 토대 (두 영역의 통일체)</span></div>
+        <div class="compare-row"><span class="compare-ax">기독교 접점</span><span class="compare-val">경건(Frömmigkeit), 예수는 하나님-의식이 완전히 구현된 인간</span></div>
+      </div>
+    </div>
+    <div class="compare-footer">
+      📌 <strong>구체적 예시:</strong> 어려운 상황에서 거짓말 안 하기—<br>
+      칸트: "도덕법칙에 대한 존중. 하나님은 그 의지 안에서 인식된다." (종교 = 도덕의 체계)<br>
+      슐라이어마허: "전 존재가 하나님의 현존 안에 있다는 깊은 감정—절대의존의 감정—에 기초한 행동." (종교 = 도덕보다 근원적)
+    </div>
+  </div>
+
+  <div class="sec">
+    <span class="sec-num">비교 02</span>
+    <span class="sec-title">슐라이어마허 평가 — 긍정론 vs. 바르트 비판</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-block">
+    <div class="compare-title">신학사적 평가 대립</div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--sage)">긍정 평가 (틸리히 계열)</div>
+        <div class="compare-row"><span class="compare-ax">핵심 주장</span><span class="compare-val compare-highlight">계몽주의 시대에 종교를 철학의 시녀에서 독립시킨 혁신가</span></div>
+        <div class="compare-row"><span class="compare-ax">근거</span><span class="compare-val">종교를 지식·행위의 '토대이자 통일체'로 설정. "철학의 시녀가 되는 것이며 자기다움을 잃어버린 것"이라고 경고</span></div>
+        <div class="compare-row"><span class="compare-ax">기여</span><span class="compare-val">보편 해석학으로 문학·법·역사학에 영향. "슐라이어마허 무시는 100년의 신학 발전을 버리는 것"(틸리히)</span></div>
+        <div class="compare-row"><span class="compare-ax">한 줄 요약</span><span class="compare-val">"신학이 철학에 종속되지 않을 근거를 만들어줬다"</span></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-name" style="color:var(--terra)">비판 (칼 바르트·신정통주의)</div>
+        <div class="compare-row"><span class="compare-ax">핵심 주장</span><span class="compare-val compare-highlight" style="color:var(--terra)">'아래로부터의 신학' — 신학 출발점이 하나님 계시가 아닌 인간 경험</span></div>
+        <div class="compare-row"><span class="compare-ax">문제점</span><span class="compare-val">하나님의 초월성·객관적 계시의 우선성 약화. 신학의 객관성·보편성 훼손. 종교가 주관적 경험 영역으로만 국한될 위험</span></div>
+        <div class="compare-row"><span class="compare-ax">추가 비판</span><span class="compare-val">범신론 혐의(스피노자와 유사) / 불가지론 혐의 ("하나님에 대한 이야기가 항상 인간 경험에 대한 이야기로 제한됨")</span></div>
+        <div class="compare-row"><span class="compare-ax">한 줄 요약</span><span class="compare-val">"하나님이 인간 경험 안으로 흡수되어 버린다"</span></div>
+      </div>
+    </div>
+    <div class="compare-footer">
+      ⚖️ <strong>균형 잡기:</strong> 슐라이어마허 ≠ 스피노자. 스피노자의 신은 비인격적 자연 원리이지만, 슐라이어마허의 신은 종교적 경건의 대상이 되는 초월자로 남아 있다. 그는 자신을 "더 높은 차원의 경건주의자"라 불렀다.
+    </div>
+  </div>
+
+  <div class="sec">
+    <span class="sec-num">비교 03</span>
+    <span class="sec-title">주차별 철학자 누적 비교표</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <table class="sum-table">
+    <tr>
+      <th>철학자</th><th>방법론</th><th>종교의 기초</th><th>신앙-이성</th><th>기독교 접점</th>
+    </tr>
+    <tr>
+      <td>비트겐슈타인</td>
+      <td>분석철학·언어게임</td>
+      <td>언어 공동체 실천 (삶의 형식)</td>
+      <td>신앙은 언어게임 내부; 이성 환원 불가</td>
+      <td>예배·기도 언어의 고유성</td>
+    </tr>
+    <tr>
+      <td>윌리엄 제임스</td>
+      <td>실용주의·심리학</td>
+      <td>종교 경험의 효과 (실용적 결과)</td>
+      <td>신앙의 실용적 가치로 판단</td>
+      <td>회심·신비체험의 실재성</td>
+    </tr>
+    <tr>
+      <td>존 헨리 뉴먼</td>
+      <td>가톨릭 신학·귀납적 추론</td>
+      <td>동의의 문법 (Grammar of Assent)</td>
+      <td>신앙과 이성 상호 보완; 교의 발전</td>
+      <td>교의 발전론·신앙의 합리성</td>
+    </tr>
+    <tr>
+      <td>레비나스</td>
+      <td>현상학·타자철학</td>
+      <td>타자의 얼굴(le visage)과 윤리적 책임</td>
+      <td>신앙은 타자에 대한 책임에서 발생</td>
+      <td>계시의 타자성·메시아니즘</td>
+    </tr>
+    <tr>
+      <td><strong>슐라이어마허</strong></td>
+      <td><strong>낭만주의·감정론·해석학</strong></td>
+      <td><strong>절대의존의 감정(Gefühl)—지식·도덕의 토대</strong></td>
+      <td><strong>감정이 신앙의 근원; 이성 환원 불가</strong></td>
+      <td><strong>경건·예수의 하나님-의식 구현</strong></td>
+    </tr>
+    <tr>
+      <td>칸트</td>
+      <td>비판철학·도덕론</td>
+      <td>도덕적 요청 (실천이성)</td>
+      <td>이성이 종교 영역 한계 규정</td>
+      <td>도덕 신학·윤리 설교</td>
+    </tr>
+  </table>
+
+  <div class="note-box">
+    <strong>누적 비교 읽기 팁</strong> — '종교의 기초' 열을 세로로 읽으면 각 철학자의 핵심이 한눈에 보입니다. 비트겐슈타인(언어) → 제임스(경험·효과) → 뉴먼(이성적 동의) → 레비나스(타자 윤리) → 슐라이어마허(감정) → 칸트(도덕 요청).
+  </div>
+
+</div><!-- /tab-compare -->
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
