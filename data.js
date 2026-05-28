@@ -135,7 +135,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/기독교철학/week12.html" },
             { type: "notes", label: "폴 리쾨르 — 해석학과 신학적 자기 이해", href: "output/기독교철학/week12b.html" }
           ] },
-        { week: 13, title: "과학과 종교", date: "2026.06", files: [] },
+        { week: 13, title: "슐라이어마허 — 종교의 장애와 본질에 대하여", date: "2026.05.26", files: [
+            { type: "notes", label: "강의노트", href: "output/기독교철학/week13.html" }
+          ] },
         { week: 14, title: "기독교 윤리의 철학적 기초", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
       ]
