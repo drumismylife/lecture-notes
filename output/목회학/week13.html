@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 13주차 — 어떻게 목회할 것인가</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg:          #0f1a12;
+    --card:        #172018;
+    --subcard:     #1e2a20;
+    --border:      #2a3d2c;
+    --green:       #7ab87a;
+    --green-dim:   #4a7a4a;
+    --bible:       #a8d4a8;
+    --cream:       #d4c9a8;
+    --muted:       #9aaa9a;
+    --text:        #e8ede8;
+    --exam:        #c96b5a;
+    --exam-bg:     #2d1a16;
+    --exam-border: #7a3a2c;
+    --task:        #c49a3c;
+    --task-bg:     #2a2010;
+    --prof:        #8ab4e8;
+    --prof-bg:     #1a2030;
+    --accent1:     #5a9a6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── 헤더 ── */
+  .site-header {
+    background: linear-gradient(135deg, #0a1209 0%, #172018 50%, #0f1a12 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '✟';
+    position: absolute; right: 32px; top: 50%; transform: translateY(-50%);
+    font-size: 80px; color: #2a3d2c; opacity: 0.5; user-select: none;
+  }
+  .meta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .badge {
+    display: inline-block; padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  }
+  .badge-week  { background: var(--green-dim); color: #c8ecc8; }
+  .badge-date  { background: #1e2a20; color: var(--muted); border: 1px solid var(--border); }
+  .badge-exam  { background: var(--exam-bg); color: var(--exam); border: 1px solid var(--exam-border); }
+  .site-header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--cream); margin-bottom: 4px;
+  }
+  .site-header .sub { color: var(--muted); font-size: 12px; }
+
+  /* ── 탭 ── */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); background: #111a13; }
+  .tab-btn {
+    flex: 1; padding: 12px 8px; border: none; background: transparent;
+    color: var(--muted); font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    border-bottom: 2px solid transparent; transition: all .2s;
+  }
+  .tab-btn:hover { color: var(--text); background: rgba(122,184,122,.05); }
+  .tab-btn.active { color: var(--green); border-bottom-color: var(--green); background: rgba(122,184,122,.07); }
+
+  /* ── 탭 콘텐츠 ── */
+  .tab-panel { display: none; padding: 24px 20px 48px; max-width: 900px; margin: 0 auto; }
+  .tab-panel.active { display: block; }
+
+  /* ── 섹션 ── */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--cream);
+    border-left: 3px solid var(--green);
+    padding-left: 12px; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title .num {
+    background: var(--green-dim); color: #c8ecc8;
+    font-size: 11px; padding: 1px 7px; border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── 원칙 블록 ── */
+  .principle {
+    background: var(--card);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px; margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .principle .p-title {
+    font-weight: 700; color: var(--cream); font-size: 14px; margin-bottom: 6px;
+  }
+  .principle .p-body { color: var(--text); margin-bottom: 8px; font-size: 13px; }
+  .principle .p-bible {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--bible);
+    background: rgba(168,212,168,.07); padding: 4px 10px; border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* ── 교수 설명 블록 ── */
+  .prof-block {
+    background: var(--prof-bg);
+    border-left: 3px solid var(--prof);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px; margin: 10px 0 14px;
+    font-size: 13px; color: #c8d8f0;
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+  .prof-block::before {
+    content: '💬 교수님 설명';
+    font-style: normal; font-weight: 700;
+    color: var(--prof); font-size: 11px;
+    letter-spacing: .04em; display: block; margin-bottom: 4px;
+  }
+
+  /* ── 시험 블록 ── */
+  .exam-block {
+    background: var(--exam-bg);
+    border: 1px solid var(--exam-border);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .exam-block .exam-label {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 8px;
+  }
+  .badge-exam-lg {
+    background: var(--exam); color: #fff; padding: 2px 10px;
+    border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  }
+  .exam-topic { color: var(--exam); font-weight: 700; font-size: 14px; }
+  .exam-block p, .exam-block li { color: #e0b0a0; font-size: 13px; }
+  .exam-block ul { padding-left: 18px; }
+  .exam-block li { margin-bottom: 4px; }
+
+  /* ── 카드 그리드 ── */
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px; margin-bottom: 16px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px;
+    page-break-inside: avoid;
+  }
+  .card .card-head {
+    font-weight: 700; color: var(--green); font-size: 13px; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card .card-num {
+    background: var(--subcard); color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; padding: 1px 6px; border-radius: 3px;
+  }
+  .card p, .card li { font-size: 12px; color: var(--muted); }
+  .card ul { padding-left: 16px; }
+  .card li { margin-bottom: 3px; }
+
+  /* ── 테이블 ── */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: var(--subcard); color: var(--green);
+    padding: 9px 12px; text-align: left; font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 12px; border-bottom: 1px solid #1e2a20;
+    color: var(--text); vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(122,184,122,.04); }
+
+  /* ── 현장 블록 ── */
+  .field-block {
+    background: #1a2a1a;
+    border-left: 3px solid var(--accent1);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px; margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .field-block .f-head { font-weight: 700; color: var(--green); font-size: 13px; margin-bottom: 8px; }
+  .field-block .f-step {
+    display: flex; gap: 8px; margin-bottom: 6px; font-size: 13px;
+  }
+  .field-block .f-label {
+    min-width: 44px; font-weight: 700; color: var(--bible);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; padding-top: 2px;
+  }
+
+  /* ── 성찰 블록 ── */
+  .reflect-block {
+    background: #1e261e;
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 12px;
+    font-size: 13px; color: var(--bible);
+  }
+  .reflect-block::before {
+    content: '🪞 성찰 질문';
+    display: block; font-weight: 700; color: var(--green);
+    font-size: 11px; margin-bottom: 8px; letter-spacing: .04em;
+  }
+  .reflect-block ol { padding-left: 18px; }
+  .reflect-block li { margin-bottom: 6px; }
+
+  /* ── 핵심 원칙 박스 ── */
+  .core-box {
+    background: linear-gradient(135deg, #172218 0%, #1e2a1e 100%);
+    border: 1px solid var(--green-dim);
+    border-radius: 10px; padding: 20px 22px; margin-top: 32px;
+  }
+  .core-box h3 {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--green); font-size: 15px; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .core-box h3::before { content: '✦'; font-size: 14px; }
+  .core-item {
+    display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;
+  }
+  .core-num {
+    min-width: 28px; height: 28px; background: var(--green);
+    color: #0f1a12; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 1px;
+  }
+  .core-item p { font-size: 13px; color: var(--cream); }
+  .core-item strong { color: var(--green); }
+
+  /* ── 구분선 ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* ── 비교 행 ── */
+  .compare-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+  }
+  .compare-col {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .compare-col h4 { color: var(--green); font-size: 13px; margin-bottom: 8px; }
+  .compare-col p, .compare-col li { font-size: 12px; color: var(--muted); }
+  .compare-col ul { padding-left: 16px; }
+
+  /* ── 8가지 요소 리스트 ── */
+  .elem-list { display: flex; flex-direction: column; gap: 10px; }
+  .elem-item {
+    background: var(--card); border-radius: 8px;
+    border: 1px solid var(--border); overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .elem-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px; background: var(--subcard);
+    font-weight: 700; color: var(--cream); font-size: 13px;
+  }
+  .elem-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--green); color: #0f1a12;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+  .elem-body { padding: 12px 16px; }
+  .elem-body .tagline { color: var(--green); font-style: italic; font-size: 12px; margin-bottom: 8px; }
+  .elem-body ul { padding-left: 18px; }
+  .elem-body li { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+  .elem-body .prof-inline {
+    margin-top: 8px; padding: 8px 12px;
+    background: var(--prof-bg); border-left: 2px solid var(--prof);
+    border-radius: 0 6px 6px 0;
+    font-size: 12px; color: #b8c8e0; font-style: italic;
+  }
+  .elem-body .bible-inline {
+    margin-top: 6px; font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--bible);
+    background: rgba(168,212,168,.07); padding: 3px 8px; border-radius: 3px; display: inline-block;
+  }
+
+  /* ── 9가지 특징 ── */
+  .nine-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px; margin-bottom: 16px;
+  }
+  .nine-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+    page-break-inside: avoid;
+  }
+  .nine-item .n-head {
+    display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px;
+  }
+  .nine-item .n-num {
+    min-width: 22px; height: 22px; border-radius: 50%;
+    background: var(--exam-bg); color: var(--exam); border: 1px solid var(--exam-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .nine-item .n-title { font-weight: 700; color: var(--cream); font-size: 13px; }
+  .nine-item .n-body { font-size: 12px; color: var(--muted); padding-left: 30px; }
+
+  /* ── 인쇄 ── */
+  @media print {
+    body { background: #fff; color: #111; font-size: 11pt; }
+    .tabs { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: avoid; }
+    .site-header { background: #f5f5f0; }
+    .site-header h1 { color: #111; }
+    .card, .principle, .elem-item, .nine-item { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .compare-row { grid-template-columns: 1fr; }
+    .nine-grid { grid-template-columns: 1fr; }
+    .tab-btn { font-size: 11px; padding: 10px 4px; }
+    .site-header { padding: 20px 16px 16px; }
+    .tab-panel { padding: 16px 12px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<header class="site-header">
+  <div class="meta-row">
+    <span class="badge badge-week">13주차</span>
+    <span class="badge badge-date">2026-06-01</span>
+    <span class="badge badge-exam">⚠ 기말고사 대비 — 6/15</span>
+  </div>
+  <h1>어떻게 목회할 것인가?</h1>
+  <div class="sub">목회학 (63117) · 이영호 교수 · 건강한 교회 &amp; 새로운 목회</div>
+</header>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('note',this)">📋 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('summary',this)">🎯 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('field',this)">⛪ 현장적용</button>
+</div>
+
+<!-- ══════════════════ TAB 1: 강의노트 ══════════════════ -->
+<div class="tab-panel active" id="tab-note">
+
+  <!-- 도입: 목회의 세 기둥 -->
+  <div class="section">
+    <div class="section-title">도입 — 목회의 세 가지 기둥</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head">🙏 영성</div>
+        <p>기도와 말씀으로만 얻어지는 하나님과의 인격적 만남. 지식적 앎이 아닌 <strong style="color:var(--green)">관계적 앎</strong>. Gary Thomas의 9가지 기질도 결국 말씀·기도가 핵심.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">📚 지성</div>
+        <p>헬라어·히브리어·신약개론·구약개론·조직신학·실천신학. 청교도 목사들은 기도·설교·심방에 집중하며 단순한 삶을 살았다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">🤝 인성</div>
+        <p>목회자로서의 품성. 영성·지성·인성에 더해 <strong style="color:var(--green)">목회 철학과 방법론</strong>이 있어야 방향성이 생긴다.</p>
+      </div>
+    </div>
+    <div class="prof-block">
+      "목회를 하기 위해 영성·지성·인성을 갖출 뿐만 아니라 목회 철학과 방법을 알아야 합니다. 내가 어떤 목회를 하고 싶은지 그림이 있어야 그것을 향해 나아가게 됩니다. 여러분의 목회관은 모교회 또는 부사역자로 경험한 교회에서 형성됩니다. 이를 뛰어넘으려면 뼈를 깎는 노력이 필요합니다."
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 참고도서 -->
+  <div class="section">
+    <div class="section-title">참고도서 4권 <span class="num">슬라이드 2</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>저자</th><th>책</th><th>핵심 관점</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Christian A. Schwarz</td>
+            <td>『자연적 교회 성장』(NCD)</td>
+            <td>생명체적 관점 — 건강하면 자연 성장. 6대주 32개국 1,000교회 설문</td>
+          </tr>
+          <tr>
+            <td>Mark Dever</td>
+            <td>『건강한 교회의 9가지 특징』(부흥과개혁사)</td>
+            <td>성경적·개혁주의적 관점. 캐피털 힐 침례교회. Nine Marks Ministries</td>
+          </tr>
+          <tr>
+            <td>장성배</td>
+            <td>『사명을 다하는 교회로 세워라』(KMC)</td>
+            <td>이머징 처치 — 교회 본질 회복, 새로운 형태 모색 (진행형)</td>
+          </tr>
+          <tr>
+            <td>유성준</td>
+            <td>『세이비어 교회 이야기』(신앙과지성사)</td>
+            <td>1950~60년대 설립. 선교적 교회 + 이머징 처치에 영감</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 교회 유형 분류 -->
+  <div class="section">
+    <div class="section-title">교회 유형 분류 <span class="num">슬라이드 4</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>유형</th><th>핵심 특징</th><th>교수님 보충</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--green)">초대교회</strong></td>
+            <td>성령 충만 — 성령의 역사가 가장 강력</td>
+            <td>"날 것의 교회. 다듬지 않은 돌로 쌓은 제단처럼 원색적인 것이 필요한 시대"</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--green)">전통적 교회</strong></td>
+            <td>예배 + 심방 중심</td>
+            <td>청교도 목사들의 심방을 통한 교육 — 이 시대엔 가정 개방을 꺼려 어려움</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--green)">복음주의 교회</strong></td>
+            <td>예배·심방 + 교육(제자훈련)</td>
+            <td>개인 구원 강조, 양육자 재생산. 옥한흠 목사 — 국제제자훈련원</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--green)">이머징 처치</strong></td>
+            <td>새로운 대안적 형태 모색</td>
+            <td>진행형. 카페 교회, 공동체 교회 등 다양한 실험. 아직 완성 단계 아님</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="principle">
+      <div class="p-title">성령 충만의 원리 — 엡 5:18</div>
+      <div class="p-body">성령의 충만함을 받으라 — <span style="color:var(--bible); font-family:'JetBrains Mono',monospace;">πληρούσθε</span> (플레루스데): <strong>현재 명령 수동태</strong>. 내가 만드는 것이 아니라, 주시는 것을 받는 것. 목회자는 성령 충만의 촉매 역할을 한다.</div>
+      <span class="p-bible">엡 5:18 / 조용기 목사: "목회자는 화학 반응을 일으키는 촉매와 같은 역할을 한다"</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- I. 자연적 교회 성장 -->
+  <div class="section">
+    <div class="section-title">I. 자연적 교회 성장 — Christian A. Schwarz <span class="num">슬라이드 5–24</span></div>
+
+    <div class="principle">
+      <div class="p-title">핵심 명제</div>
+      <div class="p-body">"교회의 성장이 아니라 교회의 <strong>건강</strong>이 중요한 시대가 온다." — Rick Warren<br>
+      방법이 아닌 <strong>원리</strong>에서 성장의 원인을 찾는다. 생명체는 건강하면 성장한다.</div>
+      <span class="p-bible">씨 → 뿌리 → 줄기 → 가지 → 열매 (막 4:26–29)</span>
+    </div>
+
+    <div class="section-title" style="font-size:14px; margin-top:20px;">1. 이론의 5가지 특징 <span class="num">슬라이드 8–9</span></div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head"><span class="card-num">①</span> 성장 원인 = 건강</div>
+        <p>방법이 아닌 원리에서 찾는다. 종교사회학적 방법론으로 구체적 진단 가능.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">②</span> 생명체적 관점</div>
+        <p>교회는 조직체(organization)가 아닌 유기체(organism). 건강하면 자연적으로 성장.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">③</span> 세부 진단 가능</div>
+        <p>설문조사 → 통계 → 진단 → 처방까지. 무엇이 부족한지 구체적으로 알 수 있다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">④</span> 양적·질적 통합</div>
+        <p>질적 건강이 있으면 양적 성장이 따라온다. 둘을 분리하지 않는다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">⑤</span> 조직관리 + 영성 통합</div>
+        <p>기능적 조직도 생명체적 관점에서 이해. 영성과 조직관리는 분리되지 않는다.</p>
+      </div>
+    </div>
+
+    <div class="section-title" style="font-size:14px; margin-top:24px;">2. 여덟 가지 건강 요소 <span class="num">슬라이드 10–17</span></div>
+    <div class="elem-list">
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">1</span> 사역자를 세우는 지도력</div>
+        <div class="elem-body">
+          <div class="tagline">— 성도 전체를 사역자로 세워간다</div>
+          <ul>
+            <li>지도자 재생산 / 평신도 사역 활성화 / 사역 위임 / 지도력 개발</li>
+            <li>종교개혁 3대 슬로건 중 하나: 만인 제사장</li>
+          </ul>
+          <div class="prof-inline">옥한흠 목사: "변화된 한 사람만 있어도 나는 일을 할 거다. 변화된 한 사람이 또 다른 사람을 변화시킨다."</div>
+          <div class="bible-inline">엡 4:11-12 / 행 6:1-7</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">2</span> 은사중심적 사역</div>
+        <div class="elem-body">
+          <div class="tagline">— 성도들이 받은 은사로 교회에서 봉사하게 한다</div>
+          <ul>
+            <li>은사 발견과 훈련 / 적재적소 배치 / 사역 만족도 향상 / 자발적 봉사</li>
+            <li><strong style="color:var(--cream)">롬 12장:</strong> 가르치는·섬기는·구제하는·다스리는 은사</li>
+            <li><strong style="color:var(--cream)">고전 12장:</strong> 방언·치유·예언 등</li>
+          </ul>
+          <div class="prof-inline">복음주의 그룹에서 재생산 강조로 은사에 대한 고려가 약화됨. 교회는 성경 공부 리더만 필요한 게 아니다. 하고 싶은 것을 설문조사로 물어보면 됨 — 하나님의 부르심과 은사가 일치할 확률이 높다.</div>
+          <div class="bible-inline">롬 12:6-8 / 고전 12:4-11</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">3</span> 열정적 영성</div>
+        <div class="elem-body">
+          <div class="tagline">— 하나님과의 살아 있는 관계에서 나오는 영적 열정</div>
+          <ul>
+            <li>기도생활 활성화 (특히 중보기도) / 말씀에 대한 열정 / 헌신적인 신앙 / 영적 성장 추구</li>
+          </ul>
+          <div class="prof-inline">인천의 한 교회 예시 — 매일 기도회, 주일 예배 2시간 반, 교인들의 표정이 환하고 기쁨이 넘침. "그냥 되는 것이 아니라 목사님·사모님이 인생을 갈아 넣어서 평신도 지도력이 완성된 것."</div>
+          <div class="bible-inline">엡 5:18 / 골 3:16</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">4</span> 기능적 조직</div>
+        <div class="elem-body">
+          <div class="tagline">— 조직이 본래의 역할을 다한다</div>
+          <ul>
+            <li>효율적 의사결정 / 사역 지원 중심 조직 / 불필요한 절차 최소화 / 변화에 대한 유연성</li>
+          </ul>
+          <div class="bible-inline">행 6:1-7 (초대교회 행정 분리)</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">5</span> 영감 있는 예배</div>
+        <div class="elem-body">
+          <div class="tagline">— 세상에서 지친 사람들에게 활력을 준다</div>
+          <ul>
+            <li><strong style="color:var(--cream)">"교회에 가는 것이 정말 즐겁다."</strong></li>
+          </ul>
+          <div class="prof-inline">"교회는 세상이 줄 수 없는 것을 주면 됩니다. 하나님을 만나게 해주는 것. 하나님이 우리에게 주시는 가장 귀한 선물은 하나님 자신이에요."</div>
+          <div class="bible-inline">요 4:23-24 / 시 122:1</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">6</span> 전인적 소그룹</div>
+        <div class="elem-body">
+          <div class="tagline">— 소그룹 안에서 영적인 성장과 삶을 나눈다</div>
+          <ul>
+            <li>"나는 터놓고 이야기할 소그룹에 속해 있다."</li>
+            <li>"우리 교회는 의도적으로 소그룹을 나눔으로 번식을 촉진한다."</li>
+          </ul>
+          <div class="prof-inline">크리스찬도 외롭다. 정기적으로 소그룹에 참여하는 사람들은 외로움이 떨어진다. 터놓고 이야기할 곳 — 그게 소그룹이 교회다.</div>
+          <div class="bible-inline">행 2:42-47 / 롬 16:5</div>
+        </div>
+      </div>
+
+      <div class="elem-item">
+        <div class="elem-head"><span class="elem-num">7</span> 필요중심적 전도</div>
+        <div class="elem-body">
+          <div class="tagline">— 전도 대상자의 필요에 실제로 응답한다</div>
+          <ul>
+            <li>전도가 성도의 은사와 연결됨 / 전도가 자연스럽게 삶의 열매로 일어남</li>
+            <li>새신자들이 전도자가 됨 (주변에 불신자 많음)</li>
+            <li>전도 대상자에 맞춘 전도 방법 활용</li>
+          </ul>
+          <div class="prof-inline">"고기가 원하는 대로 물고기를 잡는다. 물고기 종류에 따라 미끼가 달라지듯, 내가 원하는 방법이 아니라 전도 대상자에 맞는 방법으로."</div>
+          <div class="bible-inline">고전 9:22 / 막 1:17</div>
+        </div>
+      </div>
+
+      <div class="elem-item" style="border-color: var(--exam-border);">
+        <div class="elem-head" style="background:#2d1a16; color: var(--exam);">
+          <span class="elem-num" style="background:var(--exam); color:#fff;">8</span>
+          사랑의 관계 — ⭐ 가장 중요한 질적 특징
+        </div>
+        <div class="elem-body">
+          <div class="tagline" style="color:var(--exam);">— 우리 교회는 웃음이 넘친다</div>
+          <ul>
+            <li>서로 얼마나 자주 초대하는가</li>
+            <li>교회는 칭찬하는 데 얼마나 너그러운가</li>
+            <li>목사는 교인의 문제를 얼마나 아는가</li>
+            <li>교회 안에 웃음이 얼마나 있는가</li>
+          </ul>
+          <div class="prof-inline">"사랑의 관계는 성령 충만으로 임하는 영적인 온도예요. 인위적으로 친해지는 것이 아닙니다. 행 2장 — 성령 충만 받으니 서로 필요를 채웠죠. 의무가 아니라 하고 싶은 것."</div>
+          <div class="bible-inline">행 2:44-47 / 요 13:35</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 최소치 전략 + 5원리 -->
+    <div class="section-title" style="font-size:14px; margin-top:28px;">3. 최소치 전략 &amp; 다섯 가지 생명체 원리 <span class="num">슬라이드 18–23</span></div>
+    <div class="principle">
+      <div class="p-title">최소치 전략 (Minimum Strategy)</div>
+      <div class="p-body">8가지 특징 중 <strong>가장 약한 부분</strong>의 정도에 따라 교회 성장이 영향을 받는다.<br>→ 최소치를 높이면 교회 전체가 성장한다. (물통의 가장 짧은 판자 원리)</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head">① 상호의존성</div>
+        <p>8가지 질적 특징은 서로 영향을 받는다. 하나가 좋아지면 다른 것도 영향받는다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">② 번식성</div>
+        <p>재생산을 통해 성장한다. 사과가 땅에 떨어져 새 나무가 되듯 소그룹이 번식된다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">③ 에너지 전환성</div>
+        <p>교회 안의 에너지는 하나님의 목적을 위해 협력하여 선을 이룬다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">④ 다목적성</div>
+        <p>어떤 일의 결과가 에너지로 전환하여 다른 일을 지속하도록 돕는다.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">⑤ 공생성</div>
+        <p>다른 유기체들이 상호 유익을 주고받으며 밀접하게 공생한다.</p>
+      </div>
+    </div>
+
+    <!-- 한계 -->
+    <div class="section-title" style="font-size:14px; margin-top:20px;">4. 자연적 교회 성장이론의 한계 <span class="num">슬라이드 24</span></div>
+    <div class="card">
+      <ul style="padding-left:18px;">
+        <li>주된 관심이 <strong style="color:var(--cream)">개교회의 성장</strong> — 사회 변혁·교회 협력에 무관심</li>
+        <li>연구 대상이 <strong style="color:var(--cream)">도시 성장 교회</strong>에 국한</li>
+        <li>각 교회의 <strong style="color:var(--cream)">처한 상황이 무시</strong>되는 경향</li>
+        <li>교회의 사명보다 <strong style="color:var(--cream)">외형적인 것</strong>에만 관심</li>
+        <li>하나님 나라의 확장보다 <strong style="color:var(--cream)">개교회 성장</strong>에만 초점</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- II. 마크 데버 -->
+  <div class="section">
+    <div class="section-title">II. 마크 데버 — 건강한 교회의 9가지 특징 <span class="num">슬라이드 25–27</span></div>
+
+    <div class="compare-row">
+      <div class="compare-col">
+        <h4>슈바르츠 (자연적 교회 성장)</h4>
+        <ul>
+          <li>종교사회학적 관점</li>
+          <li>설문조사·통계에 근거</li>
+          <li>8가지 질적 특징 (생명체 원리)</li>
+          <li>실용적·진단적 접근</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h4>마크 데버 (Nine Marks)</h4>
+        <ul>
+          <li><strong>성경적·개혁주의적</strong> 관점</li>
+          <li>성경 본문에서 특징 도출</li>
+          <li>9가지 특징 (교리·말씀 중심)</li>
+          <li>신학적·규범적 접근</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prof-block">
+      "마크 데버는 침례교 목사이지만 개혁주의적 성향. 부흥과개혁사에서 나왔다는 것만으로 그 성향을 짐작할 수 있어요. 슈바르츠가 종교사회학적(설문·통계)이라면 마크 데버는 '성경 안에서 건강한 교회는 무엇이다'라는 성경적 관점에서 9가지를 찾아낸 것입니다."
+    </div>
+
+    <div class="section-title" style="font-size:14px;">건강한 교회의 9가지 특징 <span class="num">슬라이드 27</span></div>
+    <div class="nine-grid">
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">1</span><div class="n-title">강해설교</div></div>
+        <div class="n-body">본문의 의미 50~60% + 적용 + 교리적 설교. 청교도 전통. 성경신학·구속사적 관점 필수.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">2</span><div class="n-title">성경신학</div></div>
+        <div class="n-body">구속사적 관점으로 성경 전체를 꿰뚫는 신학적 백그라운드.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">3</span><div class="n-title">복음에 대한 성경적 이해</div></div>
+        <div class="n-body">종교다원주의·보편구원론 등 변질된 복음에 대한 분명한 입장.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">4</span><div class="n-title">회심에 대한 성경적 이해</div></div>
+        <div class="n-body">예수님을 믿으면 삶의 변화가 동반된다. 개혁주의에서 '회심' 강조.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">5</span><div class="n-title">전도에 대한 성경적 이해</div></div>
+        <div class="n-body">전통적·성경적 전도관. 변화된 삶의 열매로서의 전도.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">6</span><div class="n-title">교인 자격에 대한 성경적 이해</div></div>
+        <div class="n-body">교회 = 언약 공동체. 쉽게 교인 되면 안 됨. <strong style="color:var(--exam)">앞문을 높이면 뒷문도 높아진다.</strong> 서울목자교회, 릭 워렌 사례.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">7</span><div class="n-title">교회 징계에 대한 성경적 이해</div></div>
+        <div class="n-body">마 18:15-17 근거. 교회의 거룩성 유지. 권면 → 회개 → 회복의 과정.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">8</span><div class="n-title">제자훈련과 영적 성장</div></div>
+        <div class="n-body">말씀으로 성도를 훈련시켜 영적으로 성장시킨다.</div>
+      </div>
+      <div class="nine-item">
+        <div class="n-head"><span class="n-num">9</span><div class="n-title">성경적 교회 리더십</div></div>
+        <div class="n-body"><strong style="color:var(--cream)">복수 리더십</strong> + 철저한 <strong style="color:var(--cream)">섬김의 리더십(servant leadership)</strong>.</div>
+      </div>
+    </div>
+
+    <div class="prof-block">
+      "슈바르츠에게도 귀를 기울일 필요가 있고, 마크 데버에게도 귀를 기울일 필요가 있습니다. 어떤 목회를 할 것인가는 목회자 자신의 선택입니다. 말씀과 기도로 하나님께서 주신 감동을 따라 결정하되, 이 모든 것을 초월한 하나님의 인도하심과 역사하심을 믿어야 합니다."
+    </div>
+  </div>
+
+  <!-- 오늘 목회 핵심 원칙 3가지 -->
+  <div class="core-box">
+    <h3>오늘 목회 핵심 원칙 3가지</h3>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <p><strong>방법이 아닌 건강이 성장을 만든다.</strong><br>교회 성장의 원인은 프로그램·방법이 아니라 교회의 질적 건강에 있다. 생명체는 건강하면 자연적으로 성장한다.</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <p><strong>은사를 따라 사역자를 세우라.</strong><br>모든 성도를 양육자로 세우되, 각자의 은사를 발견하여 적재적소에 배치하라. 교회는 성경 교사만 필요한 것이 아니다.</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <p><strong>목회 방향은 하나님의 인도하심 아래 자신이 결정하라.</strong><br>슈바르츠(생명체적 원리)와 마크 데버(성경적 원리) 모두 귀를 기울이되, 말씀·기도로 받은 감동과 신앙적 배경에 따라 목회 철학을 세우라.</p>
+    </div>
+  </div>
+
+</div><!-- /tab-note -->
+
+
+<!-- ══════════════════ TAB 2: 핵심정리 ══════════════════ -->
+<div class="tab-panel" id="tab-summary">
+
+  <div class="section">
+    <div class="section-title">🔴 기말고사 출제 예상 항목 <span class="num">6/15</span></div>
+
+    <div class="exam-block">
+      <div class="exam-label">
+        <span class="badge-exam-lg">시험</span>
+        <span class="exam-topic">자연적 교회 성장 — 8가지 건강 요소 (슈바르츠)</span>
+      </div>
+      <ul>
+        <li>① 사역자를 세우는 지도력 &nbsp;② 은사중심적 사역 &nbsp;③ 열정적 영성 &nbsp;④ 기능적 조직</li>
+        <li>⑤ 영감 있는 예배 &nbsp;⑥ 전인적 소그룹 &nbsp;⑦ 필요중심적 전도 &nbsp;⑧ 사랑의 관계</li>
+        <li>★ 가장 중요한 질적 특징: <strong>사랑의 관계 (8번)</strong></li>
+      </ul>
+    </div>
+
+    <div class="exam-block">
+      <div class="exam-label">
+        <span class="badge-exam-lg">시험</span>
+        <span class="exam-topic">마크 데버 — 9가지 특징 &amp; 슈바르츠와의 비교</span>
+      </div>
+      <ul>
+        <li>강해설교 / 성경신학 / 복음·회심·전도에 대한 성경적 이해 (묶음)</li>
+        <li>교인 자격 / 교회 징계 / 제자훈련 / 복수·섬김의 리더십</li>
+        <li>★ 슈바르츠(종교사회학·설문) vs 마크 데버(성경적·개혁주의) 차이점</li>
+      </ul>
+    </div>
+
+    <div class="exam-block">
+      <div class="exam-label">
+        <span class="badge-exam-lg">시험</span>
+        <span class="exam-topic">최소치 전략 &amp; 다섯 가지 생명체 원리</span>
+      </div>
+      <ul>
+        <li>최소치 전략: 8가지 중 <strong>가장 약한 부분</strong>이 성장의 기준선</li>
+        <li>5원리: 상호의존성 / 번식성 / 에너지 전환성 / 다목적성 / 공생성</li>
+      </ul>
+    </div>
+
+    <div class="exam-block">
+      <div class="exam-label">
+        <span class="badge-exam-lg">시험</span>
+        <span class="exam-topic">교회 유형 4가지 + 각 특징</span>
+      </div>
+      <ul>
+        <li>초대교회(성령 충만) / 전통적 교회(예배+심방) / 복음주의(제자훈련) / 이머징 처치</li>
+        <li>엡 5:18 — πληρούσθε: <strong>현재 명령 수동태</strong>의 의미</li>
+      </ul>
+    </div>
+
+    <div class="exam-block">
+      <div class="exam-label">
+        <span class="badge-exam-lg">시험</span>
+        <span class="exam-topic">기말 에세이 — "어떻게 건강한 교회를 세울 것인가" (A4 2매 이내)</span>
+      </div>
+      <ul>
+        <li>이번 학기 전체 강의 내용 + 오늘 내용 통합</li>
+        <li>시험 당일 이후 3일 이내 LMS 업로드</li>
+        <li>필수 포함: 자신의 목회관 + 슈바르츠/마크 데버 연결 + 성경적 근거</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">핵심 원칙 &amp; 명제 요약</div>
+
+    <div class="principle">
+      <div class="p-title">원칙 1 — 교회 성장의 패러다임 전환</div>
+      <div class="p-body"><strong>방법(How) → 건강(Health) → 원리(Principle)</strong>. 생명체는 건강하면 성장한다.</div>
+      <span class="p-bible">Rick Warren / 슈바르츠 『자연적 교회 성장』</span>
+    </div>
+
+    <div class="principle">
+      <div class="p-title">원칙 2 — 최소치 전략</div>
+      <div class="p-body">8가지 건강 요소 중 가장 약한 부분이 교회 성장의 상한선이 된다. 강한 것을 강화하기보다 <strong>약한 것을 보완</strong>하는 것이 성장으로 이어진다.</div>
+      <span class="p-bible">물통의 가장 짧은 판자 원리</span>
+    </div>
+
+    <div class="principle">
+      <div class="p-title">원칙 3 — 은사중심적 사역</div>
+      <div class="p-body">교회는 성경 교사만 필요한 것이 아니다. <strong>가르치는·섬기는·구제하는·다스리는</strong> 은사가 모두 기능해야 건강한 교회다.</div>
+      <span class="p-bible">롬 12:6-8 / 고전 12:4-11 / 엡 4:11-12</span>
+    </div>
+
+    <div class="principle">
+      <div class="p-title">원칙 4 — 언약 공동체로서의 교회</div>
+      <div class="p-body">교회는 언약 공동체. 쉽게 교인이 되면 안 된다. <strong>앞문을 높이면 뒷문도 높아진다</strong>. 교인 자격·서약·징계는 거룩성 유지를 위해 필요하다.</div>
+      <span class="p-bible">마 18:15-17 / 마크 데버 9가지 특징 ⑥⑦</span>
+    </div>
+
+    <div class="principle">
+      <div class="p-title">원칙 5 — 목회 철학 수립</div>
+      <div class="p-body">어떤 목회를 할 것인가는 목회자 자신의 선택. 말씀·기도로 하나님의 감동을 따르되, <strong>하나님의 인도하심과 역사하심</strong>을 믿어야 한다.</div>
+      <span class="p-bible">이영호 교수 강의 중</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">건강한 교회를 세우는 목회자상</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head">🙏 영적 촉매자</div>
+        <p>성령 충만의 촉매 역할. 교인들이 하나님께 반응하도록 영적 온도를 높이는 사람.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">🌱 사역자 세우는 자</div>
+        <p>평신도를 훈련시켜 사역자로 세운다. "변화된 한 사람의 비전." 만인 제사장 원리.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">📖 말씀의 사람</div>
+        <p>강해설교·성경신학·성경적 이해에 근거. 성경에 능통하고 구속사적 관점을 가진 목회자.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">🤲 섬기는 지도자</div>
+        <p>복수 리더십과 섬김의 리더십(servant leadership). 목사 혼자가 아닌 공동체적 지도력.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="core-box">
+    <h3>오늘 목회 핵심 원칙 3가지</h3>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <p><strong>방법이 아닌 건강이 성장을 만든다.</strong><br>프로그램·방법론보다 교회의 질적 건강이 우선이다.</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <p><strong>은사를 따라 사역자를 세우라.</strong><br>모든 성도의 은사를 발견하여 적재적소에 배치하는 것이 건강한 교회의 기초다.</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <p><strong>목회 방향은 하나님의 인도하심 아래 자신이 결정하라.</strong><br>다양한 모델을 알되, 말씀·기도로 받은 감동에 따라 자신의 목회 철학을 세우라.</p>
+    </div>
+  </div>
+
+</div><!-- /tab-summary -->
+
+
+<!-- ══════════════════ TAB 3: 현장적용 ══════════════════ -->
+<div class="tab-panel" id="tab-field">
+
+  <div class="section">
+    <div class="section-title">현장 적용 시나리오</div>
+
+    <div class="field-block">
+      <div class="f-head">🏛 시나리오 1 — 개척 초기: 어떤 교회 모델을 선택할 것인가</div>
+      <div class="f-step"><span class="f-label">상황</span><span>개척 후 교인이 20~30명 수준. 모교회는 전통적 예배 중심. 부사역자 경험은 복음주의 제자훈련 교회.</span></div>
+      <div class="f-step"><span class="f-label">진단</span><span>슈바르츠: 8가지 중 현재 가장 약한 요소가 무엇인지 진단 필요. 마크 데버: 강해설교와 성경적 교인 자격 기준부터 세워야 함.</span></div>
+      <div class="f-step"><span class="f-label">실천</span><span>① 설교 방향 결정 (강해 vs 공감 중심) ② 전인적 소그룹 구조 설계 ③ 은사 설문(20문항 내외)으로 성도 은사 파악 → 사역 배치</span></div>
+    </div>
+
+    <div class="field-block">
+      <div class="f-head">👥 시나리오 2 — 은사 발견과 사역 배치</div>
+      <div class="f-step"><span class="f-label">상황</span><span>새벽기도회 인도는 잘 되지만 구제·봉사·행정 사역에는 인력이 없는 상태.</span></div>
+      <div class="f-step"><span class="f-label">진단</span><span>은사중심적 사역(2번 요소)이 약함. 교회에 필요한 사역 목록을 작성하고 성도들이 하고 싶은 것을 체크하게 하면 은사와 부르심이 드러난다.</span></div>
+      <div class="f-step"><span class="f-label">실천</span><span>사역 목록 설문 작성 → 배포 → 취합 → 은사별 모임 구성. "하나님의 부르심과 은사가 일치할 확률이 높다." (교수님)</span></div>
+    </div>
+
+    <div class="field-block">
+      <div class="f-head">📢 시나리오 3 — 청소년 대상 필요중심적 전도</div>
+      <div class="f-step"><span class="f-label">상황</span><span>청소년 사역. 전통적 전도지 배부 방식이 효과가 없음.</span></div>
+      <div class="f-step"><span class="f-label">진단</span><span>필요중심적 전도(7번 요소). 청소년의 실제 필요(진로 불안, 관계 문제, 정체성)에 응답하는 방식으로 전도해야 한다.</span></div>
+      <div class="f-step"><span class="f-label">실천</span><span>① 청소년이 있는 곳으로 찾아가는 전도 ② 그들의 언어와 문화로 복음 전달 ③ 새신자가 변화되면 자연스럽게 주변 불신자에게 전도됨</span></div>
+    </div>
+
+    <div class="field-block">
+      <div class="f-head">✍ 기말 에세이 작성 가이드 — "어떻게 건강한 교회를 세울 것인가"</div>
+      <div class="f-step"><span class="f-label">서론</span><span>나의 목회 상황(개척/부사역/청소년 등)과 목회관 제시. "교회의 건강이 성장을 만든다"는 명제로 시작.</span></div>
+      <div class="f-step"><span class="f-label">본론</span><span>슈바르츠 8가지 중 내가 집중할 2~3가지 + 이유 / 마크 데버 9가지 중 나의 강조점 / 이머징 처치적 요소 중 수용 가능한 것. 각각 성경적 근거 연결.</span></div>
+      <div class="f-step"><span class="f-label">결론</span><span>"나는 이런 목회를 할 것이다" — 구체적 비전과 하나님의 인도하심에 대한 신뢰로 마무리.</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">목회자 자기 성찰 질문</div>
+    <div class="reflect-block">
+      <ol>
+        <li>나의 모교회 또는 부사역자 경험에서 형성된 목회관은 무엇인가? 그것이 내 목회에 어떤 영향을 미치고 있는가?</li>
+        <li>슈바르츠의 8가지 건강 요소 중 내가 현재 가장 잘할 수 있는 것과 가장 약한 것은 무엇인가?</li>
+        <li>나는 목회에서 '방법'을 먼저 찾는가, '건강'을 먼저 추구하는가?</li>
+        <li>나에게 주신 은사는 무엇인가? 그 은사가 목회에서 어떻게 사용될 수 있는가?</li>
+        <li>내가 꿈꾸는 교회의 모습은 초대교회·전통교회·복음주의교회·이머징 처치 중 어느 유형에 가까운가? 성경과 성령의 인도하심에 비추어 그것이 타당한가?</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="core-box">
+    <h3>오늘 목회 핵심 원칙 3가지</h3>
+    <div class="core-item">
+      <div class="core-num">1</div>
+      <p><strong>방법이 아닌 건강이 성장을 만든다.</strong><br>목회 현장에서 먼저 물을 것: "우리 교회의 가장 약한 건강 요소는 무엇인가?"</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">2</div>
+      <p><strong>은사를 따라 사역자를 세우라.</strong><br>설문조사로 은사를 발견하고, 하고 싶은 사역에 배치하라. 만족도가 올라가면 자발적 헌신이 생긴다.</p>
+    </div>
+    <div class="core-item">
+      <div class="core-num">3</div>
+      <p><strong>목회 방향은 하나님의 인도하심 아래 자신이 결정하라.</strong><br>슈바르츠와 마크 데버, 이머징 처치를 알되 최종 결정은 말씀·기도·성령의 감동에 따르라.</p>
+    </div>
+  </div>
+
+</div><!-- /tab-field -->
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

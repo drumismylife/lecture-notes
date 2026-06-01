@@ -226,7 +226,9 @@ const SITE_DATA = {
         { week: 12, title: "어거스틴 심화 · 교황제도 · 동서 교회 분열", date: "2026.05.22", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week12.html" }
           ] },
-        { week: 13, title: "침례교의 역사와 신학", date: "2026.06", files: [] },
+        { week: 13, title: "중세 기독교 시대 I", date: "2026.05.29", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week13.html" }
+          ] },
         { week: 14, title: "미 남침례회(SBC) 논쟁", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
       ]

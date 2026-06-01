@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서 I — 13주차 사도행전 첫 번째 이야기</title>
+<style>
+  :root {
+    --bg:        #150f1a;
+    --card:      #1e1526;
+    --subcard:   #261c30;
+    --accent:    #9b7fc7;
+    --accent2:   #b8a8d4;
+    --bible:     #c4a8e8;
+    --exam:      #c96b5a;
+    --term:      #7ab87a;
+    --text:      #ede8f5;
+    --muted:     #9e96aa;
+    --border:    rgba(155,127,199,.22);
+    --gold:      #d4a843;
+    --teal:      #5bb8b8;
+    --rose:      #c96b5a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans KR',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-size:14px;
+    line-height:1.7;
+    min-height:100vh;
+  }
+
+  /* ── LAYOUT ── */
+  .shell{max-width:960px;margin:0 auto;padding:0 16px 60px;}
+
+  /* ── HEADER ── */
+  .page-header{
+    padding:32px 0 0;
+    border-bottom:1px solid var(--border);
+    margin-bottom:28px;
+  }
+  .page-header .meta{
+    display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;
+  }
+  .badge{
+    display:inline-flex;align-items:center;
+    font-size:11px;font-weight:700;letter-spacing:.07em;
+    padding:3px 10px;border-radius:20px;
+  }
+  .badge-week{background:var(--accent);color:#150f1a;}
+  .badge-exam{background:var(--exam);color:#fff;}
+  .badge-term{background:var(--term);color:#0a1f0a;}
+  .badge-plain{background:var(--subcard);color:var(--accent2);border:1px solid var(--border);}
+  .page-header h1{
+    font-size:26px;font-weight:900;letter-spacing:-.02em;
+    color:var(--text);margin-bottom:6px;
+  }
+  .page-header .sub{font-size:13px;color:var(--muted);padding-bottom:20px;}
+
+  /* ── TABS ── */
+  .tab-bar{
+    display:flex;gap:4px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px 10px 0 0;
+    padding:6px 6px 0;
+    position:sticky;top:0;z-index:50;
+  }
+  .tab-btn{
+    padding:8px 20px;border-radius:8px 8px 0 0;
+    background:transparent;border:none;cursor:pointer;
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:13px;font-weight:600;
+    color:var(--muted);transition:all .2s;
+  }
+  .tab-btn:hover{color:var(--accent2);}
+  .tab-btn.active{background:var(--subcard);color:var(--accent);}
+  .tab-content{display:none;}
+  .tab-content.active{display:block;}
+  .tab-wrap{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-top:none;
+    border-radius:0 0 10px 10px;
+    padding:28px 24px 32px;
+    margin-bottom:40px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .sec{
+    display:flex;align-items:center;gap:10px;
+    margin:32px 0 14px;
+  }
+  .sec:first-child{margin-top:0;}
+  .sec-num{
+    background:var(--accent);color:#150f1a;
+    font-size:10px;font-weight:900;letter-spacing:.1em;
+    padding:2px 9px;border-radius:3px;white-space:nowrap;
+  }
+  .sec-title{
+    font-size:17px;font-weight:800;color:var(--text);
+    letter-spacing:-.01em;
+  }
+  .sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+
+  .sub{
+    font-size:13px;font-weight:700;color:var(--accent);
+    margin:20px 0 8px;
+    padding-left:10px;border-left:3px solid var(--gold);
+  }
+
+  /* ── CARDS / BLOCKS ── */
+  .block{
+    background:var(--subcard);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px 18px;
+    margin-bottom:14px;
+  }
+  .block p{margin-bottom:8px;font-size:13.5px;line-height:1.75;}
+  .block p:last-child{margin-bottom:0;}
+
+  /* Bible quote */
+  .bible{
+    background:#1c1528;
+    border-left:3px solid var(--bible);
+    border-radius:0 6px 6px 0;
+    padding:12px 16px;
+    margin:10px 0;
+    font-family:'D2Coding','Noto Sans KR',monospace;
+    font-size:13px;
+    color:var(--bible);
+    line-height:1.8;
+  }
+  .bible .ref{
+    display:block;font-size:11px;font-weight:700;
+    color:var(--accent);margin-bottom:4px;
+  }
+
+  /* Exam alert */
+  .exam-box{
+    background:#2d1a16;
+    border:1px solid var(--exam);
+    border-radius:8px;
+    padding:14px 16px;
+    margin:12px 0;
+  }
+  .exam-box .exam-label{
+    font-size:11px;font-weight:700;color:var(--exam);
+    letter-spacing:.08em;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .exam-box p,.exam-box li{font-size:13px;color:#e8c5bb;}
+
+  /* Term box */
+  .term-box{
+    background:#1a2a1a;
+    border:1px solid #3a6b3a;
+    border-radius:8px;
+    padding:14px 16px;
+    margin:12px 0;
+  }
+  .term-box .term-label{
+    font-size:11px;font-weight:700;color:var(--term);
+    letter-spacing:.08em;margin-bottom:8px;
+  }
+  .term-box .term-word{
+    font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px;
+  }
+  .term-box .term-greek{font-size:13px;color:var(--bible);margin-bottom:8px;}
+  .term-box .term-row{
+    display:grid;grid-template-columns:90px 1fr;gap:4px 12px;
+    font-size:12.5px;
+  }
+  .term-row .k{color:var(--accent2);font-weight:700;}
+  .term-row .v{color:var(--text);}
+
+  /* Callout */
+  .callout{
+    display:flex;gap:12px;
+    border-radius:8px;padding:14px 16px;margin-bottom:14px;
+  }
+  .callout.info{background:#1a1a2e;border-left:3px solid var(--accent);}
+  .callout.warn{background:#2a1a1a;border-left:3px solid var(--rose);}
+  .callout.tip {background:#1a2218;border-left:3px solid var(--term);}
+  .callout.teal{background:#14241e;border-left:3px solid var(--teal);}
+  .callout-icon{font-size:18px;flex-shrink:0;line-height:1.4;}
+  .callout-body{flex:1;}
+  .callout-title{font-size:13px;font-weight:700;margin-bottom:5px;}
+  .callout.info .callout-title{color:var(--accent);}
+  .callout.warn .callout-title{color:var(--rose);}
+  .callout.tip  .callout-title{color:var(--term);}
+  .callout.teal .callout-title{color:var(--teal);}
+  .callout-text{font-size:13px;color:var(--accent2);line-height:1.7;}
+
+  /* Grid */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+  @media(max-width:640px){
+    .grid-2,.grid-3{grid-template-columns:1fr;}
+  }
+
+  /* Compare table */
+  .cmp-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0 14px;}
+  .cmp-table th{
+    background:var(--accent);color:#150f1a;
+    padding:7px 10px;font-weight:700;font-size:12px;
+    text-align:left;
+  }
+  .cmp-table td{
+    padding:7px 10px;border:1px solid var(--border);
+    vertical-align:top;line-height:1.6;
+    color:var(--accent2);
+  }
+  .cmp-table tr:nth-child(even) td{background:rgba(255,255,255,.025);}
+  .cmp-table .hl td{background:rgba(155,127,199,.1)!important;color:var(--text);font-weight:600;}
+
+  /* Journey cards */
+  .journey-card{
+    background:var(--subcard);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    border-top:3px solid var(--accent);
+  }
+  .journey-card.j1{border-top-color:#e8834a;}
+  .journey-card.j2{border-top-color:#5bb8b8;}
+  .journey-card.j3{border-top-color:#7ab87a;}
+  .journey-card.j4{border-top-color:#d4a843;}
+  .journey-num{font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:6px;}
+  .journey-card.j1 .journey-num{color:#e8834a;}
+  .journey-card.j2 .journey-num{color:#5bb8b8;}
+  .journey-card.j3 .journey-num{color:#7ab87a;}
+  .journey-card.j4 .journey-num{color:#d4a843;}
+  .journey-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:8px;}
+  .journey-card .info-row{
+    display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;
+  }
+  .info-chip{
+    background:rgba(255,255,255,.07);
+    border:1px solid var(--border);
+    font-size:11px;color:var(--accent2);
+    padding:2px 9px;border-radius:12px;
+  }
+  .journey-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+  /* Professor note */
+  .prof-note{
+    border-left:2px solid var(--accent2);
+    padding:10px 14px;
+    margin:10px 0;
+    background:rgba(184,168,212,.06);
+    border-radius:0 6px 6px 0;
+  }
+  .prof-note .prof-label{
+    font-size:10px;font-weight:700;color:var(--accent2);
+    letter-spacing:.08em;margin-bottom:4px;
+  }
+  .prof-note p{font-size:13px;color:var(--accent2);font-style:italic;line-height:1.7;}
+
+  /* UL */
+  ul.ul{padding-left:18px;margin:8px 0;}
+  ul.ul li{font-size:13.5px;color:var(--accent2);line-height:1.75;margin-bottom:4px;}
+  ul.ul li strong{color:var(--text);}
+
+  /* Tension box (contrast) */
+  .tension{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 14px;
+  }
+  .tension-col{
+    background:var(--subcard);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+  }
+  .tension-col.acts{border-top:3px solid var(--accent);}
+  .tension-col.paul{border-top:3px solid var(--gold);}
+  .tension-col .tc-label{
+    font-size:11px;font-weight:700;letter-spacing:.07em;margin-bottom:8px;
+  }
+  .tension-col.acts .tc-label{color:var(--accent);}
+  .tension-col.paul .tc-label{color:var(--gold);}
+  .tension-col .tc-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;}
+  .tension-col .bible{margin:0;}
+  @media(max-width:640px){.tension{grid-template-columns:1fr;}}
+
+  /* Today summary */
+  .today-box{
+    background:linear-gradient(135deg,#1e1a2e,#1a2218);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 22px;
+    margin-top:32px;
+  }
+  .today-box h3{
+    font-size:15px;font-weight:800;color:var(--accent);
+    margin-bottom:14px;letter-spacing:-.01em;
+  }
+  .today-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media(max-width:600px){.today-grid{grid-template-columns:1fr;}}
+  .today-item{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:12px 14px;
+  }
+  .today-num{
+    width:24px;height:24px;
+    background:var(--accent);color:#150f1a;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:900;
+    margin-bottom:8px;
+  }
+  .today-word{font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;}
+  .today-def{font-size:12px;color:var(--muted);line-height:1.6;}
+
+  /* Havruta cards */
+  .q-card{
+    background:var(--subcard);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  .q-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#150f1a;
+    width:22px;height:22px;border-radius:50%;
+    font-size:11px;font-weight:900;
+    margin-right:8px;flex-shrink:0;
+  }
+  .q-head{display:flex;align-items:flex-start;gap:0;margin-bottom:8px;}
+  .q-text{font-size:14px;font-weight:700;color:var(--text);}
+  .q-point{
+    border-left:2px solid var(--accent2);
+    padding-left:12px;
+    margin-top:6px;
+  }
+  .q-point li{font-size:13px;color:var(--muted);margin-bottom:3px;}
+
+  /* print */
+  @media print{
+    body{background:#fff;color:#1e2333;}
+    .tab-bar{position:static;background:#f3f4f6;}
+    .tab-btn{color:#374151;}
+    .tab-btn.active{background:#e5e7eb;color:#4a1d8a;}
+    .tab-content{display:block!important;}
+    .tab-wrap{background:#fff;border:1px solid #d1d5db;}
+    .shell{max-width:100%;padding:0 12px;}
+    @page{size:A4;margin:15mm 12mm;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="meta">
+      <span class="badge badge-week">13주차</span>
+      <span class="badge badge-plain">2026-05-28</span>
+      <span class="badge badge-plain">사도행전 첫 번째 이야기</span>
+      <span class="badge badge-exam">★ 기말 6/11 대비</span>
+      <span class="badge badge-term">용어집 6/4 제출</span>
+    </div>
+    <h1>사도행전 첫 번째 이야기</h1>
+    <div class="sub">신약성서 I · 이영민 교수 · 한국침례신학대학교 대학원</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('note',this)">📝 강의노트</button>
+    <button class="tab-btn" onclick="switchTab('summary',this)">⭐ 핵심정리</button>
+    <button class="tab-btn" onclick="switchTab('havruta',this)">🗣️ 하브루타</button>
+  </div>
+
+  <div class="tab-wrap">
+
+    <!-- ══════════════════════════════════════
+         TAB 1 — 강의노트
+    ══════════════════════════════════════ -->
+    <div id="tab-note" class="tab-content active">
+
+      <!-- SECTION 1 -->
+      <div class="sec"><span class="sec-num">01</span><span class="sec-title">사도행전의 제목 문제</span><div class="sec-line"></div></div>
+
+      <div class="callout info">
+        <div class="callout-icon">💡</div>
+        <div class="callout-body">
+          <div class="callout-title">제목은 책의 내용을 반영하는가?</div>
+          <div class="callout-text">사도행전이라는 명칭은 나중에 붙여진 것입니다. 초기 사본(4세기)에는 제목이 없었으며, 6~7세기 수정자들이 비로소 제목을 더했습니다. 제목을 붙인다는 것은 특정 방향의 해석을 고정한다는 의미이기도 합니다.</div>
+        </div>
+      </div>
+
+      <div class="sub">사본에 나타난 제목의 변천</div>
+      <div class="block">
+        <p>가장 이른 사본들에서 확인할 수 있는 제목은 매우 단순합니다. 텍스트가 후대로 갈수록 제목이 구체화되고 길어지는 경향이 있으며, 이는 <strong>짧고 어려운 것이 원본에 더 가깝다</strong>는 사본학(textual criticism)의 원칙을 반영합니다.</p>
+        <table class="cmp-table">
+          <thead><tr><th>사본</th><th>연대</th><th>기재된 제목</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>코덱스 시나이티쿠스<br><em>Codex Sinaiticus</em></td><td>4세기<br>6~7세기 수정</td><td>πράξεις<br>(행동들)</td><td>영국박물관 소장 / 수정자 필체로 추가</td></tr>
+            <tr class="hl"><td>코덱스 바티칸스<br><em>Codex Vaticanus</em></td><td>4세기<br>10세기 수정</td><td>πράξεις ἀποστόλων<br>(사도들의 행동들)</td><td>로마 교황청 소장 / 컬러·그림은 중세 이후 특징</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:var(--muted);">πράξεις는 πρᾶξις(행위, act)의 복수형. 영어 Acts와 같은 뜻.</p>
+      </div>
+
+      <div class="prof-note">
+        <div class="prof-label">교수 설명</div>
+        <p>제목 없이 글이 읽혔을 때는 독자 스스로 "이게 무슨 이야기인지" 발견해 나가는 역동성이 있었습니다. 제목을 달아주면 해석 방향이 고정되어 그 역동성이 줄어들 수 있습니다. 누가는 독자가 성령님의 일을 스스로 발견하길 원했을 것입니다.</p>
+      </div>
+
+      <div class="sub">마크 파월이 제안한 별칭</div>
+      <div class="grid-2">
+        <div class="block">
+          <p>🕊️ <strong>성령행전</strong><br><em>The Acts of the Holy Spirit</em></p>
+          <p style="font-size:13px;color:var(--muted);">가장 중요한 관심사는 성령님이 하신 일을 전하는 데 있다는 견해. 누가가 명시적으로 하나님의 행위라고 언급하는 횟수는 적지만 전체 흐름에서 성령의 역사가 선명하게 드러남.</p>
+        </div>
+        <div class="block">
+          <p>👑 <strong>부활하신 주 예수 그리스도의 행전</strong><br><em>The Acts of the Risen Lord Jesus Christ</em></p>
+          <p style="font-size:13px;color:var(--muted);">부활 이후에도 계속 일하시는 예수님을 주인공으로 읽는 견해. 의미상 더 적절하다는 평가. Powell의 교재(p.208) 인용.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="sec"><span class="sec-num">02</span><span class="sec-title">초기 예루살렘 교회의 특징</span><div class="sec-line"></div></div>
+
+      <div class="callout warn">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-body">
+          <div class="callout-title">"초대교회"라는 표현 주의</div>
+          <div class="callout-text">교수님은 의도적으로 "초대교회" 대신 <strong>"초기 예루살렘 교회"</strong>라고 표현합니다. 초대교회라 하면 모든 초기 교회가 같은 모습인 것처럼 오해할 수 있기 때문입니다. 고린도 교회, 갈라디아 교회 등은 사도행전 2장과 전혀 다른 모습을 보입니다.</div>
+        </div>
+      </div>
+
+      <div class="bible">
+        <span class="ref">행 2:42–47 (초기 예루살렘 교회 특징의 압축)</span>
+        그들이 사도의 가르침을 받아 서로 교제하고 떡을 떼며 오로지 기도하기를 힘쓰니라 사람마다 두려워하는데 사도들로 말미암아 기사와 표적이 많이 나타나니 믿는 사람이 다 함께 있어 모든 물건을 서로 통용하고 또 재산과 소유를 팔아 각 사람의 필요를 따라 나눠 주며 날마다 마음을 같이하여 성전에 모이기를 힘쓰고 집에서 떡을 떼며 기쁨과 순전한 마음으로 음식을 먹고 하나님을 찬미하며 또 온 백성에게 칭송을 받으니 주께서 구원 받는 사람을 날마다 더하게 하시니라
+      </div>
+
+      <div class="prof-note">
+        <div class="prof-label">교수 설명 — 아나니아·삽비라와의 연결</div>
+        <p>2장의 이상적 공동체 묘사 직후인 5장에 아나니아와 삽비라의 죽음이 기록됩니다. 이는 누가가 현실을 가리지 않고 있음을 보여줍니다. 5장의 "큰 두려움"은 하나님을 경외하는 두려움이며, 내면까지 아시는 하나님의 거룩하심에 대한 반응입니다.</p>
+      </div>
+
+      <div class="exam-box">
+        <div class="exam-label">★ 시험 포인트</div>
+        <p>초기 예루살렘 교회의 다섯 가지 특징: ①사도의 가르침 ②교제(κοινωνία) ③떡 뗌 ④기도 ⑤재물 나눔. 마 4:23의 예수님 사역과 연결하여 천국 복음의 구현으로 이해할 것.</p>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="sec"><span class="sec-num">03</span><span class="sec-title">바나바 — 성령님의 사역을 반영하는 인물</span><div class="sec-line"></div></div>
+
+      <div class="block">
+        <p>바나바의 실명은 요셉이었으나, 사도들이 <strong>위로의 아들(υἱὸς παρακλήσεως)</strong>이라고 별명을 지어줬습니다. 이 이름은 그의 삶 전체가 위로하고 대변하는 성령님(παράκλητος)의 사역과 닮았기 때문입니다.</p>
+      </div>
+
+      <div class="bible">
+        <span class="ref">행 9:26–27 (바나바의 역할)</span>
+        사울이 예루살렘에 가서 제자들을 사귀고자 하나 다 두려워하여 그가 제자 됨을 믿지 아니하니 <strong>바나바가 데리고 사도들에게 가서</strong> 그가 길에서 어떻게 주를 보았는지와 주께서 그에게 말씀하신 일과 다메섹에서 그가 어떻게 예수의 이름으로 담대히 말하였는지를 전하니라
+      </div>
+
+      <div class="sub">바나바 = παράκλητος의 현현</div>
+      <div class="block">
+        <p>παράκλητος(보혜사·위로자)는 원래 <strong>법정 용어</strong>로, 피고를 대신하여 변호해주는 조력자를 뜻합니다. 바나바가 핍박자 사울을 사도들에게 데려가 변호해준 행위는 이 법정적 의미를 그대로 살리는 행동입니다.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="block">
+          <p><strong>성령님(παράκλητος)</strong></p>
+          <p style="font-size:13px;color:var(--muted);">요한복음에서 예수님이 약속하신 또 다른 보혜사 (요 14:16, 26; 15:26; 16:7). 예수님 부재 후 공동체를 인도하고 변호·위로하심.</p>
+        </div>
+        <div class="block">
+          <p><strong>바나바(υἱὸς παρακλήσεως)</strong></p>
+          <p style="font-size:13px;color:var(--muted);">두려움에 빠진 사도들에게 찾아가 핍박자 사울을 변호하며 공동체를 하나로 묶음. 성령님이 하시는 일의 인간적 현현.</p>
+        </div>
+      </div>
+
+      <div class="prof-note">
+        <div class="prof-label">교수 설명 — 위로자로서의 성령</div>
+        <p>성령님을 기대할 때 무엇을 기대해야 할까요? 우리가 스스로를 정죄할 때, 위로자(παράκλητος)가 '나 여기 있어요'라고 응답하십니다. 회개란 억지로 뭔가를 해야 하는 것이 아니라, 그분을 향한 마음으로 다시 돌아가는 것입니다.</p>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="sec"><span class="sec-num">04</span><span class="sec-title">예루살렘 회의 (행 15장)</span><div class="sec-line"></div></div>
+
+      <div class="block">
+        <p>바울의 첫 전도 여행 이후 안디옥에서 문제가 발생합니다. <strong>유대주의자들(Judaizers)</strong>이 이방인 신자들에게 "예수를 믿는 것만으로는 부족하고 모세의 율법(특히 할례)도 지켜야 한다"고 주장했습니다. 이에 예루살렘 회의가 소집됩니다.</p>
+      </div>
+
+      <div class="callout teal">
+        <div class="callout-icon">👥</div>
+        <div class="callout-body">
+          <div class="callout-title">세 종류의 사람들</div>
+          <div class="callout-text">① <strong>유대인</strong> — 모세 율법의 완전한 준수자<br>② <strong>하나님을 경외하는 자들(God-fearers)</strong> — 유대인은 아니나 이스라엘의 하나님을 경외하며 율법을 존중하는 이방인<br>③ <strong>이방인</strong> — 유대 전통과 무관한 이방 배경의 사람들<br><br>초기 교회 운동은 먼저 유대인 내부에서 시작된 내적 변화였으며, 점차 이 세 그룹 전체를 포함하게 됩니다.</div>
+        </div>
+      </div>
+
+      <div class="bible">
+        <span class="ref">행 15:28–29 (예루살렘 회의의 결정)</span>
+        성령과 우리는 이 요긴한 것들 외에는 아무 짐도 너희에게 지우지 아니하는 것이 옳은 줄 알았노니 우상의 제물과 피와 목매어 죽인 것과 음행을 멀리 할지니라
+      </div>
+
+      <div class="bible">
+        <span class="ref">행 16:4–5 (회의 결과의 열매)</span>
+        교회들은, 그 믿음이 점점 더 튼튼해지고, 그 수가 나날이 늘어갔다 (새번역)
+      </div>
+
+      <div class="exam-box">
+        <div class="exam-label">★ 시험 포인트 — 예루살렘 회의의 신학적 의의</div>
+        <p>① 이방인에게 율법(할례)을 짐으로 지우지 않음 → 복음의 보편성 확립<br>② "성령과 우리는" — 결정의 주체가 인간이 아닌 성령님임을 명시<br>③ 결과: 교회의 믿음이 튼튼해지고 수가 늘어남 → 성령의 인도가 맞았음을 증명<br>④ 율법은 이스라엘에게 주신 은혜였으나, 예수 그리스도 안에서 은혜 위의 은혜가 왔음</p>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="sec"><span class="sec-num">05</span><span class="sec-title">바울의 전도 여행 세 차례</span><div class="sec-line"></div></div>
+
+      <div class="callout info">
+        <div class="callout-icon">🗺️</div>
+        <div class="callout-body">
+          <div class="callout-title">지리적 배경 이해</div>
+          <div class="callout-text">신약의 무대는 예루살렘에서 로마까지 지중해를 중심으로 한 세계입니다. 터키(소아시아), 그리스, 이탈리아가 핵심 무대. 소아시아(Asia Minor)는 당시에 아시아라 불렸으며 에베소가 중심 도시였습니다. 갈라디아는 남부와 북부로 나뉘며, 이 구분은 갈라디아서 해석에 중요합니다.</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="journey-card j1">
+          <div class="journey-num">첫 번째 전도 여행 · 행 13–14</div>
+          <div class="journey-title">갈라디아 지방 복음화</div>
+          <div class="info-row">
+            <span class="info-chip">AD 46–48</span>
+            <span class="info-chip">약 2년</span>
+            <span class="info-chip">1,900+ km</span>
+            <span class="info-chip">바나바·마가 동행</span>
+          </div>
+          <p>안디옥(시리아) 출발 → 키프로스 → 소아시아 갈라디아 지방 순회(안디옥 비시디아, 이고니온, 루스드라, 더베) → 귀환. 예루살렘 회의(AD 49) 이전에 진행됨.</p>
+        </div>
+        <div class="journey-card j2">
+          <div class="journey-num">두 번째 전도 여행 · 행 16–18</div>
+          <div class="journey-title">유럽 진출 — 마케도니아·그리스</div>
+          <div class="info-row">
+            <span class="info-chip">AD 49–52</span>
+            <span class="info-chip">약 3년</span>
+            <span class="info-chip">4,300+ km</span>
+            <span class="info-chip">실라·디모데·누가</span>
+          </div>
+          <p>예루살렘 회의 직후 출발. 마가 동행 여부 갈등(바나바와 분리). 드로아에서 마케도니아 환상 → 빌립보·데살로니가·고린도·에베소 방문. 첫 번째보다 확장된 루트.</p>
+        </div>
+        <div class="journey-card j3">
+          <div class="journey-num">세 번째 전도 여행 · 행 19–21:14</div>
+          <div class="journey-title">에베소 중심 — 심화 선교</div>
+          <div class="info-row">
+            <span class="info-chip">AD 53–57</span>
+            <span class="info-chip">4–5년</span>
+            <span class="info-chip">4,000+ km</span>
+            <span class="info-chip">디모데·누가 등</span>
+          </div>
+          <p>아시아의 으뜸 도시 에베소를 거점으로 활동. 에베소는 규모와 영향력이 압도적인 도시였음. 이후 고린도 방문 및 예루살렘을 향한 귀환.</p>
+        </div>
+        <div class="journey-card j4">
+          <div class="journey-num">가이사랴 & 로마로 · 행 23:23–35; 27–28</div>
+          <div class="journey-title">죄수 신분으로 로마까지</div>
+          <div class="info-row">
+            <span class="info-chip">보병 200명 + 기병 70명</span>
+            <span class="info-chip">백부장 율리오</span>
+          </div>
+          <p>유대 지도자들의 지속적 고발 → 황제에게 상소 → 지중해 항해 중 폭풍(드라마틱한 기록) → 멜리데 섬 경유 → 로마 도착. 로마 시민권자는 십자가형 제외.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 6 -->
+      <div class="sec"><span class="sec-num">06</span><span class="sec-title">사도행전의 저자: 누가</span><div class="sec-line"></div></div>
+
+      <div class="block">
+        <p>누가복음 서두(1:1–4)와 사도행전 서두(1:1–2) 모두 데오빌로에게 보낸 것으로, <strong>동일 저자가 2부작으로 기록</strong>했음이 거의 확실합니다. "내가 먼저 쓴 글"(행 1:1)이 누가복음을 가리킵니다.</p>
+      </div>
+
+      <ul class="ul">
+        <li>골 4:14 — "사랑을 받는 의사 누가"</li>
+        <li>몬 24 — "나의 동역자 … 누가"</li>
+        <li>딤후 4:11 — "누가만 나와 함께 있느니라"</li>
+      </ul>
+
+      <div class="prof-note">
+        <div class="prof-label">교수 설명 — 저자 확인의 한계</div>
+        <p>고대 글쓰기 문화에서는 대표자 이름으로 여러 명이 함께 작업한 경우가 많았습니다. 따라서 "누가가 썼다"고 하더라도 편집 과정에서 여러 사람이 관여했을 가능성을 열어둬야 합니다. 저자 이름보다 <strong>왜 썼는지, 누구에게 썼는지, 무엇을 전하려 했는지</strong>가 더 중요합니다.</p>
+      </div>
+
+      <!-- SECTION 7 -->
+      <div class="sec"><span class="sec-num">07</span><span class="sec-title">사도행전의 기록 목적</span><div class="sec-line"></div></div>
+
+      <div class="block">
+        <p>사도행전은 초기 교회의 현장에서 쓰인 것이 아닙니다. 마가복음 이후에 누가복음이, 그 이후에 사도행전이 기록되었기 때문에, 기록 당시는 초기 예루살렘 교회의 사건들로부터 <strong>한참 지난 시점</strong>입니다.</p>
+      </div>
+
+      <ul class="ul">
+        <li><strong>다양해지는 교회를 하나로 묶기 위해</strong> — 기독교의 기원을 평화적으로 묘사. "초대 교회로 돌아가자"는 호소의 근거 제공.</li>
+        <li><strong>로마의 박해를 피하기 위해</strong> — 기독교인들의 정치적 무죄성 입증. 예수님도 로마법상 죄가 없는 분으로 기록(눅 23:4, 14–15). 로마는 질서를 어지럽히는 세력만 통제했기 때문에 평화로운 공동체임을 보여야 했음.</li>
+        <li><strong>이교도들이 새 신앙을 받아들이도록</strong> — 누가의 대상은 헬라어권 글로벌 독자.</li>
+        <li><strong>하나님의 약속의 상속자 설명</strong> — 기독교인들이 이스라엘의 약속을 이어받았고, 왜 주로 이방인의 종교가 되었는지 해명.</li>
+        <li><strong>장기적 선교 신학 제시</strong> — 그리스도의 재림이 먼 미래일 수 있음을 인식한 교회에게 지속 가능한 선교 신학을 제공.</li>
+      </ul>
+
+      <div class="exam-box">
+        <div class="exam-label">★ 기말 출제 예상</div>
+        <p>기말고사 방향 힌트: 복음서와 사도행전을 팀 목회 상황에서 성도들에게 설명하는 형식. <strong>저자 디테일이 아닌 "왜 썼는가·무엇을 전하는가"의 큰 그림</strong> 이해가 핵심. 날짜·지명 암기보다 신학적 의의를 설명할 수 있어야 함.</p>
+      </div>
+
+      <!-- SECTION 8 -->
+      <div class="sec"><span class="sec-num">08</span><span class="sec-title">역사로서의 사도행전</span><div class="sec-line"></div></div>
+
+      <div class="block">
+        <p>사도행전은 그레코로만(Greco-Roman) 세계에 흔했던 <strong>historiography(역사기술)</strong> 장르를 따릅니다. 특정 나라나 민족의 기원과 발전을 기록하는 방식입니다. 따라서 누가의 서술은 역사적 사실을 전달하면서도 신학적 목적을 위해 선택·배열된 것입니다.</p>
+      </div>
+
+      <!-- SECTION 9 -->
+      <div class="sec"><span class="sec-num">09</span><span class="sec-title">사도행전 vs 바울서신 — 차이와 긴장</span><div class="sec-line"></div></div>
+
+      <div class="callout warn">
+        <div class="callout-icon">⚡</div>
+        <div class="callout-body">
+          <div class="callout-title">어긋나 보이는 내용들, 어떻게 이해할까?</div>
+          <div class="callout-text">사도행전과 바울서신 사이에는 동일한 사건을 다르게 기술하는 부분들이 있습니다. 이를 성경의 오류로 볼 것이 아니라, 저자·청중·관심사의 차이에서 기인한 자연스러운 현상으로 이해해야 합니다.</div>
+        </div>
+      </div>
+
+      <div class="sub">주요 긴장 지점 세 가지</div>
+
+      <!-- 긴장 1: 예루살렘 방문 -->
+      <p style="font-size:13.5px;font-weight:700;color:var(--text);margin:10px 0 8px;">① 바울의 첫 예루살렘 방문</p>
+      <div class="tension">
+        <div class="tension-col acts">
+          <div class="tc-label">사도행전 9:26–28</div>
+          <div class="tc-title">바나바가 바울을 사도들에게 데려감</div>
+          <div class="bible" style="margin-top:8px;">바울이 예루살렘에 가서 제자들을 사귀고자 하나 … 바나바가 데리고 사도들에게(τοὺς ἀποστόλους) 가서</div>
+        </div>
+        <div class="tension-col paul">
+          <div class="tc-label">갈라디아서 1:15–19</div>
+          <div class="tc-title">회심 후 아라비아로, 3년 후 게바만 만남</div>
+          <div class="bible" style="margin-top:8px;">나보다 먼저 사도 된 자들을 만나려고 예루살렘으로 가지 아니하고 아라비아로 갔다가 … 그 후 삼 년 만에 게바를 방문 … 주의 형제 야고보 외에 다른 사도들을 보지 못하였노라</div>
+        </div>
+      </div>
+
+      <!-- 긴장 2: 율법 준수 -->
+      <p style="font-size:13.5px;font-weight:700;color:var(--text);margin:10px 0 8px;">② 율법 준수에 대한 태도</p>
+      <div class="tension">
+        <div class="tension-col acts">
+          <div class="tc-label">사도행전 25:8 / 28:17</div>
+          <div class="tc-title">율법을 범하지 않았다</div>
+          <div class="bible" style="margin-top:8px;">유대인의 율법이나 성전이나 가이사에게나 내가 도무지 죄를 범하지 아니하였노라</div>
+        </div>
+        <div class="tension-col paul">
+          <div class="tc-label">고린도전서 9:21</div>
+          <div class="tc-title">때에 따라 율법 아래 또는 밖에</div>
+          <div class="bible" style="margin-top:8px;">율법 아래에 있는 자들에게는 내가 율법 아래에 있지 아니하나 율법 아래에 있는 자 같이 된 것은 율법 아래에 있는 자들을 얻고자 함이요</div>
+        </div>
+      </div>
+
+      <!-- 긴장 3: 그리스 철학 -->
+      <p style="font-size:13.5px;font-weight:700;color:var(--text);margin:10px 0 8px;">③ 그리스 지혜·철학에 대한 태도</p>
+      <div class="tension">
+        <div class="tension-col acts">
+          <div class="tc-label">행 17:22–29 (아레오바고 연설)</div>
+          <div class="tc-title">그리스 시인을 인용하며 하나님을 소개</div>
+          <div class="bible" style="margin-top:8px;">너희 시인 중 어떤 사람들의 말과 같이 우리가 그의 소생이라 하니 이와 같이 하나님의 소생이 되었은즉 (인터텍스트성 활용)</div>
+        </div>
+        <div class="tension-col paul">
+          <div class="tc-label">고전 1:21–23</div>
+          <div class="tc-title">세상 지혜로는 하나님을 알 수 없다</div>
+          <div class="bible" style="margin-top:8px;">이 세상이 자기 지혜로 하나님을 알지 못하므로 … 우리는 십자가에 못 박힌 그리스도를 전하니 유대인에게는 거리끼는 것이요 이방인에게는 미련한 것이로되</div>
+        </div>
+      </div>
+
+      <!-- 긴장 4: 사도행전에 없는 것 -->
+      <div class="exam-box">
+        <div class="exam-label">★ 사도행전에서 바울이 직접 언급하지 않는 것들</div>
+        <p>믿음을 통해 은혜로 의롭게 됨 / 하나님의 의 / 십자가 / 고난의 구속적 가치 / 예수님의 죽음과 구원의 관계 / 그리스도 안에서 신자들의 연합<br><br>
+        그러나 — <strong>Absence of evidence is not evidence of absence.</strong><br>
+        증거의 부재가 곧 없다는 증거는 아닙니다. 바울의 "십자가 신학"(theology of the cross)은 고전 1:23, 2:2에서 분명히 나타나며, 사도행전에 없다고 해서 바울이 믿지 않았다는 뜻이 아닙니다.</p>
+      </div>
+
+      <div class="sub">차이를 이해하는 열쇠</div>
+      <table class="cmp-table">
+        <thead><tr><th>차이 원인</th><th>사도행전</th><th>바울서신</th></tr></thead>
+        <tbody>
+          <tr><td>저자 관점</td><td>제3자(누가)의 관점</td><td>당사자(바울) 본인 기록</td></tr>
+          <tr class="hl"><td>청중</td><td>비기독교인 대상 연설</td><td>기독교인(교회) 대상 서신</td></tr>
+          <tr><td>관심사</td><td>누가가 중요하다고 여기는 것 선택 기술</td><td>당시 교회의 구체적 문제 해결</td></tr>
+          <tr class="hl"><td>목적</td><td>교회의 기원·정체성 서술</td><td>신학적 권면·교훈</td></tr>
+        </tbody>
+      </table>
+
+      <!-- TODAY BOX -->
+      <div class="today-box">
+        <h3>오늘의 핵심 신학 개념 3가지</h3>
+        <div class="today-grid">
+          <div class="today-item">
+            <div class="today-num">1</div>
+            <div class="today-word">παράκλητος (보혜사)</div>
+            <div class="today-def">법정 용어 → 변호자·위로자. 요한복음의 성령 칭호. 바나바의 삶으로 구체화된 개념. 율법 없는 짐을 지우지 않고 이방인을 돕는 성령의 사역과 연결.</div>
+          </div>
+          <div class="today-item">
+            <div class="today-num">2</div>
+            <div class="today-word">예루살렘 회의의 원리</div>
+            <div class="today-def">"성령과 우리는" — 교회 결정이 성령님의 인도 아래 이루어짐. 불필요한 짐(율법)을 제거했을 때 교회가 성장함. 복음의 보편성 확립.</div>
+          </div>
+          <div class="today-item">
+            <div class="today-num">3</div>
+            <div class="today-word">사도행전의 기록 목적 이해</div>
+            <div class="today-def">저자 누가의 의도: 평화로운 기독교 묘사 → 로마 박해 대응. 기원 서술 → 다양한 교회 통합. 장기 선교 신학 → 재림 지연에 대한 응답.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tab-note -->
+
+
+    <!-- ══════════════════════════════════════
+         TAB 2 — 핵심정리
+    ══════════════════════════════════════ -->
+    <div id="tab-summary" class="tab-content">
+
+      <div class="sec"><span class="sec-num">시험</span><span class="sec-title">기말 대비 핵심 정리</span><div class="sec-line"></div></div>
+
+      <div class="exam-box">
+        <div class="exam-label">★ 기말고사 방향 (교수님 직접 언급)</div>
+        <p>팀 목회 상황에서 성도들에게 복음서·사도행전을 30분 안에 설명하는 형식. <strong>저자 디테일이나 날짜 암기 X</strong>. 왜 썼는가 / 무엇을 전하는가 / 오늘 교회와 나에게 무슨 의미인가의 <strong>큰 그림 이해</strong>가 평가 기준.</p>
+      </div>
+
+      <div class="sub">1. 사도행전 제목 문제</div>
+      <div class="block">
+        <ul class="ul">
+          <li>원래 제목 없음 → 6~7세기 수정자들이 πράξεις 추가</li>
+          <li>"사도행전"은 오해 소지 → <strong>성령행전 / 부활하신 주 예수 그리스도의 행전</strong>이 더 적절 (Powell)</li>
+          <li>짧고 어려운 것이 원본에 가깝다 — 사본학 원칙</li>
+        </ul>
+      </div>
+
+      <div class="sub">2. 초기 예루살렘 교회의 특징 (행 2:42–47)</div>
+      <div class="block">
+        <ul class="ul">
+          <li>사도의 가르침 / 교제 / 떡 뗌 / 기도 / 재물 나눔 (공동체성)</li>
+          <li>"초대교회"라는 표현 주의 → <strong>초기 예루살렘 교회</strong>의 특징임</li>
+          <li>아나니아·삽비라(5장)는 이상적 묘사를 부정하지 않음 — 큰 두려움 = 경외</li>
+        </ul>
+      </div>
+
+      <div class="sub">3. 바나바와 παράκλητος</div>
+      <div class="block">
+        <ul class="ul">
+          <li>바나바 = 위로의 아들(υἱὸς παρακλήσεως) — 성령의 사역을 삶으로 구현</li>
+          <li>παράκλητος: 법정 용어(변호자) → 성령님의 칭호 (요 14–16)</li>
+          <li>바나바의 행위 = 두려워하는 공동체에서 사울을 변호한 것</li>
+        </ul>
+      </div>
+
+      <div class="sub">4. 예루살렘 회의 (행 15장)</div>
+      <div class="block">
+        <ul class="ul">
+          <li>유대주의자들의 주장: 예수 믿음 + 모세 율법 준수 필요</li>
+          <li>회의 결론: 이방인에게 율법(할례) X, 4개 조항만 요청</li>
+          <li><strong>"성령과 우리는"</strong> — 결정의 권위 = 인간이 아닌 성령님</li>
+          <li>결과: 교회 믿음 강화 + 수 증가 (16:4–5)</li>
+          <li>율법 = 이스라엘에게 주신 은혜 / 예수 = 은혜 위의 은혜</li>
+        </ul>
+      </div>
+
+      <div class="sub">5. 바울의 전도 여행 요약</div>
+      <table class="cmp-table">
+        <thead><tr><th>차례</th><th>성경</th><th>기간</th><th>거리</th><th>동행</th><th>주요 지역</th></tr></thead>
+        <tbody>
+          <tr><td>1차</td><td>행 13–14</td><td>AD 46–48</td><td>1,900+ km</td><td>바나바·마가</td><td>갈라디아 지방</td></tr>
+          <tr class="hl"><td>2차</td><td>행 16–18</td><td>AD 49–52</td><td>4,300+ km</td><td>실라·디모데·누가</td><td>마케도니아·고린도</td></tr>
+          <tr><td>3차</td><td>행 19–21:14</td><td>AD 53–57</td><td>4,000+ km</td><td>디모데·누가 등</td><td>에베소·고린도</td></tr>
+          <tr class="hl"><td>로마로</td><td>행 23:23–35; 27–28</td><td>–</td><td>–</td><td>백부장 율리오</td><td>가이사랴→로마</td></tr>
+        </tbody>
+      </table>
+
+      <div class="sub">6. 사도행전의 기록 목적 5가지</div>
+      <div class="block">
+        <ul class="ul">
+          <li>① 다양해지는 교회 통합 — 기독교 기원을 평화롭게 묘사</li>
+          <li>② 로마 박해 대응 — 정치적 무죄성 입증 (눅 23, 행 25–26)</li>
+          <li>③ 이교도 전도 — 헬라어권 글로벌 독자 대상</li>
+          <li>④ 이스라엘 약속의 상속자 설명 — 왜 이방인의 종교가 됐는가</li>
+          <li>⑤ 장기 선교 신학 — 재림 지연 상황에서의 지속 가능한 사명</li>
+        </ul>
+      </div>
+
+      <div class="sub">7. 사도행전 vs 바울서신 차이 이해</div>
+      <div class="block">
+        <ul class="ul">
+          <li>저자 차이: 누가(제3자) vs 바울(본인)</li>
+          <li>청중 차이: 비기독교인 연설 vs 교회 서신</li>
+          <li>관심사 차이: 누가가 중요하다고 선택한 것 vs 당시 교회 문제 해결</li>
+          <li><strong>Absence of evidence ≠ evidence of absence</strong> — 사도행전에 십자가 신학이 명시적으로 없어도 부재 증거는 아님</li>
+        </ul>
+      </div>
+
+      <!-- 용어집 -->
+      <div class="sec"><span class="sec-num">용어</span><span class="sec-title">용어집 후보 항목 (6/4 제출)</span><div class="sec-line"></div></div>
+
+      <div class="term-box">
+        <div class="term-label">용어 후보 ①</div>
+        <div class="term-word">보혜사 / 파라클레토스</div>
+        <div class="term-greek">παράκλητος (paráklētos)</div>
+        <div class="term-row">
+          <span class="k">정의</span><span class="v">법적 조력자·변호인을 뜻하는 헬라어. 요한복음에서 예수님이 약속하신 성령의 칭호로 사용됨. 돕는 자·위로자·변호자.</span>
+          <span class="k">성경 근거</span><span class="v">요 14:16, 26; 15:26; 16:7, 13 / 바나바(행 4:36; 9:27)의 삶도 이 개념을 반영</span>
+          <span class="k">학술 맥락</span><span class="v">그레코로만 법정 용어에서 기원. 요한복음에만 나타나는 독점 개념. 번역 논쟁: 보혜사(개역개정), 돕는 분(새번역), Advocate/Counselor(영어)</span>
+        </div>
+      </div>
+
+      <div class="term-box">
+        <div class="term-label">용어 후보 ②</div>
+        <div class="term-word">예루살렘 회의</div>
+        <div class="term-greek">Jerusalem Council (행 15장)</div>
+        <div class="term-row">
+          <span class="k">정의</span><span class="v">이방인 신자에게 할례와 율법 준수를 요구해야 하는지 논의하기 위해 소집된 초대교회 최초의 공식 회의.</span>
+          <span class="k">성경 근거</span><span class="v">행 15:1–29; 갈 2:1–10 (바울서신 병행)</span>
+          <span class="k">학술 맥락</span><span class="v">유대주의자들(Judaizers)과의 갈등 맥락. 기독교가 유대교에서 독립하는 과정의 결정적 전환점. "성령과 우리는" — 교회 결정의 신학적 권위 구조.</span>
+        </div>
+      </div>
+
+    </div><!-- /tab-summary -->
+
+
+    <!-- ══════════════════════════════════════
+         TAB 3 — 하브루타
+    ══════════════════════════════════════ -->
+    <div id="tab-havruta" class="tab-content">
+
+      <div class="sec"><span class="sec-num">토론</span><span class="sec-title">사도행전 — 하브루타 토론 준비</span><div class="sec-line"></div></div>
+
+      <div class="callout teal">
+        <div class="callout-icon">🗣️</div>
+        <div class="callout-body">
+          <div class="callout-title">오늘의 토론 주제</div>
+          <div class="callout-text">사도행전의 주인공은 누구인가? 성령님인가, 사도들인가, 바울인가? 그리고 오늘 교회의 사역은 무엇을 닮아야 하는가?</div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-head"><span class="q-num">Q1</span><span class="q-text">사도행전의 제목이 "사도들의 행전"이라면 무엇이 문제가 되는가? 더 나은 제목을 제안한다면?</span></div>
+        <ul class="q-point">
+          <li>논점 A: 사도들이 주인공처럼 읽힐 위험 — 하나님의 행위가 뒤로 밀림</li>
+          <li>논점 B: 파월의 두 가지 대안 (성령행전 vs 부활하신 주 예수 그리스도의 행전)</li>
+          <li>논점 C: 제목 없이 읽혔을 때의 역동성 vs 제목이 주는 해석의 틀</li>
+        </ul>
+      </div>
+
+      <div class="q-card">
+        <div class="q-head"><span class="q-num">Q2</span><span class="q-text">바나바의 행위가 왜 성령님(παράκλητος)의 사역을 반영한다고 볼 수 있는가?</span></div>
+        <ul class="q-point">
+          <li>논점 A: παράκλητος의 법정적 의미 — 대신 변호해주는 사람</li>
+          <li>논점 B: 두려워하는 공동체와 거절당한 개인(사울) 사이에서 다리 역할</li>
+          <li>논점 C: 성령님이 하시는 일을 인간이 어떻게 "현현"할 수 있는가</li>
+        </ul>
+      </div>
+
+      <div class="q-card">
+        <div class="q-head"><span class="q-num">Q3</span><span class="q-text">예루살렘 회의는 "짐을 지우지 않는" 원칙을 세웠다. 오늘 교회는 어떤 불필요한 짐을 신자들에게 지우고 있는가?</span></div>
+        <ul class="q-point">
+          <li>논점 A: 유대주의자들처럼 복음에 조건을 추가하는 현상들</li>
+          <li>논점 B: "성령과 우리는" — 공동체 결정의 신학적 권위 구조</li>
+          <li>논점 C: 결과(16:4–5)에서 배우는 교훈: 짐을 제거했을 때 교회가 성장</li>
+        </ul>
+      </div>
+
+      <div class="q-card">
+        <div class="q-head"><span class="q-num">Q4</span><span class="q-text">사도행전과 바울서신의 차이(예: 율법 태도)는 성경의 신뢰성을 흔드는가, 아니면 오히려 풍부하게 하는가?</span></div>
+        <ul class="q-point">
+          <li>논점 A: 저자·청중·관심사의 차이로 설명 가능</li>
+          <li>논점 B: "증거의 부재가 없다는 증거가 아니다" — 해석학적 원칙</li>
+          <li>논점 C: 여러 목소리가 공존하는 것이 성경의 풍성함</li>
+        </ul>
+      </div>
+
+      <div class="q-card">
+        <div class="q-head"><span class="q-num">Q5</span><span class="q-text">사도행전의 기록 목적 중 "장기적 선교 신학"은 오늘 한국 교회의 선교 방향에 어떤 시사점을 주는가?</span></div>
+        <ul class="q-point">
+          <li>논점 A: 재림 지연 상황 — 빠른 결과보다 지속 가능한 사명</li>
+          <li>논점 B: 도시선교 vs 농촌선교 — 특정 방식을 절대화할 수 없음 (교수님의 도시선교 비판)</li>
+          <li>논점 C: 복음의 보편성 — 문화·민족을 초월한 선교 원리</li>
+        </ul>
+      </div>
+
+    </div><!-- /tab-havruta -->
+
+  </div><!-- /tab-wrap -->
+
+</div><!-- /shell -->
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

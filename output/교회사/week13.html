@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13주차 — 중세 기독교 시대 I | 교회사개론 I</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #14100a;
+  --bg2:       #1e1710;
+  --bg3:       #261e14;
+  --bg4:       #2e2418;
+  --gold:      #c4955a;
+  --gold2:     #d4a870;
+  --gold3:     #e8c890;
+  --gold-dim:  #8a6535;
+  --text1:     #f0ebe0;
+  --text2:     #c8b898;
+  --text3:     #a09070;
+  --text4:     #6b5a40;
+  --ox-green:  #5a9b6a;
+  --ox-gbg:    #1a2e1e;
+  --sa-blue:   #5a85b8;
+  --sa-bbg:    #1a2030;
+  --es-amber:  #c49a3c;
+  --es-abg:    #2a1e08;
+  --ev-red:    #c46055;
+  --ev-rbg:    #2a1510;
+  --border:    rgba(196,149,90,0.25);
+  --border2:   rgba(196,149,90,0.12);
+  --shadow:    rgba(0,0,0,0.5);
+  --apostolic: #4a7aaa;
+  --catholic:  #aa5555;
+  --roman:     #a87840;
+  --medieval:  #7a5a9a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text1);
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── WATERMARK ── */
+body::before {
+  content: 'Historia Ecclesiae';
+  position: fixed;
+  right: -60px; bottom: 80px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 120px;
+  font-style: italic;
+  color: rgba(196,149,90,0.04);
+  transform: rotate(-15deg);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(20,16,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 16px;
+}
+.header-left {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.week-badge {
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+.header-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold3);
+  white-space: nowrap;
+}
+.header-sub {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+/* ── TABS ── */
+.tab-nav {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text3);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover { background: var(--bg3); color: var(--text2); }
+.tab-btn.active {
+  background: var(--bg3);
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ── PAGE TITLE ── */
+.page-title {
+  text-align: center;
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 40px;
+}
+.page-title .era-tag {
+  display: inline-block;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.page-title h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold3);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.page-title .subtitle {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text3);
+}
+.page-title .meta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.meta-pill {
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── SECTION HEAD ── */
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 20px;
+}
+.sec-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 760px) {
+  .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── PROFESSOR QUOTE ── */
+.prof-quote {
+  background: var(--bg3);
+  border-left: 3px solid var(--text4);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.prof-quote::before {
+  content: '교수 강조';
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text4);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.prof-quote p {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+}
+
+/* ── EVENT CARD ── */
+.event-card {
+  background: var(--bg2);
+  border-left: 3px solid var(--gold2);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.event-year {
+  display: inline-block;
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold2);
+  background: rgba(212,168,112,0.12);
+  padding: 2px 10px;
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.event-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold3);
+  margin-bottom: 10px;
+}
+.event-body { font-size: 13px; color: var(--text2); }
+.event-body .label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text4);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+.event-body .value { color: var(--text1); }
+
+/* ── PERSON CARD ── */
+.person-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.person-head {
+  background: var(--bg3);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.person-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.person-dates {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  color: var(--text3);
+}
+.person-body { padding: 16px 18px; }
+.person-section {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border2);
+}
+.person-section:last-child { border-bottom: none; }
+.person-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text4);
+  margin-bottom: 4px;
+}
+.person-text { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+/* ── DOCTRINE CARD ── */
+.doctrine-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.doctrine-head {
+  background: rgba(196,149,90,0.1);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 18px;
+}
+.doctrine-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.doctrine-latin {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+.doctrine-body { padding: 16px 18px; font-size: 13px; color: var(--text2); }
+.doctrine-step {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border2);
+}
+.doctrine-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.doctrine-step-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text4);
+  margin-bottom: 4px;
+}
+.clash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.clash-side {
+  background: var(--bg3);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.clash-side-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text4);
+  margin-bottom: 4px;
+}
+.clash-side p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.modern-sig {
+  background: rgba(232,200,144,0.08);
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+
+/* ── COMPARE GRID ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.compare-head {
+  background: var(--bg3);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border2);
+}
+.compare-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.compare-body { padding: 14px 16px; }
+.compare-row { margin-bottom: 10px; }
+.compare-row-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; color: var(--text4);
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.compare-row-text { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+
+/* ── REVIEW BLOCK ── */
+.review-block {
+  background: var(--bg3);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.review-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 8px;
+}
+.review-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+/* ── INFO BOX ── */
+.info-box {
+  background: rgba(196,149,90,0.07);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.info-box strong { color: var(--gold3); }
+
+/* ── CONTENT LIST ── */
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.content-list li {
+  padding: 5px 0 5px 16px;
+  position: relative;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.content-list li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--gold-dim);
+  font-size: 10px;
+  top: 7px;
+}
+
+/* ─── TAB2: EXAM ─── */
+.exam-section {
+  margin-bottom: 32px;
+}
+.exam-type-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.exam-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.exam-badge.ox { background: var(--ox-gbg); color: var(--ox-green); border: 1px solid var(--ox-green); }
+.exam-badge.sa { background: var(--sa-bbg); color: var(--sa-blue); border: 1px solid var(--sa-blue); }
+.exam-badge.es { background: var(--es-abg); color: var(--es-amber); border: 1px solid var(--es-amber); }
+.exam-type-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; color: var(--text1); }
+
+/* OX CARD */
+.ox-card {
+  background: var(--ox-gbg);
+  border: 1px solid rgba(90,155,106,0.25);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+.ox-q { font-size: 13.5px; color: var(--text1); margin-bottom: 10px; line-height: 1.65; }
+.ox-toggle {
+  background: transparent;
+  border: 1px solid rgba(90,155,106,0.35);
+  color: var(--ox-green);
+  font-size: 11px;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ox-toggle:hover { background: rgba(90,155,106,0.12); }
+.ox-answer {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(90,155,106,0.08);
+  border-radius: 6px;
+}
+.ox-answer.show { display: block; }
+.ox-verdict {
+  font-family: 'Crimson Pro', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ox-verdict.O { color: var(--ox-green); }
+.ox-verdict.X { color: var(--ev-red); }
+.ox-exp { font-size: 12.5px; color: var(--text2); line-height: 1.65; }
+
+/* SA CARD */
+.sa-card {
+  background: var(--sa-bbg);
+  border: 1px solid rgba(90,133,184,0.25);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+.sa-q { font-size: 13.5px; color: var(--text1); margin-bottom: 10px; line-height: 1.65; }
+.sa-toggle {
+  background: transparent;
+  border: 1px solid rgba(90,133,184,0.35);
+  color: var(--sa-blue);
+  font-size: 11px;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sa-toggle:hover { background: rgba(90,133,184,0.1); }
+.sa-answer {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(90,133,184,0.08);
+  border-radius: 6px;
+}
+.sa-answer.show { display: block; }
+.sa-answer p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.sa-answer strong { color: var(--gold3); }
+
+/* ES CARD */
+.es-card {
+  background: var(--es-abg);
+  border: 1px solid rgba(196,154,60,0.25);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 10px;
+}
+.es-q { font-size: 13.5px; color: var(--text1); margin-bottom: 12px; line-height: 1.65; }
+.es-toggle {
+  background: transparent;
+  border: 1px solid rgba(196,154,60,0.35);
+  color: var(--es-amber);
+  font-size: 11px;
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.es-toggle:hover { background: rgba(196,154,60,0.1); }
+.es-outline {
+  display: none;
+  margin-top: 14px;
+}
+.es-outline.show { display: block; }
+.es-step {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(196,154,60,0.1);
+}
+.es-step:last-child { border-bottom: none; }
+.es-step-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--es-amber);
+  min-width: 24px;
+  line-height: 1.3;
+}
+.es-step-text { font-size: 12.5px; color: var(--text2); line-height: 1.65; }
+.es-guide {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(196,154,60,0.06);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* ─── TAB3: TIMELINE ─── */
+.timeline-wrap {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 16px;
+}
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  left: 10px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+.tl-era-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.tl-era-label.apostolic { background: rgba(74,122,170,0.15); color: var(--apostolic); }
+.tl-era-label.catholic  { background: rgba(170,85,85,0.15);  color: var(--catholic); }
+.tl-era-label.roman     { background: rgba(168,120,64,0.15);  color: var(--roman); }
+.tl-era-label.medieval  { background: rgba(122,90,154,0.15);  color: var(--medieval); }
+
+.tl-item {
+  position: relative;
+  padding: 0 0 20px 20px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -27px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--gold2);
+}
+.tl-item.major::before {
+  width: 14px; height: 14px;
+  left: -29px; top: 4px;
+  border-color: var(--gold);
+  background: rgba(196,149,90,0.2);
+}
+.tl-year {
+  display: inline-block;
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold2);
+  background: rgba(212,168,112,0.1);
+  padding: 1px 9px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.tl-event { font-size: 13.5px; color: var(--text1); font-weight: 500; margin-bottom: 3px; }
+.tl-person-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.tl-person {
+  font-size: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text3);
+  padding: 1px 7px;
+  border-radius: 12px;
+}
+.tl-sig { font-size: 12px; color: var(--text3); line-height: 1.55; }
+
+/* ─── KEY POINTS ─── */
+.key-points {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 40px;
+}
+.key-points-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.key-points-title::before {
+  content: '✦';
+  font-size: 12px;
+  color: var(--gold-dim);
+}
+.key-point-item {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border2);
+}
+.key-point-item:last-child { border-bottom: none; }
+.key-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 28px;
+}
+.key-text { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+.key-text strong { color: var(--gold3); }
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: white; color: #1a1a1a; font-size: 10pt; }
+  .site-header { position: static; }
+  .tab-btn { display: none; }
+  .tab-pane { display: block !important; }
+  .main { padding: 0; }
+  body::before { display: none; }
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="week-badge">13주차</span>
+      <div>
+        <div class="header-title">중세 기독교 시대 I</div>
+        <div class="header-sub">교회사개론 I · 김태식 교수 · 2026-05-29</div>
+      </div>
+    </div>
+    <nav class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('notes')">📖 강의노트</button>
+      <button class="tab-btn" onclick="switchTab('exam')">📝 핵심정리</button>
+      <button class="tab-btn" onclick="switchTab('timeline')">📅 연대기</button>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 1: 강의노트
+═══════════════════════════════════════════════════ -->
+<div id="pane-notes" class="tab-pane active">
+
+  <div class="page-title">
+    <div class="era-tag">Medii Aevi Historia Ecclesiastica</div>
+    <h1>중세 기독교 시대 I<br>국제 정세 · 대 그레고리 · 교황제도 · 십자군 · 스콜라 신학</h1>
+    <div class="subtitle">제5부 중세 기독교 시대 (590–1517) · 교재 88–103쪽</div>
+    <div class="meta">
+      <span class="meta-pill">중세 기간: 590–1517년</span>
+      <span class="meta-pill">핵심 구도: 교황 vs 황제</span>
+      <span class="meta-pill">기말고사 6/12 대비</span>
+    </div>
+  </div>
+
+  <!-- 복습 -->
+  <div class="review-block">
+    <div class="review-title">📌 강의 서두 복습 (지난 시간)</div>
+    <div class="review-body">성상 파괴 논쟁 → 동서 로마 분열(380년 국교화 / 395년 동서 분열) → 서로마 멸망(476) → 프랑크 제국 성립 → 이탈리아·프랑스·독일로 분열 → 영국·독일 복음 전파 → 르네상스(동로마가 보존한 헬레니즘·로마 문명을 서유럽이 재생 = 근대 문명의 토대)</div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 01</span>
+    <span class="sec-title">시대 개관 — 중세의 시작과 핵심 구도</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="info-box">
+    <strong>중세 기독교 시대: 590–1517년.</strong> 대 그레고리의 교황 취임(590)으로 시작되고 루터의 종교개혁(1517)으로 막을 내린다. 이 시기 유럽 문명의 핵심 갈등 구조는 <strong>교황 ↔ 황제</strong>의 권력 충돌이다.
+  </div>
+
+  <div class="card-grid-2">
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:var(--text4);text-transform:uppercase;margin-bottom:8px;">교황의 무기</div>
+      <div style="font-size:22px;color:var(--gold);font-family:'Crimson Pro',serif;font-weight:700;margin-bottom:6px;">파문 (Excommunicatio)</div>
+      <p style="font-size:12.5px;color:var(--text2);line-height:1.65;">파문이 선고되면 황제에게 바쳐진 <strong style="color:var(--gold3)">모든 충성 맹세가 무효</strong>가 된다. 법적 효력 완전 상실. 교회 묘지에 안장 불가. 중세 최강의 제재 수단.</p>
+    </div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:var(--text4);text-transform:uppercase;margin-bottom:8px;">황제의 무기</div>
+      <div style="font-size:22px;color:var(--gold);font-family:'Crimson Pro',serif;font-weight:700;margin-bottom:6px;">성직임명권 (Investitura)</div>
+      <p style="font-size:12.5px;color:var(--text2);line-height:1.65;">황제가 강해지면 주요 도시 감독·사제를 직접 임명. 교회를 세속 권력의 도구로 통제. 교황이 강해지면 이 권한을 되찾으려 충돌 반복.</p>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"중세 내내 반복되는 패턴이 있습니다. 교황이 강해지면 황제를 파문하고, 황제가 강해지면 성직수임권을 가져옵니다. 이 싸움이 590년부터 1517년까지 계속됩니다. 교황은 태양, 황제는 달 — 이게 중세 교권-속권 관계의 핵심 상징입니다."</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 02</span>
+    <span class="sec-title">국제 정세 — 샤를마뉴·신성로마 제국·노르만족</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">800년 크리스마스 이브</span>
+    <div class="event-title">샤를마뉴(Charlemagne)의 황제 대관식 — 신성로마 제국의 기원</div>
+    <div class="event-body">
+      <span class="label">배경</span>
+      <span class="value">서로마 멸망(476) 후 324년 만에 서방에 새 황제 탄생. 교황은 군사적 보호자가 필요하고, 샤를마뉴는 신적 공인이 필요했던 상호 이용 구도.</span>
+      <span class="label">전개</span>
+      <span class="value">로마 교황 레오 3세가 무릎 꿇은 샤를마뉴에게 황제관 수여. AD 800년부터 서구 유럽은 교황의 지배하에 놓임.</span>
+      <span class="label">의의</span>
+      <span class="value">유럽에 <strong style="color:var(--gold3)">교황과 황제</strong>라는 두 권력이 공존·충돌하는 구도 형성. 동로마에는 계속 황제 존재, 서방에 게르만 민족 최초 황제 탄생 → 독일 민족의 신성로마 제국 기원.</span>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"나폴레옹에 의해 멸망할 때까지(1806) 신성로마 제국이 존재했어요. 지금도 EU에서 영국·프랑스·독일·이탈리아가 '내가 주도권 가져야 한다'고 싸우는 게, 사실은 같은 집안 싸움입니다. 샤를마뉴의 세 아들이 나눈 게 이탈리아·독일·프랑스거든요."</p>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">843년 / 870년</span>
+    <div class="event-title">베르됭 조약·메르센 조약 — 유럽 3국의 탄생</div>
+    <div class="event-body">
+      <span class="label">분열 구도</span>
+      <span class="value">샤를마뉴 아들 루이 1세의 세 아들 간 영토 분쟁. 843년 베르됭 조약 — 장남 로타르(중부 프랑크/이탈리아), 3남 루트비히(동프랑크/<strong style="color:var(--gold3)">독일</strong>), 4남 카를로스(서프랑크/<strong style="color:var(--gold3)">프랑스</strong>). 870년 메르센 조약으로 독일·프랑스·이탈리아 완전 독립국가 성립.</span>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">919년 → 962년</span>
+    <div class="event-title">오토 대제(Otto I) — 신성로마 제국 공식 출범</div>
+    <div class="event-body">
+      <span class="label">하인리히 1세</span>
+      <span class="value">919년 독일 최초 선거로 국왕 선출 → 독일 작센 왕조 창시자. 그 아들이 오토 대제.</span>
+      <span class="label">오토 대제의 전략</span>
+      <span class="value">귀족·제후 굴복을 위해 로마 교황 이용 → 토지·면세·후원 제공 대신 <strong style="color:var(--gold3)">성직임명권 요구</strong>. 교황청 침입 외족 격퇴 → 교황이 오토를 황제로 임명(962). 동프랑크 왕국 → <strong style="color:var(--gold3)">"독일 민족의 신성로마 제국"</strong> 공식 출범.</span>
+      <span class="label">교권-속권 대결 시작</span>
+      <span class="value">황제가 성직임명권 확보 후 교황에게 충성맹세 요구 → 교황의 비밀 비잔틴 황제 구원요청 → 오토가 로마로 돌아와 교황 요한 12세 폐위 후 새 교황 직접 임명.</span>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">911년 → 1066년</span>
+    <div class="event-title">노르만족(Normans) — 영국 정복</div>
+    <div class="event-body">
+      <span class="label">경로</span>
+      <span class="value">덴마크 지역 "데인인"이 스코틀랜드·아일랜드·서프랑크 침략 → 서프랑크 샤를 3세와 협상. 조건: ①기독교 개종 ②신하로서 충성 맹세. 911년 센강 지역에 <strong style="color:var(--gold3)">노르망디 공국</strong> 설립.</span>
+      <span class="label">영국 정복</span>
+      <span class="value">1035년 어린 소년 윌리엄이 왕 → 서프랑크 대신 영국 침략 결정 → 1066년 10월 14일 영국 정복. <strong style="color:var(--gold3)">윌리엄 1세</strong>로 영국왕 등극, 봉건제도 성립.</span>
+      <span class="label">의의</span>
+      <span class="value">영국도 게르만 군사 기질 + 기독교 정신의 결합으로 형성.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 03</span>
+    <span class="sec-title">대 그레고리(Gregory the Great, 540–604)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">대 그레고리 (Gregory the Great)</span>
+      <span class="person-dates">Gregorius Magnus · 540–604</span>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <div class="person-label">생애 배경</div>
+        <div class="person-text">590년 초 로마에 흑사병(plague) 창궐 — 교황 펠라기우스 2세 포함 다수 사망. 6개월간 후임자 선출 실패. 그레고리 수도사 선임되었으나 거부하고 숲속 피신 → 강제로 끌려나와 590년 9월 3일 성 베드로의 후계자로 정식 임명. 50세, 대머리, 허약한 체질, 고위직에 대한 미련 없는 인물.</div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">신학적 입장</div>
+        <div class="person-text">
+          ① 아담의 타락이 모든 후손에게 영향을 미쳤으나 <strong style="color:var(--gold3)">자유의지는 파괴하지 않았다</strong> (어거스틴의 "자유의지 사망론"과 구별 — 로마 가톨릭 자유의지론의 출발점)<br>
+          ② 회개 후 반드시 <strong style="color:var(--gold3)">고행(보속 선행)</strong>이 수반되어야 함 — 고백+선행 없이는 회개가 완전하지 못함<br>
+          ③ 성자들의 유물 공경, 연옥(purgatory) 교리 정립<br>
+          ④ 죄인들은 성자들의 중보(도움)를 받을 수 있으며 교회가 이를 관리
+        </div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">역사적 공헌</div>
+        <div class="person-text">저서 『목회사역』(Pastoral Care) — 지도자의 내적 영적 생활과 외적 임무 충실 촉구. 저서 『목회규율』(Pastoral Rule). 흑사병을 하나님의 진벌로 보고 공적 회개 → 흑사병 멈춤으로 권위 확립. 교회가 주민들에게 식량 공급·사회보장 제도 실시. 595년 이후 교황은 단순 교계 지도자가 아닌 <strong style="color:var(--gold3)">"하나님의 대사"(Consul of God)</strong>로 이탈리아 정치의 핵심이 됨.</div>
+      </div>
+      <div class="person-section">
+        <div class="person-label">한계 / 역사적 평가</div>
+        <div class="person-text">중세 가톨릭의 연옥·성자중보·면벌부·고행 신학의 토대를 놓아 후대 루터 종교개혁의 주요 비판 대상이 됨. <strong style="color:var(--gold3)">590년 = 중세의 공식 시작점</strong>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"이 분은 50세에 대머리에 몸이 허약하고 고위직에 대한 미련이 전혀 없는 사람이었어요. 그런데 흑사병을 하나님의 진벌로 보고 공적으로 회개하는 모습을 보였더니 흑사병이 멈춘 겁니다. 사람들이 '이 사람이 하나님의 참 대리자다'라고 생각하게 된 거예요."</p>
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">중세 가톨릭 연옥·고행·면벌부 신학</div>
+      <div class="doctrine-latin">Purgatorium · Poenitentia · Indulgentia</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doctrine-step">
+        <div class="doctrine-step-label">사후 구분론</div>
+        <p>임종 시 완전히 성결한 자 → <strong style="color:var(--gold3)">천국</strong>. 악한 자 → <strong style="color:var(--ev-red)">지옥</strong>. 고행으로 해결 못한 사소한 죄가 남은 자 → <strong style="color:var(--es-amber)">연옥</strong>(일정 기간 후 천국).</div>
+      </div>
+      <div class="doctrine-step">
+        <div class="doctrine-step-label">면벌부(면죄부 X) — Indulgentia</div>
+        <p>성자들의 과잉 공로를 교회가 관리 → 헌금으로 연옥 기간 단축 가능. ※ <strong style="color:var(--gold3)">면벌부(免罰符)</strong>가 정확한 표현: 죄를 없애는 것(면죄)이 아니라 연옥의 벌을 줄여주는(면벌) 것.</p>
+      </div>
+      <div class="doctrine-step">
+        <div class="doctrine-step-label">완전한 회개의 조건</div>
+        <p>① 죄에 대한 슬픔/회개 + ② 신부(고해사제) + ③ 보속 행위(고행). 말로만 고백한다고 끝나는 게 아니라 반드시 보속 행위(기도·금식·헌금 등)가 수반되어야 함.</p>
+      </div>
+      <div class="modern-sig">현대적 의의: 루터는 1517년 면벌부 판매에 반대하며 95개 조항 게시 → 종교개혁 시작. 개신교의 "오직 은혜(Sola Gratia)"와 "오직 믿음(Sola Fide)"은 이 공로신학에 대한 정면 도전.</div>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"우리가 '면죄부'라고 알고 있는데, 정확한 용어는 면벌부입니다. 이탈리아 투어 가시면 골목골목에 마리아 상이 있고 상점에 손만 들어가는 구멍이 있어요. 흑사병 때 미사도 중지되고 상점도 다 폐쇄되었던 흔적입니다. 흑사병이 유대인에게 덜 퍼진 이유는 나중에 밝혀지는데 — 고양이를 많이 키워서 쥐를 잡았기 때문이에요. 당시엔 '유대인이 우물에 독을 풀었다'고 오해해서 박해했습니다."</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 04</span>
+    <span class="sec-title">교황제도의 강화 — 추기경단·그레고리 7세·카노사의 굴욕</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">1059년</span>
+    <div class="event-title">추기경단(The College of Cardinals) 조직</div>
+    <div class="event-body">
+      <span class="label">배경</span>
+      <span class="value">황제가 교황을 계속 폐위시키고 새 교황을 직접 임명하는 상황 반복 → 교황청이 자체적으로 교황 선출 권한 확보 시도.</span>
+      <span class="label">내용</span>
+      <span class="value">1059년 추기경단 조직 → 추기경들 자체에서 로마 감독(교황) 선출. 교황청을 세속 권력의 수중에서 구출. 이 개혁을 배후에서 주도한 인물 — <strong style="color:var(--gold3)">힐데브란트(Hildebrand)</strong> 부주교.</span>
+      <span class="label">의의</span>
+      <span class="value">오늘날 교황 선출 제도(콘클라베)의 기원.</span>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">1077년 1월</span>
+    <div class="event-title">카노사의 굴욕(Canossa) — 교황권 절정의 상징</div>
+    <div class="event-body">
+      <span class="label">전개</span>
+      <span class="value">1073년 그레고리 7세(힐데브란트) 교황 선출 → 청빈·금욕 강조, 왕권으로부터 교회 독립 추진. 1075년 세속 권력자의 성직 수임 공식 금지 선언. 하인리히 4세가 밀라노 대주교 임명 강행 → 그레고리가 하인리히 파문. 독일 귀족·주교들이 교황 편으로 이탈 → "1년 안에 파문 해결 못하면 황제 폐위" 결의.</span>
+      <span class="label">카노사 굴욕</span>
+      <span class="value">황제가 이탈리아 산속 카노사(Canossa) 성으로 찾아가 <strong style="color:var(--gold3)">맨발로 눈 속에서 사흘간</strong> 용서를 빌어 파문 해제. 그레고리: "우리는 이제 저주의 사슬을 풀고...마침내 그를 거룩한 어머니 교회의 품으로 받아들인다."</span>
+      <span class="label">역전</span>
+      <span class="value">황제는 수모를 잊지 못하고 3년 후 군대를 이끌고 로마 침공 → 그레고리 7세 추방 → 클레멘트 3세를 새 교황으로 임명 → 황제관 수령.</span>
+      <span class="label">1122년 타협</span>
+      <span class="value"><strong style="color:var(--gold3)">보름스 정교협약(Concordat of Worms)</strong> — 교회가 성직자 선출권을 가지되, 황제나 대리인이 임석한 자리에서만 임명한다. 중간 타협안. 교황황제주의(papocaesarismus) 확립.</span>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-head"><div class="compare-name">교황파 (Guelphs)</div></div>
+      <div class="compare-body">
+        <div class="compare-row"><div class="compare-row-label">주장</div><div class="compare-row-text">영적 권위가 세속 권력보다 우위. 교황이 황제를 임명하고 파문 가능. "교황은 태양, 황제는 달."</div></div>
+        <div class="compare-row"><div class="compare-row-label">공헌</div><div class="compare-row-text">교황권 절정기(이노센트 3세 등) 교회 통일성 유지. 카노사 굴욕(1077)으로 절정 표현.</div></div>
+        <div class="compare-row"><div class="compare-row-label">한계</div><div class="compare-row-text">권력 남용·부패·십자군 전쟁 실패로 결국 신뢰 추락.</div></div>
+      </div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-head"><div class="compare-name">황제파 (Ghibellines)</div></div>
+      <div class="compare-body">
+        <div class="compare-row"><div class="compare-row-label">주장</div><div class="compare-row-text">하나님께서 기독교 국가도 설립하셨으므로 황제는 교황으로부터 독립. 황제가 교황을 통솔 가능.</div></div>
+        <div class="compare-row"><div class="compare-row-label">공헌</div><div class="compare-row-text">국가 행정 체계 확립. 오토 대제 → 신성로마 제국 건설.</div></div>
+        <div class="compare-row"><div class="compare-row-label">한계</div><div class="compare-row-text">성직임명권 남용으로 교회 부패 심화. 결국 보름스 협약으로 타협.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 05</span>
+    <span class="sec-title">동서 교회 분열 (1054년)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">1054년 7월 16일</span>
+    <div class="event-title">동서 교회 대분열 (Great Schism) — 상호 파문</div>
+    <div class="event-body">
+      <span class="label">배경</span>
+      <span class="value">동방 교회(콘스탄티노플) ↔ 서방 교회(로마)가 전체 교회의 통치권(교황 수위권) 문제로 장기 대립.</span>
+      <span class="label">분열</span>
+      <span class="value">서방 교황 레오 9세 + 동방 총대주교 미카엘 세룰라리우스가 <strong style="color:var(--ev-red)">서로를 이단으로 파문</strong>. 서방: "우리가 가톨릭(Catholic/보편) 교회." 동방: "카톨릭교회가 이단, 우리가 정통(Orthodox) 교회" → <strong style="color:var(--gold3)">동방정교회(Eastern Orthodox Church)</strong>.</span>
+      <span class="label">현황</span>
+      <span class="value">그리스 정교회, 러시아 정교회 등. 단성론을 따르는 콥틱 정교회(이집트), 시리아 정교회, 아르메니안 정교회 등도 존재. 1964년 바오로 6세 + 아테나고라스 총대주교 예루살렘 성묘교회에서 만나 <strong style="color:var(--gold3)">상호 파문 폐기</strong> → 역사적 화해.</span>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"1054년에 서로를 파문하고 갈라선 이후 2014년까지 교황과 동방정교 수장이 한 번도 만난 적이 없었어요. 1964년 처음 만나서 상호 파문을 폐기합니다. 바르톨로메오스 1세 총대주교는 '성묘교회에서 두 파의 수장이 만난 것은, 두려움과 종교적 광신, 서로 다른 교리를 믿는 사람들에 대한 증오와 경쟁이 사랑을 통해 어떻게 극복될 수 있는지를 보여주는 것'이라고 강조했습니다."</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 06</span>
+    <span class="sec-title">십자군 전쟁 (Crusades, 1096–1270)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="info-box">
+    <strong>배경:</strong> 셀주크 투르크의 비잔틴 소아시아 침입 + 기독·이슬람 성지 예루살렘 점령. 이슬람 세력이 유럽 상인 교역 방해, 기독교 순례자 박해. 동로마 황제가 서방 교황에 구조 요청. 교황 우르반 2세는 <strong>동서 교회 통일 + 교황권 서유럽 강화</strong>를 노리고 1095년 클레르몽 종교회의에서 성지 탈환 원정을 결의.
+  </div>
+
+  <div class="card-grid-3">
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--text4);text-transform:uppercase;margin-bottom:6px;">규모</div>
+      <div style="font-size:28px;font-family:'Crimson Pro',serif;font-weight:700;color:var(--gold);line-height:1;">700만 명</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px;">170년간(1096–1270) 총 동원 인원</div>
+    </div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--text4);text-transform:uppercase;margin-bottom:6px;">사망</div>
+      <div style="font-size:28px;font-family:'Crimson Pro',serif;font-weight:700;color:var(--ev-red);line-height:1;">200만 명</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px;">당시 유럽 인구 대비 엄청난 희생</div>
+    </div>
+    <div class="card">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--text4);text-transform:uppercase;margin-bottom:6px;">결과</div>
+      <div style="font-size:28px;font-family:'Crimson Pro',serif;font-weight:700;color:var(--ox-green);line-height:1;">1/7 성공</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px;">1차만 성공(1099) · 2–7차 실패</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">1212년</span>
+    <div class="event-title">소년소녀 십자군 — 교회 권위 실추의 상징</div>
+    <div class="event-body">
+      <span class="label">경과</span>
+      <span class="value">신의 계시를 받았다는 목동이 3만 명의 소년소녀를 모집. 마르세유 항구로 이동하던 중 대부분 굶주림으로 사망. 살아남은 아이들은 선주의 농간으로 <strong style="color:var(--ev-red)">예루살렘이 아닌 이집트 알렉산드리아에 노예로 매각</strong>.</span>
+      <span class="label">영향</span>
+      <span class="value">사건이 유럽 사회에 알려지자 로마 가톨릭 교회에 대한 회의와 불만 고조 → 종교개혁의 씨앗.</span>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"십자군 전쟁의 결과 중 '도시 발달'을 이해해야 합니다. 170년간 동방으로 가면서 유럽인들이 동방 문물을 접하고 희귀 물건들을 수입해서 팝니다. 자본을 가진 상공업층이 새로운 권력으로 등장해요. 그전까지는 오직 귀족만 땅을 소유하고 평민은 농노였는데, 이 상공인들이 귀족과 대등한 세력이 됩니다. 이것이 명예혁명 → 절대왕정 붕괴 → 자유평등 사상 → 근대 민주주의로 이어지는 겁니다."</p>
+  </div>
+
+  <div class="card">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;color:var(--text4);text-transform:uppercase;margin-bottom:12px;">십자군 전쟁의 역설적 결과</div>
+    <div class="card-grid-2" style="margin-bottom:0;">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--ev-red);margin-bottom:6px;">종교적 실패</div>
+        <ul class="content-list">
+          <li>교황권 쇠퇴·권위 약화</li>
+          <li>교황파·황제파 도시국가 갈등 심화</li>
+          <li>교황의 70년 아비뇽 유수(1309–1377)</li>
+          <li>프랑스 왕의 허수아비로 전락</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--ox-green);margin-bottom:6px;">문명사적 전환</div>
+        <ul class="content-list">
+          <li>동방 문물 유입 → 상공업층 부상</li>
+          <li>도시 발달, 봉건 질서 와해</li>
+          <li>문학·예술 발달 (기사도 이야기 등)</li>
+          <li>시민 계층 탄생 → 근대 민주주의 이행</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="sec-head">
+    <span class="sec-num">PART 07</span>
+    <span class="sec-title">스콜라 신학 (Scholasticism)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="info-box">
+    중세 신학자들의 두 가지 목표: <strong>①기독교 교리와 인간 이성의 조화</strong> / <strong>②교회 가르침을 질서 있는 체계로 정리.</strong> 샤를마뉴 대제의 수도원 학교 설치 칙령이 기반이 되어 대학으로 발전. 이슬람 학문의 "계속 질문하는 방법" = <strong>세미나 방법론</strong>의 기원.
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doctrine-head">
+      <div class="doctrine-title">스콜라 신학의 핵심 신학자 — 토마스 아퀴나스</div>
+      <div class="doctrine-latin">Thomas Aquinas · 1225–1274 · 『신학대전』 Summa Theologica</div>
+    </div>
+    <div class="doctrine-body">
+      <div class="doctrine-step">
+        <div class="doctrine-step-label">이성과 계시의 관계</div>
+        <p>신학과 철학·이성과 계시 사이에 <strong style="color:var(--gold3)">모순 없음</strong> — 양쪽 모두 동일한 하나님에게서 기원. 이성은 피조세계에 의존하지만 계시는 하나님 자체를 바라보므로 <strong style="color:var(--gold3)">계시가 이성보다 우월</strong>. 삼위일체는 오직 계시로만 이해 가능.</p>
+      </div>
+      <div class="doctrine-step">
+        <div class="doctrine-step-label">구원론</div>
+        <div class="clash-grid">
+          <div class="clash-side">
+            <div class="clash-side-label">아퀴나스 (중세 가톨릭)</div>
+            <p>구원 = 인간의 능동적 윤리적 노력 + 하나님의 은총의 결합. 구원하는 은혜는 오직 교회(특히 성례전)를 통해서만 옴. 교황에게 복종하는 것이 구원에 필요.</p>
+          </div>
+          <div class="clash-side">
+            <div class="clash-side-label">루터·칼빈 (종교개혁)</div>
+            <p>아퀴나스의 인간 능동적 역할론 거부. 하나님의 주권적 은혜(Sola Gratia)만이 구원의 근거. 오직 믿음(Sola Fide), 오직 성경(Sola Scriptura).</p>
+          </div>
+        </div>
+        <div class="modern-sig">현대 의의: 로마 가톨릭 vs 개신교 신학의 핵심 분기점. 아퀴나스의 『신학대전』은 지금도 로마 가톨릭 신학의 표준.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <span class="event-year">1100년대 중후반</span>
+    <div class="event-title">중세 대학의 탄생 (Universitas)</div>
+    <div class="event-body">
+      <span class="label">명칭 기원</span>
+      <span class="value">학자들이 상호이익·보호를 위해 집단 형성 → <strong style="color:var(--gold3)">우니베르시타스(universitas)</strong> — 중세 조직 집단의 일반 명칭이 유니버시티(University)의 기원.</span>
+      <span class="label">주요 대학</span>
+      <span class="value">프랑스: 파리(성당 부속 건물) · 오를레앙 · 몽펠리. 영국: 옥스퍼드·케임브리지(나무 아래에서 시작). 이탈리아: 볼로냐(교회법 연구 중심) · 파두와.</span>
+      <span class="label">세미나 방법론</span>
+      <span class="value">이슬람 학문의 "계속 질문하는 방법" 수입 → 게르버트(Gerbert)가 도입. 전제를 세우고 스스로 증명해내는 방식 = <strong style="color:var(--gold3)">세미나(seminar)</strong>. "교수에게서 받는 것"이 아니라 "스스로 연구하는 것"이 목적. 현대 박사과정 세미나의 기원.</span>
+    </div>
+  </div>
+
+  <div class="prof-quote">
+    <p>"세미나는 전제를 세우고 스스로 증명해내는 거예요. 교수로부터 받는 게 목적이 아니라 연구가 목적입니다. 그래서 박사과정에서 세미나를 8개 들어야 해요. 그리고 교수와 일대일로 한 학기 내내 주제를 가지고 책을 15–20권 읽고 디스커션하는 '리딩 콜로퀴엄'도 4학기를 해야 합니다. 이 세미나 방법론의 기원이 바로 이 중세 스콜라 시대입니다."</p>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="key-points">
+    <div class="key-points-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="key-point-item">
+      <div class="key-num">1</div>
+      <div class="key-text"><strong>중세의 시작과 끝: 590–1517.</strong> 대 그레고리의 교황 취임(590)으로 시작되고 루터의 종교개혁(1517)으로 끝난다. 이 숫자는 교회사의 핵심 뼈대다. 그레고리는 자유의지론·고행신학·연옥 교리로 중세 가톨릭 신학의 토대를 놓았으며, 그 결과가 루터 종교개혁의 주요 비판 대상이 된다.</div>
+    </div>
+    <div class="key-point-item">
+      <div class="key-num">2</div>
+      <div class="key-text"><strong>교황 vs. 황제 — 중세 내내 반복되는 권력 구도.</strong> 파문권(교황의 무기)과 성직임명권(황제의 무기)이 충돌하다가 보름스 정교협약(1122)으로 일시 타협. 카노사의 굴욕(1077)은 교황권 절정의 상징이지만, 황제의 역전으로 완전한 승리는 아니었다.</div>
+    </div>
+    <div class="key-point-item">
+      <div class="key-num">3</div>
+      <div class="key-text"><strong>십자군 전쟁의 역설 — 종교적 실패, 문명사적 전환.</strong> 7차 원정 중 1차만 성공했지만, 동방 문물 유입 → 상공업층 탄생 → 도시 발달 → 봉건 질서 와해 → 근대 민주주의·자본주의 이행이라는 역설적 결과를 낳았다. "칼로 하나님의 교회를 확장시킬 수 있는가?" — 역사가 묻는 핵심 질문.</div>
+    </div>
+  </div>
+
+</div><!-- /pane-notes -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 2: 핵심정리
+═══════════════════════════════════════════════════ -->
+<div id="pane-exam" class="tab-pane">
+
+  <div class="page-title">
+    <div class="era-tag">Praeparatio Examinis</div>
+    <h1>핵심정리 — 13주차 시험 대비</h1>
+    <div class="subtitle">중세 기독교 시대 I · 기말고사 6/12 범위</div>
+  </div>
+
+  <!-- OX -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge ox">OX 문제</span>
+      <span class="exam-type-title">참·거짓 판별</span>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">중세 기독교 시대는 대 그레고리의 교황 취임(590년)부터 루터의 종교개혁(1517년)까지이다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict O">O</div>
+        <div class="ox-exp">590년(대 그레고리 교황 취임)~1517년(루터 종교개혁)이 중세 기독교 시대의 공식 범위. 교수님 강조 — "590년은 저한테 트라우마. 반드시 암기하세요."</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">베르됭 조약(843년)으로 프랑크 제국이 분열되어 현재 독일·프랑스·이탈리아의 기원이 되었다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict O">O</div>
+        <div class="ox-exp">장남 로타르(중부 프랑크/이탈리아), 3남 루트비히(동프랑크/독일), 4남 카를로스(서프랑크/프랑스). 870년 메르센 조약으로 완전 독립. "이탈리아·프랑스·독일은 사실 같은 형제 나라."</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">카노사의 굴욕(1077년)은 교황 하인리히 4세가 황제 그레고리 7세에게 용서를 빈 사건이다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict X">X</div>
+        <div class="ox-exp">반대다. <strong>황제 하인리히 4세</strong>가 <strong>교황 그레고리 7세</strong>에게 카노사 성에서 맨발로 눈 속에 사흘간 기다리며 용서를 빈 사건. 교황이 파문을 선고하면 황제의 모든 법적·정치적 권위가 상실되기 때문.</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">동서 교회 대분열(1054년) 이후 동방 교회는 자신들을 '정통'이라는 의미에서 '동방정교회'라고 불렀다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict O">O</div>
+        <div class="ox-exp">Orthodox = 정통. 서방은 Catholic(보편), 동방은 Orthodox(정통)를 각자의 정체성으로 주장. "서방이 이단이므로 우리 동방이 정통 교회"라는 의미.</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">십자군 전쟁의 결과 교황권이 강화되고 왕권이 약화되었다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict X">X</div>
+        <div class="ox-exp">반대다. 7차 중 1차만 성공하고 나머지 실패 → 교황권 쇠퇴, 왕권 강화, 도시 발달. 교황은 70년간 프랑스 아비뇽으로 피신(1309–1377), 프랑스 왕의 허수아비로 전락.</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">토마스 아퀴나스는 신학과 철학, 이성과 계시 사이에 모순이 없다고 주장하였다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict O">O</div>
+        <div class="ox-exp">양쪽 모두 동일한 하나님에게서 기원했기 때문. 단, 이성은 피조세계에 의존하고 계시는 하나님 자체를 바라보므로 <strong>계시가 이성보다 우월</strong>하다고 주장.</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">대 그레고리는 어거스틴과 동일하게 아담의 타락으로 인간의 자유의지가 완전히 파괴되었다고 주장하였다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict X">X</div>
+        <div class="ox-exp">다르다. 어거스틴은 자유의지가 죽었다고 선언했지만, 그레고리는 <strong>"아담의 타락이 모든 후손에게 영향을 미쳤으나 자유의지를 파괴하지는 않았다"</strong>고 주장 → 로마 가톨릭 자유의지론의 시작점.</div>
+      </div>
+    </div>
+
+    <div class="ox-card">
+      <div class="ox-q">면죄부(면벌부)는 죄 자체를 없애주는 것이다.</div>
+      <button class="ox-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="ox-answer">
+        <div class="ox-verdict X">X</div>
+        <div class="ox-exp">정확한 명칭은 <strong>면벌부(免罰符)</strong>. 죄를 없애주는(면죄) 것이 아니라, 연옥에서 받아야 할 벌의 기간을 줄여주는(면벌) 것. "면죄부는 틀린 표현"이라고 교수님이 강조.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 단답 -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge sa">단답형</span>
+      <span class="exam-type-title">핵심 용어·내용 확인</span>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">중세 교황이 황제를 제압하기 위해 사용한 두 가지 최대 무기는?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p>① <strong>파문(Excommunicatio)</strong> — 개인에 대한 일체의 법적 자격·사회적 권한·충성 맹세 무효화. 교회 묘지 안장 불가.<br>② <strong>금령(Interdict)</strong> — 전 국가를 상대로 일체 예배·성례전 중단. 침례와 종부성사 제외한 모든 성례 금지.</p>
+      </div>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">보름스 정교협약(Concordat of Worms, 1122년)의 핵심 내용은?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p>교회가 성직자를 선출하는 권한을 가지되, <strong>황제나 그 대리인이 임석한 자리에서만</strong> 임명할 수 있다. 교황의 완전한 자율도, 황제의 일방 임명도 아닌 중간 타협안.</p>
+      </div>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">스콜라 신학의 대표 저서와 저자는?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p>토마스 아퀴나스(Thomas Aquinas, 1225–1274)의 <strong>『신학대전』(Summa Theologica)</strong> — "신학적 지식의 요약의 의미". 기독교 교리와 아리스토텔레스 철학을 통합한 중세 스콜라 신학의 집대성.</p>
+      </div>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">이슬람력 원년의 기준이 되는 무함마드의 사건(622년)은?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p><strong>헤지라(Hijra/ﻫِﺠْﺮَﺓ)</strong> — 622년 무함마드가 메카의 박해를 피해 메디나로 피신한 사건. 이슬람 교단의 재건 도모. 이슬람력(히즈라력)의 원년 기준이 됨.</p>
+      </div>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">동서 교회 대분열(1054년) 후 약 910년 만에 상호 파문을 공식 폐기한 연도와 장소는?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p><strong>1964년</strong>, 예루살렘의 <strong>성묘교회(예수님의 무덤 교회)</strong>에서 교황 바오로 6세와 그리스 정교회 총대주교 아테나고라스가 만나 상호 파문 폐기.</p>
+      </div>
+    </div>
+
+    <div class="sa-card">
+      <div class="sa-q">추기경단(The College of Cardinals)이 조직된 연도와 목적은?</div>
+      <button class="sa-toggle" onclick="toggleAnswer(this)">정답 확인</button>
+      <div class="sa-answer">
+        <p><strong>1059년</strong>. 황제가 교황을 마음대로 폐위시키고 임명하는 상황을 막기 위해 교황청이 자체적으로 교황 선출 권한을 확보. 이 개혁을 주도한 인물: <strong>힐데브란트(Hildebrand)</strong> 부주교. 오늘날 콘클라베의 기원.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 약술형 -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge es">약술형</span>
+      <span class="exam-type-title">논술·서술형 대비</span>
+    </div>
+
+    <div class="es-card">
+      <div class="es-q">십자군 전쟁이 중세 유럽 사회에 미친 영향을 서술하시오.</div>
+      <button class="es-toggle" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="es-outline">
+        <div class="es-step">
+          <div class="es-step-num">①</div>
+          <div class="es-step-text"><strong>종교적 결과:</strong> 7차 원정 중 1차(1099)만 성공. 교황권 실추·권위 약화. 교황의 70년 아비뇽 유수(1309–1377)로 프랑스 왕의 허수아비로 전락. 소년소녀 십자군(1212) 참사로 가톨릭 교회에 대한 불만 고조.</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">②</div>
+          <div class="es-step-text"><strong>정치적 결과:</strong> 교황권 쇠퇴 → 왕권 강화. 교황파·황제파로 나뉜 이탈리아 도시국가들의 내분. 귀족 세력 약화(원정 중 경제적 몰락).</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">③</div>
+          <div class="es-step-text"><strong>사회경제적 결과(역설적 전환):</strong> 동방 문물 유입 → 상공업층 부상·도시 발달. 봉건 농노제 와해. 새로운 시민 계층(부르주아) 탄생 → 명예혁명 → 절대왕정 붕괴 → 자유평등 사상 → 근대 민주주의·자본주의 이행의 토대. 문학·예술 발달(기사도 이야기 등).</div>
+        </div>
+        <div class="es-guide">※ 핵심 논지: "십자군 전쟁은 종교적으로는 실패였지만, 유럽 근대 문명 형성의 역설적 촉매가 되었다." — 반드시 어떻게 연결되는지를 논리적으로 서술할 것.</div>
+      </div>
+    </div>
+
+    <div class="es-card">
+      <div class="es-q">대 그레고리(Gregory the Great)가 중세 가톨릭 신학에 미친 영향을 서술하시오.</div>
+      <button class="es-toggle" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="es-outline">
+        <div class="es-step">
+          <div class="es-step-num">①</div>
+          <div class="es-step-text"><strong>배경과 권위 확립:</strong> 590년 교황 취임. 흑사병 창궐 속에서 공적 회개를 촉구하여 흑사병을 멈추게 함 → "하나님의 참 대리자"로 권위 확립. "하나님의 대사"(Consul of God)로 이탈리아 정치에서도 핵심 존재가 됨.</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">②</div>
+          <div class="es-step-text"><strong>신학적 체계화:</strong> ①아담의 타락이 자유의지를 파괴하지 않았다(어거스틴 대비 차별화) ②회개 = 고백 + 보속 선행(공로신학) ③성자 공경·유물 신앙 ④연옥 교리. 이를 통해 중세 가톨릭 기독교 신학의 전체 틀을 제공.</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">③</div>
+          <div class="es-step-text"><strong>중세적 의의와 종교개혁과의 관계:</strong> 590년을 중세의 공식 시작점으로 만든 인물. 그의 공로신학·연옥 교리·면벌부 신학은 루터가 1517년 95개 조항으로 정면 도전하는 주요 비판 대상이 됨. 의도치 않게 종교개혁의 씨앗을 뿌린 셈.</div>
+        </div>
+        <div class="es-guide">※ 어거스틴과 그레고리의 자유의지론 차이를 명확히 구분하여 서술하면 고득점.</div>
+      </div>
+    </div>
+
+    <div class="es-card">
+      <div class="es-q">중세 교황과 황제 사이의 권력 갈등 구조를 카노사의 굴욕을 중심으로 서술하시오.</div>
+      <button class="es-toggle" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="es-outline">
+        <div class="es-step">
+          <div class="es-step-num">①</div>
+          <div class="es-step-text"><strong>갈등 구조:</strong> 교황의 무기 = 파문(充成 맹세 무효화), 황제의 무기 = 성직임명권(교회 통제). 교황이 강해지면 황제 파문, 황제가 강해지면 성직임명권 확보. 이 구도가 중세 내내 반복.</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">②</div>
+          <div class="es-step-text"><strong>카노사의 굴욕(1077):</strong> 그레고리 7세의 성직 수임 금지 선언 → 하인리히 4세의 반발 → 교황의 황제 파문 → 독일 귀족들의 교황 편 이탈 → 황제가 카노사 성에서 맨발로 사흘간 용서를 빌어 파문 해제. 교황권 절정의 상징.</div>
+        </div>
+        <div class="es-step">
+          <div class="es-step-num">③</div>
+          <div class="es-step-text"><strong>역전과 타협:</strong> 황제는 3년 후 로마 침공 → 그레고리 7세 추방·새 교황 임명. 1122년 보름스 정교협약으로 타협 — 교회가 성직자 선출권을 가지되 황제 임석 하에서만 임명. 완전한 승자 없는 중간 타협.</div>
+        </div>
+        <div class="es-guide">※ "교황권 절정이었지만 황제가 역전했다"는 양면을 모두 서술해야 균형 있는 답안.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane-exam -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     TAB 3: 연대기
+═══════════════════════════════════════════════════ -->
+<div id="pane-timeline" class="tab-pane">
+
+  <div class="page-title">
+    <div class="era-tag">Chronologia Historiae Ecclesiae</div>
+    <h1>교회사 연대기</h1>
+    <div class="subtitle">사도시대부터 중세까지 — 13주차 누적 타임라인</div>
+  </div>
+
+  <!-- 사도시대 -->
+  <div class="timeline-wrap">
+    <div class="tl-era-label apostolic">🕊 사도시대 · 30–100 AD</div>
+
+    <div class="tl-item major">
+      <div class="tl-year">주후 30년경</div>
+      <div class="tl-event">오순절 — 예루살렘 교회 형성</div>
+      <div class="tl-person-badges"><span class="tl-person">베드로</span><span class="tl-person">요한</span></div>
+      <div class="tl-sig">기독교 공동체의 공식 출발. 성령 강림과 첫 설교.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">주후 35년경</div>
+      <div class="tl-event">사도 바울의 다메섹 회심</div>
+      <div class="tl-person-badges"><span class="tl-person">바울 (Paul)</span></div>
+      <div class="tl-sig">이방인 선교의 시작. 은혜·믿음·칭의 신학의 토대.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">주후 70년</div>
+      <div class="tl-event">예루살렘 성전 파괴 — 유대인 항쟁 종결</div>
+      <div class="tl-person-badges"><span class="tl-person">로마 황제 티투스</span></div>
+      <div class="tl-sig">기독교의 유대교로부터 최종 분리. 디아스포라 심화와 복음 확장.</div>
+    </div>
+  </div>
+
+  <!-- 가톨릭 기독교시대 -->
+  <div class="timeline-wrap">
+    <div class="tl-era-label catholic">⛪ 가톨릭 기독교시대 · 100–313 AD</div>
+
+    <div class="tl-item">
+      <div class="tl-year">130–202</div>
+      <div class="tl-event">이레네우스 — 『이단 논박』으로 영지주의 대응</div>
+      <div class="tl-person-badges"><span class="tl-person">이레네우스 (Irenaeus)</span></div>
+      <div class="tl-sig">정통 신앙의 기준 확립. 사도적 전승·감독권 강조. 정경 형성에 기여.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2–3세기</div>
+      <div class="tl-event">로마 제국의 기독교 박해와 순교자 시대</div>
+      <div class="tl-person-badges"><span class="tl-person">터툴리안</span><span class="tl-person">오리겐</span></div>
+      <div class="tl-sig">"순교자의 피는 교회의 씨앗" — 박해 속 신앙 증언. 정경·사도신경 형성.</div>
+    </div>
+  </div>
+
+  <!-- 로마제국 시대 -->
+  <div class="timeline-wrap">
+    <div class="tl-era-label roman">🏛 기독교 로마제국시대 · 313–590 AD</div>
+
+    <div class="tl-item major">
+      <div class="tl-year">313년</div>
+      <div class="tl-event">밀라노 칙령 — 기독교 공인</div>
+      <div class="tl-person-badges"><span class="tl-person">콘스탄티누스 (Constantine)</span></div>
+      <div class="tl-sig">기독교와 로마 제국의 결합. 국가교회 시작점 논쟁.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">325년</div>
+      <div class="tl-event">니케아 공의회 — 삼위일체 교리 확정</div>
+      <div class="tl-person-badges"><span class="tl-person">아타나시우스</span><span class="tl-person">아리우스</span></div>
+      <div class="tl-sig">ὁμοούσιος(동일본질) 확정. 아리우스파 정죄. 니케아 신경 탄생.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">380년</div>
+      <div class="tl-event">기독교 로마 제국의 국교 선포</div>
+      <div class="tl-person-badges"><span class="tl-person">데오도시우스 황제</span></div>
+      <div class="tl-sig">기독교가 로마 제국 공식 국교로 확정.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">395년</div>
+      <div class="tl-event">동서 로마 제국 분열</div>
+      <div class="tl-sig">데오도시우스 사후 아들들에 의해 동서 분열 고착. 서방(로마) / 동방(콘스탄티노플).</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">451년</div>
+      <div class="tl-event">칼케돈 공의회 — 기독론(양성론) 확정</div>
+      <div class="tl-sig">예수 그리스도의 신성과 인성이 "혼합되지 않고, 변화되지 않고, 분리되지 않고, 나뉘지 않게" 하나의 위격에 공존함을 확정.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">354–430</div>
+      <div class="tl-event">어거스틴(Augustine) — 서방 신학의 아버지</div>
+      <div class="tl-person-badges"><span class="tl-person">어거스틴 (Augustine)</span></div>
+      <div class="tl-sig">원죄·예정·은혜 신학 체계화. 자유의지 무능론. 『고백록』·『신국론』. 펠라기우스 논쟁 주도.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">476년</div>
+      <div class="tl-event">서로마 제국 멸망</div>
+      <div class="tl-sig">게르만족에 의해 멸망. 중세 유럽의 시작. 동로마(비잔틴)는 1453년까지 존속.</div>
+    </div>
+  </div>
+
+  <!-- 중세 기독교시대 -->
+  <div class="timeline-wrap">
+    <div class="tl-era-label medieval">🗺 중세 기독교시대 · 590–1517 AD</div>
+
+    <div class="tl-item major">
+      <div class="tl-year">590년</div>
+      <div class="tl-event">대 그레고리(Gregory the Great) 교황 취임 — 중세의 시작</div>
+      <div class="tl-person-badges"><span class="tl-person">대 그레고리 (Gregory I)</span></div>
+      <div class="tl-sig">중세 가톨릭 신학 체계화 — 자유의지론·고행신학·연옥 교리. "하나님의 대사"로 교황권의 실질적 확립. 590년 = 중세의 공식 시작점.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">622년</div>
+      <div class="tl-event">이슬람 성립 — 헤지라(무함마드의 메카→메디나 피신)</div>
+      <div class="tl-person-badges"><span class="tl-person">무함마드 (Muhammad)</span></div>
+      <div class="tl-sig">이슬람력 원년. 이슬람 교단의 재건. 이후 예루살렘 점령으로 십자군 전쟁의 배경이 됨.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">800년</div>
+      <div class="tl-event">샤를마뉴 황제 대관식 — 신성로마 제국 기원</div>
+      <div class="tl-person-badges"><span class="tl-person">샤를마뉴 (Charlemagne)</span><span class="tl-person">교황 레오 3세</span></div>
+      <div class="tl-sig">서로마 멸망 324년 만에 서방에 새 황제 탄생. 교황-황제 권력 구도의 시작. 독일 민족의 신성로마 제국 기원.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">843년</div>
+      <div class="tl-event">베르됭 조약 — 이탈리아·독일·프랑스의 탄생</div>
+      <div class="tl-sig">프랑크 제국 분열. 유럽 3국의 기원.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">962년</div>
+      <div class="tl-event">오토 대제(Otto I) — 신성로마 제국 공식 출범</div>
+      <div class="tl-person-badges"><span class="tl-person">오토 대제 (Otto I)</span></div>
+      <div class="tl-sig">독일 민족의 신성로마 제국 황제로 교황에게서 황제관 수령. 1806년까지 존속.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1054년</div>
+      <div class="tl-event">동서 교회 대분열 (Great Schism)</div>
+      <div class="tl-person-badges"><span class="tl-person">교황 레오 9세</span><span class="tl-person">총대주교 미카엘 세룰라리우스</span></div>
+      <div class="tl-sig">서로 이단으로 파문. 로마 가톨릭 ↔ 동방정교회로 분리. 910년간 지속 후 1964년 화해.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1059년</div>
+      <div class="tl-event">추기경단 조직 — 교황 자체 선출 체계 확립</div>
+      <div class="tl-person-badges"><span class="tl-person">힐데브란트 (Hildebrand)</span></div>
+      <div class="tl-sig">세속 권력의 교황 임명 간섭 차단. 오늘날 콘클라베의 기원.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">1077년</div>
+      <div class="tl-event">카노사의 굴욕 (Canossa) — 교황권 절정의 상징</div>
+      <div class="tl-person-badges"><span class="tl-person">교황 그레고리 7세</span><span class="tl-person">황제 하인리히 4세</span></div>
+      <div class="tl-sig">황제가 맨발로 사흘간 교황 앞에서 용서를 빎. "교황은 태양, 황제는 달." 교황황제주의(papocaesarismus) 상징.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1096–1270</div>
+      <div class="tl-event">십자군 전쟁 (Crusades) — 7차 원정, 1차만 성공</div>
+      <div class="tl-person-badges"><span class="tl-person">교황 우르반 2세</span><span class="tl-person">살라딘</span></div>
+      <div class="tl-sig">700만 명 동원, 200만 명 사망. 종교적 실패 but 유럽 근대 문명 형성의 역설적 촉매 (상공업층·도시 발달·봉건제 와해).</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1122년</div>
+      <div class="tl-event">보름스 정교협약 (Concordat of Worms)</div>
+      <div class="tl-sig">교황-황제 성직임명권 분쟁의 중간 타협. 교회가 성직자 선출권을 가지되 황제 임석 하에서만 임명.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1212년</div>
+      <div class="tl-event">소년소녀 십자군 참사</div>
+      <div class="tl-sig">3만 명 모집 → 대부분 굶어 죽거나 이집트에 노예로 팔림. 가톨릭 교회에 대한 불만 고조. 종교개혁의 씨앗.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1225–1274</div>
+      <div class="tl-event">토마스 아퀴나스 — 『신학대전』(Summa Theologica)</div>
+      <div class="tl-person-badges"><span class="tl-person">토마스 아퀴나스 (Thomas Aquinas)</span></div>
+      <div class="tl-sig">스콜라 신학의 집대성. 기독교 교리 + 아리스토텔레스 철학 통합. 로마 가톨릭 신학의 표준. 개신교 종교개혁의 구원론 논쟁 대상.</div>
+    </div>
+
+    <div class="tl-item major">
+      <div class="tl-year">1517년</div>
+      <div class="tl-event">루터의 95개 조항 — 종교개혁 시작 · 중세의 종결</div>
+      <div class="tl-person-badges"><span class="tl-person">마틴 루터 (Martin Luther)</span></div>
+      <div class="tl-sig">면벌부 판매 반대. 오직 은혜(Sola Gratia)·오직 믿음(Sola Fide)·오직 성경(Sola Scriptura). 중세 가톨릭 신학(그레고리·아퀴나스 전통)에 대한 정면 도전. 중세의 공식 종결.</div>
+    </div>
+  </div>
+
+  <!-- 핵심 포인트 -->
+  <div class="key-points">
+    <div class="key-points-title">오늘의 핵심 교회사 포인트 3가지</div>
+    <div class="key-point-item">
+      <div class="key-num">1</div>
+      <div class="key-text"><strong>590–1517:</strong> 대 그레고리 → 루터. 이 두 숫자 사이에 교황-황제 갈등, 동서 교회 분열, 십자군 전쟁, 스콜라 신학이 모두 들어있다.</div>
+    </div>
+    <div class="key-point-item">
+      <div class="key-num">2</div>
+      <div class="key-text"><strong>카노사(1077) → 보름스(1122):</strong> 교황권의 절정과 타협. "교황은 태양, 황제는 달"이라는 구호가 현실화된 순간이었지만, 3년 후 황제의 역전으로 완전한 승리는 없었다.</div>
+    </div>
+    <div class="key-point-item">
+      <div class="key-num">3</div>
+      <div class="key-text"><strong>십자군의 역설:</strong> 1096–1270년 7차 원정에서 1차만 성공. 하지만 이 170년간의 동서 교류가 유럽 근대 문명(상공업·도시·민주주의)의 토대를 놓았다. "칼로 하나님의 교회를 확장시킬 수 있는가?"</div>
+    </div>
+  </div>
+
+</div><!-- /pane-timeline -->
+
+</main>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pane-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleAnswer(btn) {
+  const card = btn.parentElement;
+  const answer = card.querySelector('.ox-answer, .sa-answer, .es-outline');
+  if (!answer) return;
+  answer.classList.toggle('show');
+  btn.textContent = answer.classList.contains('show') ? '닫기' : (btn.textContent.includes('모범') ? '모범 답안 틀 보기' : '정답 확인');
+}
+</script>
+</body>
+</html>
