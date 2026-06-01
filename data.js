@@ -87,7 +87,9 @@ const SITE_DATA = {
         { week: 12, title: "목회와 교육 · 목회와 설교", date: "2026.05.25", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week12.html" }
           ] },
-        { week: 13, title: "디지털 시대의 목회", date: "2026.06", files: [] },
+        { week: 13, title: "어떻게 목회할 것인가?", date: "2026.06.01", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week13.html" }
+          ] },
         { week: 14, title: "한국 교회 현황과 과제", date: "2026.06", files: [] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
         ] },
