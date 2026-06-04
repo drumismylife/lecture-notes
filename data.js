@@ -274,6 +274,13 @@ const SITE_DATA = {
       icon: "📋",
       desc: "1학기 헬라어 문법 전체 요약 — 기말 과제 제출용",
       href: "output/greek/greek-grammar-summary.html",
+      isNew: false
+    },
+    {
+      name: "기말고사 단어 정리 & 퀴즈",
+      icon: "🔤",
+      desc: "동사·명사·형용사·전치사·대명사 정리 + 3지선다 단어 퀴즈",
+      href: "output/greek/greek-vocab.html",
       isNew: true
     }
   ],
