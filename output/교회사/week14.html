@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사개론 I — 14주차: 중세기독교 시대 II</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #14100a;
+  --card:      #1e1710;
+  --card2:     #261e14;
+  --card3:     #2e2416;
+  --gold:      #c4955a;
+  --gold2:     #d4a870;
+  --gold-dim:  #8a6535;
+  --text:      #f0ebe0;
+  --text2:     #a09070;
+  --text3:     #6b5a40;
+  --ox-green:  #7ab87a;
+  --sq-blue:   #7aaad4;
+  --essay-amb: #c49a3c;
+  --terra:     #c96b5a;
+  --border:    rgba(196,149,90,0.18);
+  --border2:   rgba(196,149,90,0.08);
+
+  /* era colors */
+  --era-apostolic: #4a7fb5;
+  --era-catholic:  #9b4a4a;
+  --era-roman:     #7a6b3a;
+  --era-medieval:  #6b4a7a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:14px;
+  line-height:1.7;
+  min-height:100vh;
+}
+
+/* ── TOP HEADER ── */
+.page-header{
+  background:linear-gradient(135deg,#0f0b06 0%,#1e1508 40%,#2a1c0c 100%);
+  border-bottom:1px solid var(--border);
+  padding:28px 32px 22px;
+  position:relative;
+  overflow:hidden;
+}
+.page-header::before{
+  content:'Historia Ecclesiae · XIV';
+  position:absolute;
+  right:-10px;top:8px;
+  font-family:'Crimson Pro',serif;
+  font-style:italic;
+  font-size:52px;
+  color:rgba(196,149,90,.06);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.header-meta{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;
+}
+.meta-tag{
+  background:rgba(196,149,90,.12);
+  border:1px solid var(--border);
+  color:var(--gold2);
+  font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:2px;
+}
+.meta-tag.final{background:rgba(201,107,90,.18);border-color:rgba(201,107,90,.4);color:#e88a78;}
+.page-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:22px;font-weight:700;
+  color:var(--text);line-height:1.3;
+  margin-bottom:4px;
+}
+.page-sub{
+  font-family:'Crimson Pro',serif;
+  font-style:italic;
+  font-size:14px;color:var(--text2);
+}
+
+/* ── TABS ── */
+.tab-bar{
+  display:flex;gap:0;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:0 20px;
+  position:sticky;top:0;z-index:100;
+}
+.tab-btn{
+  background:none;border:none;outline:none;
+  color:var(--text3);
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:.06em;
+  padding:12px 18px;
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;
+}
+.tab-btn:hover{color:var(--gold2);}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* ── TAB CONTENT ── */
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+
+/* ── MAIN LAYOUT ── */
+.content{padding:24px 28px;max-width:960px;}
+
+/* ── SECTION HEADING ── */
+.sec-head{
+  display:flex;align-items:center;gap:10px;
+  margin:28px 0 14px;
+}
+.sec-head:first-child{margin-top:0;}
+.sec-num{
+  background:var(--gold);color:#14100a;
+  font-size:9px;font-weight:900;
+  letter-spacing:.12em;padding:3px 8px;border-radius:2px;
+  white-space:nowrap;
+}
+.sec-label{
+  font-family:'Noto Serif KR',serif;
+  font-size:15px;font-weight:700;
+  color:var(--gold2);
+}
+.sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--gold-dim),transparent);}
+
+/* ── PROFESSOR QUOTE ── */
+.prof-block{
+  background:var(--card);
+  border-left:2px solid var(--text3);
+  border-radius:0 6px 6px 0;
+  padding:14px 18px;
+  margin-bottom:12px;
+  position:relative;
+}
+.prof-label{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  color:var(--text3);text-transform:uppercase;
+  margin-bottom:6px;
+}
+.prof-text{
+  font-family:'Crimson Pro',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--text2);
+  line-height:1.75;
+}
+
+/* ── EVENT CARD ── */
+.event-card{
+  background:var(--card);
+  border:1px solid var(--border2);
+  border-left:3px solid var(--gold2);
+  border-radius:0 6px 6px 0;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.event-year{
+  display:inline-block;
+  background:rgba(212,168,112,.12);
+  color:var(--gold2);
+  font-family:'Crimson Pro',serif;
+  font-weight:600;font-size:12px;
+  letter-spacing:.06em;
+  padding:1px 8px;border-radius:3px;
+  margin-bottom:6px;
+}
+.event-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.event-body{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.event-sig{
+  margin-top:6px;padding-top:6px;
+  border-top:1px solid var(--border2);
+  font-size:12px;color:var(--text3);
+}
+
+/* ── PERSON CARD ── */
+.person-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;
+  overflow:hidden;
+  margin-bottom:12px;
+}
+.person-head{
+  background:var(--card2);
+  padding:12px 16px;
+  display:flex;align-items:baseline;gap:10px;
+  border-bottom:1px solid var(--border2);
+}
+.person-name{
+  font-family:'Noto Serif KR',serif;
+  font-size:15px;font-weight:700;
+  color:var(--gold);
+}
+.person-date{font-size:11px;color:var(--text3);}
+.person-body{padding:14px 16px;}
+.person-row{
+  display:grid;grid-template-columns:80px 1fr;
+  gap:6px 12px;
+  margin-bottom:8px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border2);
+  font-size:12.5px;
+}
+.person-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.pr-label{color:var(--gold-dim);font-weight:700;font-size:11px;letter-spacing:.04em;padding-top:1px;}
+.pr-val{color:var(--text2);}
+
+/* ── COMPARISON ── */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-bottom:12px;
+}
+.cmp-card{
+  background:var(--card);
+  border:1px solid var(--border2);
+  border-radius:6px;overflow:hidden;
+}
+.cmp-head{
+  background:var(--card2);
+  padding:10px 14px;
+  border-bottom:1px solid var(--border2);
+}
+.cmp-name{font-size:13px;font-weight:700;color:var(--gold);}
+.cmp-era{font-size:10px;color:var(--text3);margin-top:2px;}
+.cmp-body{padding:12px 14px;}
+.cmp-row{
+  margin-bottom:8px;padding-bottom:8px;
+  border-bottom:1px solid var(--border2);
+  font-size:12px;
+}
+.cmp-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.cmp-lbl{font-size:10px;font-weight:700;color:var(--gold-dim);letter-spacing:.06em;margin-bottom:2px;}
+.cmp-val{color:var(--text2);line-height:1.6;}
+
+/* ── DOCTRINE CARD ── */
+.doctrine-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;
+  margin-bottom:12px;
+}
+.doc-head{
+  background:rgba(26,22,14,1);
+  padding:12px 16px;
+  border-bottom:1px solid var(--border2);
+}
+.doc-title{font-size:14px;font-weight:700;color:var(--gold);}
+.doc-body{padding:14px 16px;}
+.doc-section{margin-bottom:12px;}
+.doc-section:last-child{margin-bottom:0;}
+.doc-sec-label{
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:6px;
+}
+.doc-sec-content{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.doc-council{
+  background:var(--card2);
+  border-left:3px solid var(--gold);
+  padding:8px 12px;border-radius:0 4px 4px 0;
+  font-size:12.5px;color:var(--text2);
+}
+.doc-modern{
+  background:rgba(212,168,112,.06);
+  padding:10px 14px;border-radius:4px;
+  font-size:12.5px;color:var(--text2);
+}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.vs-box{
+  background:var(--card2);
+  border-radius:4px;padding:10px 12px;
+}
+.vs-label{font-size:10px;font-weight:700;color:var(--gold-dim);margin-bottom:4px;letter-spacing:.06em;}
+.vs-text{font-size:12px;color:var(--text2);line-height:1.6;}
+
+/* ── EXAM ITEMS ── */
+.exam-section{margin-bottom:20px;}
+.exam-type-head{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:10px;
+}
+.exam-badge{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  padding:3px 10px;border-radius:3px;
+}
+.badge-ox  {background:rgba(122,184,122,.15);color:var(--ox-green);border:1px solid rgba(122,184,122,.3);}
+.badge-sq  {background:rgba(122,170,212,.15);color:var(--sq-blue);border:1px solid rgba(122,170,212,.3);}
+.badge-essay{background:rgba(196,154,60,.15);color:var(--essay-amb);border:1px solid rgba(196,154,60,.3);}
+
+.exam-item{
+  background:var(--card);
+  border:1px solid var(--border2);
+  border-radius:6px;padding:14px 16px;
+  margin-bottom:8px;
+}
+.exam-q{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:0;}
+.toggle-btn{
+  background:none;border:1px solid var(--border);
+  color:var(--text3);font-size:11px;
+  padding:4px 12px;border-radius:3px;
+  cursor:pointer;margin-top:10px;
+  transition:all .2s;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.toggle-btn:hover{background:var(--card2);color:var(--gold2);}
+.answer-box{
+  display:none;
+  margin-top:10px;padding:10px 14px;
+  background:var(--card2);
+  border-left:2px solid var(--gold);
+  border-radius:0 4px 4px 0;
+  font-size:12.5px;color:var(--text2);line-height:1.65;
+}
+.answer-box.show{display:block;}
+.ox-mark{font-size:20px;font-weight:900;margin-right:6px;}
+.ox-mark.o{color:var(--ox-green);}
+.ox-mark.x{color:var(--terra);}
+
+/* ── ESSAY ITEM ── */
+.essay-guide{
+  background:var(--card2);
+  border-radius:4px;padding:10px 14px;
+  margin-top:10px;font-size:12px;
+  color:var(--text3);line-height:1.7;
+  display:none;
+}
+.essay-guide.show{display:block;}
+.essay-step{
+  display:flex;gap:8px;margin-bottom:6px;
+}
+.essay-step:last-child{margin-bottom:0;}
+.step-num{
+  background:rgba(196,154,60,.2);color:var(--essay-amb);
+  font-size:10px;font-weight:700;
+  min-width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:3px;flex-shrink:0;margin-top:1px;
+}
+.step-text{color:var(--text2);font-size:12px;}
+
+/* ── TIMELINE TAB ── */
+.timeline-wrap{padding:24px 28px;position:relative;}
+.timeline-line{
+  position:absolute;left:60px;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,transparent,var(--border),var(--border),transparent);
+}
+
+.tl-era-label{
+  display:flex;align-items:center;gap:10px;
+  margin:24px 0 12px;padding-left:80px;
+}
+.tl-era-label:first-child{margin-top:0;}
+.era-dot-big{
+  width:14px;height:14px;border-radius:50%;
+  position:absolute;left:54px;
+  border:2px solid var(--bg);
+}
+.tl-era-title{
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 10px;border-radius:3px;
+}
+
+.era-medieval .era-dot-big{background:var(--era-medieval);}
+.era-medieval .tl-era-title{background:rgba(107,74,122,.2);color:#c09ad4;border:1px solid rgba(107,74,122,.4);}
+
+.tl-item{
+  display:flex;gap:16px;
+  padding-left:80px;
+  margin-bottom:14px;
+  position:relative;
+}
+.tl-dot{
+  position:absolute;left:53px;top:6px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--gold-dim);
+  border:1.5px solid var(--gold);
+  flex-shrink:0;
+}
+.tl-dot.highlight{background:var(--gold);box-shadow:0 0 6px rgba(196,149,90,.5);}
+.tl-year{
+  font-family:'Crimson Pro',serif;
+  font-weight:600;font-size:12px;
+  color:var(--gold2);
+  white-space:nowrap;
+  min-width:60px;margin-top:1px;
+}
+.tl-body{}
+.tl-event{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;}
+.tl-person{
+  display:inline-block;
+  background:rgba(196,149,90,.1);
+  border:1px solid var(--border2);
+  color:var(--gold-dim);
+  font-size:10px;padding:1px 7px;
+  border-radius:3px;margin:3px 2px 0 0;
+}
+.tl-sig{font-size:11.5px;color:var(--text3);margin-top:3px;line-height:1.55;}
+
+/* ── KEY POINTS ── */
+.key-points{
+  background:linear-gradient(135deg,var(--card) 0%,#201a0e 100%);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:18px 20px;
+  margin-top:24px;
+}
+.kp-head{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:14px;
+}
+.kp-icon{font-size:16px;}
+.kp-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:14px;font-weight:700;color:var(--gold);
+}
+.kp-item{
+  display:flex;gap:12px;
+  margin-bottom:12px;padding-bottom:12px;
+  border-bottom:1px solid var(--border2);
+}
+.kp-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.kp-num{
+  background:var(--gold);color:#14100a;
+  font-size:10px;font-weight:900;
+  min-width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:3px;flex-shrink:0;margin-top:1px;
+}
+.kp-text{font-size:13px;color:var(--text2);line-height:1.65;}
+.kp-text strong{color:var(--text);}
+
+/* ── FINAL NOTICE ── */
+.final-notice{
+  background:rgba(201,107,90,.08);
+  border:1px solid rgba(201,107,90,.3);
+  border-radius:6px;padding:14px 18px;
+  margin-bottom:20px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.fn-icon{font-size:18px;flex-shrink:0;}
+.fn-title{font-size:12px;font-weight:700;color:#e88a78;margin-bottom:4px;}
+.fn-body{font-size:12px;color:var(--text2);line-height:1.6;}
+
+/* ── PRINT ── */
+@media print{
+  body{background:#fff;color:#111;}
+  .tab-bar{display:none;}
+  .tab-pane{display:block!important;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{size:A4;margin:15mm 12mm;}
+  .page-header::before{display:none;}
+  .person-card,.event-card,.doctrine-card,.exam-item{page-break-inside:avoid;}
+}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-meta">
+    <span class="meta-tag">교회사개론 I · 61049</span>
+    <span class="meta-tag">14주차 · 2026-06-05</span>
+    <span class="meta-tag">김태식 교수</span>
+    <span class="meta-tag final">★ 기말고사 D-7 · 6/12</span>
+  </div>
+  <div class="page-title">중세기독교 시대 II — 수도원 개혁·교황 타락·종교개혁 전야</div>
+  <div class="page-sub">Monastic Reform · Papal Decline · Eve of the Reformation (590–1517)</div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('note',this)">📖 강의노트</button>
+  <button class="tab-btn" onclick="switchTab('review',this)">🎯 핵심정리</button>
+  <button class="tab-btn" onclick="switchTab('timeline',this)">📅 연대기</button>
+</div>
+
+<!-- ════════════════ TAB 1: 강의노트 ════════════════ -->
+<div class="tab-pane active" id="tab-note">
+<div class="content">
+
+  <!-- 기말 알림 -->
+  <div class="final-notice">
+    <div class="fn-icon">🚨</div>
+    <div>
+      <div class="fn-title">기말고사 6월 12일(목) / 리포트 기말 전 제출</div>
+      <div class="fn-body">오늘이 마지막 강의입니다. 14주차 내용(수도원 개혁 ~ 종교개혁 전야)과 9~13주 전범위가 기말고사 범위입니다. 리포트는 사물함에 제출하세요.</div>
+    </div>
+  </div>
+
+  <!-- §1 수도원 개혁 운동 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 01</span>
+    <span class="sec-label">수도원 개혁 운동 — 종교개혁의 전야</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">교수 강조</div>
+    <div class="prof-text">"중세 가톨릭 교회는 자기 신학에 맞지 않으면, 또 자기에게 도전하면 가차없이 화형에 처했습니다. 종교가 하나의 폭력이 되고 이데올로기가 될 때 어떤 일이 벌어질 수 있는지 역사를 통해서 지켜보고 있습니다. 권력 기반에서는 늘 대상자를 찾고 폭력을 행하는 일이 교회 역사를 봐도, 현대를 봐도 반복되는 것 같습니다."</div>
+  </div>
+
+  <!-- 아놀드 -->
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">아놀드 (Arnold of Brescia)</span>
+      <span class="person-date">?–1155 · 브레스치아 수도원장</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <div class="pr-label">배경</div>
+        <div class="pr-val">북부 이탈리아 브레스치아(Brescia) 수도원장으로, 가톨릭 교회의 세속화를 공개 비판</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">신학 입장</div>
+        <div class="pr-val">교회의 세속 권력·재산 소유 반대, 사도적 청빈 회복 촉구</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">처형 방식</div>
+        <div class="pr-val">1155년 화형에 처해짐, <strong>재는 티베르 강(Tiber)에 뿌려짐</strong> — 추종자들이 묘소를 성지화하지 못하도록 원천 차단</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">역사적 의의</div>
+        <div class="pr-val">종교개혁 이전 로마 가톨릭 세속화 비판의 선구자, 수도원 개혁 운동의 순교적 상징</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">교수 설명</div>
+    <div class="prof-text">"재를 티베르 강에 뿌렸다는 것은 — 아예 땅 속에 묻혀 있는 것 자체도 없애는 거예요. 후대에 그 사람을 숭배하거나 기를 수 있기 때문에, 아예 원천적으로 무덤 자체를 없애는 겁니다. 요즘도 그래요. 미국에서 지도자를 잡아다 죽인 후 시신을 어딘가에 뿌리는 거예요 — 더 이상 그 사람의 묘지를 찾을 수 없도록. 중세가 바로 그거예요."</div>
+  </div>
+
+  <!-- 피터 왈도 -->
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">피터 왈도 (Peter Waldo)</span>
+      <span class="person-date">c. 1140–1218 · 왈도파(Waldensians) 창시자</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <div class="pr-label">배경</div>
+        <div class="pr-val">부유한 상인 출신, 마태복음 19:21("가서 네 소유를 팔아 가난한 자들에게 주라")에 감화</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">재산 처분</div>
+        <div class="pr-val">아내를 위해 적절한 수입원 마련, 두 딸들은 수도원에 입원, 나머지 재산 전액 가난한 자에게 헌납</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">신학 입장</div>
+        <div class="pr-val">사도적 청빈의 삶, 제자들을 짝 지어 성경 가르침, 세속 권력·교회 권위 거부</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">결말</div>
+        <div class="pr-val">리옹 대주교의 중지 명령 불복, 허가 없는 설교 계속 → <strong>1184년 교황 루시우스 3세(Lucius III)에 의해 파문</strong></div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">역사적 의의</div>
+        <div class="pr-val"><strong>종교개혁 이전의 종교개혁가</strong> — 사도적 삶의 회복과 로마 가톨릭 세속성 비판의 전형</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">교수 설명</div>
+    <div class="prof-text">"피터 왈도가 재산을 처분할 때 — 아내를 위해서는 적절한 수입원을 마련해주고, 두 딸들은 수도원으로 보내고, 나머지 재산은 가난한 이들에게 나눠줬어요. 그래도 좀 부가 있었나 봐요. (웃음) 이 운동은 사실상 종교개혁의 시작입니다. 로마 가톨릭의 세속성을 비판하는 게 수도원인데, 이 수도원도 나중에 부를 축적하게 됩니다."</div>
+  </div>
+
+  <!-- §2 수도회 운동 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 02</span>
+    <span class="sec-label">탁발 수도회의 등장 — 도미니쿠스 vs 프란체스코</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="cmp-card">
+      <div class="cmp-head">
+        <div class="cmp-name">도미니쿠스 수도회</div>
+        <div class="cmp-era">Dominicans · 도미니쿠스 구즈만(1170–1221) 창설</div>
+      </div>
+      <div class="cmp-body">
+        <div class="cmp-row">
+          <div class="cmp-lbl">창설 목적</div>
+          <div class="cmp-val">남부 프랑스의 알비파(이단)를 개종시키려는 사역에서 출발 — 권위와 계급에 의존하는 방식 비판</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-lbl">선교 방식</div>
+          <div class="cmp-val">청빈의 모습으로 도시 거주민에게 직접 설교, 가난한 자의 모습으로 다가감</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-lbl">공인</div>
+          <div class="cmp-val">1220년 사역과 생활 태도 공식 인정, <strong>탁발수도회(mendicant)</strong>라고도 불림</div>
+        </div>
+      </div>
+    </div>
+    <div class="cmp-card">
+      <div class="cmp-head">
+        <div class="cmp-name">프란체스코 수도회</div>
+        <div class="cmp-era">Franciscans · 프란체스코(1182–1226) 창설</div>
+      </div>
+      <div class="cmp-body">
+        <div class="cmp-row">
+          <div class="cmp-lbl">입문 규칙</div>
+          <div class="cmp-val">수도사가 되기 전 모든 재산 처분 필수, <strong>수도복 단 두 벌만 소유</strong> (후드 달린 것 / 달리지 않은 것)</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-lbl">선교 방식</div>
+          <div class="cmp-val">구걸하며 설교, 가난하고 비천한 자들을 섬김 — 청빈의 삶이 증거</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-lbl">대조 비교</div>
+          <div class="cmp-val">예수회(Jesuits)와 정반대 — 예수회는 지배층·상류층 우선, 대학 설립 통한 교육 선교 (서강대, 바이올라대 등)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">교수 설명</div>
+    <div class="prof-text">"현대 역사학자들이 연구할 때에 근대 자본주의의 시작은 사실 수도원에서 시작되었다고 보고 있습니다. 수도원이 막강한 부를 축적하게 되고 그 부가 다시 다른 곳에 투자되면서 자본주의가 시작되었다고 보고 있고, 은행업도 수도원에서 시작되었다는 학술 연구도 많이 나와 있습니다. 청빈을 표방하며 시작한 수도원이 결국 가장 많은 땅을 가진 부자가 되는 아이러니입니다."</div>
+  </div>
+
+  <!-- §3 종교재판 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 03</span>
+    <span class="sec-label">종교재판소 (Inquisition)</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">1184 AD</div>
+    <div class="event-title">종교재판소 설치 시작</div>
+    <div class="event-body">교황 루시우스 3세(Lucius III)가 주교들에게 담당 교인들의 신앙 생활 상태를 점검하도록 명령함으로써 시작. 1215년 제4차 라테란 공의회에서 이노센트 3세 주도로 국가에 이단 처벌권 부여. 1220년 도미니쿠스 수도회에 이관. <strong>1252년 교황 이노센트 4세(Innocent IV)가 고문도 인정.</strong></div>
+    <div class="event-sig">숨어 있는 이단까지 잡아 처벌하는 기구 — 종교 폭력의 제도화</div>
+  </div>
+
+  <!-- §4 교황제 타락 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 04</span>
+    <span class="sec-label">교황제의 타락 (1300–1500) — 중세의 몰락기</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">1300 AD</div>
+    <div class="event-title">교황 보니페이스 8세 희년(Jubilee) 선포</div>
+    <div class="event-body">성 베드로·바울 성당 경건하게 방문한 이들에게 일체의 죄를 사해줄 것을 약속 → 상당수 신자들이 미사마다 헌금. <strong>면죄부(Indulgence) 판매의 확대로 이어짐.</strong></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">1309–1377</div>
+    <div class="event-title">아비뇽 유수 (Avignon Papacy) — 72년간</div>
+    <div class="event-body">황제-교황 갈등 속에서 프랑스 왕권이 교황을 프랑스 아비뇽에 머물도록 강제. 6명의 연속 교황 모두 프랑스인. <strong>교황권이 프랑스 왕권의 수하로 전락</strong> — 중세 교황제의 결정적 위기.</div>
+    <div class="event-sig">교황이 "하나님의 대리자"라는 이념의 역사적 붕괴</div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">1378–1417</div>
+    <div class="event-title">교회 대분열 (Great Schism) — 두 교황 병존</div>
+    <div class="event-body">프랑스계 추기경단이 이탈리아인을 교황으로 선출 (우르반 6세) → 프랑스파가 별도 교황(클레멘트 7세) 선출. 두 교황이 서로를 파문. <strong>1409년 두 진영 추기경들이 제3의 교황(알렉산더 5세) 선출 → 동시에 세 명의 교황 존재.</strong> 1414년 콘스탄츠 공의회에서 해결.</div>
+  </div>
+
+  <!-- §5 마녀사냥 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 05</span>
+    <span class="sec-label">마녀사냥 — 광기의 역사</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="doctrine-card">
+    <div class="doc-head">
+      <div class="doc-title">종교의 이름으로 자행된 폭력 — 마녀 재판</div>
+    </div>
+    <div class="doc-body">
+      <div class="doc-section">
+        <div class="doc-sec-label">마녀의 정의</div>
+        <div class="doc-sec-content">"악마에게 정신을 침해당하는 이단자" — 마녀사냥의 실제 대상은 이단자. 온갖 고문을 통해 자백하게 하고, 아픈 곳이 있다고 자백하면 화형에 처함. 방법이 없는 구조.</div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-sec-label">규모</div>
+        <div class="doc-council">
+          • 1404년 가톨릭교회 최소 3,000명 이상 화형<br>
+          • 스위스 제네바: 1515년 한 해에 500명 이상 화형<br>
+          • 스페인: 1만 명 이상 화형<br>
+          • 잔다르크(Jeanne d'Arc): 1431년 종교재판에 의해 화형
+        </div>
+      </div>
+      <div class="doc-section">
+        <div class="doc-sec-label">현대적 의의</div>
+        <div class="doc-modern">종교가 이데올로기와 결합할 때 어떤 폭력이 발생하는지 역사적 증거. "종교의 이름으로 가해진 폭력의 역사"는 교회가 스스로 직시해야 할 과거.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- §6 르네상스 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 06</span>
+    <span class="sec-label">르네상스 (Renaissance) — 14~16세기</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-year">14–16세기</div>
+    <div class="event-title">르네상스 — 하나님 중심에서 인간 중심으로</div>
+    <div class="event-body">
+      <strong>최초의 인문주의자:</strong> 프란체스코의 페트라르카 신부 — 수도원에서 성경 공부 후 인간 연구로 전환, 그리스·로마 고전 연구 시작.<br><br>
+      <strong>1453년 콘스탄티노플 함락:</strong> 오스만 투르크에 의한 동로마제국 수도 함락 → 수많은 학자·예술가들이 천 년간 보관한 그리스·로마 고전을 이탈리아로 가져옴 → 르네상스의 황금기.<br><br>
+      <strong>1450년 구텐베르크 금속활자 발명:</strong> 성경과 그리스·로마 고전이 인쇄되어 대량 보급 → 종교개혁의 문화적 기반 마련.<br><br>
+      <strong>에라스무스(Erasmus):</strong> 『우신예찬』을 통해 날카롭게 중세교회 비판 → 종교개혁 서막.
+    </div>
+  </div>
+
+  <!-- §7 종교개혁 전야: 위클리프·후스 -->
+  <div class="sec-head">
+    <span class="sec-num">§ 07</span>
+    <span class="sec-label">종교개혁 전야 — 위클리프와 후스</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">존 위클리프 (John Wycliff)</span>
+      <span class="person-date">1330–1384 · 영국 옥스퍼드 대학 교수</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <div class="pr-label">주요 주장</div>
+        <div class="pr-val">
+          ① 영국 정부는 부패한 성직자의 재산 압수<br>
+          ② 교황의 세속 권한 포기 요구<br>
+          ③ <strong>그리스도만이 교회의 유일한 머리</strong><br>
+          ④ 사람에겐 스스로 하나님을 찾을 권리 — <strong>만인제사장 사상</strong><br>
+          ⑤ 교회 = 오직 택자들로 구성된 <strong>불가시적 교회(invisible church)</strong><br>
+          ⑥ <strong>화체설 비판 → 영적 임재설</strong>: 그리스도는 물질적으로가 아니라 영혼 속에 성례전적으로 임재
+        </div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">성경 번역</div>
+        <div class="pr-val">모든 개인이 성경을 직접 읽을 권리 주장 → <strong>라틴어 성경을 영어로 번역</strong> (옥스퍼드 학자 동원). 영국 교회의 파문 협박에도 번역 강행.</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">결말</div>
+        <div class="pr-val">결국 교회 압박에 자기 죄를 인정하고 대학 떠남. <strong>사후에 시체가 파내어져 불태워짐.</strong> 그러나 그의 사상은 후스에게 직접 전달됨.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="person-card">
+    <div class="person-head">
+      <span class="person-name">존 후스 (John Hus)</span>
+      <span class="person-date">1369–1415 · 보헤미아 프라하 선교사 · '거위'라는 뜻</span>
+    </div>
+    <div class="person-body">
+      <div class="person-row">
+        <div class="pr-label">배경</div>
+        <div class="pr-val">프라하 대학 시절 위클리프 서적에서 영향 받음, 위클리프의 교회론 수용, 『교회론』(On the Church) 저술</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">주요 주장</div>
+        <div class="pr-val">교황도 불완전한 인간일 뿐, 교황 무소설 비판, 교회 부패·타락 책임 교황에게 귀속, <strong>"면죄부를 파는 교황은 가롯 유다와 같다"</strong>, 당시 귀족 전유물이던 라틴어 대신 체코어로 설교</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">결말</div>
+        <div class="pr-val">신성로마제국 황제가 콘스탄츠(Constance) 종교재판에 소환. 사람들의 만류에도 응함. 3달간 감옥. 1415년 7월 16일 <strong>이단으로 정죄되어 화형.</strong></div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">마지막 말</div>
+        <div class="pr-val"><strong>"너희는 지금 거위(Hus) 한 마리를 불태워 죽인다. 그러나 100년이 지나지 않아 백조가 나타날 것이다."</strong> → 1517년 루터의 종교개혁 성취.</div>
+      </div>
+      <div class="person-row">
+        <div class="pr-label">역사적 의의</div>
+        <div class="pr-val">루터가 "내 모든 신학은 다 후스에게서 왔다"고 고백. 후스야말로 루터 종교개혁의 신학적 기초.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-block">
+    <div class="prof-label">교수 강조</div>
+    <div class="prof-text">"후스가 화형대에 불이 붙기 전에 외쳤어요. '너희는 지금 거위 한 마리를 불태워 죽인다. 그러나 100년이 지나지 않아 백조가 나타날 것이다.' 진짜 100년 후에 루터의 종교개혁이 시작됩니다. 루터는 자기의 모든 신학은 다 후스에게서 왔다고 나중에 고백합니다. 후스야말로 루터 종교개혁의 기초였어요."</div>
+  </div>
+
+  <!-- KEY POINTS -->
+  <div class="key-points">
+    <div class="kp-head">
+      <span class="kp-icon">⭐</span>
+      <span class="kp-title">오늘의 핵심 교회사 포인트 3가지</span>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">1</div>
+      <div class="kp-text"><strong>수도원 운동 = 종교개혁의 전야:</strong> 아놀드·왈도·프란체스코의 청빈 운동은 로마 가톨릭 세속화 비판에서 시작했으나, 수도원 자체도 결국 막대한 부를 축적하며 변질됨. 개혁의 씨앗은 동시에 타락의 씨앗이기도 하다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">2</div>
+      <div class="kp-text"><strong>위클리프 → 후스 → 루터의 신학 계보:</strong> 성경 권위, 만인제사장, 불가시적 교회론은 한 세대에서 다음 세대로 전승되며 마침내 1517년 종교개혁으로 폭발. 후스는 "거위"였고 루터가 "백조"였다.</div>
+    </div>
+    <div class="kp-item">
+      <div class="kp-num">3</div>
+      <div class="kp-text"><strong>교황제 타락과 아비뇽 유수:</strong> 72년간 교황이 프랑스 왕권에 종속된 사건은 "교황 = 하나님의 대리자"라는 중세 이념이 허구였음을 역사적으로 증명. 이것이 공의회 운동과 종교개혁의 직접적 계기가 됨.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════ TAB 2: 핵심정리 ════════════════ -->
+<div class="tab-pane" id="tab-review">
+<div class="content">
+
+  <!-- OX -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-ox">OX 문제</span>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">① 피터 왈도는 마태복음 19장 21절의 말씀에 감화되어 전 재산을 처분하고 사도적 청빈의 삶을 살았다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark o">O</span>아내에게 수입원 마련, 두 딸은 수도원 입원, 나머지 재산 전액 가난한 자에게 헌납. 왈도파의 출발점.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">② 존 위클리프는 교황이 교회의 유일한 머리라고 주장했다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark x">X</span><strong>그리스도만이</strong> 교회의 유일한 머리라고 주장. 이것이 교황 권위를 부정하는 핵심 논리.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">③ 존 후스는 콘스탄츠 공의회 소환에 응하지 않고 끝내 도망쳤다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark x">X</span>사람들의 만류에도 불구하고 소환에 응했으며, 3달간 감금·고문 후 1415년 7월 화형당함.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">④ 프란체스코 수도회와 예수회는 동일하게 가난한 자를 향한 청빈 선교를 추구했다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark x">X</span>프란체스코는 가난한 자 우선, <strong>예수회(Jesuits)는 지배층·상류층 우선</strong>으로 선교 방향이 정반대. 예수회는 대학 교육을 통한 선교(서강대, 바이올라대 등).</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">⑤ 종교재판소(Inquisition)의 공식 설치는 1184년 교황 루시우스 3세로부터 시작되었다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark o">O</span>주교들에게 담당 교인들의 신앙 생활 상태 점검 명령으로 시작. 1252년 이노센트 4세가 고문도 공식 인정.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">⑥ 아비뇽 유수는 교황이 프랑스 아비뇽에 72년간 머문 사건으로 교황권 절정기를 나타낸다.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><span class="ox-mark x">X</span>교황권이 <strong>급격히 약화된</strong> 사건. 프랑스 왕권에 종속된 교황의 현실은 중세 교황 이념의 붕괴를 상징.</div>
+    </div>
+  </div>
+
+  <!-- 단답 -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-sq">단답 문제</span>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q1. 아비뇽 유수(Avignon Papacy)란 무엇이며 몇 년간 지속되었는가?</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box">프랑스 왕권에 의해 교황이 프랑스 아비뇽에 억류된 사건. <strong>1309~1377년, 72년간 지속.</strong> 교황권이 프랑스 왕권의 수하로 전락한 중세 최대 위기.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q2. 존 위클리프가 주장한 교회의 구성 원리는?</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box">교회는 오직 <strong>택자들로만 구성된 불가시적 교회(invisible church)</strong>. 눈에 보이는 가시적 교회(로마 가톨릭)와 달리, 하나님이 선택한 자들만의 공동체가 진정한 교회.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q3. 존 후스가 화형 직전 외친 말의 내용과 역사적 실현은?</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box">"너희는 거위(Hus) 한 마리를 불태우지만, 100년이 지나지 않아 백조가 나타날 것이다." → <strong>1517년 루터가 95개 조항을 발표</strong>하며 종교개혁 시작. 루터는 자신의 신학은 모두 후스에게서 왔다고 고백.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q4. 위클리프의 화체설 비판 대안은 무엇인가?</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><strong>영적 임재설:</strong> 그리스도는 빵과 포도주 안에 물질적으로 임재하시는 것이 아니라, 영혼 속에 성례전적으로 임재하신다. 가톨릭의 화체설(Transubstantiation)에 반대.</div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q5. 르네상스 확산에 결정적 역할을 한 1453년 역사적 사건은?</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">정답 보기</button>
+      <div class="answer-box"><strong>동로마제국(비잔틴제국) 수도 콘스탄티노플의 오스만 투르크에 의한 함락.</strong> 수많은 학자·예술가들이 천 년간 보관한 그리스·로마 고전을 이탈리아로 이동 → 르네상스 황금기.</div>
+    </div>
+  </div>
+
+  <!-- 약술 -->
+  <div class="exam-section">
+    <div class="exam-type-head">
+      <span class="exam-badge badge-essay">약술 문제</span>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q1. 중세 수도원 개혁 운동(아놀드, 왈도파, 도미니쿠스, 프란체스코)이 종교개혁의 전야(前夜)로 평가받는 이유를 설명하라.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="answer-box">
+        <div class="essay-guide show">
+          <div class="essay-step"><div class="step-num">①</div><div class="step-text"><strong>배경:</strong> 십자군 전쟁 이후 로마 가톨릭의 세속화·부패 심화 — 수도원도 막대한 부 축적</div></div>
+          <div class="essay-step"><div class="step-num">②</div><div class="step-text"><strong>공통 주장:</strong> 청빈·사도적 삶 회복, 로마 가톨릭 세속 권력 비판 — 종교개혁의 도덕적 씨앗</div></div>
+          <div class="essay-step"><div class="step-num">③</div><div class="step-text"><strong>위클리프·후스와의 연결:</strong> 교황 권위 부정 → 성경 권위 강조 → 만인제사장 → 종교개혁 신학 직결</div></div>
+          <div class="essay-step"><div class="step-num">④</div><div class="step-text"><strong>의의:</strong> 루터 이전에 이미 종교개혁의 신학적·도덕적 씨앗이 수도원 운동을 통해 심어진 과정</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q2. 존 위클리프와 존 후스를 비교하여 각각의 신학적 주장과 역사적 차이점을 서술하라.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="answer-box">
+        <div class="essay-guide show">
+          <div class="essay-step"><div class="step-num">①</div><div class="step-text"><strong>공통점:</strong> 교황 권위 비판, 성경 권위 강조, 교회 부패 비판 — 위클리프 사상이 후스에게 직접 전달</div></div>
+          <div class="essay-step"><div class="step-num">②</div><div class="step-text"><strong>위클리프:</strong> 영국, 불가시적 교회론, 성경 영역(英譯), 결국 자기 죄 인정 → 굴복</div></div>
+          <div class="essay-step"><div class="step-num">③</div><div class="step-text"><strong>후스:</strong> 보헤미아, 체코어 설교(민중 직접 소통), 굴복 거부 → 화형 — 신앙의 순교</div></div>
+          <div class="essay-step"><div class="step-num">④</div><div class="step-text"><strong>역사적 의의:</strong> 후스의 순교 예언("백조")이 루터에게 직접적 신학 영감 → 100년 후 종교개혁</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-item">
+      <div class="exam-q">Q3. 중세 교황제 타락의 과정을 아비뇽 유수와 교회 대분열을 중심으로 설명하라.</div>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">모범 답안 틀 보기</button>
+      <div class="answer-box">
+        <div class="essay-guide show">
+          <div class="essay-step"><div class="step-num">①</div><div class="step-text"><strong>절정기:</strong> 이노센트 3세(1198–1216) 때 교황권 최고조 — 십자군 지휘, 군주 폐위 권한</div></div>
+          <div class="essay-step"><div class="step-num">②</div><div class="step-text"><strong>아비뇽 유수(1309–1377):</strong> 프랑스 왕권에 교황이 72년 억류 → 교황이 "하나님의 대리자"가 아닌 "왕의 신하"로 전락</div></div>
+          <div class="essay-step"><div class="step-num">③</div><div class="step-text"><strong>교회 대분열(1378–1417):</strong> 두 명(후에 세 명)의 교황 병존 → 교황 권위의 근본적 실추</div></div>
+          <div class="essay-step"><div class="step-num">④</div><div class="step-text"><strong>결과:</strong> 공의회 운동 → 위클리프·후스의 비판 → 종교개혁의 역사적 필연성 형성</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ════════════════ TAB 3: 연대기 ════════════════ -->
+<div class="tab-pane" id="tab-timeline">
+<div class="timeline-wrap">
+  <div class="timeline-line"></div>
+
+  <div class="tl-era-label era-medieval" style="position:relative;">
+    <div class="era-dot-big" style="background:var(--era-medieval);"></div>
+    <span class="tl-era-title" style="background:rgba(107,74,122,.2);color:#c09ad4;border:1px solid rgba(107,74,122,.4);">🗺️ 중세기독교 시대 (590–1517 AD)</span>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot highlight"></div>
+    <div class="tl-year">590 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">대 그레고리(Gregory the Great) 교황 취임</div>
+      <span class="tl-person">그레고리 1세</span>
+      <div class="tl-sig">교황권의 실질적 확립, 중세 교회의 기초 마련, 앵글로색슨 선교 파견</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">800 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">샤를마뉴(Charlemagne) 황제 대관 — 신성로마제국 기원</div>
+      <span class="tl-person">샤를마뉴</span><span class="tl-person">교황 레오 3세</span>
+      <div class="tl-sig">로마 교황이 서유럽의 지배하에 놓임, 교회-국가 결합 구조 완성</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot highlight"></div>
+    <div class="tl-year">1054 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">동서 교회 대분열 (Great Schism)</div>
+      <span class="tl-person">교황 레오 9세</span><span class="tl-person">총대주교 미카엘 세룰라리우스</span>
+      <div class="tl-sig">서방 가톨릭 vs 동방 정교회(Eastern Orthodox) 분리, 상호 파문</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1073–1085</div>
+    <div class="tl-body">
+      <div class="tl-event">그레고리 7세와 카노사의 굴욕 (1077)</div>
+      <span class="tl-person">그레고리 7세</span><span class="tl-person">하인리히 4세</span>
+      <div class="tl-sig">교황이 황제를 파문 → 황제가 눈 속에서 3일간 용서를 빎 — 교황권 최전성기 상징</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1096–1291</div>
+    <div class="tl-body">
+      <div class="tl-event">십자군 전쟁 (7차례)</div>
+      <div class="tl-sig">성지 탈환 목적, 1~4차는 예루살렘 건설 등 부분 성공, 이후 모두 실패 — 교황권 쇠퇴 계기</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1155 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">수도원장 아놀드 화형 — 재는 티베르 강에 뿌려짐</div>
+      <span class="tl-person">아놀드 of 브레스치아</span>
+      <div class="tl-sig">가톨릭 세속화 비판으로 처형, 묘지 자체 원천 제거 — 종교 폭력의 상징</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1184 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">피터 왈도 파문 / 종교재판소 설치 시작</div>
+      <span class="tl-person">피터 왈도</span><span class="tl-person">교황 루시우스 3세</span>
+      <div class="tl-sig">왈도파 — 사도적 청빈 운동, 종교개혁 이전의 종교개혁가로 평가</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1220 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">도미니쿠스·프란체스코 탁발수도회 공식 인정</div>
+      <span class="tl-person">도미니쿠스 구즈만</span><span class="tl-person">프란체스코</span>
+      <div class="tl-sig">청빈 수도 운동의 제도화 — 동시에 수도원의 부 축적과 근대 자본주의 기원 논쟁</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot highlight"></div>
+    <div class="tl-year">1309–1377</div>
+    <div class="tl-body">
+      <div class="tl-event">아비뇽 유수 (Avignon Papacy) — 72년간</div>
+      <span class="tl-person">클레멘트 5세 외 6명</span>
+      <div class="tl-sig">교황이 프랑스 왕권에 종속 — 중세 교황 권위의 결정적 실추</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1378–1417</div>
+    <div class="tl-body">
+      <div class="tl-event">교회 대분열 — 두 명(후에 세 명)의 교황 병존</div>
+      <div class="tl-sig">콘스탄츠 공의회(1414)에서 해결, 교황권의 근본적 신뢰 상실</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1380년대</div>
+    <div class="tl-body">
+      <div class="tl-event">존 위클리프 성경 영역(英譯) 완성</div>
+      <span class="tl-person">존 위클리프</span>
+      <div class="tl-sig">라틴어→영어, 만인제사장·불가시적 교회론·영적 임재설 주장 → 후스에게 직접 영향</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1450년경</div>
+    <div class="tl-body">
+      <div class="tl-event">구텐베르크 금속활자 발명</div>
+      <span class="tl-person">구텐베르크</span>
+      <div class="tl-sig">성경 대량 인쇄 보급 → 종교개혁의 문화적·기술적 기반 완성</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-year">1453 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">동로마제국(비잔틴) 수도 콘스탄티노플 함락</div>
+      <div class="tl-sig">오스만 투르크에 의해 함락, 학자·예술가들이 그리스·로마 고전을 이탈리아로 이동 → 르네상스 황금기</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot highlight"></div>
+    <div class="tl-year">1415 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">존 후스 콘스탄츠 공의회에서 화형 — "100년 후 백조가 나타난다"</div>
+      <span class="tl-person">존 후스</span>
+      <div class="tl-sig">위클리프 사상을 계승하여 체코어로 민중에게 종교개혁 신학 전파, 순교로 루터에게 영감</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot highlight"></div>
+    <div class="tl-year">1517 AD</div>
+    <div class="tl-body">
+      <div class="tl-event">★ 마틴 루터 95개 조항 — 종교개혁 시작</div>
+      <span class="tl-person">마틴 루터</span>
+      <div class="tl-sig">후스의 예언 실현. 위클리프→후스→루터로 이어지는 종교개혁 신학 계보의 완성. 중세 기독교 시대의 종말.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const showing = box.classList.toggle('show');
+  btn.textContent = showing ? '접기' : '정답 보기';
+  if(btn.textContent === '접기' && !btn.previousElementSibling.classList.contains('exam-q')){
+    btn.textContent = '접기';
+  }
+  // fix label for essay
+  const q = btn.previousElementSibling.textContent;
+  if(!showing){
+    btn.textContent = q.includes('약술')||q.includes('설명')||q.includes('비교')||q.includes('서술')
+      ? '모범 답안 틀 보기' : '정답 보기';
+  }
+}
+</script>
+</body>
+</html>

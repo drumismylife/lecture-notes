@@ -235,7 +235,9 @@ const SITE_DATA = {
         { week: 13, title: "중세 기독교 시대 I", date: "2026.05.29", files: [
             { type: "notes", label: "강의노트", href: "output/교회사/week13.html" }
           ] },
-        { week: 14, title: "미 남침례회(SBC) 논쟁", date: "2026.06", files: [] },
+        { week: 14, title: "14주차: 중세기독교 시대 II", date: "2026.06.05", files: [
+            { type: "notes", label: "강의노트", href: "output/교회사/week14.html" }
+          ] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
       ]
     }
