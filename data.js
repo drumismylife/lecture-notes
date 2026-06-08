@@ -287,6 +287,13 @@ const SITE_DATA = {
       icon: "🔤",
       desc: "동사·명사·형용사·전치사·대명사 정리 + 3지선다 단어 퀴즈",
       href: "output/greek/greek-vocab.html",
+      isNew: false
+    },
+    {
+      name: "문법노트 PDF (쉬운설명+시험문제)",
+      icon: "📕",
+      desc: "헬라어 문법 쉬운 설명 + 시험 문제 수록 PDF",
+      href: "output/greek/헬라어_문법노트_쉬운설명+시험문제.pdf",
       isNew: true
     }
   ],
