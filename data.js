@@ -90,7 +90,9 @@ const SITE_DATA = {
         { week: 13, title: "어떻게 목회할 것인가?", date: "2026.06.01", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week13.html" }
           ] },
-        { week: 14, title: "한국 교회 현황과 과제", date: "2026.06", files: [] },
+        { week: 14, title: "목회와 소그룹", date: "2026.06.08", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week14.html" }
+          ] },
         { week: 15, title: "기말고사", date: "2026.06", files: [] },
         ] },
 
