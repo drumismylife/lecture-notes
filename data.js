@@ -289,6 +289,13 @@ const SITE_DATA = {
     }
   ],
 
+  ntAudio: [
+    { category: "누가복음-사도행전 요약", tracks: [
+      { name: "누가복음-사도행전 요약 1", href: "output/신약성서I/누가복음-사도행전 요약ver1.m4a" },
+      { name: "누가복음-사도행전 요약 2", href: "output/신약성서I/누가복음-사도행전 요약ver2.m4a" }
+    ]}
+  ],
+
   greekAudio: [
     { category: "현재시제", tracks: [
       { name: "현재-수동 1", href: "output/greek/현재-수동1.mp3" },

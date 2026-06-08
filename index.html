@@ -294,7 +294,12 @@ footer{border-top:.5px solid var(--border);padding:28px 24px}
     <div><div class="dsup">NT 401 · New Testament I</div><div class="dtitle">신약성서 I</div>
     <div class="ddesc">공관복음 개론, 마태복음의 신학적 구조와 기독론, 편집비평적 관점에서의 분석.</div></div>
   </div>
-  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-nt"></div></div>
+  <div class="dbody"><div class="sec-label" style="margin-top:40px">주차별 강의 자료</div><div class="wlist" id="weeks-nt"></div>
+  <div id="nt-audio-wrap" style="display:none">
+    <div class="sec-label" style="margin-top:40px">음성 학습 자료</div>
+    <div id="nt-audio-list"></div>
+  </div>
+  </div>
 </div>
 
 <!-- HIST -->
@@ -394,6 +399,28 @@ function renderAudio(){
   list.innerHTML=html;
 }
 
+function renderNtAudio(){
+  if(!SITE_DATA.ntAudio)return;
+  const wrap=document.getElementById('nt-audio-wrap');
+  const list=document.getElementById('nt-audio-list');
+  if(!wrap||!list)return;
+  wrap.style.display='';
+  let html='';
+  SITE_DATA.ntAudio.forEach(g=>{
+    html+=`<div class="ap-group-label">${g.category}</div>`;
+    g.tracks.forEach(t=>{
+      html+=`<div style="padding:10px 14px;margin:6px 0;background:var(--s2,#1e2235);border-radius:10px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.1rem">🎧</span>
+        <div style="flex:1">
+          <div style="font-size:.93rem;color:#e8e9f0;font-weight:600">${t.name}</div>
+          <audio controls src="${t.href}" style="width:100%;margin-top:6px;height:32px;accent-color:#d4a843"></audio>
+        </div>
+      </div>`;
+    });
+  });
+  list.innerHTML=html;
+}
+
 function apPlay(idx){
   if(idx<0||idx>=_apTracks.length)return;
   const a=_apEl();
@@ -438,7 +465,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(typeof SITE_DATA==='undefined')return;
   renderGrid();
   Object.keys(SITE_DATA.courses).forEach(id=>renderWeeks(id));
-  renderTools();renderAudio();renderResources();
+  renderTools();renderAudio();renderNtAudio();renderResources();
   const a=_apEl();
   a.addEventListener('timeupdate',()=>{if(!a.duration)return;document.getElementById('ap-fill').style.width=(a.currentTime/a.duration*100).toFixed(1)+'%';});
   a.addEventListener('ended',()=>{document.getElementById('ap-play-btn').textContent='▶';apNext();});
