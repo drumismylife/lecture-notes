@@ -294,6 +294,20 @@ const SITE_DATA = {
       icon: "📕",
       desc: "헬라어 문법 쉬운 설명 + 시험 문제 수록 PDF",
       href: "output/greek/헬라어_문법노트_쉬운설명+시험문제.pdf",
+      isNew: false
+    },
+    {
+      name: "단어장 PDF",
+      icon: "📗",
+      desc: "기말고사 대비 헬라어 단어장 PDF",
+      href: "output/greek/TalkFile_헬라어_단어장.pdf.pdf",
+      isNew: true
+    },
+    {
+      name: "기말고사 문장 해석",
+      icon: "✍️",
+      desc: "기말고사 대비 헬라어 문장 해석 연습",
+      href: "output/greek/기말고사_문장 해석.html",
       isNew: true
     }
   ],
