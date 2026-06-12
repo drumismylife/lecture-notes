@@ -307,7 +307,7 @@ const SITE_DATA = {
       name: "기말고사 문장 해석",
       icon: "✍️",
       desc: "기말고사 대비 헬라어 문장 해석 연습",
-      href: "output/greek/기말고사_문장 해석.html",
+      href: "output/greek/기말고사_문장해석.html",
       isNew: true
     }
   ],
