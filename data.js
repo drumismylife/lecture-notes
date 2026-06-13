@@ -93,7 +93,9 @@ const SITE_DATA = {
         { week: 14, title: "목회와 소그룹", date: "2026.06.08", files: [
             { type: "notes", label: "강의노트", href: "output/목회학/week14.html" }
           ] },
-        { week: 15, title: "기말고사", date: "2026.06", files: [] },
+        { week: 15, title: "건강한 교회를 세우기 위한 목회 방법", date: "2026.06.15", files: [
+            { type: "notes", label: "강의노트", href: "output/목회학/week15.html" }
+          ] },
         ] },
 
     phil: {

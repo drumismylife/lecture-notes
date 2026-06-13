@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목회학 15주차 — 기말고사 소스 정리</title>
+<style>
+  :root {
+    --bg:          #0f1a12;
+    --card:        #172018;
+    --subcard:     #1e2a20;
+    --border:      #2a3d2c;
+    --green:       #7ab87a;
+    --green-dim:   #4a7a4a;
+    --bible:       #a8d4a8;
+    --cream:       #d4c9a8;
+    --muted:       #9aaa9a;
+    --text:        #e8ede8;
+    --exam:        #c96b5a;
+    --exam-bg:     #2d1a16;
+    --exam-border: #7a3a2c;
+    --task:        #c49a3c;
+    --task-bg:     #2a2010;
+    --prof:        #8ab4e8;
+    --prof-bg:     #1a2030;
+    --accent1:     #5a9a6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  .site-header {
+    background: linear-gradient(135deg, #0a1209 0%, #172018 50%, #0f1a12 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '✟';
+    position: absolute; right: 32px; top: 50%; transform: translateY(-50%);
+    font-size: 80px; color: #2a3d2c; opacity: 0.5; user-select: none;
+  }
+  .meta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .badge {
+    display: inline-block; padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  }
+  .badge-subject { background: rgba(122,184,122,.15); color: var(--bible); border: 1px solid rgba(122,184,122,.3); }
+  .badge-week    { background: var(--green-dim); color: #c8ecc8; }
+  .badge-date    { background: #1e2a20; color: var(--muted); border: 1px solid var(--border); }
+  .badge-exam    { background: var(--exam-bg); color: var(--exam); border: 1px solid var(--exam-border); }
+  .site-header h1 { font-size: 22px; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
+  .site-header .sub { color: var(--muted); font-size: 12px; }
+
+  .question-box {
+    margin: 20px 32px 0;
+    background: var(--exam-bg);
+    border: 1px solid var(--exam-border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .question-box .q-label { font-size: 11px; font-weight: 700; color: var(--exam); letter-spacing: .06em; margin-bottom: 8px; }
+  .question-box .q-text { font-size: 14px; color: #e0b0a0; font-weight: 600; margin-bottom: 6px; }
+  .question-box .q-items { color: #c8a898; font-size: 13px; padding-left: 16px; }
+  .question-box .q-items li { margin-bottom: 3px; }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--border); background: #111a13; }
+  .tab-btn {
+    flex: 1; padding: 13px 8px; border: none; background: transparent;
+    color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer;
+    border-bottom: 2px solid transparent; transition: all .2s;
+  }
+  .tab-btn:hover { color: var(--text); background: rgba(122,184,122,.05); }
+  .tab-btn.active { color: var(--green); border-bottom-color: var(--green); background: rgba(122,184,122,.07); }
+
+  .tab-panel { display: none; padding: 28px 24px 60px; max-width: 960px; margin: 0 auto; }
+  .tab-panel.active { display: block; }
+
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 17px; font-weight: 700; color: var(--cream);
+    border-left: 4px solid var(--green);
+    padding-left: 14px; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-num {
+    background: var(--green-dim); color: #c8ecc8;
+    font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 700;
+  }
+
+  .tbl-wrap { overflow-x: auto; margin-bottom: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--subcard); color: var(--green); padding: 10px 14px; text-align: left; font-weight: 700; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 14px; border-bottom: 1px solid #1e2a20; color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(122,184,122,.04); }
+  .td-center { background: rgba(122,184,122,.07); font-weight: 700; color: var(--green); }
+
+  .principle {
+    background: var(--card); border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+  .principle .p-title { font-weight: 700; color: var(--cream); font-size: 14px; margin-bottom: 6px; }
+  .principle .p-body { color: var(--text); font-size: 13px; margin-bottom: 8px; line-height: 1.9; }
+  .principle .p-bible { font-size: 12px; color: var(--bible); background: rgba(168,212,168,.08); padding: 4px 10px; border-radius: 4px; display: inline-block; font-style: italic; }
+
+  .prof-block {
+    background: var(--prof-bg); border-left: 3px solid var(--prof);
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0 14px;
+    font-size: 13px; color: #c8d8f0; font-style: italic;
+  }
+  .prof-block::before { content: '💬 교수님 강조'; font-style: normal; font-weight: 700; color: var(--prof); font-size: 11px; display: block; margin-bottom: 4px; letter-spacing: .04em; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; page-break-inside: avoid; }
+  .card .card-head { font-weight: 700; color: var(--green); font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card .card-num { background: var(--subcard); color: var(--muted); font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 700; }
+  .card p, .card li { font-size: 12px; color: var(--muted); line-height: 1.8; }
+  .card ul { padding-left: 16px; }
+  .card li { margin-bottom: 3px; }
+  .card .card-bible { font-size: 11px; color: var(--bible); margin-top: 8px; font-style: italic; }
+
+  .ministry-block { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; page-break-inside: avoid; }
+  .ministry-head { background: var(--subcard); padding: 13px 18px; display: flex; align-items: center; gap: 10px; }
+  .ministry-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: #0f1a12; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .ministry-title { font-weight: 700; color: var(--cream); font-size: 14px; }
+  .ministry-sub { font-size: 11px; color: var(--muted); margin-left: auto; }
+  .ministry-body { padding: 16px 18px; }
+  .ministry-body .m-sub-title { font-size: 12px; font-weight: 700; color: var(--green); margin: 12px 0 6px; letter-spacing: .03em; }
+  .ministry-body .m-sub-title:first-child { margin-top: 0; }
+  .ministry-body ul { padding-left: 18px; margin-bottom: 8px; }
+  .ministry-body li { font-size: 13px; color: var(--text); margin-bottom: 4px; line-height: 1.8; }
+  .ministry-body .m-bible { display: inline-block; font-size: 11px; color: var(--bible); background: rgba(168,212,168,.08); padding: 3px 9px; border-radius: 4px; font-style: italic; margin-top: 4px; }
+  .ministry-body .m-quote { background: #1a2a1a; border-left: 3px solid var(--accent1); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0; font-size: 12px; color: var(--muted); font-style: italic; }
+  .ministry-body .step-list { counter-reset: step; padding-left: 0; list-style: none; }
+  .ministry-body .step-list li { counter-increment: step; display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+  .ministry-body .step-list li::before { content: counter(step); min-width: 22px; height: 22px; border-radius: 50%; background: var(--green-dim); color: #c8ecc8; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .exam-block { background: var(--exam-bg); border: 1px solid var(--exam-border); border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; page-break-inside: avoid; }
+  .exam-label { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .badge-exam-lg { background: var(--exam); color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: .05em; }
+  .exam-topic { color: var(--exam); font-weight: 700; font-size: 14px; }
+  .exam-block p, .exam-block li { color: #e0b0a0; font-size: 13px; line-height: 1.9; }
+  .exam-block ul, .exam-block ol { padding-left: 20px; }
+  .exam-block li { margin-bottom: 4px; }
+
+  .core-box { background: linear-gradient(135deg, #172218 0%, #1e2a1e 100%); border: 1px solid var(--green-dim); border-radius: 10px; padding: 22px 24px; margin-top: 36px; }
+  .core-box h3 { color: var(--green); font-size: 15px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .core-box h3::before { content: '✦'; }
+  .core-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .core-n { min-width: 28px; height: 28px; background: var(--green); color: #0f1a12; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+  .core-item p { font-size: 13px; color: var(--cream); line-height: 1.8; }
+  .core-item strong { color: var(--green); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  @media print {
+    .tabs { display: none; }
+    .tab-panel { display: block !important; padding: 16px; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    .site-header { background: #f5f5f0; }
+    .card, .ministry-block, .principle, .exam-block { break-inside: avoid; }
+  }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="site-header">
+  <div class="meta-row">
+    <span class="badge badge-subject">목회학 · 63117</span>
+    <span class="badge badge-week">15주차</span>
+    <span class="badge badge-date">2026-06-15 기말고사</span>
+    <span class="badge badge-exam">📝 시험 소스 정리</span>
+  </div>
+  <h1>건강한 교회를 세우기 위한 목회 방법</h1>
+  <div class="sub">이영호 교수 · 교회의 5가지 기능 + 활성화 방법 · 노트 종합 정리</div>
+</div>
+
+<div class="question-box">
+  <div class="q-label">📋 기말고사 문제</div>
+  <div class="q-text">건강한 교회를 세우기 위한 목회 방법을 논하시오</div>
+  <ul class="q-items">
+    <li>(1) 교회의 5가지 기능</li>
+    <li>(2) 5가지 기능의 활성화 방법</li>
+  </ul>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('notes', this)">📋 강의노트</button>
+  <button class="tab-btn" onclick="showTab('summary', this)">📌 핵심정리</button>
+  <button class="tab-btn" onclick="showTab('apply', this)">⛪ 활성화 방법</button>
+</div>
+
+<!-- 탭 1: 강의노트 -->
+<div id="tab-notes" class="tab-panel active">
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">1</span>교회의 5가지 기능 — 릭 워렌(새들백 교회) 분류 체계</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>구분</th><th>기능</th><th>성격</th><th>핵심 성경</th></tr>
+        <tr><td>대내적 사역</td><td><strong style="color:var(--cream)">① 예배</strong></td><td>교회 본질 — 성전(聖殿), 첫 번째 기능</td><td style="color:var(--bible)">요 4:23 / 출 40:34</td></tr>
+        <tr><td>대내적 사역</td><td><strong style="color:var(--cream)">② 교제(친교)</strong></td><td>κοινωνία — 수직+수평적 관계</td><td style="color:var(--bible)">행 2:42-47 / 요일 1:3</td></tr>
+        <tr><td>대내적 사역</td><td><strong style="color:var(--cream)">③ 봉사</strong></td><td>은사 기반 섬김</td><td style="color:var(--bible)">롬 12:6-8 / 고전 12:4-11</td></tr>
+        <tr><td>대외적 사역</td><td><strong style="color:var(--cream)">④ 전도</strong></td><td>세상을 향한 사역</td><td style="color:var(--bible)">고전 9:22 / 막 1:17</td></tr>
+        <tr><td class="td-center">중심적 사역</td><td class="td-center">⑤ 교육 ★ 핵심</td><td class="td-center">나머지 4기능을 가능케 함</td><td style="color:var(--bible)">마 28:20 / 엡 4:11-13</td></tr>
+      </table>
+    </div>
+
+    <div class="prof-block">
+      "교육이 중심에 있어야 나머지 네 가지 기능이 잘 된다. 예배·전도·교재·봉사가 왜 필요한지, 어떻게 하는지를 교육해야 한다. 교육이 잘 돼야 건강한 교회가 되고, 건강한 교회는 자연적으로 성장한다." — 이영호 교수
+    </div>
+
+    <div style="margin-top:18px; font-size:13px; font-weight:700; color:var(--cream); margin-bottom:12px;">각 기능의 성경적 근거 및 신학적 이해</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head">① 예배</div>
+        <p>교회의 본질이 성전(聖殿)이기 때문에 첫 번째 기능이다. 성전에는 항상 하나님의 영광이 임해야 하며, 그 영광이 있는 곳이 진정한 예배의 현장이다. 예배의 본질 = 하나님과의 인격적 만남.</p>
+        <div class="card-bible">요 4:23 / 출 40:34 / 왕상 8:11 / 겔 44:4</div>
+      </div>
+      <div class="card">
+        <div class="card-head">② 교제(친교)</div>
+        <p>κοινωνία(코이노니아) — 단순한 친교가 아닌 생명력 있는 친교. 수직적(하나님과의 사귐) + 수평적(성도 간 사귐) 관계가 불가분하게 연결된다. 삼위일체 공동체 원리.</p>
+        <div class="card-bible">행 2:42-47 / 요일 1:3 / 막 3:35</div>
+      </div>
+      <div class="card">
+        <div class="card-head">③ 봉사</div>
+        <p>은사를 따라 섬기는 사역. 가르치는·섬기는·구제하는·다스리는 은사가 모두 기능해야 건강한 교회다. 목회자가 모든 것을 감당하는 구조가 아닌 성도 전체가 사역자가 되는 구조.</p>
+        <div class="card-bible">롬 12:6-8 / 고전 12:4-11 / 엡 4:11-12</div>
+      </div>
+      <div class="card">
+        <div class="card-head">④ 전도</div>
+        <p>대외적 사역. 성도의 은사와 연결되어 자연스러운 삶의 열매로 일어남. 초대교회 모델: 이렇게 살다 보니 전도가 된 것 (행 2:43-47). 전도 대상자에 맞는 방법 활용.</p>
+        <div class="card-bible">고전 9:22 / 막 1:17 / 행 2:43-47</div>
+      </div>
+      <div class="card" style="border-color:var(--green-dim);">
+        <div class="card-head" style="color:var(--cream);">⑤ 교육 ★ 중심</div>
+        <p>교회의 핵심 사명 = 가르치는 것 (마 28:20). 목사(ποιμήν, poimen) = 가르치는 목자(shepherd-teacher). 1년 행사 전체가 교육 커리큘럼이다. 나머지 4기능을 작동시키는 엔진.</p>
+        <div class="card-bible">마 28:19-20 / 엡 4:11-13 / 딤후 2:2</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">2</span>이론적 배경 — 슈바르츠 『자연적 교회 성장』(NCD)</div>
+
+    <div class="principle">
+      <div class="p-title">핵심 명제: 성장이 아닌 건강</div>
+      <div class="p-body">"교회의 성장이 아니라 <strong style="color:var(--green)">교회의 건강</strong>이 중요한 시대가 온다." — Rick Warren / 슈바르츠<br>방법이 아닌 원리에서 성장의 원인을 찾는다. 생명체는 건강하면 자연적으로 성장한다. 6대주 32개국 1,000교회 설문조사 기반.</div>
+      <span class="p-bible">막 4:26-29 — 씨 → 뿌리 → 줄기 → 가지 → 열매</span>
+    </div>
+
+    <div style="font-size:13px; font-weight:700; color:var(--cream); margin:16px 0 10px;">8가지 건강 요소</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-head"><span class="card-num">1</span> 사역자를 세우는 지도력</div>
+        <ul><li>지도자 재생산 / 평신도 사역 활성화</li><li>사역 위임 / 지도력 개발</li><li>만인 제사장 원리 (종교개혁)</li></ul>
+        <div class="card-bible">엡 4:11-12 / 행 6:1-7</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">2</span> 은사중심적 사역</div>
+        <ul><li>은사 발견과 훈련 / 적재적소 배치</li><li>사역 만족도 향상 / 자발적 봉사</li><li>설문조사로 하고 싶은 것 파악</li></ul>
+        <div class="card-bible">롬 12:6-8 / 고전 12:4-11</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">3</span> 열정적 영성</div>
+        <ul><li>기도생활 활성화 (중보기도)</li><li>말씀에 대한 열정</li><li>헌신적인 신앙 / 영적 성장 추구</li></ul>
+        <div class="card-bible">엡 5:18 / 골 3:16</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">4</span> 기능적 조직</div>
+        <ul><li>효율적 의사결정</li><li>사역 지원 중심 조직</li><li>불필요한 절차 최소화 / 유연성</li></ul>
+        <div class="card-bible">행 6:1-7 (초대교회 행정 분리)</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">5</span> 영감 있는 예배</div>
+        <ul><li>"교회에 가는 것이 정말 즐겁다"</li><li>세상이 줄 수 없는 것 — 하나님과의 만남</li><li>에너지 전환 법칙: 예배가 살아나면 연쇄 활성화</li></ul>
+        <div class="card-bible">요 4:23-24 / 시 122:1</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">6</span> 전인적 소그룹</div>
+        <ul><li>"터놓고 이야기할 소그룹에 속해 있다"</li><li>의도적으로 소그룹 번식 촉진</li><li>코이노니아 — 영적 친밀감</li></ul>
+        <div class="card-bible">행 2:42-47 / 롬 16:5</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-num">7</span> 필요중심적 전도</div>
+        <ul><li>전도가 성도의 은사와 연결</li><li>자연스러운 삶의 열매로서의 전도</li><li>전도 대상자에 맞는 방법 활용</li></ul>
+        <div class="card-bible">고전 9:22 / 막 1:17</div>
+      </div>
+      <div class="card" style="border-color:rgba(196,154,60,.4);">
+        <div class="card-head" style="color:var(--task)"><span class="card-num" style="background:var(--task);color:#0f1a12;">8</span> 사랑의 관계 ⭐ 최중요</div>
+        <ul><li>서로 얼마나 자주 초대하는가</li><li>교회 안에 웃음이 얼마나 있는가</li><li>성령 충만으로 임하는 영적 온도 — 인위적으로 친해지는 것 아님</li></ul>
+        <div class="card-bible">행 2:44-47 / 요 13:35</div>
+      </div>
+    </div>
+
+    <div class="principle" style="margin-top:16px;">
+      <div class="p-title">최소치 전략 (Minimum Strategy)</div>
+      <div class="p-body">8가지 특징 중 <strong style="color:var(--green)">가장 약한 부분</strong>의 정도에 따라 교회 전체 성장이 결정된다. 물통의 가장 짧은 판자 원리. 최소치를 높이면 교회 전체가 성장한다.<br>
+      5가지 생명체 원리: ①상호의존성 ②번식성 ③에너지 전환성 ④다목적성 ⑤공생성 — 기능들이 유기적으로 연결됨</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">3</span>마크 데버 — 건강한 교회의 9가지 특징</div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>#</th><th>특징</th><th>핵심 내용</th></tr>
+        <tr><td>1</td><td>강해설교</td><td>본문 의미 50~60% + 적용 + 교리. 청교도 전통. 성경신학·구속사적 관점 필수</td></tr>
+        <tr><td>2</td><td>성경신학</td><td>구속사적 관점으로 성경 전체를 꿰뚫는 신학적 백그라운드</td></tr>
+        <tr><td>3</td><td>복음에 대한 성경적 이해</td><td>종교다원주의·보편구원론 등 변질된 복음에 대한 분명한 입장</td></tr>
+        <tr><td>4</td><td>회심에 대한 성경적 이해</td><td>예수님을 믿으면 삶의 변화가 동반된다. 개혁주의에서 '회심' 강조</td></tr>
+        <tr><td>5</td><td>전도에 대한 성경적 이해</td><td>전통적·성경적 전도관. 변화된 삶의 열매로서의 전도</td></tr>
+        <tr><td>6</td><td>교인 자격에 대한 성경적 이해</td><td>교회 = 언약 공동체. "앞문을 높이면 뒷문도 높아진다"</td></tr>
+        <tr><td>7</td><td>교회 징계에 대한 성경적 이해</td><td>마 18:15-17. 권면 → 회개 → 회복의 과정. 교회의 거룩성 유지</td></tr>
+        <tr><td>8</td><td>제자훈련과 영적 성장</td><td>말씀으로 성도를 훈련시켜 영적으로 성장시킨다</td></tr>
+        <tr><td>9</td><td>성경적 교회 리더십</td><td>복수 리더십 + 철저한 섬김의 리더십(servant leadership)</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- 탭 2: 핵심정리 -->
+<div id="tab-summary" class="tab-panel">
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">교회의 5가지 기능 — 반드시 암기</span></div>
+    <ul>
+      <li>① 예배 — 대내적 / 교회 본질(성전) / 첫 번째 기능 | 요 4:23</li>
+      <li>② 교제(친교) — 대내적 / κοινωνία / 수직+수평적 관계 | 행 2:42-47</li>
+      <li>③ 봉사 — 대내적 / 은사 기반 섬김 | 롬 12:6-8</li>
+      <li>④ 전도 — 대외적 / 삶의 열매로서 | 고전 9:22</li>
+      <li>⑤ 교육 — <strong style="color:var(--exam)">중심적 사역 / 나머지 4기능을 가능케 함</strong> | 마 28:20, 엡 4:11-13</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">릭 워렌 체계에서 교육의 위치</span></div>
+    <p>대내적(예배·교재·봉사) + 대외적(전도) + <strong style="color:var(--exam)">중심적(교육)</strong><br>
+    → 교육이 중심이어야 나머지 4기능이 모두 작동한다.<br>
+    → 목사(ποιμήν) = 가르치는 목자(shepherd-teacher) — 엡 4:11<br>
+    → 목사의 임무(엡 4:12-13): 성도를 온전하게 → 봉사 → 교회를 세우는 자</p>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">슈바르츠 8가지 요소 → 5기능 매핑</span></div>
+    <ul>
+      <li>예배 활성화 → ⑤ 영감 있는 예배 (에너지 전환 법칙)</li>
+      <li>교제 활성화 → ⑥ 전인적 소그룹 + ⑧ 사랑의 관계 ⭐최중요</li>
+      <li>봉사 활성화 → ② 은사중심적 사역</li>
+      <li>전도 활성화 → ⑦ 필요중심적 전도</li>
+      <li>교육 활성화 → ① 사역자를 세우는 지도력 (건강한 교회 질적 특징 1순위)</li>
+    </ul>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">교육이 중요한 3가지 이유</span></div>
+    <ol>
+      <li>영적 양식의 공급 통로 — 성도가 교회 선택 시 두 번째 기준 = 교육 프로그램</li>
+      <li>지도자 양성의 필수 도구 — 슈바르츠 1순위: 지도자가 재생산되고 있는가</li>
+      <li>성도의 역할 인식 — 신앙생활·봉사 방법은 눈치가 아닌 교육으로 알게 됨</li>
+    </ol>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">건강한 교회의 예배 5가지 특징 — 김덕수</span></div>
+    <ol>
+      <li>하나님 경배가 목적 — 초점이 하나님께</li>
+      <li>삶을 변화시키는 예배</li>
+      <li>삶의 현장으로 확산되는 예배 (겔 47장 생명수)</li>
+      <li>성령의 이끌림을 받는 예배</li>
+      <li>예배와 전도의 이분법 극복</li>
+    </ol>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">교육 커리큘럼 4단계 (새들백 교회 모델)</span></div>
+    <ol>
+      <li>기독교 기본 진리 — 새신자 복음·신앙 기초 (신 6장)</li>
+      <li>교회 회원권 교육 — 침례·등록 의미, 헌신 서약 | <em style="color:var(--exam)">"앞문을 높이면 뒷문도 높아진다"</em></li>
+      <li>회원 성장 교육 — 영적 성장·지도자 훈련</li>
+      <li>봉사·섬김 교육 — 봉사의 자세와 방법</li>
+    </ol>
+  </div>
+
+  <div class="exam-block">
+    <div class="exam-label"><span class="badge-exam-lg">기말 6/15</span><span class="exam-topic">소그룹의 4가지 기능 (14주차)</span></div>
+    <ul>
+      <li><strong>말씀</strong> — 말씀 중심 나눔, 한 구절이라도 삶과 연결</li>
+      <li><strong>기도</strong> — 함께 기도할 때 홀로와 비교할 수 없는 영적 감동</li>
+      <li><strong>돌봄</strong> — 어려울 때 함께함. 상호 책임(mutual accountability)</li>
+      <li><strong>양육</strong> — 본을 보임으로 제자훈련. 지식만이 아닌 삶을 보여줌</li>
+    </ul>
+  </div>
+
+  <div class="core-box">
+    <h3>오늘 목회 핵심 원칙 3가지</h3>
+    <div class="core-item">
+      <div class="core-n">1</div>
+      <p><strong>건강이 성장을 만든다</strong> — 5가지 기능이 유기적으로 작동하는 교회가 건강한 교회다. 방법을 모방하지 말고 원리를 따르라. 건강하면 자연적으로 성장한다. (막 4:26-29)</p>
+    </div>
+    <div class="core-item">
+      <div class="core-n">2</div>
+      <p><strong>교육이 중심에 있어야 5기능이 산다</strong> — 예배·교제·봉사·전도가 왜 필요한지, 어떻게 하는지를 교육해야 한다. 목사 = 가르치는 목자(shepherd-teacher). (엡 4:11-13)</p>
+    </div>
+    <div class="core-item">
+      <div class="core-n">3</div>
+      <p><strong>최소치를 높여라</strong> — 5가지 기능 중 가장 약한 부분이 교회 전체를 제한한다. 물통의 가장 짧은 판자를 높일 때 교회 전체가 성장한다. (슈바르츠 최소치 전략)</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- 탭 3: 활성화 방법 -->
+<div id="tab-apply" class="tab-panel">
+
+  <div style="font-size:13px; color:var(--muted); margin-bottom:20px; padding:12px 16px; background:var(--card); border-radius:8px; border-left:3px solid var(--green-dim);">
+    각 기능의 활성화 방법 — 노트 전체(11·12·13·14주차) 종합 정리
+  </div>
+
+  <!-- 예배 활성화 -->
+  <div class="ministry-block">
+    <div class="ministry-head">
+      <div class="ministry-num">①</div>
+      <div class="ministry-title">예배 활성화</div>
+      <div class="ministry-sub">11주차 / 김덕수·이명희 교재</div>
+    </div>
+    <div class="ministry-body">
+      <div class="m-sub-title">건강한 교회의 예배 5가지 특징 (김덕수, 『건강한 목회를 통해 세워가는 건강한 교회』)</div>
+      <ul>
+        <li>하나님 경배가 목적 — 인간을 기분 좋게 하기 위한 것이 아님. 초점이 하나님께 맞춰질 때 기쁨·평강·확신의 영적 만족이 부수적으로 따라옴</li>
+        <li>삶을 변화시키는 예배 — 예배 후 삶이 바뀌어야 함. 성도가 교회 선택 시 가장 중시하는 요소 = '생명력 있는 예배'</li>
+        <li>삶의 현장으로 확산되는 예배 — 겔 47장 성전 생명수처럼, 예배의 감동이 일상 속 생명의 역사로 이어져야 함 (요 7:38)</li>
+        <li>성령의 이끌림을 받는 예배 — 전통·형식이 아닌 성령의 인도를 받는 살아있는 예배로 전환 (엡 5:18 — πληρούσθε 현재 명령 수동태)</li>
+        <li>예배와 전도의 이분법 극복 — 신령과 진정으로 예배를 드릴 때 불신자도 하나님을 만나는 역사가 일어남</li>
+      </ul>
+
+      <div class="m-sub-title">목회자의 예배 준비 7단계 (이명희, 『현대 예배론』)</div>
+      <ol class="step-list">
+        <li><strong>개인 예배에 충실</strong> — 목회자가 먼저 하나님을 만나야 성도를 만나게 할 수 있음. 영성은 쌓을 수 없고 하나님과의 관계에서만 얻어짐</li>
+        <li><strong>삶으로 예배</strong> — 설교자는 임산부처럼 말씀을 품고 살아야 함. 먹는 것, 말, 행동을 늘 하나님 앞에서</li>
+        <li><strong>시간을 드려라</strong> — 일주일 내내 1시간씩, 범사에 주님을 의지하며 기도하는 것이 핵심</li>
+        <li><strong>설교를 준비하라</strong> — 듣는 설교(본문 연구·깊이 있게) + 들리는 설교(청중의 삶에 공감). 묵상으로 깊이와 쉬움이 동시에 실현</li>
+        <li><strong>예배를 점검하라</strong> — 예배 순서 전체를 미리 점검. 신학적 일관성 확인</li>
+        <li><strong>예배 시설을 점검하라</strong> — 정돈된 예배당, 화장실 청결. 새신자·귀신자의 첫인상</li>
+        <li><strong>성도에게 예배의 중요성을 교육하라</strong> — 예배 순서의 신학적 의미를 가르쳐야 함. 준비된 성도가 준비된 예배를 만듦</li>
+      </ol>
+
+      <div class="m-quote">"예배를 준비할 때 이미 예배가 시작되었다." — 이명희, 『현대 예배론』</div>
+
+      <div class="m-sub-title">예배의 삼중적 기능 (M. Horton, 『개혁주의 예배론』)</div>
+      <ul>
+        <li>① 사죄 — 언약을 깨뜨린 죄인이 하나님 앞에 나아오는 방식. 예수님의 대속으로 완성</li>
+        <li>② 언약 갱신 — 설교를 통해 언약의 내용(말씀)을 기억하고 갱신함. 성도는 "아멘"으로 매주 언약을 갱신</li>
+        <li>③ 선교(파송) — 예배 후 세상으로 파송됨. 생명의 역사가 삶의 자리로 확산</li>
+      </ul>
+
+      <div class="m-sub-title">슈바르츠 NCD — 에너지 전환 법칙</div>
+      <p style="font-size:13px; color:var(--text);">8가지 질적 특징 중 <strong style="color:var(--green)">예배 하나가 살아나면 다른 요소들도 연쇄적으로 살아난다.</strong> 영감 있는 예배는 단일 기능이 아닌 전체 교회 활성화의 촉매다.</p>
+      <span class="m-bible">요 4:23 / 출 40:34 / 겔 47:1,9 / 요 7:38 / 엡 5:18</span>
+    </div>
+  </div>
+
+  <!-- 교제 활성화 -->
+  <div class="ministry-block">
+    <div class="ministry-head">
+      <div class="ministry-num">②</div>
+      <div class="ministry-title">교제(친교) 활성화</div>
+      <div class="ministry-sub">14주차 / 소그룹 신학</div>
+    </div>
+    <div class="ministry-body">
+      <div class="m-sub-title">소그룹의 신학적 기초</div>
+      <p style="font-size:13px; color:var(--text);">삼위일체 하나님(성부·성자·성령)이 세 분이면서 한 분으로 존재하시는 것이 최초의 소그룹이다. 소그룹은 인간이 고안한 프로그램이 아니라 <strong style="color:var(--green)">하나님의 존재 방식에서 비롯된 신학적 공동체 원리</strong>다.</p>
+
+      <div class="m-sub-title">소그룹의 4가지 기능</div>
+      <ul>
+        <li><strong>말씀</strong> — 말씀 중심 나눔. 한 구절이라도 삶과 연결해서 나눔. QT 나눔·설교 회고·삶의 이야기를 말씀과 연결하는 모든 것이 코이노니아</li>
+        <li><strong>기도</strong> — 함께 기도할 때 홀로 기도와 비교할 수 없는 영적 감동이 임함</li>
+        <li><strong>돌봄</strong> — 개인의 필요를 채워주는 것. 어려울 때 함께함. 상호 책임(mutual accountability)</li>
+        <li><strong>양육</strong> — 영적 성장에 초점. 본을 보임으로 제자훈련. 지식만이 아닌 삶을 보여줌</li>
+      </ul>
+
+      <div class="m-sub-title">역동적 소그룹의 핵심 요소</div>
+      <ul>
+        <li>하나님과의 친밀감 — 없으면 인간끼리의 친밀감은 동호회에 불과</li>
+        <li>소그룹이 잘 되는 징표: 터놓고 이야기할 수 있음 / 자신의 연약함을 고백할 수 있음 / 자발적으로 더 하고 싶음 / 10~20년 지속 + 자발적 분가</li>
+        <li>소그룹이 안 되는 징표: 빨리 바꿔달라고 함</li>
+      </ul>
+
+      <div class="m-sub-title">심플 처치(Simple Church) 핵심 3요소</div>
+      <p style="font-size:13px; color:var(--text);">예배 + 교육 + <strong style="color:var(--green)">소그룹</strong> → 봉사·전도는 이 세 가지가 잘 되면 자연 발생한다. 백화점식 사역을 줄이고 본질에 집중. 강소형 교회 트렌드.</p>
+
+      <div class="m-sub-title">역사적 소그룹 모델</div>
+      <ul>
+        <li>초대교회(행 2:43-47): 대그룹(성전) + 소그룹(집)의 이중 구조. 자연 발생적 전도</li>
+        <li>경건주의 슈페너: "교회 안의 작은 교회(ecclesiola in ecclesia)"</li>
+        <li>요한 웨슬리 속회: 모라비아 공동체에서 영향. 등록 전 3개월 속회 참여 필수</li>
+      </ul>
+
+      <div class="m-quote">"소그룹은 프로그램이 아니라 교회의 본질을 담는 목회 구조다. 교회가 새롭게 되는 시대마다 소그룹이 일어났다." — 14주차 강의</div>
+      <span class="m-bible">행 2:42-47 / 요일 1:3 / 막 3:35 / 엡 2장</span>
+    </div>
+  </div>
+
+  <!-- 교육 활성화 -->
+  <div class="ministry-block" style="border-color:var(--green-dim);">
+    <div class="ministry-head" style="background:#1a2a1a;">
+      <div class="ministry-num">③</div>
+      <div class="ministry-title" style="color:var(--green);">교육 활성화 ★ 중심 기능</div>
+      <div class="ministry-sub">12주차 / 릭 워렌·슈바르츠</div>
+    </div>
+    <div class="ministry-body">
+      <div class="m-sub-title">담임 목사의 교육 리더십 4가지 역할 (엡 4:12-13)</div>
+      <ul>
+        <li>방향 설정 — 교육의 비전과 방향을 정하고 목표를 설정</li>
+        <li>계획 수립 — 단기·중기·장기 교육 계획 (연간 행사 포함)</li>
+        <li>커리큘럼 설계 — 성도 전체를 위한 교육 프로그램 구성</li>
+        <li>지도자 양성 — 교육을 통해 충성된 평신도 지도자를 세움</li>
+      </ul>
+
+      <div class="m-sub-title">교육 커리큘럼 4단계</div>
+      <ol class="step-list">
+        <li><strong>기독교 기본 진리</strong> — 새신자 복음·신앙 기초 교육 (신 6장: "이 말씀을 마음에 새기고 부지런히 가르치라")</li>
+        <li><strong>교회 회원권 교육</strong> — 침례·교회 등록의 의미와 헌신 서약. 새들백 교회 101과정. <em style="color:var(--exam)">"앞문을 높이면 뒷문도 높아진다"</em></li>
+        <li><strong>회원 성장 교육</strong> — 영적 성장·지도자가 될 수 있도록 양육</li>
+        <li><strong>봉사·섬김 교육</strong> — 어떤 마음·자세·방법으로 봉사할 것인가</li>
+      </ol>
+
+      <div class="m-sub-title">교육 방법 3가지</div>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>방법</th><th>내용</th><th>특징</th></tr>
+          <tr><td>교회학교(부서별)</td><td>중등·고등·대학·청년부 연령별 교육</td><td>연령 단계별 접근</td></tr>
+          <tr><td>신앙 훈련 프로그램</td><td>새신자·회원·지도자·제자 훈련 (3~6개월 코스)</td><td>심화 훈련</td></tr>
+          <tr><td>소그룹(구역/셀/목자)</td><td>성경 교육 + 먼저 믿은 자의 삶의 본</td><td>지식 + 삶의 적용</td></tr>
+        </table>
+      </div>
+
+      <div class="m-sub-title">지도자 재생산 원리 — 딤후 2:2 승법 번식</div>
+      <p style="font-size:13px; color:var(--text);">내비게이터 완비전(One Mission): 한 사람을 양육 → 그 사람이 또 한 사람을 양육 → 온 세계가 전도된다.<br>
+      옥한흠 목사가 이 원리를 사랑의 교회에 접목 → 제자훈련 중심 목회의 탄생.<br>
+      목사의 임무(엡 4:12-13): 성도를 온전하게 하여 → <strong style="color:var(--green)">봉사</strong>의 일을 하게 하여 → 교회를 세우는 자가 되게 함</p>
+
+      <div class="m-sub-title">교회 교육의 독특성</div>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>구분</th><th>학교 교육</th><th>교회 교육</th></tr>
+          <tr><td>목표</td><td>지식 전달</td><td>삶의 변화 + 하나님 경외</td></tr>
+          <tr><td>방법</td><td>말로만 가르침</td><td>말 + 행동으로 본을 보임</td></tr>
+          <tr><td>내용</td><td>학문적 지식</td><td>언약의 말씀 + 삶에의 적용</td></tr>
+          <tr><td>성경 근거</td><td>—</td><td>에스라(연구→준행→가르침), 바울("나를 본받으라" 고전 11:1)</td></tr>
+        </table>
+      </div>
+
+      <div class="m-quote">사례 — 안종만 목사(대전 대흥침례교회): 『기초 성경 공부』 한 권을 평생 반복적으로 가르침. 성도들의 불만에도 불구하고 시간이 흐르면서 복음이 분명한 건강하고 성장하는 교회로 성숙.<br>"확실한 하나를 반복적으로 계속할 때 교회가 건강해지고 성장한다."</div>
+      <span class="m-bible">마 28:19-20 / 엡 4:11-13 / 딤후 2:2 / 신 6장 / 스 7:10</span>
+    </div>
+  </div>
+
+  <!-- 전도 활성화 -->
+  <div class="ministry-block">
+    <div class="ministry-head">
+      <div class="ministry-num">④</div>
+      <div class="ministry-title">전도 활성화</div>
+      <div class="ministry-sub">13주차 / NCD 7번째 요소</div>
+    </div>
+    <div class="ministry-body">
+      <div class="m-sub-title">필요중심적 전도 — 슈바르츠 NCD 7번째</div>
+      <ul>
+        <li>전도가 성도의 은사와 연결됨</li>
+        <li>전도가 자연스러운 삶의 열매로 일어남 — 의도된 프로그램이 아님</li>
+        <li>새신자들이 전도자가 됨 — 불신자 주변에 많기 때문</li>
+        <li>전도 대상자에 맞는 방법 활용 — <em>"고기가 원하는 대로 물고기를 잡는다. 물고기 종류에 따라 미끼가 달라지듯, 내가 원하는 방법이 아니라 전도 대상자에 맞는 방법으로"</em></li>
+      </ul>
+
+      <div class="m-sub-title">초대교회 전도 모델 (행 2:43-47)</div>
+      <p style="font-size:13px; color:var(--text);">함께 있음 → 통용 → 필요에 따라 나눔 → 식탁 교제 → 찬양 → 자연 발생적 전도.<br>
+      <strong style="color:var(--green)">"이렇게 살다 보니 전도가 된 것"</strong> — 의도된 전도 프로그램이 아니라 삶 자체가 전도였음</p>
+
+      <div class="m-sub-title">마크 데버의 전도관 (9가지 중 5번째)</div>
+      <p style="font-size:13px; color:var(--text);">전통적·성경적 전도관. 회심이 동반된 복음 전도. 변화된 삶의 열매로서의 전도. 종교다원주의·보편구원론에 분명히 반대.</p>
+
+      <span class="m-bible">고전 9:22 / 막 1:17 / 행 2:43-47</span>
+    </div>
+  </div>
+
+  <!-- 봉사 활성화 -->
+  <div class="ministry-block">
+    <div class="ministry-head">
+      <div class="ministry-num">⑤</div>
+      <div class="ministry-title">봉사 활성화</div>
+      <div class="ministry-sub">13주차 / NCD 1·2번째 요소</div>
+    </div>
+    <div class="ministry-body">
+      <div class="m-sub-title">은사중심적 사역 — 슈바르츠 NCD 2번째</div>
+      <ul>
+        <li>은사 발견 → 훈련 → 적재적소 배치 → 사역 만족도 향상 → 자발적 봉사</li>
+        <li>"교회는 성경 공부 리더만 필요한 게 아니다. 가르치는·섬기는·구제하는·다스리는 은사가 모두 기능해야 건강한 교회다" (롬 12:6-8)</li>
+        <li>은사 발견 방법: <em>"하고 싶은 것을 설문조사로 물어보면 됨 — 하나님의 부르심과 은사가 일치할 확률이 높다"</em></li>
+      </ul>
+
+      <div class="m-sub-title">사역자를 세우는 지도력 — 슈바르츠 NCD 1번째 (건강한 교회 질적 특징 1순위)</div>
+      <ul>
+        <li>종교개혁 3대 슬로건: 만인 제사장</li>
+        <li>목회자가 모든 것을 감당하는 구조 → 성도 전체를 사역자로 세우는 구조로 전환</li>
+        <li>지도자 재생산 / 평신도 사역 활성화 / 사역 위임</li>
+        <li>행 6:1-7 — 초대교회 행정 분리: 사도들이 기도와 말씀에 전념하기 위해 집사를 세움</li>
+      </ul>
+
+      <div class="m-sub-title">엡 4:12-13 — 봉사 활성화의 목적</div>
+      <p style="font-size:13px; color:var(--text);">성도를 온전하게 하여 → <strong style="color:var(--green)">봉사</strong>의 일을 하게 하여 → 그리스도의 몸을 세우게 하려 하심<br>
+      → "교육을 통해 영적 어린아이가 장성하고, 장성한 자가 다른 사람을 돌볼 수 있게 하는 것"</p>
+
+      <div class="m-quote">옥한흠 목사: "변화된 한 사람만 있어도 나는 일을 할 거다. 변화된 한 사람이 또 다른 사람을 변화시킨다."</div>
+      <span class="m-bible">엡 4:11-12 / 롬 12:6-8 / 고전 12:4-11 / 행 6:1-7</span>
+    </div>
+  </div>
+
+  <!-- 핵심 원칙 -->
+  <div class="core-box">
+    <h3>오늘 목회 핵심 원칙 3가지</h3>
+    <div class="core-item">
+      <div class="core-n">1</div>
+      <p><strong>예배가 살아나면 모든 것이 살아난다</strong> — 슈바르츠 에너지 전환 법칙. 예배가 살아나면 교제·봉사·전도·교육이 연쇄 활성화된다. 목회자의 예배 준비는 곧 삶이다. (요 4:23, 겔 47장)</p>
+    </div>
+    <div class="core-item">
+      <div class="core-n">2</div>
+      <p><strong>교육이 중심일 때 5기능이 통합된다</strong> — 예배가 왜 중요한지, 교제가 어떻게 이루어지는지, 봉사와 전도를 어떻게 해야 하는지를 교육해야 한다. 목사(shepherd-teacher)는 교육 팀의 리더다. (엡 4:11-13)</p>
+    </div>
+    <div class="core-item">
+      <div class="core-n">3</div>
+      <p><strong>은사와 소그룹이 기능을 유기적으로 연결한다</strong> — 성도를 은사에 따라 세우고(봉사), 소그룹 안에서 말씀·기도·돌봄·양육이 이루어질 때(교제), 전도는 자연 발생한다. 유기체(organism)적 교회 이해. (롬 12장, 행 2장)</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
