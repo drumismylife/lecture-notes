@@ -292,6 +292,13 @@ const SITE_DATA = {
       isNew: false
     },
     {
+      name: "기말고사 단어시험 (심화형)",
+      icon: "📝",
+      desc: "기본형+변화형 4지선다 단어시험, 문제 수 선택 가능",
+      href: "output/greek/greek-final-quiz.html",
+      isNew: true
+    },
+    {
       name: "문법노트 PDF (쉬운설명+시험문제)",
       icon: "📕",
       desc: "헬라어 문법 쉬운 설명 + 시험 문제 수록 PDF",

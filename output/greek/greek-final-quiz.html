@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>헬라어 I — 기말고사 단어시험 (심화형)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d2e;
+      --surface2: #242740;
+      --gold: #d4a843;
+      --gold-light: #e8c06a;
+      --text: #e8e9f0;
+      --text-muted: #8890a8;
+      --green: #4caf7d;
+      --red: #e05c5c;
+      --blue: #5b8dee;
+      --border: rgba(212,168,67,0.18);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    #lnotes-back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; margin: 14px 18px;
+      background: rgba(212,168,67,.12); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--gold); font-size: .82rem;
+      text-decoration: none; transition: background .2s;
+    }
+    #lnotes-back-btn:hover { background: rgba(212,168,67,.22); }
+
+    .page-header { text-align: center; padding: 10px 20px 0; }
+    .page-header h1 { font-size: 1.5rem; font-weight: 700; color: var(--gold-light); letter-spacing: -.3px; }
+    .page-header p { font-size: .85rem; color: var(--text-muted); margin-top: 5px; }
+
+    #quiz-view { padding: 24px 20px 60px; max-width: 580px; margin: 0 auto; }
+
+    .quiz-header { text-align: center; margin-bottom: 18px; }
+    .quiz-header h2 { font-size: 1.15rem; color: var(--gold-light); }
+    .quiz-header p  { font-size: .82rem; color: var(--text-muted); margin-top: 4px; }
+
+    .progress-wrap { margin-bottom: 18px; }
+    .progress-info { display: flex; justify-content: space-between;
+      font-size: .78rem; color: var(--text-muted); margin-bottom: 6px; }
+    .progress-bar { height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; }
+    .progress-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width .4s; }
+
+    .q-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 16px; padding: 30px 28px 24px;
+    }
+    .q-type-tag {
+      font-size: .7rem; font-weight: 700; letter-spacing: .8px;
+      color: var(--text-muted); margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .q-word {
+      font-size: 2.6rem; font-weight: 700; color: var(--gold-light);
+      letter-spacing: .5px; text-align: center; margin: 14px 0 8px;
+    }
+    .q-hint {
+      text-align: center; font-size: .82rem; color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .opt-btn {
+      width: 100%; padding: 13px 18px; text-align: left;
+      background: var(--surface2); border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: 10px; color: var(--text); font-size: .93rem;
+      cursor: pointer; transition: all .15s; line-height: 1.4;
+    }
+    .opt-btn .opt-detail { display:block; font-size:.76rem; color: var(--text-muted); margin-top:2px; }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--gold); background: rgba(212,168,67,.1);
+    }
+    .opt-btn.correct { background: rgba(76,175,125,.2); border-color: var(--green); color: #7de8a8; }
+    .opt-btn.correct .opt-detail { color: #a8e8c0; }
+    .opt-btn.wrong   { background: rgba(224,92,92,.2);  border-color: var(--red);   color: #f09090; }
+    .opt-btn.wrong .opt-detail { color: #f0b0b0; }
+    .opt-btn:disabled { cursor: default; }
+
+    .feedback-box {
+      background: rgba(255,255,255,.05); border-radius: 10px;
+      padding: 12px 16px; font-size: .85rem; line-height: 1.6;
+      color: var(--text-muted); display: none;
+    }
+    .feedback-box.show { display: block; }
+    .feedback-box.correct-fb { border-left: 3px solid var(--green); }
+    .feedback-box.wrong-fb   { border-left: 3px solid var(--red); }
+
+    .next-btn {
+      width: 100%; margin-top: 14px; padding: 13px;
+      background: var(--gold); border: none; border-radius: 10px;
+      color: #111; font-size: .97rem; font-weight: 700; cursor: pointer;
+      display: none; transition: opacity .2s;
+    }
+    .next-btn.show { display: block; }
+    .next-btn:hover { opacity: .88; }
+
+    .quit-btn {
+      width: 100%; margin-top: 10px; padding: 11px;
+      background: transparent; border: 1.5px solid var(--border); border-radius: 10px;
+      color: var(--text-muted); font-size: .88rem; cursor: pointer; transition: all .2s;
+    }
+    .quit-btn:hover { border-color: var(--red); color: #f09090; }
+
+    #result-screen { display: none; text-align: center; padding: 30px 20px; }
+    #result-screen.show { display: block; }
+    .result-circle {
+      width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 22px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: conic-gradient(var(--gold) calc(var(--pct)*1%), rgba(255,255,255,.06) 0);
+      position: relative;
+    }
+    .result-circle::before {
+      content: ''; position: absolute; inset: 10px;
+      background: var(--surface); border-radius: 50%;
+    }
+    .result-inner { position: relative; z-index: 1; }
+    .result-score { font-size: 2rem; font-weight: 800; color: var(--gold-light); }
+    .result-total { font-size: .8rem; color: var(--text-muted); }
+    .result-msg { font-size: 1.05rem; margin-bottom: 20px; }
+    .retry-btn {
+      padding: 12px 34px; background: var(--gold); border: none;
+      border-radius: 10px; color: #111; font-size: .97rem;
+      font-weight: 700; cursor: pointer; margin: 4px;
+    }
+
+    #start-screen { text-align: center; padding: 10px 20px 40px; }
+    .start-info { font-size: .88rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.7; }
+    .start-info span { color: var(--gold); font-weight: 600; }
+
+    .setting-block { margin-bottom: 18px; text-align: left; }
+    .setting-label { font-size: .8rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center; margin-bottom: 4px;
+    }
+    .filter-btn {
+      padding: 6px 16px; border-radius: 16px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--text-muted);
+      font-size: .8rem; cursor: pointer; transition: all .2s;
+    }
+    .filter-btn.active { background: var(--gold); border-color: var(--gold); color: #111; font-weight: 700; }
+
+    .category-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 10px;
+      margin: 14px 0 24px; text-align: left;
+    }
+    .cat-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 14px;
+    }
+    .cat-item .cat-name { font-size: .82rem; color: var(--gold); font-weight: 600; }
+    .cat-item .cat-count { font-size: .75rem; color: var(--text-muted); }
+    .start-btn {
+      padding: 13px 40px; background: var(--gold); border: none;
+      border-radius: 10px; color: #111; font-size: 1rem;
+      font-weight: 700; cursor: pointer;
+    }
+    .pool-warn { font-size: .8rem; color: #f09090; margin-top: 10px; display:none; }
+    .pool-warn.show { display:block; }
+
+    @media (max-width: 480px) {
+      .q-word { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="../../index.html" id="lnotes-back-btn">← 강의노트 홈</a>
+
+<div class="page-header">
+  <h1>헬라어 I — 기말고사 단어시험</h1>
+  <p>기본형 + 심화형(격·수·성·시제·태 변화형) · 4지선다</p>
+</div>
+
+<div id="quiz-view">
+
+  <!-- 시작 화면 -->
+  <div id="start-screen">
+    <div class="quiz-header">
+      <h2>📝 단어시험</h2>
+      <p>헬라어 단어를 보고 뜻과 문법정보를 맞춰보세요</p>
+    </div>
+    <div class="start-info">
+      전체 <span id="total-count">0</span>개 항목 중 <span id="pool-count">0</span>개가 출제 대상입니다 · 4지선다
+    </div>
+
+    <div class="setting-block">
+      <div class="setting-label">품사 카테고리</div>
+      <div class="filter-row" id="cat-filter">
+        <button class="filter-btn active" data-cat="all" onclick="toggleCat(this)">전체</button>
+        <button class="filter-btn" data-cat="verb" onclick="toggleCat(this)">동사</button>
+        <button class="filter-btn" data-cat="noun" onclick="toggleCat(this)">명사</button>
+        <button class="filter-btn" data-cat="adj" onclick="toggleCat(this)">형용사</button>
+        <button class="filter-btn" data-cat="prep" onclick="toggleCat(this)">전치사</button>
+        <button class="filter-btn" data-cat="pron" onclick="toggleCat(this)">대명사</button>
+      </div>
+    </div>
+
+    <div class="setting-block">
+      <div class="setting-label">난이도 (기본형 / 심화형)</div>
+      <div class="filter-row" id="level-filter">
+        <button class="filter-btn active" data-level="all" onclick="toggleLevel(this)">전체</button>
+        <button class="filter-btn" data-level="basic" onclick="toggleLevel(this)">기본형만</button>
+        <button class="filter-btn" data-level="adv" onclick="toggleLevel(this)">심화형만</button>
+      </div>
+    </div>
+
+    <div class="setting-block">
+      <div class="setting-label">문제 수</div>
+      <div class="filter-row" id="count-filter">
+        <button class="filter-btn active" data-count="10" onclick="toggleCount(this)">10문제</button>
+        <button class="filter-btn" data-count="20" onclick="toggleCount(this)">20문제</button>
+        <button class="filter-btn" data-count="all" onclick="toggleCount(this)">전체</button>
+      </div>
+    </div>
+
+    <div class="category-grid" id="cat-grid"></div>
+    <div class="pool-warn" id="pool-warn">선택한 조건에 해당하는 단어가 4개 미만입니다. 다른 조건을 선택해주세요.</div>
+    <button class="start-btn" onclick="startQuiz()">시험 시작</button>
+  </div>
+
+  <!-- 문제 화면 -->
+  <div id="q-screen" style="display:none;">
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span id="q-num">1 / 10</span>
+        <span id="q-score">맞은 수: 0</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
+    <div class="q-card">
+      <div class="q-type-tag" id="q-type-tag">단어 → 뜻 · 문법정보</div>
+      <div class="q-word" id="q-word">λύω</div>
+      <div class="q-hint" id="q-hint"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+    </div>
+    <button class="next-btn" id="next-btn" onclick="nextQ()">다음 →</button>
+    <button class="quit-btn" onclick="quitQuiz()">시험 종료</button>
+  </div>
+
+  <!-- 결과 화면 -->
+  <div id="result-screen">
+    <div class="result-circle" id="result-circle">
+      <div class="result-inner">
+        <div class="result-score" id="result-score">0</div>
+        <div class="result-total">/ 10</div>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg">수고하셨습니다!</div>
+    <button class="retry-btn" onclick="retryQuiz()">다시 풀기</button>
+    <button class="retry-btn" style="background:var(--surface2);color:var(--text);border:1.5px solid var(--border);" onclick="backToStart()">처음으로</button>
+  </div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// 단어 데이터 (기본형 level:'basic' + 심화형 level:'adv')
+// 심화형 격·시제·태 정보는 메이첸(Machen) 표준 패러다임 기준으로 검증됨
+// ══════════════════════════════════════════
+const WORDS = [
+  // ── 동사 (기본형: 현재 능동 1인칭 단수) ──
+  { greek:'λύω',       rom:'뤼오',     meaning:'풀다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'ἀκούω',     rom:'아쿠오',   meaning:'듣다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'βλέπω',     rom:'블레포',   meaning:'보다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'γινώσκω',   rom:'기노스코', meaning:'알다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'γράφω',     rom:'그라포',   meaning:'쓰다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'διδάσκω',   rom:'디다스코', meaning:'가르치다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'λαμβάνω',   rom:'람바노',   meaning:'취하다/받다',   cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'λέγω',      rom:'레고',     meaning:'말하다',        cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'πιστεύω',   rom:'피스튜오', meaning:'믿다',          cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'θεραπεύω',  rom:'테라퓨오', meaning:'치료하다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'ἐγείρω',    rom:'에게이로', meaning:'일으키다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'βαπτίζω',   rom:'밥티조',   meaning:'침례를 베풀다', cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'ἔχω',       rom:'에코',     meaning:'가지고 있다',   cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'σῴζω',      rom:'소조',     meaning:'구원하다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'ἄγω',       rom:'아고',     meaning:'인도하다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'βάλλω',     rom:'발로',     meaning:'던지다/놓다',   cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'μένω',      rom:'메노',     meaning:'머물다',        cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'πέμπω',     rom:'펨포',     meaning:'보내다',        cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'φέρω',      rom:'페로',     meaning:'가져오다',      cat:'verb', level:'basic', detail:'현재 능동 1인칭 단수' },
+  { greek:'ἔρχομαι',   rom:'에르코마이', meaning:'오다/가다',   cat:'verb', level:'basic', detail:'현재 1인칭 단수 (디포넌트)' },
+  { greek:'εἰμί',      rom:'에이미',   meaning:'…이다',         cat:'verb', level:'basic', detail:'현재 1인칭 단수' },
+
+  // ── 동사 심화형 (λύω 전 시제·태·분사) ──
+  { greek:'λύεις',   rom:'뤼에이스', meaning:'네가 풀다',         cat:'verb', level:'adv', detail:'현재 능동 2인칭 단수' },
+  { greek:'λύομεν',  rom:'뤼오멘',   meaning:'우리가 풀다',       cat:'verb', level:'adv', detail:'현재 능동 1인칭 복수' },
+  { greek:'ἔλυον',   rom:'엘뤼온',   meaning:'내가 풀고 있었다',  cat:'verb', level:'adv', detail:'미완료 능동 1인칭 단수' },
+  { greek:'λύσω',    rom:'뤼소',     meaning:'내가 풀 것이다',    cat:'verb', level:'adv', detail:'미래 능동 1인칭 단수' },
+  { greek:'ἔλυσα',   rom:'엘뤼사',   meaning:'내가 풀었다',       cat:'verb', level:'adv', detail:'1차 아오리스트 능동 1인칭 단수' },
+  { greek:'ἐλύθην',  rom:'엘뤼쎈',   meaning:'내가 풀렸다',       cat:'verb', level:'adv', detail:'아오리스트 수동 1인칭 단수' },
+  { greek:'λέλυκα',  rom:'렐뤼카',   meaning:'내가 풀었다(완료)', cat:'verb', level:'adv', detail:'완료 능동 1인칭 단수' },
+  { greek:'λύεται',  rom:'뤼에타이', meaning:'그것이 풀린다',     cat:'verb', level:'adv', detail:'현재 수동 3인칭 단수' },
+  { greek:'λύων',    rom:'뤼온',     meaning:'푸는 자',           cat:'verb', level:'adv', detail:'현재 능동 분사 남성 주격 단수' },
+
+  // ── 동사 심화형 (다른 동사들의 아오리스트/미완료) ──
+  { greek:'ἤκουσα',    rom:'에쿠사',     meaning:'내가 들었다',        cat:'verb', level:'adv', detail:'아오리스트 능동 1인칭 단수 (ἀκούω)' },
+  { greek:'ἔβλεψα',    rom:'에블렙사',   meaning:'내가 보았다',        cat:'verb', level:'adv', detail:'아오리스트 능동 1인칭 단수 (βλέπω)' },
+  { greek:'ἔγνων',     rom:'에그논',     meaning:'내가 알았다',        cat:'verb', level:'adv', detail:'2차(어근) 아오리스트 능동 1인칭 단수 (γινώσκω)' },
+  { greek:'ἔγραψα',    rom:'에그랍사',   meaning:'내가 썼다',          cat:'verb', level:'adv', detail:'아오리스트 능동 1인칭 단수 (γράφω)' },
+  { greek:'ἔλαβον',    rom:'엘라본',     meaning:'내가 받았다',        cat:'verb', level:'adv', detail:'2차 아오리스트 능동 1인칭 단수 (λαμβάνω)' },
+  { greek:'εἶπον',     rom:'에이폰',     meaning:'내가 말했다',        cat:'verb', level:'adv', detail:'2차 아오리스트 능동 1인칭 단수 (λέγω, 보충법)' },
+  { greek:'ἐπίστευσα', rom:'에피스튜사', meaning:'내가 믿었다',        cat:'verb', level:'adv', detail:'아오리스트 능동 1인칭 단수 (πιστεύω)' },
+  { greek:'εἶχον',     rom:'에이혼',     meaning:'내가 가지고 있었다', cat:'verb', level:'adv', detail:'미완료 능동 1인칭 단수 (ἔχω)' },
+  { greek:'ἔβαλον',    rom:'에발론',     meaning:'내가 던졌다',        cat:'verb', level:'adv', detail:'2차 아오리스트 능동 1인칭 단수 (βάλλω)' },
+  { greek:'ἔμεινα',    rom:'에메이나',   meaning:'내가 머물렀다',      cat:'verb', level:'adv', detail:'아오리스트 능동 1인칭 단수 (μένω, 유음동사)' },
+  { greek:'ἦλθον',     rom:'엘쏜',       meaning:'내가 갔다/왔다',     cat:'verb', level:'adv', detail:'2차 아오리스트 1인칭 단수 (ἔρχομαι, 보충법)' },
+  { greek:'ἦν',        rom:'엔',         meaning:'그가 ~이었다',       cat:'verb', level:'adv', detail:'미완료 직설법 3인칭 단수 (εἰμί)' },
+  { greek:'ἔσται',     rom:'에스타이',   meaning:'그가 ~일 것이다',    cat:'verb', level:'adv', detail:'미래 직설법 3인칭 단수 (εἰμί)' },
+
+  // ── 명사 — 남성 (기본형: 주격 단수) ──
+  { greek:'ἀδελφός',   rom:'아델포스',   meaning:'형제',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'ἄνθρωπος',  rom:'안트로포스', meaning:'사람',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'ἀπόστολος', rom:'아포스톨로스', meaning:'사도',        cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'δοῦλος',    rom:'둘로스',     meaning:'종/일꾼',       cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'θάνατος',   rom:'타나토스',   meaning:'죽음',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'θεός',      rom:'테오스',     meaning:'하나님',        cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'λόγος',     rom:'로고스',     meaning:'말씀',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'νόμος',     rom:'노모스',     meaning:'율법',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'οἶκος',     rom:'오이코스',   meaning:'집',            cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'υἱός',      rom:'휘오스',     meaning:'아들',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'κόσμος',    rom:'코스모스',   meaning:'세상/우주',     cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'ἄγγελος',   rom:'앙겔로스',   meaning:'천사/사자',     cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'λίθος',     rom:'리토스',     meaning:'돌',            cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'μαθητής',   rom:'마테테스',   meaning:'제자',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'οὐρανός',   rom:'우라노스',   meaning:'하늘',          cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'προφήτης',  rom:'프로페테스', meaning:'선지자/예언자', cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'τόπος',     rom:'토포스',     meaning:'장소/곳',       cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+  { greek:'κύριος',    rom:'퀴리오스',   meaning:'주/주님',       cat:'noun', level:'basic', gender:'남성', form:'ὁ', detail:'단수 주격' },
+
+  // ── 명사 — 여성 (기본형: 주격 단수) ──
+  { greek:'ἀλήθεια',   rom:'알레테이아', meaning:'진리',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'βασιλεία',  rom:'바실레이아', meaning:'왕국/나라',     cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'γραφή',     rom:'그라페',     meaning:'성경/문서',     cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'δόξα',      rom:'독사',       meaning:'영광',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'εἰρήνη',    rom:'에이레네',   meaning:'평화',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ἐκκλησία',  rom:'에클레시아', meaning:'교회',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ἐντολή',    rom:'엔톨레',     meaning:'계명/명령',     cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ζωή',       rom:'조에',       meaning:'생명',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ἡμέρα',     rom:'헤메라',     meaning:'날/하루',       cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'καρδία',    rom:'카르디아',   meaning:'마음',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'παραβολή',  rom:'파라볼레',   meaning:'비유',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'φωνή',      rom:'포네',       meaning:'음성/소리',     cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ψυχή',      rom:'프쉬케',     meaning:'혼/영혼/목숨',  cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ὥρα',       rom:'호라',       meaning:'시간/때',       cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ἔρημος',    rom:'에레모스',   meaning:'광야/빈들',     cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'ὁδός',      rom:'호도스',     meaning:'길',            cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+  { greek:'σοφία',     rom:'소피아',     meaning:'지혜',          cat:'noun', level:'basic', gender:'여성', form:'ἡ', detail:'단수 주격' },
+
+  // ── 명사 — 중성 (기본형: 주격 단수) ──
+  { greek:'δῶρον',     rom:'도론',       meaning:'선물',          cat:'noun', level:'basic', gender:'중성', form:'τό', detail:'단수 주격' },
+  { greek:'ἱερόν',     rom:'히에론',     meaning:'성전',          cat:'noun', level:'basic', gender:'중성', form:'τό', detail:'단수 주격' },
+  { greek:'τέκνον',    rom:'테크논',     meaning:'아이/자녀',     cat:'noun', level:'basic', gender:'중성', form:'τό', detail:'단수 주격' },
+
+  // ── 명사 심화형 (격·수 변화) ──
+  { greek:'λόγου',  rom:'로구',   meaning:'말씀의',     cat:'noun', level:'adv', gender:'남성', detail:'단수 속격' },
+  { greek:'λόγῳ',   rom:'로고',   meaning:'말씀에게',   cat:'noun', level:'adv', gender:'남성', detail:'단수 여격' },
+  { greek:'λόγον',  rom:'로곤',   meaning:'말씀을',     cat:'noun', level:'adv', gender:'남성', detail:'단수 대격' },
+  { greek:'λόγοι',  rom:'로고이', meaning:'말씀들 (이)', cat:'noun', level:'adv', gender:'남성', detail:'복수 주격' },
+  { greek:'λόγων',  rom:'로곤',   meaning:'말씀들의',   cat:'noun', level:'adv', gender:'남성', detail:'복수 속격' },
+
+  { greek:'ἀνθρώπου', rom:'안트로푸',   meaning:'사람의',     cat:'noun', level:'adv', gender:'남성', detail:'단수 속격' },
+  { greek:'ἀνθρώπῳ',  rom:'안트로포',   meaning:'사람에게',   cat:'noun', level:'adv', gender:'남성', detail:'단수 여격' },
+  { greek:'ἄνθρωποι', rom:'안트로포이', meaning:'사람들 (이)', cat:'noun', level:'adv', gender:'남성', detail:'복수 주격' },
+
+  { greek:'ζωῆς', rom:'조에스', meaning:'생명의',   cat:'noun', level:'adv', gender:'여성', detail:'단수 속격' },
+  { greek:'ζωῇ',  rom:'조에',   meaning:'생명으로', cat:'noun', level:'adv', gender:'여성', detail:'단수 여격' },
+  { greek:'ζωήν', rom:'조엔',   meaning:'생명을',   cat:'noun', level:'adv', gender:'여성', detail:'단수 대격' },
+
+  { greek:'καρδίας', rom:'카르디아스', meaning:'마음의',   cat:'noun', level:'adv', gender:'여성', detail:'단수 속격' },
+  { greek:'καρδίᾳ',  rom:'카르디아',   meaning:'마음으로', cat:'noun', level:'adv', gender:'여성', detail:'단수 여격' },
+  { greek:'καρδίαν', rom:'카르디안',   meaning:'마음을',   cat:'noun', level:'adv', gender:'여성', detail:'단수 대격' },
+
+  { greek:'δόξης', rom:'독세스', meaning:'영광의',   cat:'noun', level:'adv', gender:'여성', detail:'단수 속격' },
+  { greek:'δόξῃ',  rom:'독세',   meaning:'영광으로', cat:'noun', level:'adv', gender:'여성', detail:'단수 여격' },
+  { greek:'δόξαν', rom:'독산',   meaning:'영광을',   cat:'noun', level:'adv', gender:'여성', detail:'단수 대격' },
+
+  { greek:'δώρου', rom:'도루', meaning:'선물의',        cat:'noun', level:'adv', gender:'중성', detail:'단수 속격' },
+  { greek:'δώρῳ',  rom:'도로', meaning:'선물에',        cat:'noun', level:'adv', gender:'중성', detail:'단수 여격' },
+  { greek:'δῶρα',  rom:'도라', meaning:'선물들 (을)',   cat:'noun', level:'adv', gender:'중성', detail:'복수 주격·대격' },
+
+  // ── 형용사 (기본형: 남성 주격 단수) ──
+  { greek:'ἀγαθός',   rom:'아가토스',   meaning:'좋은/착한',     cat:'adj', level:'basic', form:'ή, όν',  detail:'남성 단수 주격' },
+  { greek:'κακός',    rom:'카코스',     meaning:'나쁜/악한',     cat:'adj', level:'basic', form:'ή, όν',  detail:'남성 단수 주격' },
+  { greek:'καλός',    rom:'칼로스',     meaning:'좋은/아름다운', cat:'adj', level:'basic', form:'ή, όν',  detail:'남성 단수 주격' },
+  { greek:'μικρός',   rom:'미크로스',   meaning:'작은/적은',     cat:'adj', level:'basic', form:'ά, όν',  detail:'남성 단수 주격' },
+  { greek:'νεκρός',   rom:'네크로스',   meaning:'죽은',          cat:'adj', level:'basic', form:'ά, όν',  detail:'남성 단수 주격' },
+  { greek:'δίκαιος',  rom:'디카이오스', meaning:'옳은/의로운',   cat:'adj', level:'basic', form:'αία, ον', detail:'남성 단수 주격' },
+  { greek:'ἄλλος',    rom:'알로스',     meaning:'다른',          cat:'adj', level:'basic', form:'η, ο',   detail:'남성 단수 주격' },
+  { greek:'πρῶτος',   rom:'프로토스',   meaning:'처음의/첫 번째인', cat:'adj', level:'basic', form:'η, ον', detail:'남성 단수 주격' },
+  { greek:'ἔσχατος',  rom:'에스카토스', meaning:'마지막의',      cat:'adj', level:'basic', form:'η, ον',  detail:'남성 단수 주격' },
+  { greek:'ἅγιος',    rom:'하기오스',   meaning:'거룩한',        cat:'adj', level:'basic', form:'α, ον',  detail:'남성 단수 주격' },
+  { greek:'πιστός',   rom:'피스토스',   meaning:'신실한/믿음직한', cat:'adj', level:'basic', form:'ή, όν', detail:'남성 단수 주격' },
+  { greek:'μόνος',    rom:'모노스',     meaning:'유일한/홀로',   cat:'adj', level:'basic', form:'η, ον',  detail:'남성 단수 주격' },
+
+  // ── 형용사 심화형 (성·수 일치형) ──
+  { greek:'ἀγαθή',  rom:'아가테',  meaning:'선한 (여성형)',     cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἀγαθόν', rom:'아가톤',  meaning:'선한 (중성형)',     cat:'adj', level:'adv', detail:'중성 단수 주격' },
+  { greek:'ἀγαθοί', rom:'아가토이', meaning:'선한 (남성 복수형)', cat:'adj', level:'adv', detail:'남성 복수 주격' },
+  { greek:'δικαία', rom:'디카이아', meaning:'옳은 (여성형)',     cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'δίκαιον', rom:'디카이온', meaning:'옳은 (중성형)',    cat:'adj', level:'adv', detail:'중성 단수 주격' },
+
+  // ── 전치사 (기본형만) ──
+  { greek:'ἀπό',      rom:'아포',      meaning:'~로부터',            cat:'prep', level:'basic', detail:'+속격' },
+  { greek:'διά',      rom:'디아',      meaning:'~를 통하여/~때문에', cat:'prep', level:'basic', detail:'+속격/+대격' },
+  { greek:'εἰς',      rom:'에이스',    meaning:'~안으로/~을 향해',   cat:'prep', level:'basic', detail:'+대격' },
+  { greek:'ἐκ / ἐξ',  rom:'에크/엑스', meaning:'~밖으로',            cat:'prep', level:'basic', detail:'+속격' },
+  { greek:'ἐν',       rom:'엔',        meaning:'~안에',               cat:'prep', level:'basic', detail:'+여격' },
+  { greek:'μετά',     rom:'메타',      meaning:'~와 함께/~후에',      cat:'prep', level:'basic', detail:'+속격/+대격' },
+  { greek:'πρός',     rom:'프로스',    meaning:'~에게로/~곁에',       cat:'prep', level:'basic', detail:'+대격' },
+  { greek:'ὑπό',      rom:'휘포',      meaning:'~아래에/~에 의해',    cat:'prep', level:'basic', detail:'+속격/+대격' },
+  { greek:'παρά',     rom:'파라',      meaning:'~곁에/~로부터',       cat:'prep', level:'basic', detail:'+속격/여격/대격' },
+
+  // ── 대명사 & 접속사 (기본형만) ──
+  { greek:'ἐγώ',      rom:'에고',      meaning:'나 (1인칭)',           cat:'pron', level:'basic', detail:'주격' },
+  { greek:'σύ',       rom:'쉬',        meaning:'너 (2인칭)',           cat:'pron', level:'basic', detail:'주격' },
+  { greek:'αὐτός',    rom:'아우토스',  meaning:'그/그녀/그것 (3인칭)', cat:'pron', level:'basic', detail:'남성 주격' },
+  { greek:'οὗτος',    rom:'후토스',    meaning:'이것/이 사람',         cat:'pron', level:'basic', detail:'지시대명사' },
+  { greek:'ἐκεῖνος',  rom:'에케이노스', meaning:'저것/저 사람',        cat:'pron', level:'basic', detail:'지시대명사' },
+  { greek:'καί',      rom:'카이',      meaning:'그리고/~와',           cat:'pron', level:'basic', detail:'접속사' },
+];
+
+// ══════════════════════════════════════════
+// 정답/선택지 표시 텍스트 생성
+// ══════════════════════════════════════════
+function answerLabel(w) {
+  let extra = '';
+  if (w.cat === 'noun') extra = `${w.gender||''} ${w.detail||''}`.trim();
+  else if (w.cat === 'verb' || w.cat === 'adj') extra = w.detail || '';
+  else if (w.cat === 'prep') extra = w.detail || '';
+  else if (w.cat === 'pron') extra = w.detail || '';
+  return { meaning: w.meaning, detail: extra };
+}
+
+// ══════════════════════════════════════════
+// 필터 상태
+// ══════════════════════════════════════════
+let activeCat = 'all';
+let activeLevel = 'all';
+let activeCount = 10;
+
+function toggleCat(btn) {
+  document.querySelectorAll('#cat-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  refreshPoolInfo();
+}
+function toggleLevel(btn) {
+  document.querySelectorAll('#level-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeLevel = btn.dataset.level;
+  refreshPoolInfo();
+}
+function toggleCount(btn) {
+  document.querySelectorAll('#count-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCount = btn.dataset.count;
+}
+
+function getPool() {
+  return WORDS.filter(w => {
+    if (activeCat !== 'all' && w.cat !== activeCat) return false;
+    if (activeLevel !== 'all' && w.level !== activeLevel) return false;
+    return true;
+  });
+}
+
+function refreshPoolInfo() {
+  const pool = getPool();
+  document.getElementById('pool-count').textContent = pool.length;
+  document.getElementById('pool-warn').classList.toggle('show', pool.length < 4);
+  buildCatGrid();
+}
+
+function buildCatGrid() {
+  const cats = { verb:'동사', noun:'명사', adj:'형용사', prep:'전치사', pron:'대명사' };
+  const counts = {};
+  getPool().forEach(w => {
+    let key = w.cat;
+    counts[key] = (counts[key]||0)+1;
+  });
+  const g = document.getElementById('cat-grid');
+  g.innerHTML = '';
+  Object.entries(cats).forEach(([k,name]) => {
+    g.innerHTML += `<div class="cat-item">
+      <div class="cat-name">${name}</div>
+      <div class="cat-count">${counts[k]||0}개 항목</div>
+    </div>`;
+  });
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+// ══════════════════════════════════════════
+// 퀴즈 진행
+// ══════════════════════════════════════════
+let session = [], cur = 0, score = 0, answered = false;
+
+function startQuiz() {
+  const pool = getPool();
+  if (pool.length < 4) { alert('선택한 조건의 항목이 4개 이상 있어야 시험을 시작할 수 있어요.'); return; }
+  const shuffled = shuffle(pool);
+  const n = activeCount === 'all' ? shuffled.length : Math.min(Number(activeCount), shuffled.length);
+  session = shuffled.slice(0, n);
+  cur = 0; score = 0; answered = false;
+  document.getElementById('start-screen').style.display = 'none';
+  document.getElementById('result-screen').classList.remove('show');
+  document.getElementById('q-screen').style.display = 'block';
+  renderQ();
+}
+
+function renderQ() {
+  const item = session[cur];
+  const total = session.length;
+
+  document.getElementById('q-num').textContent = `${cur+1} / ${total}`;
+  document.getElementById('q-score').textContent = `맞은 수: ${score}`;
+  document.getElementById('prog-fill').style.width = `${(cur/total)*100}%`;
+
+  document.getElementById('q-word').textContent = item.greek;
+
+  const hints = { verb:'동사', noun:'명사', adj:'형용사', prep:'전치사', pron:'대명사' };
+  document.getElementById('q-hint').textContent = `${hints[item.cat]||''} · ${item.level === 'adv' ? '심화형' : '기본형'}`;
+
+  // 4지선다: 정답 + 오답 3개 (같은 카테고리 우선)
+  const pool = getPool();
+  let candidates = pool.filter(w => w !== item && w.cat === item.cat);
+  if (candidates.length < 3) {
+    candidates = pool.filter(w => w !== item);
+  }
+  const wrongs = shuffle(candidates).slice(0, 3);
+  const opts = shuffle([item, ...wrongs]);
+
+  const optDiv = document.getElementById('options');
+  optDiv.innerHTML = '';
+  opts.forEach(w => {
+    const a = answerLabel(w);
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `${a.meaning}${a.detail ? `<span class="opt-detail">${a.detail}</span>` : ''}`;
+    btn.dataset.key = w.greek;
+    btn.onclick = () => selectOpt(btn, item);
+    optDiv.appendChild(btn);
+  });
+
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback-box';
+  fb.textContent = '';
+  document.getElementById('next-btn').classList.remove('show');
+  answered = false;
+}
+
+function selectOpt(btn, item) {
+  if (answered) return;
+  answered = true;
+
+  const correct = btn.dataset.key === item.greek;
+  if (correct) score++;
+
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.greek) b.classList.add('correct');
+    else if (b === btn && !correct) b.classList.add('wrong');
+  });
+
+  const a = answerLabel(item);
+  const fb = document.getElementById('feedback');
+  if (correct) {
+    fb.className = 'feedback-box show correct-fb';
+    fb.textContent = `✓ 정답! ${item.greek} = ${a.meaning} (${a.detail})`;
+  } else {
+    fb.className = 'feedback-box show wrong-fb';
+    fb.textContent = `✗ 오답. 정답: ${a.meaning} (${a.detail}) — ${item.greek} (${item.rom})`;
+  }
+
+  document.getElementById('q-score').textContent = `맞은 수: ${score}`;
+  document.getElementById('next-btn').classList.add('show');
+}
+
+function nextQ() {
+  cur++;
+  if (cur >= session.length) showResult(session.length);
+  else renderQ();
+}
+
+function quitQuiz() {
+  // 답변한 문제 수까지만 집계 (현재 문제가 아직 채점 전이면 cur개, 채점 완료면 cur+1개)
+  const answeredCount = answered ? cur + 1 : cur;
+  if (answeredCount === 0) { backToStart(); return; }
+  showResult(answeredCount);
+}
+
+function showResult(total) {
+  document.getElementById('q-screen').style.display = 'none';
+  const rs = document.getElementById('result-screen');
+  rs.classList.add('show');
+  document.getElementById('result-score').textContent = score;
+  document.querySelector('.result-total').textContent = `/ ${total}`;
+  document.getElementById('prog-fill').style.width = '100%';
+
+  const pct = (score / total) * 100;
+  document.getElementById('result-circle').style.setProperty('--pct', pct);
+
+  const msgs = [
+    [90, '완벽합니다! 🎉 기말 대비 완료!'],
+    [70, '훌륭해요! 조금만 더 다듬으면 완벽!'],
+    [50, '잘 하고 있어요! 틀린 항목을 다시 확인해 보세요.'],
+    [0,  '심화형 변화표를 다시 복습해보세요!'],
+  ];
+  for (const [min, msg] of msgs) {
+    if (pct >= min) { document.getElementById('result-msg').textContent = msg; break; }
+  }
+}
+
+function retryQuiz() {
+  document.getElementById('result-screen').classList.remove('show');
+  startQuiz();
+}
+
+function backToStart() {
+  document.getElementById('result-screen').classList.remove('show');
+  document.getElementById('q-screen').style.display = 'none';
+  document.getElementById('start-screen').style.display = 'block';
+}
+
+// 초기화
+document.getElementById('total-count').textContent = WORDS.length;
+refreshPoolInfo();
+</script>
+</body>
+</html>
