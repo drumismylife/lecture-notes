@@ -407,12 +407,79 @@ const WORDS = [
   { greek:'πιστός',   rom:'피스토스',   meaning:'신실한/믿음직한', cat:'adj', level:'basic', form:'ή, όν', detail:'남성 단수 주격' },
   { greek:'μόνος',    rom:'모노스',     meaning:'유일한/홀로',   cat:'adj', level:'basic', form:'η, ον',  detail:'남성 단수 주격' },
 
-  // ── 형용사 심화형 (성·수 일치형) ──
-  { greek:'ἀγαθή',  rom:'아가테',  meaning:'선한 (여성형)',     cat:'adj', level:'adv', detail:'여성 단수 주격' },
-  { greek:'ἀγαθόν', rom:'아가톤',  meaning:'선한 (중성형)',     cat:'adj', level:'adv', detail:'중성 단수 주격' },
-  { greek:'ἀγαθοί', rom:'아가토이', meaning:'선한 (남성 복수형)', cat:'adj', level:'adv', detail:'남성 복수 주격' },
-  { greek:'δικαία', rom:'디카이아', meaning:'옳은 (여성형)',     cat:'adj', level:'adv', detail:'여성 단수 주격' },
-  { greek:'δίκαιον', rom:'디카이온', meaning:'옳은 (중성형)',    cat:'adj', level:'adv', detail:'중성 단수 주격' },
+  // ── 형용사 심화형 — ἀγαθός (1·2변화, 여성 -η형) 전체 격변화 ──
+  { greek:'ἀγαθή',   rom:'아가테',   meaning:'선한 (여성형)',           cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἀγαθοῦ',  rom:'아가투',   meaning:'선한 (남성·중성)',        cat:'adj', level:'adv', detail:'남성·중성 단수 속격' },
+  { greek:'ἀγαθῷ',   rom:'아가토',   meaning:'선한 (남성·중성)',        cat:'adj', level:'adv', detail:'남성·중성 단수 여격' },
+  { greek:'ἀγαθόν',  rom:'아가톤',   meaning:'선한 (남성 대격·중성)',   cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'ἀγαθοί',  rom:'아가토이', meaning:'선한 (남성 복수형)',      cat:'adj', level:'adv', detail:'남성 복수 주격' },
+  { greek:'ἀγαθῶν',  rom:'아가톤',   meaning:'선한 (것들의)',           cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+  { greek:'ἀγαθοῖς', rom:'아가토이스', meaning:'선한 (남성·중성 복수)', cat:'adj', level:'adv', detail:'남성·중성 복수 여격' },
+  { greek:'ἀγαθούς', rom:'아가투스', meaning:'선한 (남성 복수형)',      cat:'adj', level:'adv', detail:'남성 복수 대격' },
+  { greek:'ἀγαθῆς',  rom:'아가테스', meaning:'선한 (여성형)',           cat:'adj', level:'adv', detail:'여성 단수 속격' },
+  { greek:'ἀγαθῇ',   rom:'아가테',   meaning:'선한 (여성형)',           cat:'adj', level:'adv', detail:'여성 단수 여격' },
+  { greek:'ἀγαθήν',  rom:'아가텐',   meaning:'선한 (여성형)',           cat:'adj', level:'adv', detail:'여성 단수 대격' },
+  { greek:'ἀγαθαί',  rom:'아가타이', meaning:'선한 (여성 복수형)',      cat:'adj', level:'adv', detail:'여성 복수 주격' },
+  { greek:'ἀγαθαῖς', rom:'아가타이스', meaning:'선한 (여성 복수형)',    cat:'adj', level:'adv', detail:'여성 복수 여격' },
+  { greek:'ἀγαθάς',  rom:'아가타스', meaning:'선한 (여성 복수형)',      cat:'adj', level:'adv', detail:'여성 복수 대격' },
+  { greek:'ἀγαθά',   rom:'아가타',   meaning:'선한 (중성 복수형)',      cat:'adj', level:'adv', detail:'중성 복수 주격·대격' },
+
+  // ── 형용사 심화형 — δίκαιος (1·2변화, 여성 -α형: 모음 뒤) 전체 격변화 ──
+  { greek:'δικαία',  rom:'디카이아',   meaning:'옳은 (여성형)',          cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'δικαίου', rom:'디카이우',   meaning:'옳은 (남성·중성)',       cat:'adj', level:'adv', detail:'남성·중성 단수 속격' },
+  { greek:'δικαίῳ',  rom:'디카이오',   meaning:'옳은 (남성·중성)',       cat:'adj', level:'adv', detail:'남성·중성 단수 여격' },
+  { greek:'δίκαιον', rom:'디카이온',   meaning:'옳은 (남성 대격·중성)',  cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'δίκαιοι', rom:'디카이오이', meaning:'옳은 (남성 복수형)',     cat:'adj', level:'adv', detail:'남성 복수 주격' },
+  { greek:'δικαίων', rom:'디카이온',   meaning:'옳은 (것들의)',          cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+  { greek:'δικαίοις', rom:'디카이오이스', meaning:'옳은 (남성·중성 복수)', cat:'adj', level:'adv', detail:'남성·중성 복수 여격' },
+  { greek:'δικαίους', rom:'디카이우스', meaning:'옳은 (남성 복수형)',    cat:'adj', level:'adv', detail:'남성 복수 대격' },
+  { greek:'δικαίας', rom:'디카이아스', meaning:'옳은 (여성)',            cat:'adj', level:'adv', detail:'여성 단수 속격 / 여성 복수 대격' },
+  { greek:'δικαίᾳ',  rom:'디카이아',   meaning:'옳은 (여성형)',          cat:'adj', level:'adv', detail:'여성 단수 여격' },
+  { greek:'δικαίαν', rom:'디카이안',   meaning:'옳은 (여성형)',          cat:'adj', level:'adv', detail:'여성 단수 대격' },
+  { greek:'δίκαιαι', rom:'디카이아이', meaning:'옳은 (여성 복수형)',     cat:'adj', level:'adv', detail:'여성 복수 주격' },
+  { greek:'δικαίαις', rom:'디카이아이스', meaning:'옳은 (여성 복수형)',  cat:'adj', level:'adv', detail:'여성 복수 여격' },
+  { greek:'δίκαια', rom:'디카이아',   meaning:'옳은 (중성 복수형)',      cat:'adj', level:'adv', detail:'중성 복수 주격·대격' },
+
+  // ── 형용사 심화형 — 그 외 형용사들 (여성형·중성형·복수 속격) ──
+  { greek:'κακή',    rom:'카케',   meaning:'나쁜/악한 (여성형)',       cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'κακόν',   rom:'카콘',   meaning:'나쁜/악한 (남성 대격·중성)', cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'κακῶν',   rom:'카콘',   meaning:'나쁜/악한 (것들의)',       cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'καλή',    rom:'칼레',   meaning:'좋은/아름다운 (여성형)',   cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'καλόν',   rom:'칼론',   meaning:'좋은/아름다운 (남성 대격·중성)', cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'καλῶν',   rom:'칼론',   meaning:'좋은/아름다운 (것들의)',   cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'μικρά',   rom:'미크라', meaning:'작은/적은 (여성형)',       cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'μικρόν',  rom:'미크론', meaning:'작은/적은 (남성 대격·중성)', cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'μικρῶν',  rom:'미크론', meaning:'작은/적은 (것들의)',       cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'νεκρά',   rom:'네크라', meaning:'죽은 (여성형)',            cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'νεκρόν',  rom:'네크론', meaning:'죽은 (남성 대격·중성)',    cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'νεκρῶν',  rom:'네크론', meaning:'죽은 (것들의)',            cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'ἄλλη',    rom:'알레',   meaning:'다른 (여성형)',            cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἄλλο',    rom:'알로',   meaning:'다른 (중성형)',            cat:'adj', level:'adv', detail:'중성 단수 주격·대격 (※ -ον 아님)' },
+  { greek:'ἄλλων',   rom:'알론',   meaning:'다른 (것들의)',            cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'πρώτη',   rom:'프로테', meaning:'처음의/첫 번째인 (여성형)', cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'πρῶτον',  rom:'프로톤', meaning:'처음의 (남성 대격·중성)',  cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'πρώτων',  rom:'프로톤', meaning:'처음의 (것들의)',          cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'ἐσχάτη',  rom:'에스카테', meaning:'마지막의 (여성형)',      cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἔσχατον', rom:'에스카톤', meaning:'마지막의 (남성 대격·중성)', cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'ἐσχάτων', rom:'에스카톤', meaning:'마지막의 (것들의)',       cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'ἁγία',    rom:'하기아', meaning:'거룩한 (여성형)',          cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἅγιον',   rom:'하기온', meaning:'거룩한 (남성 대격·중성)',  cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'ἁγίων',   rom:'하기온', meaning:'거룩한 (것들의)',          cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'πιστή',   rom:'피스테', meaning:'신실한/믿음직한 (여성형)', cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'πιστόν',  rom:'피스톤', meaning:'신실한 (남성 대격·중성)',  cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'πιστῶν',  rom:'피스톤', meaning:'신실한 (것들의)',          cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
+
+  { greek:'μόνη',    rom:'모네',   meaning:'유일한/홀로 (여성형)',     cat:'adj', level:'adv', detail:'여성 단수 주격' },
+  { greek:'μόνον',   rom:'모논',   meaning:'유일한 (남성 대격·중성)',  cat:'adj', level:'adv', detail:'남성 단수 대격 / 중성 단수 주격·대격' },
+  { greek:'μόνων',   rom:'모논',   meaning:'유일한 (것들의)',          cat:'adj', level:'adv', detail:'복수 속격 (모든 성)' },
 
   // ── 전치사 (기본형만) ──
   { greek:'ἀπό',      rom:'아포',      meaning:'~로부터',            cat:'prep', level:'basic', detail:'+속격' },
@@ -431,7 +498,97 @@ const WORDS = [
   { greek:'αὐτός',    rom:'아우토스',  meaning:'그/그녀/그것 (3인칭)', cat:'pron', level:'basic', detail:'남성 주격' },
   { greek:'οὗτος',    rom:'후토스',    meaning:'이것/이 사람',         cat:'pron', level:'basic', detail:'지시대명사' },
   { greek:'ἐκεῖνος',  rom:'에케이노스', meaning:'저것/저 사람',        cat:'pron', level:'basic', detail:'지시대명사' },
+  { greek:'ὅς',       rom:'호스',      meaning:'~하는 (관계대명사)',   cat:'pron', level:'basic', detail:'관계대명사 남성 단수 주격' },
   { greek:'καί',      rom:'카이',      meaning:'그리고/~와',           cat:'pron', level:'basic', detail:'접속사' },
+
+  // ── 대명사 심화형 — αὐτός (3인칭 인칭/지시대명사) 전체 격변화 ──
+  { greek:'αὐτοῦ',  rom:'아우투',   meaning:'그/그것의',     cat:'pron', level:'adv', detail:'남성·중성 단수 속격' },
+  { greek:'αὐτῷ',   rom:'아우토',   meaning:'그/그것에게',   cat:'pron', level:'adv', detail:'남성·중성 단수 여격' },
+  { greek:'αὐτόν',  rom:'아우톤',   meaning:'그를',          cat:'pron', level:'adv', detail:'남성 단수 대격' },
+  { greek:'αὐτό',   rom:'아우토',   meaning:'그것 (중성)',   cat:'pron', level:'adv', detail:'중성 단수 주격·대격 (※ -ον 아님)' },
+  { greek:'αὐτοί',  rom:'아우토이', meaning:'그들',          cat:'pron', level:'adv', detail:'남성 복수 주격' },
+  { greek:'αὐτῶν',  rom:'아우톤',   meaning:'그들의/그것들의', cat:'pron', level:'adv', detail:'복수 속격 (모든 성)' },
+  { greek:'αὐτοῖς', rom:'아우토이스', meaning:'그들에게',    cat:'pron', level:'adv', detail:'남성·중성 복수 여격' },
+  { greek:'αὐτούς', rom:'아우투스', meaning:'그들을',        cat:'pron', level:'adv', detail:'남성 복수 대격' },
+  { greek:'αὐτή',   rom:'아우테',   meaning:'그녀',          cat:'pron', level:'adv', detail:'여성 단수 주격' },
+  { greek:'αὐτῆς',  rom:'아우테스', meaning:'그녀의',        cat:'pron', level:'adv', detail:'여성 단수 속격' },
+  { greek:'αὐτῇ',   rom:'아우테',   meaning:'그녀에게',      cat:'pron', level:'adv', detail:'여성 단수 여격' },
+  { greek:'αὐτήν',  rom:'아우텐',   meaning:'그녀를',        cat:'pron', level:'adv', detail:'여성 단수 대격' },
+  { greek:'αὐταί',  rom:'아우타이', meaning:'그녀들',        cat:'pron', level:'adv', detail:'여성 복수 주격' },
+  { greek:'αὐταῖς', rom:'아우타이스', meaning:'그녀들에게',  cat:'pron', level:'adv', detail:'여성 복수 여격' },
+  { greek:'αὐτάς',  rom:'아우타스', meaning:'그녀들을',      cat:'pron', level:'adv', detail:'여성 복수 대격' },
+  { greek:'αὐτά',   rom:'아우타',   meaning:'그것들',        cat:'pron', level:'adv', detail:'중성 복수 주격·대격' },
+
+  // ── 대명사 심화형 — οὗτος (지시대명사 "이/이것") 전체 격변화 ──
+  { greek:'τούτου', rom:'투투',   meaning:'이 사람의/이것의', cat:'pron', level:'adv', detail:'남성·중성 단수 속격' },
+  { greek:'τούτῳ',  rom:'투토',   meaning:'이 사람에게/이것에', cat:'pron', level:'adv', detail:'남성·중성 단수 여격' },
+  { greek:'τοῦτον', rom:'투톤',   meaning:'이 사람을',        cat:'pron', level:'adv', detail:'남성 단수 대격' },
+  { greek:'τοῦτο',  rom:'투토',   meaning:'이것 (중성)',      cat:'pron', level:'adv', detail:'중성 단수 주격·대격' },
+  { greek:'οὗτοι',  rom:'후토이', meaning:'이 사람들',        cat:'pron', level:'adv', detail:'남성 복수 주격' },
+  { greek:'τούτων', rom:'투톤',   meaning:'이 사람들의/이것들의', cat:'pron', level:'adv', detail:'복수 속격 (모든 성)' },
+  { greek:'τούτοις', rom:'투토이스', meaning:'이 사람들에게', cat:'pron', level:'adv', detail:'남성·중성 복수 여격' },
+  { greek:'τούτους', rom:'투투스', meaning:'이 사람들을',     cat:'pron', level:'adv', detail:'남성 복수 대격' },
+  { greek:'αὕτη',   rom:'하우테', meaning:'이 여자/이것',     cat:'pron', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ταύτης', rom:'타우테스', meaning:'이 여자의',      cat:'pron', level:'adv', detail:'여성 단수 속격' },
+  { greek:'ταύτῃ',  rom:'타우테', meaning:'이 여자에게',      cat:'pron', level:'adv', detail:'여성 단수 여격' },
+  { greek:'ταύτην', rom:'타우텐', meaning:'이 여자를',        cat:'pron', level:'adv', detail:'여성 단수 대격' },
+  { greek:'αὗται',  rom:'하우타이', meaning:'이 여자들',      cat:'pron', level:'adv', detail:'여성 복수 주격' },
+  { greek:'ταύταις', rom:'타우타이스', meaning:'이 여자들에게', cat:'pron', level:'adv', detail:'여성 복수 여격' },
+  { greek:'ταύτας', rom:'타우타스', meaning:'이 여자들을',     cat:'pron', level:'adv', detail:'여성 복수 대격' },
+  { greek:'ταῦτα',  rom:'타우타', meaning:'이것들',           cat:'pron', level:'adv', detail:'중성 복수 주격·대격' },
+
+  // ── 대명사 심화형 — ἐκεῖνος (지시대명사 "저/저것") 전체 격변화 ──
+  { greek:'ἐκείνου', rom:'에케이누',   meaning:'저 사람의/저것의', cat:'pron', level:'adv', detail:'남성·중성 단수 속격' },
+  { greek:'ἐκείνῳ',  rom:'에케이노',   meaning:'저 사람에게',      cat:'pron', level:'adv', detail:'남성·중성 단수 여격' },
+  { greek:'ἐκεῖνον', rom:'에케이논',   meaning:'저 사람을',        cat:'pron', level:'adv', detail:'남성 단수 대격' },
+  { greek:'ἐκεῖνο',  rom:'에케이노',   meaning:'저것 (중성)',      cat:'pron', level:'adv', detail:'중성 단수 주격·대격 (※ -ον 아님)' },
+  { greek:'ἐκεῖνοι', rom:'에케이노이', meaning:'저 사람들',        cat:'pron', level:'adv', detail:'남성 복수 주격' },
+  { greek:'ἐκείνων', rom:'에케이논',   meaning:'저 사람들의',      cat:'pron', level:'adv', detail:'복수 속격 (모든 성)' },
+  { greek:'ἐκείνοις', rom:'에케이노이스', meaning:'저 사람들에게', cat:'pron', level:'adv', detail:'남성·중성 복수 여격' },
+  { greek:'ἐκείνους', rom:'에케이누스', meaning:'저 사람들을',    cat:'pron', level:'adv', detail:'남성 복수 대격' },
+  { greek:'ἐκείνη',  rom:'에케이네',   meaning:'저 여자',          cat:'pron', level:'adv', detail:'여성 단수 주격' },
+  { greek:'ἐκείνης', rom:'에케이네스', meaning:'저 여자의',        cat:'pron', level:'adv', detail:'여성 단수 속격' },
+  { greek:'ἐκείνῃ',  rom:'에케이네',   meaning:'저 여자에게',      cat:'pron', level:'adv', detail:'여성 단수 여격' },
+  { greek:'ἐκείνην', rom:'에케이넨',   meaning:'저 여자를',        cat:'pron', level:'adv', detail:'여성 단수 대격' },
+  { greek:'ἐκεῖναι', rom:'에케이나이', meaning:'저 여자들',        cat:'pron', level:'adv', detail:'여성 복수 주격' },
+  { greek:'ἐκείναις', rom:'에케이나이스', meaning:'저 여자들에게', cat:'pron', level:'adv', detail:'여성 복수 여격' },
+  { greek:'ἐκείνας', rom:'에케이나스', meaning:'저 여자들을',      cat:'pron', level:'adv', detail:'여성 복수 대격' },
+  { greek:'ἐκεῖνα',  rom:'에케이나',   meaning:'저것들',           cat:'pron', level:'adv', detail:'중성 복수 주격·대격' },
+
+  // ── 대명사 심화형 — ἐγώ / σύ (인칭대명사) 격변화 ──
+  { greek:'μου',   rom:'무',     meaning:'나의',   cat:'pron', level:'adv', detail:'1인칭 단수 속격' },
+  { greek:'μοι',   rom:'모이',   meaning:'나에게', cat:'pron', level:'adv', detail:'1인칭 단수 여격' },
+  { greek:'με',    rom:'메',     meaning:'나를',   cat:'pron', level:'adv', detail:'1인칭 단수 대격' },
+  { greek:'ἡμεῖς', rom:'헤메이스', meaning:'우리',  cat:'pron', level:'adv', detail:'1인칭 복수 주격' },
+  { greek:'ἡμῶν',  rom:'헤몬',   meaning:'우리의', cat:'pron', level:'adv', detail:'1인칭 복수 속격' },
+  { greek:'ἡμῖν',  rom:'헤민',   meaning:'우리에게', cat:'pron', level:'adv', detail:'1인칭 복수 여격' },
+  { greek:'ἡμᾶς',  rom:'헤마스', meaning:'우리를', cat:'pron', level:'adv', detail:'1인칭 복수 대격' },
+
+  { greek:'σου',   rom:'수',     meaning:'너의',   cat:'pron', level:'adv', detail:'2인칭 단수 속격' },
+  { greek:'σοι',   rom:'소이',   meaning:'너에게', cat:'pron', level:'adv', detail:'2인칭 단수 여격' },
+  { greek:'σε',    rom:'세',     meaning:'너를',   cat:'pron', level:'adv', detail:'2인칭 단수 대격' },
+  { greek:'ὑμεῖς', rom:'휘메이스', meaning:'너희',  cat:'pron', level:'adv', detail:'2인칭 복수 주격' },
+  { greek:'ὑμῶν',  rom:'휘몬',   meaning:'너희의', cat:'pron', level:'adv', detail:'2인칭 복수 속격' },
+  { greek:'ὑμῖν',  rom:'휘민',   meaning:'너희에게', cat:'pron', level:'adv', detail:'2인칭 복수 여격' },
+  { greek:'ὑμᾶς',  rom:'휘마스', meaning:'너희를', cat:'pron', level:'adv', detail:'2인칭 복수 대격' },
+
+  // ── 대명사 심화형 — ὅς (관계대명사 "~하는") 전체 격변화 ──
+  { greek:'οὗ',  rom:'후', meaning:'~하는 것/사람의', cat:'pron', level:'adv', detail:'관계대명사 남성·중성 단수 속격' },
+  { greek:'ᾧ',   rom:'호', meaning:'~하는 것/사람에게', cat:'pron', level:'adv', detail:'관계대명사 남성·중성 단수 여격' },
+  { greek:'ὅν',  rom:'혼', meaning:'~하는 사람을',     cat:'pron', level:'adv', detail:'관계대명사 남성 단수 대격' },
+  { greek:'ὅ',   rom:'호', meaning:'~하는 것 (중성)',  cat:'pron', level:'adv', detail:'관계대명사 중성 단수 주격·대격' },
+  { greek:'οἵ',  rom:'호이', meaning:'~하는 사람들',    cat:'pron', level:'adv', detail:'관계대명사 남성 복수 주격' },
+  { greek:'ὧν',  rom:'혼', meaning:'~하는 사람들의/것들의', cat:'pron', level:'adv', detail:'관계대명사 복수 속격 (모든 성)' },
+  { greek:'οἷς', rom:'호이스', meaning:'~하는 사람들에게', cat:'pron', level:'adv', detail:'관계대명사 남성·중성 복수 여격' },
+  { greek:'οὕς', rom:'후스', meaning:'~하는 사람들을',  cat:'pron', level:'adv', detail:'관계대명사 남성 복수 대격' },
+  { greek:'ἥ',   rom:'헤', meaning:'~하는 여자',        cat:'pron', level:'adv', detail:'관계대명사 여성 단수 주격' },
+  { greek:'ἧς',  rom:'헤스', meaning:'~하는 여자의',    cat:'pron', level:'adv', detail:'관계대명사 여성 단수 속격' },
+  { greek:'ᾗ',   rom:'헤', meaning:'~하는 여자에게',    cat:'pron', level:'adv', detail:'관계대명사 여성 단수 여격' },
+  { greek:'ἥν',  rom:'헨', meaning:'~하는 여자를',      cat:'pron', level:'adv', detail:'관계대명사 여성 단수 대격' },
+  { greek:'αἵ',  rom:'하이', meaning:'~하는 여자들',     cat:'pron', level:'adv', detail:'관계대명사 여성 복수 주격' },
+  { greek:'αἷς', rom:'하이스', meaning:'~하는 여자들에게', cat:'pron', level:'adv', detail:'관계대명사 여성 복수 여격' },
+  { greek:'ἅς',  rom:'하스', meaning:'~하는 여자들을',   cat:'pron', level:'adv', detail:'관계대명사 여성 복수 대격' },
+  { greek:'ἅ',   rom:'하', meaning:'~하는 것들',        cat:'pron', level:'adv', detail:'관계대명사 중성 복수 주격·대격' },
 ];
 
 // ══════════════════════════════════════════
@@ -515,7 +672,7 @@ function shuffle(arr) {
 // ══════════════════════════════════════════
 // 퀴즈 진행
 // ══════════════════════════════════════════
-let session = [], cur = 0, score = 0, answered = false;
+let session = [], cur = 0, score = 0, answered = false, currentOpts = [];
 
 function startQuiz() {
   const pool = getPool();
@@ -551,15 +708,16 @@ function renderQ() {
   }
   const wrongs = shuffle(candidates).slice(0, 3);
   const opts = shuffle([item, ...wrongs]);
+  currentOpts = opts;
 
   const optDiv = document.getElementById('options');
   optDiv.innerHTML = '';
-  opts.forEach(w => {
+  opts.forEach((w, idx) => {
     const a = answerLabel(w);
     const btn = document.createElement('button');
     btn.className = 'opt-btn';
     btn.innerHTML = `${a.meaning}${a.detail ? `<span class="opt-detail">${a.detail}</span>` : ''}`;
-    btn.dataset.key = w.greek;
+    btn.dataset.idx = idx;
     btn.onclick = () => selectOpt(btn, item);
     optDiv.appendChild(btn);
   });
@@ -575,12 +733,12 @@ function selectOpt(btn, item) {
   if (answered) return;
   answered = true;
 
-  const correct = btn.dataset.key === item.greek;
+  const correct = currentOpts[Number(btn.dataset.idx)] === item;
   if (correct) score++;
 
   document.querySelectorAll('.opt-btn').forEach(b => {
     b.disabled = true;
-    if (b.dataset.key === item.greek) b.classList.add('correct');
+    if (currentOpts[Number(b.dataset.idx)] === item) b.classList.add('correct');
     else if (b === btn && !correct) b.classList.add('wrong');
   });
 
