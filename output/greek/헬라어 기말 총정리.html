@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 기말 총정리</title>
+<style>
+:root{
+  --bg:#0d1117;--card:#161b27;--sub:#1e2538;--gold:#c9a84c;--greek:#f5dfa0;
+  --blue:#7c9ed9;--red:#e07b6a;--green:#6fcf97;--purple:#a78bfa;--orange:#fb923c;
+  --text:#e8eaf0;--ts:#9ba3b8;--th:#6b7490;--border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.7}
+.gk{
+  font-family:"Palatino Linotype","Palatino","Times New Roman","Noto Serif","Liberation Serif",Georgia,serif;
+  font-style:normal;font-weight:400;letter-spacing:.015em;line-height:1.7;color:var(--greek);
+}
+.wrap{max-width:880px;margin:0 auto;padding:20px 22px 60px}
+
+.hdr{background:linear-gradient(140deg,#080d18 0%,#0f1525 50%,#141c30 100%);border-bottom:2px solid var(--gold);padding:22px 22px;text-align:center}
+.hdr-tag{display:inline-block;background:var(--gold);color:#0d1117;font-size:10px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:3px;margin-bottom:8px}
+.hdr-title{font-size:20px;font-weight:700}
+.hdr-sub{font-size:12px;color:var(--ts);margin-top:4px}
+
+.sh{display:flex;align-items:center;gap:10px;margin:28px 0 14px}
+.sb{background:var(--gold);color:#0d1117;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.1em;white-space:nowrap}
+.st{font-size:15px;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+/* STEP CARDS */
+.step{display:flex;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;align-items:flex-start}
+.step-n{flex-shrink:0;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#0d1117;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.step-body{flex:1}
+.step-t{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.step-d{font-size:13px;color:var(--ts);line-height:1.7}
+.step-d .gk{font-size:16px}
+.step-ex{margin-top:8px;background:#0a0e18;border-radius:6px;padding:8px 12px;font-size:12px;color:var(--ts)}
+.step-ex .gk{font-size:16px;color:var(--greek)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:6px}
+thead tr{background:var(--sub)}
+thead th{padding:7px 10px;text-align:left;color:var(--ts);font-size:11px;letter-spacing:.05em;border:1px solid var(--border)}
+td{padding:7px 10px;border:1px solid var(--border);vertical-align:middle}
+tr:nth-child(even) td{background:#10141d}
+.tg{font-family:"Palatino Linotype","Palatino","Times New Roman","Noto Serif","Liberation Serif",Georgia,serif;font-style:normal;letter-spacing:.015em;color:var(--greek);font-size:17px;line-height:1.6}
+.tb2{font-weight:700;color:var(--text)}
+.tc2{color:var(--ts);font-size:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:12px}
+.ct{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:10px}
+
+/* CASE CHEAT GRID */
+.case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:6px}
+.case-col{border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.case-head{padding:8px 10px;font-size:12px;font-weight:700;text-align:center;letter-spacing:.04em}
+.case-head.nom{background:#16243d;color:#60a5fa}
+.case-head.gen{background:#251f3d;color:#a78bfa}
+.case-head.dat{background:#152a1f;color:var(--green)}
+.case-head.acc{background:#2f1c18;color:var(--red)}
+.case-body{background:var(--sub);padding:8px 10px}
+.case-end{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px;border-bottom:1px solid var(--border)}
+.case-end:last-child{border-bottom:none}
+.case-end .e{font-family:"Palatino Linotype","Palatino","Times New Roman","Noto Serif","Liberation Serif",Georgia,serif;font-size:17px;color:var(--greek)}
+.case-end .role{font-size:10px;color:var(--th);text-align:right}
+
+/* MEMO */
+.memo{background:#22180a;border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 6px 6px 0;font-size:13px;margin-bottom:10px;color:var(--ts);line-height:1.8}
+.memo .gk{font-size:16px}
+.memo b{color:var(--gold)}
+
+/* CHUNK EXAMPLE */
+.chunk-ex{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.chunk-title{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:10px}
+.chunk-line{font-size:19px;line-height:2.1;margin-bottom:10px}
+.chunk-line .gk{padding:2px 4px;border-radius:4px}
+.cu1{background:#16243d}
+.cu2{background:#152a1f}
+.cu3{background:#2f1c18}
+.cu4{background:#251f3d}
+.chunk-note{font-size:12px;color:var(--ts);line-height:1.8}
+.chunk-note .tag{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:middle;margin-right:5px}
+
+@media (max-width:680px){
+  .case-grid{grid-template-columns:repeat(2,1fr)}
+  .wrap{padding:14px 14px 40px}
+}
+
+/* TABS */
+.tabs{display:flex;background:#080c14;border-bottom:1px solid var(--border);padding:0 22px;gap:2px;position:sticky;top:0;z-index:100;overflow-x:auto}
+.tb{background:none;border:none;color:var(--th);font-size:13px;font-weight:500;padding:13px 16px;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit;white-space:nowrap}
+.tb:hover{color:var(--ts)}
+.tb.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tc{display:none}
+.tc.active{display:block}
+
+/* MINI PARADIGM GRID (tab2) */
+.para-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.para-c{background:var(--sub);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.para-h{background:#192030;padding:6px 10px;font-size:11px;font-weight:700;color:var(--gold);text-align:center;border-bottom:1px solid var(--border);letter-spacing:.04em}
+.para-c table{margin:0}
+.para-c td{padding:5px 8px;font-size:13px;border-color:var(--border)}
+@media (max-width:680px){.para-grid{grid-template-columns:1fr}}
+
+/* ===== SENTENCE-ANALYSIS CHIPS (탭4) ===== */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;padding:10px 14px;background:#0a0e18;border-radius:6px;border:1px solid var(--border);align-items:center}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--th)}
+.leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px}
+.sc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sc-num{font-size:10px;font-weight:700;color:var(--th);letter-spacing:.1em;background:var(--sub);padding:2px 8px;border-radius:3px}
+.sc-ref{font-size:10px;font-weight:700;color:var(--blue);background:#0f1825;border:1px solid #1a2a40;padding:2px 8px;border-radius:3px}
+.sc-full{font-size:21px;line-height:1.9;padding:12px 0 10px;border-bottom:1px solid var(--border);margin-bottom:14px;word-spacing:.12em}
+.wr{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.wc{background:var(--sub);border:1px solid var(--border);border-radius:7px;padding:9px 11px;min-width:78px;text-align:center}
+.wc-g{font-size:18px;display:block;line-height:1.55;margin-bottom:2px}
+.wc-p{font-size:9.5px;display:block;line-height:1.5;letter-spacing:.02em}
+.wc-m{font-size:11.5px;color:var(--ts);display:block;margin-top:3px}
+.w-verb .wc-p{color:var(--purple)}
+.w-noun .wc-p{color:var(--blue)}
+.w-adj  .wc-p{color:#fbbf24}
+.w-art  .wc-g{color:#b8bfce}.w-art .wc-p{color:var(--th)}.w-art .wc-m{color:var(--th)}
+.w-prep .wc-p{color:var(--green)}
+.w-pron .wc-p{color:var(--red)}
+.w-dem  .wc-p{color:var(--orange)}
+.w-rel  .wc-p{color:#e879f9}
+.w-conj .wc-g{color:#b8bfce}.w-conj .wc-p{color:var(--th)}.w-conj .wc-m{color:var(--th)}
+.w-verb{border-color:#3a3060}
+.w-noun{border-color:#1a3050}
+.w-adj {border-color:#403010}
+.w-prep{border-color:#103020}
+.w-pron{border-color:#3a1a1a}
+.w-dem {border-color:#3a2010}
+.w-rel {border-color:#3a1a3a}
+.case-nom{border-top:2.5px solid #60a5fa}
+.case-gen{border-top:2.5px solid #a78bfa}
+.case-dat{border-top:2.5px solid var(--green)}
+.case-acc{border-top:2.5px solid var(--red)}
+.case-na{border-top:2.5px solid #4a5268}
+.tr-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#080c14;border-radius:6px;border-left:3px solid var(--gold)}
+.tr-row.nat{border-left-color:var(--blue);margin-top:6px;background:#0a1018}
+.tr-row.nat .tr-lbl{color:var(--blue)}
+.tr-lbl{font-size:10px;font-weight:700;color:var(--th);letter-spacing:.08em;white-space:nowrap;margin-top:3px}
+.tr-ko{font-size:14px;color:var(--text);line-height:1.7}
+.pt{margin-top:10px;background:#2a1800;border-left:3px solid var(--orange);padding:9px 13px;border-radius:0 6px 6px 0;font-size:12.5px;color:var(--ts);line-height:1.8}
+.pt .gk{font-size:16px}
+.pt b{color:var(--orange)}
+.mbar{background:#201800;border:1px solid #5a4010;border-radius:8px;padding:16px 20px;margin-top:28px}
+.mbar-t{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:10px}
+.mbar-items{display:flex;gap:8px;flex-wrap:wrap}
+.mi{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid #5a4010;border-radius:6px;padding:7px 12px}
+.mi-n{font-size:11px;font-weight:700;color:var(--gold)}
+.mi-g{font-size:17px;line-height:1.5}
+.mi-k{font-size:11px;color:var(--ts)}
+
+/* ===== VOCAB TAB (탭1) ===== */
+.vocab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.vocab-grid.cols2{grid-template-columns:repeat(2,1fr)}
+.vocab-card{background:var(--sub);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.vocab-h{background:#192030;padding:6px 10px;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.04em;border-bottom:1px solid var(--border)}
+.vocab-card table{margin:0}
+.vocab-card td{padding:5px 8px;font-size:13px;border-color:var(--border)}
+.vocab-card .vg{font-size:16px}
+@media (max-width:780px){.vocab-grid{grid-template-columns:1fr 1fr}.vocab-grid.cols2{grid-template-columns:1fr}}
+@media (max-width:480px){.vocab-grid{grid-template-columns:1fr}}
+
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="hdr">
+  <div class="hdr-tag">📋 헬라어 I · 기말고사 6/15</div>
+  <div class="hdr-title">헬라어 기말 총정리</div>
+  <div class="hdr-sub">— 어휘 · 어미·관사 · 해석 전략 · 문장 9개 한 파일로 —</div>
+</div>
+
+<div class="tabs">
+  <button class="tb active" onclick="sw('t1',this)">📖 단어정리</button>
+  <button class="tb" onclick="sw('t2',this)">📐 어미·관사 총정리</button>
+  <button class="tb" onclick="sw('t3',this)">🧩 해석 전략</button>
+  <button class="tb" onclick="sw('t4',this)">🔍 문장 9개</button>
+</div>
+
+<div class="wrap">
+
+<div id="t1" class="tc active">
+
+  <div class="sh"><span class="sb">탭1</span><span class="st">기말 어휘 총정리 — PPT 전체 단어</span><div class="sl"></div></div>
+  <div class="memo">변화 종류 열의 코드: <b>2남</b>=2변화 남성(-ος) · <b>2중</b>=2변화 중성(-ον) · <b>2여</b>=2변화 여성(λόγος와 동일 어미) · <b>1여η</b>=1변화 여성(-η) · <b>1여α</b>=1변화 여성(-α, ι/ε뒤) · <b>1여α2</b>=1변화 여성(-α, 자음뒤 → 속/여 -ης/-ῃ) · <b>1남</b>=1변화 남성(-ης) · <b>불규</b>=불규칙(3변화)</div>
+
+  <div class="sh"><span class="sb">01</span><span class="st">동사 (현재 1인칭 단수형 기준)</span><div class="sl"></div></div>
+  <div class="vocab-grid cols2">
+    <div class="vocab-card">
+      <div class="vocab-h">동사 A</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">λύω</td><td class="tc2">풀다</td></tr>
+          <tr><td class="vg tg">ἀκούω</td><td class="tc2">듣다</td></tr>
+          <tr><td class="vg tg">βλέπω</td><td class="tc2">보다</td></tr>
+          <tr><td class="vg tg">γινώσκω</td><td class="tc2">알다</td></tr>
+          <tr><td class="vg tg">γράφω</td><td class="tc2">쓰다</td></tr>
+          <tr><td class="vg tg">διδάσκω</td><td class="tc2">가르치다 <span style="color:var(--th)">(불규칙)</span></td></tr>
+          <tr><td class="vg tg">λαμβάνω</td><td class="tc2">취하다, 받다</td></tr>
+          <tr><td class="vg tg">λέγω</td><td class="tc2">말하다</td></tr>
+          <tr><td class="vg tg">πιστεύω</td><td class="tc2">믿다</td></tr>
+          <tr><td class="vg tg">θεραπεύω</td><td class="tc2">치료하다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-h">동사 B</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">ἐγείρω</td><td class="tc2">일으키다 <span style="color:var(--th)">(불규칙)</span></td></tr>
+          <tr><td class="vg tg">βαπτίζω</td><td class="tc2">침례를 주다 <span style="color:var(--th)">(불규칙)</span></td></tr>
+          <tr><td class="vg tg">ἔχω</td><td class="tc2">가지고 있다</td></tr>
+          <tr><td class="vg tg">σώζω</td><td class="tc2">구원(치료)하다</td></tr>
+          <tr><td class="vg tg">ἄγω</td><td class="tc2">인도하다</td></tr>
+          <tr><td class="vg tg">βάλλω</td><td class="tc2">던지다, 놓다 <span style="color:var(--th)">(불규칙)</span></td></tr>
+          <tr><td class="vg tg">μένω</td><td class="tc2">머물다</td></tr>
+          <tr><td class="vg tg">πέμπω</td><td class="tc2">보내다</td></tr>
+          <tr><td class="vg tg">φέρω</td><td class="tc2">가져오다, 나르다 <span style="color:var(--th)">(불규칙)</span></td></tr>
+          <tr><td class="vg tg">ἔρχομαι</td><td class="tc2">오다, 가다 <span style="color:var(--th)">(디포넌트)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">제2단순과거 전용형 — 별도 어간 (1인칭 단수)</div>
+    <table>
+      <thead><tr><th>제2단순과거</th><th>기본형</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><td class="tg">εἶπον</td><td class="tg">λέγω</td><td class="tc2">말했다</td></tr>
+        <tr><td class="tg">εἶδον</td><td class="tg">βλέπω</td><td class="tc2">보았다</td></tr>
+        <tr><td class="tg">ἦλθον</td><td class="tg">ἔρχομαι</td><td class="tc2">왔다, 갔다</td></tr>
+        <tr><td class="tg">ἔλαβον</td><td class="tg">λαμβάνω</td><td class="tc2">받았다, 취했다</td></tr>
+        <tr><td class="tg">ἔλιπον</td><td class="tg">λείπω</td><td class="tc2">남겼다</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0"><span class="gk">εἶπον</span>은 1인칭 단수이자 3인칭 복수 — 문맥으로 판별</div>
+  </div>
+
+  <div class="sh"><span class="sb">02</span><span class="st">명사 — 남성</span><div class="sl"></div></div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vocab-h">2변화 남성 (-ος) ①</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">λόγος</td><td class="tc2">말씀</td></tr>
+          <tr><td class="vg tg">θεός</td><td class="tc2">하나님</td></tr>
+          <tr><td class="vg tg">κόσμος</td><td class="tc2">세상, 우주</td></tr>
+          <tr><td class="vg tg">νόμος</td><td class="tc2">율법</td></tr>
+          <tr><td class="vg tg">ἄνθρωπος</td><td class="tc2">사람</td></tr>
+          <tr><td class="vg tg">ἀπόστολος</td><td class="tc2">사도</td></tr>
+          <tr><td class="vg tg">ἀδελφός</td><td class="tc2">형제</td></tr>
+          <tr><td class="vg tg">υἱός</td><td class="tc2">아들</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-h">2변화 남성 (-ος) ②</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">δοῦλος</td><td class="tc2">종, 일꾼</td></tr>
+          <tr><td class="vg tg">οἶκος</td><td class="tc2">집</td></tr>
+          <tr><td class="vg tg">κύριος</td><td class="tc2">주(님)</td></tr>
+          <tr><td class="vg tg">θάνατος</td><td class="tc2">죽음</td></tr>
+          <tr><td class="vg tg">ἄγγελος</td><td class="tc2">천사, 사자</td></tr>
+          <tr><td class="vg tg">λίθος</td><td class="tc2">돌</td></tr>
+          <tr><td class="vg tg">οὐρανός</td><td class="tc2">하늘</td></tr>
+          <tr><td class="vg tg">τόπος</td><td class="tc2">장소, 곳</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-h">1변화 남성 (-ης)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">μαθητής</td><td class="tc2">제자</td></tr>
+          <tr><td class="vg tg">προφήτης</td><td class="tc2">예언자</td></tr>
+        </tbody>
+      </table>
+      <div class="vocab-h" style="margin-top:6px;border-top:1px solid var(--border)">2변화 중성 (-ον)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">δῶρον</td><td class="tc2">선물</td></tr>
+          <tr><td class="vg tg">ἔργον</td><td class="tc2">일, 행위</td></tr>
+          <tr><td class="vg tg">τέκνον</td><td class="tc2">아이, 자녀</td></tr>
+          <tr><td class="vg tg">εὐαγγέλιον</td><td class="tc2">복음</td></tr>
+          <tr><td class="vg tg">ἱερόν</td><td class="tc2">성전</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">03</span><span class="st">명사 — 여성</span><div class="sl"></div></div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vocab-h">1변화 여성 (-η)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">ζωή</td><td class="tc2">생명</td></tr>
+          <tr><td class="vg tg">ψυχή</td><td class="tc2">영혼, 목숨</td></tr>
+          <tr><td class="vg tg">ἀρχή</td><td class="tc2">시작, 근원</td></tr>
+          <tr><td class="vg tg">εἰρήνη</td><td class="tc2">평화</td></tr>
+          <tr><td class="vg tg">ἐντολή</td><td class="tc2">계명, 명령</td></tr>
+          <tr><td class="vg tg">γραφή</td><td class="tc2">문서, 성경</td></tr>
+          <tr><td class="vg tg">φωνή</td><td class="tc2">음성, 소리</td></tr>
+          <tr><td class="vg tg">παραβολή</td><td class="tc2">비유</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-h">1변화 여성 (-α, ι/ε 뒤 → -ας/-ᾳ)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">καρδία</td><td class="tc2">마음</td></tr>
+          <tr><td class="vg tg">ἀλήθεια</td><td class="tc2">진리</td></tr>
+          <tr><td class="vg tg">σοφία</td><td class="tc2">지혜</td></tr>
+          <tr><td class="vg tg">ἐκκλησία</td><td class="tc2">교회</td></tr>
+          <tr><td class="vg tg">σκοτία</td><td class="tc2">어둠</td></tr>
+          <tr><td class="vg tg">βασιλεία</td><td class="tc2">왕국, 나라</td></tr>
+          <tr><td class="vg tg">ἡμέρα</td><td class="tc2">날</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-h">1변화 여성 (-α, 자음 뒤 → -ης/-ῃ)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">δόξα</td><td class="tc2">영광</td></tr>
+          <tr><td class="vg tg">ὥρα</td><td class="tc2">시간</td></tr>
+        </tbody>
+      </table>
+      <div class="vocab-h" style="margin-top:6px;border-top:1px solid var(--border)">2변화 여성 (λόγος와 동일 어미)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">ὁδός</td><td class="tc2">길</td></tr>
+          <tr><td class="vg tg">ἔρημος</td><td class="tc2">빈들, 광야</td></tr>
+        </tbody>
+      </table>
+      <div class="vocab-h" style="margin-top:6px;border-top:1px solid var(--border)">불규칙 (3변화)</div>
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">φῶς</td><td class="tc2">빛 (중성)</td></tr>
+          <tr><td class="vg tg">πίστις</td><td class="tc2">믿음 (여성)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">04</span><span class="st">형용사 (1·2변화)</span><div class="sl"></div></div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">ἀγαθός, ή, όν</td><td class="tc2">좋은, 착한</td></tr>
+          <tr><td class="vg tg">κακός, ή, όν</td><td class="tc2">나쁜</td></tr>
+          <tr><td class="vg tg">καλός, ή, όν</td><td class="tc2">좋은, 아름다운</td></tr>
+          <tr><td class="vg tg">μικρός, ά, όν</td><td class="tc2">작은, 적은</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">νεκρός, ά, όν</td><td class="tc2">죽은</td></tr>
+          <tr><td class="vg tg">δίκαιος, αία, ον</td><td class="tc2">옳은 <span style="color:var(--th)">(여성-α형)</span></td></tr>
+          <tr><td class="vg tg">ἄλλος, η, ο</td><td class="tc2">다른</td></tr>
+          <tr><td class="vg tg">πρῶτος, η, ον</td><td class="tc2">처음의, 먼저인</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vocab-card">
+      <table>
+        <thead><tr><th>표제어</th><th>뜻</th></tr></thead>
+        <tbody>
+          <tr><td class="vg tg">ἔσχατος, η, ον</td><td class="tc2">마지막의</td></tr>
+          <tr><td class="vg tg">ἅγιος, α, ον</td><td class="tc2">거룩한 <span style="color:var(--th)">(여성-α형)</span></td></tr>
+          <tr><td class="vg tg">πιστός, ή, όν</td><td class="tc2">신실한, 믿는</td></tr>
+          <tr><td class="vg tg">μόνος, η, ον</td><td class="tc2">유일한, 홀로</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">05</span><span class="st">전치사 (격 지배 포함)</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>전치사</th><th>지배 격</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><td class="tg">ἐν</td><td class="tc2" style="color:var(--green)">+여격</td><td class="tc2">~안에</td></tr>
+        <tr><td class="tg">εἰς</td><td class="tc2" style="color:var(--red)">+대격</td><td class="tc2">~안으로</td></tr>
+        <tr><td class="tg">πρός</td><td class="tc2" style="color:var(--red)">+대격</td><td class="tc2">~에게로, ~를 향해</td></tr>
+        <tr><td class="tg">ἀπό</td><td class="tc2" style="color:#a78bfa">+속격</td><td class="tc2">~에서, ~로부터</td></tr>
+        <tr><td class="tg">ἐκ (모음 앞 ἐξ)</td><td class="tc2" style="color:#a78bfa">+속격</td><td class="tc2">~에서 밖으로</td></tr>
+        <tr><td class="tg">διά</td><td class="tc2">속격(통하여)/대격(때문에)</td><td class="tc2">통하여 / 때문에</td></tr>
+        <tr><td class="tg">μετά</td><td class="tc2">속격(함께)/대격(후에)</td><td class="tc2">함께 / 후에</td></tr>
+        <tr><td class="tg">ὑπό</td><td class="tc2">속격(행위자)/대격(아래)</td><td class="tc2">~에 의해 / ~아래</td></tr>
+        <tr><td class="tg">παρά</td><td class="tc2">속격/여격/대격</td><td class="tc2">~로부터/곁에서/곁으로</td></tr>
+        <tr><td class="tg">ἐπί</td><td class="tc2">속격/여격/대격</td><td class="tc2">~위에/~에 대해</td></tr>
+        <tr><td class="tg">καί</td><td class="tc2">(접속사)</td><td class="tc2">그리고, ~와</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sh"><span class="sb">06</span><span class="st">대명사·기타 (표제어)</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>표제어</th><th>분류</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><td class="tg">ἐγώ / σύ</td><td class="tc2">1·2인칭 대명사</td><td class="tc2">나 / 너</td></tr>
+        <tr><td class="tg">αὐτός, ή, ό</td><td class="tc2">3인칭 / 강조형용사(자신) / 일치형용사(동일한)</td><td class="tc2">그·그녀·그것</td></tr>
+        <tr><td class="tg">ὅς, ἥ, ὅ</td><td class="tc2">관계대명사</td><td class="tc2">~하는 (관계절)</td></tr>
+        <tr><td class="tg">οὗτος, αὕτη, τοῦτο</td><td class="tc2">지시대명사 (this)</td><td class="tc2">이, 이것</td></tr>
+        <tr><td class="tg">ἐκεῖνος, ἐκείνη, ἐκεῖνο</td><td class="tc2">지시대명사 (that)</td><td class="tc2">저, 그것</td></tr>
+        <tr><td class="tg">εἰμί</td><td class="tc2">어근 ἐσ-, 불규칙 (현재·미래·미완료만)</td><td class="tc2">~이다</td></tr>
+        <tr><td class="tg">ὁ, ἡ, τό</td><td class="tc2">정관사</td><td class="tc2">(그)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div><!-- /t1 -->
+
+<div id="t2" class="tc">
+
+  <div class="sh"><span class="sb">기준점</span><span class="st">정관사 — 모든 덩어리 인식의 출발점</span><div class="sl"></div></div>
+  <div class="memo">관사 어미를 외우면 그 뒤에 오는 <strong>명사·형용사·분사·αὐτός·지시대명사</strong>의 성·수·격이 전부 따라온다. 24개 형태가 헬라어 격변화 어미의 "마스터키"다.</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>격</th><th>남성 단수</th><th>남성 복수</th><th>여성 단수</th><th>여성 복수</th><th>중성 단수</th><th>중성 복수</th></tr></thead>
+      <tbody>
+        <tr><td class="tc2" style="color:#60a5fa;font-weight:700">주격</td><td class="tg">ὁ</td><td class="tg">οἱ</td><td class="tg">ἡ</td><td class="tg">αἱ</td><td class="tg">τό</td><td class="tg">τά</td></tr>
+        <tr><td class="tc2" style="color:#a78bfa;font-weight:700">속격</td><td class="tg">τοῦ</td><td class="tg">τῶν</td><td class="tg">τῆς</td><td class="tg">τῶν</td><td class="tg">τοῦ</td><td class="tg">τῶν</td></tr>
+        <tr><td class="tc2" style="color:var(--green);font-weight:700">여격</td><td class="tg">τῷ</td><td class="tg">τοῖς</td><td class="tg">τῇ</td><td class="tg">ταῖς</td><td class="tg">τῷ</td><td class="tg">τοῖς</td></tr>
+        <tr><td class="tc2" style="color:var(--red);font-weight:700">대격</td><td class="tg">τόν</td><td class="tg">τούς</td><td class="tg">τήν</td><td class="tg">τάς</td><td class="tg">τό</td><td class="tg">τά</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0"><b>속격 복수는 성 구분 없이 전부 <span class="gk">τῶν</span></b> — 명사 어미의 <span class="gk">-ων</span>과 세트로 외우면 "속격 복수" 신호가 두 배로 강해진다.</div>
+  </div>
+
+  <div class="sh"><span class="sb">01</span><span class="st">명사 변화 어미 — 모든 변화 한 화면에</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>격</th><th>2변화 남성<br><span class="gk" style="font-size:13px">λόγος</span></th><th>2변화 중성<br><span class="gk" style="font-size:13px">δῶρον</span></th><th>1변화 여성<br><span class="gk" style="font-size:13px">ζωή (-η)</span></th><th>1변화 여성<br><span class="gk" style="font-size:13px">καρδία (-α, ι/ε뒤)</span></th><th>1변화 여성<br><span class="gk" style="font-size:13px">δόξα (-α, 자음뒤)</span></th><th>1변화 남성<br><span class="gk" style="font-size:13px">μαθητής</span></th></tr></thead>
+      <tbody>
+        <tr><td class="tc2" style="color:#60a5fa">주격 단</td><td class="tg">-ος</td><td class="tg">-ον</td><td class="tg">-η</td><td class="tg">-α</td><td class="tg">-α</td><td class="tg">-ης</td></tr>
+        <tr><td class="tc2" style="color:#a78bfa">속격 단</td><td class="tg">-ου</td><td class="tg">-ου</td><td class="tg">-ης</td><td class="tg">-ας</td><td class="tg">-ης</td><td class="tg">-ου</td></tr>
+        <tr><td class="tc2" style="color:var(--green)">여격 단</td><td class="tg">-ῳ</td><td class="tg">-ῳ</td><td class="tg">-ῃ</td><td class="tg">-ᾳ</td><td class="tg">-ῃ</td><td class="tg">-ῃ</td></tr>
+        <tr><td class="tc2" style="color:var(--red)">대격 단</td><td class="tg">-ον</td><td class="tg">-ον</td><td class="tg">-ην</td><td class="tg">-αν</td><td class="tg">-αν</td><td class="tg">-ην</td></tr>
+        <tr><td class="tc2" style="color:#60a5fa">주격 복</td><td class="tg">-οι</td><td class="tg">-α</td><td class="tg">-αι</td><td class="tg">-αι</td><td class="tg">-αι</td><td class="tg">-αι</td></tr>
+        <tr style="border-top:2px solid var(--gold)"><td class="tc2" style="color:#a78bfa">속격 복</td><td class="tg">-ων</td><td class="tg">-ων</td><td class="tg">-ων</td><td class="tg">-ων</td><td class="tg">-ων</td><td class="tg">-ων</td></tr>
+        <tr><td class="tc2" style="color:var(--green)">여격 복</td><td class="tg">-οις</td><td class="tg">-οις</td><td class="tg">-αις</td><td class="tg">-αις</td><td class="tg">-αις</td><td class="tg">-αις</td></tr>
+        <tr><td class="tc2" style="color:var(--red)">대격 복</td><td class="tg">-ους</td><td class="tg">-α</td><td class="tg">-ας</td><td class="tg">-ας</td><td class="tg">-ας</td><td class="tg">-ας</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0">금색 줄(<b>속격 복수 -ων</b>) 아래 두 줄(여격·대격 복수)은 <b>변화 종류와 무관하게 거의 통일</b>되어 있다 — 복수 여·대격은 외울 게 적다.</div>
+  </div>
+
+  <div class="sh"><span class="sb">02</span><span class="st">형용사 1·2변화 어미 (ἀγαθός 기준)</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>격</th><th>남성 (=λόγος형)</th><th>여성 (=ζωή형)</th><th>중성 (=δῶρον형)</th></tr></thead>
+      <tbody>
+        <tr><td class="tc2" style="color:#60a5fa">주격 단/복</td><td class="tg">-ος / -οι</td><td class="tg">-η / -αι</td><td class="tg">-ον / -α</td></tr>
+        <tr><td class="tc2" style="color:#a78bfa">속격 단/복</td><td class="tg">-ου / -ων</td><td class="tg">-ης / -ων</td><td class="tg">-ου / -ων</td></tr>
+        <tr><td class="tc2" style="color:var(--green)">여격 단/복</td><td class="tg">-ῳ / -οις</td><td class="tg">-ῃ / -αις</td><td class="tg">-ῳ / -οις</td></tr>
+        <tr><td class="tc2" style="color:var(--red)">대격 단/복</td><td class="tg">-ον / -ους</td><td class="tg">-ην / -ας</td><td class="tg">-ον / -α</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0"><b>핵심:</b> 형용사 남성=2변화 남성 명사와 동일 / 여성=1변화 ζωή형과 동일 / 중성=2변화 중성과 동일. <span class="gk">δίκαιος, ἅγιος</span>처럼 -ιος로 끝나면 여성만 <span class="gk">-α/-ας/-ᾳ/-αν</span>(καρδία형)으로 바뀐다.</div>
+  </div>
+
+  <div class="sh"><span class="sb">03</span><span class="st">대명사 — 인칭·αὐτός·관계대명사</span><div class="sl"></div></div>
+  <div class="para-grid">
+    <div class="para-c">
+      <div class="para-h">인칭대명사 1·2인칭</div>
+      <table>
+        <thead><tr><th>격</th><th>나(단)</th><th>너(단)</th><th>우리</th><th>너희</th></tr></thead>
+        <tbody>
+          <tr><td class="tc2">주격</td><td class="tg">ἐγώ</td><td class="tg">σύ</td><td class="tg">ἡμεῖς</td><td class="tg">ὑμεῖς</td></tr>
+          <tr><td class="tc2">속격</td><td class="tg">μου</td><td class="tg">σου</td><td class="tg">ἡμῶν</td><td class="tg">ὑμῶν</td></tr>
+          <tr><td class="tc2">여격</td><td class="tg">μοι</td><td class="tg">σοι</td><td class="tg">ἡμῖν</td><td class="tg">ὑμῖν</td></tr>
+          <tr><td class="tc2">대격</td><td class="tg">με</td><td class="tg">σε</td><td class="tg">ἡμᾶς</td><td class="tg">ὑμᾶς</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="para-c">
+      <div class="para-h">αὐτός (3인칭·단수)</div>
+      <table>
+        <thead><tr><th>격</th><th>남성</th><th>여성</th><th>중성</th></tr></thead>
+        <tbody>
+          <tr><td class="tc2">주격</td><td class="tg">αὐτός</td><td class="tg">αὐτή</td><td class="tg">αὐτό</td></tr>
+          <tr><td class="tc2">속격</td><td class="tg">αὐτοῦ</td><td class="tg">αὐτῆς</td><td class="tg">αὐτοῦ</td></tr>
+          <tr><td class="tc2">여격</td><td class="tg">αὐτῷ</td><td class="tg">αὐτῇ</td><td class="tg">αὐτῷ</td></tr>
+          <tr><td class="tc2">대격</td><td class="tg">αὐτόν</td><td class="tg">αὐτήν</td><td class="tg">αὐτό</td></tr>
+        </tbody>
+      </table>
+      <div class="memo" style="margin:8px;font-size:11px">어미만 보면 ἀγαθός와 동일 패턴 — αὐτ- 어간 + 형용사 어미</div>
+    </div>
+    <div class="para-c">
+      <div class="para-h">관계대명사 ὅς ἥ ὅ</div>
+      <table>
+        <thead><tr><th>격</th><th>남성</th><th>여성</th><th>중성</th></tr></thead>
+        <tbody>
+          <tr><td class="tc2">주격</td><td class="tg">ὅς</td><td class="tg">ἥ</td><td class="tg">ὅ</td></tr>
+          <tr><td class="tc2">속격</td><td class="tg">οὗ</td><td class="tg">ἧς</td><td class="tg">οὗ</td></tr>
+          <tr><td class="tc2">여격</td><td class="tg">ᾧ</td><td class="tg">ᾗ</td><td class="tg">ᾧ</td></tr>
+          <tr><td class="tc2">대격</td><td class="tg">ὅν</td><td class="tg">ἥν</td><td class="tg">ὅ</td></tr>
+        </tbody>
+      </table>
+      <div class="memo" style="margin:8px;font-size:11px">전부 거친숨표(῞) + 악센트. 관사(ὁ ἡ τό)에서 τ를 떼고 거친숨표를 붙인 모양과 유사</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">지시대명사 — οὗτος(이) / ἐκεῖνος(저)</div>
+    <table>
+      <thead><tr><th>격</th><th colspan="3"><span class="gk">οὗτος, αὕτη, τοῦτο</span> (남/여/중)</th></tr></thead>
+      <tbody>
+        <tr><td class="tc2" style="color:#60a5fa">주격 단</td><td class="tg">οὗτος</td><td class="tg">αὕτη</td><td class="tg">τοῦτο</td></tr>
+        <tr><td class="tc2" style="color:#a78bfa">속격 단</td><td class="tg">τούτου</td><td class="tg">ταύτης</td><td class="tg">τούτου</td></tr>
+        <tr><td class="tc2" style="color:var(--green)">여격 단</td><td class="tg">τούτῳ</td><td class="tg">ταύτῃ</td><td class="tg">τούτῳ</td></tr>
+        <tr><td class="tc2" style="color:var(--red)">대격 단</td><td class="tg">τοῦτον</td><td class="tg">ταύτην</td><td class="tg">τοῦτο</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0">
+      <b>τ-어간 + 관사 어미</b>가 거의 그대로 들어있다 (τούτου≈τοῦ+ου, ταύτης≈τῆς 변형 등) — 관사를 알면 절반은 안다.<br>
+      <b>ἐκεῖνος, ἐκείνη, ἐκεῖνο</b>는 <strong>ἀγαθός와 완전히 동일한 어미 패턴</strong> (ἐκειν- 어간 + -ος/-η/-ο, -ου/-ης/-ου, -ῳ/-ῃ/-ῳ, -ον/-ην/-ο ...) — 새로 외울 어미가 없다.
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">04</span><span class="st">동사 — 인칭 어미 + 시제 표지 종합</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>시제·태</th><th>구조</th><th>표지</th><th>인칭어미 계열</th></tr></thead>
+      <tbody>
+        <tr><td class="tb2">현재 능동</td><td class="tc2">어간+연결모음+어미</td><td class="tc2" style="color:var(--green)">없음</td><td class="tg">-ω -εις -ει -ομεν -ετε -ουσι(ν)</td></tr>
+        <tr><td class="tb2">현재 수/중</td><td class="tc2">어간+-ομαι계열</td><td class="tc2" style="color:var(--green)">-μαι</td><td class="tg">-ομαι -ῃ -εται -όμεθα -εσθε -ονται</td></tr>
+        <tr><td class="tb2">미래 능동</td><td class="tc2">어간+σ+현재능동어미</td><td class="tc2" style="color:var(--blue)">σ</td><td class="tg">-σω -σεις -σει ...</td></tr>
+        <tr><td class="tb2">미래 수동</td><td class="tc2">어간+θησ+중간어미</td><td class="tc2" style="color:var(--blue)">θησ</td><td class="tg">-θήσομαι ... -θήσονται</td></tr>
+        <tr><td class="tb2">미완료 능동</td><td class="tc2">ἐ+어간+secondary어미</td><td class="tc2" style="color:var(--purple)">ἐ- (가산모음)</td><td class="tg">-ον -ες -ε(ν) -ομεν -ετε -ον</td></tr>
+        <tr><td class="tb2">제1단순과거 능동</td><td class="tc2">ἐ+어간+σα+secondary어미</td><td class="tc2" style="color:var(--gold)">ἐ- + σα</td><td class="tg">-σα -σας -σε(ν) -σαμεν -σατε -σαν</td></tr>
+        <tr><td class="tb2">제1단순과거 수동</td><td class="tc2">ἐ+어간+θη+secondary어미</td><td class="tc2" style="color:var(--gold)">ἐ- + θη</td><td class="tg">-θην -θης -θη -θημεν -θητε -θησαν</td></tr>
+        <tr><td class="tb2">제2단순과거 능동</td><td class="tc2">ἐ+<strong>변형어간</strong>+secondary어미</td><td class="tc2" style="color:var(--red)">어간 자체 변화</td><td class="tg">-ον -ες -ε(ν) -ομεν -ετε -ον</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0">
+      <b>σ + 어간끝자음 결합:</b> <span class="gk">π/β/φ + σ → ψ</span> / <span class="gk">κ/γ/χ + σ → ξ</span> / <span class="gk">τ/δ/θ + σ → σ</span>(자음 탈락)<br>
+      예: <span class="gk">βλέπω→βλέψω</span>, <span class="gk">διδάσκω→διδάξω</span>, <span class="gk">πείθω→πείσω</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">εἰμί — 현재 · 미래 · 미완료 (불규칙, 어근 ἐσ-)</div>
+    <table>
+      <thead><tr><th>인칭/수</th><th>현재</th><th>미래</th><th>미완료</th></tr></thead>
+      <tbody>
+        <tr><td class="tc2">1단</td><td class="tg">εἰμί</td><td class="tg">ἔσομαι</td><td class="tg">ἤμην</td></tr>
+        <tr><td class="tc2">2단</td><td class="tg">εἶ</td><td class="tg">ἔσῃ</td><td class="tg">ἦς</td></tr>
+        <tr><td class="tc2">3단</td><td class="tg">ἐστί(ν)</td><td class="tg">ἔσται</td><td class="tg">ἦν</td></tr>
+        <tr><td class="tc2">1복</td><td class="tg">ἐσμέν</td><td class="tg">ἐσόμεθα</td><td class="tg">ἦμεν</td></tr>
+        <tr><td class="tc2">2복</td><td class="tg">ἐστέ</td><td class="tg">ἔσεσθε</td><td class="tg">ἦτε</td></tr>
+        <tr><td class="tc2">3복</td><td class="tg">εἰσί(ν)</td><td class="tg">ἔσονται</td><td class="tg">ἦσαν</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0"><b>εἰμί는 항상 주격 보어</b> — "A ἐστιν B"에서 A·B 둘 다 주격. 관사 있는 쪽이 주어.</div>
+  </div>
+
+  <div class="sh"><span class="sb">05</span><span class="st">전치사 — 격을 미리 결정해주는 단어</span><div class="sl"></div></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>전치사</th><th>지배 격</th><th>의미</th></tr></thead>
+      <tbody>
+        <tr><td class="tg">ἐν</td><td class="tc2" style="color:var(--green)">여격만</td><td class="tc2">~안에</td></tr>
+        <tr><td class="tg">εἰς</td><td class="tc2" style="color:var(--red)">대격만</td><td class="tc2">~안으로</td></tr>
+        <tr><td class="tg">πρός</td><td class="tc2" style="color:var(--red)">대격만</td><td class="tc2">~에게로, ~와 함께</td></tr>
+        <tr><td class="tg">ἀπό</td><td class="tc2" style="color:#a78bfa">속격만</td><td class="tc2">~로부터</td></tr>
+        <tr><td class="tg">ἐκ(ἐξ)</td><td class="tc2" style="color:#a78bfa">속격만</td><td class="tc2">~밖으로(기원)</td></tr>
+        <tr><td class="tg">διά</td><td class="tc2">속격(통하여)/대격(때문에)</td><td class="tc2">통하여 / 때문에</td></tr>
+        <tr><td class="tg">μετά</td><td class="tc2">속격(함께)/대격(후에)</td><td class="tc2">함께 / 후에</td></tr>
+        <tr><td class="tg">ὑπό</td><td class="tc2">속격(행위자)/대격(아래)</td><td class="tc2">~에 의해 / ~아래</td></tr>
+        <tr><td class="tg">παρά / ἐπί</td><td class="tc2">속격/여격/대격 모두</td><td class="tc2">상황에 따라 다름</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memo" style="margin-top:8px">
+    <b>이 탭에서 꼭 가져갈 3가지</b><br>
+    ① 정관사 24형 → 모든 격변화의 마스터키<br>
+    ② 명사·형용사 복수 여격(-οις/-αις)·속격(-ων)은 변화 종류 무관 거의 통일<br>
+    ③ ἐκεῖνος = ἀγαθός와 어미 동일, οὗτος/관계대명사/αὐτός는 관사 어미가 변형되어 들어있음
+  </div>
+
+
+</div><!-- /t2 -->
+
+<div id="t3" class="tc">
+
+  <div class="sh"><span class="sb">전략</span><span class="st">문장을 만나면 이 순서로 본다</span><div class="sl"></div></div>
+
+  <div class="step">
+    <div class="step-n">1</div>
+    <div class="step-body">
+      <div class="step-t">동사부터 찾는다</div>
+      <div class="step-d">
+        문장에서 가장 먼저 <strong>동사(어미가 -ω, -εις, -ει, -ομεν, -ετε, -ουσι(ν) / -ον, -ες, -ε(ν), -ομεν, -ετε, -ον 등으로 끝나는 단어)</strong>를 찾는다.
+        동사 어미만 보면 <strong>인칭·수가 바로 드러나므로</strong>, 주어를 찾는 기준점이 된다. 주어가 따로 없으면 동사 어미 속 인칭이 주어다.
+      </div>
+      <div class="step-ex"><span class="gk">γινώσκομεν</span> → 어미 <span class="gk">-ομεν</span> = 1인칭 복수 → "우리가" 안다 (주어 ἐγώ/ἡμεῖς 없어도 OK)</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-n">2</div>
+    <div class="step-body">
+      <div class="step-t">관사를 깃발로 삼아 묶음을 만든다</div>
+      <div class="step-d">
+        관사(<span class="gk">ὁ ἡ τό / τοῦ τῆς τοῦ / τῷ τῇ τῷ / τόν τήν τό ...</span>)는 항상 뒤따르는 명사와 <strong>성·수·격이 일치</strong>한다.
+        관사 + (형용사) + 명사 = <strong>한 덩어리</strong>. 관사와 명사 사이에 형용사가 끼어 있으면 그 형용사는 한정적 용법(수식어)이다.
+      </div>
+      <div class="step-ex"><span class="gk">ὁ ἀγαθὸς λόγος</span> → [그] + [좋은] + [말씀] = 한 덩어리(주어/목적어 등). 관사만 보고도 성·수·격을 먼저 확정할 수 있다.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-n">3</div>
+    <div class="step-body">
+      <div class="step-t">명사·형용사·관사의 어미로 격(역할)을 확정한다</div>
+      <div class="step-d">
+        어미만 봐도 주격(주어/보어)·속격(소유)·여격(간접목적어·전치사 지배·수단)·대격(직접목적어·전치사 지배)을 구분할 수 있다.
+        아래 <strong>"격 어미 통합표"</strong>가 이 작업의 핵심 도구다.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-n">4</div>
+    <div class="step-body">
+      <div class="step-t">접속사·관계대명사로 문장을 절(節) 단위로 자른다</div>
+      <div class="step-d">
+        <span class="gk">καί</span>(그리고), <span class="gk">δέ</span>(그러나), <span class="gk">γάρ</span>(왜냐하면), <span class="gk">ὅτι</span>(왜냐하면/that)는 절의 경계 표시다.
+        <span class="gk">ὅς ἥ ὅ</span>(관계대명사)가 보이면 그 지점부터 <strong>관계절 시작</strong> — 성·수는 앞의 선행사와 일치, 격은 관계절 안에서의 역할로 따로 결정한다.
+      </div>
+      <div class="step-ex"><span class="gk">ὁ μαθητὴς ὃν ἠγάπησεν ὁ Ἰησοῦς...</span> → "그 제자[, 그를 예수께서 사랑하셨다,] ~"로 끊어 읽는다</div>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">핵심</span><span class="st">격 어미 통합 치트시트 — 어미만 보고 격 판별</span><div class="sl"></div></div>
+
+  <div class="memo">아래 표는 명사·형용사·관사·대명사·분사에 <strong>공통으로 나타나는 어미 패턴</strong>이다. 변화 종류(1변화/2변화/3변화)를 모를 때도, 끝 글자만 보고 격을 추측하는 데 쓴다.</div>
+
+  <div class="case-grid">
+    <div class="case-col">
+      <div class="case-head nom">주격 (NOM)</div>
+      <div class="case-body">
+        <div class="case-end"><span class="e gk">-ος / -ης</span><span class="role">남성 단수</span></div>
+        <div class="case-end"><span class="e gk">-η / -α</span><span class="role">여성 단수</span></div>
+        <div class="case-end"><span class="e gk">-ον</span><span class="role">중성 단수</span></div>
+        <div class="case-end"><span class="e gk">-οι / -αι</span><span class="role">남/여 복수</span></div>
+        <div class="case-end"><span class="e gk">-α</span><span class="role">중성 복수</span></div>
+        <div class="case-end"><span class="e gk">-ός, -ή, -όν</span><span class="role">(형용사 어미)</span></div>
+      </div>
+    </div>
+    <div class="case-col">
+      <div class="case-head gen">속격 (GEN)</div>
+      <div class="case-body">
+        <div class="case-end"><span class="e gk">-ου</span><span class="role">남/중 단수</span></div>
+        <div class="case-end"><span class="e gk">-ης / -ας</span><span class="role">여성 단수</span></div>
+        <div class="case-end" style="border:1px solid var(--gold);border-radius:4px;margin:2px 0"><span class="e gk">-ων</span><span class="role">★복수 전체<br>(성 무관 공통!)</span></div>
+        <div class="case-end"><span class="e gk">τοῦ / τῆς</span><span class="role">관사 속격</span></div>
+      </div>
+    </div>
+    <div class="case-col">
+      <div class="case-head dat">여격 (DAT)</div>
+      <div class="case-body">
+        <div class="case-end"><span class="e gk">-ῳ</span><span class="role">남/중 단수</span></div>
+        <div class="case-end"><span class="e gk">-ῃ / -ᾳ</span><span class="role">여성 단수</span></div>
+        <div class="case-end" style="border:1px solid var(--gold);border-radius:4px;margin:2px 0"><span class="e gk">-οις / -αις</span><span class="role">★복수 전체<br>(이오타 붙음)</span></div>
+        <div class="case-end"><span class="e gk">τῷ / τῇ</span><span class="role">관사 여격</span></div>
+      </div>
+    </div>
+    <div class="case-col">
+      <div class="case-head acc">대격 (ACC)</div>
+      <div class="case-body">
+        <div class="case-end"><span class="e gk">-ον</span><span class="role">남/중 단수</span></div>
+        <div class="case-end"><span class="e gk">-ην / -αν</span><span class="role">여성 단수</span></div>
+        <div class="case-end"><span class="e gk">-ους / -ας</span><span class="role">남/여 복수</span></div>
+        <div class="case-end"><span class="e gk">-α</span><span class="role">중성 복수</span></div>
+        <div class="case-end"><span class="e gk">τόν / τήν / τό</span><span class="role">관사 대격</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="memo">
+    <b>가장 강력한 신호 2개</b><br>
+    ① 끝이 <span class="gk">-ν</span>으로 끝나면 → 거의 항상 <strong>대격</strong> (예: λόγον, ζωήν, αὐτόν, τοῦτον)<br>
+    ② 끝이 <span class="gk">-ων</span>이면 → 거의 항상 <strong>속격 복수</strong> (남/여/중 구분 없이 공통, 예: ἀνθρώπων, τούτων, τῶν)<br>
+    ③ <span class="gk">-οις / -αις</span>면 → 거의 항상 <strong>여격 복수</strong>
+  </div>
+
+  <div class="sh"><span class="sb">핵심</span><span class="st">동사 인칭 어미 — Primary(현재계) vs Secondary(과거계)</span><div class="sl"></div></div>
+
+  <div class="card">
+    <div class="ct">동사 끝부분만 보고 "누가" 했는지 즉시 판별</div>
+    <table>
+      <thead><tr><th>인칭/수</th><th>Primary 어미<br>(현재·미래)</th><th>Secondary 어미<br>(미완료·단순과거)</th><th>의미</th></tr></thead>
+      <tbody>
+        <tr><td class="tb2">1인칭 단수</td><td class="tg">-ω</td><td class="tg">-ον / -α</td><td class="tc2">나는 ~</td></tr>
+        <tr><td class="tb2">2인칭 단수</td><td class="tg">-εις</td><td class="tg">-ες / -ας</td><td class="tc2">너는 ~</td></tr>
+        <tr><td class="tb2">3인칭 단수</td><td class="tg">-ει</td><td class="tg">-ε(ν) / -ε(ν)</td><td class="tc2">그는 ~</td></tr>
+        <tr><td class="tb2">1인칭 복수</td><td class="tg">-ομεν</td><td class="tg">-ομεν / -αμεν</td><td class="tc2">우리는 ~</td></tr>
+        <tr><td class="tb2">2인칭 복수</td><td class="tg">-ετε</td><td class="tg">-ετε / -ατε</td><td class="tc2">너희는 ~</td></tr>
+        <tr><td class="tb2">3인칭 복수</td><td class="tg">-ουσι(ν)</td><td class="tg">-ον / -αν</td><td class="tc2">그들은 ~</td></tr>
+      </tbody>
+    </table>
+    <div class="memo" style="margin:0">
+      <b>가산모음 ἐ-</b>가 동사 맨 앞에 붙어 있으면(<span class="gk">ἔ-λυον, ἐ-λύθην, ἤ-μην</span>) → <strong>과거 시제</strong>(미완료/단순과거) 확정.<br>
+      <b>εἰμί는 예외</b> — 주격 보어를 취하므로 εἰμί가 보이면 그 앞뒤 <strong>주격 명사 2개</strong>가 "A는 B다" 관계임을 먼저 확인한다.
+    </div>
+  </div>
+
+  <div class="sh"><span class="sb">실전</span><span class="st">묶음(청킹) 패턴 4가지 — 14주차 문장으로 연습</span><div class="sl"></div></div>
+
+  <div class="chunk-ex">
+    <div class="chunk-title">패턴 ① 관사+형용사+명사 = 한 덩어리 (한정적 수식)</div>
+    <div class="chunk-line"><span class="gk cu1">ὁ μαθητὴς</span> <span class="gk">ὃν ἠγάπησεν ὁ Ἰησοῦς</span> <span class="gk cu2">ἦν ἐν τῷ οἴκῳ</span>.</div>
+    <div class="chunk-note">
+      <span class="tag" style="background:#16243d"></span><span class="gk">ὁ μαθητής</span> — 관사+명사, 둘 다 주격 단수 → "그 제자는" (문장의 주어 덩어리)<br>
+      <span class="tag" style="background:#152a1f"></span><span class="gk">ἐν τῷ οἴκῳ</span> — 전치사+관사+명사, 모두 여격 → "그 집 안에" (장소 덩어리)<br>
+      가운데 <span class="gk">ὃν ... Ἰησοῦς</span>는 관계절 — 별도 덩어리로 통째로 처리
+    </div>
+  </div>
+
+  <div class="chunk-ex">
+    <div class="chunk-title">패턴 ② 전치사 + (관사) + 명사 = 부사어 덩어리 (전치사가 격 결정)</div>
+    <div class="chunk-line"><span class="gk">γινώσκομεν</span> <span class="gk cu3">τὴν ὁδόν</span>, καὶ <span class="gk">ἄγομέν σε</span> <span class="gk cu2">εἰς τὸν οἶκον ἡμῶν</span>.</div>
+    <div class="chunk-note">
+      <span class="tag" style="background:#2f1c18"></span><span class="gk">τὴν ὁδόν</span> — 관사+명사 대격 → "그 길을" (동사 γινώσκομεν의 목적어)<br>
+      <span class="tag" style="background:#152a1f"></span><span class="gk">εἰς τὸν οἶκον ἡμῶν</span> — εἰς는 항상 대격 지배 → τὸν οἶκον(대격)+ἡμῶν(소유 속격) = "우리 집으로"<br>
+      전치사를 보면 <strong>그 뒤에 오는 관사+명사의 격이 이미 정해진다</strong> (εἰς/πρός→대격, ἐν→여격, ἀπό/ἐκ→속격)
+    </div>
+  </div>
+
+  <div class="chunk-ex">
+    <div class="chunk-title">패턴 ③ 관사 없는 형용사만 단독 = 독립적 용법 (사람/사물 자체를 가리킴)</div>
+    <div class="chunk-line"><span class="gk cu3">ταῖς πισταῖς καὶ τοῖς πιστοῖς</span> <span class="gk">λέγει ὁ μαθητής</span> <span class="gk cu3">παραβολὴν καλήν</span>.</div>
+    <div class="chunk-note">
+      <span class="tag" style="background:#2f1c18"></span><span class="gk">ταῖς πισταῖς</span> / <span class="gk">τοῖς πιστοῖς</span> — 관사+형용사, <strong>명사 없음</strong> → 형용사가 명사 역할 ("믿는 여자들에게/남자들에게")<br>
+      <span class="tag" style="background:#2f1c18"></span><span class="gk">παραβολὴν καλήν</span> — 명사+형용사 둘 다 대격, 관사 없음 → "좋은 비유를" (목적어 덩어리, 형용사가 명사 뒤에서 수식)<br>
+      관사의 <strong>성(性)</strong>만으로 그 대상이 남자들인지 여자들인지 알 수 있다
+    </div>
+  </div>
+
+  <div class="chunk-ex">
+    <div class="chunk-title">패턴 ④ εἰμί 문장 = "A(주격) ~이다 B(주격)" — 양쪽 다 주격!</div>
+    <div class="chunk-line"><span class="gk cu1">ἡ ζωή</span> <span class="gk">ἦν</span> <span class="gk cu1">τὸ φῶς τῶν ἀνθρώπων</span>.</div>
+    <div class="chunk-note">
+      <span class="tag" style="background:#16243d"></span><span class="gk">ἡ ζωή</span> — 관사 있음 → <strong>주어</strong> ("그 생명은")<br>
+      <span class="tag" style="background:#16243d"></span><span class="gk">τὸ φῶς</span> — 역시 주격이지만 εἰμί의 <strong>보어</strong> ("빛") — τῶν ἀνθρώπων(속격 복수, -ων!)이 뒤에서 수식<br>
+      εἰμί 양쪽에 주격이 두 개 보이면, <strong>관사가 있는 쪽이 주어</strong>, 없는 쪽(또는 나중에 나온 쪽)이 보어
+    </div>
+  </div>
+
+  <div class="memo" style="margin-top:20px">
+    <b>총정리 — 시험장에서 떠올릴 한 줄</b><br>
+    "동사 어미로 인칭 잡고 → 관사를 단서로 명사 덩어리 찾고 → 어미 끝글자(-ν=대격, -ων=속격복수, -οις/-αις=여격복수)로 격 확정 → καί/관계대명사로 절 나누기."
+  </div>
+
+
+</div><!-- /t3 -->
+
+<div id="t4" class="tc">
+
+  <div class="legend">
+    <span style="font-size:10px;color:var(--ts);font-weight:700;margin-right:4px">색상 범례:</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--purple)"></span>동사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--blue)"></span>명사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#fbbf24"></span>형용사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--red)"></span>대명사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--green)"></span>전치사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--orange)"></span>지시대명사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#e879f9"></span>관계대명사</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#4a5268"></span>관사·접속사</span>
+    <span style="margin-left:6px;font-size:10px;color:var(--th)">칩 윗선 = 격: <span style="color:#60a5fa">■ 주격</span> <span style="color:#a78bfa">■ 속격</span> <span style="color:var(--green)">■ 여격</span> <span style="color:var(--red)">■ 대격</span></span>
+  </div>
+
+  <div class="sh"><span class="sb">14주차</span><span class="st">마지막 수업 문장 9개 — 단어별 직역</span><div class="sl"></div></div>
+
+  <!-- S1 -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 1</span><span class="sc-ref">슬라이드 13</span></div>
+    <div class="sc-full gk">ἀγαθός ἐστιν ὁ κύριος καὶ ἀγαθοί ἐστε ὑμεῖς.</div>
+    <div class="wr">
+      <div class="wc w-adj case-nom"><span class="wc-g gk">ἀγαθός</span><span class="wc-p">형용사 · 서술적 용법<br>남성 단수 <strong>주격</strong></span><span class="wc-m">선한</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐστιν</span><span class="wc-p">εἰμί · 현재 직설법<br>3인칭 단수</span><span class="wc-m">~이다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">κύριος</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">주는</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
+      <div class="wc w-adj case-nom"><span class="wc-g gk">ἀγαθοί</span><span class="wc-p">형용사 · 서술적 용법<br>남성 복수 <strong>주격</strong></span><span class="wc-m">선한</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐστε</span><span class="wc-p">εἰμί · 현재 직설법<br>2인칭 복수</span><span class="wc-m">~이다</span></div>
+      <div class="wc w-pron case-nom"><span class="wc-g gk">ὑμεῖς</span><span class="wc-p">2인칭 대명사<br>복수 <strong>주격</strong> → 강조 주어</span><span class="wc-m">너희는</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">선하다 — 그 주는. 그리고 선하다 — 너희는.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">주님은 선하시고, 너희도 선하다.</span></div>
+  </div>
+
+  <!-- S2 -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 2</span><span class="sc-ref">슬라이드 13</span></div>
+    <div class="sc-full gk">ὁ μαθητὴς ὃν ἠγάπησεν ὁ Ἰησοῦς ἦν ἐν τῷ οἴκῳ.</div>
+    <div class="wr">
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">μαθητής</span><span class="wc-p">명사 · 1변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">제자는</span></div>
+      <div class="wc w-rel case-acc"><span class="wc-g gk">ὅν</span><span class="wc-p">관계대명사 ὅς<br>남성 단수 <strong>대격</strong><br>선행사: μαθητής<br>절 안 역할: 목적어</span><span class="wc-m">그를</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγάπησεν</span><span class="wc-p">ἀγαπάω · 제1단순과거<br>능동태 직설법 3인칭 단수</span><span class="wc-m">사랑하셨다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">Ἰησοῦς</span><span class="wc-p">고유명사<br>단수 <strong>주격</strong> → 관계절 주어</span><span class="wc-m">예수께서</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἦν</span><span class="wc-p">εἰμί · 미완료 직설법<br>3인칭 단수</span><span class="wc-m">있었다</span></div>
+      <div class="wc w-prep case-na"><span class="wc-g gk">ἐν</span><span class="wc-p">전치사 + 여격</span><span class="wc-m">~안에</span></div>
+      <div class="wc w-art case-dat"><span class="wc-g gk">τῷ</span><span class="wc-p">정관사<br>남성 단수 <strong>여격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-dat"><span class="wc-g gk">οἴκῳ</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>여격</strong> → ἐν의 지배</span><span class="wc-m">집 안에</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 제자, 예수께서 사랑하신 그를, 그 집 안에 있었다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">예수님이 사랑하신 그 제자는 집에 있었다.</span></div>
+    <div class="pt"><b>관계대명사 격 결정:</b> 성·수는 선행사 <span class="gk">μαθητής</span>(남·단)와 일치, 격은 관계절 안에서 ἠγάπησεν의 <b>목적어</b>이므로 대격 <span class="gk">ὅν</span><br><b>ἠγάπησεν의 형태:</b> 그리스어 자체는 평서형 동사 "(그가) 사랑했다"(3인칭 단수 직설법)이며, "사랑하신"이라는 관형형은 그리스어 형태가 아니라 한국어로 관계절을 옮길 때 자연스럽게 붙는 표현입니다.</div>
+  </div>
+
+  <!-- S3 -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 3</span><span class="sc-ref">슬라이드 13</span></div>
+    <div class="sc-full gk">ζωὴ ἦν ἐν αὐτῷ, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων.</div>
+    <div class="wr">
+      <div class="wc w-noun case-nom"><span class="wc-g gk">ζωή</span><span class="wc-p">명사 · 1변화 여성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">생명이</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἦν</span><span class="wc-p">εἰμί · 미완료 직설법<br>3인칭 단수</span><span class="wc-m">있었다</span></div>
+      <div class="wc w-prep case-na"><span class="wc-g gk">ἐν</span><span class="wc-p">전치사 + 여격</span><span class="wc-m">~안에</span></div>
+      <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτῷ</span><span class="wc-p">3인칭 대명사<br>남성 단수 <strong>여격</strong><br>→ ἐν의 지배</span><span class="wc-m">그</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ἡ</span><span class="wc-p">정관사<br>여성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">ζωή</span><span class="wc-p">명사 · 여성 단수 <strong>주격</strong><br>→ 둘째 절 주어</span><span class="wc-m">생명은</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἦν</span><span class="wc-p">εἰμί · 미완료 3인칭 단수</span><span class="wc-m">~이었다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">τό</span><span class="wc-p">정관사<br>중성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">φῶς</span><span class="wc-p">명사 · 중성<br>단수 <strong>주격</strong> → 보어<br>(εἰμί 보어 = 주격!)</span><span class="wc-m">빛</span></div>
+      <div class="wc w-art case-gen"><span class="wc-g gk">τῶν</span><span class="wc-p">정관사<br>남성 복수 <strong>속격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-gen"><span class="wc-g gk">ἀνθρώπων</span><span class="wc-p">명사 · 2변화 남성<br>복수 <strong>속격</strong> → 소유</span><span class="wc-m">사람들의</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">생명이 그 안에 있었다. 그리고 그 생명은 사람들의 빛이었다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그 안에 생명이 있었고, 그 생명은 사람들의 빛이었다.</span></div>
+  </div>
+
+  <!-- S4 -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 4</span><span class="sc-ref">슬라이드 13</span></div>
+    <div class="sc-full gk">ὁ Πέτρος λέγει αὐτῷ· σὺ εἶ ὁ χριστός.</div>
+    <div class="wr">
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">Πέτρος</span><span class="wc-p">고유명사 · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">베드로가</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">λέγει</span><span class="wc-p">λέγω · 현재 능동태<br>직설법 3인칭 단수</span><span class="wc-m">말한다</span></div>
+      <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτῷ</span><span class="wc-p">3인칭 대명사<br>남성 단수 <strong>여격</strong><br>→ 간접 목적어</span><span class="wc-m">그에게</span></div>
+      <div class="wc w-pron case-nom"><span class="wc-g gk">σύ</span><span class="wc-p">2인칭 대명사<br>단수 <strong>주격</strong> (강조)</span><span class="wc-m">너는</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἶ</span><span class="wc-p">εἰμί · 현재 직설법<br>2인칭 단수</span><span class="wc-m">~이다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">χριστός</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> → 보어<br>(εἰμί 보어 = 주격)</span><span class="wc-m">그리스도</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 베드로가 그에게 말한다 — "너는 그 그리스도이다."</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">베드로가 그에게 말한다: "당신은 그리스도이십니다."</span></div>
+  </div>
+
+  <!-- S5 -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 5</span><span class="sc-ref">슬라이드 13</span></div>
+    <div class="sc-full gk">λέγει αὐτῷ ὁ Ἰησοῦς· ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή.</div>
+    <div class="wr">
+      <div class="wc w-verb case-na"><span class="wc-g gk">λέγει</span><span class="wc-p">λέγω · 현재 능동태<br>직설법 3인칭 단수</span><span class="wc-m">말한다</span></div>
+      <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτῷ</span><span class="wc-p">3인칭 대명사<br>남성 단수 <strong>여격</strong><br>→ 간접 목적어</span><span class="wc-m">그에게</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사 · 남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">Ἰησοῦς</span><span class="wc-p">고유명사<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">예수께서</span></div>
+      <div class="wc w-pron case-nom"><span class="wc-g gk">ἐγώ</span><span class="wc-p">1인칭 대명사<br>단수 <strong>주격</strong> (강조)</span><span class="wc-m">나는</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἰμι</span><span class="wc-p">εἰμί · 현재 직설법<br>1인칭 단수</span><span class="wc-m">~이다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ἡ</span><span class="wc-p">정관사 · 여성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">ὁδός</span><span class="wc-p">명사 · 2변화 여성<br>단수 <strong>주격</strong> → 보어 ①</span><span class="wc-m">길</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ἡ</span><span class="wc-p">정관사 · 여성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">ἀλήθεια</span><span class="wc-p">명사 · 1변화 여성<br>단수 <strong>주격</strong> → 보어 ②</span><span class="wc-m">진리</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ἡ</span><span class="wc-p">정관사 · 여성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">ζωή</span><span class="wc-p">명사 · 1변화 여성<br>단수 <strong>주격</strong> → 보어 ③</span><span class="wc-m">생명</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 예수께서 그에게 말한다 — "나는 그 길이요, 그 진리요, 그 생명이다."</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">예수님이 그에게 말씀하신다: "나는 길이요 진리요 생명이다."</span></div>
+  </div>
+
+  <!-- S6 (NEW — 슬라이드 14, 1번째 문장) -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 6</span><span class="sc-ref">슬라이드 14</span></div>
+    <div class="sc-full gk">ταῖς πισταῖς καὶ τοῖς πιστοῖς λέγει ὁ μαθητής παραβολὴν καλήν.</div>
+    <div class="wr">
+      <div class="wc w-art case-dat"><span class="wc-g gk">ταῖς</span><span class="wc-p">정관사<br>여성 복수 <strong>여격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-adj case-dat"><span class="wc-g gk">πισταῖς</span><span class="wc-p">형용사 πιστός · <strong>독립적 용법</strong><br>여성 복수 <strong>여격</strong><br>→ 명사처럼 "믿는 여자들"</span><span class="wc-m">믿는 여자들에게</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">~와</span></div>
+      <div class="wc w-art case-dat"><span class="wc-g gk">τοῖς</span><span class="wc-p">정관사<br>남성 복수 <strong>여격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-adj case-dat"><span class="wc-g gk">πιστοῖς</span><span class="wc-p">형용사 πιστός · <strong>독립적 용법</strong><br>남성 복수 <strong>여격</strong><br>→ 명사처럼 "믿는 남자들"</span><span class="wc-m">믿는 남자들에게</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">λέγει</span><span class="wc-p">λέγω · 현재 능동태<br>직설법 3인칭 단수</span><span class="wc-m">말한다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">μαθητής</span><span class="wc-p">명사 · 1변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">제자가</span></div>
+      <div class="wc w-noun case-acc"><span class="wc-g gk">παραβολήν</span><span class="wc-p">명사 παραβολή · 1변화 여성<br>단수 <strong>대격</strong> → 직접 목적어</span><span class="wc-m">비유를</span></div>
+      <div class="wc w-adj case-acc"><span class="wc-g gk">καλήν</span><span class="wc-p">형용사 καλός · <strong>한정적 용법</strong><br>여성 단수 <strong>대격</strong><br>→ παραβολήν 수식 (관사 없음)</span><span class="wc-m">좋은</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">믿는 여자들에게와 믿는 남자들에게, 그 제자가 좋은 비유를 말한다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그 제자가 믿는 여자들과 믿는 남자들에게 좋은 비유를 말한다.</span></div>
+    <div class="pt"><b>형용사 독립적 용법:</b> <span class="gk">πισταῖς / πιστοῖς</span> — 명사 없이 형용사만으로 "믿는 여자들 / 믿는 남자들"을 가리킴. 관사의 성(여성·남성)이 대상의 성을 알려줌.</div>
+  </div>
+
+  <!-- S7 (구 S8 — 슬라이드 14, 2번째 문장) -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 7</span><span class="sc-ref">슬라이드 14</span></div>
+    <div class="sc-full gk">γινώσκομεν τὴν ὁδόν, καὶ ἄγομέν σε εἰς τὸν οἶκον ἡμῶν.</div>
+    <div class="wr">
+      <div class="wc w-verb case-na"><span class="wc-g gk">γινώσκομεν</span><span class="wc-p">γινώσκω · 현재 능동태<br>직설법 1인칭 복수</span><span class="wc-m">우리가 안다</span></div>
+      <div class="wc w-art case-acc"><span class="wc-g gk">τήν</span><span class="wc-p">정관사 · 여성 단수 <strong>대격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-acc"><span class="wc-g gk">ὁδόν</span><span class="wc-p">명사 ὁδός · 2변화 여성<br>단수 <strong>대격</strong> → 직접 목적어</span><span class="wc-m">길을</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἄγομεν</span><span class="wc-p">ἄγω · 현재 능동태<br>직설법 1인칭 복수</span><span class="wc-m">우리가 인도한다</span></div>
+      <div class="wc w-pron case-acc"><span class="wc-g gk">σε</span><span class="wc-p">2인칭 대명사<br>단수 <strong>대격</strong> → 직접 목적어</span><span class="wc-m">너를</span></div>
+      <div class="wc w-prep case-na"><span class="wc-g gk">εἰς</span><span class="wc-p">전치사 + 대격</span><span class="wc-m">~안으로</span></div>
+      <div class="wc w-art case-acc"><span class="wc-g gk">τόν</span><span class="wc-p">정관사 · 남성 단수 <strong>대격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-acc"><span class="wc-g gk">οἶκον</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>대격</strong> → εἰς의 지배</span><span class="wc-m">집</span></div>
+      <div class="wc w-pron case-gen"><span class="wc-g gk">ἡμῶν</span><span class="wc-p">1인칭 대명사<br>복수 <strong>속격</strong> → 소유</span><span class="wc-m">우리의</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">우리가 그 길을 안다. 그리고 우리가 너를 우리의 그 집 안으로 인도한다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">우리는 그 길을 알고 있으며, 너를 우리 집으로 인도한다.</span></div>
+  </div>
+
+  <!-- S8 (구 S6 — 슬라이드 14, 3번째 문장) -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 8</span><span class="sc-ref">슬라이드 14</span></div>
+    <div class="sc-full gk">ταύτας τὰς ἐντολὰς ἔλαβον ἀπὸ τοῦ κυρίου, ἤμην γὰρ μαθητὴς αὐτοῦ.</div>
+    <div class="wr">
+      <div class="wc w-dem case-acc"><span class="wc-g gk">ταύτας</span><span class="wc-p">지시대명사 οὗτος<br>여성 복수 <strong>대격</strong><br>→ 명사 수식 (서술 위치)</span><span class="wc-m">이</span></div>
+      <div class="wc w-art case-acc"><span class="wc-g gk">τάς</span><span class="wc-p">정관사 · 여성 복수 <strong>대격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-acc"><span class="wc-g gk">ἐντολάς</span><span class="wc-p">명사 ἐντολή · 1변화 여성<br>복수 <strong>대격</strong> → 직접 목적어</span><span class="wc-m">계명들을</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔλαβον</span><span class="wc-p">λαμβάνω<br><strong>제2단순과거</strong> 능동태<br>직설법 1인칭 단수</span><span class="wc-m">내가 받았다</span></div>
+      <div class="wc w-prep case-na"><span class="wc-g gk">ἀπό</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~로부터</span></div>
+      <div class="wc w-art case-gen"><span class="wc-g gk">τοῦ</span><span class="wc-p">정관사 · 남성 단수 <strong>속격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-gen"><span class="wc-g gk">κυρίου</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>속격</strong> → ἀπό의 지배</span><span class="wc-m">주</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἤμην</span><span class="wc-p">εἰμί · 미완료 직설법<br>1인칭 단수</span><span class="wc-m">나는 ~였다</span></div>
+      <div class="wc w-conj case-na"><span class="wc-g gk">γάρ</span><span class="wc-p">접속사 (후치사)</span><span class="wc-m">왜냐하면</span></div>
+      <div class="wc w-noun case-nom"><span class="wc-g gk">μαθητής</span><span class="wc-p">명사 · 1변화 남성<br>단수 <strong>주격</strong> → 보어</span><span class="wc-m">제자</span></div>
+      <div class="wc w-pron case-gen"><span class="wc-g gk">αὐτοῦ</span><span class="wc-p">3인칭 대명사<br>남성 단수 <strong>속격</strong> → 소유</span><span class="wc-m">그의</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">이 계명들을 내가 그 주로부터 받았다. 왜냐하면 나는 그의 제자였다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">나는 주님으로부터 이 계명들을 받았으니, 왜냐하면 나는 그의 제자였기 때문이다.</span></div>
+  </div>
+
+  <!-- S9 (구 S7 — 슬라이드 14, 4번째 문장) -->
+  <div class="sc">
+    <div class="sc-hd"><span class="sc-num">문장 9</span><span class="sc-ref">슬라이드 14</span></div>
+    <div class="sc-full gk">ἐγερθήσονται οἱ νεκροὶ τῷ λόγῳ τοῦ κυρίου.</div>
+    <div class="wr">
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐγερθήσονται</span><span class="wc-p">ἐγείρω<br><strong>미래 수동태</strong> 직설법<br>3인칭 복수 (θησ 표지)</span><span class="wc-m">일으켜질 것이다</span></div>
+      <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사 · 남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-adj case-nom"><span class="wc-g gk">νεκροί</span><span class="wc-p">형용사 · <strong>독립적 용법</strong><br>남성 복수 <strong>주격</strong><br>→ 명사처럼 사용</span><span class="wc-m">죽은 자들이</span></div>
+      <div class="wc w-art case-dat"><span class="wc-g gk">τῷ</span><span class="wc-p">정관사 · 남성 단수 <strong>여격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-dat"><span class="wc-g gk">λόγῳ</span><span class="wc-p">명사 λόγος · 2변화 남성<br>단수 <strong>여격</strong> → 수단의 여격<br>("~으로/~에 의해")</span><span class="wc-m">말씀으로</span></div>
+      <div class="wc w-art case-gen"><span class="wc-g gk">τοῦ</span><span class="wc-p">정관사 · 남성 단수 <strong>속격</strong></span><span class="wc-m">그</span></div>
+      <div class="wc w-noun case-gen"><span class="wc-g gk">κυρίου</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>속격</strong> → 소유</span><span class="wc-m">주의</span></div>
+    </div>
+    <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 죽은 자들이 그 주의 말씀으로 일으켜질 것이다.</span></div>
+    <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">죽은 자들이 주님의 말씀으로 일으켜질 것이다.</span></div>
+  </div>
+
+  <div class="mbar">
+    <div class="mbar-t">★ 오늘 암기 필수 형태 3가지</div>
+    <div class="mbar-items">
+      <div class="mi"><span class="mi-n">①</span><span class="mi-g gk">ὃν ἠγάπησεν ὁ Ἰησοῦς</span><span class="mi-k">관계대명사 대격 — 절 안의 목적어 역할</span></div>
+      <div class="mi"><span class="mi-n">②</span><span class="mi-g gk">πισταῖς / πιστοῖς</span><span class="mi-k">형용사 독립적 용법(여격) — "믿는 여자들/남자들에게"</span></div>
+      <div class="mi"><span class="mi-n">③</span><span class="mi-g gk">ἐγερθήσονται</span><span class="mi-k">미래 수동태 3복 (θησ 표지)</span></div>
+    </div>
+  </div>
+
+
+</div><!-- /t4 -->
+
+</div><!-- /wrap -->
+
+<script>
+function sw(id, btn){
+  document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -318,6 +318,13 @@ const SITE_DATA = {
       desc: "기말고사 대비 헬라어 문장 해석 연습",
       href: "output/greek/기말고사_문장해석.html",
       isNew: true
+    },
+    {
+      name: "헬라어 기말 총정리",
+      icon: "📚",
+      desc: "기말고사 대비 핵심 문법·어휘 총정리",
+      href: "output/greek/헬라어 기말 총정리.html",
+      isNew: true
     }
   ],
 
