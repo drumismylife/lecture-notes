@@ -109,6 +109,13 @@ const SITE_DATA = {
               desc: "기말고사 대비 핵심 문법·어휘 총정리",
               href: "output/greek/헬라어 기말 총정리.html",
               isNew: true
+            },
+            {
+              name: "1학기 총정리 → 헬라어 II 준비",
+              icon: "🌉",
+              desc: "1학기 전체 패러다임 복습 + 2학기 예습 브릿지 (메이첸 기준)",
+              href: "output/greek/greek-bridge-1to2.html",
+              isNew: true
             }
           ],
           audio: [
