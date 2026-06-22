@@ -1,0 +1,25 @@
+{
+  "courseKey": "phil",
+  "title": "기독교철학",
+  "character": "종교철학 — 따뜻한 앰버/세이지 톤, 사상가별 입장·개념지도·논증 구조 중심, 사색적",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "latin": "EB Garamond", "mono": "JetBrains Mono" },
+  "colors": {
+    "--bg": "#12100e",
+    "--card": "#1c1814",
+    "--card2": "#252018",
+    "--card3": "#1a1612",
+    "--border": "rgba(196,154,60,.18)",
+    "--border2": "rgba(196,154,60,.08)",
+    "--amber": "#c49a3c",
+    "--amber2": "#e8c97a",
+    "--amber3": "#f5e4a8",
+    "--sage": "#8aab8a",
+    "--terra": "#c96b5a",
+    "--blue": "#6a9ecf",
+    "--txt": "#ede8df",
+    "--txt2": "#b8b0a0",
+    "--txt3": "#7a7268"
+  },
+  "semantics": { "exam": "--terra", "supplement": "--blue", "accent": "--amber2", "thinker": "--sage" },
+  "components": ["사상가 카드(생몰·핵심 명제)", "개념 정의 박스", "논증 구조 도식", "철학↔신학 연결", "원어/원전 인용(mono)", "비교 표"]
+}

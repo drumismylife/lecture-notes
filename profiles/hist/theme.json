@@ -1,0 +1,28 @@
+{
+  "courseKey": "hist",
+  "title": "교회사개론 I",
+  "character": "교회사 — 고풍스러운 앰버-브라운(양피지) 톤, 연표·인물·시대구분·공의회 중심",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "latin": "Crimson Pro" },
+  "colors": {
+    "--bg": "#14100a",
+    "--card": "#1e1710",
+    "--card2": "#261e14",
+    "--card3": "#2e2416",
+    "--gold": "#c4955a",
+    "--gold2": "#d4a870",
+    "--gold-dim": "#8a6535",
+    "--text": "#f0ebe0",
+    "--text2": "#a09070",
+    "--text3": "#6b5a40",
+    "--ox-green": "#7ab87a",
+    "--sq-blue": "#7aaad4",
+    "--essay-amb": "#c49a3c",
+    "--terra": "#c96b5a",
+    "--border": "rgba(196,149,90,0.18)",
+    "--era-catholic": "#9b4a4a",
+    "--era-roman": "#7a6b3a",
+    "--era-medieval": "#6b4a7a"
+  },
+  "semantics": { "exam": "--terra", "supplement": "--sq-blue", "accent": "--gold2", "essay": "--essay-amb" },
+  "components": ["연표(timeline)", "인물 카드(생몰·업적)", "시대 구분 배지(era)", "공의회/논쟁 박스", "1차 사료 인용", "지도", "핵심 정리"]
+}

@@ -1,0 +1,24 @@
+{
+  "courseKey": "min",
+  "title": "목회학",
+  "character": "실천신학 — 따뜻하고 단정한 녹색 톤, 원리·정의·적용·사례 중심",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "accent": "IM Fell English SC" },
+  "colors": {
+    "--bg-page": "#0f1a12",
+    "--bg-card": "#172018",
+    "--bg-subcard": "#1e2a20",
+    "--bg-dark": "#111811",
+    "--green-main": "#7ab87a",
+    "--green-soft": "#4a8a4a",
+    "--green-text": "#a8d4a8",
+    "--cream": "#d4c9a8",
+    "--red-exam": "#c96b5a",
+    "--amber": "#c49a3c",
+    "--text-main": "#e8ede8",
+    "--text-sub": "#9aaa9a",
+    "--text-dim": "#6a7a6a",
+    "--border": "#2a3a2a"
+  },
+  "semantics": { "exam": "--red-exam", "supplement": "--amber", "accent": "--green-main" },
+  "components": ["목회 원리 카드", "정의 박스", "적용 체크리스트", "사례 / 예화 박스", "성경 근거 인용", "핵심 정리"]
+}

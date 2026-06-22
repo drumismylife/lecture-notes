@@ -1,0 +1,25 @@
+{
+  "courseKey": "nt",
+  "title": "신약성서 I",
+  "character": "신약 개론·석의 — 보라색 톤, 본문 구조·기독론·편집비평 중심, 차분하고 학구적",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR" },
+  "colors": {
+    "--bg": "#150f1a",
+    "--card": "#1e1526",
+    "--subcard": "#261c30",
+    "--accent": "#9b7fc7",
+    "--accent2": "#b8a8d4",
+    "--bible": "#c4a8e8",
+    "--exam": "#c96b5a",
+    "--exam-bg": "#2d1a16",
+    "--green": "#7ab87a",
+    "--gold": "#c9a84c",
+    "--teal": "#6ab8c8",
+    "--text": "#ede8f5",
+    "--text2": "#9e96aa",
+    "--border": "#3a2d4a",
+    "--purple-bright": "#b89fe8"
+  },
+  "semantics": { "exam": "--exam", "supplement": "--teal", "accent": "--accent", "scripture": "--bible" },
+  "components": ["본문 개론 카드", "구조 분석(개요)", "기독론/신학 주제 박스", "편집비평 비교", "성경 인용 박스", "지도/배경", "핵심 정리"]
+}

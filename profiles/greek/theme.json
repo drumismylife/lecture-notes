@@ -1,0 +1,33 @@
+{
+  "courseKey": "greek",
+  "title": "헬라어 I",
+  "character": "신약 코이네 헬라어 — 정밀한 패러다임 표와 원어 표기 중심, 진중하고 학술적",
+  "fonts": {
+    "sans": "Noto Sans KR",
+    "serif": "Noto Serif KR",
+    "greek": "Palatino Linotype, Palatino, Times New Roman, Noto Serif, Georgia, serif"
+  },
+  "colors": {
+    "--bg": "#0d1117",
+    "--card": "#161b27",
+    "--subcard": "#1e2538",
+    "--gold": "#c9a84c",
+    "--greek": "#f0d080",
+    "--blue": "#7c9ed9",
+    "--red": "#e07b6a",
+    "--green": "#6fcf97",
+    "--purple": "#b57bee",
+    "--text": "#e8eaf0",
+    "--muted": "#9ba3b8",
+    "--hint": "#6b7490",
+    "--border": "#2a3050",
+    "--active-bg": "#1e2f4a"
+  },
+  "semantics": {
+    "exam": "--red",
+    "supplement": "--purple",
+    "greekText": "--greek",
+    "accent": "--gold"
+  },
+  "components": ["격변화표(declension table)", "동사 변화표(conjugation)", "원어 4줄 표기 박스", "파싱(parsing) 분석", "단어 암기 카드", "예문 + 직역/의역"]
+}
