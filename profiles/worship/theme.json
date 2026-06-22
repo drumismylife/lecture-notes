@@ -1,0 +1,23 @@
+{
+  "courseKey": "worship",
+  "title": "예배기획",
+  "character": "예배학·예배기획 — 로열 인디고 + 예전적 골드, 예배 신학·구조·교회력·음악 중심, 경건하고 단정",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "latin": "Cormorant Garamond" },
+  "colors": {
+    "--bg": "#0e0c18",
+    "--card": "#181428",
+    "--subcard": "#221c38",
+    "--gold": "#d4b15a",
+    "--accent": "#8a7fce",
+    "--accent2": "#b3a6e6",
+    "--rose": "#d98aa8",
+    "--teal": "#6ab8c8",
+    "--green": "#7ab87a",
+    "--text": "#ece8f5",
+    "--muted": "#a09bb5",
+    "--hint": "#6f6a85",
+    "--border": "#322a4a"
+  },
+  "semantics": { "exam": "--rose", "supplement": "--teal", "accent": "--gold", "liturgy": "--accent2" },
+  "components": ["예배 구조 도식(순서)", "교회력 절기 카드", "예배 신학 정의 박스", "음악/찬양 선곡 표", "예배 유형 비교(전통·열린·블렌디드·세대통합)", "사례 분석 박스", "기획안 템플릿"]
+}

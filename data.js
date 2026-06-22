@@ -411,9 +411,10 @@ const SITE_DATA = {
         greek2: {
           meta: {
             code: "LANG 102", title: "헬라어 II", eng: "Koine Greek II", acc: "ag",
-            desc: "코이네 그리스어 중급 — 3변화 명사·분사·가정법·명령법·완료시제 등 헬라어 I의 토대 위에 신약 원문 독해 능력을 확장한다.",
+            desc: "코이네 그리스어 중급(안호준·장석조 교재) — 동사상(verbal aspect) 중심으로 부정과거·완료·분사·명령법 등 동사 체계를 확장하고 신약 본문 해석에 적용한다.",
             hasApps: true
           },
+          syllabus: { href: "output/2026-summer/greek2/syllabus.html", type: "syllabus" },
           tools: [
             {
               name: "1학기 총정리 → 헬라어 II 준비",
@@ -423,7 +424,48 @@ const SITE_DATA = {
               isNew: true
             }
           ],
-          weeks: []
+          weeks: [
+            { week: 1, title: "오리엔테이션 + 복습1 — 알파벳·억양·음절, 동사(1-1) 현재 능동, 명사 2변화·관사, 명사 1변화", date: "2026.06.29", files: [] },
+            { week: 2, title: "복습2 — 형용사 1·2변화, 전치사·인칭대명사, 동사(1-2) 현재 중·수동, 동사(2) 미완료, 부사(1), 명사 3변화·부정어", date: "2026.06.29", files: [] },
+            { week: 3, title: "동사(3-1) 직설법 부정과거 능동·중간", date: "2026.06.30", files: [] },
+            { week: 4, title: "동사(3-2) 부정과거 수동 · 수사 · 부사(2)", date: "2026.06.30", files: [] },
+            { week: 5, title: "단축동사(직설법) · 지시대명사", date: "2026.07.02", files: [] },
+            { week: 6, title: "유음동사(직설법) · 재귀대명사", date: "2026.07.02", files: [] },
+            { week: 7, title: "동사(4) 직설법 미래시제", date: "2026.07.03", files: [] },
+            { week: 8, title: "중간고사 (11–15과, 본문 해석 위주)", date: "2026.07.03", files: [] },
+            { week: 9, title: "동사(5) 직설법 현재완료·과거완료", date: "2026.07.06", files: [] },
+            { week: 10, title: "분사(1) 현재시제", date: "2026.07.06", files: [] },
+            { week: 11, title: "분사(2) 부정과거시제", date: "2026.07.07", files: [] },
+            { week: 12, title: "분사(3) 완료·미래시제", date: "2026.07.07", files: [] },
+            { week: 13, title: "명령법", date: "2026.07.09", files: [] },
+            { week: 14, title: "남은 문법 정리 — 접속사·관계대명사, 가정법, 형용사(2)·부사(3), 부정사(법)", date: "2026.07.09", files: [] },
+            { week: 15, title: "기말고사 (16–20과, 본문 해석 위주)", date: "2026.07.10", files: [] },
+          ]
+        },
+
+        worship: {
+          meta: {
+            code: "WOR 61087", title: "예배기획", eng: "Worship Design", acc: "ap",
+            desc: "예배의 성경적·신학적 기초 위에 예배 구조·교회력·음악·멀티미디어를 이해하고, 각 교회 현실에 맞는 예배 기획안을 작성하는 이론+적용 과목(김은영, 온라인)."
+          },
+          syllabus: { href: "output/2026-summer/worship/syllabus.html", type: "syllabus" },
+          weeks: [
+            { week: 1, title: "수업 개요 · 수업 소개", date: "", files: [] },
+            { week: 2, title: "예배 기획의 신학적 기초 및 역사 — 예배 정의·성경 속 예배 모델·예배 발전과 역사", date: "", files: [] },
+            { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [] },
+            { week: 4, title: "예배와 음악 — 순서에 따른 선곡·회중 찬양 이해", date: "", files: [] },
+            { week: 5, title: "교회력의 이해와 예배 기획 — 교회력·선곡·절기 예배 기획", date: "", files: [] },
+            { week: 6, title: "예배기획 과제 실습 — 영상 통한 예배 분석·종려주일 예배 사례 분석", date: "", files: [] },
+            { week: 7, title: "예배 형식과 악기의 이해 — 예배 악기·악기 활용·음향/영상/자막", date: "", files: [] },
+            { week: 8, title: "중간고사 — 교회력 절기 예배 기획안 제출", date: "2026.07.05", files: [] },
+            { week: 9, title: "침례교 예배와 특별 예배 기획 — 정체성·목적에 따른 특별 예배", date: "", files: [] },
+            { week: 10, title: "열린예배와 한국교회 — 예배학적 관점·영상 분석", date: "", files: [] },
+            { week: 11, title: "세대통합예배 — 모든 세대가 함께 드리는 예배", date: "", files: [] },
+            { week: 12, title: "블렌디드 워십 — 이해와 예배 사역 적용", date: "", files: [] },
+            { week: 13, title: "예배 기획을 위한 사례 연구 — 다양한 예배 관찰·분석", date: "", files: [] },
+            { week: 14, title: "중간고사 리뷰 — 우수 기획안 3–4개 공유·분석", date: "", files: [] },
+            { week: 15, title: "기말고사 — 주일 예배 기획안 제출", date: "2026.07.10", files: [] },
+          ]
         }
 
       }
