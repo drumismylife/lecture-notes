@@ -12,6 +12,7 @@ import re
 import sys
 import html as html_lib
 import subprocess
+import unicodedata
 from datetime import date
 from pathlib import Path
 
@@ -19,7 +20,10 @@ SCRIPT_DIR = Path(__file__).parent
 ROOT_DIR   = SCRIPT_DIR.parent
 
 sys.path.insert(0, str(SCRIPT_DIR))
-from update_data import update as update_data_js, COURSE_MAP
+from update_data import (
+    update as update_data_js, COURSE_MAP,
+    resolve_semester, semester_span,
+)
 from add_back_button import inject as inject_back_button
 
 OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek"}
@@ -45,17 +49,35 @@ def extract_title_from_html(html_path: Path) -> str:
     return ""
 
 
-def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str):
-    """data.js 해당 주차의 특정 필드 업데이트 (주차 경계 넘지 않음)"""
+def _semester_region(text: str, semester_id: str):
+    """(s0, s1, region_text) — 대상 학기 span. 실패 시 None."""
+    sem_id = resolve_semester(text, semester_id)
+    if not sem_id:
+        return None
+    span = semester_span(text, sem_id)
+    if not span:
+        return None
+    s0, s1 = span
+    return s0, s1, text[s0:s1]
+
+
+def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str,
+                             semester_id: str = None):
+    """data.js 해당 학기·주차의 특정 필드 업데이트 (학기·주차 경계 넘지 않음)"""
     course_key = COURSE_MAP[subject]
     data_js = ROOT_DIR / "data.js"
     text = data_js.read_text(encoding="utf-8")
 
-    course_start = text.find(f'{course_key}:')
+    reg = _semester_region(text, semester_id)
+    if not reg:
+        return
+    s0, s1, region = reg
+
+    course_start = region.find(f'{course_key}:')
     if course_start == -1:
         return
 
-    section = text[course_start:]
+    section = region[course_start:]
     pattern = (
         r'(week:\s*' + str(week_num) +
         r'\b(?:(?!week:\s*\d).)*?' +
@@ -65,21 +87,23 @@ def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str
         pattern, r'\1"' + value + '"', section, count=1, flags=re.DOTALL
     )
     if count:
-        data_js.write_text(text[:course_start] + new_section, encoding="utf-8")
+        new_region = region[:course_start] + new_section
+        data_js.write_text(text[:s0] + new_region + text[s1:], encoding="utf-8")
 
 
-def update_title_in_data_js(subject: str, week_num: int, title: str):
-    _update_field_in_data_js(subject, week_num, "title", title)
+def update_title_in_data_js(subject: str, week_num: int, title: str, semester_id: str = None):
+    _update_field_in_data_js(subject, week_num, "title", title, semester_id)
     print(f"  제목 업데이트: {title}")
 
 
-def update_date_in_data_js(subject: str, week_num: int, lecture_date: str):
-    _update_field_in_data_js(subject, week_num, "date", lecture_date)
+def update_date_in_data_js(subject: str, week_num: int, lecture_date: str, semester_id: str = None):
+    _update_field_in_data_js(subject, week_num, "date", lecture_date, semester_id)
     print(f"  날짜 업데이트: {lecture_date}")
 
 
-def append_file_to_data_js(subject: str, week_num: int, href: str, label: str):
-    """이미 파일이 있는 주차의 files 배열에 항목 추가 (중복 방지)"""
+def append_file_to_data_js(subject: str, week_num: int, href: str, label: str,
+                           semester_id: str = None):
+    """이미 파일이 있는 주차의 files 배열에 항목 추가 (학기 span 내에서, 중복 방지)"""
     course_key = COURSE_MAP[subject]
     data_js = ROOT_DIR / "data.js"
     text = data_js.read_text(encoding="utf-8")
@@ -89,11 +113,16 @@ def append_file_to_data_js(subject: str, week_num: int, href: str, label: str):
         print(f"  ℹ️  이미 등록됨: {href}")
         return
 
-    course_start = text.find(f'{course_key}:')
+    reg = _semester_region(text, semester_id)
+    if not reg:
+        return
+    s0, s1, region = reg
+
+    course_start = region.find(f'{course_key}:')
     if course_start == -1:
         return
 
-    section = text[course_start:]
+    section = region[course_start:]
 
     # 해당 주차의 files 배열 닫는 ] 위치 찾기 (주차 경계 내에서)
     week_pattern = r'week:\s*' + str(week_num) + r'\b(?:(?!week:\s*\d).)*?files:\s*\['
@@ -102,23 +131,23 @@ def append_file_to_data_js(subject: str, week_num: int, href: str, label: str):
         print(f"  ❌ week {week_num} files 배열을 찾을 수 없음")
         return
 
-    # files: [ 이후 닫는 ] 찾기
+    # files: [ 이후 닫는 ] 찾기 (region 좌표계)
     files_start = course_start + m.end()
     depth = 1
     i = files_start
-    while i < len(text) and depth > 0:
-        if text[i] == '[':
+    while i < len(region) and depth > 0:
+        if region[i] == '[':
             depth += 1
-        elif text[i] == ']':
+        elif region[i] == ']':
             depth -= 1
         i += 1
-    files_end = i - 1  # ] 위치
+    files_end = i - 1  # ] 위치 (region 기준)
 
     new_entry = f'\n            {{ type: "notes", label: "{label}", href: "{href}" }}'
     # 기존 마지막 항목 뒤에 쉼표 추가 후 새 항목 삽입
-    before_close = text[:files_end].rstrip()
-    new_text = before_close + ',' + new_entry + '\n          ' + text[files_end:]
-    data_js.write_text(new_text, encoding="utf-8")
+    before_close = region[:files_end].rstrip()
+    new_region = before_close + ',' + new_entry + '\n          ' + region[files_end:]
+    data_js.write_text(text[:s0] + new_region + text[s1:], encoding="utf-8")
     print(f"  파일 추가: {label} ({href})")
 
 
@@ -131,23 +160,36 @@ def parse_week_arg(week_arg: str) -> tuple:
 
 
 def main():
-    if len(sys.argv) < 3 or len(sys.argv) > 4:
-        print("사용법: python3 scripts/deploy.py [과목명] [주차] [날짜(선택)]")
+    # 선택 플래그 --semester <id> 를 argv에서 분리 (기본: data.js의 active 학기)
+    argv = sys.argv[1:]
+    semester_id = None
+    if "--semester" in argv:
+        i = argv.index("--semester")
+        try:
+            semester_id = argv[i + 1]
+            del argv[i:i + 2]
+        except IndexError:
+            print("❌ --semester 다음에 학기 id가 필요합니다 (예: --semester 2026-2)")
+            sys.exit(1)
+
+    if len(argv) < 2 or len(argv) > 3:
+        print("사용법: python3 scripts/deploy.py [과목명] [주차] [날짜(선택)] [--semester id(선택)]")
         print(f"  과목명: {COURSE_NAMES}")
         print("  예시:   python3 scripts/deploy.py 기독교철학 07 2026.04.16")
         print("          python3 scripts/deploy.py 기독교철학 07b 2026.04.16")
         print("          python3 scripts/deploy.py 기독교철학 07   ← 오늘 날짜 자동")
+        print("          python3 scripts/deploy.py 헬라어 03 --semester 2026-2")
         sys.exit(1)
 
-    subject  = sys.argv[1]
-    week_num, variant = parse_week_arg(sys.argv[2])
+    subject  = argv[0]
+    week_num, variant = parse_week_arg(argv[1])
 
     if week_num is None:
-        print(f"❌ 주차 형식 오류: {sys.argv[2]} (07 또는 07b 형식)")
+        print(f"❌ 주차 형식 오류: {argv[1]} (07 또는 07b 형식)")
         sys.exit(1)
 
-    if len(sys.argv) == 4:
-        lecture_date = sys.argv[3]
+    if len(argv) == 3:
+        lecture_date = argv[2]
     else:
         today = date.today()
         lecture_date = f"{today.year}.{today.month:02d}.{today.day:02d}"
@@ -157,17 +199,28 @@ def main():
         print(f"   사용 가능: {COURSE_NAMES}")
         sys.exit(1)
 
+    # 대상 학기 결정 (active = 레거시 경로 유지, 그 외 = output/<학기>/<폴더>/ 네임스페이스)
+    data_text = (ROOT_DIR / "data.js").read_text(encoding="utf-8")
+    active_id = resolve_semester(data_text, None)
+    target_id = semester_id or active_id
+
     out_folder = OUTPUT_FOLDER_OVERRIDE.get(subject, subject)
     file_suffix = f"week{week_num:02d}{variant}.html"
-    html_path = ROOT_DIR / "output" / out_folder / file_suffix
+    if target_id and target_id != active_id:
+        rel_dir = f"output/{target_id}/{out_folder}"
+    else:
+        rel_dir = f"output/{out_folder}"
+    rel_dir = unicodedata.normalize("NFC", rel_dir)
+    html_path = ROOT_DIR / rel_dir / file_suffix
 
     if not html_path.exists():
-        print(f"❌ HTML 파일이 없습니다: output/{out_folder}/{file_suffix}")
+        print(f"❌ HTML 파일이 없습니다: {rel_dir}/{file_suffix}")
         print(f"   해당 경로에 파일을 먼저 저장하세요.")
         sys.exit(1)
 
     variant_label = f" ({variant.upper()})" if variant else ""
-    print(f"📄 [{subject}] Week {week_num:02d}{variant_label} 배포 시작\n")
+    sem_label = f" · {target_id}" if target_id else ""
+    print(f"📄 [{subject}{sem_label}] Week {week_num:02d}{variant_label} 배포 시작\n")
 
     print("[1/2] data.js 업데이트...")
 
@@ -176,7 +229,7 @@ def main():
         title = file_suffix.replace(".html", "")
         print(f"  ⚠️  제목 추출 실패 → '{title}' 사용")
 
-    href = f"output/{out_folder}/{file_suffix}"
+    href = unicodedata.normalize("NFC", f"{rel_dir}/{file_suffix}")
 
     # 뒤로가기 버튼 삽입
     if inject_back_button(html_path):
@@ -184,17 +237,17 @@ def main():
 
     if not variant:
         # 첫 번째 자료: title·date 업데이트 + files: [] 등록
-        update_title_in_data_js(subject, week_num, title)
-        update_date_in_data_js(subject, week_num, lecture_date)
+        update_title_in_data_js(subject, week_num, title, semester_id)
+        update_date_in_data_js(subject, week_num, lecture_date, semester_id)
         try:
-            update_data_js(subject, str(week_num))
+            update_data_js(subject, str(week_num), semester_id)
         except SystemExit as e:
             if e.code != 0:
                 print("  ⚠️  data.js 파일 등록 실패")
                 sys.exit(1)
     else:
         # 추가 자료 (b, c ...): 기존 배열에 append, date는 업데이트하지 않음
-        append_file_to_data_js(subject, week_num, href, title)
+        append_file_to_data_js(subject, week_num, href, title, semester_id)
 
     # 2단계: git push
     print("[2/2] GitHub 업로드...")

@@ -1,55 +1,65 @@
 {
+  "active_semester": "2026-1",
+  "semesters": {
+    "2026-1": { "label": "2026학년도 1학기", "term": "2026 Spring", "semester_base": "~/Desktop/대학원/1학기" },
+    "2026-summer": { "label": "2026학년도 여름 계절학기", "term": "2026 Summer", "semester_base": "~/Desktop/대학원/여름계절" },
+    "2026-2": { "label": "2026학년도 2학기", "term": "2026 Fall", "semester_base": "~/Desktop/대학원/2학기" }
+  },
   "subjects": {
     "교회사": {
       "claude_url": "https://claude.ai/project/019cc723-2aea-747a-9967-a8968e325dbb",
       "output_folder": "교회사",
       "semester_folder": "교회사",
-      "keywords": [
-        "교회사",
-        "church",
-        "history"
-      ]
+      "semester": "2026-1",
+      "course_key": "hist",
+      "profile": "profiles/hist",
+      "theme": "profiles/hist/theme.json",
+      "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context", "sermon-christian-history-interpreter"],
+      "keywords": ["교회사", "church", "history"]
     },
     "기독교철학": {
       "claude_url": "https://claude.ai/project/019cbe5e-5c32-74a7-923f-e26eb80936f0",
       "output_folder": "기독교철학",
       "semester_folder": "기독교철학",
-      "keywords": [
-        "기독교철학",
-        "phil",
-        "철학"
-      ]
+      "semester": "2026-1",
+      "course_key": "phil",
+      "profile": "profiles/phil",
+      "theme": "profiles/phil/theme.json",
+      "related_skills": ["sermon-bible-dictionary"],
+      "keywords": ["기독교철학", "phil", "철학"]
     },
     "목회학": {
       "claude_url": "https://claude.ai/project/019cc722-2f73-7360-9b72-d722554ead36",
       "output_folder": "목회학",
       "semester_folder": "목회학",
-      "keywords": [
-        "목회학",
-        "ministry",
-        "목회"
-      ]
+      "semester": "2026-1",
+      "course_key": "min",
+      "profile": "profiles/min",
+      "theme": "profiles/min/theme.json",
+      "related_skills": ["sermon-bible-dictionary"],
+      "keywords": ["목회학", "ministry", "목회"]
     },
     "신약성서I": {
       "claude_url": "https://claude.ai/project/019cbe61-aecd-740e-8e23-68658a880cea",
       "output_folder": "신약성서I",
       "semester_folder": "신약성서",
-      "keywords": [
-        "신약",
-        "nt",
-        "성서",
-        "신약성서"
-      ]
+      "semester": "2026-1",
+      "course_key": "nt",
+      "profile": "profiles/nt",
+      "theme": "profiles/nt/theme.json",
+      "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context", "sermon-greek-grammar-machen", "sermon-textual-criticism"],
+      "keywords": ["신약", "nt", "성서", "신약성서"]
     },
     "헬라어": {
       "claude_url": "https://claude.ai/project/019cc721-10e4-7324-b073-747c4f56f909",
       "output_folder": "greek",
       "semester_folder": "헬라어",
-      "keywords": [
-        "헬라어",
-        "greek",
-        "그리스"
-      ]
+      "semester": "2026-1",
+      "course_key": "greek",
+      "profile": "profiles/greek",
+      "theme": "profiles/greek/theme.json",
+      "related_skills": ["sermon-greek-grammar-machen"],
+      "keywords": ["헬라어", "greek", "그리스"]
     }
   },
   "paths": {
