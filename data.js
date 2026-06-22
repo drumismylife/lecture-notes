@@ -109,13 +109,6 @@ const SITE_DATA = {
               desc: "기말고사 대비 핵심 문법·어휘 총정리",
               href: "output/greek/헬라어 기말 총정리.html",
               isNew: true
-            },
-            {
-              name: "1학기 총정리 → 헬라어 II 준비",
-              icon: "🌉",
-              desc: "1학기 전체 패러다임 복습 + 2학기 예습 브릿지 (메이첸 기준)",
-              href: "output/greek/greek-bridge-1to2.html",
-              isNew: true
             }
           ],
           audio: [
@@ -413,7 +406,27 @@ const SITE_DATA = {
       label: "2026학년도 여름 계절학기",
       term: "2026 Summer",
       active: false,
-      courses: {}
+      courses: {
+
+        greek2: {
+          meta: {
+            code: "LANG 102", title: "헬라어 II", eng: "Koine Greek II", acc: "ag",
+            desc: "코이네 그리스어 중급 — 3변화 명사·분사·가정법·명령법·완료시제 등 헬라어 I의 토대 위에 신약 원문 독해 능력을 확장한다.",
+            hasApps: true
+          },
+          tools: [
+            {
+              name: "1학기 총정리 → 헬라어 II 준비",
+              icon: "🌉",
+              desc: "1학기 전체 패러다임 복습 + 2학기 예습 브릿지 (메이첸 기준)",
+              href: "output/2026-summer/greek2/greek-bridge-1to2.html",
+              isNew: true
+            }
+          ],
+          weeks: []
+        }
+
+      }
     },
 
     // ════════════════════════════════════════════════════════
