@@ -443,7 +443,9 @@ const SITE_DATA = {
             { week: 6, title: "헬라어 II — 6주차 유음동사(직설법)·재귀대명사", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week06.html" }
           ] },
-            { week: 7, title: "동사(4) 직설법 미래시제", date: "2026.07.03", files: [] },
+            { week: 7, title: "동사④ 직설법 미래시제 — 15과", date: "2026.06.30", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week07.html" }
+          ] },
             { week: 8, title: "중간고사 (11–15과, 본문 해석 위주)", date: "2026.07.03", files: [] },
             { week: 9, title: "동사(5) 직설법 현재완료·과거완료", date: "2026.07.06", files: [] },
             { week: 10, title: "분사(1) 현재시제", date: "2026.07.06", files: [] },
