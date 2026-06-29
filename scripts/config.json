@@ -69,6 +69,7 @@
       "profile": "profiles/greek2",
       "theme": "profiles/greek2/theme.json",
       "related_skills": ["sermon-greek-grammar-machen"],
+      "video_source": "panopto",
       "keywords": ["헬라어2", "헬라어II", "greek2", "greekii"]
     },
     "예배기획": {
@@ -79,6 +80,7 @@
       "profile": "profiles/worship",
       "theme": "profiles/worship/theme.json",
       "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context"],
+      "video_source": "youtube",
       "keywords": ["예배기획", "예배", "worship", "예배학"]
     }
   },
