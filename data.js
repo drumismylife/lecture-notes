@@ -471,7 +471,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week02.html" }
           ] },
             { week: 3, title: "예배의 구조와 순서", date: "2026.06.30", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
+            { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week03.html" }
           ] },
             { week: 4, title: "예배와 음악 · 회중 찬송의 이해", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week04.html" }
