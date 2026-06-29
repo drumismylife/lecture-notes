@@ -434,7 +434,9 @@ const SITE_DATA = {
             { week: 3, title: "동사(3-1) — 직설법 부정과거 능동·중간태", date: "2026.06.30", files: [
                 { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
             ] },
-            { week: 4, title: "동사(3-2) 부정과거 수동 · 수사 · 부사(2)", date: "2026.06.30", files: [] },
+            { week: 4, title: "동사(3-2) — 부정과거 수동태 · 수사 · 부사", date: "2026.06.30", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week04.html" }
+          ] },
             { week: 5, title: "단축동사(직설법) · 지시대명사", date: "2026.07.02", files: [] },
             { week: 6, title: "유음동사(직설법) · 재귀대명사", date: "2026.07.02", files: [] },
             { week: 7, title: "동사(4) 직설법 미래시제", date: "2026.07.03", files: [] },
