@@ -431,7 +431,9 @@ const SITE_DATA = {
             { week: 2, title: "복습2 — 형용사 1·2변화, 전치사·인칭대명사, 동사(1-2) 현재 중·수동, 동사(2) 미완료, 부사(1), 명사 3변화·부정어", date: "2026.06.29", files: [
                 { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week02.html" }
             ] },
-            { week: 3, title: "동사(3-1) 직설법 부정과거 능동·중간", date: "2026.06.30", files: [] },
+            { week: 3, title: "동사(3-1) 직설법 부정과거 능동·중간", date: "2026.06.30", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
+            ] },
             { week: 4, title: "동사(3-2) 부정과거 수동 · 수사 · 부사(2)", date: "2026.06.30", files: [] },
             { week: 5, title: "단축동사(직설법) · 지시대명사", date: "2026.07.02", files: [] },
             { week: 6, title: "유음동사(직설법) · 재귀대명사", date: "2026.07.02", files: [] },
