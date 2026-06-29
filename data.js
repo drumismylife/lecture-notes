@@ -470,7 +470,7 @@ const SITE_DATA = {
             { week: 2, title: "예배란 무엇인가 · 성경 속 예배 모델 · 예배 발전사", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week02.html" }
           ] },
-            { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [
+            { week: 3, title: "예배의 구조와 순서", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
           ] },
             { week: 4, title: "예배와 음악 — 순서에 따른 선곡·회중 찬양 이해", date: "", files: [] },
