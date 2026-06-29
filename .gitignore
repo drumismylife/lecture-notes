@@ -1,0 +1,7 @@
+# 강의계획서·강의자료 원본(HWP/HWPX)은 로컬 보관 — 웹 레포에 커밋하지 않음
+# (내용은 profiles/<과목>/syllabus.md 및 output/.../syllabus.html 로 추출되어 관리됨)
+*.hwp
+*.hwpx
+
+# macOS
+.DS_Store
