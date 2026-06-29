@@ -482,7 +482,9 @@ const SITE_DATA = {
             { week: 6, title: "예배기획 과제 사례 분석 — 종려주일 예배", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week06.html" }
           ] },
-            { week: 7, title: "예배 형식과 악기의 이해 — 예배 악기·악기 활용·음향/영상/자막", date: "", files: [] },
+            { week: 7, title: "예배 형식과 악기의 이해", date: "2026.06.30", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week07.html" }
+          ] },
             { week: 8, title: "중간고사 — 교회력 절기 예배 기획안 제출", date: "2026.07.05", files: [] },
             { week: 9, title: "침례교 예배와 특별 예배 기획 — 정체성·목적에 따른 특별 예배", date: "", files: [] },
             { week: 10, title: "열린예배와 한국교회 — 예배학적 관점·영상 분석", date: "", files: [] },
