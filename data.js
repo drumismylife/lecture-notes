@@ -467,7 +467,9 @@ const SITE_DATA = {
             { week: 1, title: "오리엔테이션 · 수업 안내", date: "2026.06.29", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week01.html" }
           ] },
-            { week: 2, title: "예배 기획의 신학적 기초 및 역사 — 예배 정의·성경 속 예배 모델·예배 발전과 역사", date: "", files: [] },
+            { week: 2, title: "예배란 무엇인가 · 성경 속 예배 모델 · 예배 발전사", date: "2026.06.30", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week02.html" }
+          ] },
             { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
           ] },
