@@ -476,7 +476,9 @@ const SITE_DATA = {
             { week: 4, title: "예배와 음악 · 회중 찬송의 이해", date: "2026.06.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week04.html" }
           ] },
-            { week: 5, title: "교회력의 이해와 예배 기획 — 교회력·선곡·절기 예배 기획", date: "", files: [] },
+            { week: 5, title: "교회력의 이해와 예배 기획", date: "2026.06.30", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week05.html" }
+          ] },
             { week: 6, title: "예배기획 과제 사례 분석 — 영상 통한 예배 분석·종려주일 예배 사례 분석", date: "", files: [] },
             { week: 7, title: "예배 형식과 악기의 이해 — 예배 악기·악기 활용·음향/영상/자막", date: "", files: [] },
             { week: 8, title: "중간고사 — 교회력 절기 예배 기획안 제출", date: "2026.07.05", files: [] },
