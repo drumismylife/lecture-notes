@@ -17,10 +17,17 @@ COURSE_MAP = {
     "기독교철학": "phil",
     "신약성서I": "nt",
     "교회사": "hist",
+    # 2026 여름 계절학기
+    "헬라어II": "greek2",
+    "예배기획": "worship",
 }
 
-# output 폴더명이 과목명과 다른 경우
-OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek"}
+# output 폴더명이 과목명과 다른 경우 (course_key 사용)
+OUTPUT_FOLDER_OVERRIDE = {
+    "헬라어": "greek",
+    "헬라어II": "greek2",
+    "예배기획": "worship",
+}
 
 
 # ── 학기 span 유틸 ────────────────────────────────────────────

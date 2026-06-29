@@ -26,7 +26,7 @@ from update_data import (
 )
 from add_back_button import inject as inject_back_button
 
-OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek"}
+OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek", "헬라어II": "greek2", "예배기획": "worship"}
 COURSE_NAMES = ", ".join(COURSE_MAP.keys())
 
 

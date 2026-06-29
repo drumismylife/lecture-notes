@@ -63,12 +63,23 @@ BACK_BUTTON_CSS = """
 </style>
 """
 
-BACK_BUTTON_HTML = """<a id="lnotes-back-btn" href="../../index.html">
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  강의 목록
-</a>"""
+def _back_button_html(html_path: Path) -> str:
+    """파일 깊이에 맞춰 index.html로의 상대경로를 계산해 버튼 HTML 생성.
+    예) output/greek/week01.html → ../../index.html
+        output/2026-summer/worship/week01.html → ../../../index.html"""
+    try:
+        depth = len(html_path.resolve().relative_to(ROOT_DIR.resolve()).parts) - 1
+    except ValueError:
+        depth = 2  # ROOT 밖이면 기본값
+    prefix = "../" * max(depth, 1)
+    return (
+        f'<a id="lnotes-back-btn" href="{prefix}index.html">\n'
+        '  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">\n'
+        '    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>\n'
+        '  </svg>\n'
+        '  강의 목록\n'
+        '</a>'
+    )
 
 
 def inject(html_path: Path) -> bool:
@@ -84,13 +95,12 @@ def inject(html_path: Path) -> bool:
     else:
         return False  # head 없는 파일은 스킵
 
-    # 버튼 HTML → <body> 태그 바로 뒤에 삽입
+    # 버튼 HTML → <body> 태그 바로 뒤에 삽입 (깊이에 맞춘 상대경로)
     if "<body" in content:
-        # <body ...> 태그 찾아서 그 뒤에 삽입
         import re
         content = re.sub(
             r'(<body[^>]*>)',
-            r'\1' + BACK_BUTTON_HTML,
+            lambda m: m.group(1) + _back_button_html(html_path),
             content,
             count=1
         )
