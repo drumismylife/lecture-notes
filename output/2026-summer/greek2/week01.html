@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II 1주차 — 오리엔테이션 &amp; 복습①</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+
+.fourline{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;background:var(--subcard);border:1px solid var(--border);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13px}
+.fourline .l{color:var(--hint);font-size:11.5px;align-self:center}
+.fourline .v{color:var(--text)}
+.fourline .v.gk{font-size:17px;color:var(--greek)}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 1주차 · 2026 여름 계절학기</div>
+  <h1>오리엔테이션 &amp; 복습①</h1>
+  <div class="prof">담당 안호준 교수 · 100% LMS 온라인 (제1-1강 · 제1-2강)</div>
+</div>
+
+<div class="intro">
+  1주차 두 영상(<b>제1-1강 오리엔테이션</b>, <b>제1-2강 복습①</b>)을 정리했습니다. 본문은 강의 내용에 근거하며,
+  교수님이 강조한 부분은 <span class="b-exam bdg">교수 강조</span>, 강의에 없어 보충(메이첸 문법 교차검증)한
+  부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다. <b>헬라어 원어 철자는 자동자막(ASR)이 부정확해
+  표준 문법으로 바로잡아 표기</b>했습니다.
+</div>
+
+<div class="toc">
+  <a href="#a-overview">과목 개요·목표</a>
+  <a href="#a-prof">교수 소개</a>
+  <a href="#a-method">진행 방식</a>
+  <a href="#a-eval">평가·과제</a>
+  <a href="#b-alpha">알파벳·발음</a>
+  <a href="#b-mark">숨표·억양·iota</a>
+  <a href="#b-verb">동사·동사상</a>
+  <a href="#b-noun">명사·관사</a>
+  <a href="#b-memo">암송</a>
+</div>
+
+<!-- ════ PART A ════ -->
+<div class="part-div" id="partA"><span>제1-1강 · 오리엔테이션</span></div>
+
+<div class="sec" id="a-overview">
+  <div class="sh"><span class="sb">1</span><span class="st">과목 개요 · 목표</span><div class="sl"></div></div>
+  <div class="card">
+    <p>헬라어 I에 이어 <b>더 심화된 헬라어 체계</b>로 하나님의 말씀 세계에 더 가까이 가는 것이 목표.
+       특히 <b>헬라어 동사 체계 전반</b>을 깊이 다룬다.</p>
+    <ul>
+      <li>헬라어 I: 알파벳·악센트·발음, 명사·형용사·동사 기초(현재·미완료 시제)까지.</li>
+      <li>헬라어 II: 부정과거·미래·현재완료·과거완료 시제, 분사·명령법, 단축·유음동사, 나머지 문법(접속사·관계대명사·가정법·부정사).</li>
+      <li>핵심 관점 <b>동사상(verbal aspect)</b> — 시제를 "시간(time)"이 아니라 <b>화자의 관점(perspective)</b>으로 이해.</li>
+      <li>교재: 안호준·장석조 『언어학에 기초한 신약성경 헬라어 입문』 — 문법·어휘·연습문제 중심.</li>
+      <li>언어 익히기: 헬라어 노래(<span class="gk">ἀγάπη</span> 외)와 <b>주기도문(마 6장) 전체 암송</b>, 요 3:16 암송 유지.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="a-prof">
+  <div class="sh"><span class="sb">2</span><span class="st">교수 소개</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>안호준 교수</b> — 캐나다 맥매스터 신학교에서 박사학위(공관복음 전공). 공관복음서의 형성·관계성을
+       언어학적 도구로 분석하는 연구. 궁금한 점은 이메일로 문의(수업계획서 참조).</p>
+  </div>
+</div>
+
+<div class="sec" id="a-method">
+  <div class="sh"><span class="sb">3</span><span class="st">진행 방식</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>100% LMS 온라인</b> — 강의·중간·기말 모두 LMS. 사실상 <b>오픈북</b>(책·정리 노트 보며 응시).</li>
+      <li>일정: <b>첫째 주 7강 + 중간고사</b>(8강 자리), <b>둘째 주 6강 + 기말고사</b>(15강 자리) = 총 15회.</li>
+      <li>강의는 두 차례로 나눠 업로드(첫 주 7강 → 중간 → 둘째 주). <b>하루 2강 이하</b>로 진도 — 충분히 소화하며.</li>
+      <li><b>매 수업 후 문법 사항을 바로 정리·복습</b>(과제로도 이어짐).</li>
+      <li>질의응답은 <b>카톡</b>(한 분이 개설 부탁) — 수업 중 못 다룬 질문은 카톡에서.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="a-eval">
+  <div class="sh"><span class="sb">4</span><span class="st">평가 · 과제</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>평가 (절대평가)</caption>
+    <thead><tr><th>항목</th><th>비율</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><th>출석</th><td>10%</td><td>강의마다 참여, <b>결석 1회 −3점</b></td></tr>
+      <tr><th>중간고사</th><td>30%</td><td>연습문제 해석 위주 (8강 자리, 그날 안에 응시)</td></tr>
+      <tr><th>기말고사</th><td>30%</td><td>연습문제 해석 위주 (15강 자리)</td></tr>
+      <tr><th>과제</th><td>30%</td><td>문법 핵심정리 20% + 주기도문 암송 10%</td></tr>
+      <tr><th>추가점</th><td>+α</td><td>태도·참여(질문·토의 답변·카톡 참여)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 과제 제출 방법 (안 지키면 감점)</h3>
+    <ul>
+      <li><b>문법 핵심정리(20%)</b>: 교재 <b>10~20과</b> 문법을 강의 들으며 <b>손으로 정리</b> → 4~5쪽으로 핵심정리
+        → <b>스캔해서 "하나의 파일"</b>로 묶어 LMS 제출(여러 장 사진 ✗).</li>
+      <li><b>주기도문 암송(10%)</b>: 얼굴 나오게 영상 촬영 → 유튜브에 <b>"일부공개(링크 공유)"</b>로 업로드(비공개·전체공개 ✗)
+        → 그 링크를 LMS 제출란에 제출(이메일 ✗).</li>
+      <li>모든 과제에 <b>과제명·이름·학번</b> 반드시 기재.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════ PART B ════ -->
+<div class="part-div" id="partB"><span>제1-2강 · 복습①</span></div>
+
+<div class="sec" id="b-alpha">
+  <div class="sh"><span class="sb">5</span><span class="st">알파벳 · 발음</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>알파벳 24자</b>를 소리내며 쓰기 — <b>소문자 최소 5번, 대문자 1번</b>씩 줄 맞춰 연습(교재 36~37쪽).</li>
+      <li>줄 기준 위치 주의: <span class="gk">α</span>는 줄 사이, <span class="gk">β·δ</span>는 위로, <span class="gk">γ</span>는 아래로 등.</li>
+      <li>헷갈리는 글자: <span class="gk">η</span>(에타)↔<span class="gk">υ</span>, <span class="gk">ο</span>(오미크론)↔<span class="gk">σ</span>(시그마).
+        <span class="gk">ν</span>(뉘)는 영어 v처럼 생김.</li>
+      <li><span class="gk">σ</span>는 단어 끝에서 <span class="gk">ς</span> 형태. <span class="gk">ξ</span>·<span class="gk">ψ</span>는 <b>이중자음</b>(두 소리)으로 발음.</li>
+      <li><span class="gk">χ</span>는 보통 '크', 뒤따르는 소리에 따라 변동.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>발음 분류</h3>
+    <p>자음: 순음(입술)·치음(앞니+혀)·구개음(크)·후음(목 뒤쪽 깊은 소리). 모음 <b>7개</b>, 입 모양에 따라 구분(교재 38~39쪽).</p>
+  </div>
+</div>
+
+<div class="sec" id="b-mark">
+  <div class="sh"><span class="sb">6</span><span class="st">이중모음 · 숨표 · 억양부호 · 묵음 이오타</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>이중모음 & 묵음 이오타(iota subscript)</h3>
+    <p>두 모음이 만나 한 음절(<span class="gk">αι ει οι αυ ευ ου …</span>). 장모음 뒤 <span class="gk">ι</span>는 글자 아래 첨자로:
+       <span class="gk">ᾳ ῃ ῳ</span>.</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — "있고 없고"가 의미를 바꾼다</h3>
+    <ul>
+      <li><b>묵음 이오타</b>: <span class="gk">ἐκκλησίᾳ</span>(여격 "교회에게") vs <span class="gk">ἐκκλησία</span>(주격 "교회") — 아래 <span class="gk">ι</span> 하나가 격을 바꿈.</li>
+      <li><b>숨표·억양</b>: <span class="gk">ὁ</span>(남성 관사 "그") vs <span class="gk">ὅ</span>(중성 관계대명사) — 숨표·억양 유무로 의미가 달라짐.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>숨표(호흡부호) · 억양부호 · 구두점</h3>
+    <ul>
+      <li>어두 모음엔 숨표 필수: <b>약한 숨표</b>(그대로) / <b>강한 숨표</b>(앞에 'ㅎ' 발음). 이중모음은 둘째 모음 위, 대문자는 글자 앞.</li>
+      <li>억양 3종: <b>acute</b>(´ 올림)·<b>circumflex</b>(῀ 올렸다 내림)·<b>grave</b>(` 내림), 무표시는 평음. 음절의 핵(모음) 위에.</li>
+      <li>억양은 단어의 <b>마지막 세 음절</b>에만: 끝=ultima, 그앞=penult, 그앞=antepenult.</li>
+      <li>구두점: 마침표·쉼표는 그대로, <b>가운뎃점(·)=세미콜론</b>, <b>물음표=;</b>(헬라어식).</li>
+      <li>생략부호(어퍼스트로피): 모음 충돌 회피(<span class="gk">διά</span>+모음 → <span class="gk">δι᾽</span>). 단축부호(coronis): 두 단어 합성(<span class="gk">καί</span>+<span class="gk">ἐάν</span>→<span class="gk">κἄν</span>).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="b-verb">
+  <div class="sh"><span class="sb">7</span><span class="st">동사 핵심 — <span class="gk">λύω</span> 현재 능동 & 동사상</span><div class="sl"></div></div>
+  <div class="card">
+    <p>헬라어 동사는 <b>어미 안에 주어·인칭·수·태·상</b>이 다 들어 있어, <b>동사 하나로 한 문장</b>이 성립.
+       어간 + <b>어미</b>가 기능을 결정 → 어미를 <b>입에 배도록</b> 반복.</p>
+  </div>
+  <div class="fourline">
+    <span class="l">원문</span><span class="v gk">λύω</span>
+    <span class="l">음역</span><span class="v">lyō</span>
+    <span class="l">한글</span><span class="v">뤼오</span>
+    <span class="l">뜻</span><span class="v">(내가) 풀다 — 모든 동사 변화의 기준</span>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 이건 꼭 외우세요</h3>
+    <p><span class="gk">λύω</span> 현재 능동 직설법 어미는 <b>이후 모든 동사 변화의 근간</b>입니다. 눈으로 외우지 말고 소리내어 반복하세요.</p>
+    <div class="tw"><table>
+      <caption>현재 능동 직설법 <span class="b-sup">보충: 표준 철자(메이첸 교차검증)</span></caption>
+      <thead><tr><th>인칭·수</th><th>형태</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><th>1단</th><td class="gk">λύω</td><td>나는 푼다</td></tr>
+        <tr><th>2단</th><td class="gk">λύεις</td><td>너는 푼다</td></tr>
+        <tr><th>3단</th><td class="gk">λύει</td><td>그/그녀/그것은 푼다</td></tr>
+        <tr><th>1복</th><td class="gk">λύομεν</td><td>우리는 푼다</td></tr>
+        <tr><th>2복</th><td class="gk">λύετε</td><td>너희는 푼다</td></tr>
+        <tr><th>3복</th><td class="gk">λύουσι(ν)</td><td>그들은 푼다</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>동사상(verbal aspect) — 이 과목의 핵심 관점</h3>
+    <p>시제(tense)는 단순한 <b>시간</b>이 아니라 <b>화자의 관점(현재성의 정도)</b>을 드러냄. 현재는 "푼다/풀고 있다"처럼
+       진행적 의미를 가질 수 있으나, 늘 현재 시간을 뜻하진 않음(과거도 가능). 교수님이 제시한 <b>현재성 점수</b>:</p>
+    <div class="tw"><table>
+      <caption>동사상 현재성 점수 (파싱 시 끝에 표기) <span class="b-exam">파싱 규약</span></caption>
+      <thead><tr><th>시제 형태</th><th>현재성</th><th>표시</th></tr></thead>
+      <tbody>
+        <tr><td>부정과거(점동작 ·)</td><td>0</td><td class="gk">…(0)</td></tr>
+        <tr><td>미래</td><td>1</td><td>(1)</td></tr>
+        <tr><td>현재 · 미완료</td><td>2</td><td>(2)</td></tr>
+        <tr><td>완료</td><td>3</td><td>(3)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">예: "직설법 부정과거 능동태 3인칭 단수 <b>(0)</b>", "완료 <b>(3)</b>"처럼 파싱 끝에 현재성 숫자를 적는다.</p>
+  </div>
+  <div class="card">
+    <h3>평서문 · 의문문 / μι-동사 맛보기</h3>
+    <ul>
+      <li>동사에 주어가 내포 → <span class="gk">ἀκούω</span>(나는 듣는다), <span class="gk">διδάσκουσι(ν)</span>(그들이 가르친다)처럼 단어 하나로 문장.</li>
+      <li>문장 끝 <b>;</b>(=물음표)가 붙으면 의문문: <span class="gk">λύετε;</span> "너희는 푸느냐?"</li>
+      <li><b>μι-동사</b>(<span class="gk">δίδωμι</span> 주다·<span class="gk">ἵστημι</span> 세우다/서다·<span class="gk">ἀπόλλυμι</span> 멸하다)는 변화가 독특 — 외우기보다 <b>눈에 익히기</b>. 빈도 높은 <span class="gk">δίδωμι</span>는 중요.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="b-noun">
+  <div class="sh"><span class="sb">8</span><span class="st">명사 복습 — 2변화 · 관사 · 1변화 · <span class="gk">εἰμί</span></span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>명사는 성(남·여·중)이 분명. 남성 <span class="gk">-ος</span>, 여성 <span class="gk">-α/-η</span>, 중성 <span class="gk">-ον</span>이 많음.</li>
+      <li><b>2변화</b>: <span class="gk">-ος</span>(남성, <span class="gk">ἄνθρωπος</span>)·<span class="gk">-ον</span>(중성). 중성은 주격=대격, 어미 일부가 <span class="gk">-α</span>로.
+        예외 여성 2변화: <span class="gk">ἡ ὁδός</span>(길), <span class="gk">ἡ ἔρημος</span>(광야) — <span class="gk">-ος</span>지만 여성 → 체크.</li>
+      <li><b>1변화</b>: 주로 여성(<span class="gk">-α</span>형 <span class="gk">βασιλεία</span>, <span class="gk">-η</span>형) + 혼합형. 남성 1변화도 있음(<span class="gk">-ης</span>, 예 <span class="gk">μαθητής</span>).</li>
+      <li><b>관사</b>는 "산토끼 노래"로 암송(<span class="gk">ὁ ἡ τό …</span>). 명사와 <b>성·수·격 일치</b>.</li>
+      <li><span class="gk">εἰμί</span>(~이다)는 대표적 <b>μι-동사</b> — 변화 독특, 함께 익혀둘 것.</li>
+    </ul>
+  </div>
+  <div class="tw"><table>
+    <caption>2변화 어미 요약 <span class="b-sup">보충: 표준 철자(메이첸)</span></caption>
+    <thead><tr><th>격</th><th>남성 단/복 (<span class="gk">λόγος</span>)</th><th>중성 단/복 (<span class="gk">δῶρον</span>)</th></tr></thead>
+    <tbody>
+      <tr><th>주격</th><td class="gk">λόγος / λόγοι</td><td class="gk">δῶρον / δῶρα</td></tr>
+      <tr><th>속격</th><td class="gk">λόγου / λόγων</td><td class="gk">δώρου / δώρων</td></tr>
+      <tr><th>여격</th><td class="gk">λόγῳ / λόγοις</td><td class="gk">δώρῳ / δώροις</td></tr>
+      <tr><th>대격</th><td class="gk">λόγον / λόγους</td><td class="gk">δῶρον / δῶρα</td></tr>
+    </tbody>
+  </table></div>
+  <div class="sup"><span class="tag">🔎 보충</span> — 위 표는 자동자막의 발음 설명을 표준 패러다임으로 정리한 것(메이첸 4강 기준). 자세한 1변화·관사 전체표는 사이트의 "1학기 총정리 → 헬라어 II 준비" 자료 참고.</div>
+</div>
+
+<div class="sec" id="b-memo">
+  <div class="sh"><span class="sb">9</span><span class="st">암송 — 요 3:16 / 주기도문</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>요한복음 3:16</b>(헬라어) — 헬라어 I에서 익힌 것 유지·암송.</li>
+      <li><b>주기도문(마 6장)</b> — 헬라어 II 암송 과제. 전반부부터 반복 청취(카톡으로 음원 공유 예정, 하루 여러 번 듣고 따라하기).</li>
+      <li>헬라어 노래 <span class="gk">ἀγάπη</span>·<span class="gk">πάτερ ἀγαπῶ σε</span> 반복 — 단어(<span class="gk">κύριος, ἀγαπάω, προσκυνέω, πληρόω</span>)도 함께 복습.</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> — 노래 가사의 <span class="gk">πληρόω</span>(채우다→성취하다)는 복음서에서 구약 예언의 "성취"를 나타내는 핵심어. <span class="gk">προσκυνέω</span>는 "(엎드려) 경배하다".</div>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--blue)">자료근거(1-1강·1-2강 영상) · 본문 전반</span>
+    <span class="stat" style="color:var(--red)">교수 강조 · 4건</span>
+    <span class="stat" style="color:var(--purple)">보충(메이첸 교차검증) · 다수</span>
+  </div>
+  <p>· <b>자료근거</b>: 두 강의 영상(Panopto ASR 자막)을 정리. 강의 흐름·설명·평가/과제 안내는 모두 강의 내용.</p>
+  <p>· <b>교수 강조</b>: ① 과제 제출 방법(스캔 1파일·유튜브 일부공개·학번 기재) ② 묵음 이오타/숨표·억양 유무가 의미를 바꿈
+     ③ <span class="gk">λύω</span> 현재 능동 어미 꼭 암송 ④ 파싱 시 동사상 점수(0·1·2·3) 표기.</p>
+  <ul>
+    <li><b>보충(교차검증)</b>: ASR이 헬라어 철자를 부정확하게 옮겨, 모든 원어 패러다임(<span class="gk">λύω</span>, <span class="gk">λόγος/δῶρον</span> 등)을
+        메이첸 표준 문법으로 바로잡아 표기. 노래 단어 의미도 표준 사전 기준 보충.</li>
+    <li><b>확인 필요</b>: 교재 페이지·세부 예시는 강의/교재로 최종 확인 권장. 자동자막 특성상 일부 표현 부정확 가능.</li>
+  </ul>
+</div>
+
+<div class="foot">헬라어 II 1주차 · 안호준 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

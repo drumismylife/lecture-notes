@@ -3,5 +3,11 @@
 *.hwp
 *.hwpx
 
+# 원본 강의 자막/녹취(로컬 보관) — 노트는 output/.../weekNN.html 로 추출되어 관리됨
+*자막*.txt
+*녹취*.txt
+*.vtt
+*.srt
+
 # macOS
 .DS_Store
