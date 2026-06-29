@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예배기획 1주차 — 오리엔테이션 · 수업 안내</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c18; --card:#181428; --sub:#221c38; --gold:#d4b15a; --accent:#8a7fce;
+  --accent2:#b3a6e6; --rose:#d98aa8; --teal:#6ab8c8; --green:#7ab87a;
+  --text:#ece8f5; --muted:#a09bb5; --hint:#6f6a85; --border:#322a4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 80px}
+
+/* HEADER */
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0b0914,#181428 60%,#211a36)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+/* INTRO */
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+/* TOC */
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--sub)}
+
+/* SECTION */
+.sec{margin:26px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0e0c18;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.08rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.k{color:var(--gold);font-weight:600}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+
+/* TABLE */
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:13px}
+th,td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--sub);color:var(--gold);font-size:12px;white-space:nowrap}
+.wn{text-align:center;color:var(--accent);font-weight:600;width:40px}
+tr:hover td{background:rgba(138,127,206,.06)}
+
+/* BADGE */
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-prof{background:rgba(217,138,168,.16);color:var(--rose);border:1px solid rgba(217,138,168,.45)}
+.b-sup{background:rgba(106,184,200,.14);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+
+/* EMPHASIS BOX (교수 강조) */
+.emph{background:linear-gradient(180deg,rgba(217,138,168,.08),transparent);border:1px solid rgba(217,138,168,.3);border-left:3px solid var(--rose);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--rose);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+/* SUPPLEMENT (보충) */
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+/* VERSE */
+.verse{background:var(--sub);border:1px solid var(--border);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px;color:var(--accent2);font-family:'Noto Serif KR',serif;line-height:1.85}
+
+/* VERIFY */
+.verify{background:var(--sub);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예배기획 · 1주차 · 2026 여름 계절학기</div>
+  <h1>오리엔테이션 · 수업 안내</h1>
+  <div class="prof">담당 김은영 교수 · 온라인(LMS) 영상 강의</div>
+</div>
+
+<div class="intro">
+  이 노트는 <b>1주차 강의 영상</b>(수업 안내)을 정리한 것입니다. 본문은 모두 강의 내용에 근거하며,
+  교수님이 특히 강조한 부분은 <span class="b-prof bdg">교수 강조</span>, 강의에 없어 보충한 부분은
+  <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#goal">목표·평가</a>
+  <a href="#how">수업 방식</a>
+  <a href="#task">과제 안내</a>
+  <a href="#grade">평가 기준</a>
+  <a href="#ai">AI 정책</a>
+  <a href="#road">주차 로드맵</a>
+  <a href="#prof">교수 소개·비전</a>
+  <a href="#act">1주차 활동</a>
+</div>
+
+<!-- 1 목표·평가 -->
+<div class="sec" id="goal">
+  <div class="sh"><span class="sb">1</span><span class="st">과목 목표와 평가 개관</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="k">목표</span> — 성경적·신학적 기초에 근거하여 <b>예배를 기획할 수 있는 역량</b>을 기른다.</p>
+    <p><span class="k">평가</span> — 시험 없이 <b>과제</b>로 평가: 출석 20% · 중간 과제 40% · 기말 과제 40%.</p>
+    <p class="card" style="background:var(--sub);margin-top:8px">여름 계절학기라 사역으로 바쁜 점을 고려해 주차별 부담을 <b>대폭 완화</b>했지만,
+      영상 시청만으로 끝나지 않고 <b>중간·기말 과제 + 주차별 활동</b>이 있음을 기억할 것.</p>
+  </div>
+</div>
+
+<!-- 2 수업 방식 -->
+<div class="sec" id="how">
+  <div class="sh"><span class="sb">2</span><span class="st">수업 진행 방식 · 출석 인정</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>진행 흐름</h3>
+    <ul>
+      <li><b>LMS 영상 시청</b> → 시청 후 <b>유인물 빈칸 작성</b>해서 업로드(사진/파일), <b>또는</b> 그 주차 <b>질문에 답변</b> 제출.</li>
+      <li>유인물은 교수님이 LMS에 모두 올려둠 — 영상을 잘 보면 채울 수 있는 빈칸들(집중을 돕기 위한 장치).</li>
+      <li>토론은 <b>유튜브 댓글</b>로 진행(LMS 토론이 느리고 불편해서). 영상 우측 하단 "다른 곳에서 보기 → 유튜브"로 가서 댓글·답글. 교수님이 매일 한 번씩 확인.</li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 출석은 반드시 LMS에서</h3>
+    <p>수업 영상은 <b>반드시 LMS에서 시청</b>해야 출석으로 기록됩니다. 유튜브로 바로 보면 LMS에 시청 기록이
+      남지 않아 출석 인정이 안 됩니다. <b>댓글·토론만</b> 유튜브에서 하세요.</p>
+  </div>
+</div>
+
+<!-- 3 과제 -->
+<div class="sec" id="task">
+  <div class="sh"><span class="sb">3</span><span class="st">중간·기말 과제 안내</span><div class="sl"></div></div>
+  <div class="g2">
+    <div class="card">
+      <h3>중간 과제 (40%)</h3>
+      <p><b>교회력 절기 하나를 선택해 절기 예배 기획안 작성·설명.</b> 2~7주차 내용의 총합.</p>
+      <p>포함할 내용:</p>
+      <ul>
+        <li>절기를 선택한 이유</li>
+        <li>대상 회중의 특징(인원·연령대·지역·도시/농촌 등)</li>
+        <li>나의 예배 기획의 특징·가장 중시한 점</li>
+        <li>각 순서와 구조 설명</li>
+        <li>그 외 하고 싶은 이야기(상세할수록 좋음)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>기말 과제 (40%)</h3>
+      <p><b>나의 1년 주일 예배 계획안 제출.</b> 교수님이 수업계획서를 만들듯, 1년 예배 계획서를 만드는 것.</p>
+      <p>포함할 내용:</p>
+      <ul>
+        <li>나의 목회 철학, 계획의 근거·의도</li>
+        <li>절기 예배 포함(성탄·주현 등, 주일 아닌 날도)</li>
+        <li>각 주일의 성경 본문·설교 주제·찬송/찬양 등</li>
+        <li>대상 회중(중간과 달라도 됨, 밝히기만)</li>
+        <li>1년의 구조, 각 주의 특징, 특별히 염두한 점</li>
+      </ul>
+    </div>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 제출 마감</h3>
+    <ul>
+      <li><b>중간 과제: 7월 5일 자정까지 반드시</b> — 14주차에 우수작을 리뷰 영상으로 만들기 때문에 늦으면 안 됨.</li>
+      <li><b>기말 과제: 7월 10일 자정까지</b>(성적 처리 마감). 모든 제출물은 7/10까지 마무리.</li>
+      <li>보조 영상이 있으면 유튜브에 <b>일부공개(링크 가진 사람만)</b>로 올려 링크 제출.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 평가 기준 -->
+<div class="sec" id="grade">
+  <div class="sh"><span class="sb">4</span><span class="st">평가 등급 기준 (절대평가)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>등급</th><th>기준</th></tr></thead>
+    <tbody>
+      <tr><td class="wn">A+</td><td>모든 것 완료 + 중간 과제 <b>리뷰 선정</b>(또는 그에 준함) + 기말이 참신하고 적용 가능</td></tr>
+      <tr><td class="wn">A</td><td>중간·기말을 <b>의미 있게</b> 완료(주차별 과제는 완료 수준)</td></tr>
+      <tr><td class="wn">A−</td><td>중간·기말 과제를 완료했으나 다소 미흡</td></tr>
+      <tr><td class="wn">B~C</td><td>영상 시청/주차 과제가 부족하고, 중간·기말도 성의 부족·미흡</td></tr>
+      <tr><td class="wn">F</td><td>출석(영상 시청+과제) <b>4주 이상 미완료</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="card"><p class="note">기본 전제: 영상 시청 + 주차별 과제 완료. "성의 있게"란 막대한 시간이 아니라 <b>생각해서 열심히 한 흔적</b>을 뜻함.</p></div>
+</div>
+
+<!-- 5 AI -->
+<div class="sec" id="ai">
+  <div class="sh"><span class="sb">5</span><span class="st">AI 사용 정책</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — AI 도움은 배제(최소화)</h3>
+    <ul>
+      <li><b>기획안을 만들어 달라거나, 수업 자료를 통째로 넣어 생성</b>하는 식의 사용은 금지.</li>
+      <li>"이 표현이 괜찮은가", "더 나은 용어가 없을까" 같은 <b>소극적 다듬기</b> 정도만 허용.</li>
+      <li>조금이라도 AI 도움을 받았다면 <b>어느 단계에서 어느 만큼</b> 받았는지 반드시 밝힐 것.</li>
+      <li><b>전적으로 AI에 의존한 과제는 점수를 인정하지 않음.</b> 잘 못해도 괜찮으니 <b>나의 생각</b>과 <b>수업 내용 반영</b>이 핵심.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 로드맵 -->
+<div class="sec" id="road">
+  <div class="sh"><span class="sb">6</span><span class="st">주차별 로드맵 (교수 설명 기준)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>주차</th><th>주제</th></tr></thead>
+    <tbody>
+      <tr><td class="wn">1</td><td>오리엔테이션 · 수업 개요(오늘)</td></tr>
+      <tr><td class="wn">2</td><td>예배 기획의 신학적 기초 및 역사</td></tr>
+      <tr><td class="wn">3</td><td>예배의 발전과 구조</td></tr>
+      <tr><td class="wn">4</td><td>예배와 음악(선곡·회중 찬양)</td></tr>
+      <tr><td class="wn">5</td><td>교회력 — <b>중간 과제에 필수</b>(절기 선택의 토대)</td></tr>
+      <tr><td class="wn">6</td><td>예배 기획 과제를 위한 사례 분석(교회 영상 사례)</td></tr>
+      <tr><td class="wn">7</td><td>예배 형식·악기·찬양 사역</td></tr>
+      <tr><td class="wn">8</td><td>중간 과제 제출(2~7주차 내용 총합)</td></tr>
+      <tr><td class="wn">9</td><td>침례교 예배의 특성·특별 예배 기획</td></tr>
+      <tr><td class="wn">10</td><td>열린 예배와 한국교회</td></tr>
+      <tr><td class="wn">11</td><td>세대통합 예배</td></tr>
+      <tr><td class="wn">12</td><td>블렌디드 워십</td></tr>
+      <tr><td class="wn">13</td><td>예배 기획 사례 연구(새들백 등 국내외 사례)</td></tr>
+      <tr><td class="wn">14</td><td>중간 과제 리뷰(우수작 3~4편 공유·분석)</td></tr>
+      <tr><td class="wn">15</td><td>기말 과제 제출(1년 예배 계획안)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card"><p class="note">영상은 25분 이내 요청을 받아, 교회력처럼 분량이 큰 주차(약 50분)는 나눠 올리거나 다음 주차로 일부 대체될 수 있음. 그 여파로 14주차 중간 과제 리뷰 일정이 조정될 가능성도 있음.</p></div>
+</div>
+
+<!-- 7 교수·비전 -->
+<div class="sec" id="prof">
+  <div class="sh"><span class="sb">7</span><span class="st">교수 소개 · 비전</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>김은영 교수</h3>
+    <ul>
+      <li>교회음악과 학부 졸업, <b>미시간 대학</b> 석사·박사(교회음악·오르간 전공).</li>
+      <li><b>2000년부터 침신대 교회음악과 교수</b>(교회음악·오르간 담당).</li>
+      <li>2015년 침신대 신대원 M.Div 입학·졸업 — 지금 수강생들의 <b>같은 과정 선배</b>.</li>
+      <li>연락처 010-3364-1723 — 문자 시 "예배기획 수강 ○○○입니다" 밝히면 성의껏 답변(늦으면 다시 문의 권장).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>교수의 비전 — 성령의 임재가 가득한 예배</h3>
+    <p>솔로몬 성전 봉헌식에서 찬양 가운데 여호와의 영광이 구름으로 가득했던 장면을 비전으로 제시:</p>
+    <div class="verse">
+      "…소리를 높여 여호와를 찬송하여 이르되 선하시도다 그의 자비하심이 영원히 있도다 하매,
+      그 때에 여호와의 전에 구름이 가득한지라. 제사장들이 그 구름으로 말미암아 능히 서서 섬기지
+      못하였으니, 이는 여호와의 영광이 하나님의 전에 가득함이었더라."
+    </div>
+    <p>우리가 기획하고 드리는 예배 가운데 모든 성도가 <b>성령의 임재를 구름처럼 가슴 벅차게 느끼는 예배</b>,
+      그것이 교수님의 비전이자 이 수업의 지향점.</p>
+    <div class="sup"><span class="tag">🔎 보충</span> — 인용 본문은 <b>역대하 5:13–14</b>(솔로몬 성전 봉헌). 강의에서 장·절은 명시되지 않아 보충 표기.</div>
+  </div>
+</div>
+
+<!-- 8 활동 -->
+<div class="sec" id="act">
+  <div class="sh"><span class="sb">8</span><span class="st">1주차 활동 (맛보기 과제)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>교수님이 인터넷에서 임의로 가져온 <b>주보(예배 순서) 예시</b>를 보고, 아무 수업도 듣지 않은 상태에서
+      <b>처음 느낀 점</b>을 적어 LMS에 제출:</p>
+    <ul>
+      <li>① <b>누락된 순서</b>가 있는가(있으면 무엇)</li>
+      <li>② <b>빼는 게 좋겠다</b>고 생각하는 순서</li>
+      <li>③ 그 외 아쉬운 점(순서 위치 조정, 담당자 등 구체적으로)</li>
+    </ul>
+    <p class="note">앞으로 주차별로 하게 될 활동의 맛보기 — 부담 없이 솔직한 첫인상을 적으면 됨.</p>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--accent2)">자료근거(1주차 강의 영상) · 본문 전반</span>
+    <span class="stat" style="color:var(--rose)">교수 강조 · 3건</span>
+    <span class="stat" style="color:var(--teal)">보충 · 1건</span>
+  </div>
+  <p>· <b>자료근거</b>: 본 노트의 모든 내용은 1주차 강의 영상(YouTube 자동자막 추출)을 정리한 것입니다.</p>
+  <p>· <b>교수 강조</b>: ① LMS에서 시청해야 출석 인정 ② 중간 과제 7/5 자정 마감(필수) ③ AI 전적 의존 과제 점수 불인정 — 모두 강의에서 반복·강조된 내용.</p>
+  <ul>
+    <li><b>보충(교차검증)</b>: 비전 인용 본문을 <b>역대하 5:13–14</b>로 식별(강의는 "역대하 성전 봉헌식"으로만 언급).</li>
+    <li><b>확인 필요</b>: 자동자막 기반이라 일부 표현에 오탈자 가능. 평가 등급·마감일 등 중요사항은 LMS 공지·수업계획서로 최종 확인 권장.</li>
+  </ul>
+</div>
+
+<div class="foot">예배기획 1주차 · 김은영 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

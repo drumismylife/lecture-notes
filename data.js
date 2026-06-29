@@ -450,12 +450,14 @@ const SITE_DATA = {
           },
           syllabus: { href: "output/2026-summer/worship/syllabus.html", type: "syllabus" },
           weeks: [
-            { week: 1, title: "수업 개요 · 수업 소개", date: "", files: [] },
+            { week: 1, title: "오리엔테이션 · 수업 안내", date: "2026.06.29", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week01.html" }
+          ] },
             { week: 2, title: "예배 기획의 신학적 기초 및 역사 — 예배 정의·성경 속 예배 모델·예배 발전과 역사", date: "", files: [] },
             { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [] },
             { week: 4, title: "예배와 음악 — 순서에 따른 선곡·회중 찬양 이해", date: "", files: [] },
             { week: 5, title: "교회력의 이해와 예배 기획 — 교회력·선곡·절기 예배 기획", date: "", files: [] },
-            { week: 6, title: "예배기획 과제 실습 — 영상 통한 예배 분석·종려주일 예배 사례 분석", date: "", files: [] },
+            { week: 6, title: "예배기획 과제 사례 분석 — 영상 통한 예배 분석·종려주일 예배 사례 분석", date: "", files: [] },
             { week: 7, title: "예배 형식과 악기의 이해 — 예배 악기·악기 활용·음향/영상/자막", date: "", files: [] },
             { week: 8, title: "중간고사 — 교회력 절기 예배 기획안 제출", date: "2026.07.05", files: [] },
             { week: 9, title: "침례교 예배와 특별 예배 기획 — 정체성·목적에 따른 특별 예배", date: "", files: [] },
@@ -463,8 +465,8 @@ const SITE_DATA = {
             { week: 11, title: "세대통합예배 — 모든 세대가 함께 드리는 예배", date: "", files: [] },
             { week: 12, title: "블렌디드 워십 — 이해와 예배 사역 적용", date: "", files: [] },
             { week: 13, title: "예배 기획을 위한 사례 연구 — 다양한 예배 관찰·분석", date: "", files: [] },
-            { week: 14, title: "중간고사 리뷰 — 우수 기획안 3–4개 공유·분석", date: "", files: [] },
-            { week: 15, title: "기말고사 — 주일 예배 기획안 제출", date: "2026.07.10", files: [] },
+            { week: 14, title: "중간과제 리뷰 — 우수 기획안 3–4개 공유·분석", date: "", files: [] },
+            { week: 15, title: "기말고사 — 나의 1년 예배 계획안 제출", date: "2026.07.10", files: [] },
           ]
         }
 
