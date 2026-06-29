@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예배기획 2주차 — 예배란 무엇인가 · 성경 속 예배 모델 · 예배 발전사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c18; --card:#181428; --sub:#221c38; --gold:#d4b15a; --accent:#8a7fce;
+  --accent2:#b3a6e6; --rose:#d98aa8; --teal:#6ab8c8; --green:#7ab87a;
+  --text:#ece8f5; --muted:#a09bb5; --hint:#6f6a85; --border:#322a4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0b0914,#181428 60%,#211a36)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--sub)}
+.sec{margin:26px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0e0c18;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.08rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.k{color:var(--gold);font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+@media(max-width:680px){.g3{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:13px}
+th,td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--sub);color:var(--gold);font-size:12px;white-space:nowrap}
+.wn{text-align:center;color:var(--accent);font-weight:600;width:40px}
+tr:hover td{background:rgba(138,127,206,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-prof{background:rgba(217,138,168,.16);color:var(--rose);border:1px solid rgba(217,138,168,.45)}
+.b-sup{background:rgba(106,184,200,.14);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.emph{background:linear-gradient(180deg,rgba(217,138,168,.08),transparent);border:1px solid rgba(217,138,168,.3);border-left:3px solid var(--rose);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--rose);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+.verse{background:var(--sub);border:1px solid var(--border);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px;color:var(--accent2);font-family:'Noto Serif KR',serif;line-height:1.85}
+.verify{background:var(--sub);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예배기획 · 2주차 · 2026 여름 계절학기</div>
+  <h1>예배란 무엇인가 · 성경 속 예배 모델 · 예배 발전사</h1>
+  <div class="prof">담당 김은영 교수 · 온라인(LMS) 영상 강의</div>
+</div>
+
+<div class="intro">
+  이 노트는 <b>2주차 강의 영상</b>과 <b>유인물(김평강 자료)</b>을 종합 정리한 것입니다.
+  본문은 모두 강의 내용에 근거하며, 교수님이 특히 강조한 부분은 <span class="b-prof bdg">교수 강조</span>,
+  강의에 없어 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#def">예배의 정의</a>
+  <a href="#scope">예배의 범위</a>
+  <a href="#bible">성경적 근거</a>
+  <a href="#model">성경 속 예배 모델</a>
+  <a href="#ot-sacrifice">구약 제사 체계</a>
+  <a href="#synagogue">회당 예배</a>
+  <a href="#history">예배 발전사 (2-5C)</a>
+  <a href="#lima">리마 예식서</a>
+  <a href="#apply">기획 적용 포인트</a>
+</div>
+
+<!-- 1 예배의 정의 -->
+<div class="sec" id="def">
+  <div class="sh"><span class="sb">1</span><span class="st">예배의 정의 — 세 학자의 관점</span><div class="sl"></div></div>
+  <div class="g3">
+    <div class="card">
+      <h3>로버트 웨버 (Robert Webber)</h3>
+      <p>"예배는 하나님의 <span class="k">구속 이야기를 기억</span>하고, 그 이야기 안에서 우리의 <span class="k">정체성을 재확립</span>하며, 하나님과의 <span class="k">관계를 갱신</span>하는 사건이다."</p>
+      <p>즉 예배는 하나님의 구속 행위에 응답하는 <b>공동체적이고 의식적인 행위</b>이다.</p>
+    </div>
+    <div class="card">
+      <h3>제임스 화이트 (James F. White)</h3>
+      <p>"예배는 하나님과 인간 사이의 <span class="k">의사소통의 장</span>으로, 하나님께서는 <b>은혜와 복</b>을 주시고 인간은 <b>찬양과 감사</b>를 돌려드리는 <span class="k">상호작용적 행위</span>이다."</p>
+    </div>
+    <div class="card">
+      <h3>폴 훈 (Paul Hoon)</h3>
+      <p>"<span class="k">하나님의 계시에 대한 인간(하나님의 백성)의 응답</span>"</p>
+      <p>가장 <b>함축적인</b> 정의. 웨버와 화이트의 핵심이 모두 포함됨.</p>
+    </div>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 폴 훈의 정의를 꼭 기억하라</h3>
+    <p>"하나님의 계시에 대한 인간의 응답" — 앞으로 수업 전반에서 <b>반복적으로 언급</b>할 핵심 정의. 예배 기획의 출발점이 여기에 있다.</p>
+  </div>
+</div>
+
+<!-- 2 예배의 범위 -->
+<div class="sec" id="scope">
+  <div class="sh"><span class="sb">2</span><span class="st">예배의 범위 — 공적 예배 vs. 집회</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>예배학적 관점에서 "예배"의 범위</h3>
+    <ul>
+      <li><b>넓은 의미</b>: 삶 전체가 예배 — 그리스도인의 삶의 자세</li>
+      <li><b>좁은 의미(예배학)</b>: <span class="k">주일의 공적인 예배</span> — 예배 기획이 다루는 대상</li>
+    </ul>
+    <p style="margin-top:8px"><b>예배의 범주에 속하는 것:</b> 주일 공적 예배, 절기 예배(성탄절·성회 수요일·성 금요일 등), 특별 예배(임직·결혼 등)</p>
+    <p><b>예배가 아닌 것(집회):</b> 수요 예배(→수요 집회), 금요 철야(→기도회), 새벽 기도회, 찬양 집회, 성경 공부 모임 등</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 예배와 집회의 구분</h3>
+    <ul>
+      <li>예배는 <b>하나님께 올려 드리는</b>(수직적) 행위, 집회·기도회는 <b>성도를 향하는</b>(수평적) 개념이 강하다.</li>
+      <li>집회를 깎아내리는 것이 아니라 <b>주일 예배의 독특성·중요성·희소성·경건성</b>을 강조하려는 것.</li>
+      <li><b>주일 예배의 가장 큰 의미</b> = 예수 그리스도의 <span class="k">부활을 기념</span>하는 것. 교회력에서 사순절 날수를 셀 때 주일을 카운트하지 않는 이유도 이 때문.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>채플(Chapel)의 성격</h3>
+    <p>공동체적 신앙을 표현하는 <b>영적 훈련 겸 교육 목적</b>의 예전. 예배적 형식의 모임이지만 주일의 공적 예배와는 별도 — "하나님의 명령"이 아니라 공동체의 요구에 의한 것.</p>
+  </div>
+</div>
+
+<!-- 3 성경적 근거 -->
+<div class="sec" id="bible">
+  <div class="sh"><span class="sb">3</span><span class="st">성경적 근거 — 구약·신약·문헌</span><div class="sl"></div></div>
+  <div class="g2">
+    <div class="card">
+      <h3>구약의 예배 명령</h3>
+      <ul>
+        <li><b>출 20:24</b> — 토단을 쌓고 번제·화목제를 드리라</li>
+        <li><b>출 23:12</b> — 엿새 일하고 일곱째 날 쉬라(안식일)</li>
+        <li><b>출 23:14</b> — 매년 세 번 절기를 지킬지니라</li>
+        <li><b>레 23:3</b> — 일곱째 날은 쉴 안식일, 성회의 날</li>
+        <li><b>민 28:9</b> — 안식일에 번제와 소제·전제를 드림</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>신약의 예배 근거</h3>
+      <ul>
+        <li><b>요 4:20-24</b> — "하나님은 영이시니 예배하는 자가 <span class="k">영과 진리로</span> 예배할지니라"</li>
+        <li><b>행 20:7</b> — "그 주간의 <span class="k">첫날</span>에 떡을 떼려 하여 모였더니"</li>
+        <li><b>고전 16:1-2</b> — "매주 첫날에" 연보를 모아두라</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>문헌적 근거 — 초대교회의 예배 증거</h3>
+    <ul>
+      <li><b>디다케(Didache)</b> — "주님의 날에 함께 모여 떡을 떼고 감사하라"</li>
+      <li><b>플리니(Pliny) 보고서</b> — "어느 일정한 날 동트기 전에" 모임</li>
+      <li><b>저스틴 마터(Justin Martyr) 변증론 67장</b> — "<span class="k">태양의 날(Sunday)</span>에 모두 한곳에 모인다" → 성경 봉독, 설교, 기도, 성찬 순서 기록. 이유: 하나님이 천지를 창조하신 <b>첫째 날</b>이자 예수님이 <b>부활하신 날</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 성경 속 예배 모델 -->
+<div class="sec" id="model">
+  <div class="sh"><span class="sb">4</span><span class="st">성경 속 예배 모델 — 족장에서 초대교회까지</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>시대</th><th>예배 형태</th><th>특징</th></tr></thead>
+    <tbody>
+      <tr><td class="wn">족장</td><td>제단 중심</td><td>가인·아벨, 노아, 아브라함, 야곱의 제사 (창세기)</td></tr>
+      <tr><td class="wn">성막</td><td>성막 건축 · 제사장 제도</td><td>모세 이후. 출 25:8 "내가 그들 중에 거할 성소를 짓되". 레위기의 예배 규범(번제·소제·화목제·속죄제·속건제)</td></tr>
+      <tr><td class="wn">성전</td><td>예루살렘 성전</td><td>열왕기상, 역대하. 성막 시대의 예배를 성전에서 수행</td></tr>
+      <tr><td class="wn">분열</td><td>사마리아 vs 예루살렘</td><td>그리심산(북이스라엘) vs 예루살렘(남유다) — 요 4:20의 배경</td></tr>
+      <tr><td class="wn">포로기</td><td>회당 중심 · 말씀 낭독·기도·교육</td><td>성전 파괴로 예전 행위 불가. 집회 성격이 강해짐</td></tr>
+      <tr><td class="wn">제2성전</td><td>제사 + 회당 교육 병행</td><td>스룹바벨·헤롯 시대</td></tr>
+      <tr><td class="wn">초대교회</td><td>가정교회 중심</td><td>그리스도 중심, 성령 안의 공동체 중심으로 전환</td></tr>
+    </tbody>
+  </table></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 장소·형태가 아니라 사상과 본질</h3>
+    <p>성막이든 성전이든 가정교회든 — 시대마다 형태는 달랐다. 중요한 것은 <b>그때의 사상</b>, 즉 예배의 <b>본질</b>을 생각하는 것. 예배 기획 시에도 "장소냐 형태냐"가 아니라 <b>사상과 본질을 붙들고</b> 가야 한다.</p>
+  </div>
+</div>
+
+<!-- 5 구약 제사 체계 -->
+<div class="sec" id="ot-sacrifice">
+  <div class="sh"><span class="sb">5</span><span class="st">구약 제사 체계 (레 1-7장, 민 28-29장)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>제사의 종류</h3>
+    <div class="tw"><table>
+      <thead><tr><th>제사</th><th>영문</th><th>목적</th><th>처리 방식</th></tr></thead>
+      <tbody>
+        <tr><td><b>번제</b></td><td>Burnt Offering</td><td>죄의 제거</td><td>모두 태움. 향기로운 냄새를 드림</td></tr>
+        <tr><td><b>소제</b></td><td>Grain Offering</td><td>감사의 표시</td><td>곡식 일부 태우고 나머지는 제사장</td></tr>
+        <tr><td><b>화목제</b></td><td>Fellowship Offering</td><td>평화·친교</td><td>내장·기름 태우고 고기는 회막에서 나눠 먹음</td></tr>
+        <tr><td><b>속죄제</b></td><td>Sin Offering</td><td>고의 범죄의 용서</td><td>내장·기름 태우고 고기는 제사장</td></tr>
+        <tr><td><b>속건제</b></td><td>Guilt Offering</td><td>고의 범죄 + 성물·계명 훼손</td><td>남은 고기는 제사장</td></tr>
+        <tr><td><b>전제</b></td><td>Drink Offering</td><td>번제·화목제에 병행</td><td>붉은 포도주를 제단에 부음</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>제사의 행위(동작)</h3>
+    <ul>
+      <li><b>화제</b>(Fire Offering) — 불에 태움. 제사의 기본 행위</li>
+      <li><b>요제</b>(Wave Offering) — 제물을 흔들어 바침. 상징적 행위</li>
+      <li><b>거제</b>(Contribution) — 제물을 떼어 들어 바침</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 회당 예배 -->
+<div class="sec" id="synagogue">
+  <div class="sh"><span class="sb">6</span><span class="st">회당 예배 — 구약에서 초대교회까지</span><div class="sl"></div></div>
+  <div class="g2">
+    <div class="card">
+      <h3>구약시대 회당 예배 구조</h3>
+      <p><b>제1부 — 의식적 예배</b></p>
+      <ul>
+        <li><span class="k">쉐마</span>(신앙 확인) — "들으라, 이스라엘아" (신 6:4-9, 11:13-21)</li>
+        <li>18 기도문(테필라) — 생활 12기도문 + 전후 찬양 3기도문씩</li>
+        <li>사제의 축도 (민 6:24-26)</li>
+      </ul>
+      <p><b>제2부 — 교훈적 예배</b></p>
+      <ul>
+        <li>모세오경 낭독 → 예언서 강독 → (설교)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>초대교회 당시 회당 예배</h3>
+      <ul>
+        <li>성경 봉독(율법서, 선지서)</li>
+        <li>설교, 시편가, 거룩송, 기도, 축복</li>
+        <li>낭독과 기도는 <b>단선율 노래</b>로 수행</li>
+      </ul>
+      <p style="margin-top:8px"><span class="k">칸틸레이션(Cantillation)</span> — 성경 본문을 일정한 선율 패턴에 따라 낭송. 본문의 기호(악센트·부호)가 억양·구두점·문장 구조를 지시. 기능: 암송, 교육, 예배적 낭송.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 7 예배 발전사 -->
+<div class="sec" id="history">
+  <div class="sh"><span class="sb">7</span><span class="st">예배 발전사 (2세기~5세기)</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>2세기경 — 저스틴 마터의 변증론 (c.150)</h3>
+    <div class="g2">
+      <div>
+        <p><b>말씀의 예전</b></p>
+        <ul>
+          <li>성경 봉독 (선지서·복음서·사도서신)</li>
+          <li>설교</li>
+          <li>공동 기도</li>
+        </ul>
+      </div>
+      <div>
+        <p><b>성만찬 예전</b></p>
+        <ul>
+          <li>평화의 입맞춤</li>
+          <li>봉헌</li>
+          <li>감사기도 (즉흥, 능력껏) → 아멘</li>
+          <li>성만찬</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3세기경 — 히폴리투스의 사도전승</h3>
+    <div class="g2">
+      <div>
+        <p><b>말씀의 예전</b></p>
+        <ul>
+          <li>시편가, 신약 봉독, 설교</li>
+          <li>중보기도, 평화의 입맞춤</li>
+        </ul>
+      </div>
+      <div>
+        <p><b>식탁의 예전</b></p>
+        <ul>
+          <li>봉헌 → 인사(Responsory)</li>
+          <li><span class="k">수르숨 코르다</span> ("마음을 높이 들라", 애 3:41)</li>
+          <li>성찬기도(서문경·제정의 말씀·기념사·축성기도)</li>
+          <li>삼위일체송 → 아멘 → 성만찬 → 축도·폐회</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4세기경 — 클레멘틴 전례 (c.380)</h3>
+    <p>가장 <b>화려하고 정교한</b> 예배 구조. 성경 봉독 사이사이에 시편가 삽입, 초신자 폐회 순서 추가, 거룩송(Sanctus) 등장.</p>
+    <ul>
+      <li><b>말씀의 예전</b>: 율법서·선지서·사도서신·복음서 봉독 + 중간 시편가 + 설교 + 초신자 폐회</li>
+      <li><b>성만찬 예전</b>: 결신자 기도 → 평화의 입맞춤 → 봉헌(사제 손 씻음) → 성찬기도(수르숨 코르다·서문경·거룩송·감사기도·제정의 말씀·기념사·축성기도·중보기도·삼위일체송) → 주기도문 → 대영광송·호산나 → 성만찬 → 축도·폐회</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>5세기 이후 — 미사(Missa)와 성무일과</h3>
+    <p><span class="k">미사</span>의 어원: 파송 순서 "Ite, Missa est"(가라, 파송되었다)에서 유래.</p>
+    <p><b>미사 순서 구분</b>: 노래 부분(고유문 Proper Mass + 통상문 Ordinary Mass) / 낭송 부분(고유문 + 통상문)</p>
+    <ul>
+      <li>입당송(Introit) → 자비송(Kyrie) → 대영광송(Gloria) → 기도 → 구약·사도서신·복음서 봉독 → 층계송(Gradual) → 알렐루야 → 설교 → 신앙고백(Credo)</li>
+      <li>봉헌송·봉헌기도 → 서문경·거룩송·축복송 → 감사기도 → 주기도문 → 하나님의 어린양(Agnus Dei) → 성만찬 → 파송</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>성무일과 (Divine Office) — 8시과</h3>
+    <div class="tw"><table>
+      <thead><tr><th>시과</th><th>라틴명</th><th>시간</th></tr></thead>
+      <tbody>
+        <tr><td>조과</td><td>Matins</td><td>해 뜨기 전 약 3시</td></tr>
+        <tr><td>찬과</td><td>Lauds</td><td>해 뜰 때</td></tr>
+        <tr><td>제1시과</td><td>Prime</td><td>오전 6시</td></tr>
+        <tr><td>제3시과</td><td>Terce</td><td>오전 9시</td></tr>
+        <tr><td>제6시과</td><td>Sext</td><td>정오</td></tr>
+        <tr><td>제9시과</td><td>None</td><td>오후 3시</td></tr>
+        <tr><td>만과</td><td>Vespers</td><td>해질 때</td></tr>
+        <tr><td>종과</td><td>Compline</td><td>오후 9시경</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- 8 리마 예식서 -->
+<div class="sec" id="lima">
+  <div class="sh"><span class="sb">8</span><span class="st">리마 예식서 (Lima Liturgy, 1982)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>종교개혁 이후 교단별로 달라진 예배를 <b>에큐메니컬 관점</b>에서 정리한 예식서.</p>
+    <h3>3부 구조</h3>
+    <ul>
+      <li><b>1) 개회 예전</b>: 개회 찬송·인사 → 죄의 고백 → 용서의 선언(사죄경) → 자비송(Kyrie) → 영광송</li>
+      <li><b>2) 말씀의 예전</b>: 본기도 → 구약·시편·사도서신·복음서 봉독 → 설교 → 신앙고백 → 중보기도</li>
+      <li><b>3) 성찬의 예전</b>: 예물봉헌 → 감사송 → 거룩송 → 성령임재 기원 I → 성만찬 제정사 → 기념사(Anamnesis) → 성령임재 기원 II → 추모 기원 → 주기도문 → 평화의 인사 → 분병례 → 영성체 → 감사기도 → 축복·파견</li>
+    </ul>
+  </div>
+  <div class="sup">
+    <span class="tag">🔎 보충</span> — 리마 예식서 개신교 변형 예시: 예배로의 부름 → 교독문(시편송) → 죄의 고백 → 사죄의 확신 → 소송영(Gloria Patri) → 조명의 기도 → 구약·신약 낭독 → 설교 → 사도신경 → 중보기도 → 봉헌 → 성만찬 → 감사기도·주기도문 → 찬송 → 축도. 유인물에 수록된 변형 예시이며, 교수님은 "형식이 아니라 형식이 담고 있는 <b>의미와 본질</b>이 중요하다"고 강조.
+  </div>
+</div>
+
+<!-- 9 기획 적용 포인트 -->
+<div class="sec" id="apply">
+  <div class="sh"><span class="sb">9</span><span class="st">기획 적용 포인트</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 본질에서 출발하는 예배 기획</h3>
+    <ul>
+      <li>예배 정의(폴 훈: "하나님의 계시에 대한 인간의 응답")를 <b>예배 기획의 출발점</b>으로 삼을 것.</li>
+      <li>중간·기말 과제에서 예배를 기획할 때, 성경 속 예배 모델의 <b>형태</b>를 모방하는 것이 아니라 <b>사상과 본질</b>을 붙들어야 한다.</li>
+      <li>"삶이 예배"라 해서 주일 공적 예배를 소홀히 할 수 없다 — 예배의 <b>독특성·희소성·경건성</b>을 기억하라.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>이번 주 정리: 핵심 키워드</h3>
+    <ul>
+      <li><span class="k">응답</span> — 예배의 본질은 하나님의 계시·부르심에 대한 백성의 응답</li>
+      <li><span class="k">공동체</span> — 공적 예배는 공동체적 행위 (웨버), 의사소통의 장 (화이트)</li>
+      <li><span class="k">부활 기념</span> — 주일 예배의 핵심 의미</li>
+      <li><span class="k">말씀 + 성찬</span> — 2세기부터 확립된 예배의 양대 축</li>
+      <li><span class="k">본질과 사상</span> — 형태·장소가 아니라 예배의 의미를 기획에 담을 것</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--accent2)">자료근거 · 강의 영상 + 유인물(김평강 자료)</span>
+    <span class="stat" style="color:var(--rose)">교수 강조 · 4건</span>
+    <span class="stat" style="color:var(--teal)">보충 · 1건</span>
+  </div>
+  <p>· <b>자료근거</b>: 본 노트의 모든 내용은 2주차 강의 영상(자동자막 추출)과 유인물(2주차+예배란+무엇인가_김평강.hwpx)을 종합한 것입니다.</p>
+  <p>· <b>교수 강조</b>: ① 폴 훈의 정의를 꼭 기억하라 ② 예배와 집회의 구분(주일 예배의 독특성) ③ 장소·형태가 아니라 사상과 본질 ④ 본질에서 출발하는 예배 기획 — 모두 강의에서 반복 강조된 내용.</p>
+  <ul>
+    <li><b>보충</b>: 리마 예식서 개신교 변형 예시는 유인물에 수록되어 있으나 강의 영상에서는 간략히 언급. 보충 표기.</li>
+    <li><b>확인 필요</b>: 자동자막 기반이라 일부 표현에 오탈자 가능. 성경 구절·학자명 등 중요사항은 유인물 원문으로 교차 확인 완료.</li>
+  </ul>
+</div>
+
+<div class="foot">예배기획 2주차 · 김은영 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

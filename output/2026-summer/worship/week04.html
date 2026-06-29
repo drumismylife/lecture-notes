@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예배기획 4주차 — 예배와 음악 · 회중 찬송의 이해</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c18; --card:#181428; --sub:#221c38; --gold:#d4b15a; --accent:#8a7fce;
+  --accent2:#b3a6e6; --rose:#d98aa8; --teal:#6ab8c8; --green:#7ab87a;
+  --text:#ece8f5; --muted:#a09bb5; --hint:#6f6a85; --border:#322a4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0b0914,#181428 60%,#211a36)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--sub)}
+.sec{margin:26px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0e0c18;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.08rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.k{color:var(--gold);font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+@media(max-width:680px){.g3{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:13px}
+th,td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--sub);color:var(--gold);font-size:12px;white-space:nowrap}
+.wn{text-align:center;color:var(--accent);font-weight:600;width:40px}
+tr:hover td{background:rgba(138,127,206,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-prof{background:rgba(217,138,168,.16);color:var(--rose);border:1px solid rgba(217,138,168,.45)}
+.b-sup{background:rgba(106,184,200,.14);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.emph{background:linear-gradient(180deg,rgba(217,138,168,.08),transparent);border:1px solid rgba(217,138,168,.3);border-left:3px solid var(--rose);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--rose);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+.verse{background:var(--sub);border:1px solid var(--border);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px;color:var(--accent2);font-family:'Noto Serif KR',serif;line-height:1.85}
+.verify{background:var(--sub);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예배기획 · 4주차 · 2026 여름 계절학기</div>
+  <h1>예배와 음악 · 회중 찬송의 이해</h1>
+  <div class="prof">담당 김은영 교수 · 온라인(LMS) 영상 강의</div>
+</div>
+
+<div class="intro">
+  이 노트는 <b>4주차 강의 영상(1·2교시)</b>과 <b>유인물(4주차 예배와 음악)</b>을 종합 정리한 것입니다.
+  교수님이 특히 강조한 부분은 <span class="b-prof bdg">교수 강조</span>,
+  강의에 없어 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#origin">회중 찬송의 유래</a>
+  <a href="#reform">종교개혁과 예배 변화</a>
+  <a href="#reformers">개혁가 3인의 견해</a>
+  <a href="#canticle">캔티클(Canticle)</a>
+  <a href="#eucharist">성찬 이해의 변화</a>
+  <a href="#ideal">바람직한 회중 찬송</a>
+  <a href="#pro">전문성과 교육</a>
+  <a href="#sound">음향과 마이크</a>
+  <a href="#apply">기획 적용 포인트</a>
+</div>
+
+<!-- 1 회중 찬송의 유래 -->
+<div class="sec" id="origin">
+  <div class="sh"><span class="sb">1</span><span class="st">회중 찬송의 유래 — 종교개혁의 선물</span><div class="sl"></div></div>
+  <div class="card">
+    <p>회중 찬송은 <span class="k">종교개혁의 가장 큰 선물</span> 중 하나.</p>
+    <ul>
+      <li>종교개혁 이전: 회중이 예배에 참여하는 개념 자체가 없었음. <b>사제들만</b> 노래할 수 있었고, 성가대도 사제들로 구성.</li>
+      <li>일반 회중은 "아멘" 정도 외에는 예배에 전혀 참여하지 못함.</li>
+      <li>종교개혁 이후 비로소 회중이 함께 찬송을 부르기 시작 — 그 전에는 부를 노래 자체가 없었음.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 종교개혁과 예배 변화 -->
+<div class="sec" id="reform">
+  <div class="sh"><span class="sb">2</span><span class="st">종교개혁이 예배에 가져온 5가지 변화</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>변화</th><th>이전(가톨릭 미사)</th><th>이후(개신교 예배)</th></tr></thead>
+    <tbody>
+      <tr><td class="wn">1</td><td><span class="k">자국어</span>로 예배</td><td>전체 라틴어 (성경·미사 진행·찬양 모두)</td><td>자기 모국어로 — 알아들을 수 있는 예배</td></tr>
+      <tr><td class="wn">2</td><td>회중이 <span class="k">성경</span>을 읽게 됨</td><td>라틴어 성경만 존재, 회중 소지 금지</td><td>자국어 번역·배포</td></tr>
+      <tr><td class="wn">3</td><td><span class="k">설교</span> 중심성</td><td>성찬 중심 (성찬 없이는 예배 불성립)</td><td>설교가 예배의 핵심 순서로 강화</td></tr>
+      <tr><td class="wn">4</td><td><span class="k">회중의 예배 참여</span></td><td>성가대(=사제)만 찬양, 회중은 방관</td><td>회중 찬송, 공동 기도, 신앙고백 등</td></tr>
+      <tr><td class="wn">5</td><td><span class="k">성찬</span> 이해의 변화</td><td>화체설 — 매주 성찬 필수</td><td>교단별 차이 (공재설·영적 임재설·기념설)</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- 3 개혁가 3인의 견해 -->
+<div class="sec" id="reformers">
+  <div class="sh"><span class="sb">3</span><span class="st">종교개혁가 3인의 회중 찬송 견해</span><div class="sl"></div></div>
+  <div class="g3">
+    <div class="card">
+      <h3>마틴 루터 (Martin Luther)</h3>
+      <p><b>가장 적극적</b>으로 회중 찬송 권장</p>
+      <ul>
+        <li>예배 음악의 기능 2가지: ① 하나님을 향한 <b>찬양</b> ② 성도를 위한 <b>경건한 훈련의 도구</b></li>
+        <li><span class="k">코랄(Choral)</span> = 독일어 찬송. 기존 멜로디(그레고리안 성가·세속 유행곡)에 자국어 가사를 붙이거나, 새 멜로디 작곡</li>
+        <li>"내 주는 강한 성이요" — 루터가 작곡한 찬송. 종교개혁 기념주일에 부르는 이유</li>
+        <li><b>기악 사용 권장</b> — 오르간 외 다양한 악기</li>
+        <li><b>합창 음악 권장</b> — 다성부(소프라노·알토·테너·베이스)</li>
+        <li><b>규범적 원리</b>: 성경이 금하지 않는 한 가능</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>장 칼뱅 (John Calvin)</h3>
+      <p>회중 찬송 권장하되 <b>엄격한 제한</b></p>
+      <ul>
+        <li><span class="k">규제적 원리</span>: 성경에 나와 있는 것만 가능</li>
+        <li>가사: <b>시편</b>과 <b>캔티클</b>(성경의 시편 외 찬가)만 허용. 인간 작사 불가</li>
+        <li><b>악기 사용 금지</b> — 악기 소리가 가사 전달을 방해한다</li>
+        <li><b>합창 음악 금지</b> — 다성부의 복잡함이 가사 집중을 방해</li>
+        <li><span class="k">제네바 시편가집</span> 출판 — "성령 자신이 말씀하시고 성령의 감동으로 쓰여진 다윗의 시편보다 더 합당한 노래를 찾지 못했기 때문"</li>
+        <li>"음악이 천박하지 않고 경망스럽지 않을뿐만 아니라 <b>진중하고 장엄한</b> 음악이 되도록 항상 조심할 필요가 있다"</li>
+        <li>집·술집의 여흥 음악과 교회 음악은 <b>뚜렷이 구별</b>되어야 한다</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>울리히 츠빙글리 (Zwingli)</h3>
+      <p><b>가장 극단적</b> — 회중 찬송 금지</p>
+      <ul>
+        <li>예배의 <b>간결화·단순화</b>에 초점</li>
+        <li>시각·청각적 자극 <b>전면 배제</b></li>
+        <li><b>회중 찬송 부르기 금지</b></li>
+        <li><b>기악 당연히 배제</b></li>
+        <li>"이해도 하지 못하고 부르는 찬송 부르지 마라"</li>
+        <li>모든 것은 <b>성경적이고 영적으로 단순</b>해야 한다</li>
+      </ul>
+    </div>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 주장 너머의 본질을 보라</h3>
+    <p>칼뱅이 악기를 금했느냐, 츠빙글리가 미쳤느냐 — <b>그것이 중요한 게 아니다</b>. 그 이면에 있는 <b>본질적 의도</b>가 무엇인가를 이해하는 것이 중요하다. 예배의 본질을 강조하고, 성도의 진정한 참여를 강조하고, 다른 것에 현혹·미혹되는 것을 경계하다 보니 이런 주장들이 생겨난 것.</p>
+  </div>
+</div>
+
+<!-- 4 캔티클 -->
+<div class="sec" id="canticle">
+  <div class="sh"><span class="sb">4</span><span class="st">캔티클(Canticle) — 시편 외의 성경 찬가</span><div class="sl"></div></div>
+  <div class="card">
+    <p>칼뱅이 시편과 함께 허용한 <span class="k">캔티클</span>: 시편은 아니지만 <b>시적 운율</b>로 되어 있는 성경 본문.</p>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3>구약 캔티클</h3>
+      <ul>
+        <li><b>홍해의 찬가</b> (출 15:1-18) — 모세와 이스라엘 백성이 홍해를 건넌 후 부른 찬양. "내가 여호와를 찬송하리니 그는 높고 영화로우심이요"</li>
+        <li><b>한나의 노래</b> (삼상 2:1-10) — "한나가 기도하여 이르되…" 히브리어 원문이 시적 운율</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>신약 캔티클</h3>
+      <ul>
+        <li><b>마리아의 노래(Magnificat)</b> (눅 1:46-55) — "내 영혼이 주를 찬양하며"</li>
+        <li><b>사가랴의 노래(Benedictus)</b> (눅 1:68-79) — 침례 요한 출생 후 성령 충만함을 받아 "찬송하리로다"</li>
+        <li><b>시므온의 노래(Nunc Dimittis)</b> (눅 2:29-32)</li>
+        <li><b>대영광송(Gloria in Excelsis)</b> (눅 2:14) — "높은 곳에서는 하나님께 영광이요 땅에서는 하나님이 기뻐하신 사람들 중에 평화로다"</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 5 성찬 이해 -->
+<div class="sec" id="eucharist">
+  <div class="sh"><span class="sb">5</span><span class="st">성찬 이해의 변화 — 교단별 차이</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>교단/학파</th><th>명칭</th><th>핵심 주장</th></tr></thead>
+    <tbody>
+      <tr><td><b>가톨릭</b></td><td>화체설<br>(Transubstantiation)</td><td>빵과 포도주의 본질이 그리스도의 몸과 피로 <b>실제 변화</b>. 매주 성찬 필수 — 성찬 없이는 구원 갱신 안 됨. 주중 미사도 이 때문</td></tr>
+      <tr><td><b>루터파</b></td><td>공재설<br>(Consubstantiation)</td><td>그리스도의 전 인격이 <b>신비스럽고 기적적인 방법</b>으로 빵·포도주에 임재. 물리적 변화는 아님</td></tr>
+      <tr><td><b>칼뱅파</b></td><td>영적 임재설</td><td>하나님은 장소적으로 하늘에만 임재. 그러나 <b>생명을 주는 감화</b>를 전달 — 영적 의미 있음</td></tr>
+      <tr><td><b>츠빙글리파</b></td><td>상징설/기념설</td><td>그리스도인의 <b>신앙고백의 표</b>. 예수님의 만찬을 <b>기념</b>하여 행함. "이것을 기념하여 행하라"</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p>오늘날 대부분의 개신교회는 <b>츠빙글리의 상징설/기념설</b>에 가까움. 교단·교회·목회자의 인식에 따라 성찬 빈도 다양.</p>
+  </div>
+</div>
+
+<!-- 6 바람직한 회중 찬송 -->
+<div class="sec" id="ideal">
+  <div class="sh"><span class="sb">6</span><span class="st">바람직한 회중 찬송 부르기</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>회중 찬송의 본질적 의미</h3>
+    <ul>
+      <li>예배 정의 "하나님의 계시에 대한 인간의 응답" → 회중 찬송은 <span class="k">인간 응답의 가장 적극적인 표현</span></li>
+      <li>"우리는 그리스도 안에서 한 몸이 된 믿음의 공동체" → 회중이 <span class="k">한 목소리</span>로 하나님을 경배하는 <b>공동체적 행위</b></li>
+      <li>"회중 찬송"이란 찬송가든 경배와 찬양이든 <b>회중이 다 같이 부르는 모든 것</b>을 말함</li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — "따라 부르기"와 "함께 찬양하기"는 다르다</h3>
+    <ul>
+      <li>현대 예배의 문제: 마이크·전자악기 소리에 <b>회중의 찬송 소리가 들리지 않음</b>. "함께 부르기"가 아니라 <b>"따라 부르기(Sing Along)"</b> — 누군가 마이크로 크게 부르고 회중은 청취하거나 따라 부르는 형태</li>
+      <li>"따라 부르기"는 20세기 이후 <b>상업적 팝 콘서트의 여파</b> (폴 먼슨·조슈아 드레이크, 『Congregational Singing』)</li>
+      <li>예배학자들의 주장: 회중은 <b>적절한 음량의 악기</b>에 의해 인도(반주)되고, 회중이 <b>한 목소리</b>로 불러야 한다</li>
+      <li>찬양 인도자의 마이크 소리가 없을 때 오히려 <b>회중의 소리가 커지는</b> 경험 — 이것이 진정한 함께 찬양하기</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>새로운 곡 배우기 vs. 함께 찬양하기</h3>
+    <p><b>새 곡을 배울 때</b>는 인도자가 마이크로 크게 불러주어야 회중이 귀로 배울 수 있음. 그러나 1~2번 부른 뒤에는 회중의 목소리를 낼 수 있도록 <b>마이크 넘기기</b>를 고려. "찬양 인도자 소리가 커야 회중이 소리를 낸다"는 <b>고정관념을 탈피</b>해야 한다.</p>
+  </div>
+</div>
+
+<!-- 7 전문성과 교육 -->
+<div class="sec" id="pro">
+  <div class="sh"><span class="sb">7</span><span class="st">전문성 · 교육 · 인식 개선</span><div class="sl"></div></div>
+  <div class="g2">
+    <div class="card">
+      <h3>찬양 인도자의 전문성</h3>
+      <ul>
+        <li>마이크 사용으로 발성·음정·음악성이 <b>확대·강조</b>되어 들림</li>
+        <li>적어도 귀에 거슬리는 발성이나 부정확한 음정·박자로 노래하지 않도록 <b>점검</b></li>
+        <li>성악가처럼 노래할 필요는 없지만, 함께 찬양하는 데 <b>방해가 되는 발성</b>은 교정 필요</li>
+        <li>찬송가는 악보대로 연주되므로 인도자가 틀리게 부르면 "다른 것"이 아니라 <b>"틀린 것"</b>이 됨</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>회중 찬송의 의미 교육</h3>
+      <ul>
+        <li>"반복하여 가사를 부르고 암기 → 성도의 <b>신앙·신학 형성</b>에 많은 영향" (로버트 킹)</li>
+        <li>회중 찬송의 <b>본질적 의미</b> 교육 필요 — 주의 백성이 한 목소리로 하나님을 경배·찬양하는 시간</li>
+        <li>찬양 인도자·연주자의 <b>음악 감상 시간이 아님</b>, 자기 만족을 위한 것이 아님 → <b>하나님을 기쁘시게 하는</b> 시간</li>
+      </ul>
+    </div>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 목회자의 인식 개선</h3>
+    <ul>
+      <li>교회 음악은 예배의 <b>부속물이 아니다</b> — 신학적 메시지를 가진 <b>설교</b>이며, <b>음악을 통한 메시지 선포</b></li>
+      <li>한국교회는 예배 중요성 강조·참석 독려에만 치우치고 <b>교육에는 소홀</b>하다 (이석철 논문)</li>
+      <li>예배의 중요성과 더불어 각 순서의 <b>의미</b>를 교육: "알고 있는" 예배가 되어야 함</li>
+      <li>찬송 교육은 음악적 교육뿐 아니라 예배·찬양의 <b>목적</b> 강조 — 하나님께 <b>영광</b> 돌리기 위함</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>온라인 예배에서의 교육 활용</h3>
+    <p>온라인 예배 링크와 함께 예배 시작 전 화면에 <b>순서의 의미를 설명하는 자료</b>를 띄우는 방법: 첫째 주 = 회중 찬송의 의미, 둘째 주 = 대표 기도의 의미, 셋째 주 = 교독문의 의미… 예배 시간에도 연계 교육 가능.</p>
+  </div>
+  <div class="card">
+    <h3>성가대 vs. 찬양팀의 인식 차이</h3>
+    <ul>
+      <li><b>성가대/찬양대</b>: 음악적인 것에 치중하는 경향. 성도·목사님 취향에 묶이기 쉬움</li>
+      <li><b>찬양팀</b>: 목양의 마음, 회중 찬양 인도자로서의 자세에 대한 인식이 비교적 잘 갖추어진 경향</li>
+      <li>어느 쪽이든 목적은 동일: <b>자기 만족이나 회중·목회자를 기쁘게 하기 위함이 아닌, 하나님을 기쁘시게 하는 것</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 8 음향과 마이크 -->
+<div class="sec" id="sound">
+  <div class="sh"><span class="sb">8</span><span class="st">음향과 마이크 — 실무 가이드</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>핵심 원칙</h3>
+    <ul>
+      <li>악기 음량·찬양 인도자/찬양팀의 마이크가 <b>회중 소리를 압도하지 않아야</b> 함</li>
+      <li>회중 찬송의 인도자는 <span class="k">성가대</span>가 되어야 한다 (곽상수, 『예배음악과 한국교회』). 온누리교회 등 경배와 찬양 선도 교회도 성가대가 회중 찬송 인도</li>
+      <li>회중석 주변에 <span class="k">앰비언트 마이크(Ambient Microphone)</span> 설치 고려 — 회중의 소리가 들리는 감격을 느끼게, 특히 온라인 송출에서 효과적</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>음향 장비 — 과도한 투자 경계</h3>
+    <p>교수님이 소개한 <b>서울 잠원동 교회 사례</b>:</p>
+    <ul>
+      <li>국내 음향기기 회사에 견적 → <b>1억 이상</b> (하울링 문제 해결 명목)</li>
+      <li>유럽 전문 업체에 교회 설계도·내장재 정보 제출 → 견적 <b>약 3천만 원</b></li>
+      <li>유럽 업체 반응: "방송국도 같이 하느냐?" — 국내 업체가 과도한 콘솔을 제안한 것</li>
+      <li>적절한 장비 설치 + 전문가의 각도·밸런스 조정 → <b>하울링 해결</b></li>
+    </ul>
+    <p style="margin-top:6px"><b>교훈</b>: 전문적이라고 비싼 것만은 아니다. 장소에 따라 적합한 장비가 다르므로 <b>여러 곳 비교·연구</b> 후 결정. 다른 교회가 좋다고 해서 같은 장비를 사면 안 됨.</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 현장성(Presence)</h3>
+    <ul>
+      <li>최대한 <b>현장성을 느끼고 동참할 수 있는</b> 음향적 조치 필요</li>
+      <li>온라인 예배라도 회중 소리를 완전히 제거하고 스튜디오 음질만 송출하지 말 것 — <b>현장의 소리가 들려야</b> 예배 참여감이 생김</li>
+      <li>"<b>음향</b>이 온라인 예배 성공의 열쇠" — "평범한 영상은 용서할 수 있지만 질 나쁜 음향은 용서할 수 없다" (제러미 스틸)</li>
+      <li>기본적인 마이크 사용법 숙지는 <b>필수</b></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>음향 담당자에게 필요한 역량</h3>
+    <ul>
+      <li><b>영적·신학적·신앙적 지도력</b> — 예배 찬송에 대한 이해</li>
+      <li><b>음악·음향 전문성</b> — 연주법, 발성, 리듬, 음정, 음악과 가사의 해석, 마이크 사용법, 음향기기 사용법</li>
+      <li><b>모니터링</b> — 실제 음향이 어떻게 나가는지 반드시 확인. 설교뿐 아니라 <b>녹음된 전체</b>를 들어볼 것</li>
+      <li><b>성실한 연습과 준비</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 9 기획 적용 포인트 -->
+<div class="sec" id="apply">
+  <div class="sh"><span class="sb">9</span><span class="st">기획 적용 포인트</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>이번 주 핵심 키워드</h3>
+    <ul>
+      <li><span class="k">회중 찬송 = 응답의 가장 적극적 표현</span> — 예배 기획에서 회중 찬송의 위치와 의미를 항상 염두</li>
+      <li><span class="k">"함께 부르기" vs. "따라 부르기"</span> — 마이크에 의존하는 따라부르기 문화를 경계, 회중의 한 목소리를 살리는 기획</li>
+      <li><span class="k">종교개혁가의 본질적 의도</span> — 루터(적극 권장)·칼뱅(가사 중심 절제)·츠빙글리(단순화) 모두 예배의 본질을 지키려는 시도. 형태가 아니라 의도를 배울 것</li>
+      <li><span class="k">선곡의 신학적 근거</span> — 각 순서에 어울리는 찬송을 선곡하되, 가사의 내용과 순서의 위치가 일치해야 함 (3주차 복습)</li>
+      <li><span class="k">교육</span> — 예배 순서의 의미를 성도에게 교육하는 것도 예배 기획의 일부</li>
+      <li><span class="k">음향</span> — 과도한 장비보다 적절한 장비 + 전문적 조정. 현장성 확보. 모니터링 필수</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>현대 예배 찬양의 특징 (요약)</h3>
+    <ul>
+      <li>음향 시스템 사용 (현장·온라인·마이크)</li>
+      <li>영상 사용 (현장 스크린·온라인 송출)</li>
+      <li>찬양팀 + 전자악기와 성가대 + 전통악기의 <b>혼용</b> — 비음악적 결과 경계 필요</li>
+      <li>경배와 찬양의 역할 증대 → 세부 이해는 <b>7주차</b>에서 다룸</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--accent2)">자료근거 · 강의 영상(1·2교시) + 유인물</span>
+    <span class="stat" style="color:var(--rose)">교수 강조 · 4건</span>
+    <span class="stat" style="color:var(--teal)">보충 · 0건</span>
+  </div>
+  <p>· <b>자료근거</b>: 4주차 강의 영상 2편(자동자막 추출)과 유인물(4주차 예배와 음악.hwpx) 종합.</p>
+  <p>· <b>교수 강조</b>: ① 종교개혁가 주장 너머의 본질을 보라 ② "따라 부르기"와 "함께 찬양하기"는 다르다 ③ 목회자의 인식 개선(교회 음악은 부속물이 아닌 메시지 선포) ④ 현장성 확보와 음향의 중요성.</p>
+  <ul>
+    <li><b>캔티클 명칭</b>: 마리아의 노래(Magnificat), 사가랴의 노래(Benedictus), 시므온의 노래(Nunc Dimittis), 대영광송(Gloria in Excelsis) — 강의에서 성경 본문으로 설명했으며, 라틴명은 유인물 및 강의 맥락에서 확인 가능.</li>
+    <li><b>확인 필요</b>: 자동자막 특성상 인명(폴 먼슨, 조슈아 드레이크 등)의 정확한 표기 확인 권장. 유인물에는 원서명 수록.</li>
+  </ul>
+</div>
+
+<div class="foot">예배기획 4주차 · 김은영 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

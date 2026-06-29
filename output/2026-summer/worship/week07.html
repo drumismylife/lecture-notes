@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예배기획 7주차 — 예배 형식과 악기의 이해</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c18; --card:#181428; --sub:#221c38; --gold:#d4b15a; --accent:#8a7fce;
+  --accent2:#b3a6e6; --rose:#d98aa8; --teal:#6ab8c8; --green:#7ab87a;
+  --text:#ece8f5; --muted:#a09bb5; --hint:#6f6a85; --border:#322a4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0b0914,#181428 60%,#211a36)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--sub)}
+.sec{margin:26px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0e0c18;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.08rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.k{color:var(--gold);font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:13px}
+th,td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--sub);color:var(--gold);font-size:12px;white-space:nowrap}
+.wn{text-align:center;color:var(--accent);font-weight:600;width:40px}
+tr:hover td{background:rgba(138,127,206,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-prof{background:rgba(217,138,168,.16);color:var(--rose);border:1px solid rgba(217,138,168,.45)}
+.b-sup{background:rgba(106,184,200,.14);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.emph{background:linear-gradient(180deg,rgba(217,138,168,.08),transparent);border:1px solid rgba(217,138,168,.3);border-left:3px solid var(--rose);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--rose);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+.verse{background:var(--sub);border:1px solid var(--border);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px;color:var(--accent2);font-family:'Noto Serif KR',serif;line-height:1.85}
+.verify{background:var(--sub);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예배기획 · 7주차 · 2026 여름 계절학기</div>
+  <h1>예배 형식과 악기의 이해</h1>
+  <div class="prof">담당 김은영 교수 · 온라인(LMS) 영상 강의</div>
+</div>
+
+<div class="intro">
+  이 노트는 <b>7주차 강의 영상</b>(1교시·2교시)과 <b>강의 유인물</b>(악기 이해 + 성가대/찬양대 용어 참고자료)을 종합 정리한 것입니다.
+  예배에서 사용하는 악기의 특성, 찬양 사역의 구조와 과제, 그리고 음향·영상·자막 등 예배 미디어를 다룹니다.
+  교수님이 특히 강조한 부분은 <span class="b-prof bdg">교수 강조</span>, 강의에 없어 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#s1">악기 분류</a>
+  <a href="#s2">전통 악기</a>
+  <a href="#s3">현대 악기</a>
+  <a href="#s4">찬양팀 사역</a>
+  <a href="#s5">성가대/찬양대</a>
+  <a href="#s6">음향</a>
+  <a href="#s7">영상·자막</a>
+  <a href="#s8">출처·검증</a>
+</div>
+
+<!-- 1 악기 분류 -->
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">예배 악기의 분류</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>두 가지 분류 기준</h3>
+    <div class="tw"><table>
+      <thead><tr><th>기준</th><th>구분 A</th><th>구분 B</th></tr></thead>
+      <tbody>
+        <tr><td><b>음향 생성 원리</b></td><td><span class="k">어쿠스틱 악기</span> — 악기 자체의 울림으로 소리</td><td><span class="k">전자 악기</span> — 앰프·스피커를 통해 소리</td></tr>
+        <tr><td><b>시대적 구분</b></td><td><span class="k">전통(클래식) 악기</span> — 파이프오르간, 전자오르간, 피아노, 관현악기</td><td><span class="k">현대 악기</span> — 신디사이저, 일렉기타, 베이스기타, 드럼</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- 2 전통 악기 -->
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">전통(클래식) 악기</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>파이프오르간</h3>
+    <ul>
+      <li><b>소리 원리</b>: 건반 → 파이프 밑의 마개 열림 → 바람 상자의 공기가 <span class="k">파이프</span>를 통과하여 소리 발생. 리코더가 거꾸로 바람 상자 위에 꽂혀 있는 구조.</li>
+      <li><b>온도·습도에 민감</b> — 온도 상승 시 공기 밀도 변화로 음정 올라감, 하강 시 내려감. 나무·금속 파이프 모두 영향받음. 최소 <b>1년 4회</b>(계절별), 이상적으로는 월 1회 조율.</li>
+      <li><b>소리의 지속성</b> — 전기 모터가 바람을 지속 공급하므로 건반을 누르는 한 <b>무한히 소리 지속</b>. 피아노·관악기·현악기와 가장 큰 차이점. 소리를 끊는 것으로 호흡을 표현.</li>
+      <li><b>다양한 음색</b> — 파이프의 길이·모양·재질(나무/금속)에 따라 다른 음색. 작은 악기도 10개, 대형 악기는 50~60개 이상의 음색. "오케스트라의 가장 작은 소리부터 100명 이상의 가장 큰 소리까지 가능"</li>
+      <li><b>수명</b>: 거의 <b>영구적</b> — 스위스에 600년 넘은 파이프오르간이 아직도 예배에서 사용되고 있음</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> — 교수님이 소개한 국내 파이프오르간: 온누리교회 양재성전(국내 2~3위 규모), 광림교회 서울(국내 교회 최대 규모), 침신대 음악동 2층(하우스 오르간 — 가정용 중 최대 규모), 대응침례교회(교수님이 오르가니스트로 사역 중)</div>
+  </div>
+
+  <div class="card">
+    <h3>전자오르간 · 가상오르간</h3>
+    <ul>
+      <li><b>전자오르간</b>: 파이프 대신 <span class="k">앰프와 스피커</span>에서 소리. 파이프오르간의 비용·공간·관리 문제를 해결한 대체물. 수명은 <b>전자제품과 동일</b>.</li>
+      <li><b>가상오르간</b>: 연주대 + PC 본체만으로 구성. 다양한 파이프오르간 음원(예: 프랑스 노트르담, 바흐 시대 독일 악기 등)을 구매·다운로드하여 사용. 터치스크린으로 음색 조작. 수명은 <b>컴퓨터 수명</b>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>피아노</h3>
+    <ul>
+      <li><b>소리 원리</b>: <span class="k">해머</span>가 <span class="k">줄</span>을 <span class="k">때려서</span> 소리 — <b>타현악기</b></li>
+      <li>소리의 시작이 분명 → <b>리듬</b> 표현에 용이</li>
+      <li>울림이 점차 사라짐 — 소리의 지속성이 길지 않음</li>
+      <li><b>오르간과 함께 연주 시 주의점</b>: 조율 불일치 가능성 + 소리 성질 차이(지속성 vs 감쇠) → <b>같은 악보라도 다른 연주법</b> 필요</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>관현악기</h3>
+    <ul>
+      <li>현악기·목관악기·금관악기·타악기 등</li>
+      <li><b>연주자 구성의 어려움</b> — 교회 예산으로 시향 멤버를 섭외한 사례: 2년 후 폐지. 이유는 <b>예배에 대한 인식</b> 부족</li>
+      <li><span class="k">"무대"에서 "연습"하는 관행</span> — 오케스트라는 지휘자 등장 전까지 무대에서 소리를 내는 관행이 있음. 예배에서는 이를 반드시 교육해야 함</li>
+      <li><b>악보 문제</b> — 피아노 악보를 보고 관현악기가 연주해야 하는 제한</li>
+      <li>관현악팀 운영 시 연주자들의 <b>영성과 음악성</b> 모두 검증 필요</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3 현대 악기 -->
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">현대(밴드) 악기</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>구성</b>: 신디사이저(건반), 일렉기타, 베이스기타, 드럼</li>
+      <li><span class="k">음향 담당자</span>: 연주자는 아니지만, 전자 악기는 음향 기기 없이 소리를 낼 수 없으므로 <b>필수 구성원</b>. 전체 밸런스와 소리 전달 담당.</li>
+      <li><span class="k">밴드 마스터</span>: 일반적으로 건반 연주자 또는 찬양 인도자가 겸임. 실용 음악의 특성(코드 악보) — 화성·조성·전조·악기 밸런스 등의 <b>전문성</b> 필요. 연주법을 총괄하는 역할.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 찬양팀 사역 -->
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">찬양팀 사역의 이해</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>찬양 인도자가 중시하는 팀의 자질 (교수 논문 연구 기반)</h3>
+    <ul>
+      <li><b>밴드</b>: 일반적으로 <b>연주 실력</b> 중시 — 전공자로 구성하는 교회가 많음</li>
+      <li><b>싱어</b>: 노래 실력보다 <span class="k">신앙과 열심</span>을 중시하는 경향</li>
+      <li>기본 자격: 침례(세례) 받은 정회원 + 1년 이상 교회 출석 / 양육 과정 수료 / 6개월 수습 기간 등</li>
+      <li>가장 중요한 것: 먼저 <span class="k">예배자</span>로서 준비되어야 함</li>
+      <li>인도자는 성도들과 <b>영적으로 교감</b>할 수 있어야 하고, 팀원을 <b>음악적·영적으로 양육</b>할 수 있어야 함</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>찬양 사역의 걸림돌</h3>
+    <ul>
+      <li>팀원의 <b>영적 미성숙</b> — 책임감 부족, 예배 사역자로서의 자세 결여</li>
+      <li><b>음악적 전문성과 훈련</b> 부족 — 실력 부족한 연주자 한 명이 전체 수준을 낮춤. 싱어의 화음 점검 미흡.</li>
+      <li><span class="k">설교자와의 소통</span> — 설교 주제를 너무 늦게 받아 선곡·연습 시간 부족</li>
+      <li><b>음향 담당자</b>의 전문성과 소통 문제 — 기술자 성향으로 소통이 어려운 경우가 많음</li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 설교자는 본문이 정해지면 바로 알려줄 것</h3>
+    <p>설교를 완성한 뒤 본문을 주지 말고, <b>성경 본문만 정해지면 바로 찬양 인도자에게 전달</b>할 것. 교회력에 의한 1년 계획이 있으면 이 문제가 근본적으로 해결된다.</p>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 음향 담당자와 친하게 지내라</h3>
+    <p>밥도 사 주고 커피도 사 주고 <b>대화를 많이 하면서 소통</b>할 것. 요구만 하지 말고 관계를 먼저 쌓아야 한다. 밴드 마스터와의 갈등도 마찬가지 — <b>역할 분담을 명확히</b> 하되, 감정이 상한 상태라면 먼저 관계 회복을 우선시할 것.</p>
+  </div>
+
+  <div class="card">
+    <h3>분석 및 제안</h3>
+    <ul>
+      <li>영적 기준은 강조하지만 <b>음악적 전문성은 미흡</b>한 경향 → 음악 훈련 필요(가창 능력·숙련도·화성 등)</li>
+      <li><b>"아는 만큼 들린다"</b> — 인도자가 싱어들의 문제를 감지하지 못한다면, 인도자 자신의 훈련이 필요</li>
+      <li>구약의 <span class="k">"숙련된"</span> 레위인 — 성결하고 훈련된 학자이자 선생, 정확하고 체계적이며 유능한 연주자 (대상 16:37, 대하 8:14, 31:2)</li>
+      <li>전문 교육: 발성, 화성학, 편곡, 선곡 기준, 예배 기획</li>
+      <li>음향 담당자에게는 <span class="k">예배자의 자세</span> + "좋은 귀"(좋은 음향인은 대개 좋은 음악인)</li>
+      <li>핵심: 목회자·찬양 인도자·음향 담당자·밴드 마스터의 <b>정기적 소통과 협력</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>밴드 마스터와의 역할 분담 (수강생 질문 답변)</h3>
+    <ul>
+      <li><b>찬양 인도자</b>: 송폼(곡 구조)·선곡·곡 연결 방식 — 예배 흐름의 결정권</li>
+      <li><b>밴드 마스터</b>: 연주법·코드 진행·악기 밸런스 — 음악적 실행의 결정권</li>
+      <li>리허설 전 <b>둘이 따로 만나서 조율</b>하는 것이 좋음 — 팀원 앞에서 갈등하지 않도록</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 5 성가대/찬양대 -->
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">성가대 / 찬양대</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>용어 논란 — "성가대" vs "찬양대"</h3>
+    <p>예장 통합 교단의 용어연구위원회가 "찬양대"로 변경을 주장한 이후 교회마다 혼용되고 있음. 교회음악 학자들은 대체로 <b>"성가대"에 문제가 없다</b>는 입장.</p>
+    <ul>
+      <li><b>"찬양대" 주장 근거</b>: ① "성가대"는 일제 잔재(세이카다이) ② "성가"는 성경에 등장하지 않음</li>
+      <li><b>"성가대" 옹호 근거</b> (문성모·김성대 등): ① 천주교가 1924년 이미 "죠선어 성가"집 발행, 1892년 뮈텔 주교 일기에 "성가" 기록 — 일본과 무관하게 100년 이상 역사 ② "성경"처럼 "聖"자가 거룩한 대상을 한정하므로 "성가"가 더 격이 높음 ③ "찬양"은 목적어가 필요한 불완전한 용어(김일성 찬양도 "찬양") ④ 개신교·천주교·성공회·정교회가 공통으로 사용하는 <b>유일한 통일 용어</b> — 에큐메니컬 가치</li>
+    </ul>
+    <p>교수님 입장: <b>어느 용어를 써도 문제없음</b>. 용어에 매달려 서로 비방하는 것은 바람직하지 않음. LMS에 참고자료 탑재.</p>
+  </div>
+
+  <div class="card">
+    <h3>성가대의 역할</h3>
+    <ul>
+      <li><b>회중을 대표</b>하여 <b>준비된 찬양</b>을 드림 — "준비"가 핵심 키워드</li>
+      <li>미리 따로 연습한, 음악적으로 더 난이도 있는 찬양</li>
+      <li>회중 찬송과의 차이: 회중이 함께 부르는 것이 아니라, 음악적 재능을 갖춘 이들이 <b>대표로</b> 드리는 것</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>구성원과 조건</h3>
+    <div class="tw"><table>
+      <thead><tr><th>역할</th><th>요건</th><th>주의점</th></tr></thead>
+      <tbody>
+        <tr><td><b>지휘자</b></td><td>음악적 지도자 + 영적·신앙적·인격적</td><td>음악적 면에만 치중하는 경향 있음 — 영적 부분도 갖출 것</td></tr>
+        <tr><td><b>반주자</b></td><td>음악 앙상블·테크닉 + 신앙적·인격적</td><td>실력 위주로 비교인 선발 시 반드시 <b>영적 훈련</b>(새신자 교육 등) 병행</td></tr>
+        <tr><td><b>대원</b></td><td>침례/세례 교인(1년 이상 정회원), 음악적 재능, 책임감·열심</td><td>"나 하나쯤"이라는 태도 경계 — 한 사람 한 사람이 자리를 지키는 것이 중요</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>훈련 — 신앙적 + 음악적</h3>
+    <ul>
+      <li><b>신앙적 훈련</b>: 예배자로서의 자세·성숙, 예배 인도자라는 인식 교육, 가사 묵상 — 찬양은 <b>메시지의 선포</b></li>
+      <li><b>음악적 훈련</b>:
+        <ul>
+          <li>밴드: 악기팀·싱어팀 <span class="k">별도 리허설</span> 필수 — "연습"과 "리허설(맞춰보기)"은 다름</li>
+          <li>발성 훈련, 음악 이론 지도 — 연습 후 30분 남겨 이론 교육 제안</li>
+          <li><b>도전곡 선정</b>: 2~3개월에 1회 수준 높은 곡 배치, 나머지 주는 쉬운 곡으로 미리부터 도전곡 연습 → 전반적 실력 향상</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 음향 -->
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">6</span><span class="st">예배 미디어 ① — 음향</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 듣는 능력 > 기기 다루는 능력</h3>
+    <p>기기 조작은 기본만 알면 되고, 핵심은 <b>듣는 귀</b>. 귀를 통해 좋은 소리를 판단할 수 있으면 기기 조작은 따라온다. 그리고 <b>소통의 자세</b>가 필수.</p>
+  </div>
+
+  <div class="card">
+    <h3>기본 음향 용어를 알아야 한다</h3>
+    <ul>
+      <li>"볼륨 줄여주세요" → 음향 담당자가 화남. 정확한 용어는 <b>"게인(gain)"</b></li>
+      <li>"에코 줄여주세요" → "에코를 넣은 적 없다"고 대답. 정확한 용어는 <b>"리버브(reverb)"</b></li>
+      <li>기본적인 음향 용어를 알면 소통이 훨씬 원활해짐</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>음량과 데시벨</h3>
+    <ul>
+      <li>한림대 성심병원 자료: <b>110dB 이상</b>을 1시간 이상 지속 청취 시 이명·난청 위험</li>
+      <li>일반 교회 찬양 시간의 데시벨: 보통 <b>100~120dB</b> — 위험 수준에 근접</li>
+      <li><b>강약의 효과</b>를 활용할 것: 평소 80dB대로 유지하다가 클라이맥스에서 120dB까지 올리면 효과적. 처음부터 110dB이면 더 커질 여지가 없음.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>클래식 음향 원칙</h3>
+    <ul>
+      <li>지나친 <span class="k">확성 금지</span></li>
+      <li>강약은 <span class="k">연주자</span>가 조절 — 음향 담당자가 임의로 올렸다 내리면 음악적 효과를 망침</li>
+      <li><b>콘덴서 마이크</b> + 음원과 <b>30cm 이상</b> 적절한 거리</li>
+      <li>주변의 <span class="k">울림</span>이 함께 들어가는 것이 좋은 클래식 음향</li>
+      <li><b>즉흥적·자의적인 음량 조절 자제</b> — 작은 소리도 일부러 의도한 효과일 수 있음</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>장소와 음향</h3>
+    <p>장소의 크기·음향 특성을 고려하여 <b>불필요한 확성을 하지 않을 것</b>. 마이크 없이도 충분한 공간이라면 안 써도 된다. 써야 할 경우에도 확성을 최소화.</p>
+  </div>
+</div>
+
+<!-- 7 영상·자막 -->
+<div class="sec" id="s7">
+  <div class="sh"><span class="sb">7</span><span class="st">예배 미디어 ② — 영상과 자막</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>영상 — 현장 vs 온라인</h3>
+    <ul>
+      <li><b>현장 영상</b>: 예배당 스크린에 표시되는 화면</li>
+      <li><b>온라인 송출 영상</b>: 유튜브 등으로 전송되는 화면</li>
+      <li>두 가지는 <b>구분해서 운용</b>해야 함</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>회중찬양 시 영상 — 교회별 사례 비교</h3>
+    <div class="tw"><table>
+      <thead><tr><th>유형</th><th>사례</th><th>특징</th></tr></thead>
+      <tbody>
+        <tr><td><b>연주자 비추기</b></td><td>일부 침례교회</td><td>현장·온라인 동일하게 연주자를 화면에 확대</td></tr>
+        <tr><td><b>연주자 비추지 않기</b></td><td>온누리교회</td><td>회중 찬양 시 인도자·연주자를 현장 스크린에 확대하지 않음. 찬양에 <b>집중 방해를 막기</b> 위함. 단, 성가대 찬양·독창·독주 시에는 연주자를 비춤.</td></tr>
+        <tr><td><b>배경 영상·무늬</b></td><td>수원 침례교회, 대전 장로교회</td><td>기하학적 무늬·천·구름 등 <b>움직이는 배경 영상</b>을 사용. 가사만 강조. 장단점 — 다채롭지만 집중 방해 우려도.</td></tr>
+        <tr><td><b>스크린을 조명처럼 활용</b></td><td>Harvest(미국 초교파), Saddleback교회</td><td>최근 대형교회 트렌드. 대형 스크린을 뒤에 놓고 <b>조명 효과·분위기 전달</b> 용도로 사용. 사람 절대 비추지 않음. 가사를 크게 표시.</td></tr>
+        <tr><td><b>악보 표시</b></td><td>일부 장로교회</td><td>잘 모르는 찬양 시 <b>악보를 화면에 표시</b> — 교수님 강추</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>회중석 촬영 — 초상권 문제</h3>
+    <ul>
+      <li>회중석을 비출 때 <b>얼굴이 식별 가능</b>한 경우 초상권 문제 발생 가능성</li>
+      <li>대안: 뒤에서만 촬영 / 멀리서 잡아 얼굴 식별 불가하게 / 입구에 <b>경고문</b>게시</li>
+      <li>특수한 경우: 탈북민 등 신변 보호가 필요한 경우 <b>얼굴 노출 절대 금지</b> (뒤에서만 촬영)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>자막</h3>
+    <ul>
+      <li><b>설교</b>: 설교자에 따라 사용 여부·방식 결정 (대지·성경 본문 표시 등)</li>
+      <li><b>음악</b>: 회중의 찬양 이해를 돕는 역할</li>
+      <li><b>회중찬송의 자막</b> vs <b>독창/독주의 자막</b>은 구분하여 활용 — 독창/독주 시 자막을 보여주면 가사 의미 전달에 도움</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> — 자막 파트는 시간 관계상 7주차에서 간략히 다루고, 이후 주차에서 추가 설명 예정이라고 교수님이 언급.</div>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify" id="s8">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--accent2)">자료근거(7주차 강의 영상 2파트 + 유인물 2종) · 본문 전반</span>
+    <span class="stat" style="color:var(--rose)">교수 강조 · 3건</span>
+    <span class="stat" style="color:var(--teal)">보충 · 2건</span>
+  </div>
+  <p>· <b>자료근거</b>: 본 노트의 모든 내용은 7주차 강의 영상(1교시·2교시), 유인물(예배 악기의 이해 HWPX), 참고자료(성가대-찬양대 용어 문제 HWP — 이상윤·문성모·김성대 원문)를 종합 정리한 것입니다. 찬양 사역 분석은 교수님의 2023년 논문(침례교 찬양 사역자 9인 인터뷰 질적 연구) 발췌.</p>
+  <p>· <b>교수 강조</b>: ① 설교 본문 확정 시 즉시 찬양 인도자에게 전달 ② 음향 담당자와 친하게 지내고 소통할 것 ③ 듣는 능력 > 기기 다루는 능력</p>
+  <ul>
+    <li><b>보충</b>: ① 파이프오르간 국내 설치 사례(교수님 강의 중 직접 언급한 교회명 정리) ② 자막 파트 이후 주차 연결 언급</li>
+    <li><b>확인 필요</b>: 자동자막 기반이라 악기 명칭·교회명 등에 오류 가능. 데시벨 수치 등은 한림대 성심병원 자료 기반이나 정확한 기준은 원문 확인 권장.</li>
+  </ul>
+</div>
+
+<div class="foot">예배기획 7주차 · 김은영 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

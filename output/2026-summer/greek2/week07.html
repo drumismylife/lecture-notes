@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 7주차 동사④ 직설법 미래시제</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 7주차 · 2026 여름 계절학기</div>
+  <h1>동사④ 직설법 미래시제 — 15과</h1>
+  <div class="prof">담당 안호준 교수 · 한국침례신학대학교 · 교재 pp.146–157</div>
+</div>
+
+<div class="intro">
+  <b>수업 흐름:</b> 찬송·주기도문 연습 → 15과 어휘 → 미래시제 형태론(능동/중간/수동) → 동사상(aspect) 함의 → 능동·수동 어간·어미 비교표 → 특수동사의 미래(<span class="gk">εἰμί</span>, 단축동사, 유음동사, <span class="gk">μι</span>-동사) → 벧후 3:10 본문 분석 → 연습문제<br>
+  <b>시험 안내:</b> 중간고사 범위 7주차까지, 오픈북(LMS), 모든 예문·연습문제가 시험 범위 <span class="bdg b-exam">⭐ 시험</span>
+</div>
+
+<nav class="toc">
+  <a href="#s1">학습목표</a>
+  <a href="#s2">복습 연결</a>
+  <a href="#s3">어휘</a>
+  <a href="#s4">미래시제 형태론</a>
+  <a href="#s5">동사상(Aspect)</a>
+  <a href="#s6">능동태 비교표</a>
+  <a href="#s7">수동태 비교표</a>
+  <a href="#s8">특수동사의 미래</a>
+  <a href="#s9">연습문제</a>
+  <a href="#s10">출처·검증</a>
+</nav>
+
+<!-- ───── §1 학습목표 ───── -->
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">01</span><span class="st">학습목표</span><span class="sl"></span></div>
+  <div class="card">
+    <ul>
+      <li>미래시제의 시상접미사 <span class="gk">σ</span>를 식별하고, 부정과거와의 형태적 차이를 구별한다</li>
+      <li>능동·중간·수동 미래 활용형을 변화시킬 수 있다</li>
+      <li>Stanley Porter의 동사상 이론에서 미래 = <b>기대적 측면(현재성 0)</b>임을 이해한다</li>
+      <li>자음+<span class="gk">σ</span> 결합 변화 규칙(<span class="gk">ψ, ξ</span>)을 적용하여 미래형을 만든다</li>
+      <li><span class="gk">εἰμί</span>, 단축동사, 유음동사, <span class="gk">μι</span>-동사의 불규칙 미래형을 익힌다</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §2 복습 연결 ───── -->
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">02</span><span class="st">복습 연결</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>부정과거 → 미래 연결 포인트</h3>
+    <ul>
+      <li>부정과거: 접두표식 <span class="gk">ε-</span>(augment) + 시상접미사 <span class="gk">σ</span> + 2차어미(<span class="gk">-α, -ας, -ε(ν)…</span>)</li>
+      <li><b>미래: augment 없음</b> + 시상접미사 <span class="gk">σ</span> + <b>1차어미</b>(<span class="gk">-ω, -εις, -ει…</span>)</li>
+      <li>핵심 차이: 미래는 앞에 <span class="gk">ε-</span>가 없고, 어미가 현재와 동일</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §3 어휘 ───── -->
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">03</span><span class="st">15과 어휘</span><span class="sl"></span></div>
+  <div class="tw">
+    <table>
+      <caption>15과 신출 단어 (교재 pp.146–157)</caption>
+      <thead><tr><th>헬라어</th><th>뜻</th><th>파생·어원 메모</th></tr></thead>
+      <tbody>
+        <tr><td><span class="gk">ἀγαπητός</span></td><td>사랑하는</td><td><span class="gk">ἀγάπη</span> + <span class="gk">-τός</span></td></tr>
+        <tr><td><span class="gk">ἀποστρέφω</span></td><td>돌이키다</td><td><span class="gk">ἀπό</span>(~로부터) + <span class="gk">στρέφω</span>(뒤집다/돌리다)</td></tr>
+        <tr><td><span class="gk">διάκονος</span></td><td>일꾼, 청지기</td><td>cf. <span class="gk">διακονία</span> = 섬김, 봉사</td></tr>
+        <tr><td><span class="gk">ἐνώπιον</span></td><td>~앞에 (속격 지배)</td><td>—</td></tr>
+        <tr><td><span class="gk">ἔργον</span></td><td>일</td><td>—</td></tr>
+        <tr><td><span class="gk">καρδία</span></td><td>마음</td><td>—</td></tr>
+        <tr><td><span class="gk">παρέρχομαι</span></td><td>떠나가다</td><td><span class="gk">παρά</span>(옆에서) + <span class="gk">ἔρχομαι</span>(가다)</td></tr>
+        <tr><td><span class="gk">ῥίζα</span></td><td>뿌리, 근원</td><td>—</td></tr>
+        <tr><td><span class="gk">προέρχομαι</span></td><td>먼저 오다</td><td><span class="gk">πρό</span>(앞으로) + <span class="gk">ἔρχομαι</span></td></tr>
+        <tr><td><span class="gk">προκόπτω</span></td><td>진보하다, 증가하다</td><td><span class="gk">πρό</span>(앞으로) + <span class="gk">κόπτω</span>(치다/자르다)</td></tr>
+        <tr><td><span class="gk">ποταμός</span></td><td>강</td><td>cf. <span class="gk">Μεσοποταμία</span> = 두 강 사이의 땅 (<span class="gk">μέσος</span> = 중간)</td></tr>
+        <tr><td><span class="gk">συνάγω</span></td><td>함께 모으다, 인도하다</td><td><span class="gk">σύν</span>(함께) + <span class="gk">ἄγω</span>(인도하다)</td></tr>
+        <tr><td><span class="gk">στέφανος</span></td><td>면류관, 왕관</td><td>cf. 스데반 집사</td></tr>
+        <tr><td><span class="gk">στοιχεῖον</span></td><td>물질, 초등학문</td><td>cf. Stoic 학파 — 세계를 4원소로 봄: 물·공기·흙·불</td></tr>
+        <tr><td><span class="gk">ὑποτάσσω</span></td><td>복종하게 하다</td><td>—</td></tr>
+        <tr><td><span class="gk">φωτεινός</span></td><td>밝은</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ───── §4 미래시제 형태론 ───── -->
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">04</span><span class="st">미래시제 형태론</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>핵심 공식 <span class="bdg b-exam">⭐ 시험</span></h3>
+    <ul>
+      <li><b>능동 미래:</b> 어간 + <span class="gk">σ</span> + 1차 능동 어미 → <span class="gk">λύσω</span> (나는 풀 것이다)</li>
+      <li><b>중간 미래:</b> 어간 + <span class="gk">σ</span> + 1차 중간/수동 어미 → <span class="gk">λύσομαι</span> (나는 스스로 풀 것이다)</li>
+      <li><b>수동 미래:</b> 어간 + <span class="gk">θησ</span> + 1차 중간/수동 어미 → <span class="gk">λυθήσομαι</span> (나는 풀릴 것이다)</li>
+    </ul>
+    <p>부정과거와의 차이: 부정과거는 앞에 <span class="gk">ε-</span>(augment) + 뒤에 <span class="gk">σα</span>, 미래는 <b>augment 없이 <span class="gk">σ</span>만</b></p>
+  </div>
+
+  <div class="card">
+    <h3>자음 + <span class="gk">σ</span> 결합 변화 (p.149) <span class="bdg b-exam">⭐ 시험</span></h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>순음 (입술)</th><th>치음 (혀)</th><th>후음 (목)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="gk">π / β / φ</span> + <span class="gk">σ</span> → <span class="gk">ψ</span></td>
+            <td><span class="gk">τ / δ / θ</span> + <span class="gk">σ</span> → <span class="gk">σ</span></td>
+            <td><span class="gk">κ / γ / χ</span> + <span class="gk">σ</span> → <span class="gk">ξ</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><span class="gk">πέμπω</span> → <span class="gk">πέμψω</span></li>
+      <li><span class="gk">γράφω</span> → <span class="gk">γράψω</span></li>
+      <li><span class="gk">λαμβάνω</span> → <span class="gk">λήμψομαι</span></li>
+      <li><span class="gk">βλέπω</span> → <span class="gk">ὄψομαι</span></li>
+      <li><span class="gk">πείθω</span> → <span class="gk">πείσω</span></li>
+      <li><span class="gk">διδάσκω</span> → <span class="gk">διδάξω</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §5 동사상 ───── -->
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">05</span><span class="st">동사상(Verbal Aspect) 함의</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>Stanley Porter: 미래 = 기대적 측면</h3>
+    <p>미래시제는 단순히 앞으로 올 시간뿐 아니라 <b>"현재의 기대(expectation)"</b>의 측면을 담당한다.</p>
+  </div>
+  <div class="emph">
+    <h3>동사상 숫자 체계 <span class="bdg b-exam">⭐ 시험</span></h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>시제</th><th>현재성</th><th>의미</th></tr></thead>
+        <tbody>
+          <tr><td>부정과거(아오리스트)</td><td><b>0</b></td><td>단순 사건</td></tr>
+          <tr><td><b>미래</b></td><td><b>0</b></td><td>기대적 측면 (부정과거와 동급)</td></tr>
+          <tr><td>미완료</td><td><b>1</b></td><td>진행·배경</td></tr>
+          <tr><td>현재</td><td><b>2</b></td><td>현재 진행·지속</td></tr>
+          <tr><td>완료</td><td><b>3</b></td><td>결과 상태</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h3>파싱 예시</h3>
+    <p><span class="gk">ἀπολύσω</span> = <span class="gk">ἀπολύω</span> 직설법 미래 능동태 1인칭 단수 [현재성 0]</p>
+  </div>
+</div>
+
+<!-- ───── §6 능동태 비교표 ───── -->
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">06</span><span class="st">능동태 어간·어미 비교표</span><span class="sl"></span></div>
+  <div class="tw">
+    <table>
+      <caption>현재 / 미완료 / 부정과거 / 미래 — 능동태 <span class="bdg b-exam">⭐ 시험</span></caption>
+      <thead><tr><th>시제</th><th>접두표식</th><th>시상접미사</th><th>1단</th><th>2단</th><th>3단</th><th>1복</th><th>2복</th><th>3복</th></tr></thead>
+      <tbody>
+        <tr>
+          <th>현재</th><td>—</td><td>—</td>
+          <td><span class="gk">-ω</span></td><td><span class="gk">-εις</span></td><td><span class="gk">-ει</span></td>
+          <td><span class="gk">-ομεν</span></td><td><span class="gk">-ετε</span></td><td><span class="gk">-ουσι(ν)</span></td>
+        </tr>
+        <tr>
+          <th>미완료</th><td><span class="gk">ε-</span></td><td>—</td>
+          <td><span class="gk">-ον</span></td><td><span class="gk">-ες</span></td><td><span class="gk">-ε(ν)</span></td>
+          <td><span class="gk">-ομεν</span></td><td><span class="gk">-ετε</span></td><td><span class="gk">-ον</span></td>
+        </tr>
+        <tr>
+          <th>부정과거</th><td><span class="gk">ε-</span></td><td><span class="gk">σ</span></td>
+          <td><span class="gk">-α</span></td><td><span class="gk">-ας</span></td><td><span class="gk">-ε(ν)</span></td>
+          <td><span class="gk">-αμεν</span></td><td><span class="gk">-ατε</span></td><td><span class="gk">-αν</span></td>
+        </tr>
+        <tr style="background:rgba(201,168,76,.08)">
+          <th style="color:var(--gold)">미래</th><td>—</td><td><span class="gk">σ</span></td>
+          <td><span class="gk">-ω</span></td><td><span class="gk">-εις</span></td><td><span class="gk">-ει</span></td>
+          <td><span class="gk">-ομεν</span></td><td><span class="gk">-ετε</span></td><td><span class="gk">-ουσι(ν)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sup"><span class="tag">🔎 보충</span> 미래 능동 어미는 현재 능동 어미와 동일하다. 접두표식(augment)이 없고 <span class="gk">σ</span>만 있다는 점이 부정과거와의 결정적 차이.</div>
+</div>
+
+<!-- ───── §7 수동태 비교표 ───── -->
+<div class="sec" id="s7">
+  <div class="sh"><span class="sb">07</span><span class="st">수동태 어간·어미 비교표</span><span class="sl"></span></div>
+  <div class="tw">
+    <table>
+      <caption>현재 수동 / 부정과거 수동 / 미래 수동 <span class="bdg b-exam">⭐ 시험</span></caption>
+      <thead><tr><th>시제</th><th>특징</th><th>1단</th><th>2단</th><th>3단</th><th>1복</th><th>2복</th><th>3복</th></tr></thead>
+      <tbody>
+        <tr>
+          <th>현재 수동</th><td>중간/수동 어미</td>
+          <td><span class="gk">-ομαι</span></td><td><span class="gk">-ῃ</span></td><td><span class="gk">-εται</span></td>
+          <td><span class="gk">-ομεθα</span></td><td><span class="gk">-εσθε</span></td><td><span class="gk">-ονται</span></td>
+        </tr>
+        <tr>
+          <th>부정과거 수동</th><td><span class="gk">θη</span> + 2차어미</td>
+          <td><span class="gk">-θην</span></td><td><span class="gk">-θης</span></td><td><span class="gk">-θη</span></td>
+          <td><span class="gk">-θημεν</span></td><td><span class="gk">-θητε</span></td><td><span class="gk">-θησαν</span></td>
+        </tr>
+        <tr style="background:rgba(201,168,76,.08)">
+          <th style="color:var(--gold)">미래 수동</th><td><span class="gk">θησ</span> + 중간어미</td>
+          <td><span class="gk">-θήσομαι</span></td><td><span class="gk">-θήσῃ</span></td><td><span class="gk">-θήσεται</span></td>
+          <td><span class="gk">-θησόμεθα</span></td><td><span class="gk">-θήσεσθε</span></td><td><span class="gk">-θήσονται</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h3>예문: 벧후 3:10 <span class="bdg b-exam">⭐ 시험</span></h3>
+    <p><span class="gk">τὰ στοιχεῖα … λυθήσεται</span> — "물질들은 풀릴 것이다"</p>
+    <ul>
+      <li><span class="gk">λυθήσεται</span>: <span class="gk">λύω</span> 직설법 미래 수동태 3인칭 단수 [현재성 0]</li>
+      <li><b>중성복수 주어 + 단수 동사:</b> 중성복수 주어는 문법적으로 단수 동사를 취할 수 있음 <span class="bdg b-exam">⭐ 시험</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>벧후 3:10 추가 분석 <span class="bdg b-exam">⭐ 교수강조</span></h3>
+    <ul>
+      <li><span class="gk">γῆ καὶ τὰ ἐν αὐτῇ ἔργα εὑρεθήσεται</span> — "땅과 그 중에 있는 것들이 발견될 것이다"</li>
+      <li><span class="gk">εὑρεθήσεται</span>: <span class="gk">εὑρίσκω</span> 직설법 미래 수동태 3인칭 단수 [현재성 0]</li>
+      <li>복수 주어인데 단수 동사: <span class="gk">γῆ</span>(땅)가 중심 주어, 나머지는 부가</li>
+    </ul>
+    <ul>
+      <li><span class="gk">οἱ οὐρανοὶ … παρελεύσονται</span> — "하늘들은 떠나갈 것이다"</li>
+      <li><span class="gk">παρελεύσονται</span>: <span class="gk">παρέρχομαι</span> 직설법 미래 디포넌트 3인칭 복수 [현재성 0]</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §8 특수동사의 미래 ───── -->
+<div class="sec" id="s8">
+  <div class="sh"><span class="sb">08</span><span class="st">특수동사의 미래</span><span class="sl"></span></div>
+
+  <!-- εἰμί -->
+  <div class="card">
+    <h3><span class="gk">εἰμί</span>의 미래 <span class="bdg b-exam">⭐ 시험</span></h3>
+    <p>형태: <span class="gk">ε</span> + <span class="gk">σ</span> + 중간수동 어미 (<span class="gk">-ομαι</span> 계열)</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th></th><th>단수</th><th>복수</th></tr></thead>
+        <tbody>
+          <tr><th>1인칭</th><td><span class="gk">ἔσομαι</span></td><td><span class="gk">ἐσόμεθα</span></td></tr>
+          <tr><th>2인칭</th><td><span class="gk">ἔσῃ</span></td><td><span class="gk">ἔσεσθε</span></td></tr>
+          <tr><th>3인칭</th><td><span class="gk">ἔσται</span></td><td><span class="gk">ἔσονται</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><span class="gk">ἔσεσθε υἱοί</span> = "너희는 아들들이 될 것이다"</li>
+      <li><span class="gk">φωτεινὸν … ἔσται</span> = "밝게 될 것이다"</li>
+    </ul>
+  </div>
+
+  <!-- γίνομαι -->
+  <div class="card">
+    <h3>불규칙 동사: <span class="gk">γίνομαι</span></h3>
+    <ul>
+      <li>미래: <span class="gk">γενήσομαι</span> (현재와 미래 어간이 매우 다름!)</li>
+      <li>미래/부정과거에 원형적 어근 <span class="gk">γεν-</span>이 더 잘 보존됨</li>
+      <li>부정과거: <span class="gk">ἐγενόμην</span></li>
+      <li>예문 (p.150): <span class="gk">γενήσεται πηγή</span> = "그것은 근원이 될 것이다"</li>
+    </ul>
+  </div>
+
+  <!-- 단축동사 -->
+  <div class="card">
+    <h3>단축동사(Contract Verbs)의 미래</h3>
+    <ul>
+      <li><span class="gk">τιμάω</span> → <span class="gk">τιμήσω</span> (<span class="gk">α</span> → <span class="gk">η</span> before <span class="gk">σ</span>)</li>
+      <li><span class="gk">ζάω</span> → <span class="gk">ζήσω</span> / <span class="gk">ζήσομαι</span>, <span class="gk">ζήσεσθε</span></li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>예문: 요한복음 14:19 <span class="bdg b-exam">⭐ 교수강조</span></h3>
+    <p><span class="gk">ζῶ … ζήσεσθε</span> = "나는 살아있다(현재성 2), 너희도 살 것이다(현재성 0)"</p>
+    <ul>
+      <li><span class="gk">ζῶ</span>: <span class="gk">ζάω</span> 직설법 현재 능동태 1인칭 단수 [현재성 2]</li>
+      <li><span class="gk">ζήσεσθε</span>: <span class="gk">ζάω</span> 직설법 미래 능동태 2인칭 복수 [현재성 0]</li>
+    </ul>
+  </div>
+
+  <!-- 유음동사 -->
+  <div class="card">
+    <h3>유음동사(Liquid Verbs)의 미래</h3>
+    <p><span class="gk">σ</span> 탈락 + <span class="gk">ε</span> 첨가 + 단축 → circumflex 악센트</p>
+    <ul>
+      <li><span class="gk">μένω</span> → <span class="gk">μενῶ</span> (미래)</li>
+      <li><span class="gk">κρίνω</span> → <span class="gk">κρινῶ</span> / <span class="gk">κρινοῦμαι</span> (미래 중간수동)</li>
+      <li><span class="gk">αἴρω</span> → <span class="gk">ἀρῶ</span> (이중모음 <span class="gk">αι</span> 수축)</li>
+    </ul>
+  </div>
+
+  <!-- μι-동사 -->
+  <div class="card">
+    <h3><span class="gk">μι</span>-동사의 미래</h3>
+    <ul>
+      <li><span class="gk">δίδωμι</span> → 능동: <span class="gk">δώσω</span> / 수동: <span class="gk">δοθήσομαι</span></li>
+      <li><span class="gk">δι-</span> 탈락, <span class="gk">δω-</span> 남음 + <span class="gk">σω</span></li>
+    </ul>
+  </div>
+
+  <!-- ὑποτάσσω -->
+  <div class="card">
+    <h3>기타 예문</h3>
+    <ul>
+      <li><span class="gk">πέμψω τὸν υἱόν μου</span> = "나는 나의 아들을 보낼 것이다" (<span class="gk">πέμπω</span> 미래 능동 1단)</li>
+      <li><span class="gk">λήμψεται τὸν στέφανον τῆς ζωῆς</span> = "그는 생명의 면류관을 받을 것이다" (<span class="gk">λαμβάνω</span> 미래 중간 3단, 야고보서 1:10)</li>
+      <li><span class="gk">προελεύσεται πρὸ αὐτοῦ</span> = "그는 그의 앞에 먼저 올 것이다" (<span class="gk">προέρχομαι</span> 미래 디포넌트 3단)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §9 연습문제 ───── -->
+<div class="sec" id="s9">
+  <div class="sh"><span class="sb">09</span><span class="st">연습문제 — 파싱 + 번역</span><span class="sl"></span></div>
+
+  <div class="emph">
+    <h3>중간고사 범위 전체 <span class="bdg b-exam">⭐ 시험</span></h3>
+    <p>아래 모든 예문과 연습문제는 시험 범위입니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>① <span class="gk">οὐκ ἀκούσει τὴν φωνήν</span></h3>
+    <ul>
+      <li><span class="gk">ἀκούσει</span>: <span class="gk">ἀκούω</span> 직설법 미래 능동태 3인칭 단수 [현재성 0]</li>
+      <li>→ "그는 그 소리를 듣지 못할 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>② <span class="gk">συνάξω τοὺς καρποὺς μου</span></h3>
+    <ul>
+      <li><span class="gk">συνάξω</span>: <span class="gk">συνάγω</span> 직설법 미래 능동태 1인칭 단수 [현재성 0]</li>
+      <li>→ "나는 나의 열매들을 모을 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>③ <span class="gk">ἐλεύσονται αἱ ἡμέραι</span></h3>
+    <ul>
+      <li><span class="gk">ἐλεύσονται</span>: <span class="gk">ἔρχομαι</span> 직설법 미래 디포넌트 3인칭 복수 [현재성 0]</li>
+      <li>→ "날들이 올 것이다" (= 때가 이를 것이다)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>④ <span class="gk">διὰ τοῦτο πέμψει αὐτοῖς ὁ θεός</span></h3>
+    <ul>
+      <li><span class="gk">πέμψει</span>: <span class="gk">πέμπω</span> 직설법 미래 능동태 3인칭 단수 [현재성 0]</li>
+      <li>→ "이것 때문에 하나님께서 그들에게 보내실 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>⑤ <span class="gk">πονηροὶ ἄνθρωποι προκόψουσιν</span></h3>
+    <ul>
+      <li><span class="gk">προκόψουσιν</span>: <span class="gk">προκόπτω</span> 직설법 미래 능동태 3인칭 복수 [현재성 0]</li>
+      <li>→ "악한 자들은 진보할 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>⑥ <span class="gk">ἀποστρέψουσιν ἀπὸ τῆς ἀληθείας</span></h3>
+    <ul>
+      <li><span class="gk">ἀποστρέψουσιν</span>: <span class="gk">ἀποστρέφω</span> 직설법 미래 능동태 3인칭 복수 [현재성 0]</li>
+      <li>→ "그들은 진리로부터 돌이킬 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>⑦ <span class="gk">ἐκεῖ ἔσται καὶ ἡ καρδία σου</span></h3>
+    <ul>
+      <li><span class="gk">ἔσται</span>: <span class="gk">εἰμί</span> 직설법 미래 3인칭 단수 [현재성 0]</li>
+      <li>→ "거기에 너의 마음도 있을 것이다"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>⑧ <span class="gk">ὁ θεὸς ἐδοξάσθη … καὶ … δοξάσει αὐτόν</span> (요한 13:31–32) <span class="bdg b-exam">⭐ 교수강조</span></h3>
+    <ul>
+      <li><span class="gk">ἐδοξάσθη</span>: <span class="gk">δοξάζω</span> 직설법 부정과거 수동태 3인칭 단수 [현재성 0]</li>
+      <li><span class="gk">δοξάσει</span>: <span class="gk">δοξάζω</span> 직설법 미래 능동태 3인칭 단수 [현재성 0]</li>
+      <li>→ "하나님은 영광을 받으셨고, 그를 영화롭게 하실 것이다"</li>
+      <li><b>교수 노트:</b> 부정과거 수동태 vs 미래 능동태 — 형태는 비슷하지만 시제와 태가 다름</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §10 출처·검증 ───── -->
+<div class="sec" id="s10">
+  <div class="sh"><span class="sb">10</span><span class="st">출처·검증 요약</span><span class="sl"></span></div>
+  <div class="verify">
+    <h3>검증 메타데이터</h3>
+    <div class="row">
+      <span class="stat">📖 교재 pp.146–157 (15과)</span>
+      <span class="stat">🎥 7주차 강의 자막 전문</span>
+      <span class="stat">🏷 3-source tagging 적용</span>
+    </div>
+    <ul>
+      <li><b>자료근거(기본):</b> 교재·강의 자막에서 직접 확인된 내용</li>
+      <li><b>⭐ 교수강조 <span class="bdg b-exam">시험</span>:</b> 교수가 시험 출제·반복 강조한 항목</li>
+      <li><b>🔎 보충 <span class="bdg b-sup">보충</span>:</b> 이해를 돕기 위한 부연 (자막·교재 범위 내)</li>
+      <li>할루시네이션 0 원칙: 강의 자막·교재에 명시된 내용만 수록</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 · 헬라어 II · 안호준 교수 · 2026 여름 계절학기 7주차<br>
+  Generated by lecture-note-builder
+</div>
+
+</div>
+</body>
+</html>

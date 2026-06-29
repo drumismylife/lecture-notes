@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 4주차 부정과거 수동태 · 수사 · 부사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 4주차 · 2026 여름 계절학기</div>
+  <h1>동사(3-2) — 부정과거 수동태 · 수사 · 부사</h1>
+  <div class="prof">담당 안호준 교수 · 제4강 (교재 12과, 122~129쪽)</div>
+</div>
+
+<div class="intro">
+  제4강은 <b>11과 연습문제 나머지 풀이</b> → <b>12과 부정과거 수동태</b> → <b>μι동사 부정과거</b> → <b>수사·부사</b> → <b>12과 연습문제</b>로 구성됩니다.
+  교수님 강조 사항은 <span class="b-exam bdg">교수 강조</span>, 보충은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+  <b>ASR 자막의 헬라어를 표준 문법으로 바로잡아 표기</b>했습니다.
+</div>
+
+<div class="toc">
+  <a href="#obj">학습목표</a>
+  <a href="#review">복습 연결</a>
+  <a href="#vocab">12과 어휘</a>
+  <a href="#aor-pass1">제1부정과거 수동태</a>
+  <a href="#aor-pass2">제2부정과거 수동태</a>
+  <a href="#mi-aor">μι동사 부정과거</a>
+  <a href="#numeral">수사(기수)</a>
+  <a href="#adverb">부사</a>
+  <a href="#exercise11">11과 연습문제 (보충)</a>
+  <a href="#exercise12">12과 연습문제</a>
+</div>
+
+<!-- 학습목표 -->
+<div class="sec" id="obj">
+  <div class="sh"><span class="sb">목표</span><span class="st">이번 차시 학습목표</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>제1·제2 부정과거 <b>수동태</b>의 형성 규칙과 어미 변화 숙지</li>
+      <li>수동태 표식 <b><span class="gk">θη</span>(세이)</b>와 <b>자음접변</b> 규칙 이해</li>
+      <li><span class="gk">μι</span>동사(<span class="gk">δίδωμι</span>)의 부정과거 형태 파악</li>
+      <li><b>수사</b>(기수 1~4)와 <b>부사</b>(시간·방법·정도·<span class="gk">ἔχω</span> 숙어) 학습</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 복습 연결 -->
+<div class="sec" id="review">
+  <div class="sh"><span class="sb">복습</span><span class="st">복습 연결 — 3주차 핵심</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>제1부정과거 능동태: <span class="gk">ἐ-</span> + 어간 + <span class="gk">σ</span> + <span class="gk">-α, -ας, -ε(ν), -αμεν, -ατε, -αν</span></li>
+      <li>제1부정과거 중간태: <span class="gk">ἐ-</span> + 어간 + <span class="gk">σ</span> + <span class="gk">-αμην, -ω, -ατο, -αμεθα, -ασθε, -αντο</span></li>
+      <li>제2부정과거: 어간 변화 + 미완료 어미</li>
+      <li>부정과거부터 <b>중간태와 수동태가 분리</b>됨 → 이번 시간에 수동태 학습</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 어휘 -->
+<div class="sec" id="vocab">
+  <div class="sh"><span class="sb">12과</span><span class="st">어휘 (교재 122쪽)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>12과 새 단어 <span class="b-exam bdg">암기</span></caption>
+    <thead><tr><th>헬라어</th><th>음역</th><th>발음</th><th>뜻</th></tr></thead>
+    <tbody>
+      <tr><td class="gk">ἄγγελος</td><td>angelos</td><td>앙겔로스</td><td>천사</td></tr>
+      <tr><td class="gk">ἀναλαμβάνω</td><td>analambanō</td><td>아날람바노</td><td>위로 들어올리다</td></tr>
+      <tr><td class="gk">ἀνοίγω</td><td>anoigō</td><td>아노이고</td><td>열다</td></tr>
+      <tr><td class="gk">γινώσκω</td><td>ginōskō</td><td>기노스코</td><td>알다</td></tr>
+      <tr><td class="gk">ἐκεῖ</td><td>ekei</td><td>에게이</td><td>저기에</td></tr>
+      <tr><td class="gk">ἔτι</td><td>eti</td><td>에티</td><td>여전히, 아직</td></tr>
+      <tr><td class="gk">θάνατος</td><td>thanatos</td><td>타나토스</td><td>죽음</td></tr>
+      <tr><td class="gk">καθαρίζω</td><td>katharizō</td><td>카타리조</td><td>깨끗하게 하다</td></tr>
+      <tr><td class="gk">καταλλάσσω</td><td>katallassō</td><td>카탈라쏘</td><td>화목하게 하다</td></tr>
+      <tr><td class="gk">κρίνω</td><td>krinō</td><td>크리노</td><td>심판하다</td></tr>
+      <tr><td class="gk">λείπω</td><td>leipō</td><td>레이포</td><td>남기다, 떠나다</td></tr>
+      <tr><td class="gk">ναός</td><td>naos</td><td>나오스</td><td>성전(지성소)</td></tr>
+      <tr><td class="gk">πανταχοῦ</td><td>pantachou</td><td>판타후</td><td>각처에, 모든 곳에</td></tr>
+      <tr><td class="gk">σπείρω</td><td>speirō</td><td>스페이로</td><td>뿌리다</td></tr>
+      <tr><td class="gk">στρατιώτης</td><td>stratiōtēs</td><td>스트라티오테스</td><td>군인</td></tr>
+      <tr><td class="gk">ὕπνος</td><td>hypnos</td><td>휘프노스</td><td>잠</td></tr>
+      <tr><td class="gk">φέρω</td><td>pherō</td><td>페로</td><td>운반하다, 옮기다</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3>참고: <span class="gk">ναός</span> vs <span class="gk">ἱερόν</span></h3>
+    <p><span class="gk">ἱερόν</span>은 성전의 뜰·건물 전체를 포함하는 넓은 개념, <span class="gk">ναός</span>는 <b>지성소</b>와 관련하여 쓰이는 좁은 개념.</p>
+  </div>
+</div>
+
+<!-- 제1부정과거 수동태 -->
+<div class="sec" id="aor-pass1">
+  <div class="sh"><span class="sb">12과</span><span class="st">제1부정과거 수동태 (교재 122쪽)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 수동태 표식은 <span class="gk">θη</span>(세이)</h3>
+    <p>능동태에서 <span class="gk">σ</span>가 부정과거 시그널이었다면, 수동태에서는 <b><span class="gk">θη</span>(테타+에타, '세이')</b>가 핵심 표식. 앞에는 <span class="gk">ἐ-</span>(어두 증가) 동일.</p>
+  </div>
+  <div class="card">
+    <h3>형성 공식</h3>
+    <p><span class="gk">ἐ-</span> + 어간 + <b><span class="gk">θη</span></b> + 수동태 어미</p>
+    <p>예: <span class="gk">λύω</span> → <span class="gk">ἐλύθην</span> "나는 풀려졌다"</p>
+  </div>
+  <div class="tw"><table>
+    <caption>제1부정과거 능동태 vs 수동태 어미 비교 <span class="b-exam bdg">암기</span></caption>
+    <thead><tr><th>인칭·수</th><th>능동 (<span class="gk">-σα</span> 계열)</th><th>수동 (<span class="gk">-θη</span> 계열)</th></tr></thead>
+    <tbody>
+      <tr><th>1단</th><td class="gk">-σα</td><td class="gk">-θην</td></tr>
+      <tr><th>2단</th><td class="gk">-σας</td><td class="gk">-θης</td></tr>
+      <tr><th>3단</th><td class="gk">-σε(ν)</td><td class="gk">-θη</td></tr>
+      <tr><th>1복</th><td class="gk">-σαμεν</td><td class="gk">-θημεν</td></tr>
+      <tr><th>2복</th><td class="gk">-σατε</td><td class="gk">-θητε</td></tr>
+      <tr><th>3복</th><td class="gk">-σαν</td><td class="gk">-θησαν</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card">
+    <h3>자음접변 — <span class="gk">θ</span>와 어간 말 자음</h3>
+    <ul>
+      <li><b>양순음</b> (<span class="gk">π, β, φ</span>) + <span class="gk">θ</span> → <span class="gk">φθ</span> : <span class="gk">πέμπω → ἐπέμφθην</span></li>
+      <li><b>치음</b> (<span class="gk">τ, δ, θ</span>) + <span class="gk">θ</span> → <span class="gk">σθ</span> : <span class="gk">πείθω → ἐπείσθην</span></li>
+      <li><b>구개음</b> (<span class="gk">κ, γ, χ</span>) + <span class="gk">θ</span> → <span class="gk">χθ</span> : <span class="gk">ἄγω → ἤχθην</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 제2부정과거 수동태 -->
+<div class="sec" id="aor-pass2">
+  <div class="sh"><span class="sb">12과</span><span class="st">제2부정과거 수동태 (교재 125쪽)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 제2부정과거 수동태: <span class="gk">θ</span> 탈락!</h3>
+    <p>어간이 바뀌는 제2부정과거 수동태에서는 <b><span class="gk">θ</span>(테타)가 사라지고 <span class="gk">η</span>(에이)만 남는다</b>.</p>
+    <p>예: <span class="gk">σπείρω</span>(뿌리다) → <span class="gk">ἐσπάρην</span> (<span class="gk">θ</span> 없음, 어간 변화)</p>
+  </div>
+  <div class="card">
+    <p><b>예외적 케이스</b>: <span class="gk">γράφω</span>, <span class="gk">ἀνοίγω</span> — 어간이 변하지 않는데도 <span class="gk">θ</span> 탈락 형태를 취함.</p>
+    <p><span class="gk">γράφω</span> → 제1부정과거 능동 <span class="gk">ἔγραψα</span>, 제2부정과거 수동 <span class="gk">ἐγράφην</span> (<span class="gk">θ</span> 없음)</p>
+  </div>
+</div>
+
+<!-- μι동사 -->
+<div class="sec" id="mi-aor">
+  <div class="sh"><span class="sb">12과</span><span class="st"><span class="gk">μι</span>동사 부정과거 — <span class="gk">δίδωμι</span> (교재 126쪽)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="gk">μι</span>동사의 어간이 <span class="gk">α, ε, ο</span>로 끝날 경우, 모음이 각각 장음화(<span class="gk">α→η</span>, <span class="gk">ε→η</span>, <span class="gk">ο→ω</span>)된다.</p>
+  </div>
+  <div class="tw"><table>
+    <caption><span class="gk">δίδωμι</span> 부정과거 — 능동·중간·수동</caption>
+    <thead><tr><th></th><th>능동태</th><th>중간태</th><th>수동태</th></tr></thead>
+    <tbody>
+      <tr><th>1단</th><td class="gk">ἔδωκα</td><td class="gk">ἐδόμην</td><td class="gk">ἐδόθην</td></tr>
+      <tr><th>2단</th><td class="gk">ἔδωκας</td><td class="gk">ἔδου</td><td class="gk">ἐδόθης</td></tr>
+      <tr><th>3단</th><td class="gk">ἔδωκε(ν)</td><td class="gk">ἔδοτο</td><td class="gk">ἐδόθη</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p>본문 적용: <span class="gk">παρέδωκα ὑμῖν</span> (고전 15:3) — <span class="gk">παραδίδωμι</span>(넘겨주다)의 직설법 부정과거 능동태 1인칭 단수 (0). "나는 너희에게 전수했다." <span class="b-exam bdg">교수 강조</span></p>
+    <p><span class="gk">παρέλαβον</span> — <span class="gk">παραλαμβάνω</span>(전수받다)의 직설법 부정과거 능동태 1인칭 단수 (0). "나도 전수받았다."</p>
+  </div>
+</div>
+
+<!-- 수사 -->
+<div class="sec" id="numeral">
+  <div class="sh"><span class="sb">12과</span><span class="st">수사(기수) — 1, 2, 3, 4 (교재 127쪽)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>기수 1~4와 성별 변화</caption>
+    <thead><tr><th>수</th><th>남성</th><th>여성</th><th>중성</th><th>변화 유형</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td class="gk">εἷς</td><td class="gk">μία</td><td class="gk">ἕν</td><td>1·3변화</td></tr>
+      <tr><th>2</th><td colspan="3" class="gk">δύο</td><td>불변화</td></tr>
+      <tr><th>3</th><td class="gk">τρεῖς</td><td class="gk">τρεῖς</td><td class="gk">τρία</td><td>—</td></tr>
+      <tr><th>4</th><td colspan="3" class="gk">τέσσαρες / τέσσαρα</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p>본문: <span class="gk">εἷς γὰρ θεός, εἷς καὶ μεσίτης θεοῦ καὶ ἀνθρώπων, ἄνθρωπος Χριστὸς Ἰησοῦς</span> (딤전 2:5)</p>
+    <p>"하나님은 한 분이시요, 하나님과 사람 사이의 중보자도 한 분이시니, 곧 사람이신 그리스도 예수라."</p>
+    <p><span class="gk">μεσίτης</span> = 중재자, 화해시키는 사람 (중간 역할을 하는 자)</p>
+  </div>
+</div>
+
+<!-- 부사 -->
+<div class="sec" id="adverb">
+  <div class="sh"><span class="sb">12과</span><span class="st">부사 — 시간·방법·정도·<span class="gk">ἔχω</span> 숙어 (교재 128~129쪽)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>시간의 부사</h3>
+    <p>시간을 가리키는 명사의 <b>대격(목적격)</b>이 시간의 부사로 활용됨.</p>
+    <p>예: <span class="gk">ἐβασίλευσαν μετὰ τοῦ Χριστοῦ χίλια ἔτη</span> (계 20:4) — "그리스도와 함께 <b>천 년 동안</b> 왕 노릇 했다"</p>
+    <ul>
+      <li><span class="gk">ἐβασίλευσαν</span> ← <span class="gk">βασιλεύω</span>(왕 노릇 하다), 직설법 부정과거 능동태 3인칭 복수 <b>(0)</b></li>
+      <li>참고: 계 20:6 — <span class="gk">βασιλεύσουσιν</span>(직설법 미래 능동태 3인칭 복수, 현재성 0) = "왕 노릇 <b>할 것이다</b>" <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>방법의 부사 — 형용사에서 파생</h3>
+    <p>형용사 속격 어미 <span class="gk">-ων</span>에서 <span class="gk">-ν</span> 빼고 <span class="gk">-ς</span> 붙이면 <span class="gk">-ως</span> → 부사.</p>
+    <p>예: <span class="gk">δίκαιος</span>(의로운) → <span class="gk">δικαίως</span>(의롭게)</p>
+  </div>
+  <div class="card">
+    <h3><span class="gk">ἔχω</span> + 부사 = 숙어</h3>
+    <ul>
+      <li><span class="gk">καλῶς ἔχω</span> = 나는 좋게 가진다 → <b>회복한다</b></li>
+      <li><span class="gk">κακῶς ἔχω</span> = 나는 나쁘게 가진다 → <b>아프다, 병들다</b></li>
+      <li><span class="gk">ἑτοίμως ἔχω</span> = 준비되어 가진다 → <b>준비되다</b></li>
+      <li><span class="gk">ἐσχάτως ἔχω</span> = 마지막으로 가진다 → <b>죽게 되다</b></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>정도의 부사 — <span class="gk">μᾶλλον</span></h3>
+    <p><span class="gk">μᾶλλον</span> = "더 많이, 더 나아가" — 비교급 부사.</p>
+    <p>예: <span class="gk">ἀγαπῶ σε, μᾶλλον δὲ σέβομαί σε</span> = "나는 너를 사랑한다, 더 나아가 너를 존경한다"</p>
+  </div>
+</div>
+
+<!-- 11과 남은 연습문제 -->
+<div class="sec" id="exercise11">
+  <div class="sh"><span class="sb">연습</span><span class="st">11과 남은 연습문제 풀이</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>4번</h3>
+    <p><span class="gk">ὁ δὲ εἶπεν αὐτοῖς</span></p>
+    <p>"그런데 그는 그들에게 말했다"</p>
+    <ul>
+      <li><span class="gk">εἶπεν</span> ← <span class="gk">λέγω</span>, 직설법 부정과거 능동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>5번</h3>
+    <p><span class="gk">ἤκουσαν δὲ οἱ ἀπόστολοι καὶ οἱ ἀδελφοί</span></p>
+    <p>"그런데 그 사도들과 그 형제들이 들었다"</p>
+    <ul>
+      <li><span class="gk">ἤκουσαν</span> ← <span class="gk">ἀκούω</span>, 직설법 제1부정과거 능동태 3인칭 복수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>6번</h3>
+    <p><span class="gk">ὁ δὲ ἐξῆλθεν</span></p>
+    <p>"그런데 그는 (와)왔다" (마 27:53 문맥상 '왔다')</p>
+    <ul>
+      <li><span class="gk">ἐξῆλθεν</span> ← <span class="gk">ἐξέρχομαι</span>, 직설법 제1부정과거 능동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>7번</h3>
+    <p><span class="gk">εἴδετε καὶ ἠκούσατε</span></p>
+    <p>"너희는 보았고, 너희는 들었다"</p>
+    <ul>
+      <li><span class="gk">εἴδετε</span> ← <span class="gk">βλέπω/ὁράω</span>, 직설법 제2부정과거 능동태 2인칭 복수 <b>(0)</b></li>
+      <li><span class="gk">ἠκούσατε</span> ← <span class="gk">ἀκούω</span>, 직설법 제1부정과거 능동태 2인칭 복수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>8번</h3>
+    <p><span class="gk">οἱ ἄνθρωποι ἐπίστευσαν ἐπὶ τὸν κύριον</span></p>
+    <p>"그 사람들이 그 주님을 믿었다"</p>
+    <ul>
+      <li><span class="gk">ἐπίστευσαν</span> ← <span class="gk">πιστεύω</span>, 직설법 제1부정과거 능동태 3인칭 복수 <b>(0)</b></li>
+      <li><span class="gk">πιστεύω + ἐπί</span> + 목적격 = "~에 확신을 두다" → 믿다 <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>11번 — <span class="gk">ἠγάγετε</span></h3>
+    <p><span class="gk">ἠγάγετε τούτους</span></p>
+    <p>"너희가 이 사람들을 인도했다"</p>
+    <ul>
+      <li><span class="gk">ἠγάγετε</span> ← <span class="gk">ἄγω</span>, 직설법 제2부정과거 능동태 2인칭 복수 <b>(0)</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 12과 연습문제 -->
+<div class="sec" id="exercise12">
+  <div class="sh"><span class="sb">연습</span><span class="st">12과 연습문제 (교재 129쪽)</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>1번</h3>
+    <p><span class="gk">ἀνελήμφθη ἐν δόξῃ</span></p>
+    <p>"영광 중에 위로 취해졌다(올리움을 받았다)"</p>
+    <ul>
+      <li><span class="gk">ἀνελήμφθη</span> ← <span class="gk">ἀναλαμβάνω</span>, 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>2번</h3>
+    <p><span class="gk">ἐγὼ ἐδιδάχθην ὑπὸ τοῦ ἀνθρώπου</span></p>
+    <p>"나는 그 사람에 의해 가르침을 받았다"</p>
+    <ul>
+      <li><span class="gk">ἐδιδάχθην</span> ← <span class="gk">διδάσκω</span>, 직설법 부정과거 수동태 1인칭 단수 <b>(0)</b></li>
+      <li><span class="gk">ἐγώ</span>가 별도로 나옴 = <b>강조</b> ("바로 내가")</li>
+      <li><span class="gk">ὑπό</span> + 속격 = 수동 행위자 "~에 의해" <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>3번</h3>
+    <p><span class="gk">εἶπεν αὐτοῖς· ἐκαθαρίσθησαν</span></p>
+    <p>"그는 그들에게 말했다: '깨끗해졌다'"</p>
+    <ul>
+      <li><span class="gk">εἶπεν</span> ← <span class="gk">λέγω</span>, 직설법 부정과거 능동태 3인칭 단수 <b>(0)</b></li>
+      <li><span class="gk">ἐκαθαρίσθησαν</span> ← <span class="gk">καθαρίζω</span>, 직설법 부정과거 수동태 3인칭 복수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>4번</h3>
+    <p><span class="gk">φωνὴ ἠκούσθη</span></p>
+    <p>"소리가 들려졌다"</p>
+    <ul>
+      <li><span class="gk">ἠκούσθη</span> ← <span class="gk">ἀκούω</span>, 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>5번</h3>
+    <p><span class="gk">ἀπεκρίθη ὁ Ἰησοῦς</span></p>
+    <p>"예수께서 대답하셨다"</p>
+    <ul>
+      <li><span class="gk">ἀπεκρίθη</span> ← <span class="gk">ἀποκρίνομαι</span>, 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
+      <li>형태는 수동이지만 <b>의미는 능동</b>("대답했다"). 이태동사 계열로, 신약에서는 중간태(<span class="gk">ἀπεκρινάμην</span>) 대신 <b>수동태 형태로 주로 사용</b>됨. <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>6번</h3>
+    <p><span class="gk">ὤφθη δὲ αὐτῷ ἄγγελος κυρίου</span></p>
+    <p>"그런데 그에게 주의 천사가 보여졌다(나타났다)"</p>
+    <ul>
+      <li><span class="gk">ὤφθη</span> ← <span class="gk">ὁράω</span>(보다), 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>7번</h3>
+    <p><span class="gk">ὁ ἄγγελος εἶπεν αὐτῷ· ἐγὼ ἀπεστάλην ὑπὸ τοῦ θεοῦ</span></p>
+    <p>"그 천사는 그에게 말했다: 나는 하나님에 의해 보내짐을 받았다"</p>
+    <ul>
+      <li><span class="gk">ἀπεστάλην</span> ← <span class="gk">ἀποστέλλω</span>, 직설법 제2부정과거 수동태 1인칭 단수 <b>(0)</b></li>
+      <li><span class="gk">θ</span> 없음 — 제2부정과거 수동태이므로 <span class="gk">-ην</span>만 남음 <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>8번</h3>
+    <p><span class="gk">ἠγέρθη ἀπὸ τοῦ ὕπνου</span></p>
+    <p>"그가 잠으로부터 일으켜졌다"</p>
+    <ul>
+      <li><span class="gk">ἠγέρθη</span> ← <span class="gk">ἐγείρω</span>(일으키다), 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--blue)">자료근거(제4강 영상 자막) · 본문 전반</span>
+    <span class="stat" style="color:var(--red)">교수 강조 · 7건</span>
+    <span class="stat" style="color:var(--purple)">보충 · 0건</span>
+  </div>
+  <p>· <b>자료근거</b>: 제4강(교재 12과, 122~129쪽) 영상 자막을 정리. 앞부분에 11과 나머지 연습문제(4~11번) 풀이 포함.</p>
+  <p>· <b>교수 강조</b>: ① 수동태 표식 <span class="gk">θη</span> ② <span class="gk">ἀπεκρίθη</span> 수동형태+능동의미 ③ 제2부정과거 수동태 <span class="gk">θ</span> 탈락 ④ <span class="gk">ὑπό</span>+속격=수동행위자 ⑤ <span class="gk">πιστεύω + ἐπί</span>+대격=믿다 ⑥ 고전 15:3 <span class="gk">παρέδωκα/παρέλαβον</span> 전수 ⑦ 계시록 20:4 vs 20:6 부정과거/미래 비교.</p>
+  <ul>
+    <li><b>확인 필요</b>: <span class="gk">μι</span>동사 패러다임 세부 형태는 교재 126쪽으로 최종 확인 권장. 자동자막 특성상 일부 형태 부정확 가능.</li>
+  </ul>
+</div>
+
+<div class="foot">헬라어 II 4주차 · 안호준 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

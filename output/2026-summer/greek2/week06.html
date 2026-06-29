@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>헬라어 II — 6주차 유음동사(직설법)·재귀대명사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="eye">GREEK II · WEEK 06</div>
+  <h1>헬라어 II — 6주차<br>유음동사(직설법)·재귀대명사</h1>
+  <p class="prof">안호준 교수 · 한국침례신학대학교 · 2026 여름 계절학기 · 교재 14과 (pp.140-145)</p>
+</header>
+
+<!-- INTRO -->
+<div class="intro">
+  <b>수업 개요 —</b> 14과에서는 어간 끝이 <b>유음(λ, ρ)</b> 또는 <b>비음(μ, ν)</b>으로 끝나는 동사가 <b>σ</b>를 만날 때 발생하는 변화를 다루고, <b>재귀대명사</b>와 <b>소유 형용사·대명사</b>를 학습한다.
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#s1">학습목표</a>
+  <a href="#s2">복습 연결</a>
+  <a href="#s3">어휘</a>
+  <a href="#s4">유음동사 문법</a>
+  <a href="#s5">동사상</a>
+  <a href="#s6">재귀대명사</a>
+  <a href="#s7">소유 형용사·대명사</a>
+  <a href="#s8">연습문제</a>
+  <a href="#s9">출처·검증</a>
+</nav>
+
+<!-- S1 학습목표 -->
+<section class="sec" id="s1">
+  <div class="sh"><span class="sb">01</span><span class="st">이번 차시 학습목표</span><span class="sl"></span></div>
+  <div class="card">
+    <ul>
+      <li>유음동사(어간 끝 <span class="gk">λ, ρ, μ, ν</span>)가 <span class="gk">σ</span>를 만날 때 발생하는 <b>시그마 탈락</b>과 <b>어간 모음 변화</b>를 이해한다.</li>
+      <li>유음동사의 <b>미래 시제</b>(수축 미래)와 <b>부정과거</b>(능동·중간·수동) 패러다임을 익힌다.</li>
+      <li><b>재귀대명사</b>(<span class="gk">ἐμαυτοῦ, σεαυτοῦ, ἑαυτοῦ</span>)의 형태와 용법을 학습한다.</li>
+      <li><b>소유 형용사·대명사</b>(<span class="gk">ἐμός, σός, ἴδιος</span>)를 구분하여 사용할 수 있다.</li>
+      <li>14과 신규 어휘 18개를 암기한다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- S2 복습 연결 -->
+<section class="sec" id="s2">
+  <div class="sh"><span class="sb">02</span><span class="st">복습 연결</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>이전 과 핵심 복습</h3>
+    <ul>
+      <li><b>일반 ω-동사 어미:</b> 유음동사는 <b>현재 시제</b>에서 일반 ω-동사 어미와 동일하게 변화한다. 변화가 시작되는 지점은 <b>미래</b>와 <b>부정과거</b>이다.</li>
+      <li><b>σ와의 만남:</b> 폐쇄음(π, β, κ, γ 등) 어간은 σ와 결합하여 ψ, ξ 등을 만들었지만, 유음·비음 어간은 σ를 <b>탈락</b>시킨다.</li>
+      <li><b>부정과거 형성 원리:</b> 가증모음(ε-) + 어간 + 시제 표지 + 인칭어미 구조를 복습한다.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>찬송으로 수업 시작</h3>
+    <p>수업 도입부에 헬라어 찬송 <span class="gk">πηγὴ πάντων εὐλογιῶν</span> ("만복의 근원 하나님")을 함께 불렀다.</p>
+  </div>
+</section>
+
+<!-- S3 어휘 -->
+<section class="sec" id="s3">
+  <div class="sh"><span class="sb">03</span><span class="st">어휘 — 14과 단어</span><span class="sl"></span></div>
+
+  <div class="tw">
+    <table>
+      <caption>14과 신규 어휘 (18개)</caption>
+      <thead><tr><th>헬라어</th><th>음역</th><th>뜻</th><th>어원·암기 힌트</th></tr></thead>
+      <tbody>
+        <tr><td><span class="gk">ἀγγέλλω</span></td><td>angellō</td><td>알리다, 보고하다</td><td>어간 끝 <span class="gk">λ</span> — 유음동사</td></tr>
+        <tr><td><span class="gk">ἀνατέλλω</span></td><td>anatellō</td><td>떠오르다</td><td><span class="gk">ἀνά</span> = 위로</td></tr>
+        <tr><td><span class="gk">ἀποκτείνω</span></td><td>apokteinō</td><td>죽이다</td><td><span class="gk">ἀπο</span> + <span class="gk">κτείνω</span>, 폭력 연상</td></tr>
+        <tr><td><span class="gk">γλῶσσα</span></td><td>glōssa</td><td>혀, 방언</td><td>glossary 어원</td></tr>
+        <tr><td><span class="gk">δέρω</span></td><td>derō</td><td>때리다, 치다</td><td>"막대로 치다" 암기법</td></tr>
+        <tr><td><span class="gk">διατάσσω</span></td><td>diatassō</td><td>명령하다</td><td><span class="gk">διά</span>(통하여) + <span class="gk">τάσσω</span>(말하다) — 권위적 명령</td></tr>
+        <tr><td><span class="gk">ἐντέλλομαι</span></td><td>entellomai</td><td>명령하다</td><td><span class="gk">ἐν</span>(안에서) + 말하다 — 권위로 명령</td></tr>
+        <tr><td><span class="gk">εὐαγγελίζω</span></td><td>euangelizō</td><td>복음을 전하다</td><td><span class="gk">εὐαγγέλιον</span> = 복음</td></tr>
+        <tr><td><span class="gk">θέλω</span></td><td>thelō</td><td>원하다, 소원하다</td><td>—</td></tr>
+        <tr><td><span class="gk">ἥλιος</span></td><td>hēlios</td><td>태양, 빛</td><td>helium 어원</td></tr>
+        <tr><td><span class="gk">Ἰουδαῖος</span></td><td>Ioudaios</td><td>유대인</td><td>—</td></tr>
+        <tr><td><span class="gk">κρατέω</span></td><td>krateō</td><td>잡다, 붙잡다</td><td>democracy(-cracy) 어원</td></tr>
+        <tr><td><span class="gk">νομίζω</span></td><td>nomizō</td><td>생각하다</td><td><span class="gk">νόμος</span> = 율법 (하나님의 생각을 담음)</td></tr>
+        <tr><td><span class="gk">παραγγέλλω</span></td><td>parangellō</td><td>명령하다</td><td>군사적·행정적 명령</td></tr>
+        <tr><td><span class="gk">ποιμαίνω</span></td><td>poimainō</td><td>양을 치다, 행하다</td><td>—</td></tr>
+        <tr><td><span class="gk">πρεσβύτερος</span></td><td>presbyteros</td><td>나이 든, 장로</td><td>presbyter → 장로교</td></tr>
+        <tr><td><span class="gk">σπέρμα</span></td><td>sperma</td><td>씨</td><td>—</td></tr>
+        <tr><td><span class="gk">ὑπομένω</span></td><td>hypomenō</td><td>인내하다</td><td><span class="gk">ὑπό</span>(~에 의해) + <span class="gk">μένω</span>(머무르다) → 하나님에 의해 머무르다 → 인내</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 명령 동사 3종 구별 <span class="bdg b-exam">교수강조</span></h3>
+    <ul>
+      <li><b><span class="gk">διατάσσω</span></b> — <span class="gk">διά</span>(통하여) + <span class="gk">τάσσω</span>: <b>권위적</b> 명령</li>
+      <li><b><span class="gk">ἐντέλλομαι</span></b> — <span class="gk">ἐν</span>(안에서): <b>권위로</b> 명령</li>
+      <li><b><span class="gk">παραγγέλλω</span></b> — <b>군사적·행정적</b> 명령</li>
+    </ul>
+  </div>
+</section>
+
+<!-- S4 유음동사 문법 핵심 -->
+<section class="sec" id="s4">
+  <div class="sh"><span class="sb">04</span><span class="st">유음동사 문법 핵심</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>유음동사란?</h3>
+    <p>어간 끝이 <b>유음</b>(<span class="gk">λ, ρ</span>) 또는 <b>비음</b>(<span class="gk">μ, ν</span>)으로 끝나는 동사이다.</p>
+    <p><b>현재 시제</b>에서는 일반 <span class="gk">ω</span>-동사 어미와 동일하게 변화하므로 변화 없음.</p>
+    <p><b>미래</b>와 <b>부정과거</b>에서 <span class="gk">σ</span>를 만나면 변화가 발생한다.</p>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 핵심 원리: σ 탈락 <span class="bdg b-exam">교수강조</span></h3>
+    <ul>
+      <li><b>미래 시제:</b> <span class="gk">σ</span> 탈락 → 어간이 수축 → circumflex accent 생김 (예: <span class="gk">ἀγγελῶ</span>)</li>
+      <li><b>부정과거 능동/중간:</b> <span class="gk">σ</span> 탈락 + 어간 모음 길어짐 (<span class="gk">ε→ει, α→η</span> 등) (예: <span class="gk">ἤγγειλα</span>)</li>
+      <li><b>부정과거 수동:</b> <span class="gk">θη</span>에서 <span class="gk">θ</span>가 유음 앞에서 탈락 + 어간 모음 수축 (예: <span class="gk">ἠγγέλην</span>)</li>
+      <li><b>겹자음 규칙:</b> <span class="gk">λλ → λ</span> (하나 탈락)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>유음동사 시제별 변화 패러다임</h3>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>유음동사 주요 변화형 — 강의에서 다룬 동사들</caption>
+      <thead>
+        <tr><th>현재</th><th>미래</th><th>부과 능동</th><th>부과 중간</th><th>부과 수동</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="gk">ἀγγέλλω</span></td>
+          <td><span class="gk">ἀγγελῶ</span></td>
+          <td><span class="gk">ἤγγειλα</span></td>
+          <td>—</td>
+          <td><span class="gk">ἠγγέλην</span></td>
+        </tr>
+        <tr>
+          <td><span class="gk">παραγγέλλω</span></td>
+          <td><span class="gk">παραγγελῶ</span></td>
+          <td><span class="gk">παρήγγειλα</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="gk">ἀποστέλλω</span></td>
+          <td><span class="gk">ἀποστελῶ</span></td>
+          <td><span class="gk">ἀπέστειλα</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="gk">ἀποκτείνω</span></td>
+          <td><span class="gk">ἀποκτενῶ</span></td>
+          <td><span class="gk">ἀπέκτεινα</span></td>
+          <td><span class="gk">ἀπεκτεινάμην</span></td>
+          <td><span class="gk">ἀπεκτάνθην</span></td>
+        </tr>
+        <tr>
+          <td><span class="gk">ἐγείρω</span></td>
+          <td><span class="gk">ἐγερῶ</span></td>
+          <td><span class="gk">ἤγειρα</span></td>
+          <td>—</td>
+          <td><span class="gk">ἠγέρθην</span></td>
+        </tr>
+        <tr>
+          <td><span class="gk">μένω</span></td>
+          <td>—</td>
+          <td><span class="gk">ἔμεινα</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="gk">κρίνω</span></td>
+          <td>—</td>
+          <td><span class="gk">ἔκρινα</span></td>
+          <td>—</td>
+          <td><span class="gk">ἐκρίθην</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 어간 모음 변화 규칙 <span class="bdg b-exam">교수강조</span></h3>
+    <ul>
+      <li><span class="gk">ε → ει</span> (예: <span class="gk">μένω → ἔμεινα</span>)</li>
+      <li><span class="gk">α → η</span> (모음 길어짐)</li>
+      <li><span class="gk">λλ → λ</span> (겹자음 하나 탈락: <span class="gk">ἀγγέλλω → ἤγγειλα</span>)</li>
+      <li><span class="gk">ν</span>이 <span class="gk">θ</span> 앞에서 탈락 (예: <span class="gk">κρίνω → ἐκρίθην</span>)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- S5 동사상 -->
+<section class="sec" id="s5">
+  <div class="sh"><span class="sb">05</span><span class="st">동사상(Verbal Aspect) 함의</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>유음동사에 적용되는 동사상(Aspect)</h3>
+    <p>유음동사도 일반 동사와 동일한 동사상 체계를 따른다.</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>동사상 현재성 값</caption>
+      <thead><tr><th>시제</th><th>현재성</th><th>Aspect</th><th>의미</th></tr></thead>
+      <tbody>
+        <tr><td>부정과거</td><td><b>0</b></td><td>총괄(summary)</td><td>사건을 하나의 전체로 봄</td></tr>
+        <tr><td>미완료</td><td><b>1</b></td><td>진행·반복</td><td>과거의 진행·반복 동작</td></tr>
+        <tr><td>현재</td><td><b>2</b></td><td>진행·반복</td><td>현재 진행·습관적 동작</td></tr>
+        <tr><td>완료</td><td><b>3</b></td><td>상태·결과</td><td>과거 행위의 현재 결과 지속</td></tr>
+        <tr><td>미래</td><td><b>0</b></td><td>총괄(기대)</td><td>미래 사건을 총괄적으로 기대</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sup">
+    <span class="tag">🔎 보충</span> — 이번 과 연습문제의 유음동사들은 대부분 <b>부정과거</b>(현재성 0)로 등장한다. 사건을 하나의 완결된 행위로 총괄하는 관점이다.
+  </div>
+</section>
+
+<!-- S6 재귀대명사 -->
+<section class="sec" id="s6">
+  <div class="sh"><span class="sb">06</span><span class="st">재귀대명사</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>재귀대명사란?</h3>
+    <p>주어가 <b>자기 자신</b>을 받거나 강조할 때 사용하는 대명사이다.</p>
+    <p><b>주격은 없다</b> — 주어 강조는 인칭대명사를 사용한다.</p>
+    <p>속격, 여격, 대격만 존재한다.</p>
+  </div>
+
+  <div class="card">
+    <h3>형성 원리</h3>
+    <p><span class="gk">αὐτός</span> 변화형 앞에 인칭 접두사를 붙여 형성한다.</p>
+    <ul>
+      <li>1인칭: <span class="gk">ἐμ-</span> + <span class="gk">αὐτ-</span></li>
+      <li>2인칭: <span class="gk">σε-</span> + <span class="gk">αὐτ-</span></li>
+      <li>3인칭: <span class="gk">ἑ-</span> + <span class="gk">αὐτ-</span></li>
+      <li>복수: <span class="gk">ἑαυτ-</span> 사용</li>
+    </ul>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>재귀대명사 변화표 (단수)</caption>
+      <thead>
+        <tr><th>격</th><th>1인칭 남</th><th>1인칭 여</th><th>2인칭 남</th><th>2인칭 여</th><th>3인칭 남</th><th>3인칭 여</th><th>3인칭 중</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>속격</th>
+          <td><span class="gk">ἐμαυτοῦ</span></td>
+          <td><span class="gk">ἐμαυτῆς</span></td>
+          <td><span class="gk">σεαυτοῦ</span></td>
+          <td><span class="gk">σεαυτῆς</span></td>
+          <td><span class="gk">ἑαυτοῦ</span></td>
+          <td><span class="gk">ἑαυτῆς</span></td>
+          <td><span class="gk">ἑαυτοῦ</span></td>
+        </tr>
+        <tr>
+          <th>여격</th>
+          <td><span class="gk">ἐμαυτῷ</span></td>
+          <td><span class="gk">ἐμαυτῇ</span></td>
+          <td><span class="gk">σεαυτῷ</span></td>
+          <td><span class="gk">σεαυτῇ</span></td>
+          <td><span class="gk">ἑαυτῷ</span></td>
+          <td><span class="gk">ἑαυτῇ</span></td>
+          <td><span class="gk">ἑαυτῷ</span></td>
+        </tr>
+        <tr>
+          <th>대격</th>
+          <td><span class="gk">ἐμαυτόν</span></td>
+          <td><span class="gk">ἐμαυτήν</span></td>
+          <td><span class="gk">σεαυτόν</span></td>
+          <td><span class="gk">σεαυτήν</span></td>
+          <td><span class="gk">ἑαυτόν</span></td>
+          <td><span class="gk">ἑαυτήν</span></td>
+          <td><span class="gk">ἑαυτό</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 용례: 요한1서 5:10 <span class="bdg b-exam">교수강조</span></h3>
+    <p><span class="gk">πιστεύει εἰς τὸν υἱὸν τοῦ θεοῦ … ἔχει … ἐν ἑαυτῷ</span></p>
+    <p>"하나님의 아들을 믿는 자는 그 증거를 <b>자기 자신 안에</b> 가지고 있다"</p>
+    <p><span class="gk">ἐν ἑαυτῷ</span> — 3인칭 남성 단수 여격: "자기 자신 안에"</p>
+  </div>
+</section>
+
+<!-- S7 소유 형용사·대명사 -->
+<section class="sec" id="s7">
+  <div class="sh"><span class="sb">07</span><span class="st">소유 형용사·대명사</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>소유 관계 강조</h3>
+    <p>소유 관계를 강조할 때 사용하며, 수식하는 <b>명사의 성·수·격에 일치</b>한다.</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>소유 형용사·대명사</caption>
+      <thead><tr><th>인칭</th><th>남성</th><th>여성</th><th>중성</th><th>뜻</th></tr></thead>
+      <tbody>
+        <tr><th>1인칭 단수</th><td><span class="gk">ἐμός</span></td><td><span class="gk">ἐμή</span></td><td><span class="gk">ἐμόν</span></td><td>나의</td></tr>
+        <tr><th>2인칭 단수</th><td><span class="gk">σός</span></td><td><span class="gk">σή</span></td><td><span class="gk">σόν</span></td><td>너의</td></tr>
+        <tr><th>1인칭 복수</th><td colspan="3"><span class="gk">ἡμέτερος, -α, -ον</span></td><td>우리의</td></tr>
+        <tr><th>2인칭 복수</th><td colspan="3"><span class="gk">ὑμέτερος, -α, -ον</span></td><td>너희의</td></tr>
+        <tr><th>3인칭</th><td><span class="gk">ἴδιος</span></td><td><span class="gk">ἰδία</span></td><td><span class="gk">ἴδιον</span></td><td>자기 자신의</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>용례</h3>
+    <ul>
+      <li><span class="gk">διδάσκω τοὺς ἐμοὺς λόγους</span> — "나는 <b>나 자신의</b> 말들을 가르친다"</li>
+      <li><span class="gk">οὗτος … τὸν ἀδελφὸν τὸν ἴδιον</span> — "이 사람은 <b>그 자신의</b> 형제를 찾는다"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- S8 연습문제 -->
+<section class="sec" id="s8">
+  <div class="sh"><span class="sb">08</span><span class="st">연습문제 — 복원된 문장 + 파싱</span><span class="sl"></span></div>
+
+  <!-- 1 -->
+  <div class="card">
+    <h3>1. <span class="gk">αὐτὸν ἔδειραν καὶ ἀπέστειλαν</span></h3>
+    <ul>
+      <li><span class="gk">ἔδειραν</span> — <span class="gk">δέρω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+      <li><span class="gk">ἀπέστειλαν</span> — <span class="gk">ἀποστέλλω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그들은 그를 <b>때렸고</b> <b>보냈다</b>"</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <h3>2. <span class="gk">ἀπέκτειναν αὐτὸν καὶ ἐξέβαλον αὐτόν</span></h3>
+    <ul>
+      <li><span class="gk">ἀπέκτειναν</span> — <span class="gk">ἀποκτείνω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+      <li><span class="gk">ἐξέβαλον</span> — <span class="gk">ἐκβάλλω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그들은 그를 <b>죽였고</b>, 그를 밖에 <b>던졌다</b>"</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <h3>3. <span class="gk">οὐκ ἔσπειρα;</span></h3>
+    <ul>
+      <li><span class="gk">ἔσπειρα</span> — <span class="gk">σπείρω</span> 직설법 부정과거 능동태 1인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "내가 <b>뿌리지 않았는가</b>?"</p>
+    <div class="sup"><span class="tag">🔎 보충</span> — <span class="gk">σ</span> 탈락, <span class="gk">ει</span>는 원래 길었으므로 유지됨</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <h3>4. <span class="gk">ἀπέστειλεν πρεσβυτέρους τῶν Ἰουδαίων</span></h3>
+    <ul>
+      <li><span class="gk">ἀπέστειλεν</span> — <span class="gk">ἀποστέλλω</span> 직설법 부정과거 능동태 3인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그는 유대인들의 <b>장로들을 보냈다</b>"</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <h3>5. <span class="gk">ἀπήγγειλαν … τῷ Ἰωάννῃ … περὶ τούτων</span></h3>
+    <ul>
+      <li><span class="gk">ἀπήγγειλαν</span> — <span class="gk">ἀπαγγέλλω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그의 제자들이 요한에게 이 일들에 대하여 <b>보고했다</b>"</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <h3>6. <span class="gk">ἀνέτειλεν ὁ ἥλιος</span></h3>
+    <ul>
+      <li><span class="gk">ἀνέτειλεν</span> — <span class="gk">ἀνατέλλω</span> 직설법 부정과거 능동태 3인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "태양이 <b>떠올랐다</b>"</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+    <h3>7. <span class="gk">οὐχὶ … καλὸν σπέρμα ἔσπειρας;</span></h3>
+    <ul>
+      <li><span class="gk">ἔσπειρας</span> — <span class="gk">σπείρω</span> 직설법 부정과거 능동태 <b>2인칭 단수</b> <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "당신은 좋은 씨들을 <b>뿌리지 않으셨습니까</b>?"</p>
+    <div class="emph">
+      <h3>⭐ 교수 정정 <span class="bdg b-exam">교수강조</span></h3>
+      <p>강의 중 1인칭 단수로 언급하였으나, <span class="gk">-ας</span> 어미는 <b>2인칭 단수</b>이다. 교수님이 수정 확인하셨다.</p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <h3>8. <span class="gk">γινώσκεις ὅτι … ἔσπειρα;</span></h3>
+    <ul>
+      <li><span class="gk">γινώσκεις</span> — <span class="gk">γινώσκω</span> 직설법 현재 능동태 2인칭 단수 <span class="bdg b-exam">현재성 2</span></li>
+      <li><span class="gk">ἔσπειρα</span> — <span class="gk">σπείρω</span> 직설법 부정과거 능동태 1인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "너는 내가 <b>뿌리지 않았다</b>는 것을 <b>알고 있는가</b>?"</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <h3>9. <span class="gk">ἤγειραν αὐτόν</span></h3>
+    <ul>
+      <li><span class="gk">ἤγειραν</span> — <span class="gk">ἐγείρω</span> 직설법 부정과거 능동태 3인칭 복수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그들은 그를 <b>일으켰다</b>"</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <h3>10. <span class="gk">ἔμεινεν μετὰ τῶν μαθητῶν</span></h3>
+    <ul>
+      <li><span class="gk">ἔμεινεν</span> — <span class="gk">μένω</span> 직설법 부정과거 능동태 3인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그는 제자들과 함께 <b>머물렀다</b>"</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <h3>11. <span class="gk">παρήγγειλεν αὐτοῖς</span></h3>
+    <ul>
+      <li><span class="gk">παρήγγειλεν</span> — <span class="gk">παραγγέλλω</span> 직설법 부정과거 능동태 3인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
+    </ul>
+    <p>→ "그는 그들에게 <b>명령했다</b>" (cf. 눅 9:21)</p>
+  </div>
+</section>
+
+<!-- S9 출처·검증 -->
+<section class="sec" id="s9">
+  <div class="sh"><span class="sb">09</span><span class="st">출처·검증 요약</span><span class="sl"></span></div>
+
+  <div class="verify">
+    <h3>출처 검증 (Hallucination 0 원칙)</h3>
+    <div class="row">
+      <span class="stat">자료근거 — 기본 태그</span>
+      <span class="stat" style="border-color:rgba(224,123,106,.45);color:var(--red)">⭐ 교수강조 — 시험 출제 가능</span>
+      <span class="stat" style="border-color:rgba(181,123,238,.4);color:var(--purple)">🔎 보충 — 이해 보조</span>
+    </div>
+    <ul>
+      <li><b>강의 자료:</b> 교재 14과 (pp.140–145) — 유음동사 직설법, 재귀대명사, 소유 형용사·대명사</li>
+      <li><b>강의 음성:</b> 헬라어 II 제6강 녹취 스크립트 전문 기반</li>
+      <li><b>3-출처 태깅:</b> 모든 내용은 강의자료 또는 녹취에 근거하며, 교수 강조 사항은 ⭐ 태그, 이해 보조 보충은 🔎 태그로 구분</li>
+      <li><b>헬라어 복원:</b> 녹취 내 한국어 음역을 원어로 정확히 복원 (패러다임 표·연습문제 포함)</li>
+      <li><b>연습문제 #7 정정:</b> 교수님이 <span class="gk">ἔσπειρας</span>를 1인칭으로 언급 후 2인칭 단수(<span class="gk">-ας</span> 어미)로 수정 확인</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  헬라어 II · 6주차 노트 — 안호준 교수 · 한국침례신학대학교 · 2026 여름 계절학기<br>
+  Generated by Lecture Note Builder
+</footer>
+
+</div>
+</body>
+</html>

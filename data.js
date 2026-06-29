@@ -431,7 +431,7 @@ const SITE_DATA = {
             { week: 2, title: "복습2 — 형용사 1·2변화, 전치사·인칭대명사, 동사(1-2) 현재 중·수동, 동사(2) 미완료, 부사(1), 명사 3변화·부정어", date: "2026.06.29", files: [
                 { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week02.html" }
             ] },
-            { week: 3, title: "동사(3-1) 직설법 부정과거 능동·중간", date: "2026.06.30", files: [
+            { week: 3, title: "동사(3-1) — 직설법 부정과거 능동·중간태", date: "2026.06.30", files: [
                 { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
             ] },
             { week: 4, title: "동사(3-2) 부정과거 수동 · 수사 · 부사(2)", date: "2026.06.30", files: [] },
@@ -460,7 +460,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-summer/worship/week01.html" }
           ] },
             { week: 2, title: "예배 기획의 신학적 기초 및 역사 — 예배 정의·성경 속 예배 모델·예배 발전과 역사", date: "", files: [] },
-            { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [] },
+            { week: 3, title: "예배의 구조와 요소 — 구조 이해·각 순서 이해·나의 교회 예배 구조 분석", date: "", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week03.html" }
+          ] },
             { week: 4, title: "예배와 음악 — 순서에 따른 선곡·회중 찬양 이해", date: "", files: [] },
             { week: 5, title: "교회력의 이해와 예배 기획 — 교회력·선곡·절기 예배 기획", date: "", files: [] },
             { week: 6, title: "예배기획 과제 사례 분석 — 영상 통한 예배 분석·종려주일 예배 사례 분석", date: "", files: [] },

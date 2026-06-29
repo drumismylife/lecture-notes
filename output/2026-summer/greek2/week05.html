@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 5주차 단축동사(직설법) · 지시대명사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 5주차 · 2026 여름 계절학기</div>
+  <h1>단축동사(직설법) · 지시대명사</h1>
+  <div class="prof">담당 안호준 교수 · 제5강 (교재 13과, 130~139쪽)</div>
+</div>
+
+<div class="intro">
+  제5강은 <b>주기도문 핵심 동사 분해</b> → <b>13과 어휘</b> → <b>단축동사 6법칙</b> → <b>갈 2:20 본문</b> → <b>지시대명사</b> → <b>연습문제</b>로 구성됩니다.
+  교수님 강조 사항은 <span class="b-exam bdg">교수 강조</span>, 보충은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#obj">학습목표</a>
+  <a href="#review">복습 연결</a>
+  <a href="#lordprayer">주기도문 동사 분해</a>
+  <a href="#vocab">13과 어휘</a>
+  <a href="#contract-rules">단축동사 6법칙</a>
+  <a href="#contract-pres">단축동사 — 직설법 현재</a>
+  <a href="#contract-impf">단축동사 — 미완료·부정과거</a>
+  <a href="#gal220">갈 2:20 본문 분석</a>
+  <a href="#demonst">지시대명사</a>
+  <a href="#exercise">연습문제</a>
+</div>
+
+<!-- 학습목표 -->
+<div class="sec" id="obj">
+  <div class="sh"><span class="sb">목표</span><span class="st">이번 차시 학습목표</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>단축동사의 <b>모음 단축 6법칙</b> 이해</li>
+      <li><span class="gk">α</span>형·<span class="gk">ε</span>형·<span class="gk">ο</span>형 단축동사의 직설법 현재·미완료·부정과거 변화 숙지</li>
+      <li>지시대명사 <span class="gk">οὗτος</span>(이것)과 <span class="gk">ἐκεῖνος</span>(저것)의 어미 변화와 용법 이해</li>
+      <li>주기도문 핵심 동사의 <b>법·시제·태·인칭 분해</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 복습 연결 -->
+<div class="sec" id="review">
+  <div class="sh"><span class="sb">복습</span><span class="st">복습 연결 — 동사상 체계 재확인</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>동사상 현재성 점수 — 파싱 시 반드시 표기</caption>
+    <thead><tr><th>시제 형태</th><th>현재성</th><th>성격</th></tr></thead>
+    <tbody>
+      <tr><td>부정과거</td><td><b>0</b></td><td>디폴트 서술(배경)</td></tr>
+      <tr><td>미완료</td><td><b>1</b></td><td>과거 진행·반복</td></tr>
+      <tr><td>현재</td><td><b>2</b></td><td>두드러진 현재성</td></tr>
+      <tr><td>완료</td><td><b>3</b></td><td>최전방 정보(가장 부각)</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- 주기도문 동사 분해 -->
+<div class="sec" id="lordprayer">
+  <div class="sh"><span class="sb">핵심</span><span class="st">주기도문 핵심 동사 분해 (교재 47~48쪽)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 주기도문 동사를 분해할 수 있어야 한다</h3>
+    <p>교수님이 수업 중 주기도문 본문의 동사 하나하나를 분해. 대부분 <b>명령법</b>(아직 안 배운 형태)이지만, 구조를 미리 파악해두라는 취지.</p>
+  </div>
+  <div class="tw"><table>
+    <caption>주기도문 핵심 동사 분해</caption>
+    <thead><tr><th>헬라어</th><th>기본형</th><th>분석</th><th>해석</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gk">ἁγιασθήτω</td>
+        <td class="gk">ἁγιάζω</td>
+        <td>명령법 부정과거 수동태 3인칭 단수</td>
+        <td>거룩히 여김을 받으소서</td>
+      </tr>
+      <tr>
+        <td class="gk">ἐλθέτω</td>
+        <td class="gk">ἔρχομαι</td>
+        <td>명령법 부정과거 능동태 3인칭 단수</td>
+        <td>오소서 (나라가)</td>
+      </tr>
+      <tr>
+        <td class="gk">γενηθήτω</td>
+        <td class="gk">γίνομαι</td>
+        <td>명령법 부정과거 디포넌트 3인칭 단수</td>
+        <td>이루어지소서 (뜻이)</td>
+      </tr>
+      <tr>
+        <td class="gk">δός</td>
+        <td class="gk">δίδωμι</td>
+        <td>명령법 부정과거 능동태 2인칭 단수</td>
+        <td>주소서 (일용할 양식을)</td>
+      </tr>
+      <tr>
+        <td class="gk">ἄφες</td>
+        <td class="gk">ἀφίημι</td>
+        <td>명령법 부정과거 능동태 2인칭 단수</td>
+        <td>용서하소서 (빚을)</td>
+      </tr>
+      <tr>
+        <td class="gk">ἀφήκαμεν</td>
+        <td class="gk">ἀφίημι</td>
+        <td>직설법 부정과거 능동태 1인칭 복수</td>
+        <td>우리가 용서합니다</td>
+      </tr>
+      <tr>
+        <td class="gk">εἰσενέγκῃς</td>
+        <td class="gk">εἰσφέρω</td>
+        <td>가정법 부정과거 능동태 2인칭 단수</td>
+        <td>인도하지 마소서 (시험에)</td>
+      </tr>
+      <tr>
+        <td class="gk">ῥῦσαι</td>
+        <td class="gk">ῥύομαι</td>
+        <td>명령법 부정과거 능동태 2인칭 단수</td>
+        <td>구하소서 (악에서)</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3>주기도문 신학적 함의 <span class="b-exam bdg">교수 강조</span></h3>
+    <ul>
+      <li><span class="gk">βασιλεία</span>(나라): 단순한 영토가 아니라 <b>왕이 통치하시는 것</b>. 하나님 나라 = 하나님이 왕이 되어 통치 → <b>소유권과 사용권의 이전</b> (양용인 교수).</li>
+      <li>"일용할 양식" 기도: 소유권·사용권을 넘겨드린 <b>가난한 자의 상태</b>에서만 드릴 수 있는 기도.</li>
+      <li>"우리 빚을 탕감하소서": <span class="gk">ὀφειλήματα</span>(빚들) — 하나님 앞에 1만 달란트 탕감받은 자가 100데나리온 빚진 자를 용서하는 원리.</li>
+      <li><span class="gk">ἀφήκαμεν</span>: 유일하게 <b>직설법</b>(나머지는 전부 명령법/가정법) — "우리가 (이미) 용서합니다"는 <b>사실 진술</b>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 어휘 -->
+<div class="sec" id="vocab">
+  <div class="sh"><span class="sb">13과</span><span class="st">어휘 (교재 130쪽)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>13과 새 단어 <span class="b-exam bdg">암기</span></caption>
+    <thead><tr><th>헬라어</th><th>음역</th><th>발음</th><th>뜻</th></tr></thead>
+    <tbody>
+      <tr><td class="gk">ἀγαπάω</td><td>agapaō</td><td>아가파오</td><td>사랑하다</td></tr>
+      <tr><td class="gk">δικαιόω</td><td>dikaioō</td><td>디카이오오</td><td>의롭다 인정하다, 의롭게 하다</td></tr>
+      <tr><td class="gk">δοχή</td><td>dochē</td><td>도케</td><td>잔치</td></tr>
+      <tr><td class="gk">ζάω</td><td>zaō</td><td>자오</td><td>살다</td></tr>
+      <tr><td class="gk">θανατόω</td><td>thanatoō</td><td>타나토오</td><td>죽이다</td></tr>
+      <tr><td class="gk">θαυμάζω</td><td>thaumazō</td><td>타우마조</td><td>놀라다</td></tr>
+      <tr><td class="gk">καλέω</td><td>kaleō</td><td>칼레오</td><td>부르다</td></tr>
+      <tr><td class="gk">λαλέω</td><td>laleō</td><td>랄레오</td><td>말하다</td></tr>
+      <tr><td class="gk">οἰκοδομέω</td><td>oikodomeō</td><td>오이코도메오</td><td>건축하다</td></tr>
+      <tr><td class="gk">ὅμοιος</td><td>homoios</td><td>호모이오스</td><td>같은, 동일한</td></tr>
+      <tr><td class="gk">ὁμολογέω</td><td>homologeō</td><td>호몰로게오</td><td>공개적으로 고백하다</td></tr>
+      <tr><td class="gk">πλανάω</td><td>planaō</td><td>플라나오</td><td>속이다</td></tr>
+      <tr><td class="gk">πληρόω</td><td>plēroō</td><td>플레로오</td><td>채우다, 성취하다</td></tr>
+      <tr><td class="gk">ποιέω</td><td>poieō</td><td>포이에오</td><td>행하다</td></tr>
+      <tr><td class="gk">προσκυνέω</td><td>proskyneō</td><td>프로스퀴네오</td><td>예배하다, 입맞추다(엎드림)</td></tr>
+      <tr><td class="gk">τηρέω</td><td>tēreō</td><td>테레오</td><td>지키다</td></tr>
+      <tr><td class="gk">τιμάω</td><td>timaō</td><td>티마오</td><td>존경하다</td></tr>
+      <tr><td class="gk">φιλέω</td><td>phileō</td><td>필레오</td><td>사랑하다(우정적)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3><span class="gk">πληρόω</span> — 채우다 + 성취하다 <span class="b-exam bdg">교수 강조</span></h3>
+    <p>① <b>채우다</b>: 컵에 물을 꽉 채우는 물리적 이미지. ② <b>성취하다</b>: 구약의 메시아 예언이 꽉 차서 임계점에 도달 → 예수 그리스도께서 오셔서 이루시는 것. 두 의미 모두 중요.</p>
+  </div>
+  <div class="card">
+    <h3><span class="gk">ἀγαπάω</span> vs <span class="gk">φιλέω</span></h3>
+    <p>전통적으로 <span class="gk">ἀγαπάω</span>=무조건적 사랑, <span class="gk">φιλέω</span>=우정의 사랑으로 구분해왔으나, 동일 문맥에서 <b>혼용</b>되기도 하므로 최근 학자들은 의미를 상당 부분 공유하는 것으로 보는 경향도 있다.</p>
+  </div>
+</div>
+
+<!-- 단축동사 6법칙 -->
+<div class="sec" id="contract-rules">
+  <div class="sh"><span class="sb">13과</span><span class="st">단축동사 — 모음 단축 6법칙 (교재 130~131쪽)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>단축동사</b>란: 동사 어간의 마지막 모음(<span class="gk">α, ε, ο</span>)이 어미의 모음과 만나 <b>하나로 단축(축약)</b>되는 동사. 대표: <span class="gk">τιμάω</span>(α형), <span class="gk">φιλέω</span>(ε형), <span class="gk">πληρόω</span>(ο형).</p>
+  </div>
+  <div class="tw"><table>
+    <caption>단축동사 모음 단축 6법칙</caption>
+    <thead><tr><th>법칙</th><th>규칙</th><th>예시</th></tr></thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td style="text-align:left"><span class="gk">α/ε</span>가 <span class="gk">ι</span>나 <span class="gk">υ</span>와 만나면 → <b>이중모음 처리</b>(단축 아님)</td>
+        <td><span class="gk">γίνομαι, λύομαι</span></td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td style="text-align:left"><b>같은 모음끼리</b> → 장음화: <span class="gk">α+α→ᾱ</span>, <span class="gk">ε+ε→ει</span>, <span class="gk">ο+ο→ου</span></td>
+        <td><span class="gk">φιλέω → φιλεῖ</span> (ε+ει→εῖ)</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td style="text-align:left"><span class="gk">ο</span>가 <b><span class="gk">ε</span> 계통</b>을 만나면 → <span class="gk">ου</span></td>
+        <td><span class="gk">πληρόω → πληροῦ(μεν)</span></td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td style="text-align:left"><span class="gk">α+ε→ᾱ</span>, <span class="gk">ε+α→η</span> — 먼저 나온 모음이 우선권</td>
+        <td><span class="gk">τιμάω → τιμᾷ</span></td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td style="text-align:left">어간 모음 뒤 이중모음의 <b>첫 모음과 같으면</b> → 어간 모음 탈락, 이중모음 유지</td>
+        <td><span class="gk">φιλέω+ει → φιλεῖ</span></td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td style="text-align:left">이중모음의 첫 모음과 <b>다르면</b> → 두 모음 먼저 단축 + 나머지 <span class="gk">ι</span>는 하기(<span class="gk">ͅ</span>), 다른 모음이면 탈락</td>
+        <td><span class="gk">τιμάω+εις → τιμᾷς</span> (α+ε→ᾱ, ι 하기)</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3>예외</h3>
+    <ul>
+      <li><span class="gk">ο+η → ω</span> (예상과 달리 <span class="gk">ου</span>가 아님)</li>
+      <li><span class="gk">ο+ῃ → οῖ</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 단축동사 직설법 현재 -->
+<div class="sec" id="contract-pres">
+  <div class="sh"><span class="sb">13과</span><span class="st">단축동사 — 직설법 현재 변화 (교재 131~134쪽)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>α형 <span class="gk">τιμάω</span>(존경하다) — 직설법 현재 능동태</caption>
+    <thead><tr><th>인칭</th><th>원형</th><th>단축형</th></tr></thead>
+    <tbody>
+      <tr><th>1단</th><td class="gk">τιμά-ω</td><td class="gk">τιμῶ</td></tr>
+      <tr><th>2단</th><td class="gk">τιμά-εις</td><td class="gk">τιμᾷς</td></tr>
+      <tr><th>3단</th><td class="gk">τιμά-ει</td><td class="gk">τιμᾷ</td></tr>
+      <tr><th>1복</th><td class="gk">τιμά-ομεν</td><td class="gk">τιμῶμεν</td></tr>
+      <tr><th>2복</th><td class="gk">τιμά-ετε</td><td class="gk">τιμᾶτε</td></tr>
+      <tr><th>3복</th><td class="gk">τιμά-ουσι</td><td class="gk">τιμῶσι</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tw"><table>
+    <caption>ε형 <span class="gk">φιλέω</span>(사랑하다) — 직설법 현재 능동태</caption>
+    <thead><tr><th>인칭</th><th>원형</th><th>단축형</th></tr></thead>
+    <tbody>
+      <tr><th>1단</th><td class="gk">φιλέ-ω</td><td class="gk">φιλῶ</td></tr>
+      <tr><th>2단</th><td class="gk">φιλέ-εις</td><td class="gk">φιλεῖς</td></tr>
+      <tr><th>3단</th><td class="gk">φιλέ-ει</td><td class="gk">φιλεῖ</td></tr>
+      <tr><th>1복</th><td class="gk">φιλέ-ομεν</td><td class="gk">φιλοῦμεν</td></tr>
+      <tr><th>2복</th><td class="gk">φιλέ-ετε</td><td class="gk">φιλεῖτε</td></tr>
+      <tr><th>3복</th><td class="gk">φιλέ-ουσι</td><td class="gk">φιλοῦσι</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tw"><table>
+    <caption>ο형 <span class="gk">πληρόω</span>(채우다) — 직설법 현재 능동태</caption>
+    <thead><tr><th>인칭</th><th>원형</th><th>단축형</th></tr></thead>
+    <tbody>
+      <tr><th>1단</th><td class="gk">πληρό-ω</td><td class="gk">πληρῶ</td></tr>
+      <tr><th>2단</th><td class="gk">πληρό-εις</td><td class="gk">πληροῖς</td></tr>
+      <tr><th>3단</th><td class="gk">πληρό-ει</td><td class="gk">πληροῖ</td></tr>
+      <tr><th>1복</th><td class="gk">πληρό-ομεν</td><td class="gk">πληροῦμεν</td></tr>
+      <tr><th>2복</th><td class="gk">πληρό-ετε</td><td class="gk">πληροῦτε</td></tr>
+      <tr><th>3복</th><td class="gk">πληρό-ουσι</td><td class="gk">πληροῦσι</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3>악센트 규칙</h3>
+    <p>단축 과정에서 원래 악센트 위치가 단축된 음절에 포함되면 → <b>곡절 악센트(서컴플렉스 ˆ)</b>로 변환.</p>
+    <p>예: <span class="gk">φιλέ-ομεν → φιλοῦμεν</span></p>
+  </div>
+</div>
+
+<!-- 미완료·부정과거 -->
+<div class="sec" id="contract-impf">
+  <div class="sh"><span class="sb">13과</span><span class="st">단축동사 — 미완료·부정과거 (교재 134~137쪽)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>미완료 과거</h3>
+    <p><span class="gk">ἐ-</span>(어두 증가) + 어간 + <span class="gk">-ον/-ες/-ε(ν)…</span> — 어간 모음과 어미 모음이 단축.</p>
+    <p>예: <span class="gk">τιμάω</span> 미완료 = <span class="gk">ἐτίμων, ἐτίμας, ἐτίμα…</span> (α+ο→ω, α+ε→α…)</p>
+  </div>
+  <div class="card">
+    <h3>부정과거 — 어간 모음 장음화</h3>
+    <p>제1부정과거에서 <span class="gk">σ</span> 앞의 어간 모음이 <b>장음화</b>됨:</p>
+    <ul>
+      <li><span class="gk">α → η</span>: <span class="gk">τιμάω → ἐτίμησα</span></li>
+      <li><span class="gk">ε → η</span>: <span class="gk">φιλέω → ἐφίλησα</span></li>
+      <li><span class="gk">ο → ω</span>: <span class="gk">πληρόω → ἐπλήρωσα</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 갈라디아서 2:20 -->
+<div class="sec" id="gal220">
+  <div class="sh"><span class="sb">본문</span><span class="st">갈라디아서 2:20 — 단축동사 적용</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — "대단히 중요합니다. 꼭 외워주시기 바랍니다!"</h3>
+    <p><span class="gk">ζῶ δὲ οὐκέτι ἐγώ, ζῇ δὲ ἐν ἐμοὶ Χριστός</span></p>
+    <p>"내가 더 이상 살지 않고, 내 안에 그리스도가 사신다"</p>
+  </div>
+  <div class="tw"><table>
+    <caption>갈 2:20 동사 분해</caption>
+    <thead><tr><th>동사</th><th>기본형</th><th>분석</th><th>해석</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="gk">ζῶ</td>
+        <td class="gk">ζάω</td>
+        <td>직설법 현재 능동태 1인칭 단수 <b>(2)</b></td>
+        <td>나는 살다 (<span class="gk">α+ω→ῶ</span> 단축)</td>
+      </tr>
+      <tr>
+        <td class="gk">ζῇ</td>
+        <td class="gk">ζάω</td>
+        <td>직설법 현재 능동태 3인칭 단수 <b>(2)</b></td>
+        <td>그가 산다 (<span class="gk">α+ει→ᾷ→ῇ</span>)</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p><span class="gk">οὐκέτι</span> = "더 이상 ~않는다". 나는 더 이상 살지 않는다 — 그리스도가 사신다.</p>
+    <p>교수님: "내 안에 진짜 주인으로, 나를 움직이고 있는 주체로 계신 그리스도. 하나님의 왕되심, <span class="gk">βασιλεία</span> 사상과 깊이 연결되어 있다."</p>
+  </div>
+</div>
+
+<!-- 지시대명사 -->
+<div class="sec" id="demonst">
+  <div class="sh"><span class="sb">13과</span><span class="st">지시대명사 — <span class="gk">οὗτος</span>(이것) · <span class="gk">ἐκεῖνος</span>(저것)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>근칭</b> <span class="gk">οὗτος, αὕτη, τοῦτο</span> = 이것, 이 사람</li>
+      <li><b>원칭</b> <span class="gk">ἐκεῖνος, ἐκείνη, ἐκεῖνο</span> = 저것, 저 사람</li>
+      <li>어미 변화는 <b>형용사 1·2변화</b>와 동일</li>
+    </ul>
+  </div>
+  <div class="tw"><table>
+    <caption>지시대명사 <span class="gk">οὗτος</span> 변화 (남성·여성·중성)</caption>
+    <thead><tr><th>격</th><th>남성</th><th>여성</th><th>중성</th></tr></thead>
+    <tbody>
+      <tr><th>주격 단</th><td class="gk">οὗτος</td><td class="gk">αὕτη</td><td class="gk">τοῦτο</td></tr>
+      <tr><th>속격 단</th><td class="gk">τούτου</td><td class="gk">ταύτης</td><td class="gk">τούτου</td></tr>
+      <tr><th>여격 단</th><td class="gk">τούτῳ</td><td class="gk">ταύτῃ</td><td class="gk">τούτῳ</td></tr>
+      <tr><th>대격 단</th><td class="gk">τοῦτον</td><td class="gk">ταύτην</td><td class="gk">τοῦτο</td></tr>
+      <tr><th>주격 복</th><td class="gk">οὗτοι</td><td class="gk">αὗται</td><td class="gk">ταῦτα</td></tr>
+      <tr><th>속격 복</th><td class="gk">τούτων</td><td class="gk">τούτων</td><td class="gk">τούτων</td></tr>
+      <tr><th>여격 복</th><td class="gk">τούτοις</td><td class="gk">ταύταις</td><td class="gk">τούτοις</td></tr>
+      <tr><th>대격 복</th><td class="gk">τούτους</td><td class="gk">ταύτας</td><td class="gk">ταῦτα</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <h3>용법</h3>
+    <ul>
+      <li><b>한정적(관용적)</b>: <span class="gk">οὗτος ὁ λόγος</span> = "이 말씀"</li>
+      <li><b>독립적</b>: <span class="gk">οὗτος</span> = "이 남자/이 사람", <span class="gk">αὕτη</span> = "이 여자", <span class="gk">τοῦτο</span> = "이것"</li>
+      <li><span class="gk">ἐκεῖνος</span> 계열: "저 남자", "저것" 등 — 원거리 지시</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 연습문제 -->
+<div class="sec" id="exercise">
+  <div class="sh"><span class="sb">연습</span><span class="st">연습문제 (교재 139쪽)</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>1번 (요 4:27)</h3>
+    <p><span class="gk">μετὰ γυναικὸς ἐλάλει</span></p>
+    <p>"그는 여자와 함께 말하고 있었다"</p>
+    <ul>
+      <li><span class="gk">ἐλάλει</span> ← <span class="gk">λαλέω</span>, 직설법 미완료 능동태 3인칭 단수 <b>(1)</b></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>2번 (계 1:5)</h3>
+    <p><span class="gk">ἠγάπα ἡμᾶς καὶ ἔλυεν ἡμᾶς ἐκ τῶν ἁμαρτιῶν ἡμῶν ἐν τῷ αἵματι αὐτοῦ</span></p>
+    <p>"그는 우리를 사랑하고 계셨고, 그의 피로써 우리의 죄로부터 우리를 풀어주고 계셨다"</p>
+    <ul>
+      <li><span class="gk">ἠγάπα</span> ← <span class="gk">ἀγαπάω</span>, 직설법 미완료 능동태 3인칭 단수 <b>(1)</b> — <span class="gk">α+ε→α</span> 단축</li>
+      <li><span class="gk">ἔλυεν</span> ← <span class="gk">λύω</span>, 직설법 미완료 능동태 3인칭 단수 <b>(1)</b></li>
+      <li><span class="gk">ἐν τῷ αἵματι</span> = "그의 피 안에서" → <b>수단의 여격</b> = "피<b>로써</b>"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>3번 (갈 2:16)</h3>
+    <p><span class="gk">δικαιοῦται ἄνθρωπος διὰ πίστεως Ἰησοῦ Χριστοῦ … ἐπιστεύσαμεν εἰς Χριστὸν Ἰησοῦν</span></p>
+    <p>"사람은 예수 그리스도를 믿는 믿음을 통해 의롭다 하심을 받는다 … 우리도 그리스도 예수를 믿었다"</p>
+    <ul>
+      <li><span class="gk">δικαιοῦται</span> ← <span class="gk">δικαιόω</span>, 직설법 현재 수동태 3인칭 단수 <b>(2)</b> — <span class="gk">ο+ε→ου</span> 단축</li>
+      <li><span class="gk">ἐπιστεύσαμεν</span> ← <span class="gk">πιστεύω</span>, 직설법 부정과거 능동태 1인칭 복수 <b>(0)</b></li>
+      <li><span class="gk">πίστεως Ἰησοῦ Χριστοῦ</span>: "예수 그리스도를 믿는 믿음" 또는 "예수 그리스도의 신실함" — 속격의 이중 해석 가능 <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>4번 (요 4:21)</h3>
+    <p><span class="gk">προσκυνήσετε τῷ πατρί</span></p>
+    <p>"너희는 아버지께 경배하리라"</p>
+    <ul>
+      <li><span class="gk">προσκυνήσετε</span> ← <span class="gk">προσκυνέω</span>, 직설법 미래 능동태 2인칭 복수 <b>(0)</b></li>
+      <li><span class="gk">ε→η</span> 장음화 + 미래 시그마. 미래도 부정과거처럼 현재성 0. <span class="b-exam bdg">교수 강조</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--blue)">자료근거(제5강 영상 자막) · 본문 전반</span>
+    <span class="stat" style="color:var(--red)">교수 강조 · 7건</span>
+    <span class="stat" style="color:var(--purple)">보충 · 0건</span>
+  </div>
+  <p>· <b>자료근거</b>: 제5강(교재 13과, 130~139쪽) 영상 자막 정리. 주기도문 동사 분해 + 13과 단축동사·지시대명사.</p>
+  <p>· <b>교수 강조</b>: ① 주기도문 동사 분해·신학적 함의(βασιλεία·소유권 이전·가난한 자 기도) ② 갈 2:20 암기 ③ <span class="gk">πληρόω</span> 이중 의미 ④ 미래도 현재성 0 ⑤ <span class="gk">πίστεως Ἰησοῦ Χριστοῦ</span> 속격 이중 해석 ⑥ <span class="gk">ἀφήκαμεν</span> 유일한 직설법 ⑦ <span class="gk">ἀποκρίνομαι</span> 수동형태+능동의미(4주차 이어짐).</p>
+  <ul>
+    <li><b>확인 필요</b>: 단축동사 전체 변화표(143쪽), ο형 중간수동태 세부는 교재로 최종 확인 권장. 자동자막 특성상 일부 형태 부정확 가능.</li>
+  </ul>
+</div>
+
+<div class="foot">헬라어 II 5주차 · 안호준 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

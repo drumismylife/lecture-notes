@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예배기획 3주차 — 예배의 구조와 순서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0c18; --card:#181428; --sub:#221c38; --gold:#d4b15a; --accent:#8a7fce;
+  --accent2:#b3a6e6; --rose:#d98aa8; --teal:#6ab8c8; --green:#7ab87a;
+  --text:#ece8f5; --muted:#a09bb5; --hint:#6f6a85; --border:#322a4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0b0914,#181428 60%,#211a36)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--sub)}
+.sec{margin:26px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0e0c18;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.08rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.k{color:var(--gold);font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:13px}
+th,td{padding:7px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--sub);color:var(--gold);font-size:12px;white-space:nowrap}
+.wn{text-align:center;color:var(--accent);font-weight:600;width:40px}
+tr:hover td{background:rgba(138,127,206,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-prof{background:rgba(217,138,168,.16);color:var(--rose);border:1px solid rgba(217,138,168,.45)}
+.b-sup{background:rgba(106,184,200,.14);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.emph{background:linear-gradient(180deg,rgba(217,138,168,.08),transparent);border:1px solid rgba(217,138,168,.3);border-left:3px solid var(--rose);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--rose);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+.verse{background:var(--sub);border:1px solid var(--border);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:13.5px;color:var(--accent2);font-family:'Noto Serif KR',serif;line-height:1.85}
+.verify{background:var(--sub);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+/* flow diagram */
+.flow{display:flex;align-items:center;gap:0;margin:12px 0;flex-wrap:wrap;justify-content:center}
+.flow-step{background:var(--sub);border:1px solid var(--border);border-radius:8px;padding:8px 14px;text-align:center;font-size:12.5px;font-weight:600;color:var(--accent2);min-width:90px}
+.flow-arr{color:var(--gold);font-size:18px;padding:0 4px}
+@media(max-width:560px){.flow-step{min-width:70px;padding:6px 8px;font-size:11.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예배기획 · 3주차 · 2026 여름 계절학기</div>
+  <h1>예배의 구조와 순서</h1>
+  <div class="prof">담당 김은영 교수 · 온라인(LMS) 영상 강의</div>
+</div>
+
+<div class="intro">
+  이 노트는 <b>3주차 강의 영상(1·2교시)</b>과 <b>유인물(3주차 예배 구조와 순서)</b>을 종합 정리한 것입니다.
+  교수님이 특히 강조한 부분은 <span class="b-prof bdg">교수 강조</span>,
+  강의에 없어 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다.
+</div>
+
+<div class="toc">
+  <a href="#principle">구조의 원리</a>
+  <a href="#four">4중 구조</a>
+  <a href="#five">5중 구조</a>
+  <a href="#modern">현대 예배학자 구조</a>
+  <a href="#bulletin">주보에 나타난 구조</a>
+  <a href="#order">예배 순서의 의미</a>
+  <a href="#analysis">구조 분석 실습</a>
+  <a href="#apply">기획 적용 포인트</a>
+</div>
+
+<!-- 1 구조의 원리 -->
+<div class="sec" id="principle">
+  <div class="sh"><span class="sb">1</span><span class="st">예배 구조의 원리 — 순서 나열이 아니라 스토리</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>예배학자들의 구조 원리</h3>
+    <ul>
+      <li><b>김소영</b>(『현대예배학개론』): 예배의 제 요소를 분산시키지 않고 <span class="k">유기적 통일성</span>을 가지고 성경적·논리적으로 잘 배열하여 "예수 그리스도를 통한 하나님과 예배자의 만남"을 구현해야 한다.</li>
+      <li><b>김성대</b>(『예수는 테너일까 베이스일까』): 예배는 <span class="k">물 흐르듯이 흐르는 스토리</span>가 있어야 한다. 하나님께 올려 드리고(찬양·기도·봉헌), 하나님으로부터 받는(성경·설교·성만찬·축도) <b>상하 수직적</b>으로 주고받는 스토리가 이어지는 <b>작품</b>.</li>
+      <li><b>침례교회 목회 매뉴얼</b>: 예배는 통상 정해진 순서가 있고 담당자와 약간의 내용을 바꾸는 방식으로 진행. <span class="k">역동성과 다양성</span> 증진을 위해 창의력 발휘.</li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 예배 vs. 집회의 구조적 차이</h3>
+    <p><b>예배</b>는 <span class="k">수직적</span>(하나님으로부터 내려오고, 우리가 하나님께 올려 드리는) 구조. <b>집회</b>는 <span class="k">수평적</span>(전도·기도·교제 등 성도를 향하는) 성격. 이 구분이 예배 기획의 핵심이다.</p>
+  </div>
+</div>
+
+<!-- 2 4중 구조 -->
+<div class="sec" id="four">
+  <div class="sh"><span class="sb">2</span><span class="st">전통적 4중 구조 — 모임 · 말씀 · 성찬 · 파송</span><div class="sl"></div></div>
+  <div class="flow">
+    <div class="flow-step">모임<br><small>하나님이 부르심</small></div><span class="flow-arr">→</span>
+    <div class="flow-step">말씀<br><small>말씀을 주심</small></div><span class="flow-arr">→</span>
+    <div class="flow-step">성찬<br><small>성찬으로 응답</small></div><span class="flow-arr">→</span>
+    <div class="flow-step">파송<br><small>세상으로 파송</small></div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3>제임스 화이트 — 고대 교회 기준</h3>
+      <ul>
+        <li><b>Gathering</b>: 예배로의 부름, 찬송, 기도</li>
+        <li><b>Service of the Word</b>: 성경 봉독, 설교</li>
+        <li><b>Service of the Table</b>: 성찬</li>
+        <li><b>Dismissal</b>: 축도, 파송</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>로버트 웨버 — 구원사적 관점</h3>
+      <ul>
+        <li><b>Gathering</b>: 하나님이 백성을 부르심</li>
+        <li><b>Word</b>: 하나님이 말씀하심</li>
+        <li><b>Response</b>: 백성이 응답함 — 헌금, 결단 찬송, 성찬</li>
+        <li><b>Sending</b>: 세상으로 파송함</li>
+      </ul>
+      <p style="margin-top:6px">웨버는 성찬 대신 <span class="k">"응답"</span>이라는 넓은 범주를 사용 — 헌금·결단 찬송도 포함.</p>
+    </div>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 파송의 의미를 되살려라</h3>
+    <p>현대 교회에서 <b>파송의 개념이 많이 약화</b>되었다. 축도 이후 후주를 "배경 음악"으로 생각하기 쉽지만, 그때가 바로 <b>파송의 순간</b>. 우리는 예배를 마치고 일주일간의 사역을 위해 <b>파송받는 존재</b>. 이것을 성도들에게 알려준다면 예배당을 나서는 발걸음에 책임감이 더해질 것.</p>
+  </div>
+  <div class="sup">
+    <span class="tag">🔎 보충</span> — 가톨릭 미사도 동일한 4중 구조: 시작 예식(Introductory Rites) → 말씀 전례(Liturgy of the Word) → 성찬 전례(Liturgy of the Eucharist) → 마침 예식(Concluding Rites). 5세기 이후 확립. 강의에서 명동성당(구조 미표기)과 성공회 성당(구조 표기) 주보 비교 사례 제시.
+  </div>
+</div>
+
+<!-- 3 5중 구조 -->
+<div class="sec" id="five">
+  <div class="sh"><span class="sb">3</span><span class="st">5중 구조 — 정결(회개)의 순서 추가</span><div class="sl"></div></div>
+  <div class="flow">
+    <div class="flow-step">모임</div><span class="flow-arr">→</span>
+    <div class="flow-step" style="border-color:var(--rose)">정결</div><span class="flow-arr">→</span>
+    <div class="flow-step">말씀</div><span class="flow-arr">→</span>
+    <div class="flow-step">응답</div><span class="flow-arr">→</span>
+    <div class="flow-step">파송</div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3>브라이언 체플 (Bryan Chapell)</h3>
+      <p>언약 갱신·복음 중심</p>
+      <ul>
+        <li>God <b>Calls</b> Us (부르심)</li>
+        <li>God <b>Cleanses</b> Us (정결케 하심)</li>
+        <li>God <b>Consecrates</b> Us (말씀)</li>
+        <li>God <b>Communes</b> with Us (응답)</li>
+        <li>God <b>Commissions</b> Us (파송)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>컨스턴스 체리 (Constance Cherry)</h3>
+      <p>『The Worship Architect』</p>
+      <ul>
+        <li><b>Entrance</b> (모임)</li>
+        <li><b>Proclamation</b> (선포)</li>
+        <li><b>Response</b> (응답)</li>
+        <li><b>Table</b> (성찬)</li>
+        <li><b>Sending</b> (파송)</li>
+      </ul>
+      <p style="margin-top:4px">체리는 예배 구조를 <span class="k">건축(architecture)</span>에 비유 — 기초·기둥·벽·지붕처럼 유기적 구성.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p>장로교·성결교 등에서 <span class="k">죄의 고백과 사죄의 확신</span>을 반드시 넣는 경향. 정결 순서 포함 시 5중 구조가 됨. 성찬 없는 개신교 예배는 실질적으로 <b>3중 구조</b>(모임·말씀·파송)가 될 수도 있음.</p>
+  </div>
+</div>
+
+<!-- 4 현대 예배학자 구조 -->
+<div class="sec" id="modern">
+  <div class="sh"><span class="sb">4</span><span class="st">현대 예배학자들의 구조 비교</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>학자 / 출처</th><th>구조</th><th>특징</th></tr></thead>
+    <tbody>
+      <tr><td><b>김소영</b><br>『현대예배학개론』</td><td>계회 → 말씀의 선포 → 감사의 응답</td><td>3부 구조. 계회에 너무 많은 순서 포함이라는 비판</td></tr>
+      <tr><td><b>정장복</b><br>『예배의 신학』</td><td>예배로 나아감 → 찬미와 고백 → 말씀의 선포 → 감사와 응답 → 오늘의 위탁과 강복</td><td>장로교단 정서 반영. 봉헌을 "감사와 응답"에 배치했으나, "찬미와 고백" 쪽이 더 적절하다는 반론 있음</td></tr>
+      <tr><td><b>침례교회 목회 매뉴얼 ①</b></td><td>예배로 나아감 → 말씀 선포 → 응답 → (주의 만찬) → 파송</td><td>성경 낭독을 2회 배치: 예전적 낭독(모임)과 설교 본문 낭독(말씀). 성가대 찬양 = "음악적 메시지 선포"</td></tr>
+      <tr><td><b>침례교회 목회 매뉴얼 ②</b><br>이사야 6장 모델</td><td>계시와 인식 → 영광 찬양 → 반성과 자백 → 사죄와 감사 → 말씀과 초청 → 응답과 헌신 → (주님의 만찬) → 파송과 축복</td><td>매우 세분화된 구조</td></tr>
+      <tr><td><b>이정희</b><br>『기독교 예식 매뉴얼』</td><td>찬양의 예배 → 기도의 예배 → 선포의 예배 → 응답의 예배</td><td>4부 구조. 찬양·기도·선포·응답이라는 기능별 제목</td></tr>
+    </tbody>
+  </table></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 구조의 "제목"이 내용을 결정한다</h3>
+    <p>같은 순서(예: 기도)라도 <b>어느 구조 안에 있느냐</b>에 따라 내용이 달라져야 한다. "예배 기도"(모임 구조)는 예배를 위한 기도이고, "중보 기도"(찬미와 고백 구조)는 교회·나라·성도를 위한 기도. <b>순서가 어디에 있느냐가 그 순서의 의미를 규정</b>한다.</p>
+  </div>
+</div>
+
+<!-- 5 주보에 나타난 구조 -->
+<div class="sec" id="bulletin">
+  <div class="sh"><span class="sb">5</span><span class="st">주보(Bulletin)에 나타난 예배 구조</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>미국 교회 주보의 특징</h3>
+    <ul>
+      <li>교단(침례·감리·장로)을 막론하고 대부분 <b>예배 구조의 큰 제목</b>을 주보에 표기</li>
+      <li>주보 = 상세한 <b>예배 안내서(프로그램)</b> 역할. 주기도문·교독문 등 문구도 수록</li>
+      <li>주보 구조 제목이 <b>매주 바뀌기도</b> 함 — 절기나 주제에 따라 유연하게 변경</li>
+    </ul>
+    <p style="margin-top:8px"><b>포트워스 제일연합감리교회 주보</b>: <span class="k">We Gather</span>(모임) → <span class="k">We Proclaim</span>(선포) → <span class="k">We Respond</span>(응답)</p>
+    <p><b>디트로이트 제일침례교회 주보 ①</b>: Gathering of the Church → Ministry of the Word → Ministry of Stewardship → (파송)</p>
+    <p><b>디트로이트 제일침례교회 주보 ②</b>: "하나님의 임재 앞에 모임" → "기도를 통해 하나님을 구함" → "하나님의 말씀을 들음" → 파송</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 주보 제목의 순작용</h3>
+    <p>"하나님의 임재 앞에 모임", "하나님의 말씀을 들음" — 이런 <b>구조 제목만 봐도 은혜</b>가 된다. 주보를 통해 성도들이 지금 이 순서가 <b>무엇을 위한 것인지</b>를 자연스럽게 알게 된다. 프린트 주보도 좋은 방법 — 언제든 구조와 변화를 줄 수 있는 장점.</p>
+  </div>
+</div>
+
+<!-- 6 예배 순서의 의미 -->
+<div class="sec" id="order">
+  <div class="sh"><span class="sb">6</span><span class="st">예배 순서 하나하나의 의미 (2교시)</span><div class="sl"></div></div>
+
+  <div class="tw"><table>
+    <thead><tr><th>순서</th><th>담당</th><th>의미와 유의사항</th></tr></thead>
+    <tbody>
+      <tr><td><b>전주</b></td><td>연주자</td><td>예배를 위해 마음을 준비하는 시간</td></tr>
+      <tr><td><b>입례</b></td><td>예배 위원</td><td>예배 위원(목회자·기도자·성가대)의 입장. 우리가 하나님 앞으로 나아오는 마음가짐을 <b>상징적으로</b> 보여줌. 적절한 찬양: <b>예배 찬송</b> 또는 <b>절기 찬송</b>, 임재 찬양("하늘의 문을 여소서", "예배합니다" 등)</td></tr>
+      <tr><td><b>예배로의 부름</b></td><td>인도자</td><td>찬송가 표지 안쪽의 "예배 전에 묵상" 성경 구절들(요 4:24 등). 인도자가 낭독하거나, 회중이 함께 선포하는 형태도 가능</td></tr>
+      <tr><td><b>기원</b></td><td>인도자</td><td><span class="k">예배를 위한 기원</span>. 기도와 다름! 핵심 단어는 "예배". 아픈 자·교회 어려움 등은 여기가 아니라 중보 기도에서</td></tr>
+      <tr><td><b>찬양과 경배의 찬송</b></td><td>다같이</td><td>삼위일체 하나님을 <b>찬양</b>하는 찬송. 성부·성자·성령 찬양 또는 절기 찬송이 적절. "전도합시다", "기도합시다" 류는 여기에 부적합</td></tr>
+      <tr><td><b>죄의 고백</b></td><td>다같이</td><td>하나님 앞에 예배드리기에 적합한 모습이 되기 위해 <b>침묵 기도</b>로 고백. "하나님과 나만이 아는 죄"이므로 통성 기도보다 묵기도가 적합. 음악은 잔잔하거나 없어도 됨</td></tr>
+      <tr><td><b>사죄의 확신/선언</b></td><td>인도자</td><td>성경 말씀으로 죄사함을 확신시킴</td></tr>
+      <tr><td><b>영광송</b></td><td>다같이</td><td>죄 사하여 주신 하나님께 영광. Gloria Patri</td></tr>
+      <tr><td><b>중보 기도</b></td><td>담당자</td><td>교회 필요·나라·성도를 위한 기도. 기도송: <b>기도와 간구 내용</b>의 찬송이 적절("주님의 뜻을 이루소서", "겸손히 주를 섬길 때", "주님 마음 내게 주소서" 등). "나 같은 죄인 살리신"은 기도 응답 찬송으로 부적절</td></tr>
+      <tr><td><b>말씀 봉독</b></td><td>인도자</td><td>설교 본문 낭독. 중세 이후에는 단순 성경 낭독이었으나, 종교개혁 이후 설교와 연결. 구약·신약·시편 3본문 체계는 교회력과 연결(5주차에서 설명)</td></tr>
+      <tr><td><b>찬양</b></td><td>성가대/찬양대</td><td>미리 준비한 음악. 회중을 <b>대표</b>하여 찬양 + <b>음악적 메시지 선포</b> + 음악적 아름다움과 재능을 드림</td></tr>
+      <tr><td><b>설교</b></td><td>설교자</td><td>말씀 선포</td></tr>
+      <tr><td><b>감사와 응답의 찬송</b></td><td>다같이</td><td>설교 후 찬송. "응답", "감사", "결단"의 찬송. 봉헌 찬송과 혼동 주의 — 설교 연관 찬송에 "봉헌 찬송"이라는 제목은 부적절</td></tr>
+      <tr><td><b>봉헌</b></td><td>다같이</td><td>물질로 예배를 표현. 예배학적으로는 앞쪽(찬미와 고백 구조)으로 이동해야 한다는 주장 다수</td></tr>
+      <tr><td><b>(성만찬)</b></td><td>다같이</td><td>해당 시 예식적 순서에 따라 진행</td></tr>
+      <tr><td><b>축도</b></td><td>설교자/인도자</td><td>하나님이 선포하신 축복의 말씀</td></tr>
+      <tr><td><b>송영 · 후주</b></td><td>성가대/연주자</td><td><b>아멘</b>으로 마치는 것이 가장 적절. 기도·찬양을 아멘으로 마치듯, 예배 전체도 아멘 송영으로</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="card">
+    <h3>예배 순서의 구조 배분 (교수 시연)</h3>
+    <div class="flow">
+      <div class="flow-step">모임<br><small>전주~입례</small></div><span class="flow-arr">→</span>
+      <div class="flow-step">하나님 찬양<br><small>찬송~영광송</small></div><span class="flow-arr">→</span>
+      <div class="flow-step">말씀<br><small>봉독~설교<br>(성가대=음악 메시지)</small></div><span class="flow-arr">→</span>
+      <div class="flow-step">응답<br><small>응답 찬송·봉헌</small></div><span class="flow-arr">→</span>
+      <div class="flow-step">파송<br><small>축도·후주</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 구조 분석 실습 -->
+<div class="sec" id="analysis">
+  <div class="sh"><span class="sb">7</span><span class="st">구조 분석 실습 — 교수의 시범</span><div class="sl"></div></div>
+  <div class="card">
+    <p>교수님이 인터넷에서 가져온 주보를 즉석 분석한 사례:</p>
+    <ul>
+      <li><b>예배로의 부름</b> → 모임의 순서</li>
+      <li><b>영광의 찬송~주기도</b> → "하나님의 영광을 찬양함" (찬송·신앙고백·교독문·경배와 찬양 포함)</li>
+      <li><b>성경 봉독~말씀</b> → 말씀의 예전(선포)</li>
+      <li><b>성찬식</b>(중간에 위치) → 구조 분석상 문제 — 말씀과 봉독 사이에 성찬이 끼어 있어 "잘못 들어간 구조"로 판단</li>
+      <li><b>결단의 찬양·봉헌</b> → 응답</li>
+      <li><b>축도·(후주)</b> → 파송</li>
+    </ul>
+    <p style="margin-top:6px">한 가지 정답이 있는 것은 아니지만, 각 순서의 <b>의미</b>를 생각하며 분석하는 것이 핵심.</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 과제: AI에게 물어보지 마세요</h3>
+    <p>이번 주 과제는 <b>나의 교회 주보(또는 예배 순서)를 올리고 구조를 분석</b>하는 것. 주보가 없으면 직접 만들 것. 교단·교회명도 함께 기재. <b>"수업 들으셨으니까 여러분이 하실 수 있습니다. 제발 AI한테 물어보지 마시기 바랍니다."</b></p>
+  </div>
+</div>
+
+<!-- 8 기획 적용 포인트 -->
+<div class="sec" id="apply">
+  <div class="sh"><span class="sb">8</span><span class="st">기획 적용 포인트</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>이번 주 핵심 키워드</h3>
+    <ul>
+      <li><span class="k">유기적 구조</span> — 순서의 나열이 아니라, 스토리가 있는 구조로 예배를 설계</li>
+      <li><span class="k">수직적 대화</span> — 예배는 하나님과의 수직적 주고받음. 집회(수평적)와의 구분</li>
+      <li><span class="k">구조 제목</span> — 주보에 구조의 큰 제목을 달아놓으면 성도가 "이 순서가 왜 있는지" 자연스럽게 인식</li>
+      <li><span class="k">순서의 위치 = 순서의 의미</span> — 같은 기도·찬송도 어느 구조 안에 있느냐에 따라 내용이 달라져야 함</li>
+      <li><span class="k">파송</span> — 약화된 파송의 의미를 회복. 축도 이후가 "끝"이 아니라 "보냄"의 순간</li>
+      <li><span class="k">선곡의 원칙</span> — 임례 = 예배 찬송·임재 찬양, 경배 = 삼위일체 찬양, 기도송 = 간구 내용, 응답 = 감사·결단 찬송</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 검증 -->
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--accent2)">자료근거 · 강의 영상(1·2교시) + 유인물</span>
+    <span class="stat" style="color:var(--rose)">교수 강조 · 5건</span>
+    <span class="stat" style="color:var(--teal)">보충 · 1건</span>
+  </div>
+  <p>· <b>자료근거</b>: 3주차 강의 영상 2편(자동자막 추출)과 유인물(3주차 예배 구조와 순서.hwpx) 종합.</p>
+  <p>· <b>교수 강조</b>: ① 수직적(예배) vs 수평적(집회) 구분 ② 파송의 의미 회복 ③ 구조 제목이 내용을 결정 ④ 주보 제목의 순작용 ⑤ AI 사용 금지 과제 — 모두 강의에서 반복 강조.</p>
+  <ul>
+    <li><b>보충</b>: 가톨릭 미사 4중 구조(시작 예식·말씀 전례·성찬 전례·마침 예식)는 강의에서 간략 언급, 유인물에 상세 수록. 보충 표기.</li>
+    <li><b>확인 필요</b>: 자동자막 특성상 학자명·순서명에 오탈자 가능. 유인물 원문과 교차 확인 완료.</li>
+  </ul>
+</div>
+
+<div class="foot">예배기획 3주차 · 김은영 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
