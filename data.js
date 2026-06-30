@@ -422,6 +422,13 @@ const SITE_DATA = {
               desc: "1학기 전체 패러다임 복습 + 2학기 예습 브릿지 (메이첸 기준)",
               href: "output/2026-summer/greek2/greek-bridge-1to2.html",
               isNew: true
+            },
+            {
+              name: "주기도문(마 6:9–13) 암송 자료",
+              icon: "🙏",
+              desc: "단어별 한글 음가·뜻 + 절별 한글 번역 — 암송 과제용",
+              href: "output/2026-summer/greek2/lordprayer.html",
+              isNew: true
             }
           ],
           weeks: [

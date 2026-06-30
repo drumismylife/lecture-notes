@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 주기도문 암송 자료 (단어별 음가·뜻 + 해석)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 20px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.verse{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 19px;margin:18px 0}
+.verse .vn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.06em;margin-bottom:10px}
+.il3{display:flex;flex-wrap:wrap;gap:14px 16px;margin:8px 0 14px;padding:14px;background:var(--subcard);border-radius:9px}
+.w3{text-align:center;min-width:64px}
+.w3 .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:18px;color:var(--text);margin-bottom:4px}
+.w3 .ph{font-size:11.5px;color:var(--gold);font-weight:600;margin-bottom:2px}
+.w3 .gl{font-size:10.5px;color:var(--hint);line-height:1.3}
+.w3.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.w3.verb .ph{color:var(--red)}
+.transl{padding-top:12px;border-top:1px dashed var(--border);font-size:15px;color:var(--text);font-weight:500}
+.transl b{color:var(--gold);font-weight:700;font-size:11px;letter-spacing:.05em;display:block;margin-bottom:4px}
+
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:0 0 18px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.2rem}.w3{min-width:54px}.w3 .g{font-size:16px}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) {
+  #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 암송 과제 · 2026 여름 계절학기</div>
+  <h1>주기도문(마 6:9–13) 암송 자료</h1>
+  <div class="prof">담당 안호준 교수 · 단어별 한글 음가·뜻 + 절별 한글 번역</div>
+</div>
+
+<div class="intro">
+  단어마다 <b>① 헬라어</b> → <b>② 한글 음가</b> → <b>③ 뜻</b> 순으로 표기하고, 각 절 끝에 <b>한글 번역</b>을 두었습니다.
+  동사는 <span style="color:var(--red);font-weight:700">색</span>으로 강조했습니다. 번역은 개역개정 기준입니다.
+</div>
+
+<div class="legend"><b>표기 순서</b>: 헬라어 원어(위) → 한글 발음 음가(가운데, 금색) → 단어 뜻(아래, 회색)</div>
+
+<!-- 1절 -->
+<div class="verse">
+  <div class="vn">① 하늘에 계신 우리 아버지여</div>
+  <div class="il3">
+    <div class="w3"><div class="g">Πάτερ</div><div class="ph">파테르</div><div class="gl">아버지여(호격)</div></div>
+    <div class="w3"><div class="g">ἡμῶν</div><div class="ph">헤몬</div><div class="gl">우리의</div></div>
+    <div class="w3"><div class="g">ὁ</div><div class="ph">호</div><div class="gl">(계신 분)</div></div>
+    <div class="w3"><div class="g">ἐν</div><div class="ph">엔</div><div class="gl">~안에</div></div>
+    <div class="w3"><div class="g">τοῖς</div><div class="ph">토이스</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">οὐρανοῖς</div><div class="ph">우라노이스</div><div class="gl">하늘들</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"하늘에 계신 우리 아버지여"</div>
+</div>
+
+<!-- 2절 -->
+<div class="verse">
+  <div class="vn">② 이름이 거룩히 여김을 받으시오며</div>
+  <div class="il3">
+    <div class="w3 verb"><div class="g">ἁγιασθήτω</div><div class="ph">하기아스데토</div><div class="gl">거룩히 여김 받다</div></div>
+    <div class="w3"><div class="g">τὸ</div><div class="ph">토</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">ὄνομά</div><div class="ph">오노마</div><div class="gl">이름이</div></div>
+    <div class="w3"><div class="g">σου</div><div class="ph">수</div><div class="gl">당신의</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"이름이 거룩히 여김을 받으시오며"</div>
+</div>
+
+<!-- 3절 -->
+<div class="verse">
+  <div class="vn">③ 나라가 임하시오며</div>
+  <div class="il3">
+    <div class="w3 verb"><div class="g">ἐλθέτω</div><div class="ph">엘데토</div><div class="gl">오다, 임하다</div></div>
+    <div class="w3"><div class="g">ἡ</div><div class="ph">헤</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">βασιλεία</div><div class="ph">바실레이아</div><div class="gl">나라가</div></div>
+    <div class="w3"><div class="g">σου</div><div class="ph">수</div><div class="gl">당신의</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"나라가 임하시오며"</div>
+</div>
+
+<!-- 4절 -->
+<div class="verse">
+  <div class="vn">④ 뜻이 하늘에서 이루어진 것 같이 땅에서도 이루어지이다</div>
+  <div class="il3">
+    <div class="w3 verb"><div class="g">γενηθήτω</div><div class="ph">게네데토</div><div class="gl">이루어지다</div></div>
+    <div class="w3"><div class="g">τὸ</div><div class="ph">토</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">θέλημά</div><div class="ph">델레마</div><div class="gl">뜻이</div></div>
+    <div class="w3"><div class="g">σου</div><div class="ph">수</div><div class="gl">당신의</div></div>
+    <div class="w3"><div class="g">ὡς</div><div class="ph">호스</div><div class="gl">~같이</div></div>
+    <div class="w3"><div class="g">ἐν</div><div class="ph">엔</div><div class="gl">~안에서</div></div>
+    <div class="w3"><div class="g">οὐρανῷ</div><div class="ph">우라노</div><div class="gl">하늘(에서)</div></div>
+    <div class="w3"><div class="g">καὶ</div><div class="ph">카이</div><div class="gl">그리고</div></div>
+    <div class="w3"><div class="g">ἐπὶ</div><div class="ph">에피</div><div class="gl">~위에</div></div>
+    <div class="w3"><div class="g">τῆς</div><div class="ph">테스</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">γῆς</div><div class="ph">게스</div><div class="gl">땅의(에서도)</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"뜻이 하늘에서 이루어진 것 같이 땅에서도 이루어지이다"</div>
+</div>
+
+<!-- 5절 -->
+<div class="verse">
+  <div class="vn">⑤ 오늘 우리에게 일용할 양식을 주시옵고</div>
+  <div class="il3">
+    <div class="w3"><div class="g">τὸν</div><div class="ph">톤</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">ἄρτον</div><div class="ph">아르톤</div><div class="gl">빵을, 양식을</div></div>
+    <div class="w3"><div class="g">ἡμῶν</div><div class="ph">헤몬</div><div class="gl">우리의</div></div>
+    <div class="w3"><div class="g">τὸν</div><div class="ph">톤</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">ἐπιούσιον</div><div class="ph">에피우시온</div><div class="gl">일용할</div></div>
+    <div class="w3 verb"><div class="g">δὸς</div><div class="ph">도스</div><div class="gl">주다</div></div>
+    <div class="w3"><div class="g">ἡμῖν</div><div class="ph">헤민</div><div class="gl">우리에게</div></div>
+    <div class="w3"><div class="g">σήμερον</div><div class="ph">세메론</div><div class="gl">오늘</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"오늘 우리에게 일용할 양식을 주시옵고"</div>
+</div>
+
+<!-- 6절 -->
+<div class="verse">
+  <div class="vn">⑥ 우리가 우리에게 죄 지은 자를 사하여 준 것 같이 우리 죄를 사하여 주시옵고</div>
+  <div class="il3">
+    <div class="w3"><div class="g">καὶ</div><div class="ph">카이</div><div class="gl">그리고</div></div>
+    <div class="w3 verb"><div class="g">ἄφες</div><div class="ph">아페스</div><div class="gl">사하다, 용서하다</div></div>
+    <div class="w3"><div class="g">ἡμῖν</div><div class="ph">헤민</div><div class="gl">우리에게</div></div>
+    <div class="w3"><div class="g">τὰ</div><div class="ph">타</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">ὀφειλήματα</div><div class="ph">오페일레마타</div><div class="gl">빚들을, 죄를</div></div>
+    <div class="w3"><div class="g">ἡμῶν</div><div class="ph">헤몬</div><div class="gl">우리의</div></div>
+    <div class="w3"><div class="g">ὡς</div><div class="ph">호스</div><div class="gl">~같이</div></div>
+    <div class="w3"><div class="g">καὶ</div><div class="ph">카이</div><div class="gl">또한</div></div>
+    <div class="w3"><div class="g">ἡμεῖς</div><div class="ph">헤메이스</div><div class="gl">우리가</div></div>
+    <div class="w3 verb"><div class="g">ἀφίεμεν</div><div class="ph">아피에멘</div><div class="gl">사하다, 용서하다</div></div>
+    <div class="w3"><div class="g">τοῖς</div><div class="ph">토이스</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">ὀφειλέταις</div><div class="ph">오페일레타이스</div><div class="gl">빚진 자들에게</div></div>
+    <div class="w3"><div class="g">ἡμῶν</div><div class="ph">헤몬</div><div class="gl">우리에게(빚진)</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"우리가 우리에게 죄 지은 자를 사하여 준 것 같이 우리 죄를 사하여 주시옵고"</div>
+</div>
+
+<!-- 7절 -->
+<div class="verse">
+  <div class="vn">⑦ 우리를 시험에 들게 하지 마시옵고 다만 악에서 구하시옵소서</div>
+  <div class="il3">
+    <div class="w3"><div class="g">καὶ</div><div class="ph">카이</div><div class="gl">그리고</div></div>
+    <div class="w3"><div class="g">μὴ</div><div class="ph">메</div><div class="gl">~말다(부정)</div></div>
+    <div class="w3 verb"><div class="g">εἰσενέγκῃς</div><div class="ph">에이세넹케스</div><div class="gl">이끌다, 인도하다</div></div>
+    <div class="w3"><div class="g">ἡμᾶς</div><div class="ph">헤마스</div><div class="gl">우리를</div></div>
+    <div class="w3"><div class="g">εἰς</div><div class="ph">에이스</div><div class="gl">~안으로</div></div>
+    <div class="w3"><div class="g">πειρασμόν</div><div class="ph">페이라스몬</div><div class="gl">시험을</div></div>
+    <div class="w3"><div class="g">ἀλλὰ</div><div class="ph">알라</div><div class="gl">다만, 오직</div></div>
+    <div class="w3 verb"><div class="g">ῥῦσαι</div><div class="ph">뤼사이</div><div class="gl">건지다, 구하다</div></div>
+    <div class="w3"><div class="g">ἡμᾶς</div><div class="ph">헤마스</div><div class="gl">우리를</div></div>
+    <div class="w3"><div class="g">ἀπὸ</div><div class="ph">아포</div><div class="gl">~로부터</div></div>
+    <div class="w3"><div class="g">τοῦ</div><div class="ph">투</div><div class="gl">(관사)</div></div>
+    <div class="w3"><div class="g">πονηροῦ</div><div class="ph">포네루</div><div class="gl">악(한 자)의</div></div>
+  </div>
+  <div class="transl"><b>해석</b>"우리를 시험에 들게 하지 마시옵고 다만 악에서 구하시옵소서"</div>
+</div>
+
+<div class="foot">헬라어 II 암송 과제 · 주기도문(마 6:9–13) · 안호준 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
