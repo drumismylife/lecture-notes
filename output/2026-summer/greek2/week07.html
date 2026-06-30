@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -132,6 +147,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#s7">수동태 비교표</a>
   <a href="#s8">특수동사의 미래</a>
   <a href="#s9">연습문제</a>
+  <a href="#examprep">시험 예상 문제</a>
   <a href="#s10">출처·검증</a>
 </nav>
 
@@ -489,6 +505,60 @@ tr:hover td{background:rgba(124,158,217,.06)}
       <li>→ "하나님은 영광을 받으셨고, 그를 영화롭게 하실 것이다"</li>
       <li><b>교수 노트:</b> 부정과거 수동태 vs 미래 능동태 — 형태는 비슷하지만 시제와 태가 다름</li>
     </ul>
+  </div>
+</div>
+
+<!-- ───── 시험 예상 문제 ───── -->
+<div class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 미래시제 분해+해석 (교수님 표기 규약)</span><span class="sl"></span></div>
+  <div class="emph">
+    <h3>⭐ 교수 공지 — 중간고사 형식</h3>
+    <p>동사 분해(원형·법·시제·태·인칭·수·현저성) + 문장 전체 해석. 미래시제는 부정과거와 같이 현저성 <b>0</b>으로 취급. 아래는 §9 연습문제를 교수님 표기 규약(원형은 한글 발음)으로 재정리한 것입니다.</p>
+  </div>
+  <div class="legend"><b>표기 규약</b> 예) <span class="gk">ἀκούσει</span> → <span class="parse"><span class="vform">"아쿠오"</span>의 직설법 미래 능동태 3인칭 단수 [현재성 0]</span></div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ① <span class="gk">οὐκ ἀκούσει τὴν φωνήν</span></div>
+    <div class="il">
+      <div class="w"><div class="g">οὐκ</div><div class="gl">~않다</div></div>
+      <div class="w verb"><div class="g">ἀκούσει</div><div class="gl">듣다</div></div>
+      <div class="w"><div class="g">τὴν φωνήν</div><div class="gl">그 소리를</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἀκούσει</span> ← <span class="vform">"아쿠오"</span>의 직설법 미래 능동태 3인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그는 그 소리를 듣지 못할 것이다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ② <span class="gk">συνάξω τοὺς καρποὺς μου</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">συνάξω</div><div class="gl">모으다</div></div>
+      <div class="w"><div class="g">τοὺς καρποὺς μου</div><div class="gl">나의 열매들을</div></div>
+    </div>
+    <p class="parse"><span class="gk">συνάξω</span> ← <span class="vform">"쉬나고"</span>의 직설법 미래 능동태 1인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "나는 나의 열매들을 모을 것이다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ③ <span class="gk">ἐλεύσονται αἱ ἡμέραι</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἐλεύσονται</div><div class="gl">오다</div></div>
+      <div class="w"><div class="g">αἱ ἡμέραι</div><div class="gl">날들이</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐλεύσονται</span> ← <span class="vform">"에르코마이"</span>의 직설법 미래 디포넌트 3인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "날들이 올 것이다" (= 때가 이를 것이다)</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ④ <span class="gk">ὁ θεὸς ἐδοξάσθη … καὶ … δοξάσει αὐτόν</span> (요 13:31–32) <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w"><div class="g">ὁ θεὸς</div><div class="gl">하나님은</div></div>
+      <div class="w verb"><div class="g">ἐδοξάσθη</div><div class="gl">영광스럽게 하다</div></div>
+      <div class="w verb"><div class="g">δοξάσει</div><div class="gl">영광스럽게 하다</div></div>
+      <div class="w"><div class="g">αὐτόν</div><div class="gl">그를</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐδοξάσθη</span> ← <span class="vform">"독사조"</span>의 직설법 부정과거 수동태 3인칭 단수 [현재성 0] / <span class="gk">δοξάσει</span> ← <span class="vform">"독사조"</span>의 직설법 미래 능동태 3인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "하나님은 영광을 받으셨고, 그를 영화롭게 하실 것이다"</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:6px"><b>교수 노트</b>: 같은 원형(<span class="gk">δοξάζω</span>)이 부정과거 수동태 ↔ 미래 능동태로 형태가 비슷해 보이지만 시제·태가 다름 — 어미를 정확히 구분.</p>
   </div>
 </div>
 

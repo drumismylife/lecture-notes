@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -133,6 +148,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#gal220">갈 2:20 본문 분석</a>
   <a href="#demonst">지시대명사</a>
   <a href="#exercise">연습문제</a>
+  <a href="#examprep">시험 예상 문제</a>
 </div>
 
 <!-- 학습목표 -->
@@ -497,6 +513,63 @@ tr:hover td{background:rgba(124,158,217,.06)}
       <li><span class="gk">προσκυνήσετε</span> ← <span class="gk">προσκυνέω</span>, 직설법 미래 능동태 2인칭 복수 <b>(0)</b></li>
       <li><span class="gk">ε→η</span> 장음화 + 미래 시그마. 미래도 부정과거처럼 현재성 0. <span class="b-exam bdg">교수 강조</span></li>
     </ul>
+  </div>
+</div>
+
+<!-- 시험 예상 문제 -->
+<div class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 연습문제 분해+해석 (교수님 표기 규약)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 공지 — 중간고사 형식</h3>
+    <p>동사 분해(원형·법·시제·태·인칭·수·현저성) + 문장 전체 해석. 미완료·단축동사·미래시제가 13과 핵심 출제 포인트입니다.</p>
+  </div>
+  <div class="legend"><b>표기 규약</b> 예) <span class="parse"><span class="vform">"람바노"</span>의 직설법 미완료 능동태 3인칭 단수 [현재성 1]</span></div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ① <span class="gk">μετὰ γυναικὸς ἐλάλει</span> (요 4:27)</div>
+    <div class="il">
+      <div class="w"><div class="g">μετὰ γυναικὸς</div><div class="gl">여자와 함께</div></div>
+      <div class="w verb"><div class="g">ἐλάλει</div><div class="gl">말하다</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐλάλει</span> ← <span class="vform">"랄레오"</span>의 직설법 미완료 능동태 3인칭 단수 [현재성 1]</p>
+    <div class="transl"><b>해석</b> — "그는 여자와 함께 말하고 있었다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ② <span class="gk">ἠγάπα ἡμᾶς καὶ ἔλυεν ἡμᾶς ἐκ τῶν ἁμαρτιῶν ἡμῶν ἐν τῷ αἵματι αὐτοῦ</span> (계 1:5)</div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἠγάπα</div><div class="gl">사랑하다</div></div>
+      <div class="w"><div class="g">ἡμᾶς</div><div class="gl">우리를</div></div>
+      <div class="w verb"><div class="g">ἔλυεν</div><div class="gl">풀다</div></div>
+      <div class="w"><div class="g">ἐκ τῶν ἁμαρτιῶν ἡμῶν</div><div class="gl">우리 죄로부터</div></div>
+      <div class="w"><div class="g">ἐν τῷ αἵματι αὐτοῦ</div><div class="gl">그의 피로써</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἠγάπα</span> ← <span class="vform">"아가파오"</span>의 직설법 미완료 능동태 3인칭 단수 [현재성 1] / <span class="gk">ἔλυεν</span> ← <span class="vform">"뤼오"</span>의 직설법 미완료 능동태 3인칭 단수 [현재성 1]</p>
+    <div class="transl"><b>해석</b> — "그는 우리를 사랑하고 계셨고, 그의 피로써 우리의 죄로부터 우리를 풀어주고 계셨다" (<span class="gk">ἐν τῷ αἵματι</span>=수단의 여격 "피로써")</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ③ <span class="gk">δικαιοῦται ἄνθρωπος διὰ πίστεως Ἰησοῦ Χριστοῦ … ἐπιστεύσαμεν εἰς Χριστὸν Ἰησοῦν</span> (갈 2:16) <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">δικαιοῦται</div><div class="gl">의롭다 하다</div></div>
+      <div class="w"><div class="g">ἄνθρωπος</div><div class="gl">사람은</div></div>
+      <div class="w"><div class="g">διὰ πίστεως Ἰησοῦ Χριστοῦ</div><div class="gl">예수 그리스도 믿음을 통해</div></div>
+      <div class="w verb"><div class="g">ἐπιστεύσαμεν</div><div class="gl">믿다</div></div>
+      <div class="w"><div class="g">εἰς Χριστὸν Ἰησοῦν</div><div class="gl">그리스도 예수를</div></div>
+    </div>
+    <p class="parse"><span class="gk">δικαιοῦται</span> ← <span class="vform">"디카이오오"</span>의 직설법 현재 수동태 3인칭 단수 [현재성 2] / <span class="gk">ἐπιστεύσαμεν</span> ← <span class="vform">"피스튜오"</span>의 직설법 제1부정과거 능동태 1인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "사람은 예수 그리스도를 믿는 믿음을 통해 의롭다 하심을 받는다 … 우리도 그리스도 예수를 믿었다"</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:6px"><b>교수 노트</b>: <span class="gk">πίστεως Ἰησοῦ Χριστοῦ</span> 속격은 "예수 그리스도를 믿는 믿음"(목적격적 속격) 또는 "예수 그리스도의 신실함"(주격적 속격) 이중 해석 가능 — 서술형 대비.</p>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ④ <span class="gk">προσκυνήσετε τῷ πατρί</span> (요 4:21) <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">προσκυνήσετε</div><div class="gl">경배하다</div></div>
+      <div class="w"><div class="g">τῷ πατρί</div><div class="gl">아버지께</div></div>
+    </div>
+    <p class="parse"><span class="gk">προσκυνήσετε</span> ← <span class="vform">"프로스퀴네오"</span>의 직설법 미래 능동태 2인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "너희는 아버지께 경배하리라" (미래도 부정과거처럼 현저성 0)</div>
   </div>
 </div>
 

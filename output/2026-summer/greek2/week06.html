@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -133,6 +148,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#s6">재귀대명사</a>
   <a href="#s7">소유 형용사·대명사</a>
   <a href="#s8">연습문제</a>
+  <a href="#examprep">시험 예상 문제</a>
   <a href="#s9">출처·검증</a>
 </nav>
 
@@ -544,6 +560,48 @@ tr:hover td{background:rgba(124,158,217,.06)}
       <li><span class="gk">παρήγγειλεν</span> — <span class="gk">παραγγέλλω</span> 직설법 부정과거 능동태 3인칭 단수 <span class="bdg b-exam">현재성 0</span></li>
     </ul>
     <p>→ "그는 그들에게 <b>명령했다</b>" (cf. 눅 9:21)</p>
+  </div>
+</section>
+
+<!-- 시험 예상 문제 -->
+<section class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 유음동사 연습문제 분해+해석 (교수님 표기 규약)</span><span class="sl"></span></div>
+  <div class="emph">
+    <h3>⭐ 교수 공지 — 중간고사 형식</h3>
+    <p>동사 분해(원형·법·시제·태·인칭·수·현저성) + 문장 전체 해석. 유음동사(어간이 λ/ρ/ν/μ로 끝나는 동사)의 부정과거 형태 식별이 14과 핵심입니다.</p>
+  </div>
+  <div class="legend"><b>표기 규약</b> 예) <span class="parse"><span class="vform">"데로"</span>의 직설법 부정과거 능동태 3인칭 복수 [현재성 0]</span></div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ① <span class="gk">αὐτὸν ἔδειραν καὶ ἀπέστειλαν</span></div>
+    <div class="il">
+      <div class="w"><div class="g">αὐτὸν</div><div class="gl">그를</div></div>
+      <div class="w verb"><div class="g">ἔδειραν</div><div class="gl">때리다</div></div>
+      <div class="w verb"><div class="g">ἀπέστειλαν</div><div class="gl">보내다</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἔδειραν</span> ← <span class="vform">"데로"</span>의 직설법 부정과거 능동태 3인칭 복수 [현재성 0] / <span class="gk">ἀπέστειλαν</span> ← <span class="vform">"아포스텔로"</span>의 직설법 부정과거 능동태 3인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그들은 그를 때렸고 보냈다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ② <span class="gk">οὐχὶ … καλὸν σπέρμα ἔσπειρας;</span> <span class="bdg b-exam">⭐ 교수강조 — 정정 사례</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἔσπειρας</div><div class="gl">뿌리다</div></div>
+      <div class="w"><div class="g">καλὸν σπέρμα</div><div class="gl">좋은 씨를</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἔσπειρας</span> ← <span class="vform">"스페이로"</span>의 직설법 부정과거 능동태 2인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "당신은 좋은 씨들을 뿌리지 않으셨습니까?"</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:6px"><b>교수 노트</b>: <span class="gk">-ας</span> 어미는 2인칭 단수 — 1인칭으로 혼동하지 않도록 어미를 정확히 볼 것.</p>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ③ <span class="gk">γινώσκεις ὅτι … ἔσπειρα;</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">γινώσκεις</div><div class="gl">알다</div></div>
+      <div class="w verb"><div class="g">ἔσπειρα</div><div class="gl">뿌리다</div></div>
+    </div>
+    <p class="parse"><span class="gk">γινώσκεις</span> ← <span class="vform">"기노스코"</span>의 직설법 현재 능동태 2인칭 단수 [현재성 2] / <span class="gk">ἔσπειρα</span> ← <span class="vform">"스페이로"</span>의 직설법 부정과거 능동태 1인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "너는 내가 뿌리지 않았다는 것을 알고 있는가?" (현재성 2 vs 0 대비)</div>
   </div>
 </section>
 

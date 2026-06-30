@@ -62,6 +62,32 @@ def detect_subject(txt_path: Path, subjects: dict) -> str | None:
     return None
 
 
+
+def convert_to_plain_text(txt_path: Path) -> Path:
+    """RTF 형식 파일을 순수 텍스트로 변환 (macOS textutil 사용)"""
+    import subprocess
+    # RTF 여부 확인
+    try:
+        head = txt_path.read_bytes()[:10]
+        if not head.startswith(b'{\\rtf'):
+            return txt_path  # 이미 plain text
+    except Exception:
+        return txt_path
+
+    print(f"  ⚙️  RTF → 일반 텍스트 변환 중...")
+    plain_path = txt_path.with_suffix('.plain.txt')
+    result = subprocess.run(
+        ['textutil', '-convert', 'txt', '-output', str(plain_path), str(txt_path)],
+        capture_output=True, text=True
+    )
+    if result.returncode == 0 and plain_path.exists():
+        txt_path.unlink()           # 원본 RTF 삭제
+        plain_path.rename(txt_path) # plain text로 대체
+        print(f"  ✅ 변환 완료: {txt_path.name}")
+    else:
+        print(f"  ⚠️  변환 실패, 원본 유지")
+    return txt_path
+
 def pick_txt_file(downloads: Path) -> Path | None:
     """Downloads에서 녹취 파일 선택"""
     recent = find_recent_txt(downloads)
@@ -153,6 +179,10 @@ def main():
         print(f"📄 녹취 파일: {txt_path.name}")
     else:
         txt_path = pick_txt_file(downloads)
+
+    # 1-1) RTF면 plain text로 자동 변환
+    if txt_path and txt_path.exists():
+        txt_path = convert_to_plain_text(txt_path)
 
     # 2) 과목 선택
     detected = detect_subject(txt_path, subjects) if txt_path else None

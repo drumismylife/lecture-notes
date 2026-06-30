@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -134,6 +149,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#deponent">이태동사·반이태동사</a>
   <a href="#mk827">막 8:27 동사상 분석</a>
   <a href="#exercise">연습문제</a>
+  <a href="#examprep">시험 예상 문제</a>
 </div>
 
 <!-- 학습목표 -->
@@ -411,6 +427,63 @@ tr:hover td{background:rgba(124,158,217,.06)}
     <ul>
       <li><span class="gk">εἶπεν</span> ← <span class="gk">λέγω</span>, 직설법 제2부정과거 능동태 3인칭 단수 <b>(0)</b></li>
     </ul>
+  </div>
+</div>
+
+<!-- 시험 예상 문제 -->
+<div class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 연습문제 11.9 분해+해석 (교수님 표기 규약 적용)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 공지 — 중간고사 형식</h3>
+    <p>① 동사 분해(원형·법·시제·태·인칭·수·현저성) ② 문장 전체 해석. 11~15과 모든 연습문제 + 강조 예문이 범위. 아래는 11과 연습문제 11.9를 시험 표기 규약대로 재정리한 것입니다.</p>
+  </div>
+  <div class="legend"><b>표기 규약</b> 예) <span class="parse"><span class="vform">"테라퓨오"</span>의 직설법 부정과거 능동태 3인칭 단수 [현재성 0]</span></div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ① <span class="gk">ἐκείνῃ δὲ τῇ ὥρᾳ ἐθεράπευσεν αὐτούς</span></div>
+    <div class="il">
+      <div class="w"><div class="g">ἐκείνῃ</div><div class="gl">저(여격)</div></div>
+      <div class="w"><div class="g">δὲ</div><div class="gl">그런데</div></div>
+      <div class="w"><div class="g">τῇ ὥρᾳ</div><div class="gl">그 시간(여격)</div></div>
+      <div class="w verb"><div class="g">ἐθεράπευσεν</div><div class="gl">고치다</div></div>
+      <div class="w"><div class="g">αὐτούς</div><div class="gl">그들을</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐθεράπευσεν</span> ← <span class="vform">"테라퓨오"</span>의 직설법 부정과거 능동태 3인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "저 시간에 그는 그들을 고쳤다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ② <span class="gk">συνέταξεν αὐτοῖς ὁ Ἰησοῦς</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">συνέταξεν</div><div class="gl">명하다</div></div>
+      <div class="w"><div class="g">αὐτοῖς</div><div class="gl">그들에게</div></div>
+      <div class="w"><div class="g">ὁ Ἰησοῦς</div><div class="gl">예수께서</div></div>
+    </div>
+    <p class="parse"><span class="gk">συνέταξεν</span> ← <span class="vform">"쉰탓소"</span>의 직설법 부정과거 능동태 3인칭 단수 [현재성 0] <span class="bdg b-sup">어간 κ+σ=ξ</span></p>
+    <div class="transl"><b>해석</b> — "예수께서 그들에게 명하셨다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ③ <span class="gk">ἦλθαν οἱ μαθηταὶ αὐτοῦ</span> (요 4:27) <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἦλθαν</div><div class="gl">오다</div></div>
+      <div class="w"><div class="g">οἱ μαθηταὶ</div><div class="gl">제자들이</div></div>
+      <div class="w"><div class="g">αὐτοῦ</div><div class="gl">그의</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἦλθαν</span> ← <span class="vform">"에르코마이"</span>의 직설법 제2부정과거 디포넌트 3인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그의 제자들이 왔다"</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:6px"><b>교수 노트</b>: <span class="gk">ἦλθον</span>(표준)과 <span class="gk">ἦλθαν</span>(변이형)이 혼용되며, <span class="gk">λέγω</span>도 <span class="gk">εἶπαν</span>/<span class="gk">εἶπον</span>으로 유사한 패턴 — 개념 서술형으로 나올 수 있음.</p>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ④ <span class="gk">ὁ δὲ εἶπεν αὐτοῖς</span></div>
+    <div class="il">
+      <div class="w"><div class="g">ὁ δὲ</div><div class="gl">그런데 그는</div></div>
+      <div class="w verb"><div class="g">εἶπεν</div><div class="gl">말하다</div></div>
+      <div class="w"><div class="g">αὐτοῖς</div><div class="gl">그들에게</div></div>
+    </div>
+    <p class="parse"><span class="gk">εἶπεν</span> ← <span class="vform">"레고"</span>의 직설법 제2부정과거 능동태 3인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그런데 그는 그들에게 말했다"</div>
   </div>
 </div>
 

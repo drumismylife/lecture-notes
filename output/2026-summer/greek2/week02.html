@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -132,6 +147,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#impf">미완료 과거</a>
   <a href="#decl3">3변화 명사</a>
   <a href="#aspect">동사상 정리</a>
+  <a href="#examprep">시험 예상 문제</a>
 </div>
 
 <!-- 형용사 -->
@@ -272,6 +288,34 @@ tr:hover td{background:rgba(124,158,217,.06)}
   </table></div>
   <div class="card"><p>현재성은 <b>상대적</b> — 부정과거(0)도 신학적으로 중요. 화자가 어떤 정보를 배경(0)으로 두고 무엇을 전면(3)에
     부각하는지가 해석의 단서. 다음 시간부터 신약에 가장 많이 나오는 <b>부정과거</b>를 배운다.</p></div>
+</div>
+
+<!-- 시험 예상 문제 -->
+<div class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 동사 분해 표기 연습</span><div class="sl"></div></div>
+  <div class="legend">
+    <b>표기 규약</b>: 동사 원형은 <b>한글 발음 음가</b>로. 예) <span class="parse"><span class="vform">"뤼오"</span>의 직설법 현재 중간태 1인칭 단수 [현재성 2]</span>. 디포넌트(이태동사)는 태 자리에 <b>디</b>로 표기.
+  </div>
+  <div class="examq">
+    <div class="qn">예상문제 ① — 중간태 패러다임 (8과)</div>
+    <div class="il">
+      <div class="w verb"><div class="g">λύομαι</div><div class="gl">풀다(나 자신을)</div></div>
+    </div>
+    <p class="parse"><span class="vform">"뤼오"</span>의 직설법 현재 중간태 1인칭 단수 [현재성 2] <span class="bdg b-sup">중간/수동 동형 — 문맥으로 판단</span></p>
+    <div class="transl"><b>해석</b> — "나는 풀린다" 또는 "내가 나 자신을 풀어 그 결과를 맞는다"(중간태 함의)</div>
+  </div>
+  <div class="examq">
+    <div class="qn">예상문제 ② — 이태동사(deponent) 파싱 (8과)</div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἔρχομαι</div><div class="gl">가다/오다</div></div>
+    </div>
+    <p class="parse"><span class="vform">"에르코마이"</span>의 직설법 현재 디포넌트 1인칭 단수 [현재성 2] <span class="bdg b-exam">파싱 규약 — "능동"이라 쓰지 않고 "디포넌트"로 표기</span></p>
+    <div class="transl"><b>해석</b> — "나는 간다/온다" (형태는 중간·수동뿐이나 의미는 능동)</div>
+  </div>
+  <div class="examq">
+    <div class="qn">예상문제 ③ — 수동 행위자 ὑπό 구문 (서술형 대비 개념)</div>
+    <p>수동문에서 능동문 주어는 <code>ὑπό</code> + 속격("~에 의해")으로 표시되며, 이 전치사구가 나오면 형태가 모호해도 <b>수동임이 확정</b>된다. — <span class="bdg b-exam">교수 강조</span></p>
+  </div>
 </div>
 
 <!-- 검증 -->

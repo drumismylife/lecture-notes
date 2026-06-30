@@ -58,6 +58,21 @@ tr:hover td{background:rgba(124,158,217,.06)}
 .verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
 .verify ul{margin:8px 0 0 18px;font-size:12.5px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
 </style>
 
@@ -134,6 +149,7 @@ tr:hover td{background:rgba(124,158,217,.06)}
   <a href="#adverb">부사</a>
   <a href="#exercise11">11과 연습문제 (보충)</a>
   <a href="#exercise12">12과 연습문제</a>
+  <a href="#examprep">시험 예상 문제</a>
 </div>
 
 <!-- 학습목표 -->
@@ -457,6 +473,63 @@ tr:hover td{background:rgba(124,158,217,.06)}
     <ul>
       <li><span class="gk">ἠγέρθη</span> ← <span class="gk">ἐγείρω</span>(일으키다), 직설법 부정과거 수동태 3인칭 단수 <b>(0)</b></li>
     </ul>
+  </div>
+</div>
+
+<!-- 시험 예상 문제 -->
+<div class="sec" id="examprep">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 예상 문제 — 부정과거 수동태 분해+해석 (교수님 표기 규약)</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 공지 — 중간고사 형식</h3>
+    <p>동사 분해(원형·법·시제·태·인칭·수·현저성) + 문장 전체 해석. 12과 연습문제(부정과거 수동태)는 시험 빈출 영역입니다.</p>
+  </div>
+  <div class="legend"><b>표기 규약</b> 예) <span class="parse"><span class="vform">"디다스코"</span>의 직설법 부정과거 수동태 1인칭 단수 [현재성 0]</span></div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ① <span class="gk">ἐγὼ ἐδιδάχθην ὑπὸ τοῦ ἀνθρώπου</span> <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w"><div class="g">ἐγὼ</div><div class="gl">나는(강조)</div></div>
+      <div class="w verb"><div class="g">ἐδιδάχθην</div><div class="gl">가르치다</div></div>
+      <div class="w"><div class="g">ὑπὸ τοῦ ἀνθρώπου</div><div class="gl">그 사람에 의해</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐδιδάχθην</span> ← <span class="vform">"디다스코"</span>의 직설법 부정과거 수동태 1인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "나는 그 사람에 의해 가르침을 받았다" (인칭대명사 별도 노출=강조, <span class="gk">ὑπό</span>+속격=수동 행위자)</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ② <span class="gk">ἀπεκρίθη ὁ Ἰησοῦς</span> <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w verb"><div class="g">ἀπεκρίθη</div><div class="gl">대답하다</div></div>
+      <div class="w"><div class="g">ὁ Ἰησοῦς</div><div class="gl">예수께서</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἀπεκρίθη</span> ← <span class="vform">"아포크리노마이"</span>의 직설법 부정과거 수동태 3인칭 단수 [현재성 0] <span class="bdg b-sup">형태는 수동, 의미는 능동(이태동사 계열)</span></p>
+    <div class="transl"><b>해석</b> — "예수께서 대답하셨다"</div>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ③ <span class="gk">ὁ ἄγγελος εἶπεν αὐτῷ· ἐγὼ ἀπεστάλην ὑπὸ τοῦ θεοῦ</span> <span class="bdg b-exam">⭐ 교수강조</span></div>
+    <div class="il">
+      <div class="w"><div class="g">ὁ ἄγγελος</div><div class="gl">그 천사는</div></div>
+      <div class="w verb"><div class="g">εἶπεν</div><div class="gl">말하다</div></div>
+      <div class="w"><div class="g">αὐτῷ</div><div class="gl">그에게</div></div>
+      <div class="w"><div class="g">ἐγὼ</div><div class="gl">나는</div></div>
+      <div class="w verb"><div class="g">ἀπεστάλην</div><div class="gl">보내다</div></div>
+      <div class="w"><div class="g">ὑπὸ τοῦ θεοῦ</div><div class="gl">하나님에 의해</div></div>
+    </div>
+    <p class="parse"><span class="gk">εἶπεν</span> ← <span class="vform">"레고"</span>의 직설법 제2부정과거 능동태 3인칭 단수 [현재성 0] / <span class="gk">ἀπεστάλην</span> ← <span class="vform">"아포스텔로"</span>의 직설법 제2부정과거 수동태 1인칭 단수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그 천사는 그에게 말했다: '나는 하나님에 의해 보내짐을 받았다'"</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:6px"><b>교수 노트</b>: 제2부정과거 수동태는 <span class="gk">θ</span> 없이 <span class="gk">-ην</span>만 남음 — 형태 식별 포인트.</p>
+  </div>
+
+  <div class="examq">
+    <div class="qn">예상문제 ④ <span class="gk">οἱ ἄνθρωποι ἐπίστευσαν ἐπὶ τὸν κύριον</span></div>
+    <div class="il">
+      <div class="w"><div class="g">οἱ ἄνθρωποι</div><div class="gl">그 사람들이</div></div>
+      <div class="w verb"><div class="g">ἐπίστευσαν</div><div class="gl">믿다</div></div>
+      <div class="w"><div class="g">ἐπὶ τὸν κύριον</div><div class="gl">그 주님을(향해)</div></div>
+    </div>
+    <p class="parse"><span class="gk">ἐπίστευσαν</span> ← <span class="vform">"피스튜오"</span>의 직설법 제1부정과거 능동태 3인칭 복수 [현재성 0]</p>
+    <div class="transl"><b>해석</b> — "그 사람들이 그 주님을 믿었다" (<span class="gk">πιστεύω + ἐπί</span>+목적격 = "~에 확신을 두다" → 믿다, <span class="bdg b-exam">교수강조</span>)</div>
   </div>
 </div>
 
