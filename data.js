@@ -429,6 +429,13 @@ const SITE_DATA = {
               desc: "단어별 한글 음가·뜻 + 절별 한글 번역 — 암송 과제용",
               href: "output/2026-summer/greek2/lordprayer.html",
               isNew: true
+            },
+            {
+              name: "중간고사 문장 해석 (11~15과)",
+              icon: "✍️",
+              desc: "11~15과 연습문제·해설 전체 + 강의 중 교수 강조 포인트, 과별 단어 분해 정리",
+              href: "output/2026-summer/greek2/중간고사_11-15과_문장해석.html",
+              isNew: true
             }
           ],
           weeks: [
