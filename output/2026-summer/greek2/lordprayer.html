@@ -36,6 +36,17 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-sy
 
 .legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:0 0 18px}
 .foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+
+.audio-sec{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 19px;margin:18px 0}
+.audio-sec .sec-title{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.audio-sec .sec-desc{font-size:12px;color:var(--muted);margin-bottom:14px}
+.audio-grp{margin-bottom:16px}
+.audio-grp:last-child{margin-bottom:0}
+.audio-grp .grp-label{font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:8px}
+.audio-row{display:flex;flex-wrap:wrap;gap:10px 14px}
+.audio-item{flex:1 1 240px;min-width:200px}
+.audio-item .a-label{font-size:11px;color:var(--hint);margin-bottom:4px}
+.audio-item audio{width:100%;height:34px}
 @media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.2rem}.w3{min-width:54px}.w3 .g{font-size:16px}}
 </style>
 
@@ -94,6 +105,25 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-sy
 </div>
 
 <div class="legend"><b>표기 순서</b>: 헬라어 원어(위) → 한글 발음 음가(가운데, 금색) → 단어 뜻(아래, 회색)</div>
+
+<div class="audio-sec">
+  <div class="sec-title">🎵 전체 낭송 듣기</div>
+  <div class="sec-desc">주기도문 전체를 이어서 들을 수 있는 낭송 음원입니다. 분량이 길어 1부·2부로 나뉩니다.</div>
+  <div class="audio-grp">
+    <div class="grp-label">초급 — 절별 반복이 많아 따라 부르며 처음 익히기 좋음</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">1부</div><audio controls preload="none" src="./(%EC%B4%88%EA%B8%89)%EC%A3%BC%EA%B8%B0%EB%8F%84%EB%AC%B8%ED%97%AC%EB%9D%BC%EC%96%B41.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">2부</div><audio controls preload="none" src="./(%EC%B4%88%EA%B8%89)%EC%A3%BC%EA%B8%B0%EB%8F%84%EB%AC%B8%ED%97%AC%EB%9D%BC%EC%96%B42.mp3"></audio></div>
+    </div>
+  </div>
+  <div class="audio-grp">
+    <div class="grp-label">중급 — 절 단위가 길어져 실전 암송에 가까움</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">1부</div><audio controls preload="none" src="./(%EC%A4%91%EA%B8%89)%EC%A3%BC%EA%B8%B0%EB%8F%84%EB%AC%B8%ED%97%AC%EB%9D%BC%EC%96%B41.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">2부</div><audio controls preload="none" src="./(%EC%A4%91%EA%B8%89)%EC%A3%BC%EA%B8%B0%EB%8F%84%EB%AC%B8%ED%97%AC%EB%9D%BC%EC%96%B42.mp3"></audio></div>
+    </div>
+  </div>
+</div>
 
 <!-- 1절 -->
 <div class="verse">
@@ -207,6 +237,46 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-sy
     <div class="w3"><div class="g">πονηροῦ</div><div class="ph">포네루</div><div class="gl">악(한 자)의</div></div>
   </div>
   <div class="transl"><b>해석</b>"우리를 시험에 들게 하지 마시옵고 다만 악에서 구하시옵소서"</div>
+</div>
+
+<div class="audio-sec">
+  <div class="sec-title">🎧 구절별 낭송 연습</div>
+  <div class="sec-desc">절을 구간별로 나눠 연습할 수 있는 음원입니다. v1·v2는 멜로디·편곡이 다른 두 버전입니다.</div>
+  <div class="audio-grp">
+    <div class="grp-label">① + ② 아버지 이름이 거룩히</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">v1</div><audio controls preload="none" src="./1%20%EC%95%84%EB%B2%84%EC%A7%80%EC%9D%B4%EB%A6%84%EC%9D%B4%EA%B1%B0%EB%A3%A9_v1.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">v2</div><audio controls preload="none" src="./1%20%EC%95%84%EB%B2%84%EC%A7%80%EC%9D%B4%EB%A6%84%EC%9D%B4%EA%B1%B0%EB%A3%A9_v2.mp3"></audio></div>
+    </div>
+  </div>
+  <div class="audio-grp">
+    <div class="grp-label">③ + ④ 나라가 임하시오며 · 뜻이 이루어짐</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">v1</div><audio controls preload="none" src="./2%20%EB%82%98%EB%9D%BC%EA%B0%80%20%EC%9E%84%ED%95%98%EC%8B%9C%EC%98%A4%EB%A9%B0_v1.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">v2</div><audio controls preload="none" src="./2%20%EB%82%98%EB%9D%BC%EA%B0%80%20%EC%9E%84%ED%95%98%EC%8B%9C%EC%98%A4%EB%A9%B0_v2.mp3"></audio></div>
+    </div>
+  </div>
+  <div class="audio-grp">
+    <div class="grp-label">⑤ 일용할 양식</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">v1</div><audio controls preload="none" src="./3%20%EC%9D%BC%EC%9A%A9%ED%95%A0%EC%96%91%EC%8B%9D_v1.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">v2</div><audio controls preload="none" src="./3%20%EC%9D%BC%EC%9A%A9%ED%95%A0%EC%96%91%EC%8B%9D_v2.mp3"></audio></div>
+    </div>
+  </div>
+  <div class="audio-grp">
+    <div class="grp-label">⑥ 죄 사함</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">v1</div><audio controls preload="none" src="./4%20%EC%A3%84%EC%82%AC%ED%95%A8_v1.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">v2</div><audio controls preload="none" src="./4%20%EC%A3%84%EC%82%AC%ED%95%A8_v2.mp3"></audio></div>
+    </div>
+  </div>
+  <div class="audio-grp">
+    <div class="grp-label">⑦ 시험과 구원</div>
+    <div class="audio-row">
+      <div class="audio-item"><div class="a-label">v1</div><audio controls preload="none" src="./5%20%EC%8B%9C%ED%97%98%EA%B3%BC%20%EA%B5%AC%EC%9B%90_v1.mp3"></audio></div>
+      <div class="audio-item"><div class="a-label">v2</div><audio controls preload="none" src="./5%20%EC%8B%9C%ED%97%98%EA%B3%BC%20%EA%B5%AC%EC%9B%90_v2.mp3"></audio></div>
+    </div>
+  </div>
 </div>
 
 <div class="foot">헬라어 II 암송 과제 · 주기도문(마 6:9–13) · 안호준 교수 · M.Div 강의 아카이브</div>
