@@ -89,6 +89,8 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
 .case-acc{border-top:2.5px solid var(--red)}
 .case-na{border-top:2.5px solid #4a5268}
 
+.asp{display:inline-block;margin-top:2px;font-size:9.5px;font-weight:700;color:#0d1117;background:var(--gold);padding:0 5px;border-radius:3px;letter-spacing:.02em}
+
 .tr-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#080c14;border-radius:6px;border-left:3px solid var(--gold)}
 .tr-row.nat{border-left-color:var(--blue);margin-top:6px;background:#0a1018}
 .tr-row.nat .tr-lbl{color:var(--blue)}
@@ -198,6 +200,12 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
   <span style="margin-left:6px"><span class="bdg b-exam">⭐ 교수 강조</span> = 강의 중 시험 예상으로 짚은 부분 · <span class="bdg b-sup">🔎 보충</span> = 문법 교차검증 추가설명</span>
 </div>
 
+<div class="gr" style="margin-bottom:18px">
+  <div class="grt">동사상(Aspect) 현재성 점수 — 모든 동사 파싱에 표기</div>
+  <div class="grb">이 과목의 핵심 강조점. 시제가 아니라 <b>화자가 사건을 어떻게 그리는가</b>를 나타내며, 파싱 끝에 <span class="asp">[현재성 N]</span>으로 표기한다.<br>
+  부정과거·미래 = <b>0</b>(총괄·디폴트 서술) · 미완료 = <b>1</b>(과거 진행·반복) · 현재 = <b>2</b>(진행·반복, 두드러진 현재성) · 완료 = <b>3</b>(상태·결과, 최전방 정보)</div>
+</div>
+
 <!-- ══════════════════ 11과 ══════════════════ -->
 <div id="t11" class="tc active">
   <div class="sh"><span class="sb">11과</span><span class="st">11.9 연습문제 — 직설법 부정과거 (112~121쪽)</span><div class="sl"></div></div>
@@ -215,7 +223,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       <div class="wc w-dem case-dat"><span class="wc-g gk">ἐκείνῃ</span><span class="wc-p">지시대명사 ἐκεῖνος<br>여성 단수 <strong>여격</strong></span><span class="wc-m">저</span></div>
       <div class="wc w-art case-dat"><span class="wc-g gk">τῇ</span><span class="wc-p">정관사<br>여성 단수 <strong>여격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-dat"><span class="wc-g gk">ὥρᾳ</span><span class="wc-p">명사 ὥρα · 1변화 여성<br>단수 <strong>여격</strong> (시간의 여격)</span><span class="wc-m">시간에</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐθεράπευσεν</span><span class="wc-p">θεραπεύω<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">고치셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐθεράπευσεν</span><span class="wc-p">θεραπεύω<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">고치셨다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτούς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>대격</strong> → 목적어</span><span class="wc-m">그들을</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">Ἰησοῦς</span><span class="wc-p">고유명사<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">예수께서</span></div>
@@ -230,7 +238,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 2</span><span class="sc-ref">눅 21:6</span></div>
     <div class="sc-full gk">συνέταξεν αὐτοῖς ὁ Ἰησοῦς.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">συνέταξεν</span><span class="wc-p">συντάσσω<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">명령하셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">συνέταξεν</span><span class="wc-p">συντάσσω<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">명령하셨다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτοῖς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>여격</strong> → 간접목적어</span><span class="wc-m">그들에게</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">Ἰησοῦς</span><span class="wc-p">고유명사<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">예수께서</span></div>
@@ -245,7 +253,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 3</span><span class="sc-ref">요 4:27</span></div>
     <div class="sc-full gk">ἦλθαν οἱ μαθηταὶ αὐτοῦ.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἦλθαν</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 제2부정과거<br>능동형 3인칭 복수</span><span class="wc-m">왔다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἦλθαν</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 제2부정과거<br>능동형 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">왔다</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사<br>남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">μαθηταί</span><span class="wc-p">명사 μαθητής · 1변화 남성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">제자들이</span></div>
       <div class="wc w-pron case-gen"><span class="wc-g gk">αὐτοῦ</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>속격</strong> → 소유</span><span class="wc-m">그의</span></div>
@@ -262,7 +270,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사 (지시적 용법)<br>남성 단수 <strong>주격</strong> → "그는"</span><span class="wc-m">그는</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">δέ</span><span class="wc-p">접속사 (후치사)</span><span class="wc-m">그러나</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간 교체 εἶπ-)<br>직설법 제2부정과거<br>능동태 3인칭 단수</span><span class="wc-m">말했다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간 교체 εἶπ-)<br>직설법 제2부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">말했다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτοῖς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>여격</strong> → 간접목적어</span><span class="wc-m">그들에게</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그러나 그는 말했다 그들에게.</span></div>
@@ -274,7 +282,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 5</span><span class="sc-ref">행 11:1</span></div>
     <div class="sc-full gk">ἤκουσαν δὲ οἱ ἀπόστολοι καὶ οἱ ἀδελφοί.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἤκουσαν</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">들었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἤκουσαν</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">들었다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">δέ</span><span class="wc-p">접속사 (후치사)</span><span class="wc-m">그러나</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사<br>남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἀπόστολοι</span><span class="wc-p">명사 ἀπόστολος · 2변화 남성<br>복수 <strong>주격</strong> → 주어①</span><span class="wc-m">사도들이</span></div>
@@ -293,7 +301,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사 (지시적 용법)<br>남성 단수 <strong>주격</strong> → "그는"</span><span class="wc-m">그는</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">δέ</span><span class="wc-p">접속사 (후치사)</span><span class="wc-m">그러나</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἦλθεν</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 제2부정과거<br>능동형 3인칭 단수</span><span class="wc-m">왔다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἦλθεν</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 제2부정과거<br>능동형 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">왔다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그러나 그는 왔다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그러나 그는 왔다.</span></div>
@@ -304,9 +312,9 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 7</span><span class="sc-ref">눅 7:22</span></div>
     <div class="sc-full gk">εἴδετε καὶ ἠκούσατε.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">εἴδετε</span><span class="wc-p">βλέπω (어간 교체 εἶδον)<br>직설법 제2부정과거<br>능동태 2인칭 복수</span><span class="wc-m">너희가 보았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἴδετε</span><span class="wc-p">βλέπω (어간 교체 εἶδον)<br>직설법 제2부정과거<br>능동태 2인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너희가 보았다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠκούσατε</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>능동태 2인칭 복수</span><span class="wc-m">너희가 들었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠκούσατε</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>능동태 2인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너희가 들었다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">너희가 보았고 너희가 들었다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">너희가 보았고 들었다.</span></div>
@@ -319,7 +327,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사<br>남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἄνθρωποι</span><span class="wc-p">명사 ἄνθρωπος · 2변화 남성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">사람들이</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπίστευσαν</span><span class="wc-p">πιστεύω<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">믿었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπίστευσαν</span><span class="wc-p">πιστεύω<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">믿었다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ἐπί</span><span class="wc-p">전치사 + 대격</span><span class="wc-m">~을 (믿음의 대상)</span></div>
       <div class="wc w-art case-acc"><span class="wc-g gk">τόν</span><span class="wc-p">정관사<br>남성 단수 <strong>대격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">κύριον</span><span class="wc-p">명사 κύριος · 2변화 남성<br>단수 <strong>대격</strong> → ἐπί의 지배</span><span class="wc-m">주를</span></div>
@@ -338,7 +346,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       <div class="wc w-art case-gen"><span class="wc-g gk">τοῦ</span><span class="wc-p">정관사<br>남성 단수 <strong>속격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">δούλου</span><span class="wc-p">명사 δοῦλος · 2변화 남성<br>단수 <strong>속격</strong> → 소유</span><span class="wc-m">종의</span></div>
       <div class="wc w-dem case-gen"><span class="wc-g gk">ἐκείνου</span><span class="wc-p">지시대명사 ἐκεῖνος<br>남성 단수 <strong>속격</strong> (수식)</span><span class="wc-m">저</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέλυσεν</span><span class="wc-p">ἀπολύω<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">풀어놓았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέλυσεν</span><span class="wc-p">ἀπολύω<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">풀어놓았다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> → 목적어</span><span class="wc-m">그를</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 저 종의 주인이 풀어놓았다 그를.</span></div>
@@ -350,7 +358,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 10</span></div>
     <div class="sc-full gk">ὠνόμασεν Πέτρον.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ὠνόμασεν</span><span class="wc-p">ὀνομάζω<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">이름 지었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ὠνόμασεν</span><span class="wc-p">ὀνομάζω<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">이름 지었다</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">Πέτρον</span><span class="wc-p">고유명사<br>단수 <strong>대격</strong> → 목적보어</span><span class="wc-m">베드로라고</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">이름 지었다 베드로라고.</span></div>
@@ -362,7 +370,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 11</span><span class="sc-ref">행 19:37</span></div>
     <div class="sc-full gk">ἠγάγετε τούτους.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγάγετε</span><span class="wc-p">ἄγω (어간 교체 ἠγαγ-)<br>직설법 제2부정과거<br>능동태 2인칭 복수</span><span class="wc-m">너희가 인도했다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγάγετε</span><span class="wc-p">ἄγω (어간 교체 ἠγαγ-)<br>직설법 제2부정과거<br>능동태 2인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너희가 인도했다</span></div>
       <div class="wc w-dem case-acc"><span class="wc-g gk">τούτους</span><span class="wc-p">지시대명사 οὗτος<br>남성 복수 <strong>대격</strong> → 목적어</span><span class="wc-m">이 사람들을</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">너희가 인도했다 이 사람들을.</span></div>
@@ -392,7 +400,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 1</span><span class="sc-ref">딤전 3:16</span></div>
     <div class="sc-full gk">ἀνελήμφθη ἐν δόξῃ.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀνελήμφθη</span><span class="wc-p">ἀναλαμβάνω<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">올리워지셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀνελήμφθη</span><span class="wc-p">ἀναλαμβάνω<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">올리워지셨다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ἐν</span><span class="wc-p">전치사 + 여격</span><span class="wc-m">~중에</span></div>
       <div class="wc w-noun case-dat"><span class="wc-g gk">δόξῃ</span><span class="wc-p">명사 δόξα · 1변화 여성<br>단수 <strong>여격</strong> → ἐν의 지배</span><span class="wc-m">영광</span></div>
     </div>
@@ -405,7 +413,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">ἐγὼ ἐδιδάχθην ὑπὸ τοῦ ἀνθρώπου.</div>
     <div class="wr">
       <div class="wc w-pron case-nom"><span class="wc-g gk">ἐγώ</span><span class="wc-p">1인칭대명사<br>단수 <strong>주격</strong> (강조 주어)</span><span class="wc-m">나는</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδιδάχθην</span><span class="wc-p">διδάσκω<br>직설법 제1부정과거<br>수동태 1인칭 단수</span><span class="wc-m">가르침을 받았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδιδάχθην</span><span class="wc-p">διδάσκω<br>직설법 제1부정과거<br>수동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">가르침을 받았다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ὑπό</span><span class="wc-p">전치사 + 속격 (행위자)</span><span class="wc-m">~에 의해</span></div>
       <div class="wc w-art case-gen"><span class="wc-g gk">τοῦ</span><span class="wc-p">정관사<br>남성 단수 <strong>속격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">ἀνθρώπου</span><span class="wc-p">명사 ἄνθρωπος · 2변화 남성<br>단수 <strong>속격</strong> → ὑπό의 지배</span><span class="wc-m">사람</span></div>
@@ -418,9 +426,9 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 3</span><span class="sc-ref">눅 17:14</span></div>
     <div class="sc-full gk">εἶπεν αὐτοῖς, ἐκαθαρίσθησαν.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간교체 εἶπ-)<br>직설법 제2부정과거<br>능동태 3인칭 단수</span><span class="wc-m">말했다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간교체 εἶπ-)<br>직설법 제2부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">말했다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτοῖς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>여격</strong></span><span class="wc-m">그들에게</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐκαθαρίσθησαν</span><span class="wc-p">καθαρίζω<br>직설법 제1부정과거<br>수동태 3인칭 복수</span><span class="wc-m">그들이 깨끗함을 받았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐκαθαρίσθησαν</span><span class="wc-p">καθαρίζω<br>직설법 제1부정과거<br>수동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">그들이 깨끗함을 받았다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">말했다 그들에게, 그들이 깨끗함을 받았다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그가 그들에게 말했다, "그들이 깨끗함을 받았다."</span></div>
@@ -431,7 +439,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">φωνὴ ἠκούσθη.</div>
     <div class="wr">
       <div class="wc w-noun case-nom"><span class="wc-g gk">φωνή</span><span class="wc-p">명사 φωνή · 1변화 여성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">소리가</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠκούσθη</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">들려졌다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠκούσθη</span><span class="wc-p">ἀκούω<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">들려졌다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">소리가 들려졌다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">소리가 들려졌다.</span></div>
@@ -441,7 +449,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 5</span><span class="sc-ref">참고: 출처 재확인 필요</span></div>
     <div class="sc-full gk">ἀπεκρίθη ὁ Ἰησοῦς.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπεκρίθη</span><span class="wc-p">ἀποκρίνομαι (디포넌트)<br>직설법 제1부정과거<br>수동형 3인칭 단수</span><span class="wc-m">대답하셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπεκρίθη</span><span class="wc-p">ἀποκρίνομαι (디포넌트)<br>직설법 제1부정과거<br>수동형 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">대답하셨다</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">Ἰησοῦς</span><span class="wc-p">고유명사<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">예수께서</span></div>
     </div>
@@ -454,7 +462,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 6</span><span class="sc-ref">눅 1:11</span></div>
     <div class="sc-full gk">ὤφθη δὲ αὐτῷ ἄγγελος κυρίου.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ὤφθη</span><span class="wc-p">ὁράω<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">나타났다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ὤφθη</span><span class="wc-p">ὁράω<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">나타났다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">δέ</span><span class="wc-p">접속사 (후치사)</span><span class="wc-m">그런데</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτῷ</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>여격</strong></span><span class="wc-m">그에게</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἄγγελος</span><span class="wc-p">명사 ἄγγελος · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">사자가</span></div>
@@ -470,10 +478,10 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἄγγελος</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">천사가</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간교체)<br>직설법 제2부정과거<br>능동태 3인칭 단수</span><span class="wc-m">말했다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">εἶπεν</span><span class="wc-p">λέγω (어간교체)<br>직설법 제2부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">말했다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτῷ</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>여격</strong></span><span class="wc-m">그에게</span></div>
       <div class="wc w-pron case-nom"><span class="wc-g gk">ἐγώ</span><span class="wc-p">1인칭대명사<br>단수 <strong>주격</strong> (강조)</span><span class="wc-m">나는</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπεστάλην</span><span class="wc-p">ἀποστέλλω<br>직설법 제2부정과거<br>수동태 1인칭 단수</span><span class="wc-m">보내심을 받았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπεστάλην</span><span class="wc-p">ἀποστέλλω<br>직설법 제2부정과거<br>수동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">보내심을 받았다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ὑπό</span><span class="wc-p">전치사 + 속격 (행위자)</span><span class="wc-m">~에 의해</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τοῦ θεοῦ</span><span class="wc-p">정관사+명사<br>남성 단수 <strong>속격</strong></span><span class="wc-m">하나님</span></div>
     </div>
@@ -485,7 +493,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 8</span><span class="sc-ref">마 1:24 (참고 구절)</span></div>
     <div class="sc-full gk">ἠγέρθην ἀπὸ τοῦ ὕπνου.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγέρθην</span><span class="wc-p">ἐγείρω<br>직설법 제1부정과거<br>수동태 1인칭 단수</span><span class="wc-m">나는 일으켜졌다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγέρθην</span><span class="wc-p">ἐγείρω<br>직설법 제1부정과거<br>수동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">나는 일으켜졌다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ἀπό</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~로부터</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τοῦ ὕπνου</span><span class="wc-p">정관사+명사 · 2변화 남성<br>단수 <strong>속격</strong></span><span class="wc-m">그 잠</span></div>
     </div>
@@ -498,7 +506,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 9</span><span class="sc-ref">눅 4:42 (참고 구절)</span></div>
     <div class="sc-full gk">ἐπορεύθη εἰς ἔρημον δικαίως.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπορεύθη</span><span class="wc-p">πορεύομαι (디포넌트)<br>직설법 제1부정과거<br>디포넌트 3인칭 단수</span><span class="wc-m">그가 갔다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπορεύθη</span><span class="wc-p">πορεύομαι (디포넌트)<br>직설법 제1부정과거<br>디포넌트 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">그가 갔다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">εἰς</span><span class="wc-p">전치사 + 대격</span><span class="wc-m">~으로</span></div>
       <div class="wc w-adj case-acc"><span class="wc-g gk">ἔρημον</span><span class="wc-p">형용사(명사화) ἔρημος<br>단수 <strong>대격</strong> (장소)</span><span class="wc-m">광야로</span></div>
       <div class="wc w-adj case-na"><span class="wc-g gk">δικαίως</span><span class="wc-p">부사</span><span class="wc-m">의롭게(합당하게)</span></div>
@@ -512,7 +520,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">αὕτη ἡγιάσθη.</div>
     <div class="wr">
       <div class="wc w-dem case-nom"><span class="wc-g gk">αὕτη</span><span class="wc-p">지시대명사 οὗτος<br>여성 단수 <strong>주격</strong> → 주어</span><span class="wc-m">이 여자는(이것은)</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἡγιάσθη</span><span class="wc-p">ἁγιάζω<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">거룩하게 되었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἡγιάσθη</span><span class="wc-p">ἁγιάζω<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">거룩하게 되었다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">이 여자는 거룩하게 되었다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">이 여자는(이것은) 거룩하게 되었다.</span></div>
@@ -522,7 +530,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 11</span><span class="sc-ref">벧후 1:21</span></div>
     <div class="sc-full gk">ἠνέχθη ὑπὸ τοῦ θεοῦ.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠνέχθη</span><span class="wc-p">φέρω (어간교체)<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">인도되었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠνέχθη</span><span class="wc-p">φέρω (어간교체)<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">인도되었다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ὑπό</span><span class="wc-p">전치사 + 속격 (행위자)</span><span class="wc-m">~에 의해</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τοῦ θεοῦ</span><span class="wc-p">정관사+명사<br>남성 단수 <strong>속격</strong></span><span class="wc-m">하나님</span></div>
     </div>
@@ -536,7 +544,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사<br>남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">στρατιῶται</span><span class="wc-p">명사 στρατιώτης · 1변화 남성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">군인들은</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδιδάχθησαν</span><span class="wc-p">διδάσκω<br>직설법 제1부정과거<br>수동태 3인칭 복수</span><span class="wc-m">가르침을 받았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδιδάχθησαν</span><span class="wc-p">διδάσκω<br>직설법 제1부정과거<br>수동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">가르침을 받았다</span></div>
       <div class="wc w-adj case-na"><span class="wc-g gk">ἐσχάτως</span><span class="wc-p">부사</span><span class="wc-m">마지막으로</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그 군인들은 가르침을 받았다 마지막으로.</span></div>
@@ -567,7 +575,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-prep case-na"><span class="wc-g gk">μετά</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~와 함께</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">γυναικός</span><span class="wc-p">명사 γυνή · 3변화 여성<br>단수 <strong>속격</strong> → μετά의 지배</span><span class="wc-m">여자</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐλάλει</span><span class="wc-p">λαλέω (단축동사 -έω)<br>직설법 미완료<br>능동태 3인칭 단수</span><span class="wc-m">말하고 있었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐλάλει</span><span class="wc-p">λαλέω (단축동사 -έω)<br>직설법 미완료<br>능동태 3인칭 단수<br><span class="asp">[현재성 1]</span></span><span class="wc-m">말하고 있었다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">여자와 함께 말하고 있었다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그는 여자와 함께 말하고 있었다.</span></div>
@@ -577,10 +585,10 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 2</span><span class="sc-ref">계 1:5</span></div>
     <div class="sc-full gk">ἠγάπα ἡμᾶς καὶ ἔλυσεν ἡμᾶς ἐκ τῶν ἁμαρτιῶν ἡμῶν ἐν τῷ αἵματι αὐτοῦ.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγάπα</span><span class="wc-p">ἀγαπάω (단축동사 -άω)<br>직설법 미완료<br>능동태 3인칭 단수</span><span class="wc-m">사랑하고 계셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἠγάπα</span><span class="wc-p">ἀγαπάω (단축동사 -άω)<br>직설법 미완료<br>능동태 3인칭 단수<br><span class="asp">[현재성 1]</span></span><span class="wc-m">사랑하고 계셨다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">ἡμᾶς</span><span class="wc-p">1인칭대명사<br>복수 <strong>대격</strong> → 목적어①</span><span class="wc-m">우리를</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔλυσεν</span><span class="wc-p">λύω<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">풀어(해방하기) 시작하셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔλυσεν</span><span class="wc-p">λύω<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">풀어(해방하기) 시작하셨다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">ἡμᾶς</span><span class="wc-p">1인칭대명사<br>복수 <strong>대격</strong> → 목적어②</span><span class="wc-m">우리를</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ἐκ</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~로부터</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τῶν ἁμαρτιῶν</span><span class="wc-p">정관사+명사 · 1변화 여성<br>복수 <strong>속격</strong></span><span class="wc-m">죄들로부터</span></div>
@@ -598,7 +606,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 3</span><span class="sc-ref">갈 2:16</span></div>
     <div class="sc-full gk">δικαιοῦται ἄνθρωπος διὰ πίστεως Ἰησοῦ Χριστοῦ ὑπὸ τοῦ θεοῦ, καὶ ἡμεῖς εἰς Χριστὸν Ἰησοῦν ἐπιστεύσαμεν.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">δικαιοῦται</span><span class="wc-p">δικαιόω (단축동사 -όω)<br>직설법 현재<br>수동태 3인칭 단수</span><span class="wc-m">의롭다 하심을 받는다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">δικαιοῦται</span><span class="wc-p">δικαιόω (단축동사 -όω)<br>직설법 현재<br>수동태 3인칭 단수<br><span class="asp">[현재성 2]</span></span><span class="wc-m">의롭다 하심을 받는다</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἄνθρωπος</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">사람은</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">διά</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~으로 말미암아</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">πίστεως</span><span class="wc-p">명사 πίστις · 3변화 여성<br>단수 <strong>속격</strong></span><span class="wc-m">믿음</span></div>
@@ -609,7 +617,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       <div class="wc w-pron case-nom"><span class="wc-g gk">ἡμεῖς</span><span class="wc-p">1인칭대명사<br>복수 <strong>주격</strong> (강조)</span><span class="wc-m">우리도</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">εἰς</span><span class="wc-p">전치사 + 대격</span><span class="wc-m">~안으로(향해)</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">Χριστὸν Ἰησοῦν</span><span class="wc-p">고유명사<br><strong>대격</strong></span><span class="wc-m">그리스도 예수</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπιστεύσαμεν</span><span class="wc-p">πιστεύω<br>직설법 제1부정과거<br>능동태 1인칭 복수</span><span class="wc-m">믿었다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐπιστεύσαμεν</span><span class="wc-p">πιστεύω<br>직설법 제1부정과거<br>능동태 1인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">믿었다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">사람은 의롭다 하심을 받는다 예수 그리스도의 믿음으로 말미암아 하나님에 의해, 그리고 우리도 그리스도 예수 안으로 믿었다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">사람은 예수 그리스도의 믿음으로 말미암아 하나님께 의롭다 하심을 받으며, 우리도 그리스도 예수 안에서 믿는다.</span></div>
@@ -619,7 +627,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 4</span><span class="sc-ref">요 4:21</span></div>
     <div class="sc-full gk">προσκυνήσετε τῷ πατρί.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">προσκυνήσετε</span><span class="wc-p">προσκυνέω (단축동사 -έω)<br>직설법 미래<br>능동태 2인칭 복수</span><span class="wc-m">너희가 경배할 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">προσκυνήσετε</span><span class="wc-p">προσκυνέω (단축동사 -έω)<br>직설법 미래<br>능동태 2인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너희가 경배할 것이다</span></div>
       <div class="wc w-noun case-dat"><span class="wc-g gk">τῷ πατρί</span><span class="wc-p">정관사+명사 πατήρ · 3변화<br>남성 단수 <strong>여격</strong> (대상)</span><span class="wc-m">아버지께</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">너희가 경배할 것이다 아버지께.</span></div>
@@ -649,9 +657,9 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">αὐτὸν ἔδειραν καὶ ἀπέστειλαν.</div>
     <div class="wr">
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> (공통 목적어)</span><span class="wc-m">그를</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔδειραν</span><span class="wc-p">δέρω (유음동사)<br>직설법 제2부정과거<br>능동태 3인칭 복수</span><span class="wc-m">때렸다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔδειραν</span><span class="wc-p">δέρω (유음동사)<br>직설법 제2부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">때렸다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέστειλαν</span><span class="wc-p">ἀποστέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">보냈다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέστειλαν</span><span class="wc-p">ἀποστέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">보냈다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">그를 때렸다 그리고 보냈다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그들이 그를 때렸고 보냈다.</span></div>
@@ -662,10 +670,10 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 2</span><span class="sc-ref">막 12:8</span></div>
     <div class="sc-full gk">ἀπέκτειναν αὐτὸν καὶ ἐξέβαλον αὐτόν.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέκτειναν</span><span class="wc-p">ἀποκτείνω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">죽였다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέκτειναν</span><span class="wc-p">ἀποκτείνω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">죽였다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> → 목적어①</span><span class="wc-m">그를</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐξέβαλον</span><span class="wc-p">ἐκβάλλω (유음동사)<br>직설법 제2부정과거<br>능동태 3인칭 복수</span><span class="wc-m">내던졌다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐξέβαλον</span><span class="wc-p">ἐκβάλλω (유음동사)<br>직설법 제2부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">내던졌다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> → 목적어②</span><span class="wc-m">그를</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">죽였다 그를 그리고 내던졌다 그를.</span></div>
@@ -677,7 +685,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">οὐκ ἔσπειρα;</div>
     <div class="wr">
       <div class="wc w-conj case-na"><span class="wc-g gk">οὐκ</span><span class="wc-p">부정어 (의문)</span><span class="wc-m">~아니</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρα</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 1인칭 단수</span><span class="wc-m">내가 뿌렸다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρα</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">내가 뿌렸다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">내가 뿌리지 않았는가?</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">내가 뿌리지 않았는가?</span></div>
@@ -687,7 +695,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 4</span><span class="sc-ref">눅 7:3</span></div>
     <div class="sc-full gk">ἀπέστειλεν πρεσβυτέρους τῶν Ἰουδαίων.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέστειλεν</span><span class="wc-p">ἀποστέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">그가 보냈다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπέστειλεν</span><span class="wc-p">ἀποστέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">그가 보냈다</span></div>
       <div class="wc w-adj case-acc"><span class="wc-g gk">πρεσβυτέρους</span><span class="wc-p">형용사(명사화) πρεσβύτερος<br>남성 복수 <strong>대격</strong> → 목적어</span><span class="wc-m">장로들을</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τῶν Ἰουδαίων</span><span class="wc-p">정관사+명사<br>남성 복수 <strong>속격</strong> (소유)</span><span class="wc-m">유대인들의</span></div>
     </div>
@@ -699,7 +707,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 5</span><span class="sc-ref">눅 7:18</span></div>
     <div class="sc-full gk">ἀπήγγειλαν Ἰωάννῃ οἱ μαθηταὶ αὐτοῦ περὶ τούτων.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπήγγειλαν</span><span class="wc-p">ἀπαγγέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">보고했다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀπήγγειλαν</span><span class="wc-p">ἀπαγγέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">보고했다</span></div>
       <div class="wc w-noun case-dat"><span class="wc-g gk">Ἰωάννῃ</span><span class="wc-p">고유명사<br>남성 단수 <strong>여격</strong> (간접목적어)</span><span class="wc-m">요한에게</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">οἱ</span><span class="wc-p">정관사<br>남성 복수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">μαθηταί</span><span class="wc-p">명사 · 1변화 남성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">제자들이</span></div>
@@ -715,7 +723,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 6</span><span class="sc-ref">약 1:11</span></div>
     <div class="sc-full gk">ἀνέτειλεν ὁ ἥλιος.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀνέτειλεν</span><span class="wc-p">ἀνατέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 단수</span><span class="wc-m">돋았다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀνέτειλεν</span><span class="wc-p">ἀνατέλλω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">돋았다</span></div>
       <div class="wc w-art case-nom"><span class="wc-g gk">ὁ</span><span class="wc-p">정관사<br>남성 단수 <strong>주격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἥλιος</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">해가</span></div>
     </div>
@@ -731,7 +739,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       <div class="wc w-conj case-na"><span class="wc-g gk">οὐχί</span><span class="wc-p">부정어 (강조 의문)</span><span class="wc-m">~아니하였습니까</span></div>
       <div class="wc w-adj case-acc"><span class="wc-g gk">καλόν</span><span class="wc-p">형용사(한정적) καλός<br>중성 단수 <strong>대격</strong></span><span class="wc-m">좋은</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">σπέρμα</span><span class="wc-p">명사 σπέρμα · 3변화 중성<br>단수 <strong>대격</strong> → 목적어</span><span class="wc-m">씨를</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρας</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 2인칭 단수</span><span class="wc-m">당신이 뿌리셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρας</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 2인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">당신이 뿌리셨다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">주여, 좋은 씨를 뿌리지 아니하셨습니까?</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">주여, 좋은 씨를 뿌리지 아니하였나이까?</span></div>
@@ -741,10 +749,10 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 8</span><span class="sc-ref">눅 19:22</span></div>
     <div class="sc-full gk">γινώσκεις ὅτι οὐκ ἔσπειρα;</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">γινώσκεις</span><span class="wc-p">γινώσκω<br>직설법 현재<br>능동태 2인칭 단수</span><span class="wc-m">너는 아느냐</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">γινώσκεις</span><span class="wc-p">γινώσκω<br>직설법 현재<br>능동태 2인칭 단수<br><span class="asp">[현재성 2]</span></span><span class="wc-m">너는 아느냐</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">ὅτι</span><span class="wc-p">접속사 (명사절)</span><span class="wc-m">~라는 것을</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">οὐκ</span><span class="wc-p">부정어</span><span class="wc-m">~않았다</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρα</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 1인칭 단수</span><span class="wc-m">내가 뿌렸다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσπειρα</span><span class="wc-p">σπείρω (유음동사)<br>직설법 제1부정과거<br>능동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">내가 뿌렸다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">너는 아느냐 내가 뿌리지 않았다는 것을?</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">너는 내가 뿌리지 않았다고 알고 있느냐?</span></div>
@@ -754,7 +762,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 9</span><span class="sc-ref">마 8:25</span></div>
     <div class="sc-full gk">ἤγειραν αὐτόν.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἤγειραν</span><span class="wc-p">ἐγείρω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수</span><span class="wc-m">그들이 깨웠다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἤγειραν</span><span class="wc-p">ἐγείρω (유음동사)<br>직설법 제1부정과거<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">그들이 깨웠다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> → 목적어</span><span class="wc-m">그를</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">깨웠다 그를.</span></div>
@@ -785,7 +793,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">οὐκ ἀκούσει τὴν φωνήν.</div>
     <div class="wr">
       <div class="wc w-conj case-na"><span class="wc-g gk">οὐκ</span><span class="wc-p">부정어</span><span class="wc-m">~않을 것이다</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀκούσει</span><span class="wc-p">ἀκούω<br>직설법 미래<br>능동태 3인칭 단수</span><span class="wc-m">들을 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀκούσει</span><span class="wc-p">ἀκούω<br>직설법 미래<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">들을 것이다</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">τὴν φωνήν</span><span class="wc-p">정관사+명사 φωνή<br>여성 단수 <strong>대격</strong> → 목적어</span><span class="wc-m">그 음성을</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">듣지 않을 것이다 그 음성을.</span></div>
@@ -796,7 +804,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 2</span><span class="sc-ref">눅 12:17</span></div>
     <div class="sc-full gk">συνάξω τοὺς καρπούς μου.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">συνάξω</span><span class="wc-p">συνάγω<br>직설법 미래<br>능동태 1인칭 단수</span><span class="wc-m">내가 모을 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">συνάξω</span><span class="wc-p">συνάγω<br>직설법 미래<br>능동태 1인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">내가 모을 것이다</span></div>
       <div class="wc w-noun case-acc"><span class="wc-g gk">τοὺς καρπούς</span><span class="wc-p">정관사+명사 · 2변화 남성<br>복수 <strong>대격</strong> → 목적어</span><span class="wc-m">열매들을</span></div>
       <div class="wc w-pron case-gen"><span class="wc-g gk">μου</span><span class="wc-p">1인칭대명사<br>단수 <strong>속격</strong> (소유)</span><span class="wc-m">나의</span></div>
     </div>
@@ -808,7 +816,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 3</span><span class="sc-ref">눅 1:17 (참고 구절)</span></div>
     <div class="sc-full gk">ἐλεύσονται ἡμέραι.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐλεύσονται</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 미래<br>디포넌트 3인칭 복수</span><span class="wc-m">올 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐλεύσονται</span><span class="wc-p">ἔρχομαι (디포넌트)<br>직설법 미래<br>디포넌트 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">올 것이다</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἡμέραι</span><span class="wc-p">명사 ἡμέρα · 1변화 여성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">날들이</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">올 것이다 날들이.</span></div>
@@ -822,7 +830,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-prep case-na"><span class="wc-g gk">διά</span><span class="wc-p">전치사 + 대격</span><span class="wc-m">~때문에</span></div>
       <div class="wc w-dem case-acc"><span class="wc-g gk">τοῦτο</span><span class="wc-p">지시대명사 οὗτος<br>중성 단수 <strong>대격</strong></span><span class="wc-m">이것</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">πέμψει</span><span class="wc-p">πέμπω<br>직설법 미래<br>능동태 3인칭 단수</span><span class="wc-m">보낼 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">πέμψει</span><span class="wc-p">πέμπω<br>직설법 미래<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">보낼 것이다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">αὐτοῖς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>여격</strong></span><span class="wc-m">그들에게</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ὁ θεός</span><span class="wc-p">정관사+명사<br>남성 단수 <strong>주격</strong> → 주어</span><span class="wc-m">하나님이</span></div>
     </div>
@@ -836,7 +844,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-adj case-nom"><span class="wc-g gk">πονηροί</span><span class="wc-p">형용사(한정적) πονηρός<br>남성 복수 <strong>주격</strong></span><span class="wc-m">악한</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἄνθρωποι</span><span class="wc-p">명사 · 2변화 남성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">사람들은</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">προκόψουσιν</span><span class="wc-p">προκόπτω<br>직설법 미래<br>능동태 3인칭 복수</span><span class="wc-m">더욱 진보할 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">προκόψουσιν</span><span class="wc-p">προκόπτω<br>직설법 미래<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">더욱 진보할 것이다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">악한 사람들은 더욱 진보할 것이다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">악한 사람들은 더욱 진보할 것이다.</span></div>
@@ -848,7 +856,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-prep case-na"><span class="wc-g gk">ἀπό</span><span class="wc-p">전치사 + 속격</span><span class="wc-m">~로부터</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">τῆς ἀληθείας</span><span class="wc-p">정관사+명사 · 1변화 여성<br>단수 <strong>속격</strong></span><span class="wc-m">진리로부터</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἀποστρέψουσιν</span><span class="wc-p">ἀποστρέφω<br>직설법 미래<br>능동태 3인칭 복수</span><span class="wc-m">돌이킬 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἀποστρέψουσιν</span><span class="wc-p">ἀποστρέφω<br>직설법 미래<br>능동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">돌이킬 것이다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">진리로부터 돌이킬 것이다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">그들이 진리로부터 돌이킬 것이다.</span></div>
@@ -859,7 +867,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">ἐκεῖ ἔσται καὶ ἡ καρδία σου.</div>
     <div class="wr">
       <div class="wc w-adj case-na"><span class="wc-g gk">ἐκεῖ</span><span class="wc-p">부사</span><span class="wc-m">거기에</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσται</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>3인칭 단수</span><span class="wc-m">있을 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσται</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">있을 것이다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">부사적 용법</span><span class="wc-m">~도</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ἡ καρδία</span><span class="wc-p">정관사+명사 · 1변화 여성<br>단수 <strong>주격</strong> → 주어</span><span class="wc-m">마음도</span></div>
       <div class="wc w-pron case-gen"><span class="wc-g gk">σου</span><span class="wc-p">2인칭대명사<br>단수 <strong>속격</strong> (소유)</span><span class="wc-m">너의</span></div>
@@ -873,10 +881,10 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">ὁ θεὸς ἐδοξάσθη καὶ ὁ θεὸς δοξάσει αὐτόν.</div>
     <div class="wr">
       <div class="wc w-noun case-nom"><span class="wc-g gk">ὁ θεός</span><span class="wc-p">정관사+명사<br>남성 단수 <strong>주격</strong> → 주어①</span><span class="wc-m">하나님이</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδοξάσθη</span><span class="wc-p">δοξάζω<br>직설법 제1부정과거<br>수동태 3인칭 단수</span><span class="wc-m">영광을 받으셨다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐδοξάσθη</span><span class="wc-p">δοξάζω<br>직설법 제1부정과거<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">영광을 받으셨다</span></div>
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">접속사</span><span class="wc-m">그리고 곧</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">ὁ θεός</span><span class="wc-p">정관사+명사<br>남성 단수 <strong>주격</strong> → 주어②</span><span class="wc-m">하나님이</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">δοξάσει</span><span class="wc-p">δοξάζω<br>직설법 미래<br>능동태 3인칭 단수</span><span class="wc-m">영화롭게 하실 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">δοξάσει</span><span class="wc-p">δοξάζω<br>직설법 미래<br>능동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">영화롭게 하실 것이다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτόν</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>대격</strong> → 목적어</span><span class="wc-m">그를</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">하나님이 영광을 받으셨고 하나님이 그를 영화롭게 하실 것이다.</span></div>
@@ -887,7 +895,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 9</span><span class="sc-ref">막 1:5</span></div>
     <div class="sc-full gk">βαπτισθήσεται ὑπ᾽ αὐτοῦ ἐν τῷ ποταμῷ.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">βαπτισθήσεται</span><span class="wc-p">βαπτίζω<br>직설법 미래<br>수동태 3인칭 단수</span><span class="wc-m">침례를 받을 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">βαπτισθήσεται</span><span class="wc-p">βαπτίζω<br>직설법 미래<br>수동태 3인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">침례를 받을 것이다</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ὑπ᾽</span><span class="wc-p">전치사 + 속격 (행위자)</span><span class="wc-m">~에 의해</span></div>
       <div class="wc w-pron case-gen"><span class="wc-g gk">αὐτοῦ</span><span class="wc-p">3인칭대명사<br>남성 단수 <strong>속격</strong></span><span class="wc-m">그</span></div>
       <div class="wc w-prep case-na"><span class="wc-g gk">ἐν</span><span class="wc-p">전치사 + 여격</span><span class="wc-m">~에서</span></div>
@@ -902,7 +910,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">νεκροὶ ἐγερθήσονται.</div>
     <div class="wr">
       <div class="wc w-adj case-nom"><span class="wc-g gk">νεκροί</span><span class="wc-p">형용사(독립적 용법) νεκρός<br>남성 복수 <strong>주격</strong> → 주어</span><span class="wc-m">죽은 자들이</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἐγερθήσονται</span><span class="wc-p">ἐγείρω<br>직설법 미래<br>수동태 3인칭 복수</span><span class="wc-m">일으켜질 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἐγερθήσονται</span><span class="wc-p">ἐγείρω<br>직설법 미래<br>수동태 3인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">일으켜질 것이다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">죽은 자들이 일으켜질 것이다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">죽은 자들이 일으켜질 것이다.</span></div>
@@ -914,7 +922,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-conj case-na"><span class="wc-g gk">καί</span><span class="wc-p">부사적 용법</span><span class="wc-m">~도</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">τὰ δαιμόνια</span><span class="wc-p">정관사+명사 · 2변화 중성<br>복수 <strong>주격</strong> → 주어</span><span class="wc-m">귀신들도</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ὑποταχθήσεται</span><span class="wc-p">ὑποτάσσω<br>직설법 미래<br>수동태 3인칭 단수<br>(중성복수 주어+단수동사)</span><span class="wc-m">복종될 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ὑποταχθήσεται</span><span class="wc-p">ὑποτάσσω<br>직설법 미래<br>수동태 3인칭 단수<br>(중성복수 주어+단수동사)<br><span class="asp">[현재성 0]</span></span><span class="wc-m">복종될 것이다</span></div>
       <div class="wc w-pron case-dat"><span class="wc-g gk">ἡμῖν</span><span class="wc-p">1인칭대명사<br>복수 <strong>여격</strong></span><span class="wc-m">우리에게</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">귀신들도 복종될 것이다 우리에게.</span></div>
@@ -927,7 +935,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-full gk">καλὸς ἔσῃ διάκονος Χριστοῦ Ἰησοῦ.</div>
     <div class="wr">
       <div class="wc w-adj case-nom"><span class="wc-g gk">καλός</span><span class="wc-p">형용사(서술적) καλός<br>남성 단수 <strong>주격</strong></span><span class="wc-m">선한</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσῃ</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>2인칭 단수</span><span class="wc-m">너는 될 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσῃ</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>2인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너는 될 것이다</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">διάκονος</span><span class="wc-p">명사 · 2변화 남성<br>단수 <strong>주격</strong> (보어)</span><span class="wc-m">일꾼이</span></div>
       <div class="wc w-noun case-gen"><span class="wc-g gk">Χριστοῦ Ἰησοῦ</span><span class="wc-p">고유명사<br><strong>속격</strong> (소유)</span><span class="wc-m">그리스도 예수의</span></div>
     </div>
@@ -939,7 +947,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 13</span><span class="sc-ref">눅 6:35</span></div>
     <div class="sc-full gk">ἔσεσθε υἱοί.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσεσθε</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>2인칭 복수</span><span class="wc-m">너희가 될 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">ἔσεσθε</span><span class="wc-p">εἰμί (불규칙)<br>직설법 미래<br>2인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">너희가 될 것이다</span></div>
       <div class="wc w-noun case-nom"><span class="wc-g gk">υἱοί</span><span class="wc-p">명사 υἱός · 2변화 남성<br>복수 <strong>주격</strong> (보어)</span><span class="wc-m">아들들이</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">될 것이다 아들들이.</span></div>
@@ -950,7 +958,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="sc-hd"><span class="sc-num">문장 14</span><span class="sc-ref">딤전 4:16</span></div>
     <div class="sc-full gk">σώσεις αὐτούς.</div>
     <div class="wr">
-      <div class="wc w-verb case-na"><span class="wc-g gk">σώσεις</span><span class="wc-p">σῴζω<br>직설법 미래<br>능동태 2인칭 단수</span><span class="wc-m">네가 구원할 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">σώσεις</span><span class="wc-p">σῴζω<br>직설법 미래<br>능동태 2인칭 단수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">네가 구원할 것이다</span></div>
       <div class="wc w-pron case-acc"><span class="wc-g gk">αὐτούς</span><span class="wc-p">3인칭대명사<br>남성 복수 <strong>대격</strong> → 목적어</span><span class="wc-m">그들을</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">구원할 것이다 그들을.</span></div>
@@ -963,7 +971,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
     <div class="wr">
       <div class="wc w-noun case-na"><span class="wc-g gk">ἀδελφοί</span><span class="wc-p">명사 · 호격</span><span class="wc-m">형제들아</span></div>
       <div class="wc w-pron case-gen"><span class="wc-g gk">μου</span><span class="wc-p">1인칭대명사<br>단수 <strong>속격</strong></span><span class="wc-m">내</span></div>
-      <div class="wc w-verb case-na"><span class="wc-g gk">λημψόμεθα</span><span class="wc-p">λαμβάνω (디포넌트 미래)<br>직설법 미래<br>디포넌트 1인칭 복수</span><span class="wc-m">우리가 받을 것이다</span></div>
+      <div class="wc w-verb case-na"><span class="wc-g gk">λημψόμεθα</span><span class="wc-p">λαμβάνω (디포넌트 미래)<br>직설법 미래<br>디포넌트 1인칭 복수<br><span class="asp">[현재성 0]</span></span><span class="wc-m">우리가 받을 것이다</span></div>
     </div>
     <div class="tr-row"><span class="tr-lbl">직역</span><span class="tr-ko">내 형제들아, 우리가 취할 것이다.</span></div>
     <div class="tr-row nat"><span class="tr-lbl">해석</span><span class="tr-ko">내 형제들아, 우리가 (더 큰 심판을) 받을 것이다.</span></div>
@@ -998,7 +1006,8 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       · 12과 문장 8(<span class="gk">ἠγέρθην</span>): 그리스어 형태는 1인칭 단수("나는")이나 교재 해설 한글 번역은 3인칭으로 표기되어 있어, 본 노트는 그리스어 문법에 맞춰 1인칭으로 번역함.<br>
       · 12과 문장 2, 5, 9, 11의 출처 구절은 사진 각도·그림자로 인해 정확한 장절 판독이 어려워 "참고/재확인 필요"로 표시함.<br>
       · 15과 문장 3, 4의 출처 구절도 동일한 사유로 "참고 구절"로 표시함.<br>
-      · 위 표시가 붙은 항목은 교재 원본과 다시 한번 대조하시길 권장합니다.
+      · 위 표시가 붙은 항목은 교재 원본과 다시 한번 대조하시길 권장합니다.<br>
+      · (추가 수정) 최초 게시본에는 동사 파싱에 <b style="color:var(--gold)">동사상(aspect) 현재성 점수</b>가 빠져 있었음 — 이 과목 표기 규약(week05·06 노트 기준: 부정과거·미래=0, 미완료=1, 현재=2, 완료=3)에 맞춰 60개 동사 파싱 전체에 <span class="asp">[현재성 N]</span> 표기를 추가함.
     </div>
   </div>
 </div>
