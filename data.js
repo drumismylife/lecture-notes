@@ -474,12 +474,24 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week07.html" }
           ] },
             { week: 8, title: "중간고사 (11–15과, 본문 해석 위주)", date: "2026.07.03", files: [] },
-            { week: 9, title: "동사(5) 직설법 현재완료·과거완료", date: "2026.07.06", files: [] },
-            { week: 10, title: "분사(1) 현재시제", date: "2026.07.06", files: [] },
-            { week: 11, title: "분사(2) 부정과거시제", date: "2026.07.07", files: [] },
-            { week: 12, title: "분사(3) 완료·미래시제", date: "2026.07.07", files: [] },
-            { week: 13, title: "명령법", date: "2026.07.09", files: [] },
-            { week: 14, title: "남은 문법 정리 — 접속사·관계대명사, 가정법, 형용사(2)·부사(3), 부정사(법)", date: "2026.07.09", files: [] },
+            { week: 9, title: "동사(5) 직설법 현재완료·과거완료 — 16과", date: "2026.07.06", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week09.html" }
+            ] },
+            { week: 10, title: "분사(1) 현재시제 — 17과", date: "2026.07.06", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week10.html" }
+            ] },
+            { week: 11, title: "분사(2) 부정과거시제 — 18과", date: "2026.07.07", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week11.html" }
+            ] },
+            { week: 12, title: "분사(3) 완료·미래시제 — 19과", date: "2026.07.07", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week12.html" }
+            ] },
+            { week: 13, title: "명령법 — 20과", date: "2026.07.09", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week13.html" }
+            ] },
+            { week: 14, title: "남은 문법 정리 — 접속사·관계대명사, 가정법, 형용사(2)·부사(3), 부정사(법) (시험범위 제외)", date: "2026.07.09", files: [
+                { type: "notes", label: "강의노트", href: "output/2026-summer/greek2/week14.html" }
+            ] },
             { week: 15, title: "기말고사 (16–20과, 본문 해석 위주)", date: "2026.07.10", files: [] },
           ]
         },

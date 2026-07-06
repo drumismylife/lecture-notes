@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 12주차 분사③ 완료·미래시제 (19과)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.easy{background:rgba(111,207,151,.07);border:1px solid rgba(111,207,151,.35);border-left:3px solid var(--green);border-radius:10px;padding:13px 16px;margin:11px 0}
+.easy h3{color:var(--green);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.easy p,.easy li{font-size:13.5px;color:var(--muted)}
+.easy b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+.story{background:linear-gradient(180deg,rgba(124,158,217,.08),transparent);border:1px solid rgba(124,158,217,.3);border-left:3px solid var(--blue);border-radius:10px;padding:14px 17px;margin:12px 0;font-size:13.5px;color:var(--muted)}
+.story h3{color:var(--blue);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.story b{color:var(--text)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed; top: 16px; left: 16px; z-index: 9999;
+  display: flex; align-items: center; gap: 6px; padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35); border-radius: 20px; color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s; cursor: pointer;
+}
+#lnotes-back-btn:hover { background: rgba(30, 28, 20, 0.95); border-color: rgba(180, 140, 60, 0.7); transform: translateX(-2px); }
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) { #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; } }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 12주차 · 2026 여름 계절학기</div>
+  <h1>분사③ 완료·미래시제 — 19과</h1>
+  <div class="prof">담당 안호준 교수 · 한국침례신학대학교 · 교재 pp.188–196</div>
+</div>
+
+<div class="intro">
+  <b>이번 시간 한 줄 요약:</b> 분사 3종 세트(현재→부정과거→완료)의 <b>마지막 완료분사</b>다. 완료분사는 "~해 있는 상태"를 나타내고, 덤으로 <b>미래분사</b>(주로 "~하러"라는 목적)도 함께 배운다. 이걸로 분사는 다 끝나고, 다음 주는 명령법이다.<br>
+  <b>시험 안내:</b> 기말고사 범위 11~20과 누적, 오픈북(LMS) <span class="bdg b-exam">⭐ 시험</span>
+</div>
+
+<nav class="toc">
+  <a href="#s1">학습목표</a>
+  <a href="#s2">완료분사 개념</a>
+  <a href="#s3">완료분사 만드는 법</a>
+  <a href="#s4">불규칙·οἶδα</a>
+  <a href="#s5">미래분사 = 목적</a>
+  <a href="#s6">완곡어법</a>
+  <a href="#s7">본문 속으로</a>
+  <a href="#s8">출처·검증</a>
+</nav>
+
+<!-- ───── §1 학습목표 ───── -->
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">01</span><span class="st">학습목표</span><span class="sl"></span></div>
+  <div class="card">
+    <ul>
+      <li>완료분사가 <b>"결과가 남아있는 상태"</b>를 나타냄을 이해하고 "~해 있는" 식으로 해석한다</li>
+      <li>완료분사 능동(자음중복+κ+어미)·중간수동(자음중복+어간+μενος)을 구별한다</li>
+      <li><span class="gk">οἶδα</span>처럼 형태는 완료인데 뜻은 현재인 특수동사를 이해한다</li>
+      <li>미래분사가 대부분 <b>"~하러"(목적)</b>를 나타냄을 안다</li>
+      <li><b>완곡어법(분사+εἰμί로 완료를 풀어 쓰는 구문)</b>을 알아본다</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §2 완료분사 개념 ───── -->
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">02</span><span class="st">완료분사란? — 16과 완료시제의 "분사 버전"</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 9주차에 배운 것 그대로, 형태만 분사로</h3>
+    <p>16과(9주차)에서 배운 현재완료의 의미 — <b>"과거의 결과가 지금 남아있다"</b> — 를 그대로 분사 형태로 만든 것이 완료분사다. 즉 <span class="gk">λέλυκα</span>("나는 풀어놓았다/풀려 있다")의 분사형이 <span class="gk">λελυκώς</span>("풀어놓은 상태의")다.</p>
+  </div>
+  <div class="card">
+    <h3>동사상 점수 복습</h3>
+    <p>분사도 동사이므로 상 점수를 매긴다: <b>완료분사 = 3점(최전방, 가장 도드라짐)</b>. 현재분사(2점)나 부정과거분사(0점)보다 훨씬 강조된 정보라는 뜻이다.</p>
+  </div>
+</div>
+
+<!-- ───── §3 형성법 ───── -->
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">03</span><span class="st">완료분사 만드는 법</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>완료분사 능동태: 자음중복 + 어간 + <span class="gk">κ</span> + <span class="gk">οτ</span>계열 어미</h3>
+    <p>16과에서 배운 자음중복(<span class="gk">λε-</span>) + 카파(<span class="gk">κ</span>)는 그대로 유지되고, 어미만 <span class="gk">-ώς/-υῖα/-ός</span>(속격 <span class="gk">-ότος/-υίας/-ότος</span>)로 바뀐다.</p>
+    <div class="tw">
+      <table>
+        <caption><span class="gk">λύω</span>의 완료분사 능동태 (교재 p.190 — 대조 완료)</caption>
+        <thead><tr><th>격</th><th>남성</th><th>여성</th><th>중성</th></tr></thead>
+        <tbody>
+          <tr><th>주격</th><td><span class="gk">λελυκώς</span></td><td><span class="gk">λελυκυῖα</span></td><td><span class="gk">λελυκός</span></td></tr>
+          <tr><th>속격</th><td><span class="gk">λελυκότος</span></td><td><span class="gk">λελυκυίας</span></td><td><span class="gk">λελυκότος</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h3>완료분사 중간·수동태: 카파 없이 자음중복 + 어간 + <span class="gk">-μενος</span></h3>
+    <p>16과의 규칙(수동태엔 카파가 없다)이 분사에도 그대로 적용된다.</p>
+    <div class="tw">
+      <table>
+        <caption><span class="gk">λύω</span>의 완료분사 중간·수동태 (교재 p.190 — 대조 완료)</caption>
+        <thead><tr><th>남성</th><th>여성</th><th>중성</th></tr></thead>
+        <tbody>
+          <tr><td><span class="gk">λελυμένος</span></td><td><span class="gk">λελυμένη</span></td><td><span class="gk">λελυμένον</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>예: 요 13:10 <span class="gk">ὁ λελουμένος</span>(<span class="gk">λούω</span> "씻다"의 완료분사) = "씻겨 있는 자."</p>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교재 오탈자 확정 — p.190 표</h3>
+    <p>교재 p.190의 완료분사 수동태 표에는 <span class="gk">λελυκομένος</span>(카파 포함)로 인쇄되어 있으나, 이는 오탈자다. 같은 페이지의 실제 예문에서 교수님이 직접 <span class="gk">λελουμένος</span>(카파 없음)로 분해·설명하셨고, 16과에서 배운 "수동태엔 카파가 없다"는 규칙과도 일치한다. <b>정답은 카파 없는 λελυμένος/λελουμένος 계열이다.</b></p>
+  </div>
+</div>
+
+<!-- ───── §4 불규칙 ───── -->
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">04</span><span class="st">불규칙 완료분사 + 특수동사 <span class="gk">οἶδα</span></span><span class="sl"></span></div>
+  <div class="card">
+    <h3>카파 없는 불규칙(제2완료) 분사</h3>
+    <p>16과에서 배운 제2완료(카파가 없는 불규칙 완료)는 분사에서도 카파 없이 만들어진다: <span class="gk">γίνομαι</span>의 완료 <span class="gk">γέγονα</span> → 분사 <span class="gk">γεγονώς</span>("게고나"가 아니라 "게고나스"로 카파 없이).</p>
+  </div>
+  <div class="easy">
+    <h3>💡 <span class="gk">οἶδα</span>는 왜 특별한가 — 아주 쉽게</h3>
+    <p><span class="gk">οἶδα</span>(오이다, "알다")는 고대 헬라어에서 원래 <b>현재형이 따로 있었는데 그 현재형이 사라져 버리고</b>, 완료형만 남아서 <b>완료형이 현재의 의미까지 담당</b>하게 된 특수한 동사다. 그래서 형태는 완료(<span class="gk">οἶδα</span> = "알아버렸다")인데 뜻은 현재("알고 있다")가 되는 것이다.</p>
+    <p>이 동사의 분사형 <span class="gk">εἰδώς/εἰδυῖα</span>("알고 있는")도 신약에 자주 나온다 — 행 5:7 <span class="gk">μὴ εἰδυῖα</span>("알지 못한 채").</p>
+  </div>
+</div>
+
+<!-- ───── §5 미래분사 ───── -->
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">05</span><span class="st">미래분사 = 대부분 "목적"</span><span class="sl"></span></div>
+  <div class="card">
+    <p>교수님: "미래분사는 부정과거와 같이 완료상이다. 미래에 완료될 것을 기대하는 지배적인 완료상이 되고, <b>의도된 미래는 목적·소망을 가리킨다.</b>" 즉 미래분사는 거의 항상 <b>"~하러"</b>로 해석하면 된다.</p>
+    <p>예: 행 8:27 <span class="gk">ἐληλύθει προσκυνήσων εἰς Ἰερουσαλήμ</span> = "그가 <b>예배하러</b> 예루살렘에 와 있었다." (<span class="gk">ἐληλύθει</span>는 16과 <span class="gk">ἐλήλυθα</span>의 과거완료형)</p>
+  </div>
+</div>
+
+<!-- ───── §6 완곡어법 ───── -->
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">06</span><span class="st">완곡어법(우언법) — 분사 + εἰμί</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 완료를 "풀어서" 쓰는 방법</h3>
+    <p>완료 분사 뒤에 <span class="gk">εἰμί</span>("~이다")를 붙이면 완료시제와 똑같은 뜻이 된다 — 완료 형태 하나로 압축하는 대신, <b>분사(상태)+εἰμί(존재)</b>로 풀어서 쓰는 것이다. 눅 20:6 <span class="gk">πεπεισμένος ἐστίν</span> = "확신하고 있다"(<span class="gk">πέπεισται</span>와 같은 뜻).</p>
+  </div>
+</div>
+
+<!-- ───── §7 본문 속으로 ───── -->
+<div class="sec" id="s7">
+  <div class="sh"><span class="sb">07</span><span class="st">본문 속으로 — 완료·미완료가 함께 그리는 장면</span><span class="sl"></span></div>
+  <div class="story">
+    <h3>📖 요 4:6 — 지치신 예수님, 앉아 계신 예수님</h3>
+    <p class="gk" style="font-size:16px">ὁ οὖν Ἰησοῦς κεκοπιακὼς ἐκ τῆς ὁδοιπορίας ἐκαθέζετο οὕτως ἐπὶ τῇ πηγῇ.</p>
+    <p><b>해석</b> — "예수께서 여행으로 피곤하여(지치신 상태로) 그렇게 우물 곁에 앉으셨다."</p>
+    <p><span class="gk">κεκοπιακὼς</span> ← "코피아오"의 분사 완료 능동 남성 단수 주격 [현재성 3] · <span class="gk">ἐκαθέζετο</span> ← "카테조마이"의 직설법 미완료 디포넌트 3인칭 단수 [현재성 1]</p>
+    <p>교수님: "완료 분사 형태로서 이미 지쳐버린 상태를 상당히 강조하고 있어요. 미완료 상태(<b>앉아 계셨다</b>)에서 완료(<b>이미 지쳐버렸다</b>)가 원인으로 작동하는 겁니다. 앉아 계시는 그 모습 자체가 지쳐버린 상태의 결과로 나타난 것이죠. 여러분이 <b>완료상인가, 미완료상인가, 상태상인가</b>를 계속 바라보면서 현저성이 점점 높아져가는 그 흐름을 느끼며 해석하시기 바랍니다." — 완료(원인, 배경)와 미완료(현재 진행 중인 모습)가 겹쳐서 한 장면을 그려내는 대표적 예다.</p>
+  </div>
+</div>
+
+<!-- ───── §8 출처·검증 ───── -->
+<div class="sec" id="s8">
+  <div class="sh"><span class="sb">08</span><span class="st">출처·검증 요약</span><span class="sl"></span></div>
+  <div class="verify">
+    <h3>검증 메타데이터</h3>
+    <div class="row">
+      <span class="stat">📖 교재 pp.188–196 (19과) — 캡처본 대조</span>
+      <span class="stat">🎥 12강(차시12, 7/7) 강의 자막 전문 대조</span>
+      <span class="stat">🏷 3-source tagging 적용</span>
+    </div>
+    <ul>
+      <li><b>자료근거(기본):</b> 교재 캡처(p.188–190)와 12강 자막에서 직접 확인된 내용</li>
+      <li><b>⭐ 교수강조:</b> 요 4:6 예문 해설(완료+미완료 겹침), <span class="gk">οἶδα</span> 설명은 강의 육성 인용</li>
+      <li><b>ASR 오탈자 주의:</b> 12강 자막은 다른 강의보다 인식 오류가 특히 많았음(단어가 심하게 뭉개진 구간 다수) — 형태·규칙 설명은 <b>교재 캡처본과 16과 규칙 대조</b>로 재구성함</li>
+      <li>교재 p.190 완료분사 수동태 표 오탈자(<span class="gk">λελυκομένος</span>→<span class="gk">λελυμένος</span>)는 12강 강의로 최종 확정</li>
+      <li>12강은 시간 관계상 연습문제 13문장 중 1·3번 위주로만 다룸 — 나머지 문장 전체 파싱은 기말_11-20과_문장해석.html에서 확인(단, 정답지 자체가 번역만 제공하므로 그 파일의 파싱은 본 노트 자체 분석)</li>
+      <li>할루시네이션 0 원칙: 교재·강의 자막에 명시된 내용만 수록, 설명은 쉬운 말로 풀어 쓴 것</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 · 헬라어 II · 안호준 교수 · 2026 여름 계절학기 12주차<br>
+  Generated by lecture-note-builder
+</div>
+
+</div>
+</body>
+</html>

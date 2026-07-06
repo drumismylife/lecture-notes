@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 10주차 분사① 현재시제 (17과)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:center}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#121724;color:var(--muted);font-weight:500;font-size:12.5px}
+td .gk{font-size:15px}
+tr:hover td{background:rgba(124,158,217,.06)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.b-sup{background:rgba(181,123,238,.15);color:var(--purple);border:1px solid rgba(181,123,238,.4)}
+.emph{background:linear-gradient(180deg,rgba(224,123,106,.08),transparent);border:1px solid rgba(224,123,106,.3);border-left:3px solid var(--red);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--red);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+.sup{background:rgba(181,123,238,.06);border:1px dashed rgba(181,123,238,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--purple);font-weight:700}
+.easy{background:rgba(111,207,151,.07);border:1px solid rgba(111,207,151,.35);border-left:3px solid var(--green);border-radius:10px;padding:13px 16px;margin:11px 0}
+.easy h3{color:var(--green);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.easy p,.easy li{font-size:13.5px;color:var(--muted)}
+.easy b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+.examq{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:14px 0}
+.examq .qn{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em;margin-bottom:8px}
+.il{display:flex;flex-wrap:wrap;gap:14px 12px;margin:10px 0;padding:12px;background:var(--subcard);border-radius:8px}
+.il .w{text-align:center;min-width:48px}
+.il .w .g{font-family:'Palatino Linotype','Palatino','Times New Roman',serif;font-size:16px;color:var(--text)}
+.il .w .gl{font-size:10.5px;color:var(--hint);margin-top:3px;line-height:1.3}
+.il .w.verb .g{font-weight:700;background:linear-gradient(90deg,#e07b6a,#f0d080 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.il .w.verb .gl{color:var(--red)}
+.parse{margin:10px 0;font-size:13px;color:var(--muted)}
+.parse .vform{display:inline-block;font-weight:700;background:linear-gradient(90deg,#e07b6a,#c9a84c 50%,#7c9ed9);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:3px}
+.parse code{background:var(--subcard);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--greek);font-style:normal}
+.transl{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text)}
+.transl b{color:var(--gold)}
+.legend{font-size:11.5px;color:var(--hint);background:var(--subcard);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin:8px 0 16px}
+.story{background:linear-gradient(180deg,rgba(124,158,217,.08),transparent);border:1px solid rgba(124,158,217,.3);border-left:3px solid var(--blue);border-radius:10px;padding:14px 17px;margin:12px 0;font-size:13.5px;color:var(--muted)}
+.story h3{color:var(--blue);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.story b{color:var(--text)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed; top: 16px; left: 16px; z-index: 9999;
+  display: flex; align-items: center; gap: 6px; padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35); border-radius: 20px; color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s; cursor: pointer;
+}
+#lnotes-back-btn:hover { background: rgba(30, 28, 20, 0.95); border-color: rgba(180, 140, 60, 0.7); transform: translateX(-2px); }
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) { #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; } }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 10주차 · 2026 여름 계절학기</div>
+  <h1>분사① 현재시제 — 17과</h1>
+  <div class="prof">담당 안호준 교수 · 한국침례신학대학교 · 교재 pp.170–177</div>
+</div>
+
+<div class="intro">
+  <b>이번 시간 한 줄 요약:</b> 분사는 <b>"동사인데 다른 품사처럼 쓰이는 것"</b>이다. 영어의 -ing/-ed 분사와 비슷하다고 생각하면 된다. 17·18·19과가 모두 분사이고, 20과 명령법까지가 기말고사 범위다.<br>
+  <b>시험 안내:</b> 기말고사 범위 11~20과 누적, 오픈북(LMS) <span class="bdg b-exam">⭐ 시험</span>
+</div>
+
+<nav class="toc">
+  <a href="#s1">학습목표</a>
+  <a href="#s2">분사란 무엇인가</a>
+  <a href="#s3">17과 어휘</a>
+  <a href="#s4">현재분사 만드는 법</a>
+  <a href="#s5">3가지 용법</a>
+  <a href="#s6">동사상 위치</a>
+  <a href="#s7">단축동사·μι동사</a>
+  <a href="#s8">본문 속으로</a>
+  <a href="#s9">출처·검증</a>
+</nav>
+
+<!-- ───── §1 학습목표 ───── -->
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">01</span><span class="st">학습목표</span><span class="sl"></span></div>
+  <div class="card">
+    <ul>
+      <li>분사가 "동사 + 형용사/명사/부사"의 성격을 함께 가진 품사임을 이해한다</li>
+      <li>현재분사 능동태의 핵심 표지(어간+<span class="gk">οντ</span>)를 안다</li>
+      <li>분사의 3가지 용법(관형적/독립적/부사적)을 구별하고, 문장 안에서 어떤 용법인지 판단하는 기준(관사·수식 명사의 유무, 위치)을 익힌다</li>
+      <li>분사도 동사처럼 <b>동사상 점수</b>를 매겨야 함을 안다(현재분사 = 2)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §2 분사란? ───── -->
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">02</span><span class="st">분사란 무엇인가 — 아주 쉽게 시작하기</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 교수님의 정의: "동사가 다른 품사 역할을 하도록 만드는 것"</h3>
+    <p>한국어·영어에도 분사와 비슷한 게 있다. 영어의 "the man <b>believing</b> in him"(그를 믿<b>는</b> 사람)에서 believing이 바로 분사다 — 동사(believe)인데 형용사처럼 사람을 꾸며준다.</p>
+    <p>교수님 설명: "분사는 동사를 활용해서 <b>동사와는 다른 품사의 역할</b>을 하도록 만드는 것이다. 크게 세 가지 — ① 형용사(명사를 수식하거나, 그 자체가 명사가 되는 것) ② 명사(그 자체가 명사가 되는 것 — "수영하는 것"처럼) ③ 부사(동사를 수식하는 것)."</p>
+  </div>
+  <div class="card">
+    <h3>왜 지금까지 배운 것과 다 연결되는가</h3>
+    <p>지금까지 배운 <b>동사</b>(시제·태)와 <b>명사·형용사</b>(1·2·3변화, 성·수·격)를 기억하는가? <b>분사는 이 둘이 합쳐진 것</b>이다 — 형태는 명사·형용사처럼 성·수·격에 따라 변화하고, 동시에 동사처럼 시제(현재·부정과거·완료 등)와 태(능동·중간·수동)를 갖는다. 교수님: "동사·명사·형용사, 이 모든 측면이 분사로 수렴된다."</p>
+  </div>
+</div>
+
+<!-- ───── §3 어휘 ───── -->
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">03</span><span class="st">17과 어휘</span><span class="sl"></span></div>
+  <div class="tw">
+    <table>
+      <caption>17과 신출 단어 (교재 p.170)</caption>
+      <thead><tr><th>헬라어</th><th>뜻</th><th>기억법</th></tr></thead>
+      <tbody>
+        <tr><td><span class="gk">ἀπαρχή</span></td><td>첫 열매</td><td><span class="gk">ἀπό</span>(~로부터)+<span class="gk">ἀρχή</span>(처음) = "처음부터 온 것"</td></tr>
+        <tr><td><span class="gk">ἄπειμι</span></td><td>없다, 부재하다</td><td><span class="gk">ἀπό</span>+<span class="gk">εἰμί</span> = "~로부터 멀리 있다"</td></tr>
+        <tr><td><span class="gk">δέχομαι</span></td><td>영접하다, 받다</td><td>—</td></tr>
+        <tr><td><span class="gk">διδασκαλία</span></td><td>가르침, 교훈</td><td><span class="gk">διδάσκω</span>(가르치다)에서</td></tr>
+        <tr><td><span class="gk">δύναμις</span></td><td>능력, 힘</td><td>영어 dynamite(다이너마이트)의 어원</td></tr>
+        <tr><td><span class="gk">ἐντρέφω</span></td><td>양육하다, 훈련하다</td><td><span class="gk">ἐν</span>(안에)+<span class="gk">τρέφω</span>(돌리다) = "바른 길로 돌이켜 그 안에 있게 함"</td></tr>
+        <tr><td><span class="gk">εὐσέβεια</span></td><td>경건</td><td>역사가 에우세비우스(Eusebius)의 이름 어원 — "경건한 사람"</td></tr>
+        <tr><td><span class="gk">μή</span></td><td>~아니다(주로 분사·명령법·가정법에 사용)</td><td>직설법에는 <span class="gk">οὐ</span>, 그 외에는 <span class="gk">μή</span></td></tr>
+        <tr><td><span class="gk">μισθός</span></td><td>삯, 보상</td><td>일한 것에 대한 정당한 대가(단순한 상 이상의 의미)</td></tr>
+        <tr><td><span class="gk">μόρφωσις</span></td><td>모양, 외형</td><td>영어 morphology(형태론)의 어원</td></tr>
+        <tr><td><span class="gk">ὄνομα</span></td><td>이름</td><td>주기도문 "당신의 이름이"에도 나옴</td></tr>
+        <tr><td><span class="gk">πειράζω</span></td><td>시험하다</td><td>—</td></tr>
+        <tr><td><span class="gk">προσδοκάω</span></td><td>기대하다, 학수고대하다</td><td><span class="gk">προσεύχομαι</span>(기도하다)와 형태가 비슷해 헷갈리기 쉬움 — 주의!</td></tr>
+        <tr><td><span class="gk">στενάζω</span></td><td>탄식하다</td><td>—</td></tr>
+        <tr><td><span class="gk">στόμα</span></td><td>입</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ───── §4 형성법 ───── -->
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">04</span><span class="st">현재분사 능동태 만드는 법</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>핵심 표지: <span class="gk">-οντ-</span></h3>
+    <p><span class="gk">λύω</span>의 어간 <span class="gk">λυ</span>에 <span class="gk">-οντ-</span>를 붙이면 현재분사 능동태의 기본형이 나온다. 이 <span class="gk">-οντ-</span>는 예전에 배운 <b>3변화 명사(예: <span class="gk">ἄρχων</span> "통치자", 교재 p.107)의 어미 변화와 완전히 같은 패턴</b>이다.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <caption><span class="gk">λύω</span>의 현재분사 능동태 (남성, 교재 p.171 — 대조 완료)</caption>
+      <thead><tr><th>격</th><th>단수</th><th>복수</th></tr></thead>
+      <tbody>
+        <tr><th>주격</th><td><span class="gk">λύων</span></td><td><span class="gk">λύοντες</span></td></tr>
+        <tr><th>속격</th><td><span class="gk">λύοντος</span></td><td><span class="gk">λυόντων</span></td></tr>
+        <tr><th>여격</th><td><span class="gk">λύοντι</span></td><td><span class="gk">λύουσι(ν)</span></td></tr>
+        <tr><th>대격</th><td><span class="gk">λύοντα</span></td><td><span class="gk">λύοντας</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="easy">
+    <h3>💡 여성형만 예외 — 왜 <span class="gk">λύουσα</span>인가?</h3>
+    <p>남성·중성은 <span class="gk">-οντ-</span>를 그대로 쓰지만, 여성 단수 주격만 <span class="gk">λύουσα</span>로 조금 다르다. 교수님 설명: "<span class="gk">οντ</span> 뒤에 여성형 어미 <span class="gk">σα</span>가 결합하는 과정에서 <b>시그마 앞의 타우(τ)가 탈락</b>하고, 남은 <span class="gk">ντ</span>의 <span class="gk">ν</span>도 사라지면서 앞 모음이 길어져 <span class="gk">-ουσα</span>가 된 것"이다 — 복잡해 보이지만 <b>결과만 외우면 된다</b>: 남성·중성은 3변화(<span class="gk">-οντ-</span> 계열), 여성은 1변화(<span class="gk">-ουσα</span> 계열)를 따른다.</p>
+  </div>
+  <div class="card">
+    <h3>분사의 부정어는 <span class="gk">οὐ</span>가 아니라 <span class="gk">μή</span></h3>
+    <p>직설법에서는 부정어로 <span class="gk">οὐ</span>를 썼지만, <b>분사·명령법·가정법에서는 대부분 <span class="gk">μή</span>를 쓴다</b>. 이것은 이 뒤로 계속 나오는 규칙이므로 지금 확실히 기억해두자.</p>
+  </div>
+</div>
+
+<!-- ───── §5 3가지 용법 ───── -->
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">05</span><span class="st">분사의 3가지 용법 — 구별하는 방법</span><span class="sl"></span></div>
+
+  <div class="card">
+    <h3>① 관형적(형용사적) 용법 — 명사를 꾸며준다</h3>
+    <p>보통 <b>관사 + 분사</b>가 명사 <b>바로 앞이나 사이</b>에 붙어서 그 명사를 꾸며준다. 판별법: <b>관사가 있고, 가까이에 수식할 명사가 있다.</b></p>
+    <p>예: <span class="gk">ὁ λύων ἄνθρωπος</span> = "그 풀고 있는 사람" (형용사 <span class="gk">ἀγαθός</span> "선한"이 명사를 꾸미는 것과 똑같은 자리에 분사가 들어간 것)</p>
+  </div>
+
+  <div class="card">
+    <h3>② 독립적(명사적) 용법 — 분사 자체가 "~하는 사람/것"이 된다</h3>
+    <p>관형적 용법에서 <b>수식받는 명사가 아예 생략된 경우</b>다. 예: <span class="gk">ὁ πιστεύων</span> = "믿고 있는 (사람)"에서 "사람"이 생략되어 <b>"믿는 자"</b>라는 뜻 자체가 되어버린 것.</p>
+    <p>판별법: <b>관사는 있는데 뒤에 수식할 명사가 안 보인다</b> → 그 명사는 생략된 것 → "~하는 자/것"으로 해석.</p>
+  </div>
+
+  <div class="card">
+    <h3>③ 부사적 용법 — 동사를 꾸며준다 (시간·이유·조건·양보)</h3>
+    <p>이건 <b>관사가 없다.</b> 그리고 자기가 꾸며주는 동사와 <b>거리가 좀 떨어져 있다</b>(문장 맨 앞이나 맨 뒤에 위치). 뜻은 문맥에 따라 "~할 때"(시간), "~하기 때문에"(이유), "~일지라도"(양보), "~한다면"(조건) 중 하나로 해석한다.</p>
+    <p>교수님: "뭐가 맞는지는 <b>문맥을 봐야 한다</b>. 처음엔 일단 <b>시간</b>으로 해석해보고, 안 맞으면 이유·조건·양보로 바꿔본다."</p>
+  </div>
+
+  <div class="easy">
+    <h3>💡 한눈에 구별하는 표</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>용법</th><th>관사</th><th>수식 명사</th><th>분사 위치</th><th>번역</th></tr></thead>
+        <tbody>
+          <tr><td>① 관형적</td><td>있음</td><td>있음(가까이)</td><td>명사 사이/근처</td><td>"~하는 (명사)"</td></tr>
+          <tr><td>② 독립적</td><td>있음</td><td><b>없음(생략)</b></td><td>문장 앞</td><td>"~하는 자/것"</td></tr>
+          <tr><td>③ 부사적</td><td><b>없음</b></td><td>없음</td><td>동사와 멀리 떨어짐</td><td>"~할 때/~하기 때문에" 등</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>실전 예문으로 확인하기 — 요 3:18</h3>
+    <p class="gk" style="font-size:16px">ὁ πιστεύων εἰς αὐτὸν οὐ κρίνεται.</p>
+    <p><span class="gk">πιστεύων</span>: 앞에 관사 <span class="gk">ὁ</span>가 있고, 뒤에 수식할 명사가 없다 → <b>② 독립적 용법</b>. "그를 믿는 자는 심판받지 않는다."</p>
+    <p><span class="gk">κρίνεται</span> ← "크리노"의 직설법 현재 수동태 3인칭 단수 [현재성 2]</p>
+  </div>
+
+  <div class="story">
+    <h3>📖 요 14:21 — 사랑은 지키는 것으로 나타난다</h3>
+    <p class="gk" style="font-size:16px">ὁ ἔχων τὰς ἐντολάς μου καὶ τηρῶν αὐτάς, ἐκεῖνός ἐστιν ὁ ἀγαπῶν με.</p>
+    <p><b>해석</b> — "나의 계명들을 가지고 있고 그것들을 지키는 자, 그가 나를 사랑하는 자이다." 세 분사(<span class="gk">ἔχων</span>·<span class="gk">τηρῶν</span>·<span class="gk">ἀγαπῶν</span>) 모두 관사 없이 독립적으로 쓰여 "~하는 자"를 만든다.</p>
+    <p><b>교수님이 들려주신 이야기:</b> "제가 초등학교 3학년 때, 물에 빠진 친구(지금의 아내)를 구하려고 깊은 물에 뛰어든 적이 있습니다. 왜 그랬을까 생각해보면, 그 친구가 저에게 너무 소중했기 때문이에요. <b>사랑은 누군가를 움직이는 힘</b>입니다. 예수님도 그러셨어요 — 우리가 물에 빠져 스스로 나올 수 없을 때, 예수님이 그 죽음의 물속으로 직접 뛰어드셔서 우리를 건지시고, 대신 그 자리에서 죽으신 것이 십자가 사건입니다." — 사랑이 있는 곳에는 반드시 "지키는 행동"(<span class="gk">τηρῶν</span>)이 따른다는 것이 이 본문의 핵심.</p>
+  </div>
+</div>
+
+<!-- ───── §6 동사상 위치 ───── -->
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">06</span><span class="st">분사도 동사상 점수가 있다</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 분사는 시제가 없다? 아니다 — "상대적 시간"이다</h3>
+    <p>직설법의 시제는 "언제"를 말하지만, <b>분사의 시제는 주동사를 기준으로 한 상대적 시간</b>이다. 현재분사는 <b>주동사와 "동시에"</b> 일어나는 일을 나타낸다(뒤에 배울 부정과거 분사는 "먼저" 일어난 일).</p>
+  </div>
+  <div class="tw">
+    <table>
+      <caption>분사도 포함한 전체 동사상 점수 (교재 p.172 — 대조 완료) <span class="bdg b-exam">⭐ 시험</span></caption>
+      <thead><tr><th>분사 시제</th><th>점수</th><th>느낌</th></tr></thead>
+      <tbody>
+        <tr><td>부정과거 분사</td><td><b>0</b></td><td>배경 정보(background)</td></tr>
+        <tr><td><b>현재분사</b></td><td><b>2</b></td><td>근접 전경(foreground) — 주동사와 동시에 일어남</td></tr>
+        <tr><td>완료 분사</td><td><b>3</b></td><td>최전방(front ground) — 가장 도드라짐</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card"><p>미래분사는 별도로 "기대상"으로 취급하며 편의상 배경정보(0)와 같이 처리한다.</p></div>
+</div>
+
+<!-- ───── §7 단축동사·μι동사 ───── -->
+<div class="sec" id="s7">
+  <div class="sh"><span class="sb">07</span><span class="st">단축동사·μι동사의 분사 — 짧게 정리</span><span class="sl"></span></div>
+  <div class="card">
+    <p>단축동사(<span class="gk">-άω, -έω, -όω</span>)는 지금까지 배운 모음 단축 규칙을 분사에도 그대로 적용한다: <span class="gk">τιμάω</span> → <span class="gk">τιμῶν</span>(남성), <span class="gk">τιμῶσα</span>(여성). <span class="gk">μι</span>동사(<span class="gk">δίδωμι</span> 등)는 어간에 <span class="gk">-ούς/-οῦσα/-όν</span> 계열 어미가 붙는 독특한 형태를 취한다 — 지금은 "이런 것도 있다" 정도로만 알아두고 예문에서 만날 때 원형을 추적하는 연습을 하면 된다.</p>
+  </div>
+  <div class="sup"><span class="tag">🔎 보충 — 교재 오탈자 안내</span><p style="margin-top:4px">교수님이 강의 중 교재 175페이지의 단축동사(<span class="gk">πληρόω</span>) 분사 중간·수동태 표에 인쇄 오류가 있음을 직접 안내하셨다 — 세 번째 형태는 <span class="gk">πληρούμενον</span>이 맞다("이 책이 계속 업데이트 중이니 여러분이 계속 도와주셔야 한다"고 당부하심).</p></div>
+</div>
+
+<!-- ───── §8 본문 속으로 ───── -->
+<div class="sec" id="s8">
+  <div class="sh"><span class="sb">08</span><span class="st">본문 속으로 — 연습문제 하이라이트</span><span class="sl"></span></div>
+  <div class="card">
+    <p>17.8 연습문제 15문장 전체 파싱은 <a href="기말_11-20과_문장해석.html" style="color:var(--gold)">기말_11-20과_문장해석.html</a>에 정리되어 있다. 여기서는 3용법을 구별하는 데 가장 좋은 예문만 짚는다.</p>
+    <ul>
+      <li><b>딤전 4:6 <span class="gk">ἐντρεφόμενος τοῖς λόγοις τῆς πίστεως</span></b> — "믿음의 말씀들로 양육받으면서." 부사적 용법(이유/시간). 교수님이 이 구절에서 믿음을 "신뢰와 의존"으로 풀어주시며 특별히 강조하셨다 <span class="bdg b-exam">⭐ 별표</span>.</li>
+      <li><b>마 4:3 <span class="gk">προσερχόμενος ὁ πειράζων</span></b> — "시험하는 자가 다가오면서." 앞 분사(부사적)와 뒤 분사(독립적)가 한 문장에 함께 나오는 종합 문제.</li>
+      <li><b>막 15:19 <span class="gk">τιθέντες τὰ γόνατα προσεκύνησαν</span></b> — "무릎을 꿇고 절하였다." <span class="gk">τιθέντες</span>(τίθημι의 분사, "두다")가 부사적으로 쓰여 "무릎을 두면서 = 꿇으면서"라는 뜻이 된다.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §9 출처·검증 ───── -->
+<div class="sec" id="s9">
+  <div class="sh"><span class="sb">09</span><span class="st">출처·검증 요약</span><span class="sl"></span></div>
+  <div class="verify">
+    <h3>검증 메타데이터</h3>
+    <div class="row">
+      <span class="stat">📖 교재 pp.170–177 (17과) — 캡처본 대조</span>
+      <span class="stat">🎥 10강_1(차시10, 7/6) 강의 자막 전문 대조</span>
+      <span class="stat">🏷 3-source tagging 적용</span>
+    </div>
+    <ul>
+      <li><b>자료근거(기본):</b> 교재 캡처(p.170–171)와 10강_1 자막에서 직접 확인된 내용</li>
+      <li><b>⭐ 교수강조:</b> 딤전 4:6 강조, 3용법 판별 기준, 여성형 예외는 모두 강의 육성 인용</li>
+      <li><b>ASR 오탈자 주의:</b> 파놉토 자동자막이라 발음 표기가 부정확했으나, 모든 원문·격변화표는 <b>교재 캡처본을 기준</b>으로 복원함</li>
+      <li>교수님이 강의 중 직접 언급한 교재 175페이지 오탈자(단축동사 πληρόω 분사표)는 "보충" 배지로 별도 표기</li>
+      <li>할루시네이션 0 원칙: 교재·강의 자막에 명시된 내용만 수록, 설명은 쉬운 말로 풀어 쓴 것</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 · 헬라어 II · 안호준 교수 · 2026 여름 계절학기 10주차<br>
+  Generated by lecture-note-builder
+</div>
+
+</div>
+</body>
+</html>

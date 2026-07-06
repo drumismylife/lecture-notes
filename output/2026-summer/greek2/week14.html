@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헬라어 II — 14주차 남은 문법 정리 (시험범위 제외)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b27; --subcard:#1e2538; --gold:#c9a84c; --greek:#f0d080;
+  --blue:#7c9ed9; --red:#e07b6a; --green:#6fcf97; --purple:#b57bee;
+  --text:#e8eaf0; --muted:#9ba3b8; --hint:#6b7490; --border:#2a3050;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.gk{font-family:'Palatino Linotype','Palatino','Times New Roman','Noto Serif',Georgia,serif;color:var(--greek);font-weight:400}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0e16,#121826 60%,#16203a)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.45rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0d1117;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(224,123,106,.16);color:var(--red);border:1px solid rgba(224,123,106,.45)}
+.easy{background:rgba(111,207,151,.07);border:1px solid rgba(111,207,151,.35);border-left:3px solid var(--green);border-radius:10px;padding:13px 16px;margin:11px 0}
+.easy h3{color:var(--green);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.easy p,.easy li{font-size:13.5px;color:var(--muted)}
+.easy b{color:var(--text)}
+.story{background:linear-gradient(180deg,rgba(124,158,217,.08),transparent);border:1px solid rgba(124,158,217,.3);border-left:3px solid var(--blue);border-radius:10px;padding:14px 17px;margin:12px 0;font-size:13.5px;color:var(--muted)}
+.story h3{color:var(--blue);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.story b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.foot{text-align:center;color:var(--hint);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.25rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed; top: 16px; left: 16px; z-index: 9999;
+  display: flex; align-items: center; gap: 6px; padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35); border-radius: 20px; color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s; cursor: pointer;
+}
+#lnotes-back-btn:hover { background: rgba(30, 28, 20, 0.95); border-color: rgba(180, 140, 60, 0.7); transform: translateX(-2px); }
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) { #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; } }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">헬라어 II · 14주차 · 2026 여름 계절학기</div>
+  <h1>남은 문법 정리 — 접속사·관계대명사·가정법·형용사(2)·부사(3)·부정사</h1>
+  <div class="prof">담당 안호준 교수 · 한국침례신학대학교 · 교재 pp.211–256 (21~24과)</div>
+</div>
+
+<div class="intro">
+  <b>⚠️ 이 주차는 기말고사 시험범위에서 제외</b>됩니다(시험 범위는 11~20과 누적). 교수님이 마지막 시간에 남은 문법을 빠르게 훑어주신 내용을 <b>핵심만 간략히</b> 정리했다 — 헬라어 II 전체 커리큘럼을 마무리하는 의미로, 다음 학기 더 공부할 사람을 위한 이정표 정도로 보면 된다.
+</div>
+
+<nav class="toc">
+  <a href="#s1">접속사</a>
+  <a href="#s2">관계대명사</a>
+  <a href="#s3">조건문·가정법</a>
+  <a href="#s4">비교급·최상급</a>
+  <a href="#s5">부정사</a>
+  <a href="#s6">출처·검증</a>
+</nav>
+
+<!-- ───── §1 접속사 ───── -->
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">01</span><span class="st">접속사 (21과) — 단어·구·절을 잇는 다리</span><span class="sl"></span></div>
+  <div class="card">
+    <ul>
+      <li><span class="gk">καί</span> — 그리고</li>
+      <li><span class="gk">ἀλλά</span> — 그러나(강한 대조). 바울이 자신을 "박해자였다, <b>그러나</b> 긍휼히 여김을 받았다"(딤전 1:13)라고 고백할 때 이 단어를 쓴다</li>
+      <li><span class="gk">γάρ</span> — 왜냐하면, 그러므로(이유·설명). <b>문장 두 번째 자리에 오는 후치사</b>라는 특징이 있다</li>
+      <li><span class="gk">εἰ</span> — 만일(조건의 종속접속사, 아래 조건문에서 자세히)</li>
+      <li><span class="gk">εἴτε…εἴτε</span> — ~이든지 ~이든지 / <span class="gk">καίπερ</span> — 비록 ~일지라도(양보)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ───── §2 관계대명사 ───── -->
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">02</span><span class="st">관계대명사 (22과) — 두 문장을 하나로 압축</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 쉽게 이해하기</h3>
+    <p>"나는 그 사도를 보았다" + "그는 떠나갔다" 두 문장을 "나는 <b>떠나간</b> 그 사도를 보았다"로 압축하는 것이 관계대명사(<span class="gk">ὅς, ἥ, ὅ</span>)의 역할이다. 형태는 정관사(<span class="gk">ὁ, ἡ, τό</span>)와 거의 같고 앞에 기식만 붙는다고 생각하면 외우기 쉽다.</p>
+  </div>
+</div>
+
+<!-- ───── §3 조건문·가정법 ───── -->
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">03</span><span class="st">조건문과 가정법 (23과) — "만일 ~라면"</span><span class="sl"></span></div>
+  <div class="card">
+    <h3>조건문 2종류 — 뉘앙스가 다르다</h3>
+    <ul>
+      <li><b>현재 직설법 조건</b>(마 4:6 "네가 하나님의 아들이<b>라면</b>") — 이미 사실인 것을 전제로 하는 조건. "너는 하나님의 아들이니, 그럼 이렇게 해봐"라는 뉘앙스</li>
+      <li><b>미완료 직설법 조건</b>(요 8:42 "하나님이 너희 아버지<b>였다면</b>") — <b>현재 사실과 반대되는</b> 것을 가정("실제로는 아니지만 만약 그랬다면")</li>
+    </ul>
+  </div>
+  <div class="easy">
+    <h3>💡 가정법이란?</h3>
+    <p>교수님: "직설법이 사실을 있는 그대로 나타낸다면, <b>가정법은 가능성·개연성을 화자가 주관적으로 표현</b>하는 것이다." 형태는 어미 앞 모음이 길어지는 것이 특징(현재 <span class="gk">ω/εις/ει…</span> 자리가 가정법에서 <span class="gk">ω/ῃς/ῃ…</span>로).</p>
+  </div>
+  <div class="card">
+    <h3>주기도문의 유일한 가정법: <span class="gk">μὴ εἰσενέγκῃς</span></h3>
+    <p>"우리를 시험에 들게 하지 마시옵고"(마 6:13)는 주기도문 전체에서 <b>유일하게 명령법이 아닌 가정법</b>이 쓰인 곳이다 — 부정과거 가정법 + <span class="gk">μή</span>는 "절대 그런 일이 없기를"이라는 강한 부정 기원을 나타낸다.</p>
+  </div>
+</div>
+
+<!-- ───── §4 비교급·최상급 ───── -->
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">04</span><span class="st">형용사(2)·부사(3) (24과) — 비교급·최상급</span><span class="sl"></span></div>
+  <div class="card">
+    <p>규칙형: 어간 + <span class="gk">-τερος</span>(비교급) / <span class="gk">-τατος</span>(최상급). 예: <span class="gk">δίκαιος</span>(의로운) → <span class="gk">δικαιότερος</span>(더 의로운) → <span class="gk">δικαιότατος</span>(가장 의로운). <span class="gk">μέγας</span>(큰), <span class="gk">μικρός</span>(작은) 같은 흔한 단어들은 불규칙 변화를 한다.</p>
+  </div>
+  <div class="story">
+    <h3>📖 고전 1:25 — "하나님의 약함이 사람보다 강하다"</h3>
+    <p>교수님이 마지막으로 짚어주신 구절: "하나님의 약하심이 사람보다 <b>강하니라</b>"(비교급). "십자가에 나타난 하나님의 약함이라는 것은 사실 약한 게 아니라, 사람의 그 어떤 강함보다 <b>더 강한 것</b>이다"라는 역설적 신학이 이 비교급 표현 안에 담겨 있다.</p>
+  </div>
+</div>
+
+<!-- ───── §5 부정사 ───── -->
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">05</span><span class="st">부정사 — 인칭·수에 매이지 않는 동사</span><span class="sl"></span></div>
+  <div class="easy">
+    <h3>💡 영어의 to-부정사와 비슷하다</h3>
+    <p>분사가 시제·태는 가지되 성·수·격에 따라 변하는 "동사+형용사"라면, 부정사는 시제·태는 가지되 <b>인칭·수에 따라 변하지 않는</b> "동사+명사" 같은 것이다. 그래서 이름이 "정해지지(定) 않은(不) 것" = 부정사다.</p>
+  </div>
+  <div class="story">
+    <h3>📖 마 6:24, 막 10:45 — 교수님이 마지막으로 남긴 말씀</h3>
+    <p><span class="gk">οὐ δύνασθε δυσὶ κυρίοις δουλεύειν</span> — "너희는 두 주인을 <b>섬길 수(δουλεύειν, 부정사) 없다</b>." 하나님과 재물(맘몬)을 동시에 섬길 수 없다는 말씀에서 "섬기다"가 부정사로 쓰였다.</p>
+    <p><span class="gk">οὐκ ἦλθεν διακονηθῆναι ἀλλὰ διακονῆσαι</span> — "인자가 온 것은 섬김을 받으려 함이 아니라 <b>섬기려(διακονῆσαι, 부정사) 함이다</b>"(막 10:45). 수동 부정사(섬김을 받다)와 능동 부정사(섬기다)가 대조되어 예수님이 어떤 리더십을 보이셨는지 말해준다. 교수님은 이 말씀으로 학기 전체 강의를 마무리하셨다.</p>
+  </div>
+</div>
+
+<!-- ───── §6 출처·검증 ───── -->
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">06</span><span class="st">출처·검증 요약</span><span class="sl"></span></div>
+  <div class="verify">
+    <h3>검증 메타데이터</h3>
+    <div class="row">
+      <span class="stat">🎥 14강_1·2(차시14, 7/9) 강의 자막 전문 대조</span>
+      <span class="stat">📖 교재 pp.211–256 (21~24과, 캡처본 없음 — 자막 기준)</span>
+      <span class="stat">🏷 시험범위 제외 — 핵심만 간략 정리</span>
+    </div>
+    <ul>
+      <li><b>자료근거:</b> 14강_1·2 자막에서 직접 확인된 내용만 수록(이 주차는 교재 캡처본을 별도로 확보하지 못해 자막 의존도가 높음 — 형태 세부사항은 참고용으로만 보고, 정확한 격변화표는 추후 교재 확인 권장)</li>
+      <li><b>⭐ 교수강조:</b> 딤전 1:13(그러나), 요 3:3(거듭남), 고전 1:25(하나님의 약함), 마 6:24·막 10:45(부정사)는 교수님이 강의 말미에 신학적 의미까지 직접 짚어주신 대목</li>
+      <li>14강 말미에 "기말고사 범위는 11과부터 20과까지"라는 공지가 있어 이 페이지의 내용(21~24과)은 <b>시험 범위가 아님을 재확인</b></li>
+      <li>할루시네이션 0 원칙: 강의 자막에 명시된 내용만 수록, 설명은 쉬운 말로 풀어 쓴 것</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 · 헬라어 II · 안호준 교수 · 2026 여름 계절학기 14주차(학기 마지막 강의)<br>
+  Generated by lecture-note-builder
+</div>
+
+</div>
+</body>
+</html>
