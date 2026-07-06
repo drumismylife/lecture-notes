@@ -6,6 +6,8 @@
 # 원본 강의 자막/녹취(로컬 보관) — 노트는 output/.../weekNN.html 로 추출되어 관리됨
 *자막*.txt
 *녹취*.txt
+*강.txt
+*강_*.txt
 *.vtt
 *.srt
 
