@@ -430,26 +430,6 @@ const SITE_DATA = {
               href: "output/2026-summer/greek2/lordprayer.html",
               isNew: true
             },
-            {
-              name: "중간고사 문장 해석 (11~15과)",
-              icon: "✍️",
-              desc: "11~15과 연습문제·해설 전체 + 강의 중 교수 강조 포인트, 과별 단어 분해 정리",
-              href: "output/2026-summer/greek2/중간고사_11-15과_문장해석.html"
-            },
-            {
-              name: "기말고사 문장 해석 (11~20과 누적)",
-              icon: "✍️",
-              desc: "11~20과 연습문제 전체(신규 16~20과 68문장) — 교재·정답 캡처 대조, 단어별 파싱 7요소 + 분사 용법",
-              href: "output/2026-summer/greek2/기말_11-20과_문장해석.html",
-              isNew: true
-            },
-            {
-              name: "기말 문법 총정리 (동사 체계·동사상·현재성)",
-              icon: "📐",
-              desc: "직설법 형태 분해 지도 + 완료시제·분사 3종·명령법 패러다임(교재 셀 단위 대조) + 개념 서술형 문답 10제",
-              href: "output/2026-summer/greek2/기말_문법총정리.html",
-              isNew: true
-            }
           ],
           weeks: [
             { week: 1, title: "오리엔테이션 + 복습1 — 알파벳·억양·음절, 동사(1-1) 현재 능동, 명사 2변화·관사, 명사 1변화", date: "2026.06.29", files: [
