@@ -8,6 +8,7 @@ deploy.py — HTML 파일을 output/ 에 넣은 후 data.js 업데이트 + git p
   python3 scripts/deploy.py 신약성서I 07               ← 날짜 생략 시 오늘 날짜 자동입력
 """
 
+import json
 import re
 import sys
 import html as html_lib
@@ -22,12 +23,12 @@ ROOT_DIR   = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
 from update_data import (
     update as update_data_js, COURSE_MAP,
-    resolve_semester, semester_span,
+    resolve_semester, semester_span, compute_rel_dir,
 )
 from add_back_button import inject as inject_back_button
 
-OUTPUT_FOLDER_OVERRIDE = {"헬라어": "greek", "헬라어II": "greek2", "예배기획": "worship"}
 COURSE_NAMES = ", ".join(COURSE_MAP.keys())
+GITHUB_PAGES_BASE = "https://drumismylife.github.io/lecture-notes"
 
 
 def extract_title_from_html(html_path: Path) -> str:
@@ -47,6 +48,38 @@ def extract_title_from_html(html_path: Path) -> str:
             if title:
                 return html_lib.unescape(title)  # &amp; → & 등 엔티티 디코딩
     return ""
+
+
+def load_subject_config(subject: str) -> dict:
+    """config.json에서 해당 과목 설정 로드 (없으면 빈 dict)"""
+    config_path = SCRIPT_DIR / "config.json"
+    if not config_path.exists():
+        return {}
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    return config.get("subjects", {}).get(subject, {})
+
+
+def upload_to_notebooklm(subject: str, rel_dir: str, file_suffix: str, title: str,
+                          week_label: str) -> None:
+    """config.json에 notebook_id가 설정된 과목이면 배포된 URL을 NotebookLM 소스로 추가.
+    notebook_id 미설정 시 조용히 건너뜀 (필수 단계 아님 — git push 실패와 무관하게 진행)."""
+    subj_cfg = load_subject_config(subject)
+    notebook_id = subj_cfg.get("notebook_id")
+    if not notebook_id:
+        print(f"  ℹ️  NotebookLM 미연동 (config.json에 notebook_id 없음) — 건너뜀")
+        return
+
+    url = f"{GITHUB_PAGES_BASE}/{rel_dir}/{file_suffix}"
+    source_title = title or f"{subject} {week_label}"
+
+    result = subprocess.run(
+        ["nlm", "source", "add", notebook_id, "--url", url, "--title", source_title, "--wait"],
+        capture_output=True, text=True
+    )
+    if result.returncode == 0:
+        print(f"  ✅ NotebookLM 소스 추가: {source_title}")
+    else:
+        print(f"  ⚠️  NotebookLM 업로드 실패 (배포 자체는 완료됨): {result.stderr.strip()[:200]}")
 
 
 def _semester_region(text: str, semester_id: str):
@@ -199,17 +232,16 @@ def main():
         print(f"   사용 가능: {COURSE_NAMES}")
         sys.exit(1)
 
-    # 대상 학기 결정 (active = 레거시 경로 유지, 그 외 = output/<학기>/<폴더>/ 네임스페이스)
+    # 대상 학기 결정: 과목 고유 소속 학기(config.json subjects[].semester)가 결정론적 기본값
+    # — data.js의 active 상태에 의존하지 않는다(active는 UI 표시용일 뿐, 경로 계산 기준이 아님).
+    # --semester 로 명시하면 그 값이 항상 우선.
+    subj_cfg = load_subject_config(subject)
     data_text = (ROOT_DIR / "data.js").read_text(encoding="utf-8")
-    active_id = resolve_semester(data_text, None)
-    target_id = semester_id or active_id
+    default_semester_id = subj_cfg.get("semester") or resolve_semester(data_text, None)
+    target_id = semester_id or default_semester_id
 
-    out_folder = OUTPUT_FOLDER_OVERRIDE.get(subject, subject)
     file_suffix = f"week{week_num:02d}{variant}.html"
-    if target_id and target_id != active_id:
-        rel_dir = f"output/{target_id}/{out_folder}"
-    else:
-        rel_dir = f"output/{out_folder}"
+    rel_dir = compute_rel_dir(subject, target_id)
     rel_dir = unicodedata.normalize("NFC", rel_dir)
     html_path = ROOT_DIR / rel_dir / file_suffix
 
@@ -222,7 +254,7 @@ def main():
     sem_label = f" · {target_id}" if target_id else ""
     print(f"📄 [{subject}{sem_label}] Week {week_num:02d}{variant_label} 배포 시작\n")
 
-    print("[1/2] data.js 업데이트...")
+    print("[1/3] data.js 업데이트...")
 
     title = extract_title_from_html(html_path)
     if not title:
@@ -237,20 +269,22 @@ def main():
 
     if not variant:
         # 첫 번째 자료: title·date 업데이트 + files: [] 등록
-        update_title_in_data_js(subject, week_num, title, semester_id)
-        update_date_in_data_js(subject, week_num, lecture_date, semester_id)
+        # (rel_dir/html_path 계산에 쓴 target_id와 동일 학기를 data.js 편집에도 써야
+        #  파일 실제 위치와 data.js 항목이 서로 다른 학기 블록으로 어긋나지 않는다)
+        update_title_in_data_js(subject, week_num, title, target_id)
+        update_date_in_data_js(subject, week_num, lecture_date, target_id)
         try:
-            update_data_js(subject, str(week_num), semester_id)
+            update_data_js(subject, str(week_num), target_id)
         except SystemExit as e:
             if e.code != 0:
                 print("  ⚠️  data.js 파일 등록 실패")
                 sys.exit(1)
     else:
         # 추가 자료 (b, c ...): 기존 배열에 append, date는 업데이트하지 않음
-        append_file_to_data_js(subject, week_num, href, title, semester_id)
+        append_file_to_data_js(subject, week_num, href, title, target_id)
 
     # 2단계: git push
-    print("[2/2] GitHub 업로드...")
+    print("[2/3] GitHub 업로드...")
     commit_msg = f"강의노트 업데이트: {subject} week{week_num:02d}{variant}"
     cmds = [
         ["git", "-C", str(ROOT_DIR), "add", "output/", "data.js"],
@@ -270,6 +304,10 @@ def main():
                 sys.exit(1)
         else:
             print(f"  ✅ {label}")
+
+    # 3단계: NotebookLM 업로드 (notebook_id 설정된 과목만, 실패해도 배포 자체는 완료 처리)
+    print("[3/3] NotebookLM 업로드...")
+    upload_to_notebooklm(subject, rel_dir, file_suffix, title, f"week{week_num:02d}{variant}")
 
     print(f"\n🎉 완료! 잠시 후 GitHub Pages에서 확인하세요.")
 

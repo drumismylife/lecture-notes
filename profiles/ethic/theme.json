@@ -1,0 +1,24 @@
+{
+  "courseKey": "ethic",
+  "title": "기독교윤리",
+  "character": "기독교윤리 — 신중·구조적 성격, 스틸블루·슬레이트 톤, 원리·논증·적용 중심",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR" },
+  "colors": {
+    "--bg": "#0d1218",
+    "--card": "#151c24",
+    "--subcard": "#1d2530",
+    "--accent": "#6f92b8",
+    "--accent2": "#94b0d0",
+    "--slate": "#7a8ea8",
+    "--exam": "#c96b5a",
+    "--exam-bg": "#2d1a16",
+    "--green": "#7ab87a",
+    "--gold": "#c9a84c",
+    "--teal": "#6ab8c8",
+    "--text": "#e6ebf0",
+    "--text2": "#8f9aa8",
+    "--border": "#2a3542"
+  },
+  "semantics": { "exam": "--exam", "supplement": "--teal", "accent": "--accent" },
+  "components": ["윤리 원리 카드", "개념 정의 박스", "논증 구조 분석", "사례/딜레마 박스", "성경 근거 인용", "핵심 정리"]
+}

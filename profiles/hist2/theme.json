@@ -1,0 +1,28 @@
+{
+  "courseKey": "hist2",
+  "title": "교회사2",
+  "character": "교회사의 후속 — 딥 러스트·마룬 톤, 연표·인물·시대구분·공의회 중심 (hist와 계열 구분)",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "latin": "Crimson Pro" },
+  "colors": {
+    "--bg": "#170e0c",
+    "--card": "#221512",
+    "--card2": "#2c1a16",
+    "--card3": "#361f1a",
+    "--rust": "#c06a4e",
+    "--rust2": "#d38665",
+    "--rust-dim": "#8a4a35",
+    "--text": "#f0e5e0",
+    "--text2": "#a08070",
+    "--text3": "#6b5045",
+    "--ox-green": "#7ab87a",
+    "--sq-blue": "#7aaad4",
+    "--essay-amb": "#c49a3c",
+    "--terra": "#c96b5a",
+    "--border": "rgba(192,106,78,0.18)",
+    "--era-catholic": "#9b4a4a",
+    "--era-roman": "#7a6b3a",
+    "--era-medieval": "#6b4a7a"
+  },
+  "semantics": { "exam": "--terra", "supplement": "--sq-blue", "accent": "--rust2", "essay": "--essay-amb" },
+  "components": ["연표(timeline)", "인물 카드(생몰·업적)", "시대 구분 배지(era)", "공의회/논쟁 박스", "1차 사료 인용", "지도", "핵심 정리"]
+}

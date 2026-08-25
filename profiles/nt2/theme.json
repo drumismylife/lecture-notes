@@ -1,0 +1,25 @@
+{
+  "courseKey": "nt2",
+  "title": "신약성서2",
+  "character": "신약성서I의 후속 — 인디고·블루바이올렛 톤, 본문 구조·석의 중심 (nt와 계열 구분)",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR" },
+  "colors": {
+    "--bg": "#0f0f1e",
+    "--card": "#161628",
+    "--subcard": "#1e1e34",
+    "--accent": "#7f93e0",
+    "--accent2": "#a3b3e8",
+    "--bible": "#8ea8f0",
+    "--exam": "#c96b5a",
+    "--exam-bg": "#2d1a16",
+    "--green": "#7ab87a",
+    "--gold": "#c9a84c",
+    "--teal": "#6ab8c8",
+    "--text": "#e8eaf5",
+    "--text2": "#9498aa",
+    "--border": "#2d2d4a",
+    "--indigo-bright": "#9fa8e8"
+  },
+  "semantics": { "exam": "--exam", "supplement": "--teal", "accent": "--accent", "scripture": "--bible" },
+  "components": ["본문 개론 카드", "구조 분석(개요)", "신학 주제 박스", "석의(exegesis) 비교", "성경 인용 박스", "지도/배경", "핵심 정리"]
+}

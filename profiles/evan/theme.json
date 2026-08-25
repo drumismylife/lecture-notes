@@ -1,0 +1,24 @@
+{
+  "courseKey": "evan",
+  "title": "전도학",
+  "character": "전도학 — 실천적·선교적 성격, 웜 오렌지·코랄 톤, 원리·전략·사례 중심",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "accent": "IM Fell English SC" },
+  "colors": {
+    "--bg-page": "#1a1109",
+    "--bg-card": "#241811",
+    "--bg-subcard": "#2e2016",
+    "--bg-dark": "#180f08",
+    "--orange-main": "#e08a4a",
+    "--orange-soft": "#c96b2e",
+    "--orange-text": "#f0b888",
+    "--cream": "#d4c3a8",
+    "--red-exam": "#c96b5a",
+    "--amber": "#c49a3c",
+    "--text-main": "#f0ebe4",
+    "--text-sub": "#aa9a8a",
+    "--text-dim": "#7a6a5a",
+    "--border": "#3a2a1a"
+  },
+  "semantics": { "exam": "--red-exam", "supplement": "--amber", "accent": "--orange-main" },
+  "components": ["전도 원리 카드", "정의 박스", "전략/방법 체크리스트", "사례 / 간증 박스", "성경 근거 인용", "핵심 정리"]
+}

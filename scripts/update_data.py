@@ -7,27 +7,36 @@ data.js 구조: SITE_DATA.semesters[] → { id, active, courses: { <키>: { week
 모든 편집은 대상 학기(span) 안에서만 수행하여 다른 학기의 동일 과목키를 건드리지 않는다.
 학기를 지정하지 않으면 active:true 학기를 대상으로 한다.
 """
-import sys, re, unicodedata
+import sys, re, json, unicodedata
+from pathlib import Path
 
-DATA_JS = "/Users/macbookpro/Desktop/대학원/lecture-notes/data.js"
+SCRIPT_DIR = Path(__file__).resolve().parent
+DATA_JS = str(SCRIPT_DIR.parent / "data.js")
+CONFIG_PATH = SCRIPT_DIR / "config.json"
 
-COURSE_MAP = {
-    "헬라어": "greek",
-    "목회학": "min",
-    "기독교철학": "phil",
-    "신약성서I": "nt",
-    "교회사": "hist",
-    # 2026 여름 계절학기
-    "헬라어II": "greek2",
-    "예배기획": "worship",
-}
 
-# output 폴더명이 과목명과 다른 경우 (course_key 사용)
-OUTPUT_FOLDER_OVERRIDE = {
-    "헬라어": "greek",
-    "헬라어II": "greek2",
-    "예배기획": "worship",
-}
+def load_config() -> dict:
+    return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+
+
+_CONFIG = load_config()
+SUBJECTS_CFG = _CONFIG.get("subjects", {})
+
+# config.json의 subjects를 단일 진실 원천(SOT)으로 삼아 과목명→course_key 매핑을 도출
+COURSE_MAP = {name: cfg["course_key"] for name, cfg in SUBJECTS_CFG.items()}
+
+
+def compute_rel_dir(course_name: str, semester_id: str) -> str:
+    """학기 고유 ID 기반 결정론적 경로 규칙 (active 상태와 무관):
+    - 2026-1(레거시 1학기): output/<output_folder>  ← 기존 배포 URL 영구 보존
+    - 그 외 모든 학기(2026-summer, 2026-2, ...): output/<semester_id>/<course_key>
+    """
+    subj_cfg = SUBJECTS_CFG.get(course_name, {})
+    course_key = subj_cfg.get("course_key") or COURSE_MAP.get(course_name)
+    if semester_id == "2026-1":
+        output_folder = subj_cfg.get("output_folder", course_name)
+        return f"output/{output_folder}"
+    return f"output/{semester_id}/{course_key}"
 
 
 # ── 학기 span 유틸 ────────────────────────────────────────────
@@ -58,7 +67,6 @@ def update(course_name, week_str, semester_id=None):
         print(f"❌ 알 수 없는 과목: {course_name}"); sys.exit(1)
 
     week_int = int(week_str)
-    folder = OUTPUT_FOLDER_OVERRIDE.get(course_name, course_name)
 
     text = open(DATA_JS, encoding="utf-8").read()
 
@@ -66,12 +74,9 @@ def update(course_name, week_str, semester_id=None):
     if not sem_id:
         print("❌ 대상 학기를 찾을 수 없음 (active:true 없음)"); sys.exit(1)
 
-    # 활성 학기는 레거시 경로 유지, 그 외 학기는 output/<학기>/<폴더>/ 네임스페이스
-    active_id = active_semester_id(text)
-    if sem_id != active_id:
-        href = f"output/{sem_id}/{folder}/week{week_int:02d}.html"
-    else:
-        href = f"output/{folder}/week{week_int:02d}.html"
+    # 학기 고유 ID 기반 결정론적 경로 (active 상태와 무관 — compute_rel_dir 참조)
+    rel_dir = compute_rel_dir(course_name, sem_id)
+    href = f"{rel_dir}/week{week_int:02d}.html"
     href = unicodedata.normalize("NFC", href)  # 한글 경로 안전
     new_entry = f'{{ type: "notes", label: "강의노트", href: "{href}" }}'
 

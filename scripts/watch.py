@@ -108,10 +108,10 @@ def latest_week_in_output(output_dir: Path) -> int:
 
 def process_note(html_path: Path, config: dict, done_dir: Path) -> None:
     subjects_cfg = config["subjects"]
+    semesters_cfg = config["semesters"]
     paths_cfg = config["paths"]
     subject_list = list(subjects_cfg.keys())
 
-    semester_base = Path(paths_cfg["semester_base"]).expanduser()
     ln_root = Path(paths_cfg["lecture_notes_root"]).expanduser()
 
     print(f"\n  ┌─ 새 파일: {html_path.name}")
@@ -125,6 +125,9 @@ def process_note(html_path: Path, config: dict, done_dir: Path) -> None:
     print(f"  │  과목: {subject}")
 
     subj_cfg = subjects_cfg[subject]
+    sem_id = subj_cfg["semester"]
+    # 과목이 속한 학기의 semester_base를 config.json에서 동적으로 조회 (전역 기본값에 고정하지 않음)
+    semester_base = Path(semesters_cfg[sem_id]["semester_base"]).expanduser()
     semester_folder = subj_cfg["semester_folder"]
     output_folder = subj_cfg["output_folder"]
     output_dir = ln_root / "output" / output_folder
@@ -163,7 +166,7 @@ def process_note(html_path: Path, config: dict, done_dir: Path) -> None:
     # 5) deploy.py 실행
     print(f"  │  🚀 배포 중...")
     deploy_result = subprocess.run(
-        [sys.executable, str(SCRIPTS_DIR / "deploy.py"), subject, label],
+        [sys.executable, str(SCRIPTS_DIR / "deploy.py"), subject, label, "--semester", sem_id],
         capture_output=True, text=True,
         cwd=str(ln_root)
     )

@@ -1,5 +1,5 @@
 {
-  "active_semester": "2026-1",
+  "active_semester": "2026-2",
   "semesters": {
     "2026-1": { "label": "2026학년도 1학기", "term": "2026 Spring", "semester_base": "~/Desktop/대학원/1학기" },
     "2026-summer": { "label": "2026학년도 여름 계절학기", "term": "2026 Summer", "semester_base": "~/Desktop/대학원/여름계절" },
@@ -82,6 +82,56 @@
       "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context"],
       "video_source": "youtube",
       "keywords": ["예배기획", "예배", "worship", "예배학"]
+    },
+    "신약성서2": {
+      "output_folder": "2026-2/nt2",
+      "semester_folder": "신약성서2",
+      "semester": "2026-2",
+      "course_key": "nt2",
+      "profile": "profiles/nt2",
+      "theme": "profiles/nt2/theme.json",
+      "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context", "sermon-greek-grammar-machen", "sermon-textual-criticism"],
+      "keywords": ["신약성서2", "신약2", "nt2", "성서2"]
+    },
+    "교회사2": {
+      "output_folder": "2026-2/hist2",
+      "semester_folder": "교회사2",
+      "semester": "2026-2",
+      "course_key": "hist2",
+      "profile": "profiles/hist2",
+      "theme": "profiles/hist2/theme.json",
+      "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context", "sermon-christian-history-interpreter"],
+      "keywords": ["교회사2", "church2", "history2"]
+    },
+    "전도학": {
+      "output_folder": "2026-2/evan",
+      "semester_folder": "전도학",
+      "semester": "2026-2",
+      "course_key": "evan",
+      "profile": "profiles/evan",
+      "theme": "profiles/evan/theme.json",
+      "related_skills": ["sermon-bible-dictionary"],
+      "keywords": ["전도학", "evangelism", "evan"]
+    },
+    "기독교윤리": {
+      "output_folder": "2026-2/ethic",
+      "semester_folder": "기독교윤리",
+      "semester": "2026-2",
+      "course_key": "ethic",
+      "profile": "profiles/ethic",
+      "theme": "profiles/ethic/theme.json",
+      "related_skills": ["sermon-bible-dictionary"],
+      "keywords": ["기독교윤리", "ethic", "윤리"]
+    },
+    "예언문학": {
+      "output_folder": "2026-2/prophet",
+      "semester_folder": "예언문학",
+      "semester": "2026-2",
+      "course_key": "prophet",
+      "profile": "profiles/prophet",
+      "theme": "profiles/prophet/theme.json",
+      "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context"],
+      "keywords": ["예언문학", "prophet", "예언서"]
     }
   },
   "paths": {

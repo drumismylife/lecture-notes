@@ -23,7 +23,7 @@ const SITE_DATA = {
       id: "2026-1",
       label: "2026학년도 1학기",
       term: "2026 Spring",
-      active: true,
+      active: false,
       courses: {
 
         greek: {
@@ -525,8 +525,130 @@ const SITE_DATA = {
       id: "2026-2",
       label: "2026학년도 2학기",
       term: "2026 Fall",
-      active: false,
-      courses: {}
+      active: true,
+      courses: {
+
+        nt2: {
+          meta: {
+            title: "신약성서2",
+            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
+          },
+          weeks: [
+            { week: 1, title: "", date: "", files: [] },
+            { week: 2, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [] },
+            { week: 4, title: "", date: "", files: [] },
+            { week: 5, title: "", date: "", files: [] },
+            { week: 6, title: "", date: "", files: [] },
+            { week: 7, title: "", date: "", files: [] },
+            { week: 8, title: "", date: "", files: [] },
+            { week: 9, title: "", date: "", files: [] },
+            { week: 10, title: "", date: "", files: [] },
+            { week: 11, title: "", date: "", files: [] },
+            { week: 12, title: "", date: "", files: [] },
+            { week: 13, title: "", date: "", files: [] },
+            { week: 14, title: "", date: "", files: [] },
+            { week: 15, title: "", date: "", files: [] }
+          ]
+        },
+
+        hist2: {
+          meta: {
+            title: "교회사2",
+            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
+          },
+          weeks: [
+            { week: 1, title: "", date: "", files: [] },
+            { week: 2, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [] },
+            { week: 4, title: "", date: "", files: [] },
+            { week: 5, title: "", date: "", files: [] },
+            { week: 6, title: "", date: "", files: [] },
+            { week: 7, title: "", date: "", files: [] },
+            { week: 8, title: "", date: "", files: [] },
+            { week: 9, title: "", date: "", files: [] },
+            { week: 10, title: "", date: "", files: [] },
+            { week: 11, title: "", date: "", files: [] },
+            { week: 12, title: "", date: "", files: [] },
+            { week: 13, title: "", date: "", files: [] },
+            { week: 14, title: "", date: "", files: [] },
+            { week: 15, title: "", date: "", files: [] }
+          ]
+        },
+
+        evan: {
+          meta: {
+            title: "전도학",
+            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
+          },
+          weeks: [
+            { week: 1, title: "", date: "", files: [] },
+            { week: 2, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [] },
+            { week: 4, title: "", date: "", files: [] },
+            { week: 5, title: "", date: "", files: [] },
+            { week: 6, title: "", date: "", files: [] },
+            { week: 7, title: "", date: "", files: [] },
+            { week: 8, title: "", date: "", files: [] },
+            { week: 9, title: "", date: "", files: [] },
+            { week: 10, title: "", date: "", files: [] },
+            { week: 11, title: "", date: "", files: [] },
+            { week: 12, title: "", date: "", files: [] },
+            { week: 13, title: "", date: "", files: [] },
+            { week: 14, title: "", date: "", files: [] },
+            { week: 15, title: "", date: "", files: [] }
+          ]
+        },
+
+        ethic: {
+          meta: {
+            title: "기독교윤리",
+            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
+          },
+          weeks: [
+            { week: 1, title: "", date: "", files: [] },
+            { week: 2, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [] },
+            { week: 4, title: "", date: "", files: [] },
+            { week: 5, title: "", date: "", files: [] },
+            { week: 6, title: "", date: "", files: [] },
+            { week: 7, title: "", date: "", files: [] },
+            { week: 8, title: "", date: "", files: [] },
+            { week: 9, title: "", date: "", files: [] },
+            { week: 10, title: "", date: "", files: [] },
+            { week: 11, title: "", date: "", files: [] },
+            { week: 12, title: "", date: "", files: [] },
+            { week: 13, title: "", date: "", files: [] },
+            { week: 14, title: "", date: "", files: [] },
+            { week: 15, title: "", date: "", files: [] }
+          ]
+        },
+
+        prophet: {
+          meta: {
+            title: "예언문학",
+            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
+          },
+          weeks: [
+            { week: 1, title: "", date: "", files: [] },
+            { week: 2, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [] },
+            { week: 4, title: "", date: "", files: [] },
+            { week: 5, title: "", date: "", files: [] },
+            { week: 6, title: "", date: "", files: [] },
+            { week: 7, title: "", date: "", files: [] },
+            { week: 8, title: "", date: "", files: [] },
+            { week: 9, title: "", date: "", files: [] },
+            { week: 10, title: "", date: "", files: [] },
+            { week: 11, title: "", date: "", files: [] },
+            { week: 12, title: "", date: "", files: [] },
+            { week: 13, title: "", date: "", files: [] },
+            { week: 14, title: "", date: "", files: [] },
+            { week: 15, title: "", date: "", files: [] }
+          ]
+        }
+
+      }
     }
 
   ],

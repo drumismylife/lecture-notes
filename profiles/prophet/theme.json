@@ -1,0 +1,25 @@
+{
+  "courseKey": "prophet",
+  "title": "예언문학",
+  "character": "예언문학 — 극적·긴장감 있는 성격, 딥 크림슨·레드바이올렛 톤, 심판/회복 대조 중심",
+  "fonts": { "sans": "Noto Sans KR", "serif": "Noto Serif KR", "latin": "Crimson Pro" },
+  "colors": {
+    "--bg": "#180a10",
+    "--card": "#241018",
+    "--subcard": "#2e1620",
+    "--crimson": "#c05070",
+    "--crimson2": "#d4788f",
+    "--violet": "#9b5a8a",
+    "--exam": "#c96b5a",
+    "--exam-bg": "#2d1a16",
+    "--gold": "#c9a84c",
+    "--teal": "#6ab8c8",
+    "--text": "#f0e5ea",
+    "--text2": "#a0808f",
+    "--border": "#3a1d28",
+    "--judgment": "#8a3a3a",
+    "--restoration": "#5a8a6b"
+  },
+  "semantics": { "exam": "--exam", "supplement": "--teal", "accent": "--crimson2" },
+  "components": ["예언 배경 카드(왕/시대)", "심판↔회복 대조 박스", "상징/환상 해설", "성취/성경신학 연결", "성경 인용 박스", "지도", "핵심 정리"]
+}
