@@ -136,8 +136,8 @@
   },
   "paths": {
     "semester_base": "~/Desktop/대학원/1학기",
-    "lecture_notes_root": "~/Desktop/대학원/lecture-notes",
+    "lecture_notes_root": "~/Developer/lecture-notes",
     "downloads": "~/Downloads",
-    "watch_folder": "~/Desktop/대학원/lecture-notes/input"
+    "watch_folder": "~/Developer/lecture-notes/input"
   }
 }
