@@ -32,3 +32,8 @@ __pycache__/
 # NotebookLM 오디오 개요(m4a, 학기당 1~2GB 누적) — 저장소 밖(~/Desktop/대학원/강의오디오/)에 보관
 # (기존 output/신약성서I/의 mp3·m4a는 예외 — 헬라어 암송용으로 의도적으로 커밋된 사이트 콘텐츠)
 *.m4a
+
+# cys 내부 오케스트레이션 지침·로컬 MCP 설정(경로에 사용자명 포함) — 공개 레포에 커밋 금지
+CLAUDE.md
+.mcp.json
+.mcp.json.bak-*
