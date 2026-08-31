@@ -6,7 +6,7 @@
 
 ### 1. 의존성 설치 + Claude.ai URL 등록
 ```bash
-cd ~/Desktop/대학원/lecture-notes
+cd ~/Developer/lecture-notes
 python3 scripts/setup.py
 ```
 - 각 과목의 Claude.ai 프로젝트 URL 입력
@@ -43,7 +43,7 @@ Dock의 **🦉 강의노트 감시 앱** 클릭
 아이폰에서 전사문 **복사** 후, 맥북 터미널에서:
 
 ```bash
-pbpaste > ~/Downloads/녹취_신약성서_5월7일_누가복음마지막.txt && python3 ~/Desktop/대학원/lecture-notes/scripts/prepare.py
+pbpaste > ~/Downloads/녹취_신약성서_5월7일_누가복음마지막.txt && python3 ~/Developer/lecture-notes/scripts/prepare.py
 ```
 
 자동으로 진행되는 것들:
@@ -69,7 +69,7 @@ prepare.py가 끝나면 안내된 문구를 그대로 이 터미널(Claude Code)
 4. 완성된 HTML을 **아래 폴더에 저장:**
 
 ```
-~/Desktop/대학원/lecture-notes/input/
+~/Developer/lecture-notes/input/
 ```
 
 > Claude.ai 브라우저 업로드 방식(수동)도 여전히 가능합니다 — `setup.py`에서 과목에
@@ -97,7 +97,7 @@ prepare.py가 끝나면 안내된 문구를 그대로 이 터미널(Claude Code)
         ↓
 아이폰 전사문 복사
         ↓
-터미널: pbpaste > ~/Downloads/녹취_$(date +%m%d).txt && python3 ~/Desktop/대학원/lecture-notes/scripts/prepare.py
+터미널: pbpaste > ~/Downloads/녹취_$(date +%m%d).txt && python3 ~/Developer/lecture-notes/scripts/prepare.py
         ↓
 Claude.ai에서 노트 생성 → input/ 폴더에 HTML 저장
         ↓
@@ -111,7 +111,7 @@ Claude.ai에서 노트 생성 → input/ 폴더에 HTML 저장
 HTML을 `output/[과목]/` 에 직접 넣은 후:
 
 ```bash
-cd ~/Desktop/대학원/lecture-notes
+cd ~/Developer/lecture-notes
 python3 scripts/deploy.py [과목명] [주차] [날짜(선택)]
 ```
 
