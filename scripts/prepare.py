@@ -211,19 +211,13 @@ def main():
     else:
         print("\n⚠️  녹취 파일 없이 진행합니다.")
 
-    # 5) Claude.ai 프로젝트 열기
-    claude_url = subj_conf.get("claude_url", "").strip()
-    if claude_url:
-        print(f"\n🌐 Claude.ai [{subject}] 프로젝트 열기...")
-        subprocess.run(["open", claude_url])
-    else:
-        print(f"\n⚠️  Claude.ai URL 미설정 → setup.py를 실행해서 URL을 등록하세요.")
-        print("   직접 claude.ai 에서 해당 과목 프로젝트를 여세요.")
-
     print("\n" + "─" * 50)
     print("  ✨ 준비 완료!")
-    print("  Claude.ai에서 노트 생성 후 HTML을 Downloads에 저장하면")
-    print("  watch.py가 자동으로 처리합니다.")
+    print(f"  Claude Code 터미널에서 이렇게 요청하세요:")
+    print(f'    "{subject} 이번 주 노트 정리해줘"')
+    print("  (lecture-note-builder 스킬이 녹취/강의자료를 읽어 노트를 만들고")
+    print(f"   {config['paths']['lecture_notes_root']}/input/ 에 저장합니다)")
+    print("  → 이후 watch.py가 자동으로 배치+배포합니다.")
     print("─" * 50)
 
 

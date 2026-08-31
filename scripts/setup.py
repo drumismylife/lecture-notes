@@ -49,6 +49,48 @@ def setup_urls(config):
     return config
 
 
+def setup_notebooklm(config):
+    """과목별 NotebookLM 노트북 연결. 없으면 nlm으로 즉석 생성 가능."""
+    subjects = config["subjects"]
+    print("\n📓 NotebookLM 노트북 연결")
+    print("   매주 배포된 강의노트를 자동으로 NotebookLM 소스로 올립니다.")
+    print("   Enter → 건너뛰기(비연동) / n → 지금 새 노트북 생성 / 기존 ID 붙여넣기\n")
+
+    for subj, conf in subjects.items():
+        current = conf.get("notebook_id", "")
+        if current:
+            print(f"  [{subj}] 연동됨: {current}")
+            continue
+
+        answer = input(f"  [{subj}] 노트북 ID (n=새로 생성, Enter=건너뛰기): ").strip()
+        if not answer:
+            continue
+        if answer.lower() == "n":
+            label = conf.get("semester", "")
+            title = f"{subj}" + (f" — {label}" if label else "")
+            result = subprocess.run(
+                ["nlm", "notebook", "create", title, "--json"],
+                capture_output=True, text=True
+            )
+            if result.returncode == 0:
+                try:
+                    notebook = json.loads(result.stdout)
+                    new_id = notebook.get("id") or notebook.get("notebook_id")
+                except json.JSONDecodeError:
+                    new_id = None
+                if new_id:
+                    conf["notebook_id"] = new_id
+                    print(f"    ✅ 노트북 생성: {title} ({new_id})")
+                else:
+                    print(f"    ⚠️  노트북 ID 파싱 실패 — 출력 확인 필요: {result.stdout[:200]}")
+            else:
+                print(f"    ❌ 노트북 생성 실패: {result.stderr.strip()[:200]}")
+        else:
+            conf["notebook_id"] = answer
+
+    return config
+
+
 def verify_paths(config):
     paths = config["paths"]
     print("\n📂 경로 확인")
@@ -71,6 +113,7 @@ def main():
 
     install_deps()
     config = setup_urls(config)
+    config = setup_notebooklm(config)
     verify_paths(config)
 
     CONFIG_PATH.write_text(
