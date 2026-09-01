@@ -140,3 +140,15 @@ Christensen, 콜린스→Terence Collins, 그리스만→Hugo Gressmann, 영가�
 후 적용). **최종 확정 절차**: 앞으로 책별 참고서는 `weekNN.files[]`에 `guide` 타입으로
 해당 주차 강의노트와 나란히 등록한다(과목 tools가 아님) — 요엘·아모스 등 다음 책부터
 이 절차를 기본으로 따를 것.
+
+**"안 바뀌었어" 버그 — index.html의 data.js 캐시버전 고정 발견·수정**: 위 정정을 배포했는데도
+오너 브라우저에 반영이 안 됨 — 원인은 `index.html`의 `<script src="data.js?v=20260615h">`가
+이 세션의 여러 `data.js` 수정(예언문학 1·2주차, 호세아서 참고서 등)에도 **한 번도 안 바뀌어**
+방문자 브라우저가 옛 캐시를 계속 재사용하고 있었던 것(GitHub Pages 자체는 최신 파일 서빙 중 —
+`curl`로는 항상 최신이 보여 이 세션도 한동안 못 알아챔). `git log`로 확인한 기존 버전 문자열
+관행(`YYYYMMDD[a-z]` — 같은 날 여러 번 갱신 시 알파벳 접미사 증가)에 맞춰
+`scripts/update_data.py`에 `bump_index_cache_version()` 신설, `update()` 끝에서 자동 호출하도록
+연결 — **`deploy.py` 정상 경로에서는 앞으로 자동 재발방지**. 단, `update()`는 `files: []`가
+비어있는 최초 등록 때만 동작하므로(이미 채워진 주차를 수동 편집하는 경우엔 트리거 안 됨) 이번
+같은 수동 `data.js` 편집 후에는 여전히 `bump_index_cache_version()`을 손으로 한 번 불러줘야
+한다 — 앞으로 수동 편집 시 잊지 말 것.
