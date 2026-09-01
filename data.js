@@ -630,7 +630,9 @@ const SITE_DATA = {
             desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
           },
           weeks: [
-            { week: 1, title: "", date: "", files: [] },
+            { week: 1, title: "소선지서 서론 — 명칭·구조·여호와의 날", date: "2026.09.03", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week01.html" }
+          ] },
             { week: 2, title: "", date: "", files: [] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
