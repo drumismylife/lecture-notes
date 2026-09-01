@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>호세아서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--crimson2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--muted);font-size:12.5px;margin-top:10px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.intro .method{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:12.5px}
+
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+.linkrow a{font-size:12px;color:var(--gold);border:1px solid var(--border);border-radius:20px;padding:6px 13px;text-decoration:none}
+.linkrow a:hover{border-color:var(--gold);background:var(--subcard)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+/* 원어 단어카드 */
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .heb{font-size:24px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--crimson2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--muted);margin:5px 0}
+.wordcard b{color:var(--text)}
+
+/* 본문 강해 카드 */
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(212,120,143,.06),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--crimson2);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.pericope b{color:var(--text)}
+
+/* 도서 카드 */
+.bookcard{display:flex;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:10px 0}
+.bookcard .bi{font-size:22px;flex-shrink:0}
+.bookcard h4{font-size:14px;color:var(--gold);margin-bottom:4px}
+.bookcard p{font-size:13px;color:var(--muted);margin:4px 0}
+.bookcard b{color:var(--text)}
+.bookcard .conf{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.conf-high{background:rgba(90,138,107,.18);color:#8fcf9f;border:1px solid rgba(90,138,107,.4)}
+.conf-mid{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+
+.jr{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
+.jr>div{padding:13px 15px;font-size:13px;color:var(--text)}
+.jr .j{background:rgba(138,58,58,.16);border-right:1px solid var(--border)}
+.jr .r{background:rgba(90,138,107,.16)}
+.jr .lab{font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.jr .j .lab{color:#e08a8a}
+.jr .r .lab{color:#8fcf9f}
+@media(max-width:520px){.jr{grid-template-columns:1fr}.jr .j{border-right:none;border-bottom:1px solid var(--border)}}
+
+.qbox{background:var(--subcard);border:1px dashed var(--border);border-radius:9px;padding:12px 15px;margin:8px 0;font-size:13px;color:var(--muted)}
+.qbox b{color:var(--text)}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.5rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 책별 참고서 시리즈 · 01</div>
+  <h1>호세아서 참고서</h1>
+  <div class="sub">Hosea — 언약의 파기와 회복, 하나님 사랑의 깊이</div>
+  <div class="prof">주차 노트(2주차)를 넘어선 배경지식·원어·본문강해·참고도서 안내 종합자료</div>
+</div>
+
+<div class="intro">
+  이 자료는 2주차 강의노트(호세아서)의 <b>후속·심화 참고서</b>입니다. 강의노트가 "오성호 교수님이
+  실제로 강의에서 말씀하신 것"만 담았다면, 이 참고서는 그 범위를 넘어 <b>표준 구약학 문헌(주석·사전·
+  개론서)에 근거한 배경지식·원어 연구·본문 강해·참고도서 안내</b>를 종합했습니다.
+  <div class="method">
+    <b>방법론 안내</b>: 수업계획서가 지정한 참고도서(김창대·매콤빌·롱맨/딜라드·반게메렌·치솜·하우스)의
+    <b>원문을 직접 열람하지는 못했습니다</b>(박사님이 보유한 스캔본이 없는 한). 대신 ① 그 도서들이
+    학계에서 일반적으로 어떻게 소개·인용되는지를 웹검색으로 확인하고, ② 표준 영문 주석·사전(NICOT·WBC·
+    AB·Hermeneia·BDAG/HALOT·ABD·TDOT급)에 근거한 제 학술 지식을 종합해 작성했습니다. 특정 학자의
+    주장으로 단정한 항목은 실존·전공 분야를 교차검증했고, 확정하지 못한 부분은 정직하게 표시했습니다.
+    성경 본문 자체가 최종 권위이며, 이 자료는 그 이해를 돕는 보조 도구입니다.
+  </div>
+</div>
+
+<div class="linkrow">
+  <a href="week02.html">← 2주차 강의노트(호세아서)</a>
+  <a href="week01.html">1주차 강의노트(소선지서 서론)</a>
+</div>
+
+<div class="toc">
+  <a href="#s1">시대배경 심화</a>
+  <a href="#s2">정경적 위치</a>
+  <a href="#s3">문학구조 학계정리</a>
+  <a href="#s4">핵심 원어</a>
+  <a href="#s5">본문 강해</a>
+  <a href="#s6">신약 연결</a>
+  <a href="#s7">참고도서 안내</a>
+  <a href="#s8">묵상 질문</a>
+</div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">시대 배경 심화 — 번영 속의 부패</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>여로보암 2세 시대(주전 793-753년)의 사회경제 구조</h3>
+    <p>호세아·아모스가 활동한 시기는 북이스라엘 역사상 <b>영토·경제 최전성기</b>였다(왕하 14:25 —
+      "하맛 어귀에서부터 아라바 바다까지" 영토 회복). 그러나 이 번영은 <b>극심한 빈부격차</b>를 동반했다 —
+      대지주·상류층은 사치스러운 "상아 궁"(암 3:15, 6:4)을 지었고, 소농은 부채·저당으로 토지를 잃고
+      노예로 전락하는 경우가 흔했다(암 2:6-8, 5:11). 이 경제적 배경은 호세아 4장 "이 땅에는 진실도 없고
+      인애도 없다"는 언약 위반 고발의 사회적 실체다.</p>
+    <h3>바알 신앙의 뿌리 — 왜 하필 "결혼·다산" 은유인가</h3>
+    <p>이스라엘이 가나안에 정착하며 농경 사회로 전환하는 과정에서, 가나안 원주민의 <b>바알(폭풍·다산의
+      신) 숭배 체계</b>가 혼합주의로 스며들었다. 바알 신앙은 남신 바알과 여신 아세라(또는 아스다롯)의
+      "성혼(聖婚, hieros gamos)"이 매년 되풀이되어야 비와 곡식·포도주·기름의 풍요가 보장된다고 믿는
+      다산 제의 체계였고, 이 신앙에서 성전 창기를 통한 <b>제의적 성행위</b>가 풍요를 흉내내는(모방
+      주술적) 의식으로 행해졌다는 것이 다수 학자의 견해다(단, 가나안 "성전 매춘"의 실제 규모·형태는
+      최근 학계에서 논쟁 중 — 우가릿 문헌 자체에 명시적 증거가 많지 않다는 반론도 있음, 확정 사실로
+      단정하지 않는다). 호세아가 이스라엘의 배교를 "음행"으로, 하나님과의 관계를 "결혼"으로 그린 것은
+      이 문화적 배경 속에서 <b>바알 신앙의 언어를 역이용해 여호와 신앙의 배타성을 주장</b>하는 수사
+      전략으로 읽힌다.</p>
+    <h3>여로보암 2세 이후 — 30년 사이 6왕, 그리고 앗수르의 그림자</h3>
+    <p>2주차 노트에서 다룬 정치적 붕괴(4명 암살·1명 찬탈)와 디글랏빌레셀 3세의 서진(주전 734-732년
+      서방원정)은 호세아서 후반부(특히 7-8장의 "왕을 세우나 내게서 난 것이 아니며", 7:11 "애굽과 앗수르로
+      날아가는 어리석은 비둘기")의 직접 배경이다. 호세아는 이 시기 이스라엘 지도층의 <b>친애굽파·
+      친앗수르파 간 외교 노선 갈등</b> 자체를 하나님을 향한 불신앙으로 규탄한다 — 군사동맹으로 안전을
+      구하는 것 자체가 언약 파기라는 것.</p>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">정경적 위치</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>히브리 성경(타나크)에서는 <b>느비임(예언서)</b> 중 후기 예언서(느비임 아하로님)의 "열두 선지자"
+        첫 권. 개역개정 등 한글·영어 성경은 소선지서를 12권으로 독립시켜 배열하지만, 그 <b>첫 자리는
+        어느 전통에서도 흔들리지 않는다</b>(맛소라·사해사본·70인역·탈굼 공통) — 2주차 노트에서 다룬 대로
+        1-3장의 결혼 은유가 12선지서 전체의 해석학적 틀을 제공하기 때문이라는 것이 정경비평 학자들의
+        공통된 설명.</li>
+      <li><b>사해문서(쿰란)</b>: 호세아서 사본 단편이 4Q(4QXIIᵃ~ᵍ 등 소선지서 통합사본군)와 무라바트
+        유적에서 발견됐다 — 본문이 맛소라 전통과 대체로 일치하되 소수 이문(異文)이 있음이 확인된다
+        (본격적 사본 비교는 sermon-textual-criticism 영역).</li>
+      <li>신약 저자들에게 호세아는 <b>가장 자주 인용되는 소선지서</b> 중 하나다(아래 6절 참조) — 초대
+        교회가 호세아의 "심판 뒤의 회복", "이방인을 향한 확장"(1:10, 2:23) 모티프를 그리스도 사건의
+        예표로 적극 읽었다는 뜻.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">문학 구조 — 학계 논의 확장</span><div class="sl"></div></div>
+  <div class="card">
+    <p>2주차 노트에서는 강의가 채택한 <b>롱맨·매콤빌·김창대(교재) 3가지</b>를 다뤘다. 표준 영문 주석
+      전통에서 자주 언급되는 두 구조안을 추가로 정리한다.</p>
+  </div>
+  <div class="tw"><table>
+    <caption>추가 구조론 2가지 (표준 주석 전통)</caption>
+    <thead><tr><th>학자·주석</th><th>구분</th><th>핵심 논리</th></tr></thead>
+    <tbody>
+      <tr><th>한스 발터 볼프(Hans Walter Wolff)<br><span style="font-size:11px">Hermeneia, 1974</span></th>
+        <td>3국면(운동)</td>
+        <td>양식비평적 접근 — 1-3장(상징행동+해석), 4-11장(개별 신탁 모음, 심판↔소망 교차), 12-14장
+        (역사회고+권면+회복) — 각 단원 안에서도 "고발→심판선언→소망"이라는 <b>예언 신탁의 반복 패턴</b>을
+        추적. 개별 신탁(오라클) 단위로 잘게 나누는 것이 특징(전체를 하나의 통일된 저작으로 보기보다
+        편집 단계를 강조).</td></tr>
+      <tr><th>프랜시스 앤더슨·데이비드 노엘 프리드먼<br>(Francis I. Andersen & David N. Freedman)<br><span style="font-size:11px">Anchor Bible, 1980</span></th>
+        <td>2대단원</td>
+        <td>1-3장(상징적 결혼 내러티브)과 4-14장(예언 설교집)의 <b>큰 이분 구조</b>를 취하되, 후자를
+        느슨하게 연결된 개별 설교 단위들로 봄. 방대한 원문 언어학적 주석(당대 최대 분량의 호세아
+        영문 주석 중 하나)으로 유명 — 특히 본문비평·구문론 세부 논의가 깊음.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card">
+    <p>다섯 구조안(롱맨/매콤빌/김창대/볼프/앤더슨-프리드먼)을 종합하면 학계의 공통된 확신은 셋: ①
+      <b>1-3장은 나머지와 장르가 다른 독립 단원</b>(내러티브+상징행동)이라는 점, ② <b>4-14장은 심판과
+      소망이 반복적으로 교차</b>한다는 점, ③ <b>결혼 은유가 책 전체를 묶는 해석학적 열쇠</b>라는 점 —
+      세부 단락 구분은 학자마다 갈려도 이 세 가지는 이견이 거의 없다.</p>
+  </div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">핵심 원어 5개 — 미니 성경사전</span><div class="sl"></div></div>
+
+  <div class="wordcard">
+    <div class="wh"><span class="heb">חֶסֶד</span><span class="translit">ḥesed (헤세드)</span><span class="gloss">언약적 인애·신실한 사랑</span></div>
+    <p>단순한 감정이 아니라 <b>언약 관계 안에서 지켜지는 신실함·의리·자비</b>를 뜻한다. 구약 전체
+      약 250회 등장, 호세아서에서는 특히 <b>4:1</b>("이 땅에는 진실도 인애도 없고")·<b>6:4, 6</b>
+      ("너희 인애가 아침 구름 같고... 나는 인애를 원하고 제사를 원하지 아니하며")에서 핵심어로 반복.
+      마 9:13·12:7에서 예수님이 6:6을 두 번 인용하실 때 이 단어가 배경에 있다. 하나님의 헤세드는
+      <b>불변</b>(11:8-9)이지만, 이스라엘의 헤세드는 "아침 구름·이슬"처럼 <b>사라진다</b>는 대조가
+      본서의 핵심 긴장이다.</p>
+  </div>
+
+  <div class="wordcard">
+    <div class="wh"><span class="heb">דַּעַת אֱלֹהִים</span><span class="translit">daʿat ʾĕlōhîm (다아트 엘로힘)</span><span class="gloss">하나님을 아는 지식</span></div>
+    <p>야다(יָדַע, "알다")는 지적 정보가 아니라 <b>인격적·관계적 앎</b>(부부관계를 가리킬 때도 쓰이는
+      동사, 창 4:1)을 뜻한다. <b>4:1, 4:6</b>("내 백성이 지식이 없으므로 망하는도다"), <b>6:6</b>
+      ("번제보다 하나님을 아는 것을 원하노라")에서 반복 — 제사장 계층이 <b>율법 교육의 책임</b>을
+      저버린 것(4:6 "네가 지식을 버렸으니 나도 너를 버려 내 제사장이 되지 못하게 할 것이라")에 대한
+      고발과 직결된다. 호세아서 전체 신학의 핵심 진단어.</p>
+  </div>
+
+  <div class="wordcard">
+    <div class="wh"><span class="heb">זָנָה</span><span class="translit">zānâ (자나)</span><span class="gloss">음행하다·매춘하다</span></div>
+    <p>문자적으로 "매춘하다"지만 선지서에서는 <b>우상숭배·언약 불신실</b>을 가리키는 표준 은유
+      동사다(호세아서 1-3장에 집중 등장, 이후 예레미야·에스겔에서 훨씬 과격하게 확장 사용됨).
+      명사형 제누님(זְנוּנִים, "음행")도 1:2에 등장. 이 은유는 <b>언약을 결혼으로 이해하는 신학적
+      전제</b> 위에서만 성립한다 — 언약 파기=간음이라는 등식.</p>
+  </div>
+
+  <div class="wordcard">
+    <div class="wh"><span class="heb">שׁוּב</span><span class="translit">šûb (슈브)</span><span class="gloss">돌아오다·회개하다</span></div>
+    <p>구약에서 "회개"를 표현하는 가장 기본적인 동사(단순히 "떠났던 곳으로 되돌아감"의 공간적 이미지가
+      신학적으로 전이된 것). 호세아서에서 <b>양방향으로</b> 쓰이는 것이 특징적: 이스라엘이 하나님께
+      "돌아오지 않는다"는 고발(5:4, 7:10, 11:5)과, 하나님이 이스라엘을 "돌이키신다"는 은혜(11:8-9의
+      "내 마음이 내 속에서 돌이키어")가 함께 나타나며, <b>14:1-2</b>("이스라엘아 네 하나님 여호와께로
+      돌아오라")에서 마지막으로 절정에 이른다.</p>
+  </div>
+
+  <div class="wordcard">
+    <div class="wh"><span class="heb">רֶחֶם / רַחֲמִים</span><span class="translit">reḥem / raḥămîm (레헴/라하밈)</span><span class="gloss">자궁 → 긍휼</span></div>
+    <p>2주차 노트에서 다룬 로루하마(לֹא רֻחָמָה)의 어근. "자궁"이라는 신체 이미지에서 "모성적·본능적
+      긍휼"이라는 신학적 의미로 확장된 단어군 — 헤세드가 <b>언약적(계약적)</b> 사랑이라면, 라하밈은
+      <b>본능적·모성적</b> 긍휼에 가깝다는 것이 어의 구분에서 자주 지적되는 뉘앙스 차이다. 이사야
+      49:15("여인이 어찌 그 젖먹는 자식을 잊겠느냐")도 같은 어근 계열.</p>
+  </div>
+</div>
+
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">주요 본문 강해 하이라이트</span><div class="sl"></div></div>
+
+  <div class="pericope">
+    <div class="ref">1:2-9 — 세 자녀의 이름, 선포된 심판</div>
+    <p>상징행동(acted parable) 장르 — 예언자의 삶 자체가 메시지가 되는 구약 예언 특유의 기법(비교:
+      이사야가 벗은 몸으로 3년간 다닌 것(사 20장), 에스겔이 옆으로 390일 누운 것(겔 4장)). 세 자녀
+      이름의 순서(이스르엘→로루하마→로암미)는 <b>점층적 심판</b>을 이룬다 — 특정 왕조 심판(이스르엘)
+      →긍휼의 상실(로루하마)→언약 관계 자체의 파기(로암미).</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">2:14-23 — "그러나" 다음에 오는 광야</div>
+    <p>13절까지 심판을 선언한 직후 등장하는 접속사 <b>"그러나"(14절, 히브리어 라켄 לָכֵן이 여기서는
+      역설적으로 은혜의 전환을 도입 — 다른 곳에서는 통상 심판 도입에 쓰이는 단어라 학자들이 자주
+      "역설적 라켄"으로 주목함)</b>가 이 단락의 문학적 경첩이다. "광야"가 심판의 장소(2:3 "광야 같이
+      되게 하며")에서 은혜의 장소(2:14 "거친 들 광야로 데리고 가서")로 <b>같은 이미지 안에서 반전</b>되는
+      것이 호세아 특유의 수사 기법.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">3:1-5 — "다시 가서 사랑하라"</div>
+    <p>1장이 결혼(3인칭 서술), 3장이 재결합(1인칭 명령형 "가서... 사랑하라")이라는 시점 전환이 있다 —
+      1장과 3장을 같은 사건의 다른 각도(처음 명령/재확인 명령)로 보는 견해와, 별개의 두 단계로 보는
+      견해가 갈린다(에스라학파 등 후자, 대다수 복음주의 주석은 전자 경향). 값을 "은 15개+보리
+      한 호멜 반"으로 치른 것은 당시 노예 몸값의 절반 정도로 추정되며(레 27:4의 여성 서원가 30세겔과
+      비교해 낮은 액수), 고멜의 몰락한 처지를 암시한다는 해석이 일반적.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">4:1-3 — 여호와의 송사(리브, רִיב)</div>
+    <p>"여호와께서... 변론하시나니"(1절)의 "변론"이 히브리어 <b>리브(רִיב, 언약 소송·법정 고발)</b> —
+    고대 근동 조약 문학의 "언약 소송" 장르를 차용한 것으로, 하나님이 원고, 이스라엘이 피고가 되는
+    법정 은유. 소선지서 전체에 반복되는 패턴(미 6:1-2도 동일 장르)이며 1주차 노트에서 다룬 "여호와의
+    날" 신학의 법정 은유와 정확히 같은 문학적 뿌리다.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">6:1-6 — 진정성 없는 회개, 그리고 예수님의 인용</div>
+    <p>1-3절의 회개 언어("오라 우리가 여호와께로 돌아가자")가 문자적으로는 아름답지만, 문맥상(5:15-6:3
+    전후) <b>진정성이 결여된, 형식적·주술적 회개</b>로 읽힌다는 것이 다수 주석의 판단(즉각적 회복을
+    당연시하는 태도 — "이틀 후에... 셋째 날에 우리를 일으키시리니"). 6:4의 하나님 응답("에브라임아
+    내가 네게 어떻게 하랴... 인애가 아침 구름·쉬 없어지는 이슬 같도다")이 이 회개의 얕음을 지적한다.
+    <b>6:6</b>("나는 인애를 원하고 제사를 원하지 아니하며")은 예수님이 마 9:13(세리와 죄인들과의
+    식사 논쟁)과 마 12:7(안식일 이삭 논쟁)에서 두 차례 직접 인용하신 구절이다.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">11:1-11 — 아버지의 심장</div>
+    <p>이 책에서 유일하게 <b>부성(父性) 은유</b>가 결혼 은유를 대체하는 단락(1-4절 "이스라엘이 어렸을
+    때... 내가 사랑하여 애굽에서 불러냈거늘... 내가 에브라임에게 걸음을 가르치고 팔로 안고"). 8-9절의
+    "내 마음이 내 속에서 돌이키어"(히브리어 "네흐파크 립비", 문자적으로 "내 심장이 뒤집어졌다")는
+    구약에서 하나님의 감정을 가장 인간적으로 묘사하는 구절 중 하나로 꼽힌다 — 신학적으로 "하나님의
+    무감동성(impassibility)" 교리와 이 구절을 어떻게 조화시킬지가 조직신학의 오랜 논쟁 주제.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">13:14 — 죽음에 대한 승리 선언(또는 심판?)</div>
+    <p>"내가 그들을 스올의 권세에서 속량하며 사망에서 구속하리니 사망아 네 재앙이 어디 있느냐"는
+    본문 자체의 <b>번역·해석이 크게 갈리는</b> 구절이다 — 개역개정처럼 <b>회복의 약속</b>으로 읽는
+    전통(칠십인역 계열, 바울이 고전 15:55에서 이 구절의 표현을 승리의 찬가로 자유롭게 인유)과, 문맥상
+    (13절 전후가 심판 문맥) <b>수사의문문(=구속하지 않겠다는 심판 선언)</b>으로 읽는 전통(다수의
+    현대 히브리어 본문비평 주석, NIV 각주 등)이 병존한다. 두 해석 모두 존중되는 상태로 소개하는 것이
+ 학계의 정직한 태도다.</p>
+  </div>
+  <div class="pericope">
+    <div class="ref">14:1-9 — 이슬처럼, 백향목처럼</div>
+    <p>책 전체를 마무리하는 회복의 시(詩) — 자연 이미지(이슬·백합화·레바논 백향목·감람나무·포도나무)로
+    가득해 아가서와의 문학적 친연성이 지적되곤 한다. 마지막 절(9절 "지혜 있는 자는 이러한 일들을
+    깨달을 것이요...")은 지혜문학적 결어로, 예언서가 지혜 전통과 접점을 이루는 대표 사례로 자주
+    인용된다.</p>
+  </div>
+</div>
+
+<div class="sec" id="s6">
+  <div class="sh"><span class="sb">6</span><span class="st">신약과의 연결 — 직접 인용 4곳</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <caption>호세아서 신약 인용/인유 대조</caption>
+    <thead><tr><th>호세아</th><th>신약</th><th>맥락·해석</th></tr></thead>
+    <tbody>
+      <tr><th>11:1 "내가... 내 아들을 불렀거늘"</th><td>마 2:15</td><td>애굽 피난 후 귀환한 예수를
+        "출애굽 이스라엘"의 원형성취로 읽는 마태의 모형론적(typological) 해석 — 원문맥의 "아들"은
+        이스라엘 민족이었으나, 마태는 예수를 <b>참 이스라엘</b>로 제시하며 적용을 확장.</td></tr>
+      <tr><th>1:10, 2:23 "내 백성 아닌 자를... 내 백성이라"</th><td>롬 9:25-26</td><td>바울이 이방인의
+        구원 편입을 정당화하는 근거 본문으로 인용 — 원문맥(북이스라엘의 회복)을 이방인 포함으로
+        확장 적용한 대표 사례. 벧전 2:10도 유사하게 인유.</td></tr>
+      <tr><th>13:14 "사망아 네 재앙이 어디 있느냐"</th><td>고전 15:55</td><td>바울이 부활 승리의
+        찬가로 자유롭게 인유(70인역 계열 표현을 사용) — 위 5절에서 다룬 원문의 해석적 양가성을
+        신약이 회복·승리 쪽으로 최종 확정해 사용한 사례로 읽을 수 있다.</td></tr>
+      <tr><th>6:6 "인애를 원하고 제사를 원하지 아니하며"</th><td>마 9:13, 12:7</td><td>예수님이 두 차례
+        직접 인용 — 형식적 종교 준수보다 관계적 순종을 중시하시는 예수의 사역 원칙을 구약 예언 전통
+        안에 정초.</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="sec" id="s7">
+  <div class="sh"><span class="sb">7</span><span class="st">참고도서 안내</span><div class="sl"></div></div>
+  <div class="card">
+    <p>수업계획서 지정 6권 — 원문을 직접 확인하지 못해, 학계에서 알려진 <b>일반적 성격·강점</b>만
+      소개합니다(책의 실제 논지와 다를 수 있음, 확인은 원서로).</p>
+  </div>
+  <div class="bookcard"><span class="bi">📕</span><div>
+    <h4>김창대, 『한권으로 꿰뚫는 소예언서』(IVP, 2013) <span class="conf">주교재</span></h4>
+    <p>국내 신학교에서 소예언서 입문 교재로 널리 쓰이는 한국어 저작. 강의가 "동심원(키아즘) 구조"의
+      근거로 직접 인용한 책 — 책 전체·각 소예언서 모두를 문학적 구조 중심으로 접근하는 것이 특징으로
+      알려져 있다.</p>
+  </div></div>
+  <div class="bookcard"><span class="bi">📗</span><div>
+    <h4>J. Gordon McConville, <i>Exploring the Old Testament: A Guide to the Prophets</i> (IVP, Vol.4) <span class="conf conf-high">확인됨</span></h4>
+    <p>이중단 편집, 각 예언서마다 역사적 배경·정경적 위치·신학적 기여를 다루고, 곁박스(sidebar)로
+      세부 주제 심화, 용어해설·차트·지도를 포함한 <b>대학 강의용 표준 입문서</b> 시리즈(Exploring the
+      Bible)의 예언서 편. 저자는 영국 글로스터셔대 구약학 교수, Baker Commentary on the OT의
+      이사야 주석도 집필.</p>
+  </div></div>
+  <div class="bookcard"><span class="bi">📘</span><div>
+    <h4>Tremper Longman III & Raymond B. Dillard, <i>An Introduction to the Old Testament</i>(2nd ed., Zondervan) <span class="conf conf-high">확인됨</span></h4>
+    <p>복음주의 진영의 표준 구약개론서(Special Introduction 방식 — 책마다 저자·연대·구조·신학을
+      순서대로 다룸). 흥미롭게도 저자 Longman III는 <b>Tyndale OT Commentary 시리즈의 호세아 주석
+      (24권)도 직접 집필</b>했다 — 개론서와 주석 두 층위에서 같은 학자의 견해를 교차 확인할 수 있는
+      셈.</p>
+  </div></div>
+  <div class="bookcard"><span class="bi">📙</span><div>
+    <h4>Willem VanGemeren, <i>Interpreting the Prophetic Word</i>(Zondervan, 1990) <span class="conf conf-mid">일반지식</span></h4>
+    <p>예언서 해석의 방법론(예언의 본질·성취론·묵시문학과의 관계)을 먼저 정립한 뒤 책별로 개관하는
+      구성으로 알려진 저작 — 개별 본문 주해보다 <b>"예언을 어떻게 읽을 것인가"라는 해석학 자체</b>에
+      무게를 두는 것이 특징. 저자는 트리니티복음주의신학교 구약학 교수 역임.</p>
+  </div></div>
+  <div class="bookcard"><span class="bi">📒</span><div>
+    <h4>Robert B. Chisholm Jr., <i>Interpreting the Minor Prophets</i>(Baker, 1990) <span class="conf conf-mid">일반지식</span></h4>
+    <p>Baker 구약개론 시리즈의 소예언서 편 — 역사적 배경과 각 책의 수사적·문학적 구조 분석에 강점이
+      있는 것으로 알려진 저작(저자는 댈러스신학교 구약학 교수, 히브리어 구문론 전문가로도 잘 알려짐).</p>
+  </div></div>
+  <div class="bookcard"><span class="bi">📔</span><div>
+    <h4>Paul House, <i>Old Testament Theology</i> 14장(IVP, 1998) <span class="conf conf-mid">일반지식</span></h4>
+    <p>구약 각 책을 정경 순서대로 다루는 "정경적(canonical)" 구약신학 방법론의 대표작 중 하나 — 14장이
+      소선지서(열두 권을 하나의 단일한 정경적 단위로 취급)를 다룬다. 이번 강의가 취하는 "소선지서를
+      한 권으로 읽는" 접근과 <b>학문적 계보가 맞닿아 있는</b> 저작으로 볼 수 있다(정경비평·Book of
+      the Twelve 연구 전통).</p>
+  </div></div>
+  <div class="card">
+    <h3>영문 표준 주석 — 더 깊이 들어가려면</h3>
+    <ul>
+      <li><b>Douglas Stuart</b>, <i>Hosea-Jonah</i> (WBC 31, Word, 1987) — 본문비평·구문 주해 중심, 상세.</li>
+      <li><b>Francis I. Andersen & David N. Freedman</b>, <i>Hosea</i> (AB 24, Doubleday, 1980) — 가장 방대한 영문 주석.</li>
+      <li><b>Hans Walter Wolff</b>, <i>Hosea</i> (Hermeneia, Fortress, 1974) — 양식비평 고전.</li>
+      <li><b>Duane A. Garrett</b>, <i>Hosea, Joel</i> (NAC 19A, B&H, 1997) — 복음주의 강해 중심, 접근성 높음.</li>
+      <li><b>J. Andrew Dearman</b>, <i>The Book of Hosea</i> (NICOT, Eerdmans, 2010) — 최신 표준 주석, 신학적 균형.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s8">
+  <div class="sh"><span class="sb">8</span><span class="st">묵상·적용 질문</span><div class="sl"></div></div>
+  <div class="qbox"><b>Q1.</b> 나의 신앙에서 "헤세드"(언약적 신실함)가 "아침 구름·쉬 없어지는 이슬"처럼
+    사라지는 지점은 어디인가(6:4)?</div>
+  <div class="qbox"><b>Q2.</b> "번제보다 인애를, 제사보다 하나님을 아는 것을"(6:6) — 나의 신앙생활에서
+    형식(제사)이 관계(인애)를 대신하고 있는 부분은 없는가?</div>
+  <div class="qbox"><b>Q3.</b> 11:8-9 "내 마음이 내 속에서 돌이키어"는 하나님의 심판이 결코 감정 없는
+    기계적 처벌이 아님을 보여준다. 이것이 하나님을 향한 나의 이미지에 어떤 도전을 주는가?</div>
+  <div class="qbox"><b>Q4.</b> 호세아 자신이 "고멜을 값 주고 다시 사오는"(3장) 행동으로 메시지를
+    체현했듯, 오늘 내 삶에서 말이 아니라 행동으로 증거해야 할 복음의 진리는 무엇인가?</div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처·검증 방법 요약</h3>
+  <p>· <b>시대배경(§1)</b>: 여로보암 2세 시대 사회경제 구조·바알 신앙 배경은 고대근동/이스라엘 역사학
+    표준 서술(사무엘-열왕기 역사서, 아모스서 본문, ANE 다산제의 연구)에 근거. 가나안 "성전 매춘"의
+    실제 규모는 학계 논쟁 사안임을 명시.</p>
+  <p>· <b>원어(§4)</b>: HALOT·BDB·TDOT급 표준 히브리어 사전 기준. 헤세드/야다/자나/슈브/라하밈 모두
+    구약 신학에서 반복적으로 다뤄지는 잘 정립된 용어들.</p>
+  <p>· <b>본문 강해(§5)</b>: 표준 주석 전통(Wolff·Andersen-Freedman·Stuart·Garrett·Dearman 계열)에서
+    일반적으로 논의되는 해석 포인트를 종합. 13:14처럼 <b>학계 견해가 갈리는 곳은 양쪽을 모두 제시</b>
+    했다(sermon-bible-dictionary 원칙 C5 "합의 vs 소수 견해 구분"과 동일한 정신).</p>
+  <p>· <b>참고도서(§7)</b>: 원문 미열람 — 서지사항·저자 소속·해당 시리즈의 일반적 성격만 웹검색으로
+    확인. McConville·Longman/Dillard는 출판사 소개·서평으로 <b>비교적 높은 확신</b>으로 확인, VanGemeren·
+    Chisholm·House는 제 학술 지식 기반의 <b>일반적 특징 소개</b>로 표시(각 카드의 확인 배지 참조).</p>
+  <p>· <b>신약 연결(§6)</b>: 4개 인용 모두 신약 본문에 명시적으로 등장하는 확립된 상호본문 관계 —
+    학계 이견 없음.</p>
+  <p>· <b>한계</b>: 이 자료는 강의노트가 아니라 보조 참고서이므로, 시험 범위 판단은 반드시 강의노트
+    (week01·week02)와 실제 강의 내용을 우선 기준으로 삼을 것.</p>
+</div>
+
+<div class="foot">호세아서 참고서 · 예언문학연구입문 책별 시리즈 01 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
