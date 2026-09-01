@@ -12,7 +12,31 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_JS = str(SCRIPT_DIR.parent / "data.js")
+INDEX_HTML = SCRIPT_DIR.parent / "index.html"
 CONFIG_PATH = SCRIPT_DIR / "config.json"
+
+
+def bump_index_cache_version():
+    """index.html의 <script src="data.js?v=...">를 갱신해 브라우저 캐시를 무효화한다.
+    data.js 내용이 바뀔 때마다 호출 — 안 부르면 방문자 브라우저가 옛 data.js를 계속 씀."""
+    from datetime import date
+    if not INDEX_HTML.exists():
+        return
+    text = INDEX_HTML.read_text(encoding="utf-8")
+    m = re.search(r'data\.js\?v=(\d{8})([a-z]?)', text)
+    if not m:
+        return
+    old_date, old_suffix = m.group(1), m.group(2)
+    today = date.today().strftime("%Y%m%d")
+    if old_date == today:
+        new_suffix = chr(ord(old_suffix or "a") + (1 if old_suffix else 0)) if old_suffix else "a"
+    else:
+        new_suffix = ""
+    new_version = f"{today}{new_suffix}"
+    new_text = re.sub(r'data\.js\?v=\d{8}[a-z]?', f'data.js?v={new_version}', text)
+    if new_text != text:
+        INDEX_HTML.write_text(new_text, encoding="utf-8")
+        print(f"  캐시 버전 갱신: data.js?v={new_version}")
 
 
 def load_config() -> dict:
@@ -100,6 +124,7 @@ def update(course_name, week_str, semester_id=None):
     new_section = section[:m.start()] + m.group(1) + f'[\n            {new_entry}\n          ]' + section[m.end():]
     new_region = region[:course_start] + new_section
     open(DATA_JS, "w", encoding="utf-8").write(text[:s0] + new_region + text[s1:])
+    bump_index_cache_version()
     print(f"✅ data.js 업데이트: [{sem_id}] {course_name} week{week_str}")
 
 
