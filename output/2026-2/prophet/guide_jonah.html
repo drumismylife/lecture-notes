@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>요나서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --gold:#c9a84c; --teal:#6ab8c8; --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--crimson2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--muted);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card b{color:var(--text)}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .heb{font-size:24px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--crimson2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--muted);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(212,120,143,.06),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--crimson2);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.pericope b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 책별 참고서 시리즈 · 05</div>
+  <h1>요나서 참고서</h1>
+  <div class="sub">Jonah — 도망친 선지자, 하나님의 보편적 긍휼</div>
+  <div class="prof">강의노트 나온 뒤 함께 참고할 심화 자료 (속도 우선 작성 — 하단 검증상태 참조)</div>
+</div>
+
+<div class="intro">이 자료는 시간 제약 속에서 웹검색 교차검증 없이 작성됐습니다.</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">1</span><span class="st">장르·저자·역사성 논쟁</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>소선지서 중 유일하게 예언 신탁이 아니라 서사(내러티브) 중심</b>인 책 — 선지자의 설교
+        본문(3:4 "사십 일이 지나면 니느웨가 무너지리라" 단 한 구절)보다 선지자 자신의 이야기가
+        압도적 비중을 차지. 장르가 "예언서"인지 "역사 서사"인지 "교훈적 우화(parable)"인지 자체가
+        학계 논쟁 — 열왕기하 14:25에 등장하는 "아밋대의 아들 요나"(여로보암 2세 시대 예언자)와
+        동일 인물로 보는 것이 전통적 견해.</li>
+      <li>큰 물고기(1:17)·니느웨 전체 회개(3장)의 역사성은 보수·자유주의 진영 간 오랜 논쟁 사안 —
+        예수님이 마 12:39-41에서 요나를 <b>역사적 사건</b>으로 전제하고 인용하신 것이 보수적
+        해석의 근거로 자주 제시됨.</li>
+      <li>1주차 노트에서 다룬 대로 요나서는 나훔서와 <b>니느웨</b>라는 공통 주제로 짝을 이루며,
+        둘 다 <b>의문문으로 끝난다</b>는 문학적 공통점이 있다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">2</span><span class="st">구조 — 두 번의 도망, 두 번의 순종</span><div class="sl"></div></div>
+  <div class="card"><ul>
+    <li><b>1장</b>: 니느웨로 가라는 명령 → 다시스로 도망 → 풍랑 → 이방 선원들의 두려움과 회심 →
+      물고기가 요나를 삼킴.</li>
+    <li><b>2장</b>: 물고기 뱃속에서의 감사 시편(시편 문체를 차용한 독립 단원 — 후대 삽입 가능성도
+      논의됨).</li>
+    <li><b>3장</b>: 두 번째 명령 → 순종 → 니느웨 전체(왕부터 짐승까지)의 회개 → 하나님의 뜻 돌이키심.</li>
+    <li><b>4장</b>: 요나의 분노("내가 이럴 줄 알았다") → 박넝쿨 사건 → 하나님의 질문으로 열린 결말
+      ("내가 어찌 아끼지 아니하겠느냐") — 답 없이 끝나는 독특한 종결부.</li>
+  </ul></div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">3</span><span class="st">핵심 원어와 신학</span><div class="sl"></div></div>
+  <div class="wordcard"><div class="wh"><span class="heb">רַע</span><span class="translit">raʿ / rāʿâ</span><span class="gloss">악(惡)</span></div>
+    <p>니느웨의 "악"(1:2)과 요나가 느낀 "심히 싫어하고 성냄"(4:1, 같은 어근 계열)이 언어유희로
+    대조된다 — 이방인의 악보다 선지자 자신의 마음의 악이 책의 진짜 초점이라는 문학적 장치.</p></div>
+  <div class="wordcard"><div class="wh"><span class="heb">נִחַם</span><span class="translit">niḥam</span><span class="gloss">뜻을 돌이키다/뉘우치다</span></div>
+    <p>3:9-10에 반복 — 요엘 2:13-14("혹시 그가 뜻을 돌이키시고")와 동일 신학, 출 34:6-7의 하나님
+    성품 고백이 요나 4:2에서 요나 자신의 입으로(원망하며) 인용된다는 것이 이 책의 아이러니.</p></div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">4</span><span class="st">본문 강해</span><div class="sl"></div></div>
+  <div class="pericope"><div class="ref">1:4-16 — 이방 선원들의 신앙고백</div>
+    <p>이스라엘 선지자보다 이방 뱃사람들이 먼저 여호와를 두려워하고 제사·서원을 드린다는 역설 —
+    책 전체를 관통하는 "이방인이 오히려 하나님께 응답한다"는 주제의 첫 신호.</p></div>
+  <div class="pericope"><div class="ref">3:6-9 — 왕과 짐승까지 굵은 베옷을</div>
+    <p>니느웨 왕이 보좌에서 내려와 재 위에 앉고, 심지어 <b>가축에게까지</b> 금식·굵은 베옷을
+    명하는 과장적 묘사 — 이방 대제국의 수도가 이스라엘의 어떤 왕보다 철저히 회개하는 아이러니.</p></div>
+  <div class="pericope"><div class="ref">4:2 — 원망 속의 정통 신앙고백</div>
+    <p>"주는 은혜로우시며 자비로우시며 노하기를 더디하시며 인애가 크시사 뜻을 돌이켜 재앙을
+    내리지 아니하시는 하나님이신 줄을 내가 알았음이니이다" — 출 34:6-7 신앙고백을 <b>불평의
+    이유</b>로 뒤집어 사용하는 이 책 최고의 아이러니 — 하나님의 은혜가 자신에게는 좋지만
+    원수(니느웨)에게 미치는 것은 싫다는 편협한 민족주의에 대한 정면 비판.</p></div>
+  <div class="pericope"><div class="ref">4:10-11 — 열린 결말의 질문</div>
+    <p>"하물며 이 큰 성읍 니느웨에는 좌우를 분변하지 못하는 자가 십이만여 명이요 육축도 많이
+    있나니 내가 어찌 아끼지 아니하겠느냐" — 답을 듣지 못한 채 끝나 <b>독자에게 질문을 던지는</b>
+    구조. 하나님의 보편적 긍휼이 민족주의적 배타성을 넘어선다는 메시지가 소선지서 전체의
+    "이방을 향한 확장" 모티프(호 1:10, 2:23; 욜 2:32)와 연결.</p></div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p>시간 제약으로 웹검색 교차검증을 생략했습니다. 역사성 논쟁의 학자별 입장 비율은 다음 세션에서
+    재검증 예정.</p>
+</div>
+
+<div class="foot">요나서 참고서 · 예언문학연구입문 책별 시리즈 05 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

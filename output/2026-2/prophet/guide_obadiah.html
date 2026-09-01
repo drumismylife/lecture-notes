@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오바댜서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --gold:#c9a84c; --teal:#6ab8c8; --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--crimson2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--muted);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card b{color:var(--text)}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .heb{font-size:24px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--crimson2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--muted);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(212,120,143,.06),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--crimson2);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.pericope b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 책별 참고서 시리즈 · 04</div>
+  <h1>오바댜서 참고서</h1>
+  <div class="sub">Obadiah — 구약에서 가장 짧은 책, 형제의 배신을 심판하다</div>
+  <div class="prof">강의노트 나온 뒤 함께 참고할 심화 자료 (속도 우선 작성 — 하단 검증상태 참조)</div>
+</div>
+
+<div class="intro">이 자료는 시간 제약 속에서 웹검색 교차검증 없이 작성됐습니다.</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">1</span><span class="st">저자·배경 — 단 21절, 어느 사건인가</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>구약에서 가장 짧은 책(21절). 오바댜 외 저자 정보 전무 — 동명이인이 구약에 12명 이상 등장해
+        신원 특정 불가.</li>
+      <li>연대 논쟁의 핵심은 <b>"예루살렘이 함락당할 때 에돔이 방관·가담했다"</b>(11-14절)는 사건이
+        <b>언제인가</b>다 — 유력 후보 둘: ① 주전 848년경 여호람 시대 블레셋·아라비아 침공(대하 21:16-17),
+        ② 주전 586년 바벨론에 의한 예루살렘 최종 함락(시 137:7, 겔 25:12-14, 애 4:21-22와 병행).
+        다수 현대 학자는 <b>586년설</b>에 무게를 둔다(언어·내용이 예레미야 49:7-22과 밀접).</li>
+      <li>1주차 노트에서 다룬 대로 오바댜서는 아모스 9:12(에돔 심판 언급)의 <b>발전·연장</b>으로
+        읽힌다는 것이 강의의 핵심 논지.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">2</span><span class="st">구조 — 심판에서 만국심판·회복으로</span><div class="sl"></div></div>
+  <div class="card"><ul>
+    <li><b>1-9절</b>: 에돔의 교만("바위 틈에 거주함이여... 누가 능히 나를 땅에 끌어내리겠느냐")과
+      그 몰락 선언.</li>
+    <li><b>10-14절</b>: 구체적 죄목 — 형제 야곱(이스라엘)의 환난 날에 방관(11절)·기뻐함(12절)·
+      약탈(13절)·도망자 인도(14절)의 4단계 죄악.</li>
+    <li><b>15-21절</b>: "여호와의 날"이 <b>모든 나라</b>에 임박했다는 확장(15절) → 에돔의 완전한
+      멸망과 시온의 구원자들·나라가 여호와께 속하게 되는 종말론적 회복(21절).</li>
+  </ul></div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">3</span><span class="st">핵심 원어와 신학</span><div class="sl"></div></div>
+  <div class="wordcard"><div class="wh"><span class="heb">אֱדוֹם / עֵשָׂו</span><span class="translit">ʾĔdôm / ʿĒśāw</span><span class="gloss">에돔 / 에서</span></div>
+    <p>에돔은 에서(야곱의 쌍둥이 형)의 후손 — "형제"(10, 12절)라는 단어가 이 책 전체의 정서적
+      무게중심. 혈연적 형제가 저지른 배신이기에 죄가 더 무겁다는 논리.</p></div>
+  <div class="wordcard"><div class="wh"><span class="heb">גֵּאוּת לֵב</span><span class="translit">gēʾût lēb</span><span class="gloss">마음의 교만</span></div>
+    <p>3절 "너의 마음의 교만이 너를 속였도다" — 험준한 산악 요새(페트라·셀라 지역 추정)에 대한
+    지리적 안전감이 영적 교만으로 이어진 사례로 자주 인용됨.</p></div>
+</div>
+
+<div class="sec">
+  <div class="sh"><span class="sb">4</span><span class="st">본문 강해</span><div class="sl"></div></div>
+  <div class="pericope"><div class="ref">15절 — "네가 행한 대로 너도 받을 것인즉"</div>
+    <p>탈리오(동해보복) 원리가 개인이 아니라 <b>국가·민족 단위</b>로 적용되는 사례 — 방관도 심판의
+    사유가 된다는 신학적 함의(11절 "네가 방관하였느니라"조차 죄로 규정).</p></div>
+  <div class="pericope"><div class="ref">17-21절 — 시온의 구원자들</div>
+    <p>단순한 정치적 회복을 넘어 "나라가 여호와께 속하리라"(21절)는 신정적(神政的) 종말 선언으로
+    마무리 — 요엘 3장의 열방심판·회복 신탁과 병행되는 정경적 연결이 1주차 노트에서 이미 다뤄짐.</p></div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p>시간 제약으로 웹검색 교차검증을 생략했습니다. 연대론(848년설 vs 586년설)의 비율·구체 학자
+    귀속은 다음 세션에서 재검증 예정.</p>
+</div>
+
+<div class="foot">오바댜서 참고서 · 예언문학연구입문 책별 시리즈 04 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

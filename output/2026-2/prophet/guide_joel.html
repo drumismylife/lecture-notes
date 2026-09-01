@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>요엘서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--crimson2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--muted);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+.linkrow a{font-size:12px;color:var(--gold);border:1px solid var(--border);border-radius:20px;padding:6px 13px;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .heb{font-size:24px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--crimson2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--muted);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(212,120,143,.06),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--crimson2);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.pericope b{color:var(--text)}
+.jr{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
+.jr>div{padding:13px 15px;font-size:13px;color:var(--text)}
+.jr .j{background:rgba(138,58,58,.16);border-right:1px solid var(--border)}
+.jr .r{background:rgba(90,138,107,.16)}
+.jr .lab{font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.jr .j .lab{color:#e08a8a}
+.jr .r .lab{color:#8fcf9f}
+@media(max-width:520px){.jr{grid-template-columns:1fr}.jr .j{border-right:none;border-bottom:1px solid var(--border)}}
+.qbox{background:var(--subcard);border:1px dashed var(--border);border-radius:9px;padding:12px 15px;margin:8px 0;font-size:13px;color:var(--muted)}
+.qbox b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 책별 참고서 시리즈 · 02</div>
+  <h1>요엘서 참고서</h1>
+  <div class="sub">Joel — 메뚜기 재앙에서 성령 부어짐까지</div>
+  <div class="prof">해당 주차 강의노트가 아직 없다면, 강의노트 나온 뒤 함께 참고할 심화 자료</div>
+</div>
+
+<div class="intro">
+  <b>속도 우선 작성 안내</b>: 이 자료는 시간 제약(15분 내 4권 연속 작성) 속에서 웹검색 교차검증
+  없이 제 학술 지식만으로 작성했습니다 — 호세아서 참고서와 달리 <b>2차 검증을 아직 거치지
+  않았습니다</b>. 표준적으로 잘 알려진 사실 위주로 담았으나, 세부 연대·통계·소수설 인용은 추후
+  검증 필요합니다(§ 하단 표시).
+</div>
+
+<div class="toc">
+  <a href="#s1">저작·연대 논쟁</a>
+  <a href="#s2">구조</a>
+  <a href="#s3">핵심 원어</a>
+  <a href="#s4">본문 강해</a>
+  <a href="#s5">신약 연결</a>
+</div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">저작·연대 — 소선지서 중 가장 불확실</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>저자 브두엘의 아들 요엘 외에는 알려진 정보가 거의 없다. <b>연대 추정이 극도로 갈리는
+        책</b> — 왕·시대 표제어가 없는 유일한 소선지서. 후보: (a) 초기설(주전 9세기, 요아스 시대 —
+        요엘서에 앗수르·바벨론 언급이 없다는 근거), (b) 후기설(주전 5-4세기 포로 후기 — 성벽·성전
+        재건 전제, 헬라·사바 언급(3:6, 8), 제사장 중심적 관심). 강의(1주차 노트)에서는 순서논쟁 맥락상
+        "8세기 6권" 전통적 견해도 소개됐으나, 다수 현대 학자는 <b>포로 후기설</b>에 무게를 둔다.</li>
+      <li>메뚜기 재앙(1-2장)의 문자적 사건 여부도 논쟁 — 실제 자연재해로 보는 견해와, 침략군의
+        은유(2:1-11 "강한 군대"와의 병치)로 보는 견해가 병존.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">구조 — 재앙에서 회복으로</span><div class="sl"></div></div>
+  <div class="jr">
+    <div class="j"><div class="lab">1:1-2:17 — 재앙과 촉구</div>메뚜기 재앙(1장, 4종 메뚜기 순차 묘사)
+      → 여호와의 날로서의 재앙 확대(2:1-11, 군대 이미지) → 진정한 회개 촉구(2:12-17, "너희는 옷을
+      찢지 말고 마음을 찢고").</div>
+    <div class="r"><div class="lab">2:18-3:21 — 응답과 회복</div>여호와의 긍휼(2:18-27, 자연 회복) →
+      성령 부어짐 약속(2:28-32) → 열방 심판·여호사밧 골짜기(3장) → 유다의 영원한 회복.</div>
+  </div>
+  <div class="card"><p>1주차 강의노트에서 다룬 대로, 요엘서는 12선지서 전체와 <b>주제어로 강하게
+    연결</b>된 "이음매" 역할을 한다 — 호세아(회개 권고)와 아모스(1:2 동일 표현) 양쪽에 걸쳐 있다.</p></div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">핵심 원어</span><div class="sl"></div></div>
+  <div class="wordcard">
+    <div class="wh"><span class="heb">יוֹם יְהוָה</span><span class="translit">yôm YHWH</span><span class="gloss">여호와의 날</span></div>
+    <p>요엘서 전체를 관통하는 핵심어(1:15, 2:1, 2:11, 2:31, 3:14) — 2주차(호세아) 참고서에서 다룬
+      여호와의 날 신학이 요엘서에서 <b>가장 밀도 높게</b> 나타난다.</p>
+  </div>
+  <div class="wordcard">
+    <div class="wh"><span class="heb">קָרַע לֵבָב</span><span class="translit">qāraʿ lēbāb</span><span class="gloss">마음을 찢다</span></div>
+    <p>2:13 "너희는 옷을 찢지 말고 마음을 찢고 너희 하나님 여호와께로 돌아올지어다" — 외적 애도
+      의식(옷 찢기)이 아닌 내면적 회개를 요구하는 표현. 출 34:6-7의 하나님 성품 고백("은혜롭고
+      자비하며...")을 2:13 후반절이 그대로 인용.</p>
+  </div>
+  <div class="wordcard">
+    <div class="wh"><span class="heb">שָׁפַךְ רוּחַ</span><span class="translit">šāpak rûaḥ</span><span class="gloss">영을 부어주다</span></div>
+    <p>2:28-29 "내가 내 영을 만민에게 부어주리니" — 구약에서 성령의 보편적 부어짐을 가장 명시적으로
+      예언한 본문. 사도행전 2:17-21에서 베드로가 오순절 성령강림의 성취 근거로 직접 인용.</p>
+  </div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">본문 강해 하이라이트</span><div class="sl"></div></div>
+  <div class="pericope"><div class="ref">1:2-4 — 세대를 넘는 재앙</div>
+    <p>메뚜기 네 종류(팥중이·메뚜기·느치·황충)가 순차적으로 등장 — 단일 재앙의 여러 국면인지,
+    4년에 걸친 재앙인지 해석이 갈린다. "너희 자녀에게 말하고 너희 자녀는 그 자녀에게" — 재앙의
+    기억을 세대 전승하라는 명령이 이례적.</p></div>
+  <div class="pericope"><div class="ref">2:12-17 — 어쩌면 하나님이 뜻을 돌이키실지도</div>
+    <p>13-14절의 "그가 뜻을 돌이키시고 뉘우치사... 혹시 그가 마음과 뜻을 돌이키시고" — 회개에도
+    회복이 <b>보장되지 않는다는 겸손한 소망</b>의 언어(비교: 요나 3:9의 동일 어법)가 특징적.</p></div>
+  <div class="pericope"><div class="ref">2:28-32 — 만민에게(사도행전의 근거)</div>
+    <p>아들딸·늙은이·젊은이·남종·여종 구분 없이 성령이 임한다는 예언 — 사회적 위계를 초월하는
+    은사의 보편성. "여호와의 이름을 부르는 자는 다 구원을 받으리니"(32절)는 롬 10:13에서 바울이
+    구원의 보편적 조건으로 재인용.</p></div>
+  <div class="pericope"><div class="ref">3:9-14 — 보습을 쳐서 칼을 만들지어다</div>
+    <p>이사야 2:4·미가 4:3의 "칼을 쳐서 보습을" 평화 신탁을 <b>의도적으로 역전</b>시킨 전쟁 소집
+    신탁 — 같은 표현을 정반대 문맥에 쓰는 상호본문적 수사 기법의 대표 사례.</p></div>
+</div>
+
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">신약 연결</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>요엘</th><th>신약</th><th>맥락</th></tr></thead>
+    <tbody>
+      <tr><th>2:28-32</th><td>행 2:17-21</td><td>베드로의 오순절 설교 — 성령강림의 구약적 근거로
+        전체 인용(가장 긴 구약 인용 설교 중 하나)</td></tr>
+      <tr><th>2:32 "여호와의 이름을 부르는 자"</th><td>롬 10:13</td><td>바울, 유대인·이방인 모두에게
+        열린 구원의 보편 조건으로 인용</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p>시간 제약으로 <b>웹검색 교차검증을 생략</b>했습니다. 연대론(초기설/후기설 비율)·메뚜기재앙
+    문자적/은유적 논쟁의 학자별 귀속은 표준적으로 알려진 구도만 소개했고, 특정 학자명 인용은
+    의도적으로 자제했습니다(불확실한 인명 단정 방지). 다음 세션에서 sermon-bible-dictionary·
+    sermon-history-culture-geo-context 방법론으로 재검증 예정.</p>
+</div>
+
+<div class="foot">요엘서 참고서 · 예언문학연구입문 책별 시리즈 02 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

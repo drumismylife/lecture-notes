@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아모스서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--crimson2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--muted);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .heb{font-size:24px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--crimson2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--muted);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(212,120,143,.06),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--crimson2);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--muted);margin:6px 0}
+.pericope b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 책별 참고서 시리즈 · 03</div>
+  <h1>아모스서 참고서</h1>
+  <div class="sub">Amos — 드고아의 목자, 사회정의를 외치다</div>
+  <div class="prof">강의노트 나온 뒤 함께 참고할 심화 자료 (속도 우선 작성 — 하단 검증상태 참조)</div>
+</div>
+
+<div class="intro">이 자료는 시간 제약 속에서 웹검색 교차검증 없이 작성됐습니다(호세아서 참고서는
+  검증 완료, 요엘·아모스·오바댜·요나는 추후 검증 예정).</div>
+
+<div class="toc"><a href="#s1">저자·연대</a><a href="#s2">구조</a><a href="#s3">핵심 원어</a><a href="#s4">본문 강해</a></div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">저자·연대·배경</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>드고아(유다 남쪽, 베들레헴 인근) 출신 목자(1:1, 7:14 "나는 선지자가 아니며 선지자의
+        아들도 아니요 나는 목자요 뽕나무를 재배하는 자")— <b>제도권 선지자 학교 출신이 아닌</b> 평신도
+        소명을 강조. 남유다 사람이면서 <b>북이스라엘</b>(여로보암 2세 시대)에 파송된 것이 특이점.</li>
+      <li>1주차·2주차 노트에서 다룬 대로 여로보암 2세 시대(주전 8세기 중반)의 극심한 빈부격차가
+        아모스 사회정의 신탁의 직접 배경 — 벧엘 성소에서 제사장 아마샤와 정면 충돌(7:10-17).</li>
+      <li>2주차 참고서(호세아)와 함께 "누가 먼저 썼는가" 논쟁의 당사자 — 다수 견해는 아모스가
+        호세아보다 조금 이르거나 거의 동시기.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">구조</span><div class="sl"></div></div>
+  <div class="card"><ul>
+    <li><b>1-2장</b>: 열방 심판 신탁(다메섹→가사→두로→에돔→암몬→모압→유다→<b>이스라엘</b>) — 주변국을
+      먼저 정죄해 청중의 동의를 끌어낸 뒤 마지막에 이스라엘 자신을 겨냥하는 수사 전략("포위 심판"
+      기법). 각 신탁은 "…의 서너 가지 죄로 말미암아"라는 정형구로 시작.</li>
+    <li><b>3-6장</b>: 이스라엘을 향한 개별 심판 설교 모음 — 사회 불의(가난한 자를 신 한 켤레에 팔고,
+      2:6-8) 고발과 애가(5장 "처녀 이스라엘이 엎드러졌음이여").</li>
+    <li><b>7-9장</b>: 다섯 환상(메뚜기·불·다림줄·여름 과일 광주리·성전 파괴) — 심판의 확실성이
+      점층적으로 강화되다가 9:11-15에서 다윗의 장막 회복으로 급반전.</li>
+  </ul></div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">핵심 원어</span><div class="sl"></div></div>
+  <div class="wordcard"><div class="wh"><span class="heb">מִשְׁפָּט וּצְדָקָה</span><span class="translit">mišpāṭ ûṣədāqâ</span><span class="gloss">공법과 정의</span></div>
+    <p>5:24 "오직 정의를 물같이, 공의를 마르지 않는 강같이 흐르게 할지어다" — 미국 민권운동에서
+      마틴 루터 킹이 즐겨 인용한 구절로도 유명. 형식적 종교(제사·절기, 5:21-23)보다 사회적 정의의
+      실천을 요구.</p></div>
+  <div class="wordcard"><div class="wh"><span class="heb">אָנָךְ</span><span class="translit">ʾānāk</span><span class="gloss">다림줄</span></div>
+    <p>7:7-9 — 건축 도구인 다림줄로 이스라엘의 "기울어짐"(불의)을 측정하시는 하나님의 심판 이미지.</p></div>
+  <div class="wordcard"><div class="wh"><span class="heb">סֻכַּת דָּוִיד</span><span class="translit">sukkat Dāwîd</span><span class="gloss">다윗의 무너진 장막</span></div>
+    <p>9:11 — 행 15:16-17(예루살렘 공회의)에서 야고보가 이방인 선교의 성경적 근거로 직접 인용.</p></div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">본문 강해 하이라이트</span><div class="sl"></div></div>
+  <div class="pericope"><div class="ref">3:2 — "너희만을 알았나니"</div>
+    <p>선택이 특권이 아니라 <b>더 무거운 책임</b>을 뜻한다는 역설 — "그러므로 내가 너희 모든 죄악을
+    너희에게 보응하리라." 언약적 지식(야다)이 심판의 근거가 되는 호세아 4:1-3과 같은 신학적 뿌리.</p></div>
+  <div class="pericope"><div class="ref">5:18-20 — 여호와의 날에 대한 반전</div>
+    <p>1주차 노트에서 다룬 대로 아모스가 "여호와의 날은 빛이 아니요 어둠"이라며 이스라엘의 통념을
+    뒤집은 대표 구절. 번영기의 자기만족적 신앙에 대한 정면 도전.</p></div>
+  <div class="pericope"><div class="ref">7:10-17 — 아마샤와의 충돌</div>
+    <p>벧엘 제사장 아마샤가 "여기는 왕의 성소요 나라의 궁궐이니"라며 아모스를 추방하려 하자,
+    아모스는 자신이 "선지자가 아니라 목자"였음을 밝히며 소명의 초자연적 기원을 강조 — 제도적
+    종교 권력과 예언적 부르심의 긴장을 보여주는 대표 장면.</p></div>
+  <div class="pericope"><div class="ref">9:11-15 — 마지막 반전</div>
+    <p>철저한 심판 선언 끝에 다윗 왕조 회복·이스라엘 재정착·자연의 풍요가 갑작스레 선언 —
+    "한 권 vs 12권" 논쟁(1주차 노트)에서 다룬 "심판→회복"의 12선지서 전체 패턴을 개별 책 안에서도
+    압축적으로 보여주는 사례.</p></div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p>시간 제약으로 웹검색 교차검증을 생략했습니다. 학자명 인용은 의도적으로 자제(마틴 루터 킹의
+    5:24 인용은 널리 알려진 역사적 사실). 다음 세션에서 재검증 예정.</p>
+</div>
+
+<div class="foot">아모스서 참고서 · 예언문학연구입문 책별 시리즈 03 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

@@ -637,10 +637,18 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" },
             { type: "guide", label: "호세아서 참고서", href: "output/2026-2/prophet/guide_hosea.html" }
           ] },
-            { week: 3, title: "", date: "", files: [] },
-            { week: 4, title: "", date: "", files: [] },
-            { week: 5, title: "", date: "", files: [] },
-            { week: 6, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [
+            { type: "guide", label: "요엘서 참고서", href: "output/2026-2/prophet/guide_joel.html" }
+          ] },
+            { week: 4, title: "", date: "", files: [
+            { type: "guide", label: "아모스서 참고서", href: "output/2026-2/prophet/guide_amos.html" }
+          ] },
+            { week: 5, title: "", date: "", files: [
+            { type: "guide", label: "오바댜서 참고서", href: "output/2026-2/prophet/guide_obadiah.html" }
+          ] },
+            { week: 6, title: "", date: "", files: [
+            { type: "guide", label: "요나서 참고서", href: "output/2026-2/prophet/guide_jonah.html" }
+          ] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
