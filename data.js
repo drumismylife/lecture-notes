@@ -633,7 +633,9 @@ const SITE_DATA = {
             { week: 1, title: "소선지서 서론 — 명칭·구조·여호와의 날", date: "2026.09.03", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week01.html" }
           ] },
-            { week: 2, title: "", date: "", files: [] },
+            { week: 2, title: "호세아서 — 배경·구조·석의·신학", date: "2026.09.10", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" }
+          ] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },
