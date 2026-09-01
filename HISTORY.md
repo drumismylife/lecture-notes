@@ -82,3 +82,42 @@ iCloud 휴지통에 그대로 둠(자동 만료 대기, 위험 없음).
 아님(커밋 이슈 없음). 2학기 과목 확정 요청이 오면 이 배경 그대로 활용해 한 번에 커밋
 안내(단, 이후 세션에서 실제로 커밋됐는지는 `git log`로 재확인할 것 — 이 문서는
 2026-08-04 시점 스냅샷).
+
+## 2026-09-01~02 — 2학기 착수: 예언문학 1·2주차 + Panopto 자막 자동추출 + sermon 스킬 교차검증
+
+**2학기 첫 실착수**. 예언문학(오성호 교수, 100% Panopto 온라인 강의)의 1주차(소선지서
+서론)·2주차(호세아서)를 `output/2026-2/prophet/week01.html`·`week02.html`로 생성·배포
+완료(둘 다 각 2개 영상, PPT 없이 자막만 근거). `config.json`의 예언문학·기독교윤리 두
+과목에 `"video_source": "panopto"` 필드 신설(헬라어II 여름계절 선례와 동일 패턴) — 두
+과목 다 담당교수가 "전 주차 영상강의"로 profile.md에 이미 명시돼 있었음.
+
+**Panopto 자막 자동추출 기법 확립(수동 콘솔 스크립트 불필요)**: 기존 SKILL.md는 "사용자가
+Safari 콘솔에서 `PanoptoViewer.Services.getCaptions()` 실행 후 붙여넣기"만 안내했는데,
+이번에 완전 자동화 경로를 발견:
+1. Safari 설정에서 "Apple 이벤트로부터 JavaScript 허용"(Develop 메뉴)을 오너가 1회
+   켜면, `osascript`의 `do JavaScript ... in document` 로 세션이 직접 페이지에 JS를
+   실행할 수 있게 됨(이미 로그인된 실제 브라우저 쿠키 그대로 사용 — 별도 로그인 자동화
+   불필요, 2026-08-18 "제미나이 웹 로그인 자동화 차단됨" 사례와 무관한 정상 경로).
+2. LMS 강의창(`edulms.kbtus.ac.kr`)은 실제 Panopto 플레이어를 **같은 출처의 중첩
+   iframe**(`doViewLectureWindow.dunet`) 안에 다시 cross-origin iframe(`panopto.com/
+   .../Embed.aspx?id=...`)으로 얹어놓는 구조 — 바깥 프레임이 LMS와 동일 출처이므로
+   `document.querySelector("iframe").contentDocument.querySelectorAll("iframe")` 로
+   중첩 iframe의 `src`(진짜 Panopto 세션 UUID 포함)를 그대로 읽어낼 수 있음.
+3. 그 세션 ID로 `GenerateSRT.ashx?id=<uuid>&language=Korean` 를 fetch하면 SRT 전문이
+   바로 반환됨(Panopto 세션 검색 API `/Panopto/api/v1/sessions/search`도 보조로 유용하나
+   최근 업로드는 인덱싱 지연이 있어 신뢰 못함 — LMS iframe 경로가 더 확실함).
+4. 오너는 그냥 LMS에서 원하는 강의를 클릭해 열어주기만 하면 됨(자막 켜기·콘솔 조작 불요).
+이 절차는 `SKILL.md`에는 아직 반영 안 함(오성호 교수 강의는 이 학교 LMS 특유 구조라 다른
+학교/과목에서 재현 안 될 수 있음 — 재현 시 SKILL.md의 "(b) Panopto" 절 갱신 검토).
+
+**용어 2차 교차검증 체계 신설**: 예언문학·신약성서처럼 PPT 없이 자막만으로 노트를 만드는
+과목은 인명·원어·역사배경의 ASR 오인식이 특히 잦다는 오너 지적으로, `~/.claude/skills/
+lecture-note-builder/SKILL.md`에 "용어 2차 교차검증 — related_skills 활용" 절 신설.
+`config.json`의 과목별 `related_skills`(sermon-bible-dictionary 등)가 다루는 영역
+(성경 인물·지명·원어·역사문화배경)과 다루지 않는 영역(현대 학자 2차문헌 인명)을 명확히
+구분해, 후자는 별도 웹검색으로 보강하되 특정 못하면 가짜 확정 없이 "특정 불가"로 남기게
+함. 2주차 노트의 ASR 불확실 학자명 5명(텐샴→F. Charles Fensham, 크리스텐센→Duane L.
+Christensen, 콜린스→Terence Collins, 그리스만→Hugo Gressmann, 영가→E. J. Young 추정)
+조사를 cys 워커(제미나이)에 위임 → 결과를 마스터가 직접 재검증(실존 확인은 됐으나 원문
+문장 1:1 대조까지는 안 된 항목은 "유력·확정 아님"으로 정직하게 표기, 워커 완료보고를
+곧이곧대로 신뢰하지 않는 원칙 그대로 적용)한 뒤 두 노트에 반영·재배포.

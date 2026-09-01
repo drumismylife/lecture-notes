@@ -121,6 +121,7 @@
       "profile": "profiles/ethic",
       "theme": "profiles/ethic/theme.json",
       "related_skills": ["sermon-bible-dictionary"],
+      "video_source": "panopto",
       "keywords": ["기독교윤리", "ethic", "윤리"]
     },
     "예언문학": {
@@ -131,6 +132,7 @@
       "profile": "profiles/prophet",
       "theme": "profiles/prophet/theme.json",
       "related_skills": ["sermon-bible-dictionary", "sermon-history-culture-geo-context"],
+      "video_source": "panopto",
       "keywords": ["예언문학", "prophet", "예언서"]
     }
   },
