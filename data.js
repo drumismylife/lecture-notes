@@ -629,21 +629,13 @@ const SITE_DATA = {
             title: "예언문학",
             desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
           },
-          tools: [
-            {
-              name: "호세아서 참고서",
-              icon: "📚",
-              desc: "주차 노트를 넘어선 배경지식·원어·본문강해·참고도서 안내 종합자료",
-              href: "output/2026-2/prophet/guide_hosea.html",
-              isNew: true
-            }
-          ],
           weeks: [
             { week: 1, title: "소선지서 서론 — 명칭·구조·여호와의 날", date: "2026.09.03", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week01.html" }
           ] },
             { week: 2, title: "호세아서 — 배경·구조·석의·신학", date: "2026.09.10", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" }
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" },
+            { type: "guide", label: "호세아서 참고서", href: "output/2026-2/prophet/guide_hosea.html" }
           ] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
