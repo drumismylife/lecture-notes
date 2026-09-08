@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바울 개론 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#141428 60%,#1c1c38)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--accent2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--text2);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .grk{font-size:22px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--accent2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--text2);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(143,168,240,.07),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--bible);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.pericope b{color:var(--text)}
+.exam{background:var(--exam-bg);border:1px solid #4a2a1f;border-left:3px solid var(--exam);border-radius:10px;padding:14px 18px;margin:10px 0}
+.exam .tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--exam);margin-bottom:6px}
+.exam p,.exam li{font-size:13.5px;color:var(--text2)}
+.exam ul{margin:4px 0 0 18px}
+.exam b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 147, 224, 0.35);
+  border-radius: 20px;
+  color: #a3b3e8;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(28, 28, 44, 0.95);
+  border-color: rgba(127, 147, 224, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#a3b3e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">신약성서2 · 서신서 참고서 시리즈 · 00</div>
+  <h1>바울 개론 참고서</h1>
+  <div class="sub">바울의 생애와 그의 서신들 — 개관</div>
+  <div class="prof">2주차(9/14) 강의 예습용 · 포웰 『현대인을 위한 신약개론』 235-280쪽 대응</div>
+</div>
+
+<div class="intro"><b>사전학습 자료</b>입니다 — 아직 강의 전 표준 신약개론 학계 정설(교재·주요
+  참고문헌 기준)을 바탕으로 작성했으며, 강의 실시 후 교수님의 실제 강조점·구두 설명과 대조해
+  보강할 예정입니다. 3주차 이후 개별 서신 참고서(로마서·고린도전후서 등)의 <b>배경 지식</b> 역할을
+  겸합니다. 하단 검증 상태 참조.</div>
+
+<div class="toc"><a href="#s1">생애·소명</a><a href="#s2">전도여행</a><a href="#s3">서신 분류·연대</a><a href="#s4">핵심 논쟁</a><a href="#s5">시험 포인트</a></div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">생애·소명</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>출신·배경</b>: 히브리 이름 <b>사울(Saul)</b>, 로마 시민권자로서의 이름 <b>바울(Paul,
+        Paulus)</b> — 길리기아 <b>다소(Tarsus)</b> 출신 디아스포라 유대인, 베냐민 지파, 바리새인
+        (빌 3:5). 예루살렘에서 랍비 <b>가말리엘</b> 문하에서 율법 교육을 받음(행 22:3). 로마
+        시민권을 태생부터 소유(행 22:28)한 것이 이후 로마 재판 호소·여행의 법적 기반이 됨.</li>
+      <li><b>초기 — 교회 박해자</b>: 스데반 순교 현장에 있었고(행 7:58, 8:1) 예루살렘 교회를
+        적극적으로 박해(행 8:3, 갈 1:13 "하나님의 교회를 심히 박해하여 멸하고").</li>
+      <li><b>다메섹 회심</b>: 그리스도인을 체포하러 다메섹으로 가던 길에 부활하신 예수를 만남
+        (행 9:1-19, 22:6-16, 26:12-18 — 세 번 서술됨). 바울 자신은 이 사건을 다른 사도들의
+        "봄"(고전 15:8)과 같은 반열의 부활 현현으로, 또한 이방인의 사도로 부르심 받은 소명의
+        기점으로 이해(갈 1:15-16).</li>
+      <li><b>회심 이후 공백기</b>: 아라비아행과 다메섹 복귀(갈 1:17), 이후 다소에서 상당 기간
+        머무름(행 9:30) — 바나바가 안디옥으로 데려오기 전까지(행 11:25-26) 약 10년 가까운
+        "숨겨진 시기"가 있다는 것이 학계의 일반적 재구성.</li>
+      <li><b>말년</b>: 사도행전은 로마 가택연금(행 28장)에서 끝나며 이후 행적을 기록하지 않음.
+        전통적으로 네로 박해기(주후 64-68년경) 로마에서 순교했다고 전해짐(교부 문헌 클레멘스1서·
+        에우세비오스 등) — 신약 정경 자체에는 순교 기사가 없어 "전승"으로 구분해 다뤄야 함.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">세 차례 전도여행 (사도행전 기준 개관)</span><div class="sl"></div></div>
+  <div class="tw"><table>
+    <thead><tr><th>여행</th><th>대략 시기</th><th>주요 경로</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><th>1차</th><td>주후 46-48년경</td><td>안디옥 → 구브로 → 비시디아 안디옥 → 이고니온 →
+        루스드라 → 더베 → (역순 귀환)</td><td>바나바 동행(행 13-14장). 귀환 후 예루살렘 공의회
+        (행 15장, 할례 논쟁 결의)</td></tr>
+      <tr><th>2차</th><td>주후 49-52년경</td><td>안디옥 → (바나바와 결별, 실라 동행) → 빌립보 →
+        데살로니가 → 베뢰아 → 아덴 → <b>고린도(1년 6개월 체류)</b></td><td>고린도에서 데살로니가전후서
+        기록 추정(현존 최고(最古) 바울서신)</td></tr>
+      <tr><th>3차</th><td>주후 52-57년경</td><td>안디옥 → <b>에베소(약 3년 체류)</b> → 마게도냐 →
+        고린도(3개월) → 예루살렘行</td><td>에베소에서 고린도전서, 마게도냐에서 고린도후서, 고린도
+        체류 중 로마서 기록 추정</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card"><p>이후 예루살렘에서 체포(행 21장) → 가이사랴 구금(2년) → 로마 황제 상소 →
+    로마 압송·가택연금(행 27-28장)으로 사도행전 내러티브가 끝남. <b>옥중서신(에베소서·빌립보서·
+    골로새서·빌레몬서)</b>의 구체적 감금 장소는 로마설이 전통적이나, 에베소 감금설·가이사랴 감금설도
+    학계에서 제기됨(특히 빌립보서·빌레몬서를 두고 논쟁) — 6주차(에베소서·빌립보서)·7주차(골로새서·
+    빌레몬서) 참고서에서 각 서신별로 다시 다룰 예정.</p></div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">서신 분류와 대략적 저작 순서</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>진정성(authenticity) 기준 3그룹 — 신약학계의 표준 분류</h3>
+    <p>신약학자 대다수가 사용하는 분류로, "바울이 직접 쓰지 않았다"는 뜻이 아니라 <b>학계 내
+      이견의 정도</b>를 나타내는 구분이다. 포웰 교재를 비롯한 주요 신약개론서가 공통적으로
+      소개하는 틀.</p>
+    <ul>
+      <li><b>① 의문의 여지 없는 바울서신(undisputed)</b> — 로마서·고린도전서·고린도후서·갈라디아서·
+        빌립보서·데살로니가전서·빌레몬서(7편). 저작권 논쟁이 사실상 없음.</li>
+      <li><b>② 논쟁적 바울서신(disputed / deutero-Pauline)</b> — 에베소서·골로새서·데살로니가후서
+        (3편). 어휘·문체·신학적 강조점의 차이를 근거로 일부 학자가 바울 사후 제자 그룹의 저작
+        (바울의 이름으로 쓰는 것이 당시 존중의 관습이었다는 "위명 저작" 가설) 가능성을 제기하지만,
+        전통적 견해(바울 친저)를 지지하는 학자도 다수.</li>
+      <li><b>③ 목회서신(Pastoral Epistles)</b> — 디모데전후서·디도서(3편). 위 논쟁이 가장 두드러진
+        그룹 — 초기 교회 직제(감독·집사) 언어, 어휘 통계, 신학 강조점의 차이를 근거로 바울 사후
+        저작설이 학계에서 상당한 지지를 받으나, 보수적 학자들은 바울의 말년(로마 석방 후 재투옥
+        가설 포함) 저작으로 옹호.</li>
+    </ul>
+    <p style="margin-top:10px">이 분류는 <b>서신의 권위나 정경성을 부정하는 것이 아니라</b> 역사적
+      저작 상황을 재구성하는 학문적 논의임을 유의 — 정경 신뢰성과 별개 문제로 다뤄야 함.</p>
+  </div>
+  <div class="card">
+    <h3>옥중서신(Prison Epistles) — 저작 정황 기준 그룹</h3>
+    <p>에베소서·빌립보서·골로새서·빌레몬서 4편은 "바울이 갇힌 중에"(엡 3:1, 빌 1:7, 골 4:3,
+      몬 1:9-10) 썼다는 본문 내적 단서로 묶이는 그룹 — 위 진정성 분류와는 별개 축(빌립보서·
+      빌레몬서는 진정 바울서신이면서 동시에 옥중서신).</p>
+  </div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">핵심 논쟁 — 갈라디아서의 수신지</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>남갈라디아설(South Galatia) vs 북갈라디아설(North Galatia)</b> — 갈라디아서가 1차
+      전도여행 때 세운 비시디아 안디옥·이고니온·루스드라·더베 교회들(로마 속주 "갈라디아"의 남부
+      지역)을 향한 것인지, 아니면 민족적 갈라디아인들이 거주하던 더 북쪽 지역 교회들을 향한
+      것인지에 대한 논쟁. 이 문제는 갈라디아서의 <b>저작 연대</b>(남갈라디아설을 취하면 예루살렘
+      공의회 이전인 주후 48년경으로 매우 이른 시기가 되어, 현존 최고(最古)의 바울서신일 가능성이
+      생김)와 직결되어 학계에서 계속 논의되는 지점 — 5주차(갈라디아서) 참고서에서 이어서 다룸.</p>
+  </div>
+</div>
+
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="exam"><div class="tag">서술형 대비 — 생애·전도여행</div>
+    <ul>
+      <li>박해자에서 사도로의 전환점인 다메섹 회심 사건의 세 가지 서술(행 9·22·26장)이 존재한다는
+        점과, 바울 자신이 이 사건을 어떻게 신학적으로 해석하는지(갈 1:15-16, 고전 15:8).</li>
+      <li>세 차례 전도여행의 경로와 각 여행 중/직후 기록된 것으로 추정되는 서신을 짝지어 설명할
+        수 있어야 함(예: 2차 여행 고린도 체류 중 → 데살로니가전후서).</li>
+    </ul>
+  </div>
+  <div class="exam"><div class="tag">서술형 대비 — 서신 분류</div>
+    <ul>
+      <li>진정 바울서신·논쟁적 바울서신·목회서신 3그룹의 구성 서신 목록과 구분 기준(어휘·문체·
+        신학적 강조점·교회 직제 언어)을 설명.</li>
+      <li>"위명 저작" 가설이 정경의 권위를 부정하는 것이 아니라 역사적 저작 상황에 대한 학문적
+        재구성 논의라는 점을 구분해서 서술.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p><b>초안 작성(2026-09-08)</b>: 강의 전 사전학습 자료로, 바울의 생애·전도여행 경로·연대 추정·
+    서신 3그룹 분류(진정/논쟁적/목회서신)·옥중서신 구분은 표준 신약개론(포웰 235-280쪽 대응 범위)
+    및 신약학계 정설에 근거해 작성. <b>논쟁적 바울서신·목회서신의 저작권 논쟁</b>과 <b>갈라디아서
+    남/북갈라디아설</b>은 학계에서 실제로 논쟁 중인 사안으로, 특정 입장을 단정하지 않고 논쟁
+    구도 자체를 정리해 남겨둠(예언문학·신약성서2 노트 방법론 메모리 기준). 바울의 순교 관련
+    서술은 신약 정경 외 교부 전승 자료임을 본문에 명시.</p>
+  <p><b>다음 단계</b>: 2주차 강의(9/14) 실시 후 강의 자막·PPT와 대조해 교수 강조점을 반영할 것.</p>
+</div>
+
+<div class="foot">바울 개론 참고서 · 신약성서2 서신서 참고서 시리즈 00 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
