@@ -538,8 +538,13 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week01.html" }
           ] },
             { week: 2, title: "", date: "", files: [] },
-            { week: 3, title: "", date: "", files: [] },
-            { week: 4, title: "", date: "", files: [] },
+            { week: 3, title: "", date: "", files: [
+            { type: "guide", label: "로마서 참고서", href: "output/2026-2/nt2/guide_romans.html" }
+          ] },
+            { week: 4, title: "", date: "", files: [
+            { type: "guide", label: "고린도전서 참고서", href: "output/2026-2/nt2/guide_1corinthians.html" },
+            { type: "guide", label: "고린도후서 참고서", href: "output/2026-2/nt2/guide_2corinthians.html" }
+          ] },
             { week: 5, title: "", date: "", files: [] },
             { week: 6, title: "", date: "", files: [] },
             { week: 7, title: "", date: "", files: [] },

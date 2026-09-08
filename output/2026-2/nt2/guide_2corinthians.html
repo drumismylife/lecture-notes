@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고린도후서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#141428 60%,#1c1c38)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--accent2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--text2);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .grk{font-size:22px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--accent2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--text2);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(143,168,240,.07),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--bible);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.pericope b{color:var(--text)}
+.exam{background:var(--exam-bg);border:1px solid #4a2a1f;border-left:3px solid var(--exam);border-radius:10px;padding:14px 18px;margin:10px 0}
+.exam .tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--exam);margin-bottom:6px}
+.exam p,.exam li{font-size:13.5px;color:var(--text2)}
+.exam ul{margin:4px 0 0 18px}
+.exam b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 147, 224, 0.35);
+  border-radius: 20px;
+  color: #a3b3e8;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(28, 28, 44, 0.95);
+  border-color: rgba(127, 147, 224, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#a3b3e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">신약성서2 · 서신서 참고서 시리즈 · 03</div>
+  <h1>고린도후서 참고서</h1>
+  <div class="sub">2 Corinthians — 눈물로 쓴 편지, 약함 속의 능력</div>
+  <div class="prof">4주차(9/28) 강의 예습용 · 포웰 『현대인을 위한 신약개론』 301-340쪽 대응</div>
+</div>
+
+<div class="intro"><b>사전학습 자료</b>입니다 — 아직 강의 전 표준 신약개론 학계 정설(교재·주요
+  참고문헌 기준)을 바탕으로 작성했으며, 강의 실시 후 교수님의 실제 강조점·구두 설명과 대조해
+  보강할 예정입니다. 하단 검증 상태 참조.</div>
+
+<div class="toc"><a href="#s1">저작 상황</a><a href="#s2">구조</a><a href="#s3">신학 주제</a><a href="#s4">핵심 원어·주요 본문</a><a href="#s5">시험 포인트</a></div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">저자·수신자·저작 상황</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>저자</b>: 바울 — 진정 바울서신. <b>기록 시기·장소</b>: 제3차 전도여행 말미 주후
+        <b>55-56년경</b> <b>마게도냐</b>에서(2:13, 7:5-7 디도와의 재회 장면).</li>
+      <li><b>13서신 중 가장 개인적·감정적인 서신</b> — 자전적 회고(고난 목록 11:23-29), 눈물과
+        기쁨이 교차하는 문체, 급격한 어조 전환(1-9장의 화해 톤과 10-13장의 격렬한 자기 변호 톤이
+        극명히 대비)이 특징. 이 급격한 전환 때문에 학계 일부는 <b>서신 분할설(partition
+        theory)</b>을 제기 — 현재의 고린도후서가 원래 별개였던 여러 편지 조각(특히 10-13장)이
+        후대에 합쳐졌다는 가설. 다수 학자는 여전히 단일 서신설을 지지하지만, 배경 이해에
+        유용한 논쟁으로 알아둘 필요가 있음.</li>
+      <li><b>직전 사건들</b>: 고린도전서 이후 바울-고린도 교회 관계가 급격히 악화됨 — ① <b>고통스러운
+        방문</b>(2:1 "다시 근심 중에 가지 아니하기로")이 있었고, ② 그 여파로 <b>눈물로 쓴
+        편지("엄한 편지")</b>(2:4, 7:8 "그 편지가 너희를 근심하게 한 줄을 앎이니")를 보냈으나
+        이 편지는 <b>현존하지 않음</b>(고린도전서와는 별개 문헌으로 보는 것이 다수설 — 일부 학자는
+        10-13장이 그 잔편이라고 추정). ③ <b>디도</b>가 고린도를 방문해 회중 대다수가 회개했다는
+        좋은 소식을 가지고 옴(7:6-16) — 1-9장은 이 화해의 기쁨을 배경으로 함.</li>
+      <li><b>수신자</b>: 고린도 교회 + "온 아가야에 있는 모든 성도"(1:1) — 고린도 시내를 넘어
+        아가야 지역 전체 교회 네트워크를 함께 염두에 둔 회람 성격도 있었을 가능성.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">본문 구조</span><div class="sl"></div></div>
+  <div class="card"><ul>
+    <li><b>1-7장 화해와 사도직 변호</b> — 1장: 인사, 아시아에서 겪은 죽을 고비 회고, 위로(파라클레시스)
+      신학. 2장: 근심을 끼친 자를 용서하라는 권면(고통스러운 방문의 여파 처리). 3장: 새 언약의
+      일꾼 — 모세의 수건 벗음 비유로 옛 언약과 새 언약 대비. 4장: "질그릇에 담긴 보배" — 연약한
+      육신에 담긴 복음의 능력. 5장: 새로운 피조물, 화목하게 하는 직분(5:17-21). 6-7장: 성도다운
+      삶에 대한 권면, 디도의 좋은 소식에 대한 기쁨.</li>
+    <li><b>8-9장 예루살렘 연보</b> — 마게도냐 교회들의 헌금 사례를 본보기로 제시(8:1-5), 자원하는
+      마음의 중요성(9:7 "하나님은 즐겨 내는 자를 사랑하시느니라"), 그리스도의 자기 비움을
+      헌금의 신학적 근거로 제시(8:9).</li>
+    <li><b>10-13장 사도적 권위의 격렬한 변호</b> — 앞선 장들과 어조가 급변 — 고린도 교회에
+      침투한 <b>거짓 사도들("지극히 크다는 사도들", 11:5, 12:11)</b>과의 정면 대결. 바울은
+      자신의 약함·고난 목록을 "어리석은 자랑"(11:16-33) 형식으로 역설적으로 제시, <b>육체의
+      가시</b>(12:7-10)와 "내가 약할 그 때에 강함이라"(12:10)로 절정.</li>
+  </ul></div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">신학 주제</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>① 약함 속에 나타나는 능력</h3>
+    <p>서신 전체를 관통하는 역설 — 4:7 "질그릇에 담긴 보배"부터 12:9 "내 은혜가 네게 족하도다
+      이는 내 능력이 약한 데서 온전하여짐이라"까지 이어지는 신학. 사도직의 정당성을 화려한
+      수사·이적이 아니라 그리스도를 닮은 고난에서 찾는다는 점에서 고린도 교회의 세속적 리더십
+      기준("지극히 크다는 사도들")을 정면 비판.</p>
+    <h3>② 화목의 직분(διακονία τῆς καταλλαγῆς)</h3>
+    <p>5:18-20 — 하나님이 그리스도 안에서 세상을 자기와 화목하게 하신 사건이, 바울 자신과
+      고린도 교회의 인간적 화해 과정(1-7장)의 신학적 원형이자 근거로 제시됨.</p>
+    <h3>③ 새 언약과 옛 언약</h3>
+    <p>3장의 모세-수건 비유 — 문자(율법)는 죽이는 것이나 영은 살리는 것(3:6), "주의 영이 계신
+      곳에는 자유가 있느니라"(3:17)로 이어지는 영-문자 대비 신학.</p>
+    <h3>④ 헌금의 신학(은혜의 원리)</h3>
+    <p>8-9장은 단순한 모금 독려가 아니라 "χάρις"(은혜/은사)라는 단어를 반복 사용(8:1, 8:9, 9:8
+      등)해 헌금 자체를 그리스도의 은혜에 대한 응답이자 참여로 신학화함.</p>
+  </div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">핵심 원어·주요 본문</span><div class="sl"></div></div>
+  <div class="wordcard"><div class="wh"><span class="grk">παράκλησις</span><span class="translit">paraklēsis</span><span class="gloss">위로·격려</span></div>
+    <p>1:3-7에서 동족어(παρακαλέω 동사 포함)가 10회 가까이 반복 — "모든 위로의 하나님"이 바울
+      자신을 위로하시고, 그 위로로 다른 이를 위로하게 하신다는 순환 구조. 서신 서두의 신학적
+      틀을 형성.</p></div>
+  <div class="wordcard"><div class="wh"><span class="grk">ὑπερλίαν ἀπόστολοι</span><span class="translit">hyperlian apostoloi</span><span class="gloss">지극히 크다는 사도들</span></div>
+    <p>11:5, 12:11 — 소위 "슈퍼 사도"(super-apostles). 정체는 불명확하나 유대적 자격·웅변술·
+      경제적 자립 거부 등을 앞세워 바울의 사도직을 폄하한 것으로 추정되는 경쟁자 그룹 —
+      10-13장 논증 전체의 상대역.</p></div>
+  <div class="wordcard"><div class="wh"><span class="grk">σκόλοψ τῇ σαρκί</span><span class="translit">skolops tē sarki</span><span class="gloss">육체의 가시</span></div>
+    <p>12:7 — 정체가 무엇인지(질병·시력 문제·박해자 등 여러 추정) 본문 자체가 명시하지 않아
+      학계에서 확정하지 못한 대표적 크럭스. "사탄의 사자"로 묘사되며 세 번 간구했으나 제거되지
+      않고 오히려 은혜의 자족을 배우는 계기가 됨.</p></div>
+  <div class="pericope"><div class="ref">5:17 — 새로운 피조물</div>
+    <p>"그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새 것이
+      되었도다" — 화목 신학(5:18-21) 직전에 위치한 정체성 선언.</p></div>
+  <div class="pericope"><div class="ref">12:9-10 — 내가 약할 그 때에 강함이라</div>
+    <p>"내 은혜가 네게 족하도다 이는 내 능력이 약한 데서 온전하여짐이라...그러므로 도리어 크게
+      기뻐함으로 나의 여러 약한 것들에 대하여 자랑하리니...내가 약할 그 때에 강함이라" — 서신
+      전체 역설 신학의 절정이자 결론적 요약.</p></div>
+</div>
+
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="exam"><div class="tag">서술형 대비 — 배경·구조</div>
+    <ul>
+      <li>"고통스러운 방문" → "눈물의 편지"(현존하지 않음, 고린도전서와 별개) → 디도의 좋은 소식
+        → 고린도후서 1-7장, 이 사건 순서를 정확히 설명할 수 있어야 함.</li>
+      <li>1-9장(화해 톤)과 10-13장(변호 톤)의 어조 차이 및 그로 인한 서신 분할설 논쟁의 존재를
+        인지하되, 다수설(단일 서신설)과 소수설을 구분해 설명.</li>
+    </ul>
+  </div>
+  <div class="exam"><div class="tag">서술형 대비 — 신학 주제</div>
+    <ul>
+      <li>"약함 속의 능력" 역설이 4장·11-12장에서 각각 어떻게 전개되는지, 그리고 이것이 "지극히
+        크다는 사도들"의 리더십관에 대한 신학적 반박이 되는 이유.</li>
+      <li>8-9장의 연보 신학이 단순 모금 권면이 아니라 그리스도의 은혜(8:9)에 근거한 신학적
+        행위로 제시되는 방식.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p><b>초안 작성(2026-09-08)</b>: 강의 전 사전학습 자료로, 저작 시기·장소(마게도냐, 주후 55-56년경)·
+    "고통스러운 방문"·"눈물의 편지" 사건 순서·구조·핵심 신학은 표준 신약개론(포웰 301-340쪽 대응
+    범위) 및 신약학계 정설에 근거해 작성. <b>서신 분할설</b>은 학계에서 실제로 논쟁 중인 사안으로
+    다수설(단일 서신설)과 함께 명시했고, <b>육체의 가시(12:7)의 정체</b>는 본문이 밝히지 않아
+    학계가 확정하지 못한 열린 문제임을 그대로 남겨둠(추측성 확정 서술 지양).</p>
+  <p><b>다음 단계</b>: 4주차 강의(9/28) 실시 후 강의 자막·PPT와 대조해 교수 강조점을 반영, 학계
+    논쟁이 다뤄지면 논쟁 구도를 보완할 것(예언문학·신약성서2 노트 방법론 메모리 기준).</p>
+</div>
+
+<div class="foot">고린도후서 참고서 · 신약성서2 서신서 참고서 시리즈 03 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

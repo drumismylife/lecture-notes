@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>로마서 참고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 80px}
+.hdr{text-align:center;padding:36px 18px 28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#141428 60%,#1c1c38)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.9rem;font-weight:700;line-height:1.3}
+.hdr .sub{color:var(--accent2);font-size:14px;margin-top:8px;font-family:'Noto Serif KR',serif}
+.hdr .prof{color:var(--text2);font-size:12.5px;margin-top:10px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 28px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none}
+.sec{margin:30px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.12rem;font-weight:700;color:var(--text);font-family:'Noto Serif KR',serif}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.card h3{font-size:14.5px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card b{color:var(--text)}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:400px;font-size:13.5px}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+.wordcard{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0}
+.wordcard .wh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.wordcard .grk{font-size:22px;color:var(--gold)}
+.wordcard .translit{font-size:14px;color:var(--accent2);font-style:italic}
+.wordcard .gloss{font-size:13px;color:var(--text);font-weight:700}
+.wordcard p{font-size:13px;color:var(--text2);margin:5px 0}
+.wordcard b{color:var(--text)}
+.pericope{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin:12px 0;background:linear-gradient(180deg,rgba(143,168,240,.07),transparent)}
+.pericope .ref{font-family:'Noto Serif KR',serif;font-weight:700;color:var(--bible);font-size:14.5px;margin-bottom:8px}
+.pericope p{font-size:13.5px;color:var(--text2);margin:6px 0}
+.pericope b{color:var(--text)}
+.exam{background:var(--exam-bg);border:1px solid #4a2a1f;border-left:3px solid var(--exam);border-radius:10px;padding:14px 18px;margin:10px 0}
+.exam .tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--exam);margin-bottom:6px}
+.exam p,.exam li{font-size:13.5px;color:var(--text2)}
+.exam ul{margin:4px 0 0 18px}
+.exam b{color:var(--text)}
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify p{margin:6px 0}
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 147, 224, 0.35);
+  border-radius: 20px;
+  color: #a3b3e8;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(28, 28, 44, 0.95);
+  border-color: rgba(127, 147, 224, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#a3b3e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">신약성서2 · 서신서 참고서 시리즈 · 01</div>
+  <h1>로마서 참고서</h1>
+  <div class="sub">Romans — 복음 안에 나타난 하나님의 의</div>
+  <div class="prof">3주차(9/21) 강의 예습용 · 포웰 『현대인을 위한 신약개론』 281-300쪽 대응</div>
+</div>
+
+<div class="intro"><b>사전학습 자료</b>입니다 — 아직 강의 전 표준 신약개론 학계 정설(교재·주요
+  참고문헌 기준)을 바탕으로 작성했으며, 강의 실시 후 교수님의 실제 강조점·구두 설명과 대조해
+  보강할 예정입니다(예언문학 책별 참고서 시리즈와 동일한 사전 준비 방식). 하단 검증 상태 참조.</div>
+
+<div class="toc"><a href="#s1">저작 상황</a><a href="#s2">구조</a><a href="#s3">신학 주제</a><a href="#s4">핵심 원어·주요 본문</a><a href="#s5">시험 포인트</a></div>
+
+<div class="sec" id="s1">
+  <div class="sh"><span class="sb">1</span><span class="st">저자·수신자·저작 상황</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>저자</b>: 바울 — 신약 13서신 중 진정성(authenticity)에 대한 이견이 사실상 없는 <b>"의문의
+        여지 없는 바울서신"</b>(undisputed Pauline epistles) 그룹의 핵심.</li>
+      <li><b>기록 시기·장소</b>: 주후 <b>57년경</b>, 제3차 전도여행 말미 <b>고린도</b>에서(롬 16:23
+        "나와 온 교회를 대접하는 가이오"— 행 20:2-3의 3개월 체류 시기와 일치). 서신은 <b>겐그레아
+        교회의 일꾼(διάκονος) 뵈뵈</b>가 로마까지 전달(16:1-2).</li>
+      <li><b>수신자</b>: 바울이 <b>세우지도, 방문하지도 않은</b> 로마 교회 — 신약 13서신 중 유일하게
+        바울 자신이 개척하지 않은 교회에 보낸 정식 서신. 유대인 그리스도인과 이방인 그리스도인이
+        섞인 공동체로, 클라우디우스 황제의 유대인 추방령(주후 49년경, 수에토니우스 기록)과 그
+        해제 이후 재구성 과정에서 두 집단 간 긴장이 배경으로 추정됨.</li>
+      <li><b>기록 목적(다층적)</b>: ① 계획 중인 <b>스페인 선교</b>(15:24, 28)를 위해 로마 교회의
+        지원을 구하기 앞서 자신의 복음을 체계적으로 소개, ② 예루살렘 교회에 전달할 <b>연보</b>
+        (15:25-28) 완료 후 상황 보고, ③ 유대인-이방인 신자 간 신학적 긴장(율법과 복음, 이스라엘의
+        지위)에 대한 신중한 해설. 13서신 중 가장 <b>체계적·논증적</b>인 구성 — "바울 신학의
+        요약본"으로 불림.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="s2">
+  <div class="sh"><span class="sb">2</span><span class="st">본문 구조</span><div class="sl"></div></div>
+  <div class="card"><ul>
+    <li><b>1:1-17 서론</b> — 인사·자기소개·로마 방문 소망. 1:16-17 <b>주제 구절</b>: "이 복음은...모든
+      믿는 자에게 구원을 주시는 하나님의 능력이 됨이라...복음에는 하나님의 의가 나타나서...기록된
+      바 오직 의인은 믿음으로 말미암아 살리라(합 2:4 인용) 함과 같으니라."</li>
+    <li><b>1:18-3:20 인류의 보편적 죄</b> — 이방인(1:18-32)과 유대인(2:1-3:8) 모두 하나님 앞에
+      죄인임을 논증, 3:9-20 "의인은 없나니 하나도 없으며"로 결론.</li>
+    <li><b>3:21-4:25 믿음으로 말미암는 칭의</b> — 율법과 무관한 하나님의 의(3:21-26), 아브라함을
+      본보기로 한 이신칭의 논증(4장, 창 15:6 인용).</li>
+    <li><b>5-8장 새 생명의 확실성</b> — 5장: 그리스도 안에서의 화평, 아담-그리스도 유형론. 6장:
+      죄에 대해 죽고 그리스도와 함께 사는 세례 신학. 7장: 율법 아래 있는 인간의 내적 갈등("내가
+      원하는 바 선은 행하지 아니하고"). 8장: 성령 안의 삶, "그리스도 예수 안에 있는 자에게는 결코
+      정죄함이 없나니", 만물이 합력하여 선을 이룸, "그 무엇도 우리를 하나님의 사랑에서 끊을 수
+      없으리라"(정점).</li>
+    <li><b>9-11장 이스라엘의 현재와 미래</b> — 하나님의 신실하심과 이스라엘의 불신앙 문제. 남은
+      자 사상(9장), 이방인 전도와 이스라엘의 걸림(10장), <b>돌감람나무/참감람나무 비유</b>(11장)로
+      이방인의 접붙임과 이스라엘의 궁극적 구원 가능성(11:26 "온 이스라엘이 구원을 받으리라")을 논함.</li>
+    <li><b>12-15장 실천적 권면</b> — 12장: "너희 몸을 하나님이 기뻐하시는 거룩한 산 제물로 드리라",
+      은사에 따른 지체의 삶. 13장: 위에 있는 권세에 복종(정부 관계), 사랑은 율법의 완성. 14-15장:
+      "믿음이 강한 자"와 "약한 자"(음식·절기 논쟁) 사이의 관용 권면.</li>
+    <li><b>16장 문안·마무리</b> — 뵈뵈 추천, 브리스가·아굴라 등 개인적 인사 목록(로마 교회 구성원의
+      다양성을 보여주는 사료적 가치), 분쟁을 일으키는 자들에 대한 경계, 송영.</li>
+  </ul></div>
+</div>
+
+<div class="sec" id="s3">
+  <div class="sh"><span class="sb">3</span><span class="st">신학 주제</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>① 하나님의 의(δικαιοσύνη θεοῦ)</h3>
+    <p>로마서 전체를 관통하는 중심 주제. 인간을 심판하는 기준으로서의 의가 아니라, 믿음으로
+      말미암아 죄인을 의롭다 하시는(칭의) <b>하나님의 구원 행위 자체</b>를 가리킨다는 해석이
+      종교개혁 이후 주류 — "이신칭의"(justification by faith)의 신학적 근거.</p>
+    <h3>② 율법과 믿음</h3>
+    <p>율법은 죄를 깨닫게 하지만 구원의 근거가 될 수 없고(3:20), 믿음은 율법을 폐하는 것이 아니라
+      "율법을 굳게 세운다"(3:31)는 역설적 긴장을 다룸. 7-8장의 율법·성령 대비가 핵심.</p>
+    <h3>③ 이스라엘과 이방인 — 하나님의 신실하심</h3>
+    <p>9-11장은 "하나님이 이스라엘과의 언약을 폐하셨는가"라는 질문에 대한 답변 — 바울은 일시적
+      강퍅함(11:25 "신비")과 궁극적 회복을 동시에 주장, 이방인 신자에게 "교만하지 말라"(11:20)고
+      경고.</p>
+    <h3>④ 그리스도인의 새 삶(성화)</h3>
+    <p>6-8장의 세례·성령 신학, 12-15장의 실천 윤리 — 칭의(법정적 선언)가 성화(삶의 변화)로
+      이어지는 구조. 로마서가 "교리서신+실천서신"의 이중 구조를 갖는 이유.</p>
+  </div>
+</div>
+
+<div class="sec" id="s4">
+  <div class="sh"><span class="sb">4</span><span class="st">핵심 원어·주요 본문</span><div class="sl"></div></div>
+  <div class="wordcard"><div class="wh"><span class="grk">δικαιοσύνη θεοῦ</span><span class="translit">dikaiosynē theou</span><span class="gloss">하나님의 의</span></div>
+    <p>1:17 — 로마서 전체의 표제어. 소유격(θεοῦ)의 문법적 성격(주격적 소유격 vs 목적격적 소유격)을
+      둘러싼 해석 논쟁이 학계에 있음 — "하나님께 속한 의"(하나님이 주시는 의)로 보는 것이 다수설.</p></div>
+  <div class="wordcard"><div class="wh"><span class="grk">ὁ δὲ δίκαιος ἐκ πίστεως ζήσεται</span><span class="translit">ho de dikaios ek pisteōs zēsetai</span><span class="gloss">오직 의인은 믿음으로 말미암아 살리라</span></div>
+    <p>1:17 — 합 2:4 인용(칠십인역 계열). 갈 3:11에도 동일 구절 인용 — 종교개혁(루터)이 로마서
+      신학의 출발점으로 삼은 구절.</p></div>
+  <div class="wordcard"><div class="wh"><span class="grk">παρακαλῶ οὖν ὑμᾶς...παραστῆσαι τὰ σώματα ὑμῶν θυσίαν ζῶσαν</span><span class="translit">parakalō oun hymas...parastēsai ta sōmata hymōn thysian zōsan</span><span class="gloss">너희 몸을 산 제물로 드리라</span></div>
+    <p>12:1 — 교리(1-11장)에서 실천(12-15장)으로 전환하는 경첩 구절. "그러므로"(οὖν)가 앞선
+      모든 교리적 논증의 실천적 귀결임을 명시.</p></div>
+  <div class="pericope"><div class="ref">8:38-39 — 하나님의 사랑에서 끊을 수 없음</div>
+    <p>"사망이나 생명이나...다른 어떤 피조물이라도 우리를 우리 주 그리스도 예수 안에 있는 하나님의
+      사랑에서 끊을 수 없으리라" — 5-8장 논증 전체의 정점이자 로마서에서 가장 널리 인용되는 구절.</p></div>
+  <div class="pericope"><div class="ref">11:17-24 — 돌감람나무 비유</div>
+    <p>야생 돌감람나무 가지(이방인)가 참감람나무(이스라엘)에 접붙임 받은 것 — 원 가지가 다시
+      접붙임 받을 가능성도 함께 언급(11:23-24)해 이스라엘의 미래에 대한 희망을 열어둠.</p></div>
+</div>
+
+<div class="sec" id="s5">
+  <div class="sh"><span class="sb">5</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="exam"><div class="tag">서술형 대비 — 배경·구조</div>
+    <ul>
+      <li>바울이 세우지 않은 교회에 쓴 유일한 서신이라는 점, 저작 목적 3가지(스페인 선교 지원
+        요청·연보 보고·유대-이방인 신학 긴장 해설)를 구분해 설명할 수 있어야 함.</li>
+      <li>1-11장(교리)과 12-16장(실천)의 이중 구조, 그 안에서 다시 1-8장(구원론)과 9-11장
+        (이스라엘론)이 나뉘는 3단 구조를 도식으로 그릴 수 있어야 함.</li>
+    </ul>
+  </div>
+  <div class="exam"><div class="tag">서술형 대비 — 신학 주제</div>
+    <ul>
+      <li>"하나님의 의"가 왜 심판의 기준이 아니라 구원의 선물로 해석되는지, 1:17과 3:21-26을 근거로
+        설명.</li>
+      <li>9-11장이 로마서 전체 논증에서 곁가지가 아니라 "하나님의 신실하심"이라는 핵심 주제의
+        필수 부분인 이유.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 검증 상태</h3>
+  <p><b>초안 작성(2026-09-08)</b>: 강의 전 사전학습 자료로, 저작 시기·장소·수신자·구조·핵심 신학은
+    표준 신약개론(포웰 『현대인을 위한 신약개론』 281-300쪽 대응 범위) 및 신약학계 정설(진정 바울서신,
+    주후 57년 고린도 기록설, 뵈뵈의 서신 전달 등)에 근거해 작성. "하나님의 의" 소유격 해석 논쟁,
+    9-11장 해석(세대주의적 이스라엘 회복설 vs 언약적 성취설 등 세부 입장 차이)은 학계 내 논쟁이
+    실제로 존재하는 지점 — 강의에서 교수님이 특정 입장을 취하면 그에 맞춰 보강 예정.</p>
+  <p><b>다음 단계</b>: 3주차 강의(9/21) 실시 후 강의 자막·PPT와 대조해 교수 강조점을 반영, 학계
+    논쟁이 다뤄지면 논쟁 구도를 보완할 것(예언문학·신약성서2 노트 방법론 메모리 기준).</p>
+</div>
+
+<div class="foot">로마서 참고서 · 신약성서2 서신서 참고서 시리즈 01 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
