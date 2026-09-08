@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예언문학 3주차 — 요엘서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(155,90,138,.18);color:var(--crimson2);border:1px solid rgba(155,90,138,.45)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--crimson2);font-style:italic}
+.asr{color:var(--muted);border-bottom:1px dotted var(--muted);font-size:12.5px}
+
+/* 대응쌍(catchword) 카드 */
+.pair{display:flex;align-items:flex-start;gap:10px;background:var(--subcard);border:1px solid var(--border);border-radius:9px;padding:10px 14px;margin:8px 0;font-size:13.5px}
+.pair .book{font-weight:700;color:var(--crimson2);white-space:nowrap}
+.pair .arrow{color:var(--gold);font-size:16px}
+.pair .desc{color:var(--muted);font-size:12.5px;flex:1}
+
+/* 해석 관점 4모델 / 신학주제 카드 */
+.view{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:10px 0}
+.view h3{color:var(--crimson2);font-size:13.5px;margin-bottom:6px}
+.view .vlab{display:inline-block;font-size:10px;font-weight:700;color:#180a10;background:var(--crimson2);padding:2px 8px;border-radius:4px;margin-right:6px}
+.view p,.view li{font-size:13px;color:var(--muted)}
+.view b{color:var(--text)}
+
+/* 심판↔회복 대조 박스 */
+.jr{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
+.jr>div{padding:13px 15px;font-size:13px;color:var(--text)}
+.jr .j{background:rgba(138,58,58,.16);border-right:1px solid var(--border)}
+.jr .r{background:rgba(90,138,107,.16)}
+.jr .lab{font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.jr .j .lab{color:#e08a8a}
+.jr .r .lab{color:#8fcf9f}
+@media(max-width:520px){.jr{grid-template-columns:1fr}.jr .j{border-right:none;border-bottom:1px solid var(--border)}}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 3주차 · 2026학년도 2학기</div>
+  <h1>제3강 요엘서의 구조와 신학 및 메시지</h1>
+  <div class="prof">담당 오성호 교수 · 100% 영상강의(Panopto) · 제3과 1of2 · 2of2</div>
+</div>
+
+<div class="intro">
+  3주차 두 영상(<b>제3과 1of2</b> 정경적 위치·저자·저작연대·해석방법론, <b>제3과 2of2</b> 구조와 개요·
+  신학적 주제)의 Panopto 자막(1of2 277캡션·약 50분, 2of2 253캡션·약 43분)과 강의 PPT(<code>예언문학
+  -수업ppt.pdf</code> 12~16페이지, "제3강 요엘서의 구조와 신학 및 메시지")를 함께 대조해 정리했습니다.
+  교수님이 반복·강조한 부분은 <span class="b-exam bdg">교수 강조</span>, PPT엔 없고 구두 설명에만 있는
+  내용은 <span class="b-add bdg">강의 추가</span>, 이해를 돕기 위해 검색으로 보충한 부분은
+  <span class="b-sup bdg">보충</span>으로 구분했습니다. 자동자막 특성상 문맥이 어색한 구간은 매끄럽게
+  고치지 않고 <span class="asr">[ASR 불확실]</span>로 표시했습니다.
+</div>
+
+<div class="toc">
+  <a href="#canon">정경적 위치·연결</a>
+  <a href="#author">저자</a>
+  <a href="#date-late">저작연대① 후기설</a>
+  <a href="#date-early">저작연대② 전기설</a>
+  <a href="#date-concl">저작연대③ 결론</a>
+  <a href="#interpret">메뚜기 재앙 해석 4관점</a>
+  <a href="#structure">전체 구조</a>
+  <a href="#units">단락별 세부 흐름</a>
+  <a href="#theology">신학적 주제 5가지</a>
+  <a href="#exam">시험 포인트</a>
+  <a href="#verify">출처·검증 요약</a>
+</div>
+
+<!-- ════ PART A : 제3과 1of2 ════ -->
+<div class="part-div" id="partA"><span>제3과 1of2 · 정경적 위치·저자·저작연대·해석방법론</span></div>
+
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">1</span><span class="st">정경적 위치와 다른 소선지서와의 연결</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>사본 전통에 따른 순서 차이</h3>
+    <ul>
+      <li><b>마소라 사본</b>: 열두 선지자 중 요엘이 <b>두 번째</b>(호세아·요엘·아모스···) — 전통적으로
+        가장 오래된 책 중 하나로 간주됨.</li>
+      <li><b>70인역(헬라어역)</b>: 요엘이 <b>네 번째</b>로 나타남 — 호세아·아모스·미가·요엘 순(부강국에
+        대한 선지서들이 먼저 나오고 그다음 요엘이 이어짐).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>요엘 ↔ 아모스 — 핵심어 연결(catchwords)</h3>
+    <div class="pair"><span class="book">욜 3:16</span><span class="arrow">↔</span><span class="book">암 1:2</span>
+      <span class="desc"><span class="vq">"여호와께서 시온에서 부르짖고 예루살렘에서 목소리를 내시리니"</span>
+      — 동일 표현이 요엘에서는 만국 심판을 통한 이스라엘 구원의 맥락, 아모스 1:2에서는 이스라엘 심판의
+      맥락으로 서로 다른 뉘앙스로 쓰임. 요엘 맨 마지막이 아모스 맨 처음과 연결.</span></div>
+    <div class="pair"><span class="book">욜 3:18</span><span class="arrow">↔</span><span class="book">암 9:13</span>
+      <span class="desc"><span class="vq">"그 날에 산들이 단 포도주를 떨어뜨릴 것이며 작은 산들은 젖을
+      흘릴 것이다"</span> — 요엘 3장 마지막 부분이 아모스서의 맨 처음(1:2)과 맨 뒤(9:13) <b>양쪽 다</b>와
+      연결됨.</span></div>
+    <p><span class="bdg b-exam">교수 강조</span> 이러한 연결은 <b>아모스가 요엘 3장 16·18절을 자신의 첫
+      설교를 발전시키는 본문으로 사용</b>했다는 것을 보여준다 — 즉 아모스 1-2장의 열방 심판은 요엘에
+      나타난 우주적 심판의 빛 안에서 읽어야 한다는 것.</p>
+  </div>
+  <div class="card">
+    <h3>요엘 ↔ 호세아 — 연결</h3>
+    <div class="pair"><span class="book">호 14:1-2</span><span class="arrow">↔</span><span class="book">욜 1:13-20</span>
+      <span class="desc">호세아 마지막 장(14장)이 회개의 권고로 <b>끝나고</b>, 요엘 맨 앞(1:13-20)이 회개의
+      권고로 <b>시작</b> — 문학적 연결 장치.</span></div>
+    <p>요엘의 <b>여호와의 날</b> 주제는 앞서 호세아가 말한 언약적 심판(종말론적 심판)의 맥락에서 읽을
+      것을 요청하는 것으로 이어진다고 설명(<span class="bdg b-sup">보충</span> PPT p.12 "호/욜 사이의
+      정경적 관련성: 욜의 'YH의 날' 주제를 호세아의 심판의 맥락 속에서 읽을 것을 요청"과 일치).</p>
+  </div>
+</div>
+
+<div class="sec" id="author">
+  <div class="sh"><span class="sb">2</span><span class="st">저자</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>저자는 <b>브두엘의 아들 요엘</b><span class="bdg b-sup">보충</span>(sermon-bible-dictionary
+        방법론으로 대조: 요엘 1:1 개역개정 표준 표기와 정확히 일치 — 히브리어 פְּתוּאֵל, Pethuel).
+        "요엘"은 "여호와(요=여호와의
+        줄임형)가 하나님(엘)이시다"라는 뜻.</li>
+      <li>요엘서에는 <b>성전 관련 언급이 많이 나타남</b> — 이 때문에 요엘이 <b>제사장 출신</b>(성전
+        업무에 종사했던 인물)이었을 가능성이 추측됨.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="date-late">
+  <div class="sh"><span class="sb">3</span><span class="st">저작연대 논쟁 ① — 후기(포로 후기) 저작설 근거</span><div class="sl"></div></div>
+  <div class="card">
+    <p>연대는 주전 9세기~4세기까지 학자마다 견해가 매우 다양하나, 크게 <b>초기 저작설</b>과 <b>후기
+      (포로 후기) 저작설</b> 둘로 나뉜다. 먼저 후기설의 근거들:</p>
+    <ul>
+      <li><b>① 왕에 대한 언급이 없음</b> — 시대적 배경·왕 이름이 나오지 않아 포로 이후로 추정하는
+        근거가 되나, 요아스가 7살에 즉위해 숙부 여호야다가 섭정하던 시기(왕이 사실상 부재했던 시절)일
+        가능성도 있음.</li>
+      <li><b>② 앗수르·바벨론이 언급되지 않음</b> — 대신 에돔·애굽·블레셋·두로·시돈(페니키아) 같은
+        작은 나라들만 언급.</li>
+      <li><b>③ 북왕국에 대한 언급이 없음</b> — 유다만 언급되고, 요엘서의 "이스라엘"은 북왕국이 아니라
+        <b>12지파 전체</b>를 통합적으로 지칭하는 것으로 보임.</li>
+      <li><b>④ 성전·제사장이 두드러지게 언급</b>(1:9 소재·전제가 끊어짐, 1:13 제사장의 회개 요청,
+        2:17 제사장 관련 언급) — 제1성전 파괴(주전 586년) 이전이거나 제2성전 완공(15년) 이후일 것으로
+        추정.</li>
+      <li><b>⑤ 장로·제사장이 지도자로 나타나고 왕이 없음</b>(1:2 장로들, 1:13-14 제사장·장로·주민)
+        — 포로 후기 배경의 근거로 제시되나, 요아스 유년 섭정기에도 동일하게 해당됨.</li>
+      <li><b>⑥ 성전이 구심점 역할</b>(1:9, 1:14, 1:16, 2:17) — 역시 포로 후·전 양쪽 다 가능한 근거.</li>
+      <li><b>⑦ 언어 표현이 페르시아·헬라 시대 히브리 문체라는 주장</b> — 이에 대해 <b>글리슨 아처
+        (Gleason Archer)</b><span class="bdg b-sup">보충</span>는 그 아람어적 특징이 포로 이전에도 오래
+        쓰였다고 반박.</li>
+      <li><b>⑧ 다른 선지자들에 관한 지식이 풍부함</b> — 맨 뒤에 나온 책이라 그럴 수도 있지만, 맨 앞에
+        나온 책이라 다른 선지자들이 요엘을 인용했을 가능성도 있어 결정적이지 않음.</li>
+      <li><b>⑨ 바벨론 포로에 대한 언급으로 보이는 구절</b>(3:2-3 이스라엘을 흩고 땅을 나눔, 소년·소녀를
+        기생·술과 바꿈) — 그러나 3:1 "사로잡힌 자를 돌아오게 할 그 때에"는 <b>미래 예언</b>의 맥락으로도
+        읽을 수 있음.</li>
+      <li><b>⑩ 포로 후기 소규모 유다 공동체의 존재를 함축</b>(2:27, 3:16) — 역시 미래적 맥락 표현.</li>
+      <li><b>⑪ 헬라인 언급</b>(3:6 "유다·예루살렘 자손을 헬라 족속에게 팔았다") — 많은 학자들이 주전
+        330년 알렉산더 대왕 정복 이후로 봤으나, <b>주전 8세기 초 앗수르 비문에 이미 "헬라"가 등장</b>해
+        이 근거도 결정적이지 않음.</li>
+    </ul>
+    <p><span class="bdg b-exam">교수 강조</span> 후기설을 지지하는 근거들이 여럿이지만, <b>모두 절대적인
+      것은 아니며 다 반박이 가능</b>하다는 점을 각 근거마다 반복해서 짚음.</p>
+  </div>
+</div>
+
+<div class="sec" id="date-early">
+  <div class="sh"><span class="sb">4</span><span class="st">저작연대 논쟁 ② — 전기(초기) 저작설 근거</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>① 통치 형태가 섭정기와 부합</b> — 왕이 없고 제사장·장로가 국가를 지도하는 형태는 왕하
+        11:4(요아스 7세 즉위, 숙부 <b>여호야다</b>가 대제사장으로 섭정)와 가장 잘 맞음.</li>
+      <li><b>② 아모스와의 문학적 연결</b> — 아모스가 자신의 첫 설교(열방 심판 신탁)에서 요엘 본문을
+        인용하며 출발했다면, <b>요엘이 아모스보다 먼저</b> 기록됐다는 뜻이 됨(위 1번 정경적 연결 참조).</li>
+      <li><b>③(가장 결정적) 위협하는 적군의 정체</b> — 요엘서에 앗수르·갈대아(바벨론)·페르시아에 대한
+        언급이 <b>없고</b>, 대신 애굽·에돔·블레셋·두로·시돈 같은 <b>작은 주변국</b>들만 위협 세력으로
+        등장(3:4, 3:11, 3:19). 이 나라들이 실제로 위협적이었던 시기는 앗수르·바벨론 발흥 <b>이전</b>
+        (애굽 시삭의 예루살렘 침공[르호보암 시대], 요아스 조부 여호람 시대의 에돔·블레셋 침입 등) —
+        바사·헬라 시대 저작설은 이 사실로 배제 가능. 3:6에서 헬라를 "먼 나라"라 표현한 것도, 헬라가
+        세계를 지배한 주전 330년 이후였다면 나올 수 없는 표현.</li>
+      <li><b>④ 초기 선지자·이전 본문들과의 공통 주제</b> — 블레셋·두로 고발(3:4-8 ↔ 암 2:6-10 인신매매
+        고발), 메뚜기=군대 비유(사 6:5, 7:12, 나훔 3:15-16, 렘 47·51 등과 공통), 열방과의 결정적 전투
+        (3:2 ↔ 겔 38-39, 슥 12·14), 출애굽 10재앙과 유사한 표적·기사·창조질서 파괴 이미지, 여호와의
+        전에서 샘이 흐름(3:18 ↔ 겔 47, 슥 14) — <span class="bdg b-exam">교수 강조</span> 이 마지막
+        항목은 <b>요엘이 에스겔·스가랴보다 이전 시대</b>임을 보여준다고 명시적으로 짚음.</li>
+      <li><b>⑤ 인용/암시된 본문들도 초기 선지자들과 연결</b> — "여호와의 날"(1:15 ↔ 사13, 겔30, 습1),
+        "피할 자"(2:13,23 ↔ 옵17), "하늘과 땅이 진동"(3:16 ↔ 사13, 암1:2), "낯빛이 하얘짐"(2:6 ↔ 나훔),
+        "일월성신"(2:10 ↔ 사13:10), "여호와 밖에 다른 이 없다"(2:27 ↔ 겔·사), "내 신을 부어주겠다"
+        (2:28 ↔ 겔39), "만국"(3:2 ↔ 사66), "산들이 포도주를 떨어뜨림"(3:18 ↔ 암9:13) 등 핵심어가
+        초기 선지서들과 광범위하게 겹침.</li>
+      <li>글리슨 아처는 이런 근거들을 종합해 요엘서를 <b>주전 835년경</b>(대제사장 여호야다의 섭정기,
+        요아스 왕의 유년시절)으로 추정.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="date-concl">
+  <div class="sh"><span class="sb">5</span><span class="st">저작연대 논쟁 ③ — 결론</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — "이른 시기에 쓰인 책"이라는 결론</h3>
+    <p>"이런 여러 가지 증거들은 요엘서가 아주 이른 시기에 쓰여진 책이라는 것을 보여주고 있습니다"
+      라고 명시적으로 결론지음 — 후기설의 근거들은 대부분 반박 가능한 반면, 전기설(특히 ③번 위협국
+      정체 근거)은 상대적으로 더 결정적이라는 뉘앙스로 정리. 다만 "가장 늦은 시기일 수도 있지만"이라는
+      단서도 함께 남겨, 완전히 닫힌 결론은 아님을 표시함.</p>
+  </div>
+</div>
+
+<div class="sec" id="interpret">
+  <div class="sh"><span class="sb">6</span><span class="st">요엘 1-2장 메뚜기 재앙을 어떻게 해석할 것인가</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="bdg b-exam">교수 강조</span> 요엘서는 해석하기 매우 어렵고 난해한 책으로, 이 해석
+      문제 자체가 중요한 주제로 다뤄짐(PPT p.13 "5. 요엘서의 해석적 문제"). 핵심 질문 둘: (1) 1장의
+      메뚜기 재앙을 <b>문자적</b>으로 볼지 <b>은유적</b>으로 볼지, (2) 2장의 내용이 1장과 <b>동일 사건</b>
+      인지 <b>다른 사건</b>인지 — 이를 중심으로 해석 관점이 크게 네 가지로 나뉜다.</p>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">①</span>문자적 해석 — 1장·2장 모두 역사적 메뚜기 재앙</h3>
+    <ul>
+      <li>곤경의 원인으로 메뚜기 습격이 서두에 바로 언급됨(1:4 팟종이·메뚜기·느치·황충 — 메뚜기의
+        네 종류).</li>
+      <li>메뚜기의 여러 유형이 상세히 묘사됨 — 실제 메뚜기라는 근거.</li>
+      <li>메뚜기가 먹어버린 것에 대한 회복 약속이 그대로 반복됨(2:25 "메뚜기·느치·황충·팟종이가 먹은
+        햇수대로 갚아주겠다").</li>
+      <li>파괴 묘사가 매우 사실적·구체적(1:7 포도나무·무화과나무 훼손, 2:3 에덴 같던 땅이 황폐한
+        들로, 2:8-10 벽을 타고 창으로 들어옴 등).</li>
+      <li>2:4-5의 "군대와 같다"는 표현도 실제 군대가 아니라, 메뚜기를 군대에 <b>비유</b>한 것으로
+        해석(cf. 잠 30:27, PPT).</li>
+    </ul>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">②</span>은유적 해석 — 1장 메뚜기는 2장 외국 군대의 은유</h3>
+    <ul>
+      <li>메뚜기 은유는 성경 다른 곳(나훔 3:15-16, 렘 50:41·46, 51:27-33)에서도 침략 군대를 묘사하는
+        데 쓰임 — 이미 발전된 은유일 뿐 실제 메뚜기가 아니라는 것.</li>
+      <li>출애굽기 10장의 메뚜기 재앙(하나님이 거룩한 전쟁으로 이스라엘을 구원하시는 서사의 일부)을
+        염두에 둔 상징적 표현으로 봄.</li>
+      <li>1:19-20 "불이 목장을 살랐다"는 표현이 메뚜기 재앙과 <b>동일한 파괴</b>를 가리키는 또 다른
+        상징이라는 점 — 불이 상징이듯 메뚜기도 상징이라는 논리.</li>
+    </ul>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">③</span>혼합적 해석(1) — 1장은 역사적 메뚜기, 2장은 외국 군대 침략 예언</h3>
+    <ul>
+      <li>2장의 침략자는 행군하는 군대로 묘사(2:7-9), 2:17 제사장이 "나라들로 우리를 관할하지 못하게
+        하소서"라고 기도 — 단순 메뚜기가 아니라 <b>외국 군대의 예루살렘 지배</b>를 함축.</li>
+      <li>3:4-14·19 이방 군대(에돔·애굽 등)가 실제로 심판받는 장면과 연결.</li>
+      <li>2:20 "북쪽 군대"는 앗수르·바벨론류의 실제 침략군을 가리키는 것으로 보이나, 같은 절 하반절
+        "앞부대는 동해로 뒷부대는 서해로"는 오히려 메뚜기 떼의 이동 습성에 가까운 표현 — 두 이미지가
+        섞여 있음을 시사(PPT p.13: Stuart의 견해로 명시).</li>
+    </ul>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">④</span>혼합적 해석(2) — 1장은 역사적 메뚜기 재앙, 2장은 묵시적·종말론적 확장</h3>
+    <ul>
+      <li>2:11 "여호와께서 그의 군대 앞에서 소리를 지르신다" — 침략자가 실제 군대든 메뚜기든 그것을
+        "여호와의 군대"로 명명 → 종말론적 확장으로 읽음.</li>
+      <li>2:1-11에 여호와의 날의 신현(神現) 용어가 집중적으로 등장(어둡고 캄캄한 날, 짙은 구름, 불과
+        불꽃, 땅의 진동, 해·달·별의 어두움) — 단순한 군대 침략 예언을 넘어 <b>우주적 심판</b>으로
+        확장됨을 보여줌.</li>
+      <li>종말론적 구원도 함께 나타남(2:28 만민에게 영을 부어주심, 2:32 여호와의 이름을 부르는 자의
+        구원, 3:16 여호와가 피난처가 되심, 3:1-3·9-15 열방이 하나님의 군대와 대면).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>③·④의 관계</h3>
+    <p>혼합적 해석 (1)과 (2)는 서로 구분할 수는 있지만, 실질적으로는 <b>동일시될 수 있는 관점</b>이라고
+      정리 — 1장은 분명한 역사적 메뚜기 재앙이고, 2장은 그것이 "여호와의 군대"이자 "외국 군대"이면서
+      동시에 <b>종말론적 심판으로 확장</b>되는 것으로 볼 수 있다는 것.</p>
+  </div>
+</div>
+
+<!-- ════ PART B : 제3과 2of2 ════ -->
+<div class="part-div" id="partB"><span>제3과 2of2 · 요엘서의 구조와 개요 · 신학적 주제</span></div>
+
+<div class="sec" id="structure">
+  <div class="sh"><span class="sb">7</span><span class="st">요엘서 전체 구조</span><div class="sl"></div></div>
+  <div class="card">
+    <p>1:1은 <b>표제</b>이고, 나머지는 크게 두 부분으로 나뉜다: <b>2:17까지</b>(탄식과 회개 요청)와
+      <b>2:18 이후</b>(하나님의 자비와 구원의 약속). PPT는 이를 6단락으로 세분: ①메뚜기 재앙과 애통
+      (1:2-20) ②여호와의 날 선포(2:1-11) ③회개의 요청(2:12-17) ④풍요의 약속(2:18-27) ⑤영에 대한
+      약속(2:28-32) ⑥이방민족에 대한 심판과 유다의 회복(3장) — 그리고 이 전체가 <b>abc-a'c'b'</b>
+      구조를 이룬다고 정리(PPT p.13-14).</p>
+  </div>
+</div>
+
+<div class="sec" id="units">
+  <div class="sh"><span class="sb">8</span><span class="st">단락별 세부 흐름</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>① 1:2-20 — 메뚜기 재앙과 애통</h3>
+    <p>1:2-3 장로들과 주민들에게 "귀를 기울이라"(전무후무한 재앙이라 자자손손 전하라는 취지) →
+      1:4 재앙의 정체(팟종이·메뚜기·느치·황충) — <span class="bdg b-add">강의 추가</span> 이 "전무후무함"
+      표현이 출애굽기의 메뚜기 재앙 묘사와 같은 방식임을 지적. 재앙의 결과: 1:5 취한 자들의 통곡(포도주
+      끊김), 1:8 약혼자를 잃은 처녀의 슬픔에 비유, 1:9 소재·전제가 끊겨 제사장도 통곡, 1:11 밀·보리가
+      없어져 농부도 부끄러워함 — <b>제사장·농부·온 백성</b> 모두가 슬퍼하는 결과로 이어짐. 1:6은 메뚜기
+      떼를 "내 땅에 올라온 한 민족"으로 표현. 요구되는 반응: 1:13 제사장의 애곡, 1:14 금식일 선포·성전
+      집회. 1:15 이 재앙을 <b>"여호와의 날, 멸망의 날"</b>로 규정. 1:19-20 "불이 살랐다"는 메뚜기가
+      다 먹어버린 것에 대한 비유적 표현.</p>
+  </div>
+
+  <div class="card">
+    <h3>② 2:1-11 — 여호와의 날 선포</h3>
+    <p>2:1 시온에서 나팔을 불어 선포(나팔=전쟁 선포의 신호) → 메뚜기 재앙이 하나님의 심판·전쟁의
+      예고로 이어짐. 2:2 "어둡고 깜깜한 날, 짙은 구름이 덮인 날, 많고 강한 백성과 군대가 침략하는
+      날" — 메뚜기일 수도 실제 군대일 수도 있으나 "여호와의 날"이라는 표현으로 인해 <b>종말론적 문맥</b>에
+      놓임. 2:11 "여호와의 군대"로 명명. 2:20 "북쪽 군대" — 실제 이방 군대는 대개 북쪽에서 오는데
+      (사14, 렘6, 겔26·38 등과 평행) 메뚜기 떼는 보통 남쪽·남동쪽에서 오므로, 같은 절 하반절("앞부대는
+      동해로 뒷부대는 서해로")은 오히려 메뚜기 떼를 가리킬 가능성이 큼 — 2:17 제사장의 기도("나라들로
+      관할하지 못하게 하소서")는 이방 군대 쪽에 더 가까움. <span class="bdg b-exam">교수 강조</span>
+      결국 2:1-11은 메뚜기 재앙과 이방 군대 침략이라는 <b>두 재앙이 강하게 결합</b>된 것으로, 1장의
+      메뚜기 재앙(역사적 사건·미래의 예고) → 2장의 미래적·종말론적 심판(여호와의 날)으로 발전한다고
+      정리.</p>
+  </div>
+
+  <div class="card">
+    <h3>③ 2:12-17 — 회개의 요청</h3>
+    <p>2:12 "이제라도 금식하고 울고 애통하고 마음을 다해 내게로 돌아오라" → 2:13 "옷을 찢지 말고
+      마음을 찢고 여호와께 돌아오라"(이어지는 "은혜로우시고 자비로우시고 노하기를 더디 하시고..."는
+      <b>출애굽기 34:6-7</b>과 동일 표현이며 <b>요나 4:2</b>에도 그대로 나타남 — 책들이 서로 연결됨을
+      보여주는 표지). 2:15-16 범국민적 회개운동(금식일·성회 선포). 2:17 제사장들에게도 회개 촉구.
+      <span class="bdg b-exam">교수 강조</span> 2:16 "신랑을 신방에서, 신부도 신방에서 나오게 하라" —
+      신명기 20:7·24:5에 따르면 갓 결혼한 신랑은 <b>1년간 병역을 면제</b>받고 아내를 기쁘게 할 특권이
+      있었는데, 그런 신랑·신부조차 신방에서 나와 회개하라는 것 — 회개 요청의 강도를 보여주는 대목으로
+      짚음.</p>
+  </div>
+
+  <div class="card">
+    <h3>④ 2:18-27 — 풍요의 약속(물질적 회복)</h3>
+    <p>2:18 "그 때에"(=17절의 회개한 때) 여호와께서 자기 땅을 사랑하시고 백성을 불쌍히 여기심(이사야
+      40장 "위로하라"와 같은 전환의 패턴). 2:19 곡식·새 포도주·기름의 회복, 2:20 북쪽 군대의 추방.
+      회복의 세부: <b>2:21 땅, 2:22 들짐승·풀·나무·무화과·포도나무, 2:23 시온의 자녀들(이른 비·늦은
+      비 — <span class="bdg b-sup">보충</span> "의의 교사"로 메시야를 가리킨다는 해석 소개), 2:24
+      열매들, 2:27 언약("내가 너희 하나님 여호와가 되리라"), 2:26-27 수치를 당하지 않음</b> — 물리적·
+      풍요의 회복을 말함.</p>
+  </div>
+
+  <div class="card">
+    <h3>⑤ 2:28-32 — 영에 대한 약속(영적 축복)</h3>
+    <p>"내 영을 만민에게 부어주리니" — 받는 대상은 <b>"모든 육체"</b>. 요엘서 본문 문맥만 보면 이스라엘
+      공동체 내부를 가리키는 것으로 읽을 수 있으나, <b>정경적 관점</b>(호세아의 자연 회복 주제, 3:2
+      "만국을 모아 심판"과의 연결, 2:30-31의 우주적 자연 변화)에서 보면 <b>세계적·우주적 차원</b>으로
+      확장된다 — 이 확장은 <b>사도행전 2장</b>(오순절 성령 강림)에서 성취됨. <span class="bdg b-exam">
+      교수 강조</span> 4번째 단락(물질적 축복)과 5번째 단락(영적 축복)은 <b>별개가 아니라 연결</b>되어
+      있다 — 둘 다 성령의 사역이며, 2:28 "그 후에"는 시간적 선후 관계가 아니라 <b>종말의 때를 가리키는
+      상투적 표현</b>(동시적)이라고 짚음.</p>
+  </div>
+
+  <div class="card">
+    <h3>⑥ 3장 — 종말론적 여호와의 날(이방 심판·유다 회복)</h3>
+    <p>3:1 "사로잡힌 자를 돌아오게 하실 그 때" — 유다의 바벨론 포로기 이후를 내다보는 예언. 3:2·11-12
+      만국을 <b>여호사밧 골짜기</b>로 모아 심문 — 이유(3:3-5): 이스라엘 백성을 팔아넘기고 땅을 나누고
+      노략함. 3:13 "낫을 쓰라 곡식이 익었도다 와서 밟을지어다 포도주 틀이 가득히 차고 포도즙 독이
+      넘치니"(추수·포도주 틀 이중 심판 이미지 — <span class="bdg b-sup">보충</span> sermon-bible-dictionary
+      방법론으로 대조: 이 포도주 틀을 밟는 심판 이미지는 <b>이사야 63:1-6</b>(특히 3절 "만민 중에 나와
+      함께 한 자가 없이 내가 홀로 포도즙 틀을 밟았는데")과 평행). 3:11 "주의 용사들"은 원래 여호와의 도구로 쓰였던
+      사방 민족들이 이제 심판받는 대상이 됨을 가리킴. 3:14-21 우주적 대변혁 — 3:16 여호와께서 시온에서
+      부르짖으심(신현), 3:17 시온의 회복·언약의 회복, 3:18 산들이 단 포도주를 떨어뜨림(에덴동산과
+      같은 종말론적 회복), 3:19 애굽·에돔의 심판, 3:20-21 유다·예루살렘의 영원함과 하나님 왕국의
+      완성.</p>
+  </div>
+</div>
+
+<div class="sec" id="theology">
+  <div class="sh"><span class="sb">9</span><span class="st">신학적 주제와 메시지 5가지</span><div class="sl"></div></div>
+
+  <div class="view">
+    <h3><span class="vlab">1</span>여호와의 날</h3>
+    <p><span class="bdg b-exam">교수 강조</span> "예언을 주도하는 엔진"이라 표현할 만큼 요엘서의 가장
+      핵심적인 주제. 정의: 여호와께서 하늘과 땅의 모든 일을 살피시고 심판·보응·구원을 행하시는 날.
+      원래적 의미(기원)는 <b>거�룩한 전쟁</b>의 맥락에서 단 하루 만에 원수를 무찌르고 승리하시는
+      개념. 그런데 요엘서에서는 특이하게 <b>먼저 여호와의 백성을 심판하는 날</b>로 쓰이다가, 다시
+      뒤집혀 이스라엘(남은 자들)을 구원하는 최종 승리의 날로 나타남. 특징: <b>임박성</b>(늘 "가깝다"),
+      <b>환란·고난 동반</b>(피할 수 없음), <b>우주적 범위</b>, 궁극 목적은 <b>회개와 헌신 촉구</b>
+      (2:13 "마음을 찢으라"), 결과는 <b>보편적 심판을 통한 남은 자의 색출·구원</b>. 호세아서(형벌·
+      보응의 날)와 비교하면, 요엘서에서는 이것이 역사 속(메뚜기 재앙)에서 실현됨과 동시에 종말론적으로도
+      실현될 것을 말함 — 군대 심판과 성령을 통한 회복이 함께 나타나는 것이 요엘서의 특징.</p>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">2</span>회개</h3>
+    <p>회개 요청(2:12-17)은 <b>종말론적 경고</b> — 이미 심판·종말이 시작됐지만 "이제라도" 피할 기회가
+      있음을 알림. <span class="bdg b-exam">교수 강조</span> 흥미롭게도 요엘서는 <b>회개해야 할 구체적인
+      죄가 명시되어 있지 않다</b> — 이는 요엘서를 <b>호세아서의 맥락</b>에서 읽을 때 이해된다: 요엘의
+      종말론적 심판은 결국 호세아가 말한 <b>언약파기로 인한 심판</b>이며, 그 언약을 깨뜨린 죄에 대한
+      회개 요청이라는 것. 회개할 수 있는 근거는 "은혜로우시며 자비로우시며 노하기를 더디 하시는" 하나님의
+      성품(2:13, 출34:6-7).</p>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">3</span>회복의 영</h3>
+    <p>요엘의 공헌은 <b>모든 하나님의 백성에게 성령이 주어진다</b>는 보편적 성령 부어짐 — 에스겔 36장·
+      예레미야 31장의 새 언약 약속과 맥이 통함. <span class="bdg b-sup">보충</span> 구약에서 과거엔
+      모세와 칠십 장로, 여호수아, 왕들, 선지자들, 다윗·삼손처럼 <b>특별한 개인</b>에게만 성령이
+      주어졌으나(민수기·사무엘상하·신명기·열왕기하·베드로후서 등), 요엘의 예언은 <b>모든 육체</b>가
+      성령을 받는다는 점에서 질적으로 다름. 요엘서 문맥만으론 공동체 내부(이스라엘)를 가리키지만, 호세아·
+      요엘의 종말론적 맥락을 고려하면 결국 <b>사도행전 2장</b>이 말하는 만민·우주적 차원까지 포괄함.
+      물질적 축복(4단락)과 영적 축복(5단락)은 둘 다 성령의 사역으로 연결됨.</p>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">4</span>자연과 역사</h3>
+    <p>요엘서의 두드러진 특징: <b>메뚜기 재앙과 군대의 침략이 정교하게 융합</b>됨 — 메뚜기 재앙은
+      군대 침략(앗수르·갈대아의 미래적 침략)에 대한 은유예언이며, 둘 다 종말론적인 하나님의 도구.
+      핵심 메시지는 <b>여호와께서 자연의 세력을 통제하시는 분</b>이라는 것(이 사상 자체는 호세아서,
+      오경의 10재앙에도 있었으나 요엘서는 메뚜기 같은 자연 세력까지 여호와의 지배 아래 있음을 두드러지게
+      보여줌) — 여호와의 권능은 <b>자연과 역사를 통해 동시에</b> 나타나며, 종말론적 환상 속에서 둘이
+      뚜렷이 구분되지 않는다. 메뚜기는 "은유의 수단", 군대는 "은유의 취지"로서 서로 상승작용한다 —
+      메뚜기 이미지는 군대의 탐욕·무분별한 파괴·무자비한 유린을 묘사하고, 군대의 규율·목적·질서는
+      메뚜기 떼의 은유에 힘을 실어줌.</p>
+  </div>
+
+  <div class="view">
+    <h3><span class="vlab">5</span>정경적 기여</h3>
+    <p>열두 선지서 안에서: 호세아서의 심판 메시지를 심화 발전시키고, <b>아모스의 선포의 출발점</b>으로
+      기능함(위 1번 참조). 신약과의 관계: <b>2:30-31·3:15</b>(해와 별이 어두워짐) → 누가복음·요한계시록의
+      종말 언어 제공. <b>3:13</b>(낫을 대는 추수) → <b>마가복음 4장</b> 비유의 제공. <b>2:4-5</b>(메뚜기
+      군대의 징벌 이미지) → <b>요한계시록 9장</b>에 재등장. <b>사도행전 2:17-21</b>(2:28-32 성령 부어짐
+      인용) — 3:1의 "그 때에"라는 표현이 사도행전에서 <b>그리스도의 도래를 통한 새 시대의 "마지막 때"</b>
+      로 성취됨을 보여줌.</p>
+  </div>
+</div>
+
+<div class="sec" id="exam">
+  <div class="sh"><span class="sb">시험</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 반복·강조된 핵심 포인트(중간·기말 온라인 시험 대비)</h3>
+    <ul>
+      <li>요엘-아모스, 요엘-호세아 catchword 연결 구절(욜3:16↔암1:2, 욜3:18↔암9:13, 호14:1-2↔욜1:13-20)과
+        그 신학적 함의(아모스가 요엘을 인용·발전).</li>
+      <li>저작연대 후기설 근거 11가지와 각각이 왜 결정적이지 않은지, 전기설 근거 5가지(특히
+        ③위협국 정체 논증)의 우위, "요엘서는 아주 이른 시기에 쓰인 책"이라는 결론 문장.</li>
+      <li>메뚜기 재앙 해석 4관점(문자적/은유적/혼합①/혼합②) 각각의 근거 구절과, ③·④가 실질적으로
+        동일시될 수 있다는 종합 관점.</li>
+      <li>요엘서 6단락 구조(abc-a'c'b')와 각 단락의 핵심 구절.</li>
+      <li>여호와의 날이 요엘서에서 "백성 심판"으로 먼저 쓰이다가 "이스라엘 구원"으로 뒤집히는 이중
+        구조, 그리고 요엘서가 죄를 구체적으로 명시하지 않는 이유(호세아서의 언약파기 맥락).</li>
+      <li>메뚜기↔군대의 "은유적 교환"(자연과 역사가 종말론적 환상 속에서 하나로 묶인다는 신학적 요지).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 1of2·2of2 영상 자막 + 강의 PPT 12~16페이지</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 8건</span>
+    <span class="stat" style="color:var(--crimson2)">강의 추가 · 3건</span>
+    <span class="stat" style="color:var(--gold)">세그먼트 커버리지 · 두 영상 처음~끝 100%</span>
+  </div>
+  <p>· <b>자료근거</b>: LMS(edulms.kbtus.ac.kr)에 게시된 3주차 Panopto 영상 두 편(1of2 약 50분 277캡션,
+    2of2 약 43분 253캡션)의 자동자막을 처음부터 끝까지 전량 추출·대조했고, 강의 PPT
+    (<code>profiles/prophet/materials/예언문학-수업ppt.pdf</code>, "제3강 요엘서의 구조와 신학 및
+    메시지" 12~16페이지)와 함께 대조해 정리했습니다. 두 영상 모두 마지막 캡션 타임스탬프가 실제
+    영상 길이의 20초 이내(1of2: 2990.8s/3011.2s, 2of2: 2553.3s/2573.0s)까지 이어져 커버리지 100%를
+    확인했습니다.</p>
+  <p>· <b>교수 강조</b>: ① 아모스가 요엘 3:16·18을 인용해 첫 설교를 발전시킴 ② "요엘서는 아주 이른
+    시기에 쓰인 책" 결론 ③ 요엘이 에스겔·스가랴보다 이전 시대(3:18↔겔47/슥14) ④ 2:1-11이 메뚜기·이방
+    군대 두 재앙의 강한 결합 ⑤ 신랑·신부조차 회개하라는 요구(2:16, 신20:7·24:5와 대조) ⑥ 물질적·영적
+    축복(4·5단락)의 불가분성과 "그 후에"의 비순차성 ⑦ 요엘서가 죄를 구체적으로 명시하지 않는 이유
+    (호세아 맥락) ⑧ 여호와의 날 개념의 이중 반전(백성 심판→이스라엘 구원).</p>
+  <ul>
+    <li><b>sermon-bible-dictionary로 2차 검증 완료</b>(웹검색 대신 스킬 방법론 적용 — SKILL.md 미등록
+      세션이라 방법론을 직접 읽어 수동 적용): ① 저자명 "브두엘"은 요엘 1:1 개역개정 표준 표기와 정확히
+      일치(히브리어 פְּתוּאֵל, Pethuel) — ASR 오인식 아님, 원문 확정. ② 3:13 "포도주 틀" 이미지는
+      <b>이사야 63:1-6</b>(특히 3절)과의 평행으로 확정.</li>
+    <li><b>웹검색으로 확인 완료</b>(sermon-* 스킬군 영역 밖 항목이라 오너 지시로 웹검색 사용): 글리슨
+      아처(Gleason L. Archer)의 실존 저작 <i>A Survey of Old Testament Introduction</i>에서 실제로
+      요아스 왕의 소년기(제사장 여호야다의 섭정기)를 근거로 요엘서를 <b>주전 약 830년경</b>으로 추정하며,
+      그 논증(왕의 부재·앗수르/바벨론 미언급·애굽·에돔·블레셋만 언급)도 강의 내용과 정확히 일치함을
+      확인했습니다. 강의에서 언급한 "835년경"은 요아스의 통상적 즉위년(주전 835년)에 가까운 수치로,
+      아처가 명시한 "약 830년"과는 약간의 차이가 있으나 같은 시대적 창(요아스 섭정기)을 가리키는
+      것으로 판단됩니다.</li>
+  </ul>
+</div>
+
+<div class="foot">예언문학연구입문 3주차 · 오성호 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
