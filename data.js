@@ -641,7 +641,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" },
             { type: "guide", label: "호세아서 참고서", href: "output/2026-2/prophet/guide_hosea.html" }
           ] },
-            { week: 3, title: "", date: "", files: [
+            { week: 3, title: "제3강 요엘서의 구조와 신학 및 메시지", date: "2026.09.08", files: [
             { type: "guide", label: "요엘서 참고서", href: "output/2026-2/prophet/guide_joel.html" }
           ] },
             { week: 4, title: "", date: "", files: [
