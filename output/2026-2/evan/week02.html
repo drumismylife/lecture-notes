@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 2주차 — 복음이란(1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed; top: 16px; left: 16px; z-index: 9999;
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 14px; background: rgba(20, 14, 8, 0.82);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(224, 138, 74, 0.35); border-radius: 20px;
+  color: #f0b888; font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s; cursor: pointer;
+}
+#lnotes-back-btn:hover { background: rgba(30, 20, 12, 0.95); border-color: rgba(224, 138, 74, 0.7); transform: translateX(-2px); }
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) { #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; } }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#f0b888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">전도학개론 · 2주차(9/10) · 2026학년도 2학기</div>
+  <h1>복음이란 (1) — 하나님은 누구신가 · 인간의 문제</h1>
+  <div class="prof">담당 김완 교수 · 목 10,11,12교시 · C102</div>
+</div>
+
+<div class="intro">
+  이번 주는 <b>1·2교시 녹취 전체(아이폰 ASR 전사)</b>와 <b>강의자료 PPT("2,3강 복음이란", 114매)</b>를
+  대조해 정리했습니다. <b>2교시가 "여기까지 하겠습니다"로 마무리되며 실제 수업은 §7(인간의
+  문제)까지만 진행</b>됐습니다 — PPT 슬라이드 49~114(하나님의 해법·인간의 반응·성화)는 이번
+  주 다루지 않았고, 다음 주로 이월된 것으로 추정됩니다(§8 참조, 확정 아님). 교수님이 반복·강조한
+  부분은 <span class="b-exam bdg">교수 강조</span>(시험 언급 포함), PPT엔 없고 강의 중에만
+  나온 내용(목회 예화 등)은 <span class="b-add bdg">강의 추가</span>, 검색으로 보충한 내용은
+  <span class="b-sup bdg">보충</span>으로 표시했습니다. 문맥이 어색한 자동전사 구간은 매끄럽게
+  고치지 않고 <span class="asr">[ASR 불확실]</span>로 남겼습니다. 조별 식사 안내 등 순수 행정
+  공지는 본문에서 제외했습니다.
+</div>
+
+<div class="toc">
+  <a href="#etym">복음의 어원</a>
+  <a href="#denom">왜 교단이 많은가</a>
+  <a href="#q1">Q. 효과적인 전도 방법</a>
+  <a href="#core4">복음 4가지 핵심</a>
+  <a href="#who">1. 하나님은 누구신가</a>
+  <a href="#problem">2. 인간의 문제</a>
+  <a href="#next">다음 주 예고</a>
+  <a href="#verify">출처·검증 요약</a>
+</div>
+
+<div class="sec" id="etym">
+  <div class="sh"><span class="sb">1</span><span class="st">복음의 어원적 정의</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>명사</b>: 복음(福音, Gospel), 헬라어 <b>εὐαγγέλιον</b>(유앙겔리온), 히브리어 <b>בּשׂר</b>(basar,
+    바사르). εὖ(eu, 좋은·기쁜) + ἄγγελος(angelos, 전하는 자·소식) = Good News = 좋은 소식.</p>
+    <p><b>동사</b>: εὐαγγελίζομαι(euangelizomai), "좋은 소식을 전하다, 복음을 선포하다."</p>
+    <p><span class="bdg b-add">강의 추가</span> 헬라·로마 사회에서 "euangelion"은 <b>황제의 승리·즉위·평화
+    선포</b> 같은 "기쁜 소식"을 가리킬 때 쓰던 말이었습니다 — 마라톤 전투 승전보를 전할 때 이
+    단어를 썼다는 일화(전령이 "승리하였나이다" 외치고 죽었다는 이야기)를 교수님이 예로 들며,
+    사도들이 "왜 전쟁 승리에만 쓰던 이 말을 예수님이 우릴 위해 죽고 사랑하신 소식에도 쓰냐"며
+    차용해 오늘날 "복음"이 되었다고 설명했습니다.</p>
+    <p><b>복음의 본질</b>(교수님 정의, 노트 전체를 관통하는 핵심 문장): <span class="vq">"생명되신
+    하나님과의 친밀한 사랑의 관계."</span></p>
+  </div>
+</div>
+
+<div class="sec" id="denom">
+  <div class="sh"><span class="sb">2</span><span class="st">왜 같은 개신교 안에 교단이 많은가</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>가스펠 코어(Gospel Core)</b>: 하나님이 온 세상을 창조하셨고, 인간을 자녀로 창조하셨으나
+    죄로 멀어졌고, 하나님이 예수님을 십자가에 대신 죽게 하시고 살리셨으며, 누구든 예수를 믿고
+    회개하면 영생을 주신다는 핵심 — 이단을 제외한 모든 개신교가 동의하는 부분입니다.</p>
+    <p>이 코어를 감싸는 "껍질"에 신학적 차이가 있는데, <b>덜 중요한 차이 안에서는 같은 교단으로
+    묶이고, 그 선을 넘으면 다른 교단이 됩니다.</b> 예: 신자의 침례(침례교에서 매우 중요 — 장로교·
+    감리교의 유아세례와는 받아들일 수 없는 차이) vs 동성애·여성 목사 안수 찬반(목회자마다 입장이
+    갈려도 강단 교류 여부가 사람마다 다름).</p>
+    <p><span class="bdg b-exam">교수 강조</span> "여러분 나름으로 신학적 관(觀)을 치열하게 정하지
+    않으면 영원히 헷갈리게 됩니다 — 평신도는 담임목사 말을 따르면 되지만, 말씀사역자인 여러분은
+    라인을 정해야 합니다." (구원의 영속성·칼빈주의/알미니안 등 예시로 듦)</p>
+  </div>
+</div>
+
+<div class="sec" id="q1">
+  <div class="sh"><span class="sb">3</span><span class="st">Q. 어떻게 전도하는 게 가장 효과적일까요?</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐⭐ 교수 강조 — 중간고사 문제로 직접 언급</h3>
+    <p>교수님이 녹취에서 <b>"실제 시험 문제입니다, 중간고사 때 이게 2번인가요... 3번이 아까...
+    시험 문제인데 그대로 될 겁니다"</b>라고 명시적으로 말했습니다. 선택지: ① 10~15분 ② 30~40분
+    ③ 3시간 ④ 5주 ⑤ 12주. <b>정답은 ⑤(최소 12주 새가족반 과정)</b> — "시간을 최대한 길게
+    주는 게 낫다"는 취지로, 짧게(10~15분) 전도하는 건 임종 직전처럼 시간이 없을 때뿐이고, 여유가
+    있다면 40분·5주·12주로 갈수록 더 낫다는 설명이었습니다.</p>
+  </div>
+  <div class="card">
+    <p>교수님 본인 사례: 암 환자 친구에게 2시간 반 동안 전도했고, 보험회사 다니는 친구에게는
+    "40분 달라"고 협상해 전도했다는 일화. "제일 원하는 건 여러분이 5주 추수 과정을 만드는 것 —
+    미니멀 12주가 훨씬 좋다."</p>
+    <p><span class="bdg b-exam">교수 강조</span> "제발 이전 사역자들과 다르게, 여러분은 복음을
+    조금만 더 풍성하게, 기복신앙·인본주의로 흐르지 말고 하나님과의 관계에 초점 맞춰 전해줬으면
+    좋겠다" — 이 요청을 반복해서 강조.</p>
+  </div>
+</div>
+
+<div class="sec" id="core4">
+  <div class="sh"><span class="sb">4</span><span class="st">복음 메시지의 4가지 핵심</span><div class="sl"></div></div>
+  <div class="card">
+    <ol>
+      <li>하나님은 누구신가?</li>
+      <li>인간의 문제</li>
+      <li>하나님의 해법</li>
+      <li>인간의 반응</li>
+    </ol>
+    <p>(이후 §85 슬라이드에서 5번째 "성화"가 추가되어 총 5가지 핵심으로 확장 — 이번 주는 다루지
+    않음, §8 참조). 교수님: "여러분이 아는 브릿지·사영리·전도지 대부분 이 네 가지 원칙에 근거해
+    만들어집니다."</p>
+    <p><span class="bdg b-add">강의 추가</span> 약어 팁: 하나님(God)=G, 예수님(Jesus)=J, 성령님(Holy
+    Spirit)=HS, 사람(person/people)=X, 그리스도인(Christian)=XN.</p>
+    <h3>한국 4영리의 문제점</h3>
+    <p>하나님이 누구신지 설명 없이 바로 "하나님은 당신을 사랑하신다"고 시작하는 것이 문제 —
+    "복음전도의 첫 지식은 생명되신 하나님이 누구신지 설명하는 것"이어야 한다는 것이 교수님
+    입장입니다. 일본 4영리·Sand Art 4영리(유튜브 "샌드아트 사영리")는 창조 세계의 질서(해와 달,
+    자전과 공전, 사계절 등)부터 설명하며 하나님을 소개하는 구조라 이 문제가 덜하다고 비교했습니다.
+    <span class="bdg b-add">강의 추가</span> 한국 사영리를 잘 쓰지 않는 이유로 ①하나님이 누구신지
+    설명 부족 ②죄에 대한 책임을 묻지 않음 ③지옥에 대한 강조 없음, 세 가지를 들었습니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="who">
+  <div class="sh"><span class="sb">5</span><span class="st">1. 하나님은 누구신가</span><div class="sl"></div></div>
+
+  <div class="card">
+    <h3>신명(神名) 연구 — YHWH</h3>
+    <p>히브리어 신명 4글자(Tetragrammaton) <b>YHWH</b>는 원래 모음이 없어 정확한 발음법이
+    실전됐습니다(너무 거룩해 부르면 안 된다고 여겨 안 읽었기 때문 — 필사할 때도 목욕재계 후 별도
+    펜으로 썼다는 설명). 대신 "아도나이"(주님)로 바꿔 불렀습니다. "야훼"·"여호와" 둘 다 확정된
+    발음이 아니며 학자들 사이에서도 의견이 갈립니다. <span class="bdg b-add">강의 추가</span>
+    "여호와"라는 한글 표기는 독일어 발음 관습(Y=이응)을 영어권이 다시 지읒으로 잘못 옮긴 "이중
+    오역"이라는 설명 — <span class="asr">[ASR 불확실: 정확한 음운 변화 경로는 구두 설명이라
+    문헌 대조 없이는 완전히 확정하기 어려움]</span>.</p>
+    <p><span class="bdg b-sup">보충</span> 헬라어로는 <b>Θεός</b>(세우스/데오스), 한자어는 번역
+    논쟁 끝에 "천주"(가톨릭, 초기 조선 번역 계승)가 아니라 <b>"상제"</b>(개신교, 중국어 샹띠)가
+    채택됐다는 설명. 한글 "하나님"은 "하늘님"에서 ㄹ 탈락 후 아래아 모음 변화를 거쳐 정착됐다는
+    설명입니다.</p>
+    <p><span class="bdg b-add">강의 추가</span> 선교학 사례: 아프리카 줄루족 선교사가 신명 번역어로
+    부족 고유 개념 "앤쿨루쿨루"를 차용한 사례, 이슬람권 선교사가 "알라"를 전능자 개념으로 차용해
+    큰 논쟁이 된 사례 — 교수님 본인이 신명 번역 문제로 논문을 썼다고 언급.</p>
+  </div>
+
+  <div class="card">
+    <h3>창조 이야기 &amp; 에덴동산의 두 나무</h3>
+    <p>창1:1 6일 창조 순서(빛→해달별→하늘바다→땅→동식물→인간)를 짚은 뒤, 시8:3-6("사람이
+    무엇이기에 주께서 그를 생각하시며")을 인용해 인간이 창조의 마지막 "화룡점정"으로 만들어졌음을
+    강조. 하나님은 인간을 "친밀한 사랑의 교제를 나눌 가족"으로 만드셨다는 것이 핵심.</p>
+    <p>에덴동산 가운데 <b>생명나무</b>(하나님과의 친밀한 교제·하나님 중심적 삶·하나님이 인생의
+    주인을 상징)와 <b>선악을 알게 하는 나무</b>(=지식의 나무, 영어 Tree of Knowledge — 한국어
+    성경엔 "지식"이 빠져 있다고 지적, 교제가 깨진 자기중심적 삶을 상징)가 있었다고 설명. 두 나무의
+    실제 모양은 "그냥 웹에서 가져온 이미지"라며 정답이 없다고 가볍게 언급.</p>
+  </div>
+
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 영생의 본질(요일 1:1-3, "너무 중요해")</h3>
+    <p>"영생은 하나님과 그분이 보내신 예수님을 알고 친밀한 사랑의 교제를 회복하는 것"(요 17:3)이며,
+    호흡기 꽂고 오래 사는 게 영생이 아니라고 강조. 요한일서 1:1-3(<span class="vq">"우리의 사귐은
+    아버지와 그의 아들 예수 그리스도와 더불어 누림이라"</span>)을 "성경 신약 중 가장 마지막에
+    쓰인 사도 요한의 최종 요약"이라 소개하며 <b>"너무 중요해, 너무 중요해... 시험에 냈습니까
+    안 내겠습니까?"</b>라고 반복 강조했습니다(직접적인 출제 확정 발언은 아니고 수사적 표현이지만,
+    반복·강조 강도가 매우 높습니다).</p>
+    <p>신명기 30:20(<span class="vq">"그는 네 생명이시요"</span>)을 근거로, 하나님이 주시는 축복
+    (신유·물질·은사·평안 등)은 생명의 본질이 아니라 <b>생명되신 하나님에게서 파생되는 것</b>일
+    뿐이라고 강조. 천국·지옥의 정의(어거스틴 인용, <span class="asr">[ASR 불확실: "신학자들은"
+    이라고만 언급, 어거스틴 실명은 교수님이 직접 언급했음]</span>): 천국이 천국인 이유는 황금길·
+    보석이 아니라 <b>하나님이 거기 계시기 때문</b>이고, 지옥이 지옥인 이유는 불꽃이 아니라
+    <b>하나님의 임재가 없기 때문</b>이라고 정의.</p>
+  </div>
+
+  <div class="card">
+    <h3>전환질문 — 왜 우리에게 고통이 있는가</h3>
+    <p>"하나님이 그렇게 전능하고 사랑이 많으신데 왜 이 땅에 고통이 있는가" — 모든 종교에 있는
+    난제 중 기독교 최대의 난제로 소개하며 §7(인간의 문제)로 연결.</p>
+  </div>
+</div>
+
+<div class="sec" id="problem">
+  <div class="sh"><span class="sb">6</span><span class="st">2. 인간의 문제</span><div class="sl"></div></div>
+
+  <div class="card">
+    <p><b>인생 문제의 핵심 = 생명되신 하나님을 잃어버린 것.</b> "삼성전자 물린 것도, 결혼 못한 것도,
+    부모의 반대도 핵심이 아니다"라는 예시로 강조.</p>
+    <p><span class="bdg b-exam">교수 강조</span> §3의 "복음을 길게 전해야 한다"는 원칙을 다시
+    반복 — "지금 1시간씩 두 번으로도 아직 다 못 가르쳤다, 타락 얘기도 전도의 정의도 아직 안
+    했다"며, 복음 하나를 1년 동안 가르쳐도 부족하다는 취지로 재차 강조.</p>
+  </div>
+
+  <div class="card">
+    <h3>신명기 30:15-20 &amp; 창2:7 원어 분석</h3>
+    <p>신명기 30:15,19-20의 생명·복 vs 사망·저주 대구 구조를 다시 짚고, "생명의 본질·복의 본질이
+    무엇이냐 — 하나님 그분이시다(로또 당첨·아파트값 상승이 아니다)"라고 강조.</p>
+    <p><span class="bdg b-exam">교수 강조</span> 교수님이 <b>"시험 문제 건데"</b>라고 직접 언급한
+    부분: 창2:7 히브리어 원문(바이이체르/아파르/네셰마트 하임 등)을 짚으며, 인간은 <b>①땅의 흙
+    (아파르)과 ②생기(니셰마트 하임, The Breath of Life)가 합쳐져 "살아있는 존재"(네페쉬 하야,
+    a living being)가 된다</b>는 것 — "하나님의 생기가 빠지면 인간은 먼지(흙)만 남는다"는 요지.</p>
+  </div>
+
+  <div class="story">
+    <h3>📖 목회 예화 (강의 추가)</h3>
+    <p><span class="bdg b-add">강의 추가</span> 파스칼(Blaise Pascal, 1623-1662)의 "인간은 생각하는
+    갈대다"와 "인간의 마음엔 오직 창조주 하나님으로만 채워지는 빈 공간(a God-shaped vacuum)이
+    있다"를 인용, 그 공허함을 채우려는 인간의 시도들을 아래 목회 현장 사례로 설명:</p>
+    <ul>
+      <li>택시기사 대상 보험 영업하던 지인이 전도를 부탁받았는데, 알코올 중독으로 예배에 늦게
+        나타난 60대 남성 사례(딸·아내와도 연이 끊김) — "먹으면 안 되는 줄 알면서도 내면의 공허함을
+        견딜 수 없어 마신다."</li>
+      <li>강남 사역 시절 만난, 피부가 좋고 겉보기엔 걱정 없어 보이던 자매가 실은 "남자친구 없이는
+        못 견디는" 관계 의존증이었던 사례.</li>
+      <li>결혼 후 타지(목포)로 가 산후우울증을 겪은 여성 신자의 사례 — 유일한 낙이 드라마(박보검
+        주연작) 시청이었다는 이야기.</li>
+      <li>이혼 가정의 자녀들 — "10명 중 1명 부모 이혼" 통계 언급(강남 중고등부 사역 경험,
+        <span class="asr">[ASR 불확실: 정확한 수치·교회 규모는 구두 언급이라 문헌 확인 불가]</span>),
+        풀로 붙인 종이가 다시 안 떨어지듯 이혼의 상처가 깊다는 비유.</li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>⭐⭐ 교수 강조 — 죄의 저주 3가지 차원(명시적 "시험" 언급)</h3>
+    <p>교수님이 <b>"이건 시험에 됩니다"</b>라고 직접 말한 대목입니다. 죄의 저주는 세 가지 차원에서
+    나타납니다:</p>
+    <ol>
+      <li><b>관계가 깨진다</b> — 부모자녀·부부·형제 관계가 하나님과 단절된 인간에게서 반드시
+        깨진다("가지가 포도나무에 붙어있지 않으면 열매 맺을 수 없다").</li>
+      <li><b>하나님의 임재가 거친다(사 59:1-3)</b> — 불안·허무·갈급·외로움이 나타나고, 대체제를
+        찾지만 만족할 수 없다(렘 2:13 "터진 웅덩이"). "신자라도 하나님과의 친밀함에 문제가 생기면
+        기름부으심이 하나하나 거친다."</li>
+      <li><b>둘째 사망, 지옥(히 9:27)</b> — "한 번 죽는 것은 정해진 것이요 그 후에는 심판이
+        있으리니."</li>
+    </ol>
+  </div>
+
+  <div class="sup">
+    <span class="tag">🔎 보충(웹검색 교차검증)</span> 교수님이 언급한 "구멍난 복음을 기원하라"는
+    책 제목은 ASR 오인식으로 판단됩니다 — 검색 결과 정확한 제목은 <b>박영철, 『구멍 난 복음을
+    기워라』(규장, 2016)</b>입니다("기원하라"가 아니라 "기워라"=꿰매다). 박영철 교수는 침례신학
+    대학교에서 35년간 전도학·목회학 등을 가르친 실천신학 교수로, 이 책은 "믿고 구원받았다 확신해도
+    삶에서 하나님께 굴복하지 않는" 문제의식에서 복음 메시지를 보완하자는 내용입니다. 교수님은
+    "오늘날 복음이 짧고 빠르게 전해지려다 보니 죄의 심각성이 충분히 설명되지 않는다"는 문제의식과
+    연결지어 인용했습니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="next">
+  <div class="sh"><span class="sb">7</span><span class="st">다음 주 예고 — 이번 주 다루지 못한 PPT 내용</span><div class="sl"></div></div>
+  <div class="card">
+    <p>PPT("2,3강 복음이란", 114매) 중 §85까지(슬라이드 49~114 상당)는 이번 시간에 <b>다루지
+    않았습니다</b> — 2교시가 "여기까지 하겠습니다"로 끝났습니다. 남은 내용:</p>
+    <ul>
+      <li><b>3. 하나님의 해법</b> — 대속적 죽음(갈 3:13), 부활(고전 15:1-4), 부활의 신학적 의미</li>
+      <li><b>4. 인간의 반응</b> — 회개(구약 5대 제사: 번제·소제·화목제·속죄제·속건제)와 믿음,
+        영접기도문 예시, "왕좌" 다이어그램(불신자/신자)</li>
+      <li><b>5. 성화</b> — 성령충만한 삶, 영/육 다이어그램(롬 8장, 갈 5장), 실천 4단계</li>
+      <li>PPT 중간(슬라이드 47-48)에 1주차와 동일한 <b>Southwestern 전도학 역사</b>(Scarborough
+        "Chair of Fire", Roy Fish) 내용이 반복 삽입되어 있음 — 이번 시간엔 다루지 않았고, 다음 주
+        다룰 가능성 있음.</li>
+    </ul>
+    <p><span class="bdg b-sup">보충</span> syllabus.md의 2주차 학습목표(Q7-9: 거듭남이란 무엇인가·
+    무엇으로부터 구원받는가·하나님이 주관하시면 전도가 필요한가)는 이번 시간엔 다뤄지지 않았습니다
+    — 계획서상 문항과 실제 진도가 어긋나 있어(이미 syllabus.md에 기록된 반복 패턴), 다음 주
+    실제 진도를 확인 후 반영하겠습니다.</p>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 녹취 1·2교시 전체 + PPT 114매(1~48 상당 대조)</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 6건(시험 명시 3건 포함)</span>
+    <span class="stat" style="color:var(--accent2)">강의 추가 · 6건(목회 예화 4건 포함)</span>
+    <span class="stat" style="color:var(--gold)">보충 · 2건(박영철 교수 서명, 신명 번역 경로)</span>
+    <span class="stat" style="color:var(--gold)">세그먼트 커버리지 · 1·2교시 처음~끝 100%</span>
+  </div>
+  <p>· <b>자료근거</b>: 녹취 두 파일(1교시 51,060자·2교시 42,233자) 전체를 처음부터 끝까지 읽고
+    PPT("2,3강 복음이란", 114매)와 대조했습니다. 조별 식사 안내 등 순수 행정 공지는 본문에서
+    제외했습니다(잡담이 아니라 다음 주 행정사항이라 여기 요약만: "매주 조별로 돌아가며 교수님과
+    식사, 중간·기말고사 주는 제외").</p>
+  <p>· <b>교수 강조(시험 명시 3건)</b>: ①§3 "어떻게 전도하는 게 효과적일까" 중간고사 문제(정답
+    추정 ⑤12주) ②§6 창2:7 원어("시험 문제 건데") ③§6 죄의 저주 3가지 차원("이건 시험에 됩니다") —
+    전부 교수님의 직접 발화를 그대로 인용했습니다. 이 외 요한일서 1:1-3(영생의 본질)은 "너무
+    중요해"를 반복했으나 "시험"이라는 명시적 단어는 없어 강조 표시만 하고 별도 구분했습니다.</p>
+  <p>· <b>보충 교차검증</b>: "구멍난 복음을 기원하라"는 ASR 오인식으로 판단해 웹검색으로 박영철
+    교수(침례신학대, 35년 재직)의 실제 저서 『구멍 난 복음을 기워라』(규장, 2016)로 정정했습니다.</p>
+  <ul>
+    <li><b>이번 시간 다루지 못한 PPT 범위(§8 참조)</b>: 하나님의 해법·인간의 반응·성화(슬라이드
+      49~114), Southwestern 역사 반복 삽입분 — 다음 주 실제 진도 확인 후 노트에 반영합니다.</li>
+    <li><b>ASR 불확실 항목</b>: "여호와" 오역 경로의 정확한 음운 변화 단계, 천국·지옥 정의를
+      실제로 어거스틴이 말했는지(교수님 발화상 실명 언급되었으나 문헌 대조는 안 함), 이혼가정
+      통계("10명 중 1명")의 정확한 근거 — 총 3건.</li>
+    <li><b>syllabus.md 대비 진도 차이</b>: 계획서상 2주차 학습목표(Q7-9)와 실제 수업 내용이
+      다름(§8에 명시) — 계획서보다 진도가 늦게 나가는 패턴으로 보이며, 다음 주 이후 계속
+      확인이 필요합니다.</li>
+  </ul>
+</div>
+
+<div class="foot">전도학개론 2주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

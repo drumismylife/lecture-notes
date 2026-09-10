@@ -594,7 +594,9 @@ const SITE_DATA = {
             { week: 1, title: "오리엔테이션 — 소그룹 가이드라인·자기소개·강의소개", date: "2026.09.10", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week01.html" }
           ] },
-            { week: 2, title: "", date: "", files: [] },
+            { week: 2, title: "복음이란 (1) — 하나님은 누구신가 · 인간의 문제", date: "2026.09.10", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week02.html" }
+          ] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },
