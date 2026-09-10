@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 1주차 — 오리엔테이션</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.warn{background:rgba(201,107,90,.1);border:1px solid rgba(201,107,90,.4);border-radius:10px;padding:13px 16px;margin:10px 0 6px;font-size:12.5px;color:var(--text2)}
+.warn b{color:var(--exam)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.person{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.person .ph{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:6px}
+.person .pt{font-weight:700;color:var(--text);font-size:14px}
+.person p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.timeline{margin:6px 0 4px 0;border-left:2px solid var(--border);padding-left:16px}
+.timeline .tl-item{margin:10px 0;font-size:13.5px;color:var(--text2)}
+.timeline .tl-item b{color:var(--text);display:inline-block;min-width:108px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 14, 8, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(224, 138, 74, 0.35);
+  border-radius: 20px;
+  color: #f0b888;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 20, 12, 0.95);
+  border-color: rgba(224, 138, 74, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg { flex-shrink: 0; }
+@media (max-width: 600px) {
+  #lnotes-back-btn { top: 10px; left: 10px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#f0b888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">전도학개론 · 1주차 · 2026학년도 2학기</div>
+  <h1>오리엔테이션 — 소그룹 가이드라인·자기소개·강의소개</h1>
+  <div class="prof">담당 김완 교수 · 목회대학원 계획서상 월 5,6,7교시(⚠ 실제 신대원 야간은 목요일 10~12교시로 다를 수 있음 — 미확정)</div>
+</div>
+
+<div class="warn">
+  <b>⚠ 학업계획서 신뢰도 주의</b> — 확보된 수업계획서 원문이 "목회대학원 주간학과" 계획서로,
+  실제 신대원 야간 전도학개론 수업과 다를 수 있는 잠정 자료입니다(<code>profiles/evan/syllabus.md</code>
+  상단 경고 참조). 실제 야간 계획서 확보 시 갱신이 필요합니다.
+</div>
+
+<div class="intro">
+  1주차는 <b>녹취(강의 전사) 없이 강의자료(PPT 50매)만으로</b> 정리했습니다 — 오리엔테이션 성격상
+  녹음이 없었습니다. 따라서 아래 내용은 전부 PPT에 실제로 적힌 문구를 근거로 한 <b>자료근거</b>이며,
+  교수님이 강의 중 구두로만 강조했을 수 있는 부분(녹취가 있었다면 잡혔을 <span class="b-exam bdg">교수 강조</span>
+  신호)은 반영되지 못했을 수 있습니다. 한 가지 예외로, <b>"Response 잘하기" 항목이 중간고사 1번
+  문제로 출제된다는 사실은 오너(수강생 본인)가 2026-09-10 직접 확인해 준 정보</b>라 그 부분만
+  <span class="b-exam bdg">교수 강조</span>로 표시했습니다. PPT에 없는 배경 설명은
+  <span class="b-sup bdg">보충</span>으로 분리하고 웹검색으로 교차검증했습니다.
+</div>
+
+<div class="toc">
+  <a href="#prof">담당교수 소개</a>
+  <a href="#goals">강의목표</a>
+  <a href="#ground">소그룹 나눔 원칙</a>
+  <a href="#response">Response 잘하기</a>
+  <a href="#three">매 모임 나누는 3가지</a>
+  <a href="#intro-ex">자기소개 실습</a>
+  <a href="#33q">전도학 33가지 질문</a>
+  <a href="#figures">전도학 주요 인물</a>
+  <a href="#history">전도학 역사 — Southwestern 계보</a>
+  <a href="#verify">출처·검증 요약</a>
+</div>
+
+<div class="sec" id="prof">
+  <div class="sh"><span class="sb">1</span><span class="st">담당교수 소개 — 김완 교수</span><div class="sl"></div></div>
+  <div class="card">
+    <p>대전 출생 · 백운초·서중·서대전고 · 대전침례신학대학교 B.A.(신학전공)</p>
+    <div class="timeline">
+      <div class="tl-item"><b>2000–2004</b> 대전 노은침례교회 교사 → 전도사 → 부목사</div>
+      <div class="tl-item"><b>2004–2006</b> 미국 Southwestern Seminary(Fort Worth, TX) M.Div. · 사랑과진리교회 Fellowship</div>
+      <div class="tl-item"><b>2006</b> Oxford Summer School · YWAM 서울 DTS</div>
+      <div class="tl-item"><b>2007–2010</b> 군종목사(대위), 육군 9사단 본부·30·28연대 4개교회 담임목사</div>
+      <div class="tl-item"><b>2010.6</b> 전역 → <b>2011.5</b> Southwestern 졸업(M.Div.) · New Song교회 Youth교사</div>
+      <div class="tl-item"><b>2011.6–2017.7(6년)</b> 서울 하늘비전교회 장년교구 교육부총괄(영유아~중고) · 청년부·선교국 담당목사</div>
+      <div class="tl-item"><b>Torch Trinity</b> 2016–7 Th.M.(ICS) · 2017–2023 Ph.D.(ICS)</div>
+      <div class="tl-item"><b>2017.9–2019.8</b> 노은침례교회 장년교구·청년부 담당</div>
+      <div class="tl-item"><b>2019.9–12</b> 부산 영안교회 인턴목사</div>
+      <div class="tl-item"><b>2017, 2019.12</b> 아프리카 선교 — 르완다·우간다 신학교 수업</div>
+      <div class="tl-item"><b>2020.1–2025.2</b> 용인 포도나무교회 청년·장년교구 목사(국내외선교·전도팀·알파코스)</div>
+      <div class="tl-item"><b>2025.3–</b> 침례신학대학교 전도학 교수</div>
+      <div class="tl-item"><b>2026.1–</b> 예수사랑교회 부목사(전도팀)</div>
+    </div>
+    <p><span class="bdg b-add">강의 추가</span> 청년사역 관련 조언으로 "말 조심"을 세 번 반복 강조(자나깨나
+    말조심!!!) — 큰 교회 사역의 관건은 "싸우면 out, 불평불만 들리면 out"이라며, 이동원 목사님의
+    말을 인용: <span class="vq">"치유가 덜 된 사람은 너무 빨리 현장에 뛰어들지 않는 게 낫다."</span></p>
+  </div>
+  <div class="card">
+    <h3>연구실적(최근 논문·저서)</h3>
+    <ul>
+      <li>Kim, Wan. "THE INFLUENCES OF BAPTIST DISTINCTIVE THEOLOGIES ON THE MISSION HISTORY OF THE KOREA BAPTIST CONVENTION" ThM thesis, Torch Trinity Graduate University, Seoul, 2015.</li>
+      <li>Kim, Wan et al. <i>Mission in Context – In Search of Asian Strategic Communication of the Gospel</i>(상황속의 선교) — 공저, Lulu Press, 2018.6.</li>
+      <li>Kim, Wan. "GLOCALITY OF WORLD CHRISTIANITY FOR THE UNDERSTANDING OF THE PARTICULARITY OF THE KOREA BAPTIST CONVENTION" PhD diss., Torch Trinity Graduate University, Seoul, 2022.</li>
+      <li>김완, "세계기독교의 글로컬(Glocal)한 특징과 배경연구" — 선교신학 제69집, 2023.3.</li>
+      <li>김완, "세계기독교 독립교단의 발흥과 민족주의적 특징" — 선교신학 제75집, 2024.3.</li>
+      <li>김완, "기독교의 '하나님'을 '알라'로 번역할 수 있는가?" — Muslim Christian Encounter 제17집, 2024.9.</li>
+      <li>김완, "성령 운동과 세계기독교 복음전도의 확산" — 피어선신학논단 27집, 2025.9.</li>
+      <li>김완, "복음전도를 위한 사도들의 메시지 번역가능성" — 선교신학 제79집, 2025.9.</li>
+      <li>김완, "세계기독교의 변증가 라민 사네(Lamin Sanneh)의 생애와 신학에 대한 비평적 고찰" — Muslim Christian Encounter, 2026.4.</li>
+      <li>김완, "남반구 기독교는 왜 성경을 보수적으로 읽는가" — 주안신학논단, 2026.8.</li>
+      <li>김완, "아시아 민족주의의 발흥과 복음전도 과제" — 선교신학 83집, 2026.8.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="goals">
+  <div class="sh"><span class="sb">2</span><span class="st">강의목표</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>써먹을 수 있는 것만 가르친다</li>
+      <li>재미있게 가르친다</li>
+      <li>은혜와 감동이 있는 수업이 되게 한다</li>
+      <li>최고의 명강의로 기억되도록 한다</li>
+    </ul>
+    <p><b>교수의 목표</b>: 전세계 어느 신학교를 나오든 반드시 배워야 하는 기본적인 지식을 알고
+    마치게 하겠다. 나중에 학교를 졸업하고 목회현장에 있으면서도 기억되고 써먹을 수 있는 강의가
+    되도록 하겠다.</p>
+  </div>
+</div>
+
+<div class="sec" id="ground">
+  <div class="sh"><span class="sb">3</span><span class="st">소그룹 나눔 원칙 9가지</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>① 서로 존경하고 높여줍니다. 우리 소그룹 멤버 누구도 무시하지 않습니다.</li>
+      <li>② 어떤 질문도 가치없는 질문은 없습니다. 다른 사람의 말을 비난하지 않겠습니다.</li>
+      <li>③ 끼어드는 말(cross-talk)이나 충고는 허락하지 않습니다.</li>
+      <li>④ 당신의 생각과 감정, 느낌과 깨달음에만 집중하여 나누어 주십시오.</li>
+      <li>⑤ 한 사람이 이야기를 독점하거나 너무 길게 얘기하면 다른 사람이 이야기할 수 없으므로,
+        한 문제에 한 사람이 3분 정도로 이야기합니다.</li>
+      <li>⑥ 소극적인 성격을 가진 사람이어서 듣는 것을 좋아할 수 있으나 듣기만 하면 안 되며,
+        적극적으로 참여하여 이야기하겠습니다.</li>
+      <li>⑦ 개인의 프라이버시에 손상이 가는 내용은 소그룹 밖에 나가 이야기하지 않겠습니다.</li>
+      <li>⑧ 내가 입밖으로 말한 것만 내 것이 됩니다 — 강의의 20,30,70,90%를 내 것으로 삼는 법.</li>
+      <li>⑨ 본인 얘기가 끝날 때는 "들어주셔서 감사합니다"라고 하고, 나머지 분들이 일제히
+        "나눠주셔서 감사합니다"라고 대답합니다 — 당신이 한 모든 말은 의미가 있으며 우리는
+        당신의 말을 수용하고 존중하고 있다는 표현.</li>
+    </ul>
+    <p>Q. 왜 이런 소그룹의 원칙이 중요할까요?(PPT 질문 그대로 — 답은 본문에 명시되어 있지 않음)</p>
+  </div>
+</div>
+
+<div class="sec" id="response">
+  <div class="sh"><span class="sb">4</span><span class="st">Response(반응) 잘하기</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ 교수 강조 — 중간고사 1번 문제</h3>
+    <p>이 항목이 <b>중간고사 1번 문제로 출제된다는 사실은 오너(수강생 본인)가 2026-09-10에 직접
+    확인해 준 정보</b>입니다(PPT 자체에는 시험 관련 표시가 없습니다). 아래 내용을 정확히 숙지할
+    필요가 있습니다.</p>
+  </div>
+  <div class="card">
+    <ul>
+      <li>① 본인 얘기 끝날 때는 <b>"들어주셔서 감사합니다"</b>라고 마침.</li>
+      <li>② 그러면 나머지 분들이 일제히 —
+        <br>· <b>자매</b>: "나눠주셔서 감사합니다. 예쁘다, 아름답다, 탁월하다!" 하고 박수
+        <br>· <b>형제</b>: "나눠주셔서 감사합니다. 멋있다, 훌륭하다, 탁월하다!" 하고 박수</li>
+    </ul>
+    <p>의미: 당신이 한 나눔은 우리에게 소중하며, 당신이 어떤 얘기를 하던지 우리는 그것을 소중히
+    여긴다는 의미입니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="three">
+  <div class="sh"><span class="sb">5</span><span class="st">매 모임때마다 나누는 3가지</span><div class="sl"></div></div>
+  <div class="card">
+    <p>배운 것을 통해...</p>
+    <ul>
+      <li>① 느낀점</li>
+      <li>② 깨달은점</li>
+      <li>③ 적용할 점</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="intro-ex">
+  <div class="sh"><span class="sb">6</span><span class="st">자기소개 실습</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>나를 소개합니다</h3>
+    <ul>
+      <li>이름, 나이</li>
+      <li>사는 곳, 가족</li>
+      <li>하는 일(직업, 교회 어떤 사역)</li>
+      <li>생일, 생일날 받고 싶은 선물</li>
+    </ul>
+    <p>나눔 끝에 "들어주셔서 감사합니다" 하면 → §4의 Response 세트(자매/형제 응답 + 박수)를 그대로 적용.</p>
+  </div>
+  <div class="card">
+    <h3>Q2. 이번 수업을 통해서 무엇을 알고 배우고 싶으십니까?</h3>
+    <p>— 포스트잇 제출</p>
+  </div>
+  <div class="card">
+    <h3>Q3. 침신대 오게 된 계기, 소감, 각오</h3>
+  </div>
+</div>
+
+<div class="sec" id="33q">
+  <div class="sh"><span class="sb">7</span><span class="st">전도학 핵심 질문 33가지</span><div class="sl"></div></div>
+  <div class="sup">
+    <span class="tag">🔎 보충(웹검색 교차검증)</span> — PPT상 이 질문 목록 바로 앞 슬라이드(34)가
+    <b>J. D. Payne</b>(Ph.D., Southern Baptist Theological Seminary · 전 SBTS 전도및교회개척학
+    부교수 · 전 북미선교부(NAMB) 국가선교사 · 현 샘포드대(Samford University, Birmingham, AL)
+    기독교목회학 교수 · 13권 저서 · jdpayne.org · 팟캐스트 Strike the Match)의 소개로, 이 33개
+    질문은 웹검색 결과 Payne의 저서 <i>Evangelism: A Biblical Response to Today's Questions</i>
+    (InterVarsity Press, 2011)의 33개 짧은 장(chapter) 구성과 일치합니다 — 기본적인 질문에서
+    점차 복잡한 질문으로 나아가는 33장 구성이라는 점이 확인됩니다. <b>한국어 번역본 존재 여부는
+    검색으로 확인되지 않았습니다</b>(확인 필요).
+  </div>
+  <div class="tw"><table>
+    <caption>서론 — 전도학의 33가지 질문(PPT 원문 그대로)</caption>
+    <tbody>
+      <tr><th>1</th><td>전도란 무엇인가?</td></tr>
+      <tr><th>2</th><td>복음이란 무엇인가?</td></tr>
+      <tr><th>3</th><td>회개란 무엇인가?</td></tr>
+      <tr><th>4</th><td>구원받는 믿음이란 무엇인가?</td></tr>
+      <tr><th>5</th><td>회심이란 무엇인가?</td></tr>
+      <tr><th>6</th><td>회심은 일회적 사건인가, 계속되는 과정인가?</td></tr>
+      <tr><th>7</th><td>거듭남이란 무엇인가?</td></tr>
+      <tr><th>8</th><td>무엇으로부터 구원받는가?</td></tr>
+      <tr><th>9</th><td>하나님께서 주관하신다면, 우리가 전도할 필요가 있는가?</td></tr>
+      <tr><th>10</th><td>선택이란 무엇인가?</td></tr>
+      <tr><th>11</th><td>사랑의 하나님이 사람들을 지옥으로 보내시는가?</td></tr>
+      <tr><th>12</th><td>구원에 있어 자유 의지의 역할은 무엇인가?</td></tr>
+      <tr><th>13</th><td>복음을 듣지 못한 사람은 어떻게 되나?</td></tr>
+      <tr><th>14</th><td>어린이나 지적 장애인들이 죽은 후에는 어디로 가나?</td></tr>
+      <tr><th>15</th><td>전도에서 성령의 역할은 무엇인가?</td></tr>
+      <tr><th>16</th><td>전도에서 기도의 역할은 무엇인가?</td></tr>
+      <tr><th>17</th><td>전도의 은사가 따로 있나?</td></tr>
+      <tr><th>18</th><td>생활 전도란 무엇인가?</td></tr>
+      <tr><th>19</th><td>전도할 때 무엇을 전해야 하나?</td></tr>
+      <tr><th>20</th><td>전도할 마음이 들지 않아도 전해야 하나?</td></tr>
+      <tr><th>21</th><td>전도할 때 사람들에게 부담을 주어야 하나?</td></tr>
+      <tr><th>22</th><td>전도할 때 실수하면 어떻게 하나?</td></tr>
+      <tr><th>23</th><td>대답하기 어려운 질문을 받으면 어떻게 해야 하나?</td></tr>
+      <tr><th>24</th><td>낯선 사람들에게 전도하지 않는 것은 불순종하는 것인가?</td></tr>
+      <tr><th>25</th><td>우리 교회가 복음 전도에 미온적이면 어떻게 해야 하나?</td></tr>
+      <tr><th>26</th><td>성경 구절을 다 암기하지 못하면 어떻게 해야 하나?</td></tr>
+      <tr><th>27</th><td>영접 기도는 무엇인가?</td></tr>
+      <tr><th>28</th><td>영적인 대화를 어떻게 시작해야 하나?</td></tr>
+      <tr><th>29</th><td>가족들이나 친한 친구들에게 복음을 전하는 최선의 방법은 무엇인가?</td></tr>
+      <tr><th>30</th><td>전도한 후에 미래에 나누게 될 모든 주제에 대해 말해 주어야 하나?</td></tr>
+      <tr><th>31</th><td>예수님 따르기를 원하는 사람들에게 어떻게 해야 하나?</td></tr>
+      <tr><th>32</th><td>예수님 따르기를 원하지 않는 사람들에게 어떻게 해야 하나?</td></tr>
+      <tr><th>33</th><td>전도할 때 나의 행동이 예수님과 같지 않은데 어떻게 해야 하나?</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="sec" id="figures">
+  <div class="sh"><span class="sb">8</span><span class="st">전도학 주요 인물 소개</span><div class="sl"></div></div>
+
+  <div class="sup">
+    <span class="tag">🔎 확인 필요</span> — 아래 첫 인물(김득룡)은 철학 전공 학자로, PPT상 다른
+    전도학자들 사이에 배치된 정확한 연결 맥락(예: 추천사·번역·특정 저서 인용 등)이 PPT 텍스트만으로는
+    확인되지 않습니다. 원문 그대로 전달합니다.
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">김득룡</span></div>
+    <p>한남대학교 영어영문학과 졸업, 미국 컬럼비아대학교에서 "The Individual and the
+    Inter-subjective: Building on Mill and Habermas for a Conception of Education for Freedom"으로
+    박사학위 취득. 한남대학교 철학과 교수 역임 후 현 명예교수. 동서문화연구소장·한남대학교
+    대학원장 역임. 저서 『형색과 소리』, 역서로 『의식의 기원』·『발터 벤야민: 예술, 종교,
+    역사철학』·『베버와 하버마스: 사회이론과 가치』등.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">로버트 콜먼(Robert Coleman)</span></div>
+    <p>Southwestern(B.A., 침례교) · Asbury(B.D., 웨슬리) · Princeton(M.Th., 장로교) · University of
+    Iowa(Ph.D., 1954). Trinity·Asbury Theological Seminary 명예박사. 1989–2001 휘튼칼리지 빌리
+    그레이엄 센터에서 복음주의 연구소 & 빌리 그레이엄 국제 복음주의 학교의 학장 역임. 로잔
+    세계 복음주의 위원회 창립 멤버. 27년간 Asbury Theological Seminary 교수, 18년간 Trinity
+    Evangelical Divinity School 세계선교및전도학 교수, 2001년부터 Gordon-Conwell 전도 제자훈련
+    특임교수.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">오스카 톰슨 주니어(Dr. William Oscar Thompson Jr.)</span></div>
+    <p>1935년 7월 20일 Gonzales county에서 William Oscar와 Jodie C. Morrow Thompson의 아들로
+    출생. Baylor University에서 학사·석사, Southwestern Baptist Theological Seminary(Fort Worth)에서
+    M.Div.·D.Min.·Ph.D. 취득.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">앨빈 레이드(Alvin Reid)</span></div>
+    <p>현 Southeastern Baptist Theological Seminary 전도학 교수. [학력] Samford University(B.A.) ·
+    Southwestern Baptist Theological Seminary(M.Div.) · Southwestern Baptist Theological
+    Seminary(Ph.D.).</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">이재훈</span></div>
+    <p>명지대학교(B.A.) · 합동신학대학원대학교(M.Div.) · Trinity Evangelical Divinity School(Th.M.) ·
+    Gordon-Conwell Theological Seminary(D.Min.) 졸업, 장로회신학대학교 명예박사학위(D.D.) 수여.
+    뉴저지초대교회 담임목사 역임, 현 온누리교회 위임목사·CGN과 한동대학교 이사장·한국로잔위원회
+    의장. 온누리교회는 2000년 당시 각광받던 기업 전략 CRM에 착안해 연령별·직업별·성별 등으로
+    대상을 세분하고 심리적·문화적 필요를 분석해 맞춤 전도를 시작 — 2001년 40대 남성만을 위한
+    '비상구' 집회를 필두로 2024년까지 23년간 진행해 온 맞춤전도로 헤아릴 수 없이 많은 구원의
+    열매를 맺음.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">윙키 프래트니(Winkie Pratney)</span></div>
+    <p>30년이 넘는 세월 동안 전 세계 젊은이에게 그리스도를 전하고 훈련하는 데 힘을 쏟아옴.
+    '나이든 틴에이저'라는 별명을 갖고 있을 정도로 많은 나이에도 이 시대 청년의 문화를 잘
+    이해하며 세계를 누비며 캠퍼스 부흥을 일으킴. 저서 중 『Youth Aflame』은 청년 운동의
+    교과서로 알려짐. 이 세대가 성령님께 쓰임 받을 수 있는 실질적 방법을 제시함으로써 자신을
+    향한 아버지의 비전을 확신하도록 돕는다 — 마이크 비클(IHOP 책임자, FOTB 사역 책임자, 요셉
+    컴퍼니 공동설립자) 추천사.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">존 윔버(John Richard Wimber)</span></div>
+    <p>'제3의 물결(The Third Wave)' 운동을 주도하며 전 세계 빈야드 교회(Vineyard Movement)
+    네트워크를 확장시킨 복음주의 성령 사역자이자 신학자. 아주사 퍼시픽 대학교(APU) 졸업, 풀러
+    신학교 교회성장연구소 자문위원 및 교수 역임. 단순한 복음 선포를 넘어 성령의 초자연적 치유와
+    기사가 동반되는 '능력 전도(Power Evangelism)'를 현대 교회 성장의 핵심 원리로 정립. 아나하임
+    포도원교회를 담임하며 은사주의적 요소를 복음주의 전통과 결합해 성령의 내주하심과 권능을
+    강조하는 국제적 사역을 펼침.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">폴 E. 리틀(Paul E. Little, 1928–1975)</span></div>
+    <p>20세기 복음주의권에서 가장 영향력 있는 전도자이자 변증가 중 한 명. 미국 기독학생회(IVF)에서
+    25년간 헌신하며 대학생 복음화에 앞장섰고, 생의 마지막까지 트리니티 복음주의 신학대학원(TEDS)에서
+    전도학 조교수로 사역. 저서 『이래서 믿는다』등을 통해 기독교 신앙의 합리적 근거를 명쾌하게
+    제시하며 지성적인 신앙의 중요성을 강조 — 전 세계 100만 부 이상 팔린 전도 필독서, '복음 전도에
+    관한 대표적인 지침서'·'개인 전도의 고전'으로 불림.</p>
+  </div>
+
+  <div class="person">
+    <div class="ph"><span class="pt">톰 레이너(Thom S. Rainer)</span></div>
+    <p>현대 미국의 가장 영향력 있는 교회 성장학자이자 행정 전문가. 남침례교(SBC) 산하 라이프웨이
+    크리스천 리소스(LifeWay Christian Resources) 총재 역임. 저서 『당신 옆의 비신자』는 교회를
+    다니지 않는 이들을 영적 개방성에 따라 '가장 수용적인 1단계'부터 '강한 거부감을 가진 5단계'까지
+    '레이너 척도(Rainer Scale)'로 분류해 각 유형에 맞는 구체적 접근 방식을 제시 — "대다수의
+    비신자가 신뢰하는 사람으로부터 진지한 초대를 기다리고 있다"는 통계적 사실을 강조.</p>
+  </div>
+</div>
+
+<div class="sec" id="history">
+  <div class="sh"><span class="sb">9</span><span class="st">전도학 역사 — Southwestern 계보</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>⭐ "신학교에서 전도학(Evangelism)을 정규과목으로 처음 가르친 사람"</h3>
+    <p>1908년 미국 텍사스 포트워스에 위치한 Southwestern Baptist Theological Seminary에서
+    B.H. Carroll(카롤) 총장이 신학교 설립과 동시에 전도학을 정규과목(Chair of Evangelism, 별칭
+    "Chair of Fire")으로 만들고, <b>스카보로(Scarborough)</b>를 그 첫 담당 교수로 직접 지명.
+    저서 『Recruits for World Conquests』·『With Christ After the Lost』. 신학교에서의 전도학
+    교육을 체계화하고 실제 목회 현장과 연계해 수많은 목회자와 선교사에게 영향을 끼침. 1915년부터
+    1942년까지 Southwestern의 2대 총장 역임.</p>
+  </div>
+  <div class="person">
+    <div class="ph"><span class="pt">Roy Fish</span></div>
+    <p>Scarborough의 전도학 유산을 계승·발전. Southwestern Seminary에서 50년 가까이 봉직하며
+    전도학 교수·학장 역임. SBC 내에서 "전도(Evangelism)"와 거의 동의어로 여겨짐. 저서 『Dare to
+    Share』·『Giving a Good Invitation』. 1937–2012(향년 82세), Southwestern for nearly 50 years이며
+    한때 L. R. Scarborough Chair of Evangelism("Chair of Fire")을 맡음. 현재 싸우스웨스턴침례신학대학교
+    복음전도대학원은 로이 피쉬 교수의 이름을 따서 생겨났다.</p>
+  </div>
+  <div class="person">
+    <div class="ph"><span class="pt">W. Oscar Thomson Jr.</span></div>
+    <p>1970~80년대 Southwestern 전도학 교수(PPT 원문 표기 그대로 — 앞선 §8의 "Thompson"과 이
+    슬라이드의 "Thomson" 표기가 PPT 내에서 서로 다릅니다, 동일 인물로 추정되나 표기 불일치는
+    확정하지 않고 원문 그대로 남겨둡니다).</p>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 강의자료 PPT 50매 전체</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 1건(오너 직접 확인)</span>
+    <span class="stat" style="color:var(--accent2)">강의 추가 · 1건(PPT 여백 코멘트)</span>
+    <span class="stat" style="color:var(--gold)">보충 · 1건(웹검색 교차검증)</span>
+    <span class="stat" style="color:var(--gold)">PPT 커버리지 · 50/50 슬라이드(100%, 빈 슬라이드 3매 제외)</span>
+  </div>
+  <p>· <b>자료근거</b>: 녹취 없이 강의자료 PPT(<code>1강 오리엔테이션-소그룹가이드라인,자기소개.pptx</code>,
+    50매) 전체를 슬라이드별로 대조해 정리했습니다. 세그먼트 원장·ASR 불확실 표시는 녹취가 없어
+    해당하지 않습니다.</p>
+  <p>· <b>교수 강조</b>: "Response 잘하기"가 중간고사 1번 문제라는 사실은 PPT 자체에는 없고,
+    오너(수강생)가 2026-09-10 대화에서 직접 알려준 정보입니다 — 출처를 녹취로 오인하지 않도록
+    본문에 명시했습니다.</p>
+  <p>· <b>보충 교차검증</b>: §7의 33가지 질문이 J. D. Payne의 저서 <i>Evangelism: A Biblical
+    Response to Today's Questions</i>(IVP, 2011, 33개 chapter 구성)와 일치함을 웹검색으로 확인했습니다.
+    한국어 번역본 존재 여부는 검색으로 확인되지 않았습니다(확인 필요).</p>
+  <ul>
+    <li><b>확인 필요</b>: §8 "김득룡" 슬라이드가 다른 전도학자들 사이에 배치된 맥락(PPT만으로는
+      불명) · §7 Payne 저서의 한국어 번역본 여부 · §9 "Thompson/Thomson" 표기 불일치.</li>
+    <li><b>다음 주차부터</b>: 실제 야간 수업계획서 확보 시 <code>profiles/evan/syllabus.md</code>·
+      <code>profile.md</code> 갱신 필요, 녹취가 생기면 이후 주차부터는 세그먼트 원장·ASR 검증
+      절차를 정식 적용합니다.</li>
+  </ul>
+</div>
+
+<div class="foot">전도학개론 1주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
