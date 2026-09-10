@@ -287,7 +287,7 @@ def main():
     print("[2/3] GitHub 업로드...")
     commit_msg = f"강의노트 업데이트: {subject} week{week_num:02d}{variant}"
     cmds = [
-        ["git", "-C", str(ROOT_DIR), "add", "output/", "data.js"],
+        ["git", "-C", str(ROOT_DIR), "add", "output/", "data.js", "index.html"],
         ["git", "-C", str(ROOT_DIR), "commit", "-m", commit_msg],
         ["git", "-C", str(ROOT_DIR), "push"],
     ]
