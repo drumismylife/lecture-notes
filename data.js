@@ -622,9 +622,7 @@ const SITE_DATA = {
             { week: 1, title: "오리엔테이션 — 수업 안내", date: "2026-09-04", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week01.html" }
           ] },
-            { week: 2, title: "", date: "", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week02.html" }
-          ] },
+            { week: 2, title: "", date: "", files: [] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },

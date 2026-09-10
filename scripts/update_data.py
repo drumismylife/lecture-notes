@@ -114,7 +114,15 @@ def update(course_name, week_str, semester_id=None):
     if course_start == -1:
         print(f"❌ [{sem_id}] 과목 키 없음: {course_key}"); sys.exit(1)
 
-    section = region[course_start:]
+    # 다음 과목 정의 직전까지만 현재 과목 section으로 제한 (다른 과목으로 번지는 버그 방지)
+    nxt_course = re.search(r'\n        [a-z0-9_]+:\s*\{|\n      \}', region[course_start + len(course_key):])
+    course_end = course_start + len(course_key) + nxt_course.start() if nxt_course else len(region)
+    section = region[course_start:course_end]
+
+    if f'"{href}"' in section:
+        print(f"  ℹ️  이미 등록됨: {href}")
+        return
+
     # (?:(?!week:\s*\d).)*? : 다음 week: N 전까지만 매칭 (주차 경계 보존)
     pattern = r'(week:\s*' + str(week_int) + r'\b(?:(?!week:\s*\d).)*?files:\s*)\[\]'
     m = re.search(pattern, section, re.DOTALL)
