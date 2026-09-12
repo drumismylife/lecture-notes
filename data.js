@@ -622,7 +622,9 @@ const SITE_DATA = {
             { week: 1, title: "오리엔테이션 — 수업 안내", date: "2026-09-04", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week01.html" }
           ] },
-            { week: 2, title: "", date: "", files: [] },
+            { week: 2, title: "기독교윤리학이란 무엇인가", date: "2026.09.11", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week02.html" }
+          ] },
             { week: 3, title: "", date: "", files: [] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },
@@ -638,85 +640,3 @@ const SITE_DATA = {
             { week: 15, title: "", date: "", files: [] }
           ]
         },
-
-        prophet: {
-          meta: {
-            title: "예언문학",
-            desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
-          },
-          weeks: [
-            { week: 1, title: "소선지서 서론 — 명칭·구조·여호와의 날", date: "2026.09.03", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week01.html" }
-          ] },
-            { week: 2, title: "호세아서 — 배경·구조·석의·신학", date: "2026.09.08", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week02.html" },
-            { type: "guide", label: "호세아서 참고서", href: "output/2026-2/prophet/guide_hosea.html" }
-          ] },
-            { week: 3, title: "제3강 요엘서의 구조와 신학 및 메시지", date: "2026.09.08", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week03.html" },
-            { type: "guide", label: "요엘서 참고서", href: "output/2026-2/prophet/guide_joel.html" }
-          ] },
-            { week: 4, title: "", date: "", files: [
-            { type: "guide", label: "아모스서 참고서", href: "output/2026-2/prophet/guide_amos.html" }
-          ] },
-            { week: 5, title: "", date: "", files: [
-            { type: "guide", label: "오바댜서 참고서", href: "output/2026-2/prophet/guide_obadiah.html" }
-          ] },
-            { week: 6, title: "", date: "", files: [
-            { type: "guide", label: "요나서 참고서", href: "output/2026-2/prophet/guide_jonah.html" }
-          ] },
-            { week: 7, title: "", date: "", files: [] },
-            { week: 8, title: "", date: "", files: [] },
-            { week: 9, title: "", date: "", files: [] },
-            { week: 10, title: "", date: "", files: [] },
-            { week: 11, title: "", date: "", files: [] },
-            { week: 12, title: "", date: "", files: [] },
-            { week: 13, title: "", date: "", files: [] },
-            { week: 14, title: "", date: "", files: [] },
-            { week: 15, title: "", date: "", files: [] }
-          ]
-        }
-
-      }
-    }
-
-  ],
-
-  // ── 관련 자료 (전역) ────────────────────────────────────────
-  resources: [
-    {
-      label: "헬라어 학습",
-      items: [
-        {
-          icon: "📘", name: "Bible Hub — 원어 사전",
-          desc: "Strong's 번호 기반 헬라어·히브리어 사전",
-          href: "https://biblehub.com/lexicon/",
-          tag: "greek", tagLabel: "헬라어"
-        },
-        {
-          icon: "📗", name: "Blue Letter Bible",
-          desc: "원문 대조, 주석, 어휘 분석 통합 플랫폼",
-          href: "https://www.blueletterbible.org",
-          tag: "greek", tagLabel: "헬라어"
-        },
-      ]
-    },
-    {
-      label: "성경 & 신학",
-      items: [
-        {
-          icon: "📖", name: "대한성서공회 성경",
-          desc: "개역개정 · 새번역 온라인 열람",
-          href: "https://www.bskorea.or.kr",
-          tag: "bible", tagLabel: "성경"
-        },
-        {
-          icon: "🏛️", name: "한국침례신학대학교",
-          desc: "학교 공식 홈페이지",
-          href: "https://www.kbtus.ac.kr",
-          tag: "gen", tagLabel: "학교"
-        },
-      ]
-    }
-  ]
-};
