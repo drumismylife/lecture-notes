@@ -94,9 +94,20 @@ def _semester_region(text: str, semester_id: str):
     return s0, s1, text[s0:s1]
 
 
+def _validate_js(text_to_validate: str) -> None:
+    """node -c를 통한 data.js 문법 검증. 문법 오류 시 파일 쓰기 및 배포 중단."""
+    try:
+        proc = subprocess.run(["node", "-c"], input=text_to_validate.encode("utf-8"), capture_output=True)
+        if proc.returncode != 0:
+            print(f"❌ [문법 검증 실패] data.js 문법 파손 감지 — 저장 중단:\n{proc.stderr.decode('utf-8', errors='ignore')}")
+            sys.exit(1)
+    except FileNotFoundError:
+        pass
+
+
 def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str,
                              semester_id: str = None):
-    """data.js 해당 학기·주차의 특정 필드 업데이트 (학기·주차 경계 넘지 않음)"""
+    """data.js 해당 학기·주차의 특정 필드 업데이트 (학기·과목·주차 경계 넘지 않음)"""
     course_key = COURSE_MAP[subject]
     data_js = ROOT_DIR / "data.js"
     text = data_js.read_text(encoding="utf-8")
@@ -106,11 +117,16 @@ def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str
         return
     s0, s1, region = reg
 
-    course_start = region.find(f'{course_key}:')
-    if course_start == -1:
+    m_course = re.search(r'\b' + re.escape(course_key) + r'\s*:\s*\{', region)
+    if not m_course:
         return
+    course_start = m_course.start()
 
-    section = region[course_start:]
+    # 다음 과목 정의 직전까지만 현재 과목 section으로 제한
+    nxt_course = re.search(r'\n        [a-z0-9_]+:\s*\{|\n      \}', region[course_start + len(course_key):])
+    course_end = course_start + len(course_key) + nxt_course.start() if nxt_course else len(region)
+    section = region[course_start:course_end]
+
     pattern = (
         r'(week:\s*' + str(week_num) +
         r'\b(?:(?!week:\s*\d).)*?' +
@@ -120,8 +136,10 @@ def _update_field_in_data_js(subject: str, week_num: int, field: str, value: str
         pattern, r'\1"' + value + '"', section, count=1, flags=re.DOTALL
     )
     if count:
-        new_region = region[:course_start] + new_section
-        data_js.write_text(text[:s0] + new_region + text[s1:], encoding="utf-8")
+        new_region = region[:course_start] + new_section + region[course_end:]
+        candidate = text[:s0] + new_region + text[s1:]
+        _validate_js(candidate)
+        data_js.write_text(candidate, encoding="utf-8")
 
 
 def update_title_in_data_js(subject: str, week_num: int, title: str, semester_id: str = None):
@@ -136,7 +154,7 @@ def update_date_in_data_js(subject: str, week_num: int, lecture_date: str, semes
 
 def append_file_to_data_js(subject: str, week_num: int, href: str, label: str,
                            semester_id: str = None):
-    """이미 파일이 있는 주차의 files 배열에 항목 추가 (학기 span 내에서, 중복 방지)"""
+    """이미 파일이 있는 주차의 files 배열에 항목 추가 (학기·과목 span 내에서, 중복 방지)"""
     course_key = COURSE_MAP[subject]
     data_js = ROOT_DIR / "data.js"
     text = data_js.read_text(encoding="utf-8")
@@ -151,13 +169,16 @@ def append_file_to_data_js(subject: str, week_num: int, href: str, label: str,
         return
     s0, s1, region = reg
 
-    course_start = region.find(f'{course_key}:')
-    if course_start == -1:
+    m_course = re.search(r'\b' + re.escape(course_key) + r'\s*:\s*\{', region)
+    if not m_course:
         return
+    course_start = m_course.start()
 
-    section = region[course_start:]
+    nxt_course = re.search(r'\n        [a-z0-9_]+:\s*\{|\n      \}', region[course_start + len(course_key):])
+    course_end = course_start + len(course_key) + nxt_course.start() if nxt_course else len(region)
+    section = region[course_start:course_end]
 
-    # 해당 주차의 files 배열 닫는 ] 위치 찾기 (주차 경계 내에서)
+    # 해당 주차의 files 배열 닫는 ] 위치 찾기 (과목 경계 내에서)
     week_pattern = r'week:\s*' + str(week_num) + r'\b(?:(?!week:\s*\d).)*?files:\s*\['
     m = re.search(week_pattern, section, re.DOTALL)
     if not m:
@@ -180,7 +201,9 @@ def append_file_to_data_js(subject: str, week_num: int, href: str, label: str,
     # 기존 마지막 항목 뒤에 쉼표 추가 후 새 항목 삽입
     before_close = region[:files_end].rstrip()
     new_region = before_close + ',' + new_entry + '\n          ' + region[files_end:]
-    data_js.write_text(text[:s0] + new_region + text[s1:], encoding="utf-8")
+    candidate = text[:s0] + new_region + text[s1:]
+    _validate_js(candidate)
+    data_js.write_text(candidate, encoding="utf-8")
     print(f"  파일 추가: {label} ({href})")
 
 
@@ -283,7 +306,9 @@ def main():
         # 추가 자료 (b, c ...): 기존 배열에 append, date는 업데이트하지 않음
         append_file_to_data_js(subject, week_num, href, title, target_id)
 
-    # 2단계: git push
+    # 2단계: git push 전 최종 data.js 문법 유효성 보증
+    _validate_js((ROOT_DIR / "data.js").read_text(encoding="utf-8"))
+
     print("[2/3] GitHub 업로드...")
     commit_msg = f"강의노트 업데이트: {subject} week{week_num:02d}{variant}"
     cmds = [

@@ -110,9 +110,11 @@ def update(course_name, week_str, semester_id=None):
     s0, s1 = span
     region = text[s0:s1]
 
-    course_start = region.find(f'{course_key}:')
-    if course_start == -1:
+    # 과목 키 시작 위치 안전 검색 (단어 경계 보장)
+    m_course = re.search(r'\b' + re.escape(course_key) + r'\s*:\s*\{', region)
+    if not m_course:
         print(f"❌ [{sem_id}] 과목 키 없음: {course_key}"); sys.exit(1)
+    course_start = m_course.start()
 
     # 다음 과목 정의 직전까지만 현재 과목 section으로 제한 (다른 과목으로 번지는 버그 방지)
     nxt_course = re.search(r'\n        [a-z0-9_]+:\s*\{|\n      \}', region[course_start + len(course_key):])
@@ -130,8 +132,20 @@ def update(course_name, week_str, semester_id=None):
         print(f"⚠️  [{sem_id}] week {week_int} 항목 없음 또는 이미 파일 등록됨"); sys.exit(0)
 
     new_section = section[:m.start()] + m.group(1) + f'[\n            {new_entry}\n          ]' + section[m.end():]
-    new_region = region[:course_start] + new_section
-    open(DATA_JS, "w", encoding="utf-8").write(text[:s0] + new_region + text[s1:])
+    new_region = region[:course_start] + new_section + region[course_end:]
+    candidate_text = text[:s0] + new_region + text[s1:]
+
+    # 문법 검증: 쓰기 전 문법 파손 여부 검사 (defense-in-depth)
+    import subprocess
+    try:
+        proc = subprocess.run(["node", "-c"], input=candidate_text.encode("utf-8"), capture_output=True)
+        if proc.returncode != 0:
+            print(f"❌ [문법 검증 실패] data.js 문법 파손 감지 — 저장 중단:\n{proc.stderr.decode('utf-8', errors='ignore')}")
+            sys.exit(1)
+    except FileNotFoundError:
+        pass
+
+    open(DATA_JS, "w", encoding="utf-8").write(candidate_text)
     bump_index_cache_version()
     print(f"✅ data.js 업데이트: [{sem_id}] {course_name} week{week_str}")
 
