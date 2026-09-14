@@ -538,7 +538,8 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week01.html" }
           ] },
             { week: 2, title: "고대 그레코-로만 세계의 서신들과 신약성서 개론", date: "2026.09.14", files: [
-            { type: "guide", label: "바울 개론 참고서", href: "output/2026-2/nt2/guide_paul_intro.html" }
+            { type: "guide", label: "바울 개론 참고서", href: "output/2026-2/nt2/guide_paul_intro.html" },
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week02.html" }
           ] },
             { week: 3, title: "", date: "", files: [
             { type: "guide", label: "로마서 참고서", href: "output/2026-2/nt2/guide_romans.html" }
