@@ -537,7 +537,7 @@ const SITE_DATA = {
             { week: 1, title: "수업소개 — 교과목 개관·목표·북 리포트 안내", date: "2026.09.07", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week01.html" }
           ] },
-            { week: 2, title: "", date: "", files: [
+            { week: 2, title: "고대 그레코-로만 세계의 서신들과 신약성서 개론", date: "2026.09.14", files: [
             { type: "guide", label: "바울 개론 참고서", href: "output/2026-2/nt2/guide_paul_intro.html" }
           ] },
             { week: 3, title: "", date: "", files: [

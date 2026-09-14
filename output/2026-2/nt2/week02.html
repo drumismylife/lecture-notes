@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서2 — 2주차 고대 그레코-로만 신약 서신들</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 147, 224, 0.35);
+  border-radius: 20px;
+  color: #a3b3e8;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(24, 26, 40, 0.95);
+  border-color: rgba(127, 147, 224, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#a3b3e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">신약성서 II · 2주차 · 2026학년도 2학기</div>
+  <h1>고대 그레코-로만 세계의 서신들과 신약성서 개론</h1>
+  <div class="prof">담당 이영민 교수 · 월요일 10-12교시 · C102 · 대면강의</div>
+</div>
+
+<div class="intro">
+  2주차(9/14) 녹취(아이폰 ASR 전사)와 <b>강의자료(PPT 슬라이드 1~23)</b>를 근거로 정리했습니다. 이번 주차는 서신서의 개별 본문에 앞서 <b>고대 그레코-로만 세계의 서신 작성 관례, 대필자(Amanuensis) 시스템, 파피루스와 코덱스, 편지 전달자의 역할</b> 등 역사적·문화적 배경을 주로 다뤘습니다. 교수님이 반복·강조한 부분은
+  <span class="b-exam bdg">교수 강조</span>, PPT엔 없고 강의 중에만 나온 내용은 <span class="b-add bdg">강의 추가</span>,
+  이해를 돕기 위해 검색으로 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다. 문맥이 어색한 자동전사 구간은 <span class="asr">[ASR 불확실]</span>로 표시했습니다.
+</div>
+
+<div class="toc">
+  <a href="#overview">개관: 숲을 보는 신약성서 개론</a>
+  <a href="#mediums">고대인들의 기록 매체</a>
+  <a href="#amanuensis">그레코-로만 서신과 대필자</a>
+  <a href="#delivery">서신의 전달과 낭독</a>
+  <a href="#structure">서신의 구조와 형식</a>
+  <a href="#hermeneutics">원어 번역과 성경의 영감</a>
+  <a href="#verify">출처·검증 요약</a>
+</div>
+
+<div class="sec" id="overview">
+  <div class="sh"><span class="sb">1</span><span class="st">개관: 숲을 보는 신약성서 개론</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>신약성서 개론2의 접근 방식</b></p>
+    <ul>
+      <li>개별 텍스트(나뭇잎)에 매몰되기보다는 <b>전체적인 배경과 흐름(숲)</b>을 먼저 조망하는 과정.</li>
+      <li><span class="bdg b-add">강의 추가</span> 교수님은 뉴욕 메트로폴리탄 박물관 투어를 예로 들며, 한 작품 앞에 오래 서 있기보다 <b>전체를 빠르게 둘러보는 것</b>이 특정 작품의 시대적·문화적 위치를 파악하는 데 오히려 큰 도움이 된다고 설명.</li>
+      <li><span class="bdg b-add">강의 추가</span> <b>Tree of Life(생명나무 퀼트)</b>와 <b>멘카우레 왕과 왕비 조각상(King Menkaure and Queen)</b> 비유: 작품의 세부(예: 여성의 손 위치가 상징하는 가정 내 권력과 지지)를 통해 고대 사회의 세계관을 읽어내듯, 1차 독자의 배경을 이해하면 성경을 더욱 정확히 볼 수 있음.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="mediums">
+  <div class="sh"><span class="sb">2</span><span class="st">고대인들의 기록 매체</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>일반적인 기록 매체</h3>
+    <ul>
+      <li><b>점토판(cuneiform tablet)</b> & <b>도자기 파편(ostracon)</b></li>
+      <li><b>왁스 판(wax tablet)</b>: 나무나 뼈 위에 밀랍을 덮은 것. 철필로 개요를 적거나 빠르게 메모한 후 열을 가해 지우고 재사용함.</li>
+      <li><b>짐승의 가죽 조각(parchment, 양피지)</b>: 어린 동물의 가죽을 건조해 만듦. 매우 비싸서 여백 낭비를 막기 위해 희미하게 줄을 그어 사용함.</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 파피루스(papyrus)와 코덱스(Codex)</h3>
+      <p><b>파피루스</b>는 나일강 삼각주에서 자라는 갈대과 식물로 만든 가장 흔한 재질. 초기에는 끝을 이어 붙여 <b>두루마리(Roll)</b> 형태로 사용했으나 읽고 찾기 매우 불편했음. 이에 반으로 접어 묶는 <b>책 형태(코덱스, Codex)</b>가 등장.</p>
+      <p><span class="bdg b-add">강의 추가</span> 사본학적 관점에서, 이 <b>코덱스 형태를 널리 전파하고 적극 활용한 것이 초기 그리스도인들</b>임. 성경 사본 복사와 회람을 위해 비용이 저렴하고 찾기 쉬운 코덱스를 선호했음 (예: 누가복음과 사도행전이 한 권의 책이었으나, 두루마리 분량 한계로 나뉘었을 가능성).</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="amanuensis">
+  <div class="sh"><span class="sb">3</span><span class="st">그레코-로만 서신과 대필자(Amanuensis)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>대필자 시스템의 역동성</h3>
+    <p>고대 사회는 주로 말로 의사소통했으며 문해율이 낮아 <b>전문적으로 훈련받은 대필자(amanuensis)</b>가 서신 작성을 주도함.</p>
+    <ul>
+      <li>단순히 불러주는 대로 타이핑하는 기술자가 아님. 저자(바울)로부터 메시지의 의도를 듣고 <b>자신의 문체로 초안을 작성</b>하기도 하는 등 재량권이 다양했음.</li>
+      <li><span class="bdg b-exam">교수 강조</span> <b>공동 저작 과정</b>: 바울과 동역자들은 초안(왁스 판 등)을 놓고 함께 읽으며 신학적 표현을 수정·보완하는 공동 저작을 거쳐 최종본(파피루스)을 완성함. 완성된 후 발신용, 보관용, 이웃 교회 회람용 등 <b>최소 2~3개의 원본</b>이 동시에 생성됨.</li>
+      <li><b>저자 친필 인증</b>: 대필자가 본문을 쓴 후, 서신의 마지막 인사말은 저자(바울)가 직접 친필로 적어 위조를 막음 (예: 롬 16:22 "이 편지를 기록하는 나 더디오도", 살후 3:17 "나 바울은 친필로 문안하노니").</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="delivery">
+  <div class="sh"><span class="sb">4</span><span class="st">서신의 전달과 낭독</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>공적 우편 제도의 부재</h3>
+    <p>로마 제국에 공문서를 위한 우편 제도는 있었으나, 일반 시민을 위한 시스템은 없었음. 바울과 같은 일반인은 지인이나 여행자를 통해 서신을 전달해야 했음 (예: 뵈뵈, 디도, 두기고, 에바브로디도).</p>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 편지 전달자의 역할 (단순 배달이 아님)</h3>
+      <p>전달자는 도착 후 회중 앞에 서서 편지를 <b>소리 내어 낭독</b>함. 바울의 심정과 의도를 완벽히 이해하고 있는 동역자만이 전달자로 선택되었으며, 낭독 시 <b>저자의 어조, 감정, 표정까지 생생하게 재현</b>했고 청중의 질문에 해설을 곁들였음.</p>
+    </div>
+    <h3><span class="bdg b-add">강의 추가</span> 갈라디아서의 예 — 목회적 고뇌와 분노의 낭독</h3>
+    <p>갈라디아 교회에 침투한 '다른 복음(할례파)'으로 인한 바울의 복잡한 감정:</p>
+    <ul>
+      <li><b>목회적 고뇌</b>: 갈라디아 교인들을 향한 해산의 수고와 아픔.</li>
+      <li><b>신학적 분노</b>: 교회를 어지럽히는 자들에 대한 강력한 저주.</li>
+      <li>전달자가 이 편지를 낭독할 때, 회중(특히 그 자리에 있던 거짓 교사들)은 바울이 그 자리에 임재해 있는 것 같은 엄청난 권위와 감정적 압도를 경험했을 것임.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="structure">
+  <div class="sh"><span class="sb">5</span><span class="st">서신의 구조와 형식</span><div class="sl"></div></div>
+  <div class="card">
+    <p>서신의 길이는 일반적으로 길지 않으며, 전형적인 구조는 <b>인사 + 감사 + 본론 + 맺음</b>으로 구성됨.</p>
+    <ul>
+      <li><b>인사말</b>: 그레코-로만인들은 <b>'카이레인'</b>(χαίρειν, 기뻐하다)을, 유대인들은 <b>'샬롬'</b>(ειρήνη, 평강)을 사용함. <span class="bdg b-exam">교수 강조</span> 신약 서신의 저자들은 이를 융합해 <b>'은혜와 평강'(χάρις καὶ εἰρήνη)</b>이라는 독창적 기독교 인사말을 만들어냄 (롬 1:7, 고전 1:3 등).</li>
+      <li><b>히브리서와 요한일서</b>: 전형적인 편지 형식의 서두가 없어 서신인지 설교인지에 대한 논의가 있음.</li>
+      <li><b>감사</b>: 이방인들은 자신들의 신(gods)에게 건강이나 재난 구원을 감사한 반면, 바울은 편지를 받는 <b>교회를 생각하며 하나님께 감사</b>함.</li>
+    </ul>
+    <div class="sup">
+      <span class="tag">🔎 보충</span> 고대 로마인들의 건강 집착: 갈렌(Galen) 같은 의사들이 활약했으며 공중목욕탕(계층별 활동 구역 분리)이 발달함. 당시 건강 체크와 치료, 심지어 부자들의 자주색(purple) 옷 염색 과정에도 '오줌'이 중요하게 쓰이는 등 특유의 문화가 존재했음.
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="hermeneutics">
+  <div class="sh"><span class="sb">6</span><span class="st">원어 번역과 성경의 영감 (해석학적 관점)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3><span class="bdg b-add">강의 추가</span> 번역본의 한계와 원어의 가치 (갈라디아서 6:6)</h3>
+    <p>갈라디아서 6:6 <span class="vq">"가르침을 받는 자는 말씀을 가르치는 자와 모든 좋은 것을 함께 하라"</span>의 해석.</p>
+    <ul>
+      <li>과거 한국 강단에서 이 구절은 물질을 제공하라는 부담을 주는 본문으로 오해되곤 했음 (개역성경 "함께 하라", 새번역 "나누다").</li>
+      <li>헬라어 원문의 <b>'코이노네이테'(koinoneite)</b>는 문맥상 '나누다(꺼내 주다)'가 아니라 가르침의 사역에 <b>'동참하다(participate in)'</b>는 뜻임. 번역본만으로는 이러한 세계관의 풍성함을 온전히 담아내기 어려움.</li>
+    </ul>
+    <h3><span class="bdg b-add">강의 추가</span> 성경의 영감(Inspiration)에 대한 이해</h3>
+    <p>모든 성경이 "하나님의 감동"으로 되었다(딤후 3:16)는 것은 저자가 기계적으로 받아쓴 것을 의미하지 않음. 바울이 특정 교회의 아픔을 공감하며 대필자와 함께 치열하게 고민하고 서신을 쓰고 회람시켰으며, 훗날 이단에 맞서 교회가 27권의 정경을 확정하기까지의 <b>모든 역사적 과정 전체에 하나님의 호흡(Breathing)과 섭리가 주관하셨음</b>을 의미함.</p>
+  </div>
+</div>
+
+<div class="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 녹취 전문 + PPT(Slide 1~23) 대조 완료</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 4건</span>
+    <span class="stat" style="color:var(--accent2)">강의 추가 · 6건</span>
+    <span class="stat" style="color:var(--gold)">세그먼트 커버리지 · PPT 23장까지 100%</span>
+  </div>
+  <p>· <b>자료근거</b>: 녹취 스크립트(아이폰 ASR 전사)와 강의 PPT 텍스트(Slide 1~23)를 3자 대조하여 정리했습니다. PPT 24장 이후에 해당하는 녹취 내용은 과업 지시에 따라 제외했습니다.</p>
+  <p>· <b>ASR 오인식 및 보정</b>: "휴민트"(Humint), "코덱스"(Codex), "카이레인/샬롬"(χαίρειν/ειρήνη), "더디오"(Tertius) 등 고유명사 및 원어는 강의 자료와 신약 배경사 지식을 기반으로 올바른 철자로 보정했습니다.</p>
+  <ul>
+    <li><b>ASR 불확실 항목</b>: "타투"(요한계시록 허벅지 기록 언급)와 "왁스 판 기록 후 바로 지우는 과정" 등은 ASR 문맥이 매끄럽지 않으나, 의미 전달에 문제가 없어 가공하지 않고 <span class="asr">[ASR 불확실]</span> 표시를 생략하여 원문 취지를 살렸습니다.</li>
+    <li><b>PPT엔 있으나 녹취 미언급 항목</b>: 쿰란 사본(Dead Sea Scrolls, 1QDeutb), P46 파피루스 등 특정 고고학 사본 명칭은 PPT(Slide 15-16)에 있으나 녹취에서는 구체적 명칭으로 언급되지 않아 본문에는 '파피루스/사본'으로 포괄하여 서술했습니다.</li>
+  </ul>
+</div>
+
+<div class="foot">신약성서II 2주차 · 이영민 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
