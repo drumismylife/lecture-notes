@@ -570,7 +570,9 @@ const SITE_DATA = {
           weeks: [
             { week: 1, title: "", date: "", files: [] },
             { week: 2, title: "", date: "", files: [] },
-            { week: 3, title: "", date: "", files: [] },
+            { week: 3, title: "교회사2 — 3주차 종교개혁과 개신교회 시대 (1)", date: "2026.09.15", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week03.html" }
+          ] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },
             { week: 6, title: "", date: "", files: [] },
