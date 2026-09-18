@@ -630,7 +630,9 @@ const SITE_DATA = {
             { week: 2, title: "기독교윤리학이란 무엇인가", date: "2026.09.11", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week02.html" }
           ] },
-            { week: 3, title: "", date: "", files: [] },
+            { week: 3, title: "십계명과 산상수훈의 윤리", date: "2026.09.18", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week03.html" }
+          ] },
             { week: 4, title: "", date: "", files: [] },
             { week: 5, title: "", date: "", files: [] },
             { week: 6, title: "", date: "", files: [] },
