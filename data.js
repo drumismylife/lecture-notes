@@ -663,7 +663,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week03.html" },
             { type: "guide", label: "요엘서 참고서", href: "output/2026-2/prophet/guide_joel.html" }
           ] },
-            { week: 4, title: "", date: "", files: [
+            { week: 4, title: "제4강 아모스서의 구조와 신학 및 메시지", date: "2026.09.18", files: [
             { type: "guide", label: "아모스서 참고서", href: "output/2026-2/prophet/guide_amos.html" }
           ] },
             { week: 5, title: "", date: "", files: [

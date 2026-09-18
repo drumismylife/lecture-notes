@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 3주차 강의노트 | 십계명과 산상수훈의 윤리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-mat { background: rgba(45, 90, 71, 0.12); color: var(--primary); border: 1px solid rgba(45, 90, 71, 0.35); }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-mat { background: rgba(82, 168, 130, 0.18); color: var(--primary); border-color: rgba(82, 168, 130, 0.4); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+
+.audit-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 28px 32px; margin: 40px 0 24px 0; box-shadow: var(--shadow-sm); }
+.audit-title { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.audit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 22px 0; }
+.audit-stat { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px 14px; text-align: center; }
+.audit-stat .num { font-size: 20px; font-weight: 800; color: var(--primary); }
+.audit-stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 48px 42px; margin-bottom: 36px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 34px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 14px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 400; color: #d6e8de; margin-bottom: 24px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 18px 22px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 15px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 36px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.toc-col h4 { font-size: 13.5px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 6px; font-size: 14px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+
+.section-block { margin-bottom: 48px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 18px 24px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 12px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 4px 10px; border-radius: 20px; }
+
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 32px 36px; margin-bottom: 28px; box-shadow: var(--shadow-sm); transition: border-color 0.2s; }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px; gap: 16px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 21px; font-weight: 700; color: var(--primary); margin-bottom: 6px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 14px; color: var(--text-muted); }
+.slide-badge { flex-shrink: 0; background: var(--accent-gold-dim); color: #724f11; border: 1px solid rgba(194,146,54,0.35); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.02em; white-space: nowrap; }
+
+p { margin-bottom: 16px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 14px 0 20px 24px; }
+li { margin-bottom: 8px; }
+
+.prof-box { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 16px 20px; margin: 22px 0; font-size: 14.8px; line-height: 1.75; }
+.prof-box-title { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em; }
+.prof-box p { margin-bottom: 0; font-family: 'Noto Serif KR', serif; color: var(--text-main); }
+
+.warn-box { background: var(--accent-terra-bg); border-left: 4px solid var(--accent-terracotta); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 16px 20px; margin: 22px 0; font-size: 14.8px; line-height: 1.75; }
+.warn-box-title { font-size: 12.5px; font-weight: 700; color: var(--accent-terracotta); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.warn-box p { margin-bottom: 0; color: #5c1e13; }
+[data-theme="dark"] .warn-box p { color: #f3c9c0; }
+
+.thesis-box { background: var(--accent-gold-dim); border: 1px solid rgba(194, 146, 54, 0.4); border-radius: var(--radius-md); padding: 20px 24px; margin: 24px 0; text-align: center; }
+.thesis-box .quote { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 700; color: #593e0b; line-height: 1.6; margin-bottom: 8px; }
+[data-theme="dark"] .thesis-box .quote { color: #f0dcb0; }
+.thesis-box .author { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+
+.diagram-container { background: var(--card-alt); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 24px; margin: 24px 0; text-align: center; }
+.diagram-title { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 700; color: var(--text-muted); margin-bottom: 18px; letter-spacing: 0.05em; text-transform: uppercase; }
+.coords-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; position: relative; }
+@media (max-width: 768px) { .coords-grid { grid-template-columns: 1fr; } }
+.coord-node { background: var(--card-bg); border: 2px solid var(--primary-border); border-radius: var(--radius-sm); padding: 16px 14px; box-shadow: var(--shadow-sm); text-align: left; }
+.coord-node.active { border-color: var(--accent-gold); background: var(--accent-gold-dim); }
+.coord-num { font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-bottom: 4px; }
+.coord-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+.coord-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.step-node { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 14px 10px; text-align: center; box-shadow: var(--shadow-sm); }
+.step-num { width: 26px; height: 26px; background: var(--primary); color: #fff; border-radius: 50%; margin: 0 auto 8px auto; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.step-name { font-size: 13.5px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.step-sub { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
+
+.custom-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 14.5px; }
+.custom-table th, .custom-table td { padding: 12px 16px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 36px 40px; margin-top: 50px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 16px; }
+.quiz-q { font-weight: 700; font-size: 15.5px; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 14px; color: var(--primary-light); background: var(--primary-pale); padding: 8px 12px; border-radius: 4px; margin-top: 6px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+
+.footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border-medium); font-size: 13.5px; color: var(--text-muted); line-height: 1.8; }
+
+@media print {
+  .control-bar { display: none !important; }
+  body { background: #ffffff !important; color: #000000 !important; font-size: 10pt; line-height: 1.6; }
+  .container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  .header-card { background: #ffffff !important; color: #000000 !important; border: 2px solid #19382b !important; padding: 24px !important; box-shadow: none !important; }
+  .header-title { color: #19382b !important; font-size: 22pt !important; }
+  .header-subtitle { color: #333333 !important; font-size: 13pt !important; }
+  .header-theses { background: #f0f0f0 !important; color: #000000 !important; border-left-color: #19382b !important; }
+  .unit-card, .toc-card, .exam-section { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+  .part-banner { background: #eee !important; color: #000 !important; border: 1px solid #aaa !important; }
+  .part-banner h2 { color: #19382b !important; }
+  a { text-decoration: none !important; color: #000000 !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky Control Bar -->
+<div class="control-bar">
+  <div class="brand">
+    <span class="badge-course">기독교윤리 3주차</span>
+    <span>십계명과 산상수훈의 윤리 (1·2차시 통합)</span>
+  </div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      A4 인쇄 / PDF 저장
+    </button>
+    <button class="btn-ui" onclick="toggleTheme()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      다크/라이트
+    </button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>3주차 정규 강의노트</span>
+    </div>
+    <h1 class="header-title">십계명과 산상수훈의 윤리</h1>
+    <div class="header-subtitle">은혜로 받은 자유의 질서, 그리고 그 자유를 살아 내는 하나님 나라 백성의 삶</div>
+    <div class="header-theses">
+      <strong>[이번 주 학습목표 — syllabus.md 3주차 원문]</strong><br>
+      십계명이 <strong>구원의 조건이 아니라 구원 이후에 주어진 자유의 질서</strong>임을 설명할 수 있다.
+      산상수훈을 <strong>불가능한 이상이 아니라 제자 공동체의 실제 삶의 방식</strong>으로 읽을 수 있고,
+      <strong>두 본문의 윤리적 연속성</strong>을 설명할 수 있다.
+    </div>
+  </header>
+
+  <nav class="toc-card">
+    <div class="toc-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      강의 목차 및 빠른 이동
+    </div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 십계명의 윤리 (1강)</h4>
+        <ul class="toc-list">
+          <li><a href="#sec-1">§1. 도입 — "하지 말라"보다 먼저 온 말씀</a></li>
+          <li><a href="#sec-2">§2. 은혜로서의 십계명: 서문의 재발견</a></li>
+          <li><a href="#sec-3">§3. 서사로서의 십계명: 이야기와 기억이 빚는 정체성</a></li>
+          <li><a href="#sec-4">§4. 계명이 지키는 것: 이웃의 몸과 삶</a></li>
+          <li><a href="#sec-5">§5. 마지막 계명이 마음을 향하는 이유: 탐심에서 폭력으로</a></li>
+          <li><a href="#sec-6">§6. 성품에서 공동체로: 규칙이 사람을 빚는 방식</a></li>
+          <li><a href="#sec-7">§7. 평화의 공동체: 비폭력과 진실함의 실천</a></li>
+          <li><a href="#sec-8">§8. 결론: 자유를 지키는 경계</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 산상수훈의 윤리 (2강)</h4>
+        <ul class="toc-list">
+          <li><a href="#sec-9">§9. 도입 — 산상수훈은 누구에게 주어졌는가</a></li>
+          <li><a href="#sec-10">§10. 은혜: 요구보다 먼저 온 나라</a></li>
+          <li><a href="#sec-11">§11. 서사: 한 인격에게 결박된 말씀</a></li>
+          <li><a href="#sec-12">§12. 성품: 아버지를 닮아 가는 제자</a></li>
+          <li><a href="#sec-13">§13. 공동체: 짐을 나누어 지는 백성</a></li>
+          <li><a href="#sec-14">§14. 평화: 원수를 사랑하는 공동체</a></li>
+          <li><a href="#sec-15">§15. 결론 — 산 위의 동네, 반석 위의 집</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 연속성 정리 & 시험대비</h4>
+        <ul class="toc-list">
+          <li><a href="#sec-16">§16. 십계명 → 산상수훈의 윤리적 연속성</a></li>
+          <li><a href="#sec-exam">§17. 시험 대비 핵심 정리 (O/X 및 서술형)</a></li>
+          <li><a href="#sec-discuss">§18. 토론 질문(1강·2강)</a></li>
+          <li><a href="#sec-audit">출처·검증 요약</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================== PART 1 ============================== -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 십계명의 윤리 — 은혜로 받은 자유의 질서 (1강)</h2>
+      <span class="part-badge">강의안(PDF 1장) pp.1-15</span>
+    </div>
+
+    <article class="unit-card" id="sec-1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — "하지 말라"보다 먼저 온 말씀 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">십계명은 금지의 목록이 아니라 자유를 지키는 하나님의 계시요 은혜의 복음이다</div>
+        </div>
+        <span class="slide-badge">강의안 pp.1-2</span>
+      </div>
+      <p>기독교 윤리는 십계명과 산상수훈이라는 두 산맥 위에 세워져 있다. 교회사에서 십계명은 오랫동안 도덕법의 정수로 인정받았다 — 루터는 "십계명을 바르고 완전하게 알려는 사람이라면 성경 전체를 이해할 수 있어야 한다"(『대교리문답』, 36)고 했고, 칼뱅은 십계명을 "모든 사람과 국가를 위한 참되고 영원한 의의 법"으로 규정했다(『칼빈의 십계명 강해』, 21).</p>
+      <p>그런데 많은 사람이 십계명에서 먼저 떠올리는 것은 "살인하지 말라, 간음하지 말라, 도둑질하지 말라, 탐내지 말라"는 금지의 말이다. 그래서 십계명은 자유와 맞서는 언어처럼 들린다. 그러나 성경의 십계명은 금지로 시작하지 않는다. 열 계명보다 먼저 오는 말씀이 있다: <span style="font-style:italic">"나는 너를 애굽 땅, 종 되었던 집에서 인도하여 낸 네 하나님 여호와니라"(출 20:2)</span>. 명령보다 먼저 하나님이 행하신 일이 진술되고, 그 일이 명령의 근거가 된다 — 이 순서가 십계명의 윤리적 성격을 결정한다.</p>
+      <div class="thesis-box">
+        <div class="quote">"하나님은 순종한 사람을 해방하신 것이 아니다. 종을 먼저 해방하신 뒤 계명을 주셨다." <span class="bdg b-exam">⭐ 교수강조</span></div>
+        <div class="author">— 강의 슬라이드 1강 4쪽 · PDF도입 동일 문장</div>
+      </div>
+      <p>이 순서를 놓치면 계명은 세 방식으로 뒤틀린다: <strong>①은혜에서 분리된 계명</strong>은 구원을 얻기 위한 공로의 수단이 되고, <strong>②외적 규칙으로 축소된 계명</strong>은 겉으로는 지키면서 속에는 탐심을 품는 이중성을 낳고, <strong>③성품과 분리된 계명</strong>은 자신을 성찰하는 거울이 아니라 타인을 정죄하는 잣대로 쓰인다. 세 오류의 뿌리는 하나다 — 모두 계명을 그것이 태어난 이야기에서 떼어 낸 결과이다.</p>
+      <p>이 장이 따르는 방법은 하우어워스와 윌리몬이 인용한 맥케이브의 한 문장에 압축되어 있다: <span style="font-style:italic">"하나님이 우리에게 십계명을 나타내시기보다 오히려 십계명이 우리에게 하나님을 나타낸다"</span>(하우어워스·윌리몬, 『십계명』, 178). 이 물음을 따라 이 책 전체, 그리고 이 장은 <strong>은혜·서사·성품·공동체</strong>라는 네 축으로 움직인다 — 은혜가 먼저이고, 이야기가 계명의 맥락이며, 계명은 욕망과 성품을 빚고, 그렇게 형성된 성품은 공동체 안에서 평화의 실천으로 나타난다.</p>
+      <div class="warn-box">
+        <div class="warn-box-title">⚠ 개혁교회 전통의 계명 번호 (PDF 후주[2])</div>
+        <p>이 장은 개혁교회 전통의 계명 번호를 따른다(형상 금지=제2계명 독립, 탐심 금지=제10계명 하나). 로마 가톨릭·루터교 전통은 형상 금지를 제1계명에 포함하고 탐심 금지를 제9·10계명으로 나눈다. 이 장이 자주 인용하는 하우어워스·윌리몬의 『십계명』 한국어판은 <strong>후자(가톨릭/루터교) 번호</strong>를 따르므로, 이 장의 제6계명=그 책의 제5계명, 제8계명=제7계명, 제9계명=제8계명이라는 점을 혼동하지 않아야 한다.</p>
+      </div>
+    </article>
+
+    <article class="unit-card" id="sec-2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 은혜로서의 십계명 — 서문의 재발견 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">출애굽기 20장만 떼어 읽으면 안 된다 — 1~19장의 구원 서사가 먼저다</div>
+        </div>
+        <span class="slide-badge">강의안 1절 · pp.2-4</span>
+      </div>
+      <p>십계명을 읽을 때 흔한 첫 번째 실수는 출애굽기 20장만 떼어 읽는 것이다. 한 장 앞서 하나님은 시내산에 이른 백성에게 말씀하셨다: <span style="font-style:italic">"내가 애굽 사람에게 어떻게 행하였음과 내가 어떻게 독수리 날개로 너희를 업어 내게로 인도하였음을 너희가 보았느니라"(출 19:4)</span>. 먼저 오는 것은 <strong>기억</strong>이다. 그다음 <strong>정체성의 선언</strong>이 따른다 — "너희는 내 소유가 되고, 제사장 나라가 되며, 거�룩한 백성이 되리라"(출 19:5~6). 계명은 그 뒤에야 주어진다. <strong>구원 → 관계 → 정체성 → 계명</strong>으로 이어지는 이 순서가 십계명을 이해하는 열쇠다.</p>
+      <p>체코 신학자 <strong>로흐만(Jan Milič Lochman)</strong>은 출 20:2의 서문에서 세 가지를 읽어 낸다(Lochman, <i>Signposts to Freedom</i>, 18~19):</p>
+      <table class="custom-table">
+        <thead><tr><th style="width:15%">요소</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td><strong>①역사</strong></td><td>구원 사건의 선행성 — 이스라엘은 법을 지켜 구원받은 것이 아니라 구원받았기에 법을 받았다.</td></tr>
+          <tr><td><strong>②언약</strong></td><td>관계의 확립 — "네 하나님 여호와"는 비인격적 절대자의 차가운 명령이 아니라 구체적 역사 속에서 관계를 맺으신 하나님의 말씀.</td></tr>
+          <tr><td><strong>③해방</strong></td><td>"종 되었던 집" — 노예였던 이들을 건져 내신 것, 제국의 질서와 결별하고 자유인으로 살게 하는 자유의 헌장.</td></tr>
+        </tbody>
+      </table>
+      <p><span class="bdg b-add">강의 추가</span> 강의에서는 이 대목에서 원고에 없는 설명을 덧붙였다: <strong>하나님은 이스라엘의 배타적 구원자</strong>이시다 — 애굽에는 많은 신들이 있었고 그 신들은 파라오의 체제를 지탱하고 이스라엘의 노예살이를 정당화한 지배 이데올로기였지만, 오직 야웨 하나님만이 약자·가난한 자·소외된 자였던 이스라엘을 위해 하늘에 계시지 않고 친히 땅에 오셔서 구원하신 하나님이라는 것이다. 그렇기 때문에 하나님과 이스라엘의 관계는 특별한 관계가 된다.</p>
+      <p>해방에는 목적이 있었다 — 하나님은 바로에게 "이스라엘을 풀어 주라"고만 하지 않으시고, 그들이 광야에서 <strong>하나님을 예배하게 하라</strong>고 요구하셨다(출 3:18). 하우어워스와 윌리몬은 십계명을 바로 이 목적에 응답하는 말씀으로 읽는다 — 오랜 종살이 동안 하나님을 어떻게 예배해야 하는지 잊어버린 백성에게, 시내산의 열 말씀은 <strong>예배의 문법</strong>을 다시 가르쳐 주었다(『십계명』, 16~17).</p>
+      <div class="thesis-box">
+        <div class="quote">직설법(하나님의 행하심)이 명령법(인간의 순종)보다 논리적으로도 시간적으로도 항상 앞선다 <span class="bdg b-exam">⭐ 교수강조</span></div>
+        <div class="author">— Miller, <i>The Ten Commandments</i>, 16 · 강의에서 사도 바울의 "직설법-명령법" 논리로 재확인</div>
+      </div>
+      <p>이 순서 때문에 율법은 구원을 얻는 수단이 될 수 없다: 우리는 <strong>구원받기 위해 순종하는 것이 아니라 구원받았기에 순종</strong>한다. 바르트가 전통적 '율법과 복음'의 구도를 뒤집어 <strong>'복음과 율법'</strong>이라고 해야 한다고 주장한 것도 같은 맥락이다(바르트, 「복음과 율법」, 89~132). 하이델베르크 요리문답이 십계명을 구원론이 아니라 <strong>제3부 '감사'</strong>에서 다루는 것도 한 예다(이경직, 311~337).</p>
+      <p>이 지점에서 십계명의 보편성 논쟁이 떠오른다 — 이 책은 십계명이 특정 시대·민족을 넘어 지속적 윤리 의미를 지닌다는 점을 인정하지만, <strong>그 이야기(출애굽)를 지운 채 보편 규칙의 목록으로만 쓰는 일부 독법</strong>을 문제로 지목한다(개혁주의 도덕법 전통 전체를 비판하는 것은 아님). 하우어워스·윌리몬은 법정 벽에 걸린 십계명이 "선의를 지닌 사람이라면 누구나 동의할 일반 규범"으로 제시되는 순간, 삼위일체 하나님의 십계명과 무관해진다고 본다(『십계명』, 14). 그러므로 기독교 윤리는 <strong>"무엇을 해야 하는가"라는 당위 이전에 "누가 되었는가"라는 존재의 변화</strong>에서 시작한다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 서사로서의 십계명 — 이야기와 기억이 빚는 정체성 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">"탈맥락적 규칙은 없다" — 규칙은 언제나 어느 이야기에 속해 있다</div>
+        </div>
+        <span class="slide-badge">강의안 2절 · pp.4-5</span>
+      </div>
+      <p><strong>하우어워스</strong>는 "탈맥락적 규칙은 있을 수 없다"고 지적한다(『평화의 나라』, 90). 규칙은 언제나 누가 어떤 공동체에 속해 어떤 이야기를 따라 사는지를 전제한다 — 그래서 그는 "우리는 어느 이야기에 속해 있는가"라는 물음에서 윤리를 시작한다. 윤리는 규칙을 선택하는 문제이기 전에 <strong>정체성의 문제</strong>다. <strong>맥클렌던</strong>도 같은 문제를 지적한다: 근대의 윤리 기획은 구체적 이야기·정황을 제거하고 이성 일반이 승인할 추상적 의무 체계를 세우려 했지만, 인간의 도덕적 결단은 언제나 특정한 이야기·기억·공동체의 전통 안에서 이루어진다(McClendon, <i>Biography as Theology</i>, 24~25).</p>
+      <p>강영안은 십계명 앞에서 "우리가 누구입니까"라고 묻고, 십계명을 <strong>구원받아 새로운 신분을 얻은 백성이 그 정체성에 걸맞게 걸어가야 할 길</strong>이라고 말한다(『십계명 강의』, 59~60). 맥클렌던은 한 걸음 더 나아가 십계명을 <strong>구속받은 공동체의 실천을 형성하는 지침</strong>으로 본다(McClendon, <i>Ethics</i>, 176).</p>
+      <p>이 형성이 일어나는 첫 자리는 <strong>예배</strong>다. 마일랜더가 지적하듯 제1계명은 여러 계명 중 첫 번째 규칙에 그치지 않는다 — 다른 모든 계명의 근거이자 목표이며 나머지를 이해하는 열쇠다(Meilaender, <i>Thy Will Be Done</i>, 113~115). 두 번째 자리는 <strong>시간</strong>이다: 안식일은 공동체의 시간을 구별함으로써 기억을 몸에 새기는 실천이다(브루그만 『안식일은 저항이다』는 생산의 중단을 강조하지만, 맥클렌던은 안식일을 창조와 해방을 함께 기억하며 공동체의 시간을 형성하는 일로 읽는다).</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성</div>
+        <p>"제사장 나라가 정말 중요한 단어입니다 — 제사장 나라가 뭐예요? 제사를 지내는, 하나님께 예배하는 공동체라는 것입니다... 우리가 내 맘대로 행동하는 무책임한 방임으로서의 자유가 아니라, 하나님만을 예배하는 백성이 되도록 하려는 것이 바로 십계명입니다."</p>
+      </div>
+      <p>이 모든 것을 떠받치는 힘이 <strong>기억</strong>이다. "너희도 애굽 땅에서 나그네 되었음"을 기억하라는 명령은 과거 회상에 그치지 않는다 — 신명기는 나그네·고아의 송사를 억울하게 하지 말라는 명령에도, 추수 때 잊어버린 곡식 단을 나그네·고아·과부를 위해 남겨 두라는 명령에도 애굽에서 종이었던 기억을 근거로 든다(신 24:17~22). 맥클렌던은 제5계명(부모 공경)을 단순한 효도의 요구가 아니라 <strong>신앙의 유산과 공동체의 이야기를 다음 세대에 전하는 시간적 연속성의 계명</strong>으로 이해한다(McClendon, <i>Ethics</i>, 172~175) — '이것이 그것이다'라는 원리, 곧 시내산의 해방 이야기는 박물관의 유물이 아니라 지금 여기의 교회를 규정하는 살아 있는 현실이다.</p>
+      <p><span class="bdg b-add">강의 추가</span> 강의에서 교수님은 "리멤버(remember)라는 단어는 성서신학적으로 정말 중요한 단어"라고 짚으며, "내가 누구인지를 잊어버리면 내가 종이 되기도 하고, 반대로 타인을 종으로 부리는 일이 동전의 양면처럼 함께 벌어진다"고 풀이했다 — 애굽에서 나그네·고아·과부였던 기억을 잊으면 오늘 나그네·고아·과부를 환대하지 못한다는 것.</p>
+    </article>
+
+    <article class="unit-card" id="sec-4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 계명이 지키는 것 — 이웃의 몸과 삶 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">십계명은 약자에게 참으라는 말이 아니라, 침범할 힘을 가진 사람에게 멈추라는 명령이다</div>
+        </div>
+        <span class="slide-badge">강의안 3절 · pp.5-8</span>
+      </div>
+      <p>마일랜더는 이웃 사랑의 계명을 사회를 지탱하는 결속의 관점에서 읽는다 — 십계명은 <strong>결혼·가족·생명·소유·언어</strong>라는 다섯 가지 끈으로 공동체가 해체되지 않도록 붙든다(Meilaender, <i>Thy Will Be Done</i>, 17~95).</p>
+      <div class="diagram-container">
+        <div class="diagram-title">마일랜더의 다섯 가지 끈 — 몸을 가지고 살아가는 이웃을 지키는 경계</div>
+        <div class="coords-grid" style="grid-template-columns: repeat(5, 1fr);">
+          <div class="coord-node"><div class="coord-num">끈 01</div><div class="coord-title">결혼</div><div class="coord-desc">몸(性)의 신실함</div></div>
+          <div class="coord-node"><div class="coord-num">끈 02</div><div class="coord-title">가족</div><div class="coord-desc">세대의 연속성</div></div>
+          <div class="coord-node active"><div class="coord-num">끈 03</div><div class="coord-title">생명</div><div class="coord-desc">몸 그 자체</div></div>
+          <div class="coord-node"><div class="coord-num">끈 04</div><div class="coord-title">소유</div><div class="coord-desc">몸이 살아가는 조건</div></div>
+          <div class="coord-node"><div class="coord-num">끈 05</div><div class="coord-title">언어</div><div class="coord-desc">공동체의 신뢰</div></div>
+        </div>
+      </div>
+      <div class="warn-box">
+        <div class="warn-box-title">⚠ 계명을 읽는 방향 — 누구에게 주어진 말인가</div>
+        <p>계명은 약자에게 참으라고 요구하기보다 <strong>타인을 침범할 힘을 가진 사람에게 멈추라고 명한다</strong>. 종을 쉬게 하라는 말은 주인에게, 위증하지 말라는 말은 증언할 자리에 설 수 있는 사람에게, 이삭을 남기라는 말은 밭을 가진 사람(보아스)에게 주어졌다 — 이삭을 줍는 룻에게 주어진 말이 아니다. <span class="bdg b-add">강의 추가</span> 교수님은 이 대목에서 "이 십계명을 가지고 약자에게 적용하는 것은 때로는 위험하다"고 직접 경고했다.</p>
+      </div>
+      <p><strong>제4계명(안식일)</strong>은 시간을 지킨다. 같은 계명에 두 근거가 붙는다는 점이 중요하다: 출애굽기는 <strong>창조</strong>를 근거로 들고(출 20:11), 신명기는 "네가 애굽 땅에서 종이 되었던 것을 기억하라"며 <strong>해방</strong>을 근거로 든다(신 5:15). 쉬어야 할 대상의 목록도 중요하다 — 아들과 딸만이 아니라 남종·여종·가축·나그네까지 명시된다(신 5:14). 명령을 직접 듣는 사람은 주인이지만, 그 명령으로 실제 쉼을 보장받는 사람은 종이다. 바르트가 안식일 계명을 십계명의 중심에 놓은 것도 이 맥락이다 — 안식일은 인간에게 하던 일을 멈추라고 요구함으로써, 인간이 성취할 수 있는 것에서 시선을 돌려 <strong>하나님이 이미 행하신 일</strong>을 바라보게 한다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성 — 안식과 한국 사회</div>
+        <p>"요즘 정말 4계명 안식일 계명이 우리 현대사회, 한국사회에 정말 중요한 계명이지 싶습니다. 안식이 없는 삶, '죽으라 일하다가 죽어버리는' 이 엄청난 자기 피로의 사회, 자기가 자기를 착취하고 자기가 자기를 약탈하는 이런 사회를 살아가는 우리에게 쉼이 있는 세상이 필요합니다... 창조를 6일로 보기도 하는데, 조금 더 엄밀하게 보면 <strong>7일 창조</strong>입니다 — 7일째 안식일을 창조하셨다는 것, 안식일은 창조의 완성이자 정점입니다."</p>
+      </div>
+      <p>나머지 계명들도 몸의 구체적 삶을 지킨다. <strong>제6계명(살인)</strong>은 생명을 지킨다 — 창 9:6은 "사람의 피를 흘리면 그의 피도 흘릴 것"이라 한 뒤 그 이유를 "하나님이 사람을 자기 형상대로 지으셨기 때문"이라 밝힌다. 로흐만의 통찰: 살인은 단순한 폭력을 넘어 <strong>제1계명을 위반하는 우상숭배</strong>이기도 하다 — 생명과 사망의 주권은 창조주께 속하는데, 살인자는 타인의 생명을 취함으로써 스스로 그 자리에 앉기 때문이다(Lochman, 87). 하우어워스·윌리몬은 살인이 하나님이 창조·소유하신 것을 훔치는 일이라고도 말한다(『십계명』, 118) — 살인은 <strong>제6계명과 동시에 제1계명·제8계명도 침범</strong>한다.</p>
+      <p><strong>제7계명(간음)</strong>은 이웃의 몸을 내 욕망을 위해 사용할 수 없다는 경계다 — 간음이 문제인 까닭은 쾌락 자체가 아니라 언약적 신실함을 깨뜨리고 타인의 몸을 자기 욕망에 종속시키기 때문이다(호세아가 우상숭배를 간음이라 부른 것도 이 연결을 보여줌, 호 2:2~20). <strong>제8계명(도둑질)</strong>은 생존의 조건을 지킨다 — 밭 모퉁이의 곡식을 남기고(레 19:9~14) 땅을 영구히 팔 수 없다는 규정(레 25:23)이 이어진다. 칼뱅은 "부자들이 가난한 자가 쇠약해져 가는 것을 보면 사냥꾼처럼 달려가 그를 덮친다"고 경고했다(『칼빈의 십계명 강해』, 275) — 도둑질은 소유의 침해를 넘어 이웃의 생명에 닿는다. <strong>제9계명(위증)</strong>은 진실을 지킨다 — 배경은 일상적 거짓말이 아니라 법정의 위증이며, 신명기는 거짓 증인이 드러나면 그가 형제에게 행하려던 것을 그대로 시행하라고 규정한다(신 19:15~21).</p>
+      <p>계명들을 함께 놓으면 하나의 그림이 드러난다: 시간·세대·생명·몸·소유·말은 모두 <strong>이웃이 살아갈 수 있는 조건</strong>이라는 한 지점으로 모인다. 그리고 계명은 금지에서 멈추지 않는다 — 제6계명은 죽이지 않는 데서 멈추지 않고 자비를 요구하고, 제8계명은 훔치지 않는 데서 그치지 않고 나눔을 요청하며, 제9계명은 거짓말을 피하는 데 머물지 않고 진실함을 요구한다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 마지막 계명이 마음을 향하는 이유 — 탐심에서 폭력으로 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">제10계명은 법정이 판결할 수 없는 마음의 욕망을 겨냥한다</div>
+        </div>
+        <span class="slide-badge">강의안 4절 · pp.8-10</span>
+      </div>
+      <p>앞의 계명들이 밖으로 드러나는 행위를 금한다면, 마지막 계명은 그 행위가 시작되는 <strong>마음의 욕망</strong>을 겨냥한다. 살인·절도·위증은 증거를 두고 법정에서 판결할 수 있지만, 탐심은 그렇지 않다 — 아무도 증언할 수 없고 어떤 법정도 처벌할 수 없다. 칼뱅은 이를 <strong>거울의 비유</strong>로 설명한다: 하나님의 율법이 "도둑질하지 말라·살인하지 말라·간음하지 말라"만 보여 준다면 우리는 무죄하다 여길 수 있지만, "탐내지 말라" 앞에서는 "우리 마음과 모든 생각·상상의 밑바닥까지 살피시는 날카로운 채혈침"이 된다(『칼빈의 십계명 강해』, 331~332).</p>
+      <p>'탐내다'로 번역된 히브리어 <strong>'하마드(חמד)'</strong>는 그 자체로 언제나 악한 욕망을 뜻하진 않지만, 제10계명의 문맥에서는 이웃에게 속한 것을 자기 것으로 만들려는 욕망을 가리킨다(Durham, <i>Exodus</i>, 296). 미가 2:2 <span style="font-style:italic">"밭들을 탐하여 빼앗고 집들을 탐하여 차지하니"</span> — 탐하는 일과 빼앗는 일이 한 문장 안에 붙어 있다. 하나의 과정이다.</p>
+      <p><strong>지라르(르네 지라르)</strong>의 통찰: 우리는 타인이 욕망하는 것을 욕망하며, 이 과정에서 이웃은 본받을 모델에서 제거해야 할 경쟁자로 바뀐다(『나는 사탄이 번개처럼 떨어지는 것을 본다』, 19~49). <span class="bdg b-add">강의 추가</span> 강의는 이를 힘의 문제로 더 풀어 설명했다: "욕망이 힘을 만납니다. 욕망이 있다고 해서 할 힘이 없으면 행동이 안 되지만, 욕망이 힘을 가지면 행동하게 됩니다. 개인적 차원이라면 그 사람의 행동이 되지만, 그것이 <strong>권력의 문제, 곧 구조와 제도와 시스템의 문제</strong>가 되면 타인의 삶을 침범하게 됩니다."</p>
+      <div class="warn-box">
+        <div class="warn-box-title">📖 사례 연구 — 아합과 나봇의 포도원 (왕상 21장)</div>
+        <p>아합은 나봇의 포도원을 원했고 정당한 값을 쳐 주겠다고 제안했지만, 나봇은 "조상의 유산을 네게 주기를 여호와께서 금하실 것"이라며 거절한다(왕상 21:3). 거절당한 왕은 얼굴을 돌리고 음식을 먹지 않는다(21:4) — 견디지 못한 것은 포도원을 갖지 못한 사실이 아니라 <strong>자기 뜻이 관철되지 않았다는 사실</strong>이었다. 이세벨은 왕의 이름으로 거짓 증인을 세우고, 금식을 선포하고, 나봇을 돌로 쳐 죽이게 한다(21:8~10) — 이 모든 절차는 <strong>외형상 합법적</strong>이었다.</p>
+      </div>
+      <p>계명의 관점에서 무너지는 순서는 이렇다: <strong>제10계명</strong>(탐함) → <strong>제9계명</strong>(거짓 증인) → <strong>제6계명</strong>(나봇의 죽음) → <strong>제8계명</strong>(왕이 포도원을 차지). 출발점은 왕의 마음이었고 끝에는 한 사람의 몸이 있었다. 하나님이 엘리야를 보내 하신 말씀 "네가 죽이고 또 빼앗았느냐"(왕상 21:19)는 이 절차의 외양을 걷어 낸다 — 이 문장에 쓰인 동사는 제6계명의 동사와 같은 <strong>'라차흐(רצח)'</strong>이다. 절차를 갖추었다는 사실이 이 계명 앞에서 면죄부가 되지는 않는다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 나봇의 재판과 예수님의 재판 (PDF엔 없는 확장)</div>
+        <p>"나봇은 폭력배에게 끌려가서 맞은 것이 아니고 정당한 재판을 받고 죽은 거예요. 여러분, 이걸 우리 신약으로 놓으면 예수님으로 와야 되겠죠. 예수님은 물론 적법한 절차는 아니었습니다. 그냥 외형은 갖추었죠 — 그런 재판절차를 거쳤지만 부당한 재판이고 잘못된 재판이었던 거죠. 결국 그것은 폭력이었습니다." — 강의에서만 나온 확장 예시로, 나봇의 이야기가 예수님의 십자가 재판에도 같은 구조로 적용됨을 짚었다.</p>
+      </div>
+      <p>제10계명은 욕망 자체를 없애라고 요구하지 않는다. 아우구스티누스가 인간의 마음은 하나님 안에서 쉬기까지 참된 안식을 얻지 못한다고 고백한 것처럼, 인간의 욕망이 끝없이 무언가를 향하는 것은 인간이 본래 하나님 안에서 안식하도록 지어졌기 때문이다. 그러므로 제10계명은 욕망을 <strong>그 본래 대상으로 돌리라</strong>는 명령이다. 광야에서 만나를 거둘 때 많이 거둔 자도 남지 않았고 적게 거둔 자도 모자라지 않았다(출 16:18) — 자족은 이웃과 나눌 수 있는 자유를 낳는다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-6">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 성품에서 공동체로 — 규칙이 사람을 빚는 방식 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">"무엇을 해야 하는가"가 아니라 "어떤 사람이 되어야 하는가"</div>
+        </div>
+        <span class="slide-badge">강의안 5절 · pp.10-12</span>
+      </div>
+      <p>근대 윤리학의 한 흐름이 딜레마 상황의 "무엇을 해야 하는가"에 집중했다면, 성경의 윤리는 더 근본적인 <strong>"어떤 사람이 되어야 하는가"</strong>를 앞세운다. 맥클렌던은 이런 결단주의적 접근이 최소한의 사실로 사례를 구성하며 <strong>행위자의 얼굴과 공동체의 기억을 지운다</strong>고 진단한다 — 충성·관대함·용기 같은 덕은 규칙을 적용한다고 생기지 않고, 훈육과 서사 속에서 배운다(McClendon, <i>Biography as Theology</i>, 6~8, 15~16).</p>
+      <p>하우어워스는 아리스토텔레스·아퀴나스 전통을 따라 덕을 반복된 실천과 습관으로 몸에 밴 <strong>'제2의 천성'</strong>으로 이해한다(<i>A Community of Character</i>, 115). 계명을 지키는 일은 규칙을 따르는 데 그치지 않고 <strong>그리스도의 성품을 닮아 가는 성화의 과정</strong>이다 — 십계명은 신자의 옛 자아를 깎아 내고 하나님의 성품을 닮도록 빚어 가는 거푸집이다.</p>
+      <div class="diagram-container">
+        <div class="diagram-title">성품이 형성되는 순서 (은혜 → 계명 → 실천 → 습관 → 성품)</div>
+        <div class="process-grid">
+          <div class="step-node"><div class="step-num">1</div><div class="step-name">은혜</div><div class="step-sub">하나님의 구원</div></div>
+          <div class="step-node"><div class="step-num">2</div><div class="step-name">계명</div><div class="step-sub">응답의 형식</div></div>
+          <div class="step-node"><div class="step-num">3</div><div class="step-name">공동체의 실천</div><div class="step-sub">함께 행함</div></div>
+          <div class="step-node"><div class="step-num">4</div><div class="step-name">습관</div><div class="step-sub">반복된 실천</div></div>
+          <div class="step-node"><div class="step-num">5</div><div class="step-name">성품</div><div class="step-sub">은혜가 빚은 열매</div></div>
+        </div>
+      </div>
+      <p>중요한 것은 이 형성의 사슬이 어디서 시작되는가이다 — 이 순서가 지켜질 때 성품은 인간이 스스로 이룬 성취가 아니라 <strong>은혜가 빚어 낸 열매</strong>로 남는다. 그 완성도 인간의 의지에 달려 있지 않다: 새 언약의 약속대로 성령은 돌판에 새겨진 율법을 우리 마음판에 새기신다(렘 31:33; 겔 36:26~27).</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성 — 루틴과 성품의 차이</div>
+        <p>"그 계명을 각자 실천하고 공동체와 함께 실천할 때 습관이 되고 외적인 습관이 되죠. <strong>루틴은 외적인 습관일 뿐 내면의 변화는 아니거든요.</strong> 그래서 내면의 성품, 캐릭터까지도 하나님을 닮아가는 하나님의 은혜에 합당한 사람으로 바뀌어가는 겁니다 — 예레미야가 계명은 돌판이 아니라 마음판에 새겼다고 한 것처럼요."</p>
+      </div>
+      <p>십계명의 수신자는 처음부터 고립된 개인이 아니라 한 백성이었다 — 안식은 종과 나그네가 함께 쉴 때 비로소 이루어지고, 밭 모퉁이의 곡식을 남기는 일도 그것을 손해가 아니라 마땅한 일로 여기는 공동체 안에서 지속된다. 여기서 <strong>개인과 구조의 관계</strong>도 짚어야 한다 — 나봇의 포도원 이야기에서 장로와 귀족들은 아합처럼 포도원을 탐낸 것이 아니라, 왕의 명령을 실행할 수 있는 제도적 위치에 있었을 뿐이다. 왜곡된 욕망은 제도를 타락시키고, 타락한 제도는 다시 그 안에서 사는 사람들의 욕망과 행동을 훈련한다 — <strong>기독교 윤리는 개인과 구조 가운데 하나만을 죄의 자리로 지목하지 않는다.</strong></p>
+      <p>이스라엘의 예언자들이 등장하는 자리도 여기다 — 그들은 새로운 윤리를 발명하지 않고, 언약이 이미 요구한 삶을 재판·토지·상거래·예배라는 구체적 현실 속에서 다시 들려주었다. 아모스는 "은을 받고 의인을 팔며 신 한 켤레를 받고 가난한 사람을 파는 일"을 고발하고, 하나님이 절기와 성회를 미워하신다고 전하며 "오직 정의를 물같이 흐르게 하라"고 외쳤다(암 2:6; 5:21~24).</p>
+    </article>
+
+    <article class="unit-card" id="sec-7">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 평화의 공동체 — 비폭력과 진실함의 실천 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">십계명은 폭력을 낳는 욕망의 구조를 멈추게 하는 평화의 훈련이다</div>
+        </div>
+        <span class="slide-badge">강의안 6절 · pp.12-14</span>
+      </div>
+      <p>제6계명이 물리적 폭력을 금지하고, 제10계명이 그 폭력의 뿌리인 욕망까지 겨냥한다는 점에서, 십계명은 폭력을 낳는 욕망의 구조를 멈추게 하는 <strong>평화의 훈련</strong>이다. 맥클렌던에 따르면 제6계명은 힘의 논리가 지배하는 세상 한복판에서 교회가 생명을 살리고 지키는 <strong>평화 공동체</strong>로 존재하라는 명령이다(McClendon, <i>Ethics</i>, 175~178).</p>
+      <div class="warn-box">
+        <div class="warn-box-title">⚠ 라차흐(רצח) 논쟁 — 살인인가 전쟁·사형까지 포함하는가</div>
+        <p>제6계명의 '라차흐'가 전쟁·사형 집행이 아닌 개인적·불법적 살인에 국한된다는 지적이 있다(프레임·그루뎀은 로마서 13장을 근거로 국가의 적법한 사형·정당한 전쟁 참여는 계명 위반이 아니라고 봄). 반면 밀러는 어휘의 범위를 인정하면서도 그것이 오늘의 무분별한 살상에 면죄부를 주지는 않는다고 경계하고, 김지찬·차준희는 이를 고의적 살인으로만 한정하면 생명 윤리적 급진성이 약화된다고 본다. <span class="bdg b-add">강의 추가</span> 교수님은 "이 단어가 구약 성경 전체 맥락에서 개인적 살인만이 아니라 전쟁으로도 확장될 수 있는 여지를 상당히 가지고 있고, 출애굽기·구약·신약 전체 맥락에서 보면 전쟁을 허용하지 않는, 폭력이 없는 평화의 공동체로 우리를 만들어 가는 계명임에 틀림없다"는 입장을 밝히면서도 "동의하지 않는 신학자들도 많다는 걸 존중해 줘야 한다"고 명확히 선을 그었다.</p>
+      </div>
+      <p>주석적 사실이 곧 현대 윤리의 정당성을 보장하지는 않는다 — 고대 사회가 전쟁·사형을 용인했다는 사실만으로 오늘의 교회도 그것을 승인해야 한다는 결론은 나오지 않는다. 그래서 물음을 바꿔야 한다: "어디까지 허용되는가"를 묻는 데 머물지 말고 <strong>"어떻게 교회를 변화시켜 비폭력적인 사람들을 길러 내고 그들의 삶을 지지할 수 있을지"</strong>를 물어야 한다(하우어워스·윌리몬, 『십계명』, 119).</p>
+      <p>평화 공동체는 물리적 폭력을 거부하는 데서 완성되지 않는다 — 공동체를 파괴하는 언어의 폭력, 곧 <strong>거짓</strong>도 거부해야 한다. 나봇의 재판은 거짓 증언이 없었다면 성립하지 않았을 폭력의 구조를 압축해서 보여 준다. 그러나 진실함 역시 혼자 감당할 수 있는 덕이 아니다 — 맥클렌던이 지적하듯 교회는 마태복음 18장의 '매고 푸는' 과정을 따라 갈등을 감추거나 힘으로 억누르기보다 진실한 대화와 직면으로 풀어 가야 한다(McClendon, <i>Ethics</i>, 210~219). 십계명이 그리는 평화 공동체는 갈등이 없는 이상적 공간이 아니라 <strong>갈등을 폭력에 의존하지 않고 다룰 힘을 가진 공동체</strong>다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-8">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 결론 — 자유를 지키는 경계 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">계명은 자유의 대가가 아니라 자유의 형식이다</div>
+        </div>
+        <span class="slide-badge">강의안 pp.13-15</span>
+      </div>
+      <p>이 장은 하나의 물음에서 출발했다: 하나님은 이미 종살이에서 해방하신 백성에게 왜 다시 계명을 주셨는가. 이스라엘은 애굽에서 나왔지만 애굽의 방식은 여전히 그들 안에 남아 있었다 — 노예가 자유인이 되었다고 해서 곧바로 자유롭게 사는 법을 아는 것은 아니다. <strong>해방은 자유의 완성이 아니라 자유의 시작</strong>이었다. 그래서 하나님은 자유를 주신 뒤 자유롭게 살아가는 길을 가르치셨다.</p>
+      <div class="thesis-box">
+        <div class="quote">"계명은 자유의 대가가 아니라 자유의 형식이다." <span class="bdg b-exam">⭐ 교수강조</span></div>
+        <div class="author">— PDF 결론 · 강의에서도 동일하게 반복 강조</div>
+      </div>
+      <p>여기서 두 극단을 함께 거부해야 한다: <strong>율법주의</strong>는 계명을 지켜야 은혜를 받을 수 있다고 말하고, <strong>율법폐기론</strong>은 은혜를 받았으니 계명은 더 이상 중요하지 않다고 말한다. 정반대처럼 보이지만 둘 다 은혜와 계명을 경쟁 관계로 놓는다는 점에서 같은 오해를 공유한다. 십계명의 문법은 다르다: <strong>은혜를 받았으므로 자유롭게 순종한다.</strong> 계명은 먼저 나를 심판하고, 그다음 나를 이웃에게 책임 있는 사람으로 보낸다 — 기독교적 자유는 책임에서 벗어나는 자유가 아니라 <strong>책임을 감당하도록 해방된 자유</strong>이다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 책 전체 구조 예고 — "자유" 최종장</div>
+        <p>"우리 십계명의 윤리로 여러분이 참된 자유, 구원받은 하나님의 백성다운 삶, 공동체로 빚어나가기를 바랍니다... 우리 마지막으로 우리의 죄가 자유에 대한 얘기로, 이 기독교윤리학개론의 맨 마지막은 <strong>'자유'</strong>이고요, 우리는 프리덤, 자유를 주장하는 개신교인이죠." — 교수님이 강의 말미에 이 책 전체의 최종장이 "자유"임을 예고한 대목(PDF 본문에는 없는 구두 예고).</p>
+      </div>
+      <p>PDF는 다음 장으로의 다리를 이렇게 놓는다: <span style="font-style:italic">"이어지는 '산상수훈의 윤리'에서 예수께서는 이 계명을 폐기하지 않으신다. '내가 율법이나 선지자를 폐하러 온 줄로 생각하지 말라. 폐하러 온 것이 아니요 완전하게 하려 함이라'(마 5:17)고 선언하시며 그 요구를 들고 인간 마음의 깊은 곳까지 밀고 들어가신다... 십계명이 자유의 경계를 그렸다면, 산상수훈은 하나님 나라의 백성이 그 자유를 어떻게 살아 내는지를 더 깊이 보여 준다."</span></p>
+    </article>
+  </section>
+
+  <!-- ============================== PART 2 ============================== -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 산상수훈의 윤리 — 하나님 나라 백성의 삶 (2강)</h2>
+      <span class="part-badge">강의안(PDF 2장) pp.1-14</span>
+    </div>
+
+    <article class="unit-card" id="sec-9">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§9. 도입 — 산상수훈은 누구에게 주어졌는가 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">문제는 본문이 아니라 우리가 이 본문을 읽어 온 방식이다</div>
+        </div>
+        <span class="slide-badge">강의안 도입 · pp.1-2</span>
+      </div>
+      <p>산상수훈은 기독교 역사에서 가장 널리 찬양받으면서도 가장 일관되게 회피된 본문이다 — 오른편 뺨을 돌려 대라는 말씀(마 5:39)은 즐겨 인용되지만 삶의 규범으로 삼는 일은 드물고, 원수를 사랑하라는 명령은 감동적으로 낭독되면서도 정작 원수 앞에 서면 다른 원리를 따른다. 이 간극은 개인의 위선에 그치지 않는다 — <strong>기독교 윤리학이라는 분과 전체가 안고 있는 문제</strong>다(거쉬·스타센, 『하나님 나라 윤리』, 초판 서문).</p>
+      <p>게르하르트 로핑크는 해석사가 산상수훈을 "실행할 수 있는지"를 다투느라 그것이 <strong>누구에게 주어졌는지</strong>는 좀처럼 묻지 않았다고 지적한다(『산상 설교는 누구에게?』, 7, 15~16). 이 물음에 비추어 보면 주요 독법은 수신자에 대한 서로 다른 답이다:</p>
+      <table class="custom-table">
+        <thead><tr><th style="width:22%">완충 장치(독법)</th><th>수신자를 어디로 돌리는가</th></tr></thead>
+        <tbody>
+          <tr><td><strong>이중 기준</strong></td><td>수도자·목회자라는 엘리트에게만 적용, 일반 신자에게는 요구하지 않음</td></tr>
+          <tr><td><strong>슈바이처의 임시 윤리</strong></td><td>당장 재림·종말이 올 것으로 믿었던 종말 직전 한 세대에게만</td></tr>
+          <tr><td><strong>세대주의</strong></td><td>아직 오지 않은(천년왕국의) 백성에게</td></tr>
+          <tr><td><strong>심정 윤리</strong></td><td>사회적 실천이 아니라 개인의 내면에게만</td></tr>
+          <tr><td><strong>두 왕국의 해석</strong></td><td>공적 책임에서 분리된 사적 인격에게만</td></tr>
+        </tbody>
+      </table>
+      <p>다섯 독법은 방식이 다르지만 <strong>산상수훈이 오늘의 교회 공동체에 지니는 직접적 규범성을 약화</strong>한다는 점에서 다르지 않다. 이 장은 이러한 유혹을 예수께서 넘어서라고 하신 "서기관과 바리새인의 의"(마 5:20)와 연결해 읽는다 — 요더는 그것을 "미워하면서도 살인하지 않고 음욕을 품으면서도 간음하지 않을 수 있게 하며, 멍에를 메라고 하지만 십자가를 지라고는 말 못 하는" 모든 시대 종교인의 유혹으로 분석한다(『근원적 혁명』, 65~67).</p>
+      <div class="warn-box">
+        <div class="warn-box-title">⚠ 라인홀드 니버(Reinhold Niebuhr)의 반론 — "불가능한 가능성"</div>
+        <p>이 장이 가장 정교한 반론으로 삼는 것은 니버의 해석이다: 산상수훈의 사랑 계명은 역사 안에서 온전히 실현될 수 없지만, 바로 그 때문에 모든 상대적 성취를 심판하는 <strong>'불가능한 가능성'(impossible possibility)</strong>이다(Niebuhr, 『기독교윤리학』, 4장). 개인의 사랑을 곧바로 국가의 원리로 옮기는 낙관이 자기기만으로 끝난다는 니버의 지적은 옳다 — 그러나 로핑크의 말대로 산상수훈을 일반 사회에 그대로 적용할 수 없다면 남는 길은 둘이다: <strong>실현될 수 없는 이상이거나, 그 사회적 차원을 실제로 살아 내는 하나의 실현 영역을 요청</strong>하거나. 니버는 심판의 규범 기능을 강조하는 쪽으로 기울었고, <strong>교회가 독자적인 도덕적 행위자라는 자리는 그의 논의에서 충분히 전개되지 않는다.</strong></p>
+      </div>
+      <p>이 장은 둘째 길을 택한다: 산상수훈은 개인이 홀로 도달해야 할 영웅적 도덕이 아니라, <strong>이미 임한 하나님 나라에 부름받은 제자가 아버지의 성품을 닮아 가는 삶의 형식</strong>이다. 대항의 계보도 있었다 — 콘스탄티누스 이전의 여러 교부·변증가, 산상수훈을 공동체의 규율로 받아들인 아나뱁티스트, 값싼 은혜에 맞서 그것을 제자도의 부름으로 되돌린 본회퍼가 그 계보다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수 강의 육성 — 니버에 대한 직접 평가</div>
+        <p>"라인홀드 니버가 간과한 것은 수신자에 대한 오해가 있었고요, 또 다른 면으로 이야기한다면 <strong>성령을 간과하고 있고 교회론이 없어요.</strong> 니버 신학의 은혜론, 그러니까 성령론이 부족하고, 그다음에 교회론이 약합니다. 그것이 그의 신학에 그대로 드러나 있는 겁니다." — PDF도 같은 취지를 각주로 남기지만("교회가 독자적인 도덕적 행위자라는 자리는... 충분히 전개되지 않는다"), 강의에서는 "성령론 부족·교회론 약함"으로 더 직접적으로 단언했다.</p>
+      </div>
+      <p>이 장은 십계명을 읽은 <strong>은혜·서사·성품·공동체</strong> 네 축을 다시 붙들되, 산상수훈에서는 그 위에 <strong>평화</strong>가 다섯째 축으로 또렷이 자리 잡는다. 해방이 계명보다 먼저 왔듯 나라의 선포가 요구보다 먼저 오고, 출애굽 이야기가 빚던 정체성은 이제 한 인격(예수)에게 결박되며, 탐심을 겨누던 계명은 아버지를 닮는 성품으로 자라고, 한 백성을 세우던 언약은 짐을 나누어 지는 제자 공동체가 된다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-10">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§10. 은혜 — 요구보다 먼저 온 나라 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">팔복에는 명령형 동사가 없다 — 조건이 아니라 이미 선언된 현실이다</div>
+        </div>
+        <span class="slide-badge">강의안 1절 · pp.2-4</span>
+      </div>
+      <p>산상수훈은 산에서 시작되지 않는다. 마태는 그 앞에 한 장면을 둔다 — 예수께서 온 갈릴리에 두루 다니시며 가르치시고 천국 복음을 전파하시며 병든 자들을 고치시자, 수많은 무리가 따른다(마 4:23~25). 흔히 말하는 <strong>프리칭·티칭·힐링</strong>이라는 예수님의 세 가지 사역이 먼저 나오고, 그 사건을 경험한 사람들이 제자가 되어 따르며, 그 제자들을 모아 산 위에서 말씀을 선포하신다. 출애굽의 해방이 시내산의 계명보다 먼저 왔듯, 산 위의 요구에 앞서 <strong>나라의 복음이 선포되고 병든 몸이 치유되며 흩어진 백성이 모인다.</strong></p>
+      <p>팔복도 같은 순서를 따른다. 팔복에는 <strong>명령형 동사가 없다.</strong> '복이 있나니'로 옮기는 <strong>'마카리오스'(makarios)</strong>는 조건을 제시하는 명령이 아니라, 하나님 나라의 관점에서 이들이 복되다고 <strong>선언</strong>하는 말이다. 그러므로 팔복을 '온유하라, 그러면 땅을 받으리라'는 보상의 도식으로 읽는 것은 오해다. 이사야 61장에서 기름부음 받은 자가 가난한 자에게 복음을 전하듯, 팔복은 하나님의 구원이 누구에게 임하는지를 선포하고 듣는 이들을 그 기쁨에 참여시킨다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수 강의 육성 — 팔복은 조건문도 명령도 아니다</div>
+        <p>"우리가 알다시피 팔복에는 동사가 없고요, 이것은 이미 조건이 아니에요. 하나님 나라 제자가 된 사람들에게 '너희가 가난해지면'이라는 조건문도 아니고, '가난해져라'라는 명령도 아니에요. 그럼 뭐냐? <strong>너희는 이미 가난한 자다, 이미 온유한 자다</strong> — 그리고 그런 자로서 하나님의 복이 너희에게 있다고 얘기하는 것입니다."</p>
+      </div>
+      <p>이 선언은 몸의 현실과 분리되지 않는다 — '심령이 가난한 자'를 내면의 태도로만 좁혀 읽어서는 안 된다. 팔복에는 울고 목마르고 박해받는 몸의 현실이 반복해서 등장한다. 그러나 이 은혜를 앞세우는 독법에는 날카로운 반론이 있다: <strong>스캇 맥나이트</strong>는 은혜를 먼저 말하는 해석이 산상수훈 대신 바울을 내세운다고 경고하며, 예수는 "곧장 순종으로 뛰어든다"고 말한다(『산상수훈』, 18, 24). 이 장이 말하는 은혜는 <strong>요구를 완화하는 전제가 아니라 순종을 실제로 가능하게 하는 하나님의 능력</strong>이다 — 맥나이트 자신도 산상수훈의 윤리가 오직 성령의 능력으로만 실행될 수 있다고 인정한다(31).</p>
+      <p>그렇다고 은혜가 심판을 지우지는 않는다: <span style="font-style:italic">"나더러 주여 주여 하는 자마다 다 천국에 들어갈 것이 아니요 다만 아버지의 뜻대로 행하는 자라야 들어가리라"(마 7:21~23)</span>. 은혜는 심판을 누그러뜨리는 말이 아니라 <strong>심판 앞에서 행할 수 있게 하는 힘</strong>이다. 그러므로 산상수훈을 살 수 있다는 말은 흠 없는 성취가 아니라 <strong>회개를 포함하는 순종</strong>을 뜻한다. 같은 이유로 약자에게 폭력을 견디라고 요구하는 해석은 산상수훈을 적용한 해석이 아니라 <strong>뒤집은 해석</strong>이다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-11">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§11. 서사 — 한 인격에게 결박된 말씀 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">모세는 받은 말씀을 전했으나 예수는 자기 권위로 말씀하신다</div>
+        </div>
+        <span class="slide-badge">강의안 2절 · pp.3-5</span>
+      </div>
+      <p>예수께서 산에 올라가 앉으시는 장면(마 5:1)은 시내산을 배경으로 울린다. 다만 산상수훈을 '새 토라'로, 예수를 '제2의 모세'로 도식화할 필요는 없다 — 모세를 대체하는 새 입법자로 예수를 볼 수는 없으며, 산상수훈은 율법과 선지자를 폐기하지 않고 그 뜻을 완성하는 말씀이다. 결정적인 것은 <strong>권위의 자리</strong>다: 모세는 받은 말씀을 전했으나 예수는 다른 이의 권위를 인용하지 않고 <strong>자기 권위</strong>로 말씀하신다 — "옛사람이 이렇게 말했으나 나는 너희에게 이렇게 말한다."</p>
+      <p>마태는 강화를 치유 요약문(마 4:23~5:2)과 무리의 놀람(마 7:28~8:1)으로 감싼다 — 핵심 청중은 부름받아 따라온 <strong>제자들</strong>이고, 그 곁의 무리는 이스라엘 각지에서 모여든 사람들로 아직 결단 앞에 서 있다. 그러므로 산상수훈의 윤리는 제자 공동체 안에서 실천되어야 하지만 동시에 <strong>온 백성을 위한 윤리</strong>다 — 제자 공동체는 백성에서 떨어져 나온 순수한 소수가 아니라, 온 백성이 되어야 할 모습을 먼저 살아 내는 일부다.</p>
+      <p>율법도 다시 읽힌다: <span style="font-style:italic">"내가 율법이나 선지자를 폐하러 온 줄로 생각하지 말라. 폐하러 온 것이 아니요 완전하게 하려 함이라"(마 5:17)</span>. '폐한다'(katalyō)와 '완전하게 한다'(plēroō)의 대조에 비추어 보면, 완성은 문자를 기계적으로 지키는 일도 다른 법으로 대체하는 일도 아니라 <strong>계명이 본래 지향하던 뜻을 종말론적으로 온전히 이루는 일</strong>이다. 이 관점에서 뒤이은 여섯 가르침은 세 갈래로 나뉜다:</p>
+      <table class="custom-table">
+        <thead><tr><th style="width:28%">범주</th><th>내용</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td><strong>①직접 부정</strong></td><td>구약의 명령이 아니므로 부정됨</td><td>"원수를 미워하라"(구약에 없는 말)</td></tr>
+          <tr><td><strong>②유지+강조</strong></td><td>금지는 유지되며 그 뜻이 강조·확장됨</td><td>살인·간음의 금지</td></tr>
+          <tr><td><strong>③철저화</strong></td><td>본래 겨누던 목적을 더 철저히 드러냄</td><td>이혼·맹세·보복 규정</td></tr>
+        </tbody>
+      </table>
+      <p>부정되는 것은 구약이 아니라 <strong>그 뜻을 잃어버린 해석</strong>이다. 강화 자체의 짜임도 있다 — 본론은 '율법과 선지자'로 열리고(마 5:17) 황금률에서 같은 말로 닫힌다(마 7:12): "무엇이든지 남에게 대접받고자 하는 대로 너희도 남을 대접하라"는 말씀이 곧 율법과 선지자라는 선언이 이 수미상관의 목적을 요약한다. <strong>글렌 스타센</strong>은 '옛 사람에게 말한 바... 나는 너희에게 이르노니'라는 가르침들을 <strong>전통적 의 → 그 의가 빠지는 악순환 진단 → 그 순환을 끊는 변혁적 주도권(transforming initiatives)</strong>이라는 삼중 구조로 읽는다(단, 모든 가르침이 이 구조에 들어맞지는 않는다 — 스타센 자신도 이혼 가르침에서는 셋째 요소가 나타나지 않음을 인정).</p>
+    </article>
+
+    <article class="unit-card" id="sec-12">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§12. 성품 — 아버지를 닮아 가는 제자 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">"더 나은 의"는 더 많은 규정을 지키는 경쟁이 아니라 질적으로 다른 의다</div>
+        </div>
+        <span class="slide-badge">강의안 3절 · pp.5-7</span>
+      </div>
+      <p>선언된 복은 성품이 되어 간다 — 온유는 힘이 없어 물러서는 무기력이 아니라 <strong>강제의 수단을 내려놓은 삶</strong>이 되고, 화평하게 하는 자는 다툼이 싫어 물러난 사람이 아니라 <strong>갈라진 자리에 들어가 평화를 짓는 사람</strong>이 된다. 그 성품의 기준이 <strong>'더 나은 의'</strong>다: <span style="font-style:italic">"너희 의가 서기관과 바리새인보다 더 낫지 못하면 결코 천국에 들어가지 못하리라"(마 5:20)</span>. 이 의를 전가된 법정적 의로만 읽으면 본문의 무게가 사라진다 — 마태의 문맥에서 그것은 <strong>행해지는 의</strong>다. 더 나은 의는 더 많은 규정을 지키는 양적 경쟁이 아니라 율법의 목적을 관계·욕망·말·행위 전체에서 살아 내는 <strong>질적으로 다른 의</strong>다.</p>
+      <p>이 의는 마음에서 시작하여 몸에 이른다. 예수는 형제에게 노하는 자와 모멸하는 자를 모두 심판의 문제로 끌어들이신다(마 5:21~22) — '라가'라는 모멸의 말은 상대를 낮추고 관계를 허물며 그를 배제해도 좋은 자로 만든다. "음욕을 품고 여자를 보는 자마다 이미 간음하였다"(마 5:27~28)의 <strong>'에피튀메오'(epithymeō)</strong>는 칠십인역이 제10계명 "탐내지 말라"(출 20:17)를 옮긴 동사와 같다 — 십계명 제10계명과 산상수훈의 이 구절이 원어로 직접 연결된다. 이혼 규정(마 5:31~32)도 이미 일어난 이혼을 법적으로 제한하던 신명기 24장의 방향을 끝까지 따라가, 증서 한 장으로 아내를 내보내는 손쉬움 자체를 문제 삼는다 — 이 말씀은 폭력·학대의 관계에 갇힌 사람에게 그 자리에 남으라는 근거로 쓰일 수 없다.</p>
+      <p>이 성품의 목표는 <strong>아버지</strong>다: "하늘 아버지의 온전하심과 같이 너희도 온전하라"(마 5:48). <strong>'텔레이오스'(teleios)</strong>를 흠 없는 최종 완성으로 이해하면 도달할 수 없는 완전주의처럼 들리지만, 해를 악인과 선인에게 비추시는 아버지를 말하는 문맥이 뜻을 정해 준다 — 제자는 하나님의 전능·무죄함이 아니라 <strong>차별 없고 조건 없는 그분의 사랑</strong>을 닮으라는 부름을 받는다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수 강의 육성 — 완전주의 반론에 대한 직접 답변</div>
+        <p>"라인홀드 니버가 이것은 불가능한 윤리다, 이상적인 거야 라고 말하는 것이 우리 귀에 솔깃하게 들릴 수밖에 없습니다. 그런데 성경을 해석하는 규칙이 뭐죠? 문맥입니다. 그 앞뒤 맥락이 원수를 사랑하는 얘기예요 — 신앙을 핍박하는 타인을 환대하고 대접하는 자가 되는 것이 하나님의 완전하심을 담는 거다라는 게 핵심 포인트입니다... <strong>흠이 없다는 게 아니라는 거예요.</strong>"</p>
+      </div>
+      <p>이 성품은 사람의 시선이 아니라 아버지의 시선 아래에서 빚어진다. 예수는 구제·기도·금식을 다루시되(마 6:1~18) 실천을 폐기하지 않고 <strong>동기</strong>를 바꾸신다 — 골방에 들어가 문을 닫으라는 지시(마 6:6), 오른손이 하는 것을 왼손이 모르게 하라는 말씀(마 6:3)은 몸의 동작으로 주어진다. 시선의 주인은 결심 한 번으로 바뀌지 않고, 문을 닫는 손과 티 내지 않는 얼굴이 반복될 때 바뀐다. 성품은 <strong>분별</strong>로도 드러난다 — 비판하지 말라는 말씀(마 7:1~5)은 판단 자체가 아니라 자기 성찰이 앞서지 않은 판단을 금한다. 성품은 마침내 <strong>열매와 행함</strong>으로 검증된다: 거짓 선지자는 말이 아니라 맺는 열매로 가려지고(마 7:15~20), 반석 위의 집과 모래 위의 집을 가른 것은 말씀을 <strong>행했는지</strong>였다(마 7:24~27).</p>
+    </article>
+
+    <article class="unit-card" id="sec-13">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§13. 공동체 — 짐을 나누어 지는 백성 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">소금과 빛은 명령이 아니라 이미 그러하다는 선언이다</div>
+        </div>
+        <span class="slide-badge">강의안 4절 · pp.7-9</span>
+      </div>
+      <p>팔복이 그린 얼굴은 한 사람의 내면에 머물지 않고 눈에 보이는 공동체의 모습을 띤다. "너희는 세상의 소금이요 빛이며 산 위에 있는 동네"(마 5:13~16)라는 말씀은 그렇게 되라는 명령이 아니라 <strong>이미 그러하다는 선언</strong>이며, 무엇을 할 것인가보다 먼저 누구인가를 말한다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수 강의 육성 — 소금은 "녹는 것"이 아니라 "소금됨"</div>
+        <p>"소금은 짠맛을 얘기하는 거다, 바다의 소금이 2%·3% 염분이라서 우리가 세상의 2%·3%가 되어서 세상을 짜게 해야 된다... 뭐 이런 말들을 많이 하는데요. 여기서 본문은 그냥 <strong>소금이 소금으로 남아 있으라</strong>고 가르쳐요. 소금이 소금됨을 갖고 있을 때인 것처럼, 우리는 우리의 아이덴티티를 갖고 있어야만 하나님의 백성이 되는 거예요. 그러니까 소금 얘기는 <strong>세상과 동화되지 말라</strong>는 것이고, 등불이 있는 것은 세상과 <strong>분리</strong>되지도 말라는 것 — 다르게 살아가라는 겁니다."</p>
+      </div>
+      <p>로핑크는 산 위의 동네를 마지막 날의 시온 환상(사 2:2~4)과 연결하며 이런 교회를 <strong>'대조사회'(Kontrastgesellschaft)</strong>라 부른다 — "잘못이란 더는 없는 그런 교회가 아니라, 잘못을 용서받아 끊임없이 회개가 이루어지는 그런 교회"다(『산상 설교는 누구에게?』, 222~239, 236). 대조사회는 세상을 향한 적대나 게토, 순수한 엘리트 집단을 뜻하지 않는다 — 이 개념은 <strong>교회가 사회 윤리를 가진 집단이 아니라 그 자체로 하나의 사회 윤리</strong>라는 명제와 맞물린다.</p>
+      <p>이 공동체의 언어가 <strong>주기도문</strong>이다(마 6:9~13). 하나님의 이름·나라·뜻을 먼저 구한 뒤에야 양식과 용서와 시험에서 건지심을 구하는 순서는 인간의 필요보다 하나님의 통치가 먼저 온다는 질서를 드러낸다. 이 기도는 <strong>'우리 아버지'</strong>라는 공동체적 호칭으로 시작하고, 인간의 필요를 구하는 간구도 모두 '우리'의 언어로 드려진다 — 나의 아버지가 아니라 우리 아버지, 나의 양식이 아니라 우리의 일용할 양식이다. 같은 상에서 기도한 사람이 굶고 있다면, 그 기도는 공동체에 아직 다하지 못한 책임을 남긴다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성 — 개인적 신앙 체험과 "우리" 기도</div>
+        <p>"저는 개인적으로 하나님을 나의 아빠 하나님으로, 나의 엄마 하나님으로 만난 경험이 있습니다. 제가 쓴 『유배지에서 만난 하나님』의 핵심 중 하나가 하나님은 나의 아빠이고 나의 엄마이시다라는 거거든요. 그럼에도 불구하고 주기도문이 명백하게 말한 건 <strong>'우리 아버지'</strong> — 이것은 관계 속에, 공동체 속에 있는 것입니다." (개인적 저서를 인용한 이 대목은 강의에만 있으며 PDF 본문에는 없음.)</p>
+      </div>
+      <p>공동체는 경제의 문제 앞에 선다 — 보물을 하늘에 쌓으라는 말씀(마 6:19~21)과 두 주인을 섬길 수 없다는 선언(마 6:24)에서 <strong>'맘몬'(mammon)</strong>은 단순한 재물이 아니라 하나님과 경쟁하는 주인처럼 의인화된다. 염려하지 말라는 말씀(마 6:25~34)도 심리적 위안이 아니라 나라를 먼저 구하라는 우선순위의 귀결이다 — 이 말씀은 가난한 이에게 그의 궁핍이 믿음 부족 탓이라고 떠넘기는 데 써서는 안 된다. <strong>가진 자에게는 축적을 내려놓으라는 요구</strong>이고 <strong>가진 것이 없는 자에게는 아버지께서 아신다는 약속</strong>이다. 공동체는 또한 끊어진 관계를 회복하는 자리다 — 화해는 마음의 정리가 아니라 <strong>제단을 떠나 그 사람에게 걸어가는 발걸음</strong>이다(마 5:23~24).</p>
+      <p>로핑크의 말대로 "하느님 백성 안에서 한 사람이 다른 사람의 짐을 나누어 질 때, 산상 설교의 철저한 요청들이 수행될 수 있게 된다"(85, 150) — 개인이 홀로 할 수 없는 일을 공동체는 서로 지탱함으로써 부분적으로 해낸다.</p>
+    </article>
+
+    <article class="unit-card" id="sec-14">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§14. 평화 — 원수를 사랑하는 공동체 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">보복의 순환은 더 정교한 계산으로 끝나지 않고, 누군가 계산을 그만둘 때 끝난다</div>
+        </div>
+        <span class="slide-badge">강의안 5절 · pp.9-11</span>
+      </div>
+      <p>마태복음 5장 38~48절은 이 장의 무게중심이다. 먼저 정직한 반론을 들어야 한다 — 솔제니친은 『수용소 군도』에서 수감자들이 폭력으로 맞서기 시작하자 비로소 숨통이 트였다고 증언한다. 폭력의 현실 앞에서 뺨을 돌려 대라는 말씀은 무력하거나 잔인해 보인다.</p>
+      <p>예수께서 인용하시는 <strong>동해보복법(lex talionis)</strong>은 복수를 허용하는 규칙이라기보다 사법적 보복을 손해의 크기에 비례하도록 <strong>제한</strong>하는 장치였다. 예수는 그 비례를 다시 조정하지 않으시고 제자들을 보복의 논리 자체에서 나오게 하신다 — 순환은 더 정교한 계산으로 끝나지 않고 <strong>누군가가 계산을 그만둘 때</strong> 끝난다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성 — 눈에는 눈의 심리학적 필요</div>
+        <p>"눈 이에는 이 말은 받은 만큼 돌려줘야 된다는 것인데, 인간의 보편적인 심리는 받은 만큼 <strong>이상</strong>을 돌려주려 하거든요. 한 대 맞았다고 둘·셋·넷을 갚으면 무한한 보복의 악순환에 갇히고 맙니다. 그렇다고 절대 보복하지 마라 그러면 사람의 내면이 망가집니다 — 정의의 기본은 악한 자들이 심판받는 것이고, 용서도 정의가 전제되어야만 가능한 거예요. 그래서 모세를 통해 '눈에는 눈, 이에는 이로 갚으라, 그 이상은 안 된다'는 제한을 두신 겁니다. 그런데 뺨을 한 대 때린 원수가 나도 한 대 맞는다면, 결국 나는 <strong>내 뺨을 친 셈</strong>이 됩니다."</p>
+      </div>
+      <p>계산을 그만둘 근거는 아버지의 성품이다: "너희를 사랑하는 자만 사랑하면 남보다 더 하는 것이 무엇이냐"(마 5:46~47)는 물음은 평균적 타인에 비추어 자신을 평가하는 윤리를 거부하고, 갚음을 넘어 원수의 선까지 구하게 한다. '네 원수를 미워하라'는 말(마 5:43)은 구약의 명령이 아니라 당대 일부 유대 전통의 경계 설정에 가깝다 — 예수는 그 경계선을 지우시며, 그 근거를 원수의 개심 가능성이나 전략적 효과가 아니라 <strong>아버지의 성품</strong>에 두신다.</p>
+      <p>세 예화(뺨을 돌려 댐, 겉옷을 벗어 줌, 오 리를 더 가 줌)의 사회사적 의미를 두고 해석은 갈라진다(윙크·스타센은 불의에 맞서는 비폭력적 주도권, 맥나이트는 비폭력 저항, 로핑크는 적수를 형제로 삼으려는 능동적 자세). 이 장은 세부 재구성에 논증을 걸지 않는다 — 예수는 보복을 금하시되 <strong>존엄의 포기를 요구하지 않으신다.</strong> 세 예화는 모두 몸으로 수행된다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-add">📌 강의 추가</span> 김기현 교수 강의 육성 — "비저항"이 아니라 "비폭력적 저항"</div>
+        <p>"이 뺨을 돌려 대라, 오 리를 가자면 더 들어가라 — 이 모든 말은 저항을 하지 말라는 것이 아닙니다. 무저항, 그러니까 어떤 저항도 하지 않는다는 뜻으로 이해하시더라고요. 저는 그렇게 생각하지 않습니다. 이 <strong>넌레지스턴스(nonresistance)</strong>를 '비폭력적 방식으로 저항한다'로 좀 풀어서 해석합니다 — 저항은 해야죠. 다만 폭력적 저항을 하지 않고, 오히려 비폭력적으로 저항해서 타인의 존엄도, 상대방(원수)의 존엄도 지켜 주면서 보복의 악순환에 갇히지 않는 새로운 방식을 창조적으로 찾아내라는 것입니다."</p>
+      </div>
+      <p>이 사랑이 자라는 자리는 구체적이다 — <strong>①원수를 위한 중보</strong>(이름을 부르며 기도하는 일은 원수를 제거할 대상에서 하나님 앞에 함께 선 사람으로 옮겨 놓음), <strong>②고백과 권징</strong>(자기 잘못을 말할 수 있는 자리가 있을 때만 화해는 사실 확인 위에 섬), <strong>③만류와 동행</strong>(모욕당한 사람 곁에 서서 함께 걷고, 보복하려는 사람을 붙들어 말리며, 손해의 몫을 나누어 짐).</p>
+      <div class="warn-box">
+        <div class="warn-box-title">📖 사례 — 2006년 니켈마인스 아미시 학교 총격 사건</div>
+        <p>2006년 펜실베이니아 니켈마인스의 아미시 학교에서 한 남자가 여자아이들에게 총을 쏘았을 때, 그 공동체는 사건 직후 가해자의 가족을 찾아가 위로했고 그 가족을 위해서도 모금했다(크레이빌, 『아미시 그레이스』). 그들이 그렇게 할 수 있었던 것은 남달리 고결했기 때문이 아니라 <strong>매일 주기도문의 용서 구절을 외우며 세대에 걸쳐 그 습관을 이어 온 공동체였기 때문</strong>이다 — 용서는 그날의 결단이 아니라 그때까지의 습관이었다. <span class="bdg b-add">강의 추가</span> 교수님은 이 사례에서 주기도문의 구조("나라와 권세와 영광이... 아멘" 바로 다음에 "너희가 너희에게 죄지은 자를 사하여 주면... 용서하지 않으면 나도 너희를 용서하지 아니하리라"가 이어진다는 점)를 짚으며 <strong>"주기도문의 핵심은 용서"</strong>라고 강조했다.</p>
+      </div>
+      <p>그러나 경계도 분명히 해야 한다: <strong>원수 사랑은 피해자에게 위험한 관계에 남으라는 요구가 아니다.</strong> 뺨을 돌려 대라는 말씀은 학대받는 배우자·착취당하는 노동자·폭력에 노출된 아이에게 참으라고 말하기 위해 쓰일 수 없다. 본문이 상정하는 주체는 존엄을 지닌 채 폭력의 논리를 거부하는 사람이지, 자기 몸을 지킬 권리를 빼앗긴 사람이 아니다.</p>
+      <div class="prof-box">
+        <div class="prof-box-title"><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수 강의 육성 — 용서는 피해자만이 할 수 있다</div>
+        <p>"용서는 누가 해요? <strong>피해자가 하는 거예요.</strong> 가해자는 사죄를 해야 되는 거거든요. 피해자보고 용서하라고 말하면 용서할 준비가 안 돼 있고 마음이 없는데 그 얘기가 더 큰 죄책감을 심어주고 또 하나의 폭력이 될 수 있습니다. 피해자에게 용서를 강제·강요하면 절대로 안 됩니다. 피해자를 보호해줘야 되고, 가해자에게 책임을 물어야 되지만, 궁극적으로는 용서하도록 이끌어 가는 것은 분명합니다." (교수님은 영화 「밀양」의 원작과 이청준의 「벌레 이야기」를 언급하며, 용서에 대한 논의는 추후 강의에서 별도로 다루겠다고 예고했다 — PDF 본문에는 이 두 작품 언급이 없음, 강의추가.)</p>
+      </div>
+    </article>
+
+    <article class="unit-card" id="sec-15">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§15. 결론 — 산 위의 동네, 반석 위의 집 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">교회의 대조성은 도덕적 성취가 아니라 실패자를 받아들이시는 하나님 나라의 기적에서 온다</div>
+        </div>
+        <span class="slide-badge">강의안 pp.11-14</span>
+      </div>
+      <p>산상수훈은 고립된 개인에게도, 세계 전체를 곧바로 다스리기 위한 보편적 정치 규범으로도, 소수의 엘리트에게도 먼저 주어지지 않았다 — 나라의 선포와 치유를 먼저 경험하고 온 백성 앞에서 아버지를 닮은 삶을 먼저 살아 내도록 부름받은 <strong>제자들</strong>에게 주어졌다. 십계명의 네 축(은혜·서사·성품·공동체)은 이 장에서 한 걸음씩 깊어졌다: 은혜는 요구를 낮추지 않고 순종을 가능하게 하는 능력으로, 서사는 한 인격에게 결박된 부름으로, 성품은 아버지를 닮아 가는 온전함으로, 공동체는 짐을 나누어 짐으로써 불가능해 보이던 요구를 부분적으로 수행하는 자리로 드러났다. 그리고 그 네 축이 만나는 자리에 <strong>원수를 사랑하는 평화의 공동체</strong>가 섰다.</p>
+      <div class="thesis-box">
+        <div class="quote">"산 위의 동네가 보이는 것은 성벽의 크기 때문이 아니라 그 안에서 이루어지는 다른 삶 때문이며, 반석 위의 집이 무너지지 않는 것은 비바람을 피했기 때문이 아니라 말씀을 행함으로 지어졌기 때문이다." <span class="bdg b-exam">⭐ 교수강조</span></div>
+        <div class="author">— PDF 결론 · 강의에서 "이거 하나만 기억하시면 될 것 같습니다"로 재확인</div>
+      </div>
+      <p>교회는 실패한다. 그 실패가 거듭 나타나는 한 형태는 노골적인 불순종이 아니라, 도입에서 살핀 완충 장치를 경건한 언어로 다시 세우는 일이다 — 원수 사랑을 원리적으로는 옳지만 현실에서는 불가능한 것으로 분류하고, 온유와 화평을 갈등 회피로 번역하며, 팔복을 내면의 태도 목록으로 축소하는 방식이다. 그래서 이 장이 말하는 가능성은 완전주의가 아니라 <strong>회개를 포함하는 순종의 가능성</strong>이다. 교회의 대조성은 도덕적 성취가 아니라 <strong>실패자를 받아들이시는 하나님 나라의 기적</strong>에서 온다 — 실패가 없는 공동체가 아니라 실패를 고백하고 다시 시작하는 공동체가 반석 위의 집이다.</p>
+    </article>
+  </section>
+
+  <!-- ============================== PART 3 ============================== -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 두 본문의 연속성 정리 (오너·syllabus 3주차 학습목표 대응)</h2>
+      <span class="part-badge">종합 정리</span>
+    </div>
+
+    <article class="unit-card" id="sec-16">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§16. 십계명 → 산상수훈 — 폐함이 아니라 완성 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">십계명이 자유의 경계를 그렸다면, 산상수훈은 그 자유를 사는 법을 보여 준다</div>
+        </div>
+        <span class="slide-badge">두 장 종합</span>
+      </div>
+      <p>이번 주 학습목표(syllabus.md)는 <strong>①십계명=구원의 조건이 아니라 구원 이후 주어진 자유의 질서, ②산상수훈=불가능한 이상이 아니라 제자 공동체의 실제 삶의 방식, ③두 본문의 윤리적 연속성</strong>을 요구한다. 두 장의 논증을 나란히 놓으면 이 세 가지가 하나의 그림으로 모인다.</p>
+      <table class="custom-table">
+        <thead><tr><th style="width:14%">다섯 축</th><th style="width:43%">1강 · 십계명</th><th>2강 · 산상수훈</th></tr></thead>
+        <tbody>
+          <tr><td><strong>은혜</strong></td><td>출애굽의 해방(1~19장)이 계명(20장)보다 먼저 온다 — 구원받았기에 순종한다</td><td>나라의 복음·치유·백성의 모음(마4장)이 요구(마5~7장)보다 먼저 온다 — 팔복은 선언이지 조건이 아니다</td></tr>
+          <tr><td><strong>서사</strong></td><td>구원 서사(출1~19장)가 계명의 뜻을 결정 — 이야기를 지우면 계명의 의미도 달라진다</td><td>시내산을 배경으로 한 인격(예수)의 권위에 결박 — 모세는 전했으나 예수는 자기 권위로 말한다</td></tr>
+          <tr><td><strong>성품</strong></td><td>탐심(제10계명)을 겨누어 성품(제2의 천성)을 빚음</td><td>"더 나은 의"로 아버지의 온전하심(텔레이오스)을 닮아 감</td></tr>
+          <tr><td><strong>공동체</strong></td><td>제사장 나라·거룩한 백성 — 개인 경건이 아니라 자유로운 백성을 형성하는 언약</td><td>산 위의 동네·소금과 빛, 짐을 나누어 지는 대조사회(로핑크)</td></tr>
+          <tr><td><strong>평화</strong></td><td>제6·9·10계명이 함께 작동해 폭력이 발생하는 구조를 해체</td><td>동해보복법을 넘어 원수까지 사랑하는 비폭력 공동체</td></tr>
+        </tbody>
+      </table>
+      <div class="thesis-box">
+        <div class="quote">"내가 율법이나 선지자를 폐하러 온 줄로 생각하지 말라. 폐하러 온 것이 아니요 완전하게 하려 함이라"(마 5:17) — 십계명이 자유의 경계를 그렸다면, 산상수훈은 하나님 나라의 백성이 그 자유를 어떻게 살아 내는지를 더 깊이 보여 준다.</div>
+        <div class="author">— 1강 PDF 결론이 직접 예고한 2강으로의 다리 · 두 본문의 연속성을 요약하는 핵심 문장</div>
+      </div>
+      <p>구체적 연결점도 있다: 산상수훈의 "음욕을 품고 여자를 보는 자마다 이미 간음하였다"(마 5:27~28)의 헬라어 <strong>'에피튀메오'</strong>는 칠십인역이 <strong>제10계명 "탐내지 말라"</strong>(출 20:17)를 옮긴 동사와 정확히 같다(§12) — 십계명의 마지막 계명(마음의 탐심)과 산상수훈의 "더 나은 의"(마음의 정결)가 원어 차원에서 이어진다. 또한 두 장 모두 <strong>같은 사건(나봇의 포도원)</strong>을 인용해 "합법적 절차가 실제 폭력을 감추는" 구조를 경고한다(§5) — 십계명 쪽은 계명이 무너지는 순서(10→9→6→8계명)로, 산상수훈 쪽 강의는 이를 예수님의 재판과 나란히 놓아 확장한다. 이처럼 두 장은 <strong>같은 다섯 축, 같은 인용 자료(하우어워스·윌리몬, 맥클렌던, 로핑크), 같은 신학적 문법("은혜가 명령/요구에 앞선다")</strong>으로 하나의 논증을 이어간다.</p>
+    </article>
+  </section>
+
+  <!-- ============================== EXAM ============================== -->
+  <section class="section-block" id="sec-exam">
+    <div class="exam-section">
+      <div class="exam-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        중간고사(A4 3장 요약+생각) 대비 핵심 정리 <span class="bdg b-exam">⭐ 시험</span>
+      </div>
+      <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 24px;">
+        syllabus.md 평가방법: 중간고사는 1~7주차 강의 중 선택해 "A4 3장 분량, 요약 반·생각 반"의 보고서로 제출한다. 아래는 요약 절반을 위한 핵심 개념·논증 정리이며, "생각 반"은 각자 §18 토론 질문을 활용해 작성할 것을 권한다.
+      </p>
+      <h3 style="font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 14px;">[Part A] 핵심 O/X 확인 문제</h3>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q1.</span><span>십계명은 이스라엘이 계명을 지킨 것에 대한 보상으로 주어진 해방의 조건이다.</span></div>
+        <div class="quiz-ans"><strong>[X] 해설:</strong> 순서가 반대다 — 하나님은 순종한 사람을 해방하신 것이 아니라 종을 먼저 해방하신 뒤 계명을 주셨다(§2). 구원은 율법 준수의 결과가 아니라 율법이 주어지는 전제다.</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q2.</span><span>십계명의 안식일 계명이 던지는 첫 물음은 "나는 쉬었는가"이다.</span></div>
+        <div class="quiz-ans"><strong>[X] 해설:</strong> 계명은 침범할 힘을 가진 사람에게 멈추라고 명한다. 안식일 계명이 던지는 첫 물음은 "우리 가운데 누구의 몸이 쉬지 못하는가"이며, 이 물음은 교회 자신을 먼저 겨눈다(§4).</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q3.</span><span>나봇의 포도원 사건에서 계명이 무너지는 순서는 제10계명(탐함) → 제9계명(거짓 증인) → 제6계명(살인) → 제8계명(탈취)이다.</span></div>
+        <div class="quiz-ans"><strong>[O] 해설:</strong> 정확하다(§5). 출발점은 왕의 마음(탐심)이었고 끝에는 한 사람의 몸(살인)이 있었으며, 하나님은 이 절차의 외양을 걷어 내고 "네가 죽이고 또 빼앗았느냐"고 물으셨다(왕상 21:19) — 이때 쓰인 동사 '라차흐'는 제6계명과 동일하다.</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q4.</span><span>팔복(마 5:3-12)은 "이렇게 행하면 복을 받으리라"는 조건문 또는 명령형으로 되어 있다.</span></div>
+        <div class="quiz-ans"><strong>[X] 해설:</strong> 팔복에는 명령형 동사가 없다. '마카리오스'는 조건이 아니라 하나님 나라의 관점에서 이미 그러하다고 선언하는 말이다(§10).</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q5.</span><span>라인홀드 니버는 산상수훈의 사랑 계명을 역사 안에서 온전히 실현될 수 없지만 모든 상대적 성취를 심판하는 "불가능한 가능성"으로 보았다.</span></div>
+        <div class="quiz-ans"><strong>[O] 해설:</strong> 정확하다(§9). 이 장은 니버의 지적(개인의 사랑을 국가 원리로 직접 옮기는 낙관에 대한 경계) 자체는 옳다고 인정하지만, 니버가 개인과 국가 사이에 있는 "제자 공동체"라는 셋째 자리를 충분히 전개하지 못했다고 비판한다.</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q6.</span><span>예수님의 "옛사람에게 말한 바... 나는 너희에게 이르노니"라는 가르침 여섯 가지는 모두 구약의 명령을 폐기하는 반명제(antithesis)이다.</span></div>
+        <div class="quiz-ans"><strong>[X] 해설:</strong> 세 갈래로 나뉜다(§11) — ①원수를 미워하라는 말처럼 구약 명령이 아니어서 직접 부정되는 것, ②살인·간음 금지처럼 유지되며 강조되는 것, ③이혼·맹세·보복처럼 본래 목적을 철저히 드러내는 것. "부정되는 것은 구약이 아니라 그 뜻을 잃어버린 해석"이다.</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q"><span>Q7.</span><span>산상수훈의 원수 사랑 가르침은 가정폭력이나 학대의 피해자에게 그 관계에 남아 참으라고 요구하는 근거로 사용할 수 있다.</span></div>
+        <div class="quiz-ans"><strong>[X] 해설:</strong> 정반대다(§14). 본문이 상정하는 주체는 존엄을 지닌 채 폭력의 논리를 거부하는 사람이지, 자기 몸을 지킬 권리를 빼앗긴 사람이 아니다. 이런 방식의 적용은 산상수훈을 "뒤집은 해석"이다.</div>
+      </div>
+      <h3 style="font-size: 18px; font-weight: 700; color: var(--primary); margin: 28px 0 14px 0;">[Part B] 논술형 핵심 출제 예상 및 모범 답안 구성</h3>
+      <div class="quiz-item" style="background: var(--card-bg); border: 1px solid var(--primary-border);">
+        <div style="font-weight: 700; font-size: 16px; color: var(--primary); margin-bottom: 8px;">[논술형 1] "십계명은 구원의 조건이 아니라 구원 이후에 주어진 자유의 질서"라는 명제를 출애굽기 내러티브의 순서를 근거로 논증하시오.</div>
+        <div style="font-size: 14.5px; line-height: 1.7; color: var(--text-body);">
+          <strong>【모범 답안 구성】</strong><br>
+          1. <strong>순서</strong>: 출애굽기 1~19장(구원 서사) → 19:4-6(관계·정체성 선언: 소유·제사장 나라·거룩한 백성) → 20장(계명). 계명은 항상 구원 뒤에 온다.<br>
+          2. <strong>서문의 신학</strong>: 출 20:2 "종 되었던 집에서 인도하여 낸"이라는 서문은 로흐만의 역사(구원의 선행성)·언약(관계)·해방(자유의 헌장) 3요소를 담는다.<br>
+          3. <strong>직설법-명령법</strong>: 하나님의 행하심(직설법)이 인간의 순종(명령법)에 논리적·시간적으로 항상 앞선다(밀러) — 구원받기 위해 순종하는 것이 아니라 구원받았기에 순종한다.<br>
+          4. <strong>귀결</strong>: 이 순서가 무너지면 계명은 공로의 수단(율법주의)이 되거나 겉과 속이 다른 이중성을 낳는다. 계명은 자유의 대가가 아니라 자유의 형식이다.
+        </div>
+      </div>
+      <div class="quiz-item" style="background: var(--card-bg); border: 1px solid var(--primary-border); margin-top: 14px;">
+        <div style="font-weight: 700; font-size: 16px; color: var(--primary); margin-bottom: 8px;">[논술형 2] 산상수훈의 수신자 논쟁(이중 기준·임시 윤리·세대주의·심정 윤리·두 왕국·니버)을 정리하고, 이 장이 "제자 공동체"라는 답을 택하는 근거를 서술하시오.</div>
+        <div style="font-size: 14.5px; line-height: 1.7; color: var(--text-body);">
+          <strong>【모범 답안 구성】</strong><br>
+          1. <strong>다섯 완충 장치</strong>(§9 표 참조)는 모두 산상수훈의 직접적 규범성을 약화시킨다는 점에서 공통된다.<br>
+          2. <strong>니버의 "불가능한 가능성"</strong>은 개인-국가 이분법에 근거하며, 교회라는 셋째 자리를 충분히 전개하지 못한다(성령론·교회론 부족 — 강의 직접 비판).<br>
+          3. <strong>서사적 근거</strong>: 마태복음은 강화를 치유 요약문과 무리의 놀람으로 감싸며, 핵심 청중을 "부름받아 따라온 제자들"로 특정한다 — 온 백성을 위한 윤리이되 제자 공동체 안에서 먼저 실천된다.<br>
+          4. <strong>공동체적 실행 가능성</strong>: 로핑크의 "짐을 나누어 짐" — 개인이 홀로 할 수 없는 요구(원수 사랑 등)를 공동체가 서로 지탱함으로써 부분적으로 수행한다.
+        </div>
+      </div>
+      <div class="quiz-item" style="background: var(--card-bg); border: 1px solid var(--primary-border); margin-top: 14px;">
+        <div style="font-weight: 700; font-size: 16px; color: var(--primary); margin-bottom: 8px;">[논술형 3] 십계명과 산상수훈의 윤리적 연속성을 "은혜·서사·성품·공동체·평화" 다섯 축으로 비교하여 서술하시오.</div>
+        <div style="font-size: 14.5px; line-height: 1.7; color: var(--text-body);">
+          <strong>【모범 답안 구성】</strong> §16의 비교표를 축별로 서술 — 은혜(해방이 계명보다 먼저 / 나라선포가 요구보다 먼저), 서사(출애굽 이야기 / 한 인격 예수), 성품(탐심을 겨눈 계명 / 더 나은 의), 공동체(제사장 나라 / 대조사회), 평화(제6·9·10계명의 결합 / 원수 사랑). 결론은 마 5:17("폐하러 온 것이 아니요 완전하게 하려 함")로 마무리.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== DISCUSSION ============================== -->
+  <section class="section-block" id="sec-discuss">
+    <div class="unit-card" style="border: 2px solid var(--primary-border);">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§18. 자기 성찰과 조별 토론을 위한 질문 <span class="bdg b-mat">자료근거</span></h3>
+          <div class="unit-desc">각 질문 앞에 강의 슬라이드의 축약형을, 뒤에 PDF 후주의 전개형을 함께 싣는다</div>
+        </div>
+      </div>
+      <h4 style="color:var(--accent-terracotta); font-size:14px; margin-bottom:10px;">1강(십계명) 토론 질문 — 강의 슬라이드 38쪽 축약형 5문항</h4>
+      <ol>
+        <li><strong>은혜를 잃은 계명은 오늘 교회에서 어떤 모습으로 나타나는가?</strong> (PDF 전개형: 밀러의 "은혜가 의무보다 논리·시간적으로 앞선다"와 바르트의 '복음과 율법' 역전 주장에 비추어, 오늘 한국 교회 설교·교육에서 공로화·이중성·정죄의 잣대라는 세 뒤틀림 중 가장 힘이 센 것은 무엇이며 공동체 분위기에 어떤 흔적을 남기는가?)</li>
+        <li><strong>출애굽 이야기를 지우지 않고 십계명을 증언하는 길은 무엇인가?</strong> (전개형: 하우어워스·윌리몬은 법정의 십계명을 "무관한 것"이 되는 축소로 보면서도, 이 장은 개혁주의 도덕법 전통 전체가 아니라 출애굽·언약공동체에서 분리해 보편 규칙 목록으로만 쓰는 일부 독법만 문제 삼는다. 이 구분은 실제 설교·공적 발언에서 유지될 수 있는가?)</li>
+        <li><strong>우리 가운데 예배를 위해 쉬지 못하는 몸은 누구인가?</strong> (전개형: 계명은 종을 쉬게 하라는 말을 주인에게, 이삭을 남기라는 말을 밭의 주인에게 준다. 예배가 이루어지기 위해 누군가는 쉬지 못한다는 사실이 예배하는 사람들의 눈에는 좀처럼 보이지 않는 이유는 무엇인가?)</li>
+        <li><strong>합법적 절차가 실제 행위를 감추는 "나봇의 재판"은 오늘 어디에 있는가?</strong> (전개형: 책임이 장로·증인·집행자에게 나뉠수록 전체 행위가 실제로 무엇인지 가려진다. 오늘의 조직·제도에서 각자 자기 직무를 성실히 수행하는 것만으로 한 사람이 무너지는 자리는 어디인가?)</li>
+        <li><strong>교회는 비폭력과 진실함을 어떤 실천으로 훈련할 수 있는가?</strong> (전개형: "어디까지 허용되는가"가 아니라 "어떤 사람이 길러지고 있는가"를 물어야 한다는 제안은 현실 판단을 요구받는 신자에게 회피가 되지 않는가? 우리 공동체에서 절제·진실함·화해는 실제로 어떤 습관과 제도로 훈련되는가?)</li>
+      </ol>
+      <h4 style="color:var(--accent-terracotta); font-size:14px; margin: 22px 0 10px 0;">2강(산상수훈) 토론 질문 — 강의 슬라이드 30쪽 축약형 5문항</h4>
+      <ol>
+        <li><strong>한국 교회는 산상수훈을 누구에게 주어진 말씀으로 받는가?</strong> (전개형: 해석사는 수신자를 수도자·종말 직전 세대·개인의 내면·사적 인격 등으로 넘겨 왔다. 그렇게 설정된 수신자는 요구를 어떤 방식으로 줄이거나 비껴가게 하는가?)</li>
+        <li><strong>니버의 현실주의가 옳게 지적하는 위험은 무엇인가?</strong> (전개형: 이 장은 교회를 "그 사회적 차원을 실제로 살아 내는 자리"라고 답한다. 교회를 "셋째 자리"로 세우는 이 답은 니버가 옳게 본 위험을 충분히 감당하는가?)</li>
+        <li><strong>은혜의 선행성과 행해지는 의는 어떻게 함께 서는가?</strong> (전개형: 팔복을 조건문이 아니라 선언으로 읽으면서도 선언된 복이 성품이 되어 간다고 말한다. 맥나이트의 경고에 비추어, 이 긴장이 한쪽으로 무너질 때 나타나는 구체적 모습은 무엇인가?)</li>
+        <li><strong>보복하지 않는 사랑과 피해자 보호는 함께 설 수 있는가?</strong> (전개형: 가정폭력·직장 내 괴롭힘·교회 안의 가해 같은 상황에서, 보복하지 않는 사랑과 피해자 보호와 가해자에 대한 책임 추궁은 어떻게 함께 설 수 있는가?)</li>
+        <li><strong>위기의 날의 용서는 어떤 평범한 습관에서 오는가?</strong> (전개형: 로핑크는 산상수훈의 실행 가능성이 개인이나 탁상이 아니라 짐을 나누어 지는 공동체 안에서 드러난다고 말한다. 아미시 사례처럼 위기의 날에 용서가 가능하려면 평범한 날들에 어떤 습관이 형성되어 있어야 하는가?)</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================== AUDIT ============================== -->
+  <section class="section-block" id="sec-audit">
+    <div class="audit-card">
+      <div class="audit-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        출처 및 검증 요약 (Verification Summary)
+      </div>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">
+        본 강의노트는 강의안 PDF 2편(1장 십계명의 윤리 15쪽, 2장 산상수훈의 윤리 14쪽) 전문과 음성 녹취록 2편(1강 292문장·41,561자, 2강 268문장·37,923자)을 처음부터 끝까지 전량 대조했고, 참고용 슬라이드 캡처(1강 38장·2강 30장) 중 일부를 표본 확인한 결과 슬라이드는 PDF 문장을 그대로 축약 인용한 것으로 확인되어(예: 슬라이드 토론질문 5문항이 PDF 후주 토론질문의 축약형과 정확히 일치) 별도 신정보 추출 없이 PDF를 1차 자료로 삼았습니다.
+      </p>
+      <div class="audit-grid">
+        <div class="audit-stat"><div class="num" style="color: var(--primary);">16개 절</div><div class="lbl"><span class="bdg b-mat">자료근거</span> PDF 원문 기반 절</div></div>
+        <div class="audit-stat"><div class="num" style="color: var(--accent-terracotta);">9건</div><div class="lbl"><span class="bdg b-exam">⭐ 교수강조</span> 강의 반복·직접 강조 발언</div></div>
+        <div class="audit-stat"><div class="num" style="color: #724f11;">8건</div><div class="lbl"><span class="bdg b-add">📌 강의추가</span> PDF엔 없는 구술 확장</div></div>
+        <div class="audit-stat"><div class="num" style="color: var(--accent-blue);">100%</div><div class="lbl">녹취 2편 세그먼트 커버리지</div></div>
+      </div>
+      <h4 style="font-size: 15px; font-weight: 700; color: var(--primary); margin: 18px 0 10px 0;">[세그먼트 원장 커버리지 확인]</h4>
+      <p style="font-size:14px;">1강 녹취(292문장)는 처음("별로 여러분과 함께 기독교 윤리학을...")부터 끝("이것으로 강의 마치겠습니다. 감사합니다.")까지, 2강 녹취(268문장)는 처음("안녕하세요 우리 학생 여러분!")부터 끝("오늘 강의 여기까지 하겠습니다. 감사합니다.")까지 전량을 PDF의 6개 절(1강)·5개 절(2강) 구조에 일대일로 대조했습니다. 두 녹취 모두 PDF의 논증 순서를 그대로 따라가며 구두 설명을 덧붙이는 구조였고, PDF에 있는 각주·인용 서지(루터·칼뱅·바르트·하우어워스·윌리몬·맥클렌던·로핑크·니버·맥나이트·스타센 등)는 녹취에서도 실명으로 언급되어 자료근거 판정의 근거가 되었습니다.</p>
+      <h4 style="font-size: 15px; font-weight: 700; color: var(--primary); margin: 18px 0 10px 0;">[교수 강조 9건 — 강의에서 직접·반복 강조된 문장]</h4>
+      <p style="font-size:14px;">① 하나님은 순종한 사람을 해방하신 것이 아니라 종을 먼저 해방한 뒤 계명을 주셨다(§1) ② 직설법-명령법: 구원받았기에 순종한다(§2) ③ 안식일은 창조의 완성·정점(§4, "7일 창조") ④ 나봇의 재판=합법적 절차의 폭력, "라차흐"(§5) ⑤ 라차흐 논쟁에 대한 교수 본인 입장과 존중 표명(§7) ⑥ 계명은 자유의 대가가 아니라 자유의 형식(§8) ⑦ 팔복은 조건문·명령문이 아니라 선언(§10) ⑧ 니버 비판 — 성령론 부족·교회론 약함(§9) ⑨ 완전주의 반론에 대한 문맥적 답변, "흠이 없다는 게 아니다"(§12) ⑩ 소금은 "녹아 없어짐"이 아니라 "소금됨"(§13) ⑪ 용서는 피해자만 할 수 있다(§14).</p>
+      <h4 style="font-size: 15px; font-weight: 700; color: var(--primary); margin: 18px 0 10px 0;">[강의추가 — PDF 본문에는 없는 구술 확장 8건]</h4>
+      <p style="font-size:14px;">① 나봇의 재판 vs 예수님의 재판 비교(§5) ② 책 전체 최종장이 "자유"라는 예고(§8) ③ 니버의 "성령론·교회론" 결핍에 대한 직접 단언(§9) ④ 개인 저서 『유배지에서 만난 하나님』 인용(§13) ⑤ 눈에는 눈의 심리학적 필요성 설명(§14) ⑥ "비저항"을 "비폭력적 저항"으로 재해석(§14) ⑦ 영화 「밀양」·이청준 「벌레 이야기」 언급(§14) ⑧ 시편 23편을 인간의 결핍성 논증에 사용(§5, 십계명 강의 중 "여호와는 나의 목자시니 내가 부족함이 없으리로다"를 뒤집어 인간이 결핍된 존재임을 설명 — 지면상 §5 통합 서술에 포함).</p>
+      <h4 style="font-size: 15px; font-weight: 700; color: var(--primary); margin: 18px 0 10px 0;">[보충 검증 — sermon-bible-dictionary 방법론 적용]</h4>
+      <table class="custom-table" style="font-size: 13.5px; margin-top: 8px;">
+        <thead><tr><th style="width:22%">항목</th><th style="width:35%">검증 내용</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td><strong>하마드(חמד)</strong> (§5, 제10계명)</td><td>Durham, <i>Exodus</i>, 296 인용과 정합 — "탐내다"는 문맥상 이웃의 것을 자기 것으로 만들려는 욕망을 가리키는 것으로 표준 주석과 일치</td><td><span class="bdg b-mat" style="color:#19382b">CONFIRMED</span></td></tr>
+          <tr><td><strong>에피튀메오(ἐπιθυμέω)</strong> (§12, 마 5:28)</td><td>칠십인역(LXX)이 출 20:17 "탐내지 말라"를 옮긴 동사와 동일 — PDF·강의 공통 주장이며 표준 헬라어 용례와 부합</td><td><span class="bdg b-mat" style="color:#19382b">CONFIRMED</span></td></tr>
+          <tr><td><strong>라차흐(רצח)</strong> (§5·§7, 제6계명)</td><td>왕상 21:19(엘리야의 책망)에 동일 어근이 쓰이는지는 원문 확인 필요 — PDF는 이를 하우어워스·윌리몬(『십계명』, 118)의 재인용으로 명시하며 이 장 스스로도 "라차흐 논쟁 승패를 가리지 않는다"고 명시적으로 유보함. 학계 이견(개인적 살인 한정설 vs 확장설)이 있는 사안으로, 이 노트도 어느 쪽이 옳다고 단정하지 않고 양쪽 입장을 그대로 옮김</td><td><span class="bdg b-sup" style="color:var(--accent-blue)">학계 이견 — 병기</span></td></tr>
+          <tr><td><strong>텔레이오스(τέλειος)</strong> (§12, 마 5:48)</td><td>"흠 없는 최종 완성"이 아니라 "온전함·목적에 부합함"이라는 문맥적 의미 — 표준 헬라어 사전(BDAG 계열) 용례 범위와 일치, 누가복음 병행구(눅 6:36 "자비로우라")와의 상호 조명도 PDF 원문 그대로 인용</td><td><span class="bdg b-mat" style="color:#19382b">CONFIRMED</span></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px; margin-bottom: 0;">
+        ※ 이 노트는 강의안 PDF와 녹취 전문을 1차 자료로 삼았으며, 원저작(PDF)이 이미 학술 각주(저자·서명·페이지)를 갖추고 있어 그 인용의 정확성 자체를 재검증하지는 않았습니다 — 다만 위 표의 원어 4항목만 별도 교차검증했습니다. PDF에 없는 강의추가 항목 중 실명 인용(솔제니친 『수용소 군도』, 크레이빌 『아미시 그레이스』, 아테나고라스 등)은 PDF 본문 후주에 이미 서지가 있어 추가 검증 없이 그대로 인용했습니다.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 강의안: 『기독교윤리학개론 02장(십계명의 윤리)』·『기독교윤리학 개론서 02장 산상수훈의 윤리(최종)』 | 참고 슬라이드 68장(1강 38·2강 30) 표본 확인</p>
+    <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">본 강의노트는 강의안 PDF 원문과 음성 녹취록 전문을 통전적으로 대조하여 제작되었습니다.</p>
+  </footer>
+
+</div>
+
+<script>
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  if (current === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>
