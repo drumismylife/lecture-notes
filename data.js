@@ -542,7 +542,8 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week02.html" }
           ] },
             { week: 3, title: "바울과 그의 서신들 개관", date: "2026.09.21", files: [
-            { type: "guide", label: "로마서 참고서", href: "output/2026-2/nt2/guide_romans.html" }
+            { type: "guide", label: "로마서 참고서", href: "output/2026-2/nt2/guide_romans.html" },
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week03.html" }
           ] },
             { week: 4, title: "", date: "", files: [
             { type: "guide", label: "고린도전서 참고서", href: "output/2026-2/nt2/guide_1corinthians.html" },
