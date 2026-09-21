@@ -813,6 +813,28 @@ li {
   .part-banner h2 { color: #19382b !important; }
   a { text-decoration: none !important; color: #000000 !important; }
 }
+
+/* ── 절충판 (2026-09-21 표준) ── */
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 11px 18px; margin: 0 0 14px 0; font-weight: 600; color: var(--text-main); font-size: 15.5px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 10px; letter-spacing: .04em; }
+.key { margin: 4px 0 8px 0; }
+.key ul { margin: 6px 0 6px 22px; }
+.key li { margin-bottom: 7px; font-size: 15.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 30px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 20px; color: var(--primary); margin-bottom: 12px; }
+.sum-card h4 { font-size: 13px; color: var(--accent-terracotta); margin: 16px 0 6px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 6px 0 6px 22px; }
+.sum-card li { margin-bottom: 6px; font-size: 15px; }
+.sum-card p { margin-bottom: 6px; font-size: 14.5px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 24px 0; padding: 10px 14px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 14px 0 4px 0; }
+details > summary { cursor: pointer; padding: 10px 16px; font-size: 14px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 14px 18px 8px 18px; }
+details.apx { margin-top: 36px; }
 </style>
 
 <style id="lnotes-back-btn-style">
@@ -902,6 +924,25 @@ li {
   </header>
 
   <!-- Table of Contents -->
+  <div class="sum-card">
+    <h2>📄 1쪽 요약 — 기독교윤리학이란 무엇인가</h2>
+    <ol>
+      <li>기독교 윤리는 "무엇을 해야 하는가"를 묻기 전에 <b>하나님이 무엇을 행하셨는가</b>를 먼저 묻는다 — <b>은혜가 명령에 앞선다</b>(직설법 → 명령법, 시간적 선후가 아니라 존재론적 우선성).</li>
+      <li>윤리는 주일의 고백과 월요일의 현실 사이에서 시작되며, 그리스도인은 <b>세상 안에, 하나님께로부터, 다시 세상으로</b> 산다(요 17:14-18).</li>
+      <li>개인의 결단 뒤에는 <b>권세(구조·제도)</b>와 <b>순종의 비용</b>이 있으므로, 교회가 그 비용을 함께 지는 안전망이 되어야 한다.</li>
+      <li><b>도덕</b>(물려받은 관습)과 <b>윤리학</b>(그 정당성을 묻는 성찰)을 구분하고, 덕·서사(하우어워스: 모든 윤리는 한정어가 붙는다)와 콘스탄틴적 전환 비판(요더)으로 기독교 윤리의 자리를 세운다.</li>
+      <li>분별은 웨슬리 사변형의 재구성(<b>성서 = 최고 규범</b>, 전통·이성·경험 = 검증)·성서의 4중 규범과 3층 렌즈·6단계 공동체 분별로 하며, 성령은 판단을 대신하지 않고 <b>판단하는 사람을 새롭게</b> 한다.</li>
+    </ol>
+    <h4>꼭 기억할 것</h4>
+    <p><b>용어</b> 직설법/명령법 · 권세(exousiai) · 에토스(ἦθος·ἔθος) · 텔로스 · 한정어 · 콘스탄틴적 전환 · 말한 신학/실제 신학 · 값싼 은혜 &nbsp;|&nbsp; <b>인물</b> 하우어워스 · 요더 · 본회퍼 · 웨슬리 &nbsp;|&nbsp; <b>구절</b> 요 17:14-18 · 출 20:2 · 롬 12:2 · 살전 5:19-21</p>
+    <h4>⭐ 교수 강조</h4>
+    <ul>
+      <li>은혜가 명령에 앞선다는 것은 시간의 순서가 아니라 <b>존재론적 우선성</b></li>
+      <li>도덕과 윤리학을 구분하지 못하면 시대의 관습을 "하나님의 불변하는 뜻"으로 포장하게 된다</li>
+      <li>절차는 선한 결과를 100% 보증하지 못한다 — 핵심은 사람들의 영적 성품</li>
+    </ul>
+  </div>
+<div class="lite-note">복습용 <b>절충판</b>입니다. 각 절은 <b>한 줄 결론 → 핵심 불릿</b>만 보이고, 원문(일화·표·다이어그램·인용·수강 발표)은 <b>▸ 상세</b>를 눌러 펼칩니다(기본 닫힘). 배지 표기는 원본과 같습니다. 재배치·축약본으로 사실을 새로 추가하지 않았습니다.</div>
   <nav class="toc-card">
     <div class="toc-title">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
@@ -965,6 +1006,14 @@ li {
         </div>
         <span class="slide-badge">Slide 03 · 강의안 p.1</span>
       </div>
+      <div class="oneline">윤리는 추상적 이론이 아니라 주일의 고백과 월요일의 현실 사이의 갈등에서 시작된다.</div>
+      <div class="key"><ul>
+        <li>두 장면: 주일에 "진실을 말하라"는 은혜를 받은 신대원생이 월요일에 노인 대상 <b>건강식품 과장 광고</b> 원고를 써야 하는 처지, 그리고 재정 적자 교회가 <b>이주노동자 쉼터 예산을 전액 삭감</b>하자는 제안.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 김기현 교수: 밥줄이 걸린 직장의 부조리를 따를 것인가 거부할 것인가, 교회는 재정이 어려울 때 누구의 몫을 가장 먼저 줄이는가.</li>
+        <li>기독교 윤리의 물음: "그리스도를 믿는 사람과 교회는 세상 안에서 과연 어떻게 살아야 하는가?"</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>기독교 윤리학은 상아탑 속의 한가한 개념 놀음이 아니다. 그것은 주일 예배당의 거룩한 고백과 월요일 아침 일터의 비정한 현실 사이에서 겪는 성도들의 깊은 고뇌에서 발원한다. 강의안은 이를 선명하게 보여주는 <strong>두 가지 구체적 장면</strong>으로 문을 연다.</p>
 
@@ -994,6 +1043,8 @@ li {
           "신학교에서 공부하고 목회를 준비하는 여러분, 그리고 주일마다 하나님의 말씀을 듣는 성도들이 월요일 아침에 마주하는 현실이 바로 이 두 장면입니다. 밥줄이 걸려 있는 직장에서 회사의 부조리한 관행을 따를 것인가, 아니면 해고의 위험을 무릅쓰고 거부할 것인가? 교회는 재정이 어려울 때 누구의 몫을 가장 먼저 줄이는가? 기독교 윤리는 바로 이 실존의 바닥에서 묻습니다. <strong>'그리스도를 믿는 사람과 교회는 세상 안에서 과연 어떻게 살아야 하는가?'</strong>"
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §2. 세상의 두 의미와 3대 좌표 -->
@@ -1005,6 +1056,14 @@ li {
         </div>
         <span class="slide-badge">Slide 04-05 · 강의안 p.1</span>
       </div>
+      <div class="oneline">그리스도인은 세상 안에 있으나 세상에 속하지 않고, 다시 세상으로 보냄받는다.</div>
+      <div class="key"><ul>
+        <li><b>코스모스</b>의 두 의미: 사랑받는 피조세계(요 3:16) vs 하나님을 대적하는 체제(요일 2:15-16) → 태도는 사랑·돌봄 vs 저항·분별. <span class="bdg b-sup">🔎 원어분석</span></li>
+        <li>세 좌표: <b>세상 안</b>(In) · <b>하나님께로부터</b>(Of God, 요 17:16) · <b>다시 세상으로</b>(Into, 요 17:18).</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 거룩함은 분리·도피가 아니라 세상 한가운데서의 <b>구별</b>, 사명은 지배·장악이 아니라 십자가적 <b>섬김</b>.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>그리스도인은 세상을 어떻게 바라보아야 하는가? 요한복음과 요한 서신에서 사용되는 헬라어 <strong>'코스모스(κόσμος, 세상)'</strong>는 결코 단순하지 않은 이중적 의미를 담고 있다.</p>
 
@@ -1069,6 +1128,8 @@ li {
         </div>
         <div class="author">— 김기현 교수 『기독교윤리학개론』 제1장</div>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §3. 동심원 모델과 권세 -->
@@ -1080,6 +1141,14 @@ li {
         </div>
         <span class="slide-badge">Slide 06 · 강의안 pp.1-2</span>
       </div>
+      <div class="oneline">윤리적 결단은 개인의 정직만이 아니라 권세(구조·제도)와 순종의 비용이라는 문제로 봐야 한다.</div>
+      <div class="key"><ul>
+        <li><b>권세들(exousiai)</b> = 법·제도·기업 문화·시장 경제·국가 이데올로기 같은 구조적 실재. <span class="bdg b-sup">🔎 보충</span></li>
+        <li>3중 동심원: 외부 <b>권세</b> → 중간 <b>선택</b> → 중심 <b>몸</b>. 과장 광고를 거부하면 오는 것은 칭찬이 아니라 <b>해고와 생계 단절</b>이라는 몸의 고통.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> "누가 선택의 조건을 이렇게 가혹하게 만들었으며, 순종의 대가는 결국 누구에게 돌아가는가?"</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>전통적인 기독교 윤리는 흔히 "개인이 얼마나 정직한가"라는 개인주의적 결단에만 집중해 왔다. 그러나 바울 서신이 말하는 <strong>'권세들(ἐξουσίαι, exousiai)'</strong>은 단순한 영적 귀신이 아니라, 인간의 삶을 지배하는 법, 제도, 기업 문화, 시장 경제, 국가 이데올로기 같은 구조적 실재를 포함한다.</p>
 
@@ -1104,6 +1173,8 @@ li {
       <p>
         신대원생이 건강식품 과장 광고를 쓰지 않기로 결단할 때, 그에게 닥쳐오는 것은 고상한 영적 칭찬이 아니라 **'해고와 생계 단절'**이라는 몸의 고통이다. 그러므로 기독교 윤리는 "당신은 무엇을 선택해야 하는가"만 묻지 않는다. **"누가 선택의 조건을 이렇게 가혹하게 만들었으며, 순종의 대가와 비용은 결국 누구에게 돌아가는가?" <span class="bdg b-exam">⭐ 교수강조</span>**를 치열하게 질문해야 한다.
       </p>
+    
+      </div></details>
     </article>
 
     <!-- §4. 어원과 도덕 vs 윤리학 -->
@@ -1115,6 +1186,14 @@ li {
         </div>
         <span class="slide-badge">Slide 07-08 · 강의안 p.2</span>
       </div>
+      <div class="oneline">도덕은 물려받은 무비판적 관습이고, 윤리학은 그 정당성을 따져 묻는 성찰이다.</div>
+      <div class="key"><ul>
+        <li><b>에토스</b>의 두 어원: ἦθος = 성품·인격, ἔθος = 습관·관행(아리스토텔레스 『니코마코스 윤리학』 II.1). <span class="bdg b-sup">🔎 원어분석</span></li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 도덕 = "우리는 항상 이렇게 해 왔다", 윤리학 = "그 방식이 정말 옳은가, 누구를 보호하고 누구를 억압하는가?"</li>
+        <li>구분하지 못하면 가부장제·권위주의·맘몬 숭배를 "하나님의 불변하는 뜻"이라고 포장하는 우상숭배에 빠진다.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>서양 윤리학의 뿌리가 되는 헬라어 어원에는 두 개의 밀접한 단어가 교차하고 있다. 아리스토텔레스는 『니코마코스 윤리학』(II.1)에서 성품에 관한 탐구를 뜻하는 <strong>에티케(ἠθική)</strong>가 습관을 뜻하는 단어에서 파생되었다고 명시한다.</p>
 
@@ -1146,6 +1225,8 @@ li {
           교회가 도덕과 윤리학을 구분하지 못하면, <strong>가부장제, 권위주의, 자본주의적 맘몬 숭배 같은 시대적 관습을 '하나님의 불변하는 뜻'이라고 포장하는 무서운 우상숭배</strong>에 빠지게 된다.
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §5. 윤리학의 세 물음과 덕 윤리 -->
@@ -1157,6 +1238,14 @@ li {
         </div>
         <span class="slide-badge">Slide 09-11 · 강의안 pp.2-3</span>
       </div>
+      <div class="oneline">의무론·결과주의의 한계를 넘어 윤리는 사람을 형성하는 성품과 공동체로 향한다.</div>
+      <div class="key"><ul>
+        <li>세 물음: <b>무엇을 해야 하는가</b>(의무론·칸트, 형식주의 위험) · <b>어떤 결과가 나는가</b>(공리주의, 소수 희생) · <b>어떤 사람이 되어야 하는가</b>(덕 윤리, 목적이 없으면 공허) + 공동체 물음.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> 성품 형성의 사슬: 반복 → 습관 → 성품 → 삶의 방향 → <b>목적(Telos)</b>.</li>
+        <li>덕목도 잘못된 목적에 결합되면 더 큰 악을 낳는다(예: 나치의 유능한 학살 집행관) → 기독교 윤리는 목적을 <b>예수 그리스도의 형상</b>에서 찾는다.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>철학적 윤리학의 거대한 지형은 인간 행동을 규명하기 위해 세 가지 근본 물음을 발전시켜 왔다.</p>
 
@@ -1207,6 +1296,8 @@ li {
           그러므로 기독교 윤리는 <strong>'인간은 무엇을 위해 지음받았는가?'</strong>라는 목적을 예수 그리스도의 형상에서 찾는다."
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §6. 서사와 한정어 -->
@@ -1218,6 +1309,14 @@ li {
         </div>
         <span class="slide-badge">Slide 12-13 · 강의안 pp.3-5</span>
       </div>
+      <div class="oneline">"한정 없는 윤리란 환상이다. 모든 윤리는 특정한 이야기의 산물이다."</div>
+      <div class="key"><ul>
+        <li>계몽주의는 역사·전통과 무관한 보편 이성의 <b>한정 없는 윤리</b>를 꿈꾸었으나 하우어워스는 이를 환상이라 폭로했다.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> "모든 윤리에는 한정어가 붙는다(All ethics are qualified)" — 우리는 아무 이야기에도 속하지 않는 보편적 관찰자가 아니다.</li>
+        <li>생명 보호·원수 사랑은 보편 도덕률에서 연역된 것이 아니라 <b>출애굽의 하나님</b>과 <b>십자가의 예수 이야기</b>가 정체성을 규정하기에 가능한 고백.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>
         근대 계몽주의 철학은 역사, 전통, 종교와 무관한 '순수하고 보편적인 이성'에 기초한 **'한정 없는 윤리(Unqualified Ethics)'**를 꿈꾸었다. 그러나 현대 기독교 윤리학의 거장 <strong>스탠리 하우어워스(Stanley Hauerwas)</strong>는 이 기획이 치명적인 환상임을 폭로했다.
@@ -1235,6 +1334,8 @@ li {
       <p>
         우리가 "생명을 보호해야 한다", "원수를 사랑해야 한다"고 말할 때, 그것은 인류 보편의 도덕률에서 연역된 것이 아니다. **"우리를 애굽 땅 종 되었던 집에서 건져내신 여호와 하나님"**, **"원수 된 우리를 위해 십자가에서 피 흘려 죽으신 나사렛 예수의 이야기"**가 우리의 정체성을 규정하기 때문에 비로소 가능한 고백이다.
       </p>
+    
+      </div></details>
     </article>
 
     <!-- §7. 기독교 윤리학의 정의와 아나뱁티스트 전통 -->
@@ -1246,6 +1347,14 @@ li {
         </div>
         <span class="slide-badge">Slide 14-15 · 강의안 p.5</span>
       </div>
+      <div class="oneline">기독교 윤리학은 "하나님의 선행하는 은혜에 응답하여, 그리스도를 따르는 사람과 공동체의 삶을 성찰하고 실천하는 신학"이다.</div>
+      <div class="key"><ul>
+        <li>흐름: 은혜 → 서사 → 성품 → 제자도 → 공동체 → 증언 → 평화.</li>
+        <li>아나뱁티스트-침례교 전통의 4대 지표: <b>그리스도 중심성</b> · <b>자발적 제자도</b> · <b>비폭력과 샬롬</b> · 삶으로 시험되는 신학.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 바른 교리(Orthodoxy)는 형제 사랑과 공의를 행하는 바른 실천(Orthopraxis)으로 입증된다.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <div class="thesis-box" style="background: var(--primary-pale); border-color: var(--primary);">
         <div class="quote" style="color: var(--primary); font-size: 20px;">
@@ -1288,6 +1397,8 @@ li {
           </div>
         </div>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §8. 콘스탄틴적 전환의 3대 왜곡 -->
@@ -1299,6 +1410,14 @@ li {
         </div>
         <span class="slide-badge">Slide 16 · 강의안 pp.5-6</span>
       </div>
+      <div class="oneline">콘스탄틴적 전환 이후 교회는 기독론·교회론·윤리 세 영역에서 왜곡되었다(요더).</div>
+      <div class="key"><ul>
+        <li>기독론: 고난의 종 예수 → 제국을 수호하는 판토크라토르 / 교회론: 대조사회 → 태어나면 교인이 되는 기독교 사회 / 윤리: 산상수훈의 순종 → 전쟁·사형 정당화.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 요더의 역설: 진정한 분파주의자는 평화를 고수하는 교회가 아니라, 우주를 다스리시는 복음을 <b>특정 국가 체제의 유지 도구</b>로 쪼그라뜨린 자들이다.</li>
+        <li><span class="bdg b-sup">🔎 역사교차검증</span> 밀라노 칙령(313) · 테살로니키 칙령(380, 니케아 기독교를 국교로) — 원본 검증 [CONFIRMED].</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>
         4세기 로마 황제 콘스탄티누스의 기독교 공인과 테오도시우스 황제의 국교화는 기독교 역사상 가장 결정적인 변곡점이었다. <strong>존 하워드 요더(John H. Yoder)</strong>는 『예수의 정치학』에서 교회가 로마 제국의 통치 권력과 결탁하면서 초래된 <strong>3대 치명적 이단(왜곡)</strong>을 고발한다.
@@ -1337,6 +1456,8 @@ li {
           "세상 사람들은 교회가 제자도를 강조하고 평화를 고수하면 '사회에 참여하지 않는 분파주의자(Sectarian)'라고 손가락질합니다. 그러나 요더는 반문합니다. <strong>진정한 분파주의는 누구인가?</strong> 우주 만물을 창조하시고 다스리시는 하나님의 광대한 복음을, 한낱 로마 제국(혹은 대한민국, 미국)이라는 특정 국가와 정권의 체제 유지 도구로 쪼그라뜨린 자들이야말로 가장 흉악한 분파주의자들입니다."
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     
@@ -1362,6 +1483,14 @@ li {
         </div>
         <span class="slide-badge">Slide 17-18 · 강의안 pp.6-7</span>
       </div>
+      <div class="oneline">신학과 윤리의 관계는 교리에서 윤리로의 연역이 아니라 형성·비연역·시험이다.</div>
+      <div class="key"><ul>
+        <li>교리를 윤리로 "배달하는 우편배달부"라는 오해를 거부한다.</li>
+        <li>세 원리: <b>형성한다</b>(신학이 도덕적 시야를 형성) · <b>연역되지 않는다</b>(AI·생명윤리·경제 정책의 정답이 자동 계산되지 않음) · <b>시험한다</b>(실천이 고백의 진위를 검증).</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>말한 신학(Espoused)</b>과 <b>실제 신학(Operative)</b>의 간격 — 진짜 신념은 포기하면 내가 더는 내가 아니게 되는 결단의 자리에서 확인된다.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>신학과 윤리의 관계는 전통적으로 "신학 교리가 먼저 완성되면, 윤리는 그 교리를 현실에 배달하는 우편배달부"처럼 오해되어 왔다. 그러나 건강한 기독교 윤리학은 세 가지 유기적 관계를 강조한다.</p>
 
@@ -1397,6 +1526,8 @@ li {
         </div>
         <div class="author">— 강의안 7쪽 & 슬라이드 18 결어</div>
       </div>
+    
+      </div></details>
     </article>
   </section>
 
@@ -1418,6 +1549,13 @@ li {
         </div>
         <span class="slide-badge">Slide 14, 17 · 강의안 p.8</span>
       </div>
+      <div class="oneline">기독교 윤리의 첫 문법은 "은혜가 명령에 앞선다"이다.</div>
+      <div class="key"><ul>
+        <li>직설법(하나님이 행하신 일) ⟹ 명령법(우리가 살아야 할 삶). 기독교 윤리학 전체의 헌법이자 절대 문법.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 단순한 시간적 선후가 아니라 <b>존재론적 우선성</b> — 은혜가 죄인을 새로운 피조물로 빚어내지 않고는 계명에 참되게 순종할 능력이 없다.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>
         2강의 문을 여는 가장 강력한 명제는 <strong>"은혜가 명령에 앞선다"</strong>는 선언이다. 이것은 기독교 윤리학 전체의 헌법이자 무너지면 안 되는 절대 문법이다.
@@ -1433,6 +1571,8 @@ li {
           <strong>존재론적 우선성(Ontological Priority)</strong>이다. <span class="bdg b-exam">⭐ 교수강조</span> 즉, 하나님의 은혜가 죄인을 새로운 피조물로 빚어내지 않고서는, 어떤 인간도 하나님의 계명에 참되게 순종할 수 있는 존재론적 능력을 갖지 못한다는 뜻이다.
         </div>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §11. 은혜의 다섯 얼굴과 성서적 순서 -->
@@ -1444,6 +1584,14 @@ li {
         </div>
         <span class="slide-badge">Slide 15-16 · 강의안 p.8</span>
       </div>
+      <div class="oneline">은혜는 죄 사함을 넘어 창조에서 성령까지 미치는 다섯 얼굴을 지닌다.</div>
+      <div class="key"><ul>
+        <li>다섯 얼굴: 창조 · 해방 · 언약 · 구속 · 성령의 은혜.</li>
+        <li>성서 전권의 구속사적 문법: 창세기(창 1-2 → 문화명령) · 출애굽기(출 20:2 → 십계명) · 복음서(막 1:15) · 바울 서신(엡 1-3 → 엡 4:1) — 언제나 선행하는 은혜(직설법) 뒤에 응답의 명령(명령법).</li>
+        <li>은혜를 "예수 믿고 죄 용서받는 것"으로만 좁히지 말라.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>우리는 흔히 은혜를 "예수 믿고 죄 용서받는 것"이라는 좁은 의미로 축소하곤 한다. 그러나 성서가 증언하는 은혜는 <strong>다섯 가지 풍성한 얼굴</strong>을 지니고 있다.</p>
 
@@ -1509,6 +1657,8 @@ li {
           </tbody>
         </table>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §12. 순서의 붕괴와 값싼 은혜 -->
@@ -1520,6 +1670,14 @@ li {
         </div>
         <span class="slide-badge">Slide 18 · 강의안 p.8</span>
       </div>
+      <div class="oneline">순서가 무너지면 도덕주의(율법주의)와 값싼 은혜(방종주의)라는 두 함정에 빠진다.</div>
+      <div class="key"><ul>
+        <li><b>도덕주의</b>: 선행과 종교적 열심을 은혜를 얻어내는 거래 조건으로 전락시킴 / <b>율법폐기론</b>: "이미 구원받았으니 어떻게 살아도 상관없다".</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 본회퍼: 값싼 은혜는 회개 없는 사죄·십자가 없는 은혜, 값비싼 은혜는 목숨을 요구하기에 값비싸나 참된 생명을 주기에 은혜.</li>
+        <li>은혜는 면죄부가 아니라 책임을 기쁨으로 짊어질 <b>자유와 능력</b>의 선물.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>은혜가 명령에 앞선다는 이 문법적 질서가 깨어질 때, 교회사는 언제나 두 가지 치명적인 병폐에 신음해 왔다.</p>
 
@@ -1554,6 +1712,8 @@ li {
       <p style="margin-top: 14px;">
         참된 은혜는 성도의 윤리적 책임을 면제해 주는 면죄부가 아니다. <strong>은혜는 오히려 죄인이 하나님의 거룩한 명령에 기쁨으로 응답하여 책임을 짊어질 수 있는 '자유와 능력'을 선물한다.</strong>
       </p>
+    
+      </div></details>
     </article>
 
     <!-- §13. 순종의 비용을 분담하는 교회 -->
@@ -1565,6 +1725,14 @@ li {
         </div>
         <span class="slide-badge">Slide 19 · 강의안 p.9</span>
       </div>
+      <div class="oneline">순종에는 비용이 따르므로 교회가 그 비용을 분담하는 안전망이 되어야 한다.</div>
+      <div class="key"><ul>
+        <li>비용: 직장에서의 불이익·해고, 생계 위협, 승진 탈락, 관계 단절, 평판 추락.</li>
+        <li>"하나님은 순종을 요구하시기 전에, 순종할 수 있는 사람과 공동체를 먼저 만드신다."(김기현 『기독교윤리학개론』 2장)</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> "정직하라"고만 외치고 실직한 성도의 생계를 외면하면 잔인한 위선이며, 가해자의 회개·처벌은 회피한 채 피해자에게만 용서를 강요하는 것은 <b>가장 끔찍한 영적 폭력</b>.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>세상 속에서 그리스도의 명령에 순종하여 불의한 타협을 거부할 때 발생하는 구체적 비용이 있다: <strong>직장에서의 불이익과 해고, 생계의 위협, 승진 탈락, 사회적 관계의 단절, 평판의 추락.</strong></p>
 
@@ -1582,6 +1750,8 @@ li {
           "교회가 성도들에게 설교 시간에 '타협하지 말고 정직하라'고만 외치고, 정작 정직하게 살다 실직한 성도의 생계와 월세를 나 몰라라 한다면 그것은 잔인한 위선입니다. 또한 교회 안에서 성폭력이나 재정 비리 등 심각한 죄악이 발생했을 때, <strong>가해자의 회개와 공적 처벌은 회피한 채 힘없는 피해자에게만 '그리스도의 사랑으로 덮고 용서하라'고 강요하는 것은 가장 끔찍한 영적 폭력</strong>입니다. 교회는 순종의 비용을 함께 분담하는 경제적·관계적 안전망이 되어야 합니다."
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §14. 웨슬리 사변형 재구성 -->
@@ -1593,6 +1763,14 @@ li {
         </div>
         <span class="slide-badge">Slide 20, 23 · 강의안 pp.9-11</span>
       </div>
+      <div class="oneline">웨슬리 사변형은 네 기둥의 평등이 아니라 "성서 = 최고 규범 + 3대 검증 직무"로 재구성된다.</div>
+      <div class="key"><ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>성서</b>가 유일한 최고 규범이자 원천.</li>
+        <li>검증 직무: <b>전통</b> = 기억(교회의 과오도 정직하게) · <b>이성</b> = 점검(논증의 정합성) · <b>경험</b> = 확인.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 경험에서는 가장 취약하고 고통받는 이들의 증언을 경청한다(인식론적 특권).</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>
         전통적인 감리교 신학의 <strong>'웨슬리 사변형(Wesleyan Quadrilateral: 성서, 전통, 이성, 경험)'</strong>은 종종 네 요소가 동등한 권위를 가진 네 기둥처럼 오해되어 왔다. 그러나 본 강의는 이를 엄격하게 계층화하여 <strong>"1대 최고 원천/규범 + 3대 검증 직무"</strong>로 재구성한다.
@@ -1621,6 +1799,8 @@ li {
           </div>
         </div>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §15. 성서의 4중 규범과 3층 해석학 -->
@@ -1632,6 +1812,13 @@ li {
         </div>
         <span class="slide-badge">Slide 21-22 · 강의안 pp.10-11</span>
       </div>
+      <div class="oneline">성서는 규칙·원리·전형·상징 세계의 4중 방식으로 규범이 되고, 3층 렌즈로 오늘에 옮긴다.</div>
+      <div class="key"><ul>
+        <li>4중 규범(헤이스): <b>규칙</b>(출 20장) · <b>원리</b>(마 22:37-40) · <b>전형</b>(선한 사마리아인, 눅 10:25-37) · <b>상징 세계</b>(마 5:45).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> 3층 해석학: ① 역사적 자리(본래 수신자) → ② 정경적 위치(롬 13 ↔ 계 13의 긴장) → ③ <b>그리스도의 방향</b>(십자가·자기 비움·부활)이 최종 규범.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>성서는 오늘날의 복잡다단한 윤리적 질문에 하나의 방식으로만 규범으로 작용하지 않는다. 리처드 헤이스(Richard Hays) 등의 신약 윤리학 논의를 수용하여, 성서의 <strong>4중 규범 방식</strong>을 명확히 이해해야 한다.</p>
 
@@ -1699,6 +1886,8 @@ li {
           </div>
         </div>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §16. 공동체적 분별 6단계 -->
@@ -1710,6 +1899,14 @@ li {
         </div>
         <span class="slide-badge">Slide 24-25 · 강의안 pp.11-12</span>
       </div>
+      <div class="oneline">공동체적 분별은 6단계 순환이지만, 절차만으로는 선한 결과가 보증되지 않는다.</div>
+      <div class="key"><ul>
+        <li>6단계: 상황 서술 → 성서 조명 → 전통 회고 → 이성 점검 → <b>취약자 경청</b> → 결정과 재검토.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 절차가 보증하지 못하는 것: 응급한 고통에 손을 내밀지 못하는 <b>지연의 위험</b>, 다수결의 이름으로 저지르는 악.</li>
+        <li>결국 핵심은 절차를 운용하는 사람들의 <b>영적 성품</b>.</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>교회 공동체가 윤리적 갈등과 난제를 마주했을 때 밟아가야 할 <strong>6단계 순환적 분별 프로세스</strong>는 다음과 같다.</p>
 
@@ -1755,6 +1952,8 @@ li {
           투명하고 정당한 절차는 지도자의 전횡을 막고 판단의 오류를 줄여주지만, <strong>절차 자체가 선한 결과를 100% 보증하지는 못한다.</strong> 절차적 논의에만 너무 매달리면 응급한 고통에 제때 손을 내밀지 못하는 <strong>'지연의 위험'</strong>이 발생하며, 완벽한 회의를 거치고도 다수결의 이름으로 악을 저지를 수 있다. 결국 핵심은 절차를 운용하는 <strong>'사람들의 영적 성품'</strong>이다.
         </p>
       </div>
+    
+      </div></details>
     </article>
 
     <!-- §17. 성령론적 분별 -->
@@ -1766,6 +1965,15 @@ li {
         </div>
         <span class="slide-badge">Slide 26 · 강의안 pp.12-13</span>
       </div>
+      <div class="oneline">성령은 인간의 판단을 대신하지 않고, 판단하는 사람의 마음을 새롭게 하신다(롬 12:2).</div>
+      <div class="key"><ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 성령은 판단 과정을 면제하는 자동판매기가 아니다.</li>
+        <li>공동체적 검증의 의무(살전 5:19-21): 개인의 영적 감동은 절대화될 수 없다.</li>
+        <li>분별의 두 기준: <b>예수 그리스도 고백</b> + <b>성령의 열매</b>(사랑·희락·화평·온유).</li>
+        <li><span class="bdg b-sup">🔎 원어분석</span> μεταμορφοῦσθε = 현재 수동태 명령(지속적 변형), νοός = 지성과 도덕적 판단력의 좌소 [CONFIRMED, 원본 검증].</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <p>한국 교회에서 가장 왜곡되기 쉬운 영역이 바로 '성령 인도하심'에 대한 신비주의적 오해이다. 많은 이들이 기도를 통해 이성적 고민과 비판적 검토를 생략하고 직관적인 음성을 듣는 것을 영적인 것으로 여긴다.</p>
 
@@ -1803,6 +2011,8 @@ li {
         </p>
       </div>
 
+    
+      </div></details>
     </article>
 
     <!-- §18. 절차와 성품의 통합 -->
@@ -1814,6 +2024,13 @@ li {
         </div>
         <span class="slide-badge">Slide 27-30 · 강의안 pp.13-14</span>
       </div>
+      <div class="oneline">책임 있는 절차와 말씀·기도로 형성된 성품이 만날 때 신실한 분별이 된다.</div>
+      <div class="key"><ul>
+        <li>매트릭스: 책임 있는 공동체적 절차(6단계) × 성품(제자도) = 신실한 윤리적 분별.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> 2주차 종결 선언: "은혜가 먼저 말하고 명령이 그 뒤를 따른다. 이것이 기독교 윤리의 첫 문법이다."</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <div class="diagram-container">
         <div class="diagram-title">신실한 분별의 2대 축 매트릭스</div>
@@ -1839,6 +2056,8 @@ li {
         </div>
         <div class="author" style="color: #d6e8de;">— 2주차 전체 강의 종결 선언 (슬라이드 30)</div>
       </div>
+    
+      </div></details>
     </article>
   </section>
 
@@ -1850,6 +2069,13 @@ li {
       <h2 style="color: #61430c;">제3부: 목회 현장 및 실천적 적용 (Pastoral Praxis) <span class="bdg b-add">📌 강의추가</span></h2>
       <span class="part-badge" style="background: #61430c;">현장 목회 가이드</span>
     </div>
+    <div class="oneline">현장 목회에 적용하는 세 가지(📌 강의추가): 일터 윤리 안전망, 6단계 분별 위원회, 피해자 중심 회개·치리.</div>
+    <div class="key"><ul>
+        <li>성도의 일터 윤리: "타협하지 말라"는 설교에 그치지 않고 심방·소그룹으로 갈등을 듣고, 구제 기금을 <b>정직을 지키다 실직·피해 입은 성도를 돕는 윤리적 안전망 기금</b>으로.</li>
+        <li>교회 분쟁·의사결정: 건축·재정·청빙을 밀실 논의로 끝내지 말고 <b>6단계 분별</b>을 공식 절차로, 청년·여성·가난한 교인의 증언을 듣는 <b>공청회 단계</b> 제도화.</li>
+        <li>피해자 중심 회개·치리: 마 18장의 "용서"를 가해자 면죄부로 악용하지 말고, 피해자 안전·회복 우선, 가해자에게 법적·제도적 책임과 합당한 치리.</li>
+    </ul></div>
+    <details><summary>상세 — 현장 목회 가이드 원문</summary><div class="dbody">
 
     <div class="unit-card">
       <h3 style="font-family: 'Noto Serif KR', serif; color: var(--primary); margin-bottom: 16px;">
@@ -1873,12 +2099,21 @@ li {
         교회 내 비리와 성 비위 사건에서 가장 흔히 나타나는 왜곡은 마태복음 18장의 "용서"를 가해자의 면죄부로 악용하는 것이다. 기독교 윤리는 은혜의 순서를 왜곡하는 값싼 용서를 거부한다. 피해자의 안전과 회복을 최우선으로 보호하고, 가해자에게는 법적·제도적 책임과 합당한 징계(치리)를 부과하며, 그 위에서만 참된 십자가의 화해가 시작될 수 있음을 가르쳐야 한다.
       </p>
     </div>
+  </div></details>
   </section>
 
   <!-- ================================================================= -->
   <!-- PART 4: 시험 및 평가 대비 총정리 (Exam Master) -->
   <!-- ================================================================= -->
   <section class="section-block" id="sec-exam">
+    <div class="part-banner"><h2>시험 대비 핵심 정리</h2><span class="part-badge">⭐ 시험</span></div>
+    <div class="oneline">O/X 5문항과 논술형 2문항으로 핵심 개념을 점검한다(교수 출제 경향 반영이라고 원본에 표기).</div>
+    <div class="key"><ul>
+        <li>O/X 정답: 도덕≠윤리 <b>[X]</b> · 하우어워스는 한정 없는 일반 윤리를 지향 <b>[X]</b> · 은혜의 존재론적 우선성 <b>[O]</b> · 웨슬리 사변형을 동일 권위로 설명 <b>[X]</b> · 콘스탄틴 이후 삼중 왜곡(요더) <b>[O]</b>.</li>
+        <li>논술형 1: 신학과 윤리의 관계 — 형성·비연역·시험 + 말한 신학/실제 신학.</li>
+        <li>논술형 2: 성서의 4중 규범 방식 + 3층 해석학적 렌즈로 오늘의 윤리적 분별에 적용.</li>
+    </ul></div>
+    <details><summary>상세 — O/X 문제·논술형 모범 답안 구성 전체</summary><div class="dbody">
     <div class="exam-section">
       <div class="exam-title">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -1972,6 +2207,7 @@ li {
         </div>
       </div>
     </div>
+  </div></details>
   </section>
 
   <!-- ================================================================= -->
@@ -1986,6 +2222,14 @@ li {
         </div>
         <span class="slide-badge">Slide 29 · 강의안 p.14</span>
       </div>
+      <div class="oneline">강의실을 넘어 내면과 사역 현장으로 이어지는 세 가지 성찰 질문.</div>
+      <div class="key"><ul>
+        <li><b>신학적 간극</b>: 강단에서 고백하는 말한 신학과 통장·시간 배분·분노의 순간에 드러나는 실제 신학 사이의 간극은?</li>
+        <li><b>문법의 전도</b>: "은혜가 명령에 앞선다"는 순서가 뒤집혀 율법적 행위를 강요했던 경험은?</li>
+        <li><b>지배 서사</b>: 사회·정치 쟁점 앞에서 나를 실질적으로 지배하는 이야기는 십자가·부활 서사인가, 이데올로기·계급 이익의 서사인가?</li>
+      </ul></div>
+      <details><summary>상세 — 원문 설명·인용·표/다이어그램·사례</summary><div class="dbody">
+
 
       <div class="coords-grid" style="grid-template-columns: repeat(3, 1fr);">
         <div class="coord-node">
@@ -2010,6 +2254,8 @@ li {
           </div>
         </div>
       </div>
+    
+      </div></details>
     </div>
   </section>
 
@@ -2018,6 +2264,8 @@ li {
   <!-- 출처 및 사실 교차검증 요약 (Audit & Verification Summary) -->
   <!-- ================================================================= -->
   <section class="section-block" id="sec-audit">
+    <details class="apx"><summary>부록 — 출처 및 검증 요약(원본 그대로)</summary><div class="dbody">
+<p style="font-size:13px;color:var(--text-muted)">※ 절충판은 원본 노트를 재배치·축약한 것으로 사실을 새로 추가하지 않았다. 아래 검증 요약과 건수는 원본(week02.html) 그대로이다.</p>
     <div class="audit-card">
       <div class="audit-title">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -2095,6 +2343,7 @@ li {
         ※ 전수 대조 결과 출처 불명·환각·오류 항목은 0건으로 판정되었으며, 교재 및 강의 내용의 사실성이 100% 검증되었습니다.
       </p>
     </div>
+  </div></details>
   </section>
 
   <!-- Footer -->
@@ -2107,6 +2356,7 @@ li {
 </div>
 
 <script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
 function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme');
   if (current === 'dark') {
