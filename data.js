@@ -541,7 +541,7 @@ const SITE_DATA = {
             { type: "guide", label: "바울 개론 참고서", href: "output/2026-2/nt2/guide_paul_intro.html" },
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week02.html" }
           ] },
-            { week: 3, title: "", date: "", files: [
+            { week: 3, title: "바울과 그의 서신들 개관", date: "2026.09.21", files: [
             { type: "guide", label: "로마서 참고서", href: "output/2026-2/nt2/guide_romans.html" }
           ] },
             { week: 4, title: "", date: "", files: [

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 3주차 바울과 그의 서신들 개관 (절충판)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+.sm table{font-size:12.5px}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+.b-stu{background:rgba(122,184,122,.12);color:var(--green);border:1px solid rgba(122,184,122,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+.card h4{font-size:13px;color:var(--text);margin:10px 0 4px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+.verify code{color:var(--text);font-size:11.5px;word-break:break-all}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.key{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:13px 17px;margin:10px 0}
+.key ul{margin:4px 0 2px 18px}.key li{font-size:13.5px;color:var(--text2);margin:4px 0}.key b{color:var(--text)}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+.sum h4{font-size:12.5px;color:var(--gold);margin:12px 0 4px;letter-spacing:.03em}
+.sum ol,.sum ul{margin:4px 0 2px 20px}.sum li{font-size:13.5px;color:var(--text2);margin:4px 0}.sum b{color:var(--text)}.sum p{font-size:13px;color:var(--text2)}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+details.apx{margin-top:26px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">신약성서 II · 3주차 · 2026학년도 2학기 · 절충판</div>
+  <h1>바울과 그의 서신들 개관</h1>
+  <div class="prof">담당 이영민 교수 · 2026.09.21 · 대면강의</div>
+</div>
+<div class="intro">복습용 절충판입니다. 각 절은 <b>한 줄 결론 → 핵심 불릿</b>만 보이고, 일화·예시·수강생 발표·슬라이드 세부는 <b>▸ 상세</b>를 눌러 펼칩니다(기본 닫힘). 배지: <span class="b-exam bdg">교수 강조</span> <span class="b-add bdg">강의 추가</span>(PPT엔 없고 강의에만) <span class="b-ppt bdg">PPT만</span>(녹취엔 없음) <span class="b-stu bdg">수강생</span> <span class="b-sup bdg">보충</span> · 자료근거는 배지 없는 본문. 자동전사가 불확실한 곳은 <span class="asr">[U번호]</span>로 원문을 보존했습니다(목록은 부록).</div>
+<div class="sum">
+  <h2>📄 1쪽 요약</h2>
+  <ol>
+    <li>바울은 "열정 많고 일 많이 한 사람"으로만 알려졌지만, 본인 서신 같은 <b>날 것 자료</b>로 보면 유대인·그리스도인·그레코-로만 시민 중 하나로 딱 자르기 어렵다.</li>
+    <li>제2성전기 유대교는 하나가 아니었다(성전 중심·열심당·광야 공동체·랍비 유대교). <b>AD 70년 성전 파괴</b>가 전환점.</li>
+    <li>바울의 변화는 종교 이동이 아니라 <b>변화</b> — 메시아 이해가 풀렸고, 복음의 풍성함은 <b>중간기</b>에 자랐다.</li>
+    <li>자료 비중은 <b>바울 서신 &gt; 사도행전 &gt; 초기 교회 전승</b>. 연대는 학자마다 3~5년 차이(<b>갈리오 비문</b>이 기준점).</li>
+    <li>선교는 팀 선교·종종 자비량·회당 먼저, 세 차례 전도여행. 생애의 끝(스페인)은 증거가 나뉘어 <b>확정 불가</b>.</li>
+    <li>서신·사도행전·전승의 차이는 "<b>큰 그림</b>"으로 받아들이면 된다 — 세부 비교는 Th.M. 단계에서 (교수).</li>
+  </ol>
+  <h4>꼭 기억할 것</h4>
+  <p><b>용어</b> 중간기 · 1차/2차 자료 · 미슈나 · 정결(purity) · 진정 서신 · 새 관점 · 남갈라디아 · 자비량 &nbsp;|&nbsp; <b>인물</b> 가말리엘(힐렐의 손자) · 바나바 · 티투스 · 갈리오 · 누가(사도행전 저자) &nbsp;|&nbsp; <b>구절</b> 빌 3:4-6 · 갈 1:13-17 · 갈 1:18-2:14 · 살전 2:1-12 · 고후 11:23-29 · 고후 10:10</p>
+  <h4>⭐ 교수 강조</h4>
+  <ul>
+    <li>서신 13권이 신약에 든 것 = 교회가 받아들였다는 증거</li>
+    <li>기독교인의 눈으로 유대교를 평가하지 말 것 · 칼로 자르듯 나누지 말 것</li>
+    <li>학자 의견이 나뉜다 = 증거가 나뉜다 · 연도 차이는 큰 이슈</li>
+    <li>바울은 목회자가 아니었다 — 이중직 등을 오늘의 목회에 성급히 적용하지 말 것</li>
+  </ul>
+</div>
+<div class="toc">
+  <a href="#intro">1 도입</a><a href="#judaism">2 유대교</a><a href="#orthodox">3 정통 유대교?</a><a href="#scholars">4 학자들</a><a href="#canon">5 수용·정경화</a><a href="#lens">6 두 관점·개종</a><a href="#primary">7 일차 자료</a><a href="#sources">8 자료 비중</a><a href="#early">9 초기 생애</a><a href="#chron">10 연대·연구</a><a href="#appearance">11 외모·외경</a><a href="#mission">12 선교 특징</a><a href="#journeys">13 전도여행</a><a href="#end">14 로마·생애 끝</a><a href="#wrap">15 연대표·신학</a><a href="#emph">16 강조 모음</a><a href="#verify">부록</a>
+</div>
+<div class="sec" id="intro">
+  <div class="sh"><span class="sb">1</span><span class="st">도입: 바울 이미지와 세 가지 질문</span><div class="sl"></div></div>
+  <div class="oneline">바울은 "열정적으로 일 많이 한 사람"으로만 알려져 있어, 이번 주는 해석되기 전의 날 것 자료로 그가 어떤 사람이었는지 살핀다.</div>
+  <div class="key"><ul>
+<li>신약 27권 중 <b>13권</b>이 바울 저자 표시(녹취 <span class="asr">[U2: "네 권"]</span>), 사도행전도 상당 부분이 그의 생애. <span class="ref">슬라이드 2</span></li>
+<li><span class="bdg b-add">강의 추가</span> 학생들이 든 이미지는 <b>열정·이중직·성경 지식</b>. 교수: 성경 지식이 많았다는 건 일반적으로 잘 떠올리지 못한다 — 오늘 다룬다.</li>
+<li><b>세 질문</b>: 바울은 전형적인 유대인·그리스도인·그레코-로만 시민 중 어디인가? 먼저 "전형적인 유대인"이 무엇인지부터 본다. <span class="ref">슬라이드 3</span></li>
+<li>이 이후부터는 실제 서신을 직접 보므로 걸음 속도가 빨라진다.</li>
+<li>교수의 태도: 이미 모아져서 해석된 바울 말고 <b>날 것</b>을 보며 "과연 그런가, 어느 정도 부합하는가"를 확인해 보자.</li>
+<li>우리가 가진 "전형적인 유대인"의 이해는 <b>만들어진 2차적 견해</b>일 수 있으니 그런지 아닌지 보라고 함.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>이번 주차의 자리</h3>
+    <ul>
+      <li>교수님: 이번에는 <b>개관</b>을 하고, 특별히 <b>바울이 어떤 사람인지</b> 이야기를 나눈다. 이 이후부터는 실제 서신서들을 직접 들어가서 보게 되므로 <b>걸음 속도가 조금 빨라질 것</b>이라고 안내함. <span class="b-add bdg">강의 추가</span></li>
+      <li>도입에서 이름을 따라 읽게 함: 영어로는 Paul, 헬라어로는 <span class="asr">[ASR 불확실 U1: "바블로스 바. 굿 파블로"]</span> — 슬라이드 표기는 <b>Παῦλος</b>.<span class="ref">슬라이드 2</span></li>
+      <li>이어 수업 진행 중 나온 발화는 판독 불가: <span class="asr">[ASR 불확실 U4: "알 수 없다고 그냥 내요 얘가 또"]</span> — 본문에 반영하지 않음.</li>
+    </ul>
+    <h3>바울의 비중 <span class="ref">슬라이드 2</span></h3>
+    <ul>
+      <li>신약 27권 중 <b>13권</b>이 저자로 그의 이름을 표시함(녹취: <span class="asr">[ASR 불확실 U2: "네 권 꽤 많네요"]</span> — 슬라이드는 13권).</li>
+      <li>사도행전의 많은 부분이 그의 생애를 서술 → 중요한 인물임에 틀림없음.</li>
+      <li>예수 그리스도의 이름이 지리적으로 널리 알려지고 많은 이방인이 그 믿음에 참여하게 하는 데 기여함. 교수님은 "우리들"이 이 마음을 공유하고 있다고 덧붙임.</li>
+    </ul>
+    <h3><span class="bdg b-add">강의 추가</span> 바울 하면 떠오르는 이미지는?</h3>
+    <p>교수님이 교회에서 일반적으로 갖는 이미지를 물었고, 나온 답은 다음과 같음.</p>
+    <ul>
+      <li><b>열정</b> (교수님이 먼저 제시)</li>
+      <li><b>이중직</b> — 돈을 벌어 자기 생활을 해야 했으므로 (교수님 제시·수강생 동의)</li>
+      <li><b>성경 지식</b> — 교수님은 바울이 성경 지식이 많았을 것이라고는 <b>일반적으로 별로 생각하지 못한다</b>고 짚음. "지난주에 얘기했어요, 혹시 안 했죠?" 하며 <b>오늘 그 얘기를 할 것</b>이라 예고함.</li>
+    </ul>
+    <p>교수님의 평: 바울은 굉장히 열정적이고 일을 많이 하는 사람처럼 인식되어 있다. <b>과연 그런가, 어느 정도 부합하는가</b>를 "날 것"으로 보면서, <b>이미 모아져서 해석된 바울 말고</b> 우리가 볼 수 있는 날 것들을 보며 이해해 보자고 제안함.</p>
+    <h3>세 가지 질문 <span class="ref">슬라이드 3</span></h3>
+    <div class="bq"><span class="ref">교수님의 질문 3개 (슬라이드 3: 전형적인 유대인 or 전형적인 그리스도인 or 전형적인 그레코-로만 시민)</span>
+      · 바울은 전형적인 유대인이었는가? · 바울은 전형적인 그리스도인이었는가? · 바울은 전형적인 그레코-로만 시민이었는가?</div>
+    <p>교수님의 의도 설명: "사실은 이 셋 중 어디 카테고리에 들어갈지 한번 생각해 보자는 의미"이다. 먼저 <b>전형적인 유대인</b>이 무엇인지부터 펼쳐 본다 — 우리는 <b>만들어진 2차적 견해</b>를 담아 해석해 준 이해를 갖고 있을 수 있으니, 그런지 아닌지 보라고 함.</p>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="judaism">
+  <div class="sh"><span class="sb">2</span><span class="st">유대인 안의 여러 그룹 <span class="bdg b-add">강의 추가</span></span><div class="sl"></div></div>
+  <div class="oneline">제2성전기 유대교는 하나가 아니었다 — 성전 중심 그룹, 열심당, 광야 공동체, 성전 없이 율법을 해석·토론하는 랍비 유대교로 갈렸고, AD 70년 성전 파괴가 전환점이다. <span class="bdg b-add">강의 추가</span> (PDF에 없음; 교수가 집단명을 말한 것은 사두개인·열심당·랍비 유대교뿐)</div>
+  <div class="key"><ul>
+<li><b>성전 중심 그룹("사두개인들")</b>: 성전·제사 중심, 성경은 <b>모세오경만</b>, 제사장 몫 덕에 비교적 부자. 로마 정치권과 연결될 가능성(교수의 추정 표현).</li>
+<li><b>열심당</b>: 로마 지배에 암살로 대응(교수: 일부 묘사는 "픽션처럼 만든 부분") → 로마가 장군 부자를 보내 <b>1차 유대-로마 전쟁</b>, 네로의 폭정과 68·69년 황제 교체, 아들 <b>티투스</b>가 성전 파괴.</li>
+<li><b>광야 공동체</b>(집단명 미발화): 멤버십 3년 이상, 정결 규정이 극도로 엄격. 보물을 가장 부정한 곳(무덤)에 숨긴 이유는 <b>아직 연구되지 않은 질문</b>.</li>
+<li><b>랍비 유대교</b>("제일 중요한 분들"): 성전 없이 회당·율법 해석으로 신앙 유지, 구전에도 권위, <b>힐렐의 손자가 가말리엘</b>(바울의 스승). 해석을 모은 책이 <span class="asr">[U12: "미시나"]</span>, <b>토론</b>으로 이해가 풍성해진다.</li>
+<li><span class="b-exam bdg">교수 강조</span> <b>기독교인의 눈으로 유대교인을 평가하지 말 것</b>, 해석된 2차 자료보다 <b>1차 자료(날 것)</b>.</li>
+<li><b>AD 70년</b> 성전 파괴: 그때까지 모든 유대인이 성전 체제를 따랐고, 디아스포라 유대인도 1년에 최소 세 차례 예루살렘에 모였다.</li>
+<li><b>로마의 세계관</b>: "로마 사람이 최고의 민족"이라 체계를 잘 갖췄고, 그 체계를 위협하는 요소는 <b>항상 힘으로</b> 다룬다.</li>
+<li>성전이 없어지자 <b>회당</b>에서 가르치고 읽고 찬송하는 예배가 발달해, 디아스포라는 성전에 오지 않아도 될 정도가 되었다.</li>
+<li><b>정결(purity)</b>의 교수 정의: 어떤 것이 있어야 할 시간·장소·형태대로 있지 않으면 부정하다 — "온전한 곳에서 이탈한 것".</li>
+<li>미슈나의 취지: "<b>우리 조상 중 누구도 자기 의견만이 가장 좋다고 말한 사람이 없다</b>"; 토라 필사는 단어 수까지 기재할 만큼 엄격했다.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="intro" style="margin-top:0">
+    이 절 전체(녹취 조각 1~6)는 <b>PDF 슬라이드에 없습니다.</b> 교수님이 <span class="vq">"여기 간략히 소개시켜 놓은 이 정도의 그룹이 유대인들 안에서 나뉘어지는 그룹이에요"</span>라며 화면을 보여 준 것으로 녹취에 나오지만, 그 화면이 어떤 자료인지는 알 수 없습니다. 교수님이 <b>실제로 입에 올린 집단명은 "사두개인들", "열심당", "라삐(랍비) 유대교"뿐</b>이고, 나머지 그룹은 이름 없이 특징만 설명했습니다(녹취 검색 결과는 아래 검증 요약 참조). 그룹 이름을 아는 학생을 불러 보았으나 <span class="asr">[ASR 불확실 U3: "SN . SNS"]</span>로만 전사됨.
+  </div>
+
+  <div class="card">
+    <h3>2-1. 성전 중심의 그룹 — 교수님이 "사두개인들"이라고 부른 사람들</h3>
+    <ul>
+      <li><b>성전 중심</b>: 원래 유대인은 성전을 중심으로 신앙체계를 발전시켰다. 성전은 <b>레위기</b>에 소개된 대로 제사를 통해 삶을 정갈하게 하고 하나님 앞에서 자신을 재정비하는 곳.</li>
+      <li><b>AD 70년</b>: 유대교 사상에서 가장 큰 변화를 일으킨 해. 이 해에 유대인의 <b>성전이 무너짐</b>. 교수님은 "디테일은 별로 신경 쓰지 말라"고 자주 말한다며 연도를 짚음. 이 연도가 나오는 이유는 사두개인들이 신앙체계를 <b>제사를 통해 성전 중심으로</b> 이끌었기 때문이며, 그때까지는 <b>모든 유대인이 이 체제를 따라야 했다</b>고 설명.</li>
+      <li>1년에 <b>최소 세 차례</b> 공식적으로 성전을 방문했고, 디아스포라로 흩어져 사는 유대인들이 그때마다 예루살렘에 모여 "방을 찾을 수 없을 정도"의 <b>민족 이동</b>이 이루어졌음.</li>
+      <li><b>성경 범위</b>: 이들의 성경은 <b>모세오경만</b>. 역사서·예언서·시편은 성경이 아니고, <span class="asr">[ASR 불확실 U6: "부전된 전통"]</span>도 아니라고 함. 세계관이 비교적 딱 정해져 있음. 수강생이 "유대인인데요?" 하고 놀라자 "맞아요"라고 확인.</li>
+      <li><b>비교적 부자</b>였다. 이유(교수님이 질문 후 설명): 제사로 드려진 짐승의 <b>특정 부분은 항상 제사장이 가져가도록</b> 되어 있고, 레위인들도 도움을 받도록 되어 있다(레위인은 땅을 받지 않음). 백성들이 <span class="asr">[ASR 불확실 U5: "내위기에 나와 있는 규칙들"]</span>을 잘 따를 때 이들은 굶지 않는다. <b>반대로 상황이 바뀌면 굶는다</b> — <span class="asr">[ASR 불확실 U5: "레이미들은 그런데 반대로 상황이 바뀌면 이분들은 굶어요"]</span>. 이스라엘 사람들이 항상 그 규칙에 관심을 두고 산 것은 아니어서 어려운 때도 있었던 것 같다고 함.</li>
+      <li><b>리더십</b>: 무게 중심이 성전에 있었다. 포로기에서 돌아와 "우리 성전을 세워야 한다"며 성전을 세운 뒤부터 이들이 리더십을 쥠. 별로 바뀌지 않았고, 리더십 위치에 있다 보니 <b>로마 쪽 정치권 세력과 연결될 가능성</b>이 있어 보인다고 함(교수님의 추정 표현).</li>
+      <li>정치·사회·문화가 변해도 성전이 존재했기에 <b>중심을 잡아 주는 역할</b>을 했다. 이런 정치적 변화에 <b>특별히 대응할 필요가 없었다</b> — 자기들 할 일만 하면 되었기 때문.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>2-2. 열심당과 1차 유대-로마 전쟁</h3>
+    <ul>
+      <li><b>로마의 부상</b>: 로마는 BC 200년대부터 실제적 권력을 갖기 시작해 전쟁 시리즈를 이기며 <b>BC 200년부터 AD 200년까지 최고조</b>에 달했고, AD 200년쯤부터 살짝살짝 일이 일어나 세력이 조금씩 내려간다고 설명(연도는 녹취 그대로). 약 <b>400년</b> 동안 팔레스타인의 유대인 지역에 미치는 로마의 힘이 엄청 커서, "왕성하고 힘이 운행하는 게 느껴질 정도로 컨트롤"했다고 함.</li>
+      <li><b>열심당의 대응</b>: 사두개 쪽과 달리 이들은 다른 색으로 반응. <b>옷 속에 무언가를 넣고 다니며</b> 사람이 많이 모이는 <b>시장(마켓플레이스)</b>에서 눈에 띄지 않게 다니다가, 유대 세계를 위협하는 데 일조하는 사람을 보면 천천히 다가가 <b>암살</b>하고 빨리 도망감. 교수님은 이 묘사 중 일부는 당시 사건을 토대로 <b>"픽션처럼 만든 부분"</b>이 있으며, 이해를 위해 충분히 가능한 일들이라고 밝힘. 다만 <b>활동이 늘어난 것은 실제</b>라고 함.</li>
+      <li><b>로마의 인식과 대응</b>: 로마가 이들을 다르게 인식하기 시작. 로마는 정복해 나가는 길에서는 무력을 쓰지만 제안도 하는데, <b>예외</b>는 세계관 때문 — "전 세계에서 로마 사람들이 최고의 민족"이라는 세계관이 딱 정해져 있고, 법을 포함해 체계를 아주 잘 갖췄다. <b>이 체계를 위험에 빠뜨리는 요소</b>가 발견되어 주시하다 확정되면 <b>항상 힘으로</b> 행동한다.</li>
+      <li>그래서 로마 쪽에서 <b>아버지와 아들, 장군 부자</b>를 보내 제어하게 함(녹취 표기 "로마 공국에서") → <b>1차 유대-로마 전쟁</b>. 교수님은 "전쟁이랄 것도 없고 로마 입장에선 와서 정리하는 수준"이지만 꽤 치열했기에 전쟁이라 부른다고 함. <b>60년대 후반</b>에 로마에서 옴.</li>
+      <li><b>네로</b>: 당시 네로가 다스리던 때. 처음엔 "아주 스윗했다"(부드럽고 온유하게 잘 다스림) 하나 시간이 흐르며 변해 <b>폭정</b>을 시작. 그 일로 로마 본국 정세가 불안해져 <b>68년·69년에 황제가 3~4명 바뀜</b>.</li>
+      <li>예루살렘에서 대결하던 때 본국 소식이 와서 <b>아버지 장군에게 "로마로 돌아오라"</b>는 전갈이 옴. 그는 돌아가 <b>나중에 황제가 됨</b>. 남겨진 아들의 이름이 <b>티투스</b>, 이 티투스 장군이 <b>예루살렘 성전을 완전히 파괴</b>하고 그 안에 쌓아 둔 온갖 보물을 가져다 자신들의 전쟁 승리와 우월성을 드러내는 데 썼다고 함.</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> 교수님은 장군 부자의 이름 중 <b>아들(티투스)만</b> 말했다. 통설상 아버지는 베스파시아누스이며, 그는 68~69년의 혼란 끝에 69년 황제가 되었고 티투스가 70년에 예루살렘을 함락했다(요세푸스 『유대 전쟁사』 등 표준 배경사). <i>confidence: High (통설). 본 노트 작성 중 별도 스킬 호출 검증은 하지 않음 — 검증 요약 참조.</i></div>
+    <p><span class="asr">[ASR 불확실 U7: "좀 다르게 적응하죠. 변화에 대해서 대응하죠. 이분들은 정치 테롯과 관련돼서 지원하는 사람들의 모임이에요. 간단히 좀 갈게요."]</span> — 이 문장의 대상 집단이 어디인지 녹취만으로는 알 수 없어 이름을 붙이지 않음(바로 뒤에 광야 공동체 설명이 이어짐).</p>
+  </div>
+
+  <div class="card">
+    <h3>2-3. 광야에서 공동체를 이룬 엄격한 그룹 (교수님은 집단명을 말하지 않음)</h3>
+    <ul>
+      <li>성향: "우린 <b>하나님만 보고 살 거야, 광야로 가자</b>." <b>수도원 같은 공동체</b>를 만들고 "도서관도 만들고 공동체 물도 만들어요"(녹취 그대로; "공동체 물"의 뜻은 불명). 굉장히 <b>엄격</b>해서 <b>멤버십을 얻는 데만 3년 이상</b> 걸림.</li>
+      <li>예화(교수님이 수강생 한 명을 넣어 재현): 3년 걸려 갓 멤버십을 딴 사람이 선배와 길에서 스치듯 접촉하면, 그는 <b>곧바로 가서 목욕</b>한다 — 부정해졌다고 보아서. 멤버십의 선후도 자기들 나름대로 그렇게 정한 것, "아주 깔끔하게".</li>
+      <li>재미있는 점: 이 공동체에 <b>없던 건물이 하나</b> — <b>공중화장실</b>. 개인 화장실도 없다. 대신 입교할 때 <b>작은 삽</b>을 받는다. 옆 동굴의 누군가가 아침에 삽을 메고 어디론가 걸어가면 무엇 하러 가는지 다 아는 셈. 교수님은 이런 것을 이들이 공동체 안에서 "보기 싫어했다"며, 이들의 세계관을 조금 맛볼 수 있다고 함.</li>
+      <li>이들의 문서가 발견된 것이 <span class="asr">[ASR 불확실 U11: "사회사본"]</span>이고, 그것을 번역한 책(교수님이 화면으로 보여 줌)에 <b>진짜 보물 지도</b>가 있음. 보물이 꽤 많았던 듯한데 숨겨 둔 곳은 <b>무덤</b> — 유대 사회에서 <b>시체는 모든 부정한 것의 아버지</b>라는 별명이 있다(교수님은 이전에 조금 언급했을 수도 있다고 함).</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 풀리지 않은 질문: 왜 가장 부정한 곳에 보물을 숨겼는가</h3>
+      <p><b>질문의 발단</b>: 교수님은 <span class="asr">[U11]</span>의 보물 지도가 너무 유명한데, 부정하다고 여기는 곳에 숨긴 것은 알겠으나 <b>그 숨긴 사람들이 나중에 찾으러 가는 것은 이상하다</b>는 점이 궁금해졌다고 함. 같은 교회의 은퇴한 고고학자(주석도 쓰신 분)에게 여쭈었으나 <b>"모른다"</b>는 답을 들음 → <b>아직 연구되지 않은 이슈</b>. 교수님의 개인적 추측은 "몸이 죽으면 땅으로 돌아가는 개념(구약)에서, 어느 정도 변화가 진행되면 부정이 사라진 것으로 봤을 것"이었으나 확정 못 함. 지금도 알고 싶은 개인 연구 과제라고 함.</p>
+      <p><b>정결/부정(purity)의 정의(교수님)</b>: 무엇이 묻어 정결하지 않다는 뜻이 아니라, <b>그들의 세계관에서 어떤 항목이 있어야 할 시간에·있어야 할 장소에·있어야 할 형태대로 있지 않으면 부정</b>하다는 것. <b>"온전한 곳에서 이탈한 것"을 부정하다</b>고 했다.</p>
+    </div>
+    <div class="sup"><span class="tag">🔎 보충</span> 교수님이 집단명을 말하지 않았으므로 확정하지 않는다. 일반적으로 학계는 사해 사본을 남긴 쿰란 공동체를 에세네파와 연결해 설명한다(요세푸스 등 표준 배경사). 위 내용(3년 멤버십·삽·보물 지도)은 <b>교수님이 한 말이며, 이 보충으로 뒷받침된 것이 아니다.</b> <i>confidence: Med (집단 식별은 통설이나 본 노트에서 별도 검증하지 않음).</i></div>
+  </div>
+
+  <div class="card">
+    <h3>2-4. "제일 중요한 분들" — 성전 없이 신앙을 이어간 그룹, 랍비 유대교</h3>
+    <ul>
+      <li>교수님이 앞 그룹들을 설명하다 <b>이 그룹을 건너뛰었다며</b> "제일 중요한 분들"이라고 소개. 무게 중심이 성전에서 <b>옮겨가야 하는 곳</b>.</li>
+      <li>성전이 없어져도 신앙을 이어갈 방법을 늘 생각함 — 이미 <b>포로기</b>에 경험했고 <b>회당</b>이 생겼다. <b>율법을 이해·해석하고 실제 삶에 적용하는 데</b> 관심이 가장 컸다.</li>
+      <li>재미있는 점: 우리가 아는 <b>현재 유대교 그림의 대부분이 이들의 그림</b>이며 지금까지도 <span class="asr">[ASR 불확실 U9: "라삐 유대군"]</span>이라고 부른다고 함.</li>
+      <li><b>성경 범위(앞 그룹과 대비)</b>: 구약 성경과 예언서 등을 다 포함하고, 거기에 <span class="asr">[ASR 불확실 U6: "부전"]</span>까지 포함 — <b>입으로 전승되는 것에도 권위</b>를 준다. 부활에 관해서는 <span class="asr">[ASR 불확실 U8: "이분들은 부활을 생각을 아예 안 해요. 성경에도 조금 나오죠? 이분들은 부활에 대한 개념을 갖고 있어요."]</span> — 뒤 문장은 이 그룹이 부활 <b>개념이 있다</b>는 뜻으로 읽히며, 교수님은 "개념이 있다는 건 중요하다"고 함. 앞 문장의 '이분들'이 사두개 쪽인지는 녹취만으로 확정 못 함. "벌써 스펙트럼이 조금 좁죠? 이분들은 좀 폭넓죠?"라며 대비함.</li>
+      <li><b>해석 학교의 등장</b>: 율법의 한 규칙을 놓고 해석하면서 다양한 견해가 나오고 <b>라비들이 생겨나며 학교(무리)처럼 형성</b>됨. 대표적인 두 학자 <span class="asr">[ASR 불확실 U10: "샤마이 힐렌"]</span>이 있고, <b>힐렐의 손자가 가말리엘</b>이며 가말리엘은 <b>바울을 가르친 인물</b>로 소개된다. → 교수님: "정통이라고 볼 수 있어요. <b>어디의 정통이요?</b> 전체의 정통이요? 아니요, <b>여기의 정통</b>."</li>
+      <li>성전이 없어져 "우리는 어떤 존재들인가"에 대한 고민이 깊어졌고, 리더십이 완전히 이쪽으로 옮겨감. <b>회당에서 가르치고 읽고 찬송하는 예배 형태</b>가 크게 발달. 디아스포라들이 그 형태를 띠며 <b>성전에 오지 않아도 괜찮을 정도</b>로 발달함. 시간이 흐르며 <b>학교</b>가 생김.</li>
+    </ul>
+    <h4><span class="bdg b-add">강의 추가</span> 커피 예화 — 해석이 쌓이는 방식</h4>
+    <p>교수님이 지어낸 예(율법에 있지 않은 가상 규칙): "아브라함은 아침에 커피를 마셔도 된다"는 규칙이 있다고 하자. 어떤 랍비는 "<b>에티오피아산 예가체프</b>를 마실 수 있다", 어떤 랍비는 "좋다, 그런데 <b>두 잔까지만</b>(녹취 "두 장")", 또 다른 랍비는 "<b>싱글 오리진 말고 섞어서도</b> 마실 수 있다"고 한다. 이처럼 <b>실생활 적용에 어떤 것이 나은지 근거를 가지고 가르쳐 주고</b>, 그것을 <b>모아서 적어 놓은 것</b>이 <span class="asr">[ASR 불확실 U12: "미시나"]</span>이다. 이 책은 <b>랍비 유대교인들이 성경과 함께 같이 읽는 책</b>.</p>
+    <ul>
+      <li>미슈나(녹취 표기 U12)의 목차를 화면으로 보여 주며 <b>크게 여섯 가지 범주</b>만 보면 된다고 안내. 이 <b>제목들을 보면 이들의 관심이 어디 있었는지</b> 알 수 있다고 함(범주 명칭은 녹취에 없음). 그 뒤 해설가들이 많아져 <span class="asr">[ASR 불확실 U13: "탈모드"]</span>라는 이름으로 <b>책장을 꽉 채울 만큼</b> 생산됨.</li>
+      <li><b>토론</b>: 지금도 이런 것을 개발하는 데 가장 많이 쓰는 방법이 토론 — 앞서 바울이 오래 머문 도시에서 했다고 언급한 것이 바로 <b>토론</b>이라고 함(교수님이 이전에 그런 표현을 썼던 것 같다고 회상함 — 녹취 표기 "헬라우로 얘기를 드렸었던 것 같은데", 뜻 불명). 토론은 비판이 아니다: 설명을 들으면 "그래요? <b>왜 그렇게 생각하셨어요?</b> 저는 이렇게 생각했는데 이 부분이 안 맞는 것 같아요" 하고 서로 묻는 것. 결과적으로 <b>이해가 풍성</b>해진다.</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 유대교를 평가하는 태도</h3>
+      <p>이런 노력이 곧 <b>"율법을 정확히 잘 이해했다"는 뜻은 아니며</b>, "그런 노력을 했다"는 정도로 받아 달라. <b>그분들의 입장을 우리가 평가할 대상이 아니다. 기독교인의 눈으로 유대교인들을 평가하는 것은 멈추는 게 좋다.</b></p>
+      <p><b>미슈나의 한 구절</b>(교수님이 풀어서 말함): 저자가 질문식으로 "왜 이런 쓸데없어 보이는 한 규칙에 대해 여러 의견을 내놓는가?" 하고 묻고 "<b>우리 조상 중 누구도 자기 의견만이 가장 좋다고 말한 사람이 없기 때문</b>이니, 후대 사람들도 그렇게 하라"고 답한다. 교수님은 유대인들을 굉장히 좋게 생각하게 되었다고 함.</p>
+    </div>
+    <h4><span class="bdg b-add">강의 추가</span> 1차 자료와 2차 자료</h4>
+    <ul>
+      <li>"이렇게 생각했을 것이다"라며 받아들여진 이해를 이런 <b>날 것</b>을 보기 전에는 그대로 믿기 쉽다. 이런 자료를 <b>원자료 = 프라이머리 소스(1차 자료)</b>라 하고, 학자가 연구해 자기 의견·논쟁을 더해 내놓은 <b>해석된 자료 = 세컨더리 소스(2차 자료)</b>라 부른다. <b>인터프리테이션(해석)이 들어 있기 때문에</b>, 대학원 과정쯤 되면 1차 자료로 가는 것이 좋다고 권함.</li>
+      <li>수강생 질의응답이 이어졌으나 전사가 심하게 훼손됨: <span class="asr">[ASR 불확실 U15: "유신화를 바라보는 일반인들이나 바르세인들은 어느 정도 경중을 갖고 … 예를 들어서 타마크처럼 함께 그렇게 끝까지 가는 건 아니겠죠?"]</span>. 교수님의 답변은 "그 의미가 구체적으로 어느 정도인지는 제가 그들이 안 돼봐서 잘 모르겠다"는 취지의 <b>조심스러운 표현</b>으로만 남아 있고, 이어 <b>구전으로 설명되는 것도 굉장히 높게 가치를 두었다</b>고 함. (<span class="asr">U14: "오리 반 정도 되면"</span> — "여러분 정도 되면 1차 자료로 가는 게 좋다"의 앞부분으로 읽히나 정확한 단어 불확실.)</li>
+      <li><b>토라 필사</b>(수강생 질문 "토라에 해석을 붙여 넓힌 게 미슈나 아니냐"에 대한 교수님 답): <b>두루마리(롤) 자체에 직접 쓰는 것은 금기</b>. 진짜 토라가 아닌 다른 내용을 <b>주석처럼 다는 것은 괜찮음</b>. 어느 정도 엄격했냐면 책 일부를 필사하면 <b>단어를 세어 총 단어 수를 기재</b>해 변하지 않게 했다. 그래서 <b>히브리어로 쓰도록 철저히 훈련받은 전문 필사자</b>가 있었고, 읽을 때도 손으로 직접 짚지 않고 <b>막대기(지시봉)</b>를 썼는데 <b>손가락 모양을 아름답게 만들어 놓은 것</b>이었다고 함. 그 막대로 짚어 가며 읽는다.</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="orthodox">
+  <div class="sh"><span class="sb">3</span><span class="st">"정통 유대교"는 어떤 모습이었는가 <span class="bdg b-add">강의 추가</span></span><div class="sl"></div></div>
+  <div class="oneline">"정통 유대교"는 굳어진 하나가 아니라 <b>살아 있는 종교</b>였고, 바울이 그 스펙트럼 어디에 서 있었는지가 다음 질문이다. <span class="bdg b-add">강의 추가</span></div>
+  <div class="key"><ul>
+<li>사람들은 정치·사회·문화 변화에 저마다 다르게 반응했다.</li>
+<li>비유: 신기술을 먼저 써 보는 얼리어답터 vs 안정된 뒤 맨 끝에 합승하는 사람(교수 자신은 후자).</li>
+<li>"우리가 이해하는 정통 유대교는 어떤 모습일까요?" — 교수의 결론은 <b>말하기 어렵다</b>는 것을 확인하는 정도.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <p>교수님이 이 소개로 전하려던 것: "우리를 포함한 세상 모든 사람이 이해하는 <b>정통 유대교</b>는 어떤 모습일까요?" — <b>말하기 어렵다</b>는 것을 확인하는 정도로 생각하면 된다.</p>
+    <ul>
+      <li>유대교는 <b>굳어져 있지 않았고 살아 있는 종교</b>였다. 살아 있는 사람들이 자신들의 정치·사회·문화 변화에 따라 <b>반응도 저마다 달랐다</b>.</li>
+      <li>비유: 우리 사회에도 <b>얼리어답터</b>가 있다("신기술이 나오면 내가 먼저 써 보고 알려줄게요"). 그런데 항상 <b>견제하다가 맨 끝에 합승하는 사람</b>도 있고, 교수님 자신이 그렇다("안정감이 있을 때 동승합니다").</li>
+      <li>바울은 자기 자신을 이 스펙트럼 <b>어디에 놓았는가</b>를 곧 보게 된다며, "바울이 조금 가까이 보이실 것"이라 예고함. (뒤에 나올 것을 먼저 말했다며 "제가 조금 속도 위반을 했어요" — <span class="asr">[ASR 불확실 U16: "여기에 소팔 다간 거 이따가 나오는데"]</span>)</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="scholars">
+  <div class="sh"><span class="sb">4</span><span class="st">학자들은 바울을 어떻게 보는가</span><div class="sl"></div></div>
+  <div class="oneline">학자들은 아직 논의 중이고, 교수는 <b>칼로 자르듯 나누지 않고</b> 양쪽에서 배우는 입장이다.</div>
+  <div class="key"><ul>
+<li><b>헬레니즘·그레코-로만 쪽</b>: 중간기에 안디옥에서 <b>먼저 그리스도인이 된 이들에게 배웠을 것</b>이라는 견해(가설). 로마 교회의 기원도 성령 강림 때 로마에서 온 사람들로 추정. <span class="bdg b-add">강의 추가</span></li>
+<li><b>전통적 유대인 쪽</b>: 바리새인, 히브리인 중의 히브리인, 율법에 흠 없는 자(빌 3:4-6). <span class="ref">슬라이드 6</span></li>
+<li><span class="b-exam bdg">교수 강조</span> 과학적 사고로 분류를 딱딱 떨어뜨리려는 추구를 내려놓고, <b>사람이 살아가는 모습 그대로</b> 보는 편이 성경 이해에 낫다. 수강생 논의에서 <b>바나바</b>가 중요 인물로 확인됨.</li>
+<li>로마 교회는 <b>바울이 세우지 않았고</b> 기원 자료도 없다는 점이 가설의 근거로 쓰인다(교수 설명).</li>
+<li>교수: 바울이 우리 견해에서 <b>너무 높아져 있는 건 아닌가</b> — 있는 그대로 이해하면 "정말 놀라운 사람"을 발견한다.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <p><b>학자들은 여전히 그가 어떤 사람이었는지 진지하게 대화 중</b>이다. <span class="ref">슬라이드 3</span></p>
+    <h4>견해 ① 헬레니즘·그레코-로만 쪽으로 본다 <span class="bdg b-add">강의 추가</span></h4>
+    <ul>
+      <li>"그레코-로만 시민으로서 <b>헬레니즘의 영향을 많이 받은 사람</b>"으로 보는 학자들이 있음.</li>
+      <li>그 근거로 <b>중간기(interim years)</b>를 듦: 바울이 다메섹에서 주님을 만나고 광범위한 사역을 시작하기 전의 시간. 아라비아로 갔다가 다메섹으로 돌아오고, 예루살렘도 다녀오고, <b>안디옥에서 어느 정도 머묾</b> <span class="ref">슬라이드 9</span>. 어떤 학자들은 <b>"바울이 안디옥에서 이미 그리스도인이 된 사람들에게 배웠을 것"</b>이라고 건의한다. (교수님: "바울이 배운다고요?")</li>
+      <li>논거: 사도행전의 성령 강림 사건에 나오는 사람들을 보면 <b>이방에서 온 사람들도</b> 있다. <b>로마 교회는 언제 세워졌는지 자료가 없고</b> 바울이 세운 것이 아니다. 성령 강림 장면에 <b>딱 한 군데 "로마에서 온 사람"이 나오니</b> 그때 경험하고 돌아간 사람들이 교회를 세웠을 것이라는 <b>가설</b>이 있다. 이렇게 바울이 중간기를 거치기 전에 이미 <b>이방 배경의 그리스도인 공동체가 형성</b>되어 있었을 것이고, 바울은 그 사회 안에서 <b>그리스도를 어떻게 더 폭넓게 이해할지 도움이 필요했을 것</b>이다 — 아무리 많이 이해해도 신이 아니기에. 교수님은 이런 견해가 <b>전문서적의 한 편으로 출판될 정도</b>라고 함.</li>
+    </ul>
+    <h4>견해 ② 전통적인 유대인이었다고 본다 <span class="bdg b-add">강의 추가</span></h4>
+    <ul>
+      <li>"아니다, 자신이 바리새인이라고 하지 않았느냐, <b>히브리인 중의 히브리인</b>이라 하고 율법에는 흠이 없다고까지 표현했다" — 그러니 <b>전통적 유대인</b>이었을 것이라 보는 학자도 있다. <span class="ref">슬라이드 6: 빌 3:4-6</span></li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 교수님의 태도: 칼로 자르듯 나누지 않는다</h3>
+      <p>교수님은 <b>"그렇게 나눌 필요는 없다고 늘 본다"</b>고 함. 양쪽에서 도움을 주는 견해와 논증이 있으면 <b>이쪽에서 합당한 것을 배우고, 넘어간 것 같은 곳은 그냥 놔두고, 저쪽에서 합당한 것을 또 배우고, 더 좋은 증거가 나올 때까지 그렇게 하는 입장</b>(attitude)을 취한다.</p>
+      <p>"우리가 과학적 사고방식을 너무 추구해 <b>분류가 딱딱 떨어지길 바라는 추구를 잠깐 내려놔도 된다</b>. <b>사람이 살아가는 모습 그대로 보는 것</b>이 앞으로 성경을 이해할 때 더 훨씬 도움이 된다." 그 당시에도 바울에 대한 의견이 다양했을 것이고, 누군가를 온전히 이해하기는 쉽지 않다.</p>
+    </div>
+    <h4><span class="bdg b-add">강의 추가</span> 고고학 연구 예 — 분석 기술의 한계</h4>
+    <p>고고학자들의 결과에 따라 "지금은 이 정도도 가능하다"고 열어 두는 예로, 교수님은 <b>로마 세계 유적지를 발굴하다 나온 마른 배설물 덩어리</b>를 분석해 <b>그 사람의 몸 상태를 알 수 있을 정도</b>가 되었다고 소개함. 그런 논문은 <b>돈을 주고 사서 봐야 하고</b> 무료로 볼 정도로 일반화되지 않아, 아직은 <b>좀 특별한 분야</b>라고 함.</p>
+    <h4><span class="bdg b-add">강의 추가</span> 수강생 발언과 교수님의 응답 (중간기, 바나바)</h4>
+    <ul>
+      <li>교수님이 방금 앞에서 한 말을 되짚음: "바울이 안디옥에서 배웠을 수도 있다, 학자들 사이에 의견이 다를 수 있다, 그럴 때는 이렇게 한다."</li>
+      <li><span class="b-stu bdg">수강생(추정)</span> 고린도후서 12장에서 바울이 <b>14년 전 환상 체험</b>을 말하는데(녹취 표기: <span class="asr">[ASR 불확실 U17: "고도서 … 고도 후서"]</span>) 그때가 아마 다소에 있을 때가 아니었겠느냐는 취지, 그리고 <span class="asr">[ASR 불확실 U18: "…바라바라든가 다른 들 중요한 임을 언급하셨어요. 옥에서 온 교사들과의 관계에 바울이 더 배웠을 거라고 추장하고 많은 것 같아요."]</span>. (발화자는 전사상 불명확하나 교수님이 "펼쳐 주신 거예요"라고 받음.) 교수님의 확인: "<b>바나바</b>가 그 중요 인물들 중 한 사람이에요. 바울이 바나바를 이끌었어요, 바나바가 바울을 이끌었어요 — 맞아요(<span class="asr">U18</span> 두 문장의 순서 불명)."</li>
+      <li>교수님: <b>바울이 우리 견해에서 너무 높아져 있는 건 아닌가</b> 싶다. 그분을 이해해 나가면 <b>있는 그대로의 그분</b>, "정말 놀라운 사람 자체"를 발견하게 된다. 말 도중에 "꼭 전해 드리고 싶은 게 있으면 바로 전 것을 잊어버린다"는 자기 단점을 고백함.</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">5</span><span class="st">바울 서신은 교회에 받아들여졌다 — 정경화와 공동체 읽기</span><div class="sl"></div></div>
+  <div class="oneline">바울 서신 13권이 신약에 들어 있다는 것은 <b>교회가 바울과 그의 견해를 받아들였다는 증거</b>다.</div>
+  <div class="key"><ul>
+<li><span class="b-exam bdg">교수 강조</span> "근데 중요한 것이 하나 있어요" — 견해가 다양했어도 서신 13권이 수용됨. <span class="ref">슬라이드 3</span></li>
+<li>바울 이름의 위조 문서(교수 예: 고린도3서)도 나왔으나 교회가 걸러 냄. 정경화는 지도자 몇몇의 결정이 아니라 <b>공동체 읽기</b>를 거친 것. <span class="bdg b-add">강의 추가</span></li>
+<li>Powell의 "바리새인이 기록한 <b>유일한</b> 문서" → 교수: <b>사실은 아님</b>, 요세푸스 『Life』도 바리새파를 따른 제사장 가문 사람. 그래도 바울의 비중은 높다.</li>
+<li>외경·위경의 <b>바운더리도</b> 이 시기부터 어느 정도 정해졌다(교수).</li>
+<li>슬라이드 3: Powell도 "바울은 궁극적으로 그리스도인이지만 유대 연구를 위해서도 중요한 인물"이라 했고, 이 점은 옳다고 평가.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <div class="emph">
+      <h3>⭐ 교수 강조 — "중요한 것이 하나 있어요"</h3>
+      <p>바울에 대한 견해가 다양했을지라도, <b>신약성경에 그의 서신이 13권이나 포함되었다</b>는 것은 <b>바울 자신과 그의 견해가 교회로부터 널리 수용되었다는 증거</b>다. "우리 손에 잡혀 있다는 것은 교회가 그를 받아들였다는 거예요." <span class="ref">슬라이드 3</span></p>
+    </div>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> <b>위조 문서</b>: 나중에는 그의 이름으로 위조된 문서까지 나왔다(교수님 예: <b>고린도3서</b>). 다른 사람이 바울을 워낙 사랑해서 썼는데 나중에 고백했고 <b>면직당했다</b>고 함(교수님 발언).</li>
+      <li><span class="bdg b-add">강의 추가</span> <b>공동체 읽기</b>: 교회는 이런 상황을 그냥 앉아서 보지 않았다. 그럴 수 있던 이유는 성경을 지금처럼 혼자 펴서 읽는 것이 아니라 <b>다 같이 읽었기 때문</b> — 읽다가 이상한 대목이 나오면 "어? 응?" 하는 반응이 나오고, 그러면 받아들여지지 않는다. 그런 면에서 <b>정경화 작업은 지도자 몇몇이 결정한 것이 아니다</b>. 교회가 이미 어느 정도 알았고, 이 시기부터 <b>외경·위경의 바운더리도 어느 정도 정해졌다</b>. 결국 그는 서신들과 함께 신약성경의 대부분으로 받아들여졌다.</li>
+      <li><b>Powell 인용에 대한 반박</b> <span class="ref">슬라이드 3</span>: 교재 저자는 "바울 서신들이 이른바 유대교 제2성전시대(주전 537-주후 70년)의 바리새인이 기록한 <b>유일한 문서</b>라는 점도 주목할 만하다"고 썼다. 교수님: <b>"사실은 아닙니다. 다른 가능성이 있어요."</b> 도움을 받아 찾은 것이 <b>요세푸스의 『Life』</b> — 유대인이자 <b>제사장 출신 가문</b>이라 한 그가 어느 순간부터 <b>바리새파의 삶을 따라가기로 했다</b>는 표현이 있다(슬라이드: 요세푸스, Life, 12). 그러니 <b>유일하지는 않을 수도 있지만 바울의 비중이 굉장히 높다</b>고 이해하면 된다. 슬라이드는 이어 "바울은 궁극적으로 그리스도인이었지만 유대 연구를 위해서도 중요한 인물"이라는 Powell의 취지는 옳다고 평가.</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="lens">
+  <div class="sh"><span class="sb">6</span><span class="st">바울 서신에 다가가는 두 관점과 "개종" 문제</span><div class="sl"></div></div>
+  <div class="oneline">바울의 변화는 종교에서 종교로의 이동(개종)이 아니라 <b>변화(트랜스포메이션)</b>다.</div>
+  <div class="key"><ul>
+<li>두 관점: 독자는 <b>순교자</b>의 글이자 <b>개종자</b>(뚜렷한 이해·믿음의 변화를 겪은 사람)의 글을 읽는다. <span class="ref">슬라이드 4</span></li>
+<li><span class="b-exam bdg">교수 강조</span> 구약을 다 알던 바울에게 막혀 있던 것은 <b>메시아 이해</b>였고, 그것이 풀린 사건이 사도행전에 세 번 나온다. <span class="bdg b-add">강의 추가</span></li>
+<li>복음 이해의 <b>풍성함</b>은 중간기의 시간과 환경을 거치며 자랐다.</li>
+<li><span class="b-ppt bdg">PPT만</span> 바울은 자기 변화를 "예언자적 소명 경험", 잘못된 열심의 교정(참조 롬 10:2)으로 봄.</li>
+<li>사도행전의 세 서술: 원래 이야기(9장) · 예루살렘에서 체포되어 유대인들에게(22장) · 가이사랴에서 아그립바 왕에게(26장). <span class="b-ppt bdg">PPT만</span></li>
+<li>교수: 바울은 "일반인이 아니었고, 그냥 일반 선생님 정도가 아니었다" — 그래서 가는 곳마다 토론하고 가르칠 수 있었다.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>두 가지 관점 <span class="ref">슬라이드 4</span></h3>
+    <div class="bq"><span class="ref">슬라이드 4 (교수님이 낭독; 전사는 훼손되어 슬라이드 원문으로 대조)</span>
+      ① 독자들은 <b>한 순교자</b>의 글들을 보려는 것: 바울은 자신이 바라보고 믿는 내용을 전하기 위해 고통과 죽음을 맞이했다.<br>
+      ② 독자들은 <b>한 개종자(a convert)</b>의 글들을 보려는 것: 예수를 따르는 이들의 악명 높은 적대자에서 예수의 탁월한 전파자·대변인으로 변했다. (각주: 종교의 한 분파적인 면이라기보다 <b>이해와 믿음의 뚜렷한 변화</b>를 경험한 것을 의미)</div>
+    <h3>개종(conversion)이 아니라 변화(transformation) <span class="ref">슬라이드 8</span></h3>
+    <ul>
+      <li><span class="b-exam bdg">교수 강조</span> 교수님은 <b>"종교에서 종교로 갔다고 보지 않는다"</b>고 함. convert를 일종의 <b>트랜스포메이션(변하는 것)</b>으로 이해한다.</li>
+      <li><span class="bdg b-add">강의 추가</span> 바울은 <b>언제 어느 세팅에서 누가 물어도 구약 성경 어디를 펴서 질문해도 답을 줄 수 있을 정도의 사람</b>이었다. 그의 생각 가운데 <b>막혀 있던 것은 메시아에 대한 이해</b>였던 것 같고("이건 제가 스토리텔링 하는 거예요"), 어느 날 <b>예수님이 그들이 그토록 중심적으로 생각했던 메시아임을 알아버린 것</b>. 그 이야기가 <b>사도행전에만 세 번</b> 나오는 것은 그만큼 중요하다고 여겼다는 뜻. <span class="ref">슬라이드 8: 행 9:1-22; 22:6-21; 26:4-23</span></li>
+      <li><span class="bdg b-add">강의 추가</span> <b>"복음의 풍성함"</b> — 교수님이 의도적으로 자주 쓰는 표현. 바울에게도 <b>아직 풍성하지 않았던 이해</b>가 있었고, 그것이 풍성해지기까지 <b>시간과 환경(중간기)</b>이 필요했다고 봄, 그리스도를 만난 이후에도. 그래서 바울은 <b>종교에서 종교로 건너간 게 아니라</b> 구약이 말하는 그분을 가르치는 것까지 잘 설명할 수 있었고, 그래서 가는 곳마다 <b>토론하고 가르칠 수 있었다</b>. "바울은 일반인이 아니었어요. 그냥 일반 선생님 정도가 아니었어요."</li>
+      <li><span class="b-ppt bdg">PPT만</span> 바울 자신은 자신의 변화를 <b>'예언자적 소명 경험'</b>으로, 하나님께서 자신의 <b>잘못된 열심을 교정</b>해 주시고(참조 롬 10:2) 인생의 새로운 목적을 부여해 주신 <b>깨우침의 순간</b>으로 여긴 것으로 보이며, 신앙의 대상이 바뀌었다고 생각하지는 않는다. 사도행전의 세 서술은 각각 원래 이야기(9장)·예루살렘에서 체포되어 유대인들에게(22장)·가이사랴에서 아그립바 왕에게(26장). <span class="ref">슬라이드 8</span> — 교수님은 롬 10:2와 장절 세부를 <b>말하지 않음</b>(검증 요약 grep 참조).</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="primary">
+  <div class="sh"><span class="sb">7</span><span class="st">일차 자료 읽기 활동 — 바울이 스스로 말한 것들</span><div class="sl"></div></div>
+  <div class="oneline">바울이 직접 쓴 글로 교육·소명·예루살렘 여정·사역·고난을 읽으면, "늘 밤낮으로 일한 목회자"라는 오해가 교정된다.</div>
+  <div class="key"><ul>
+<li>활동: 빌 3:4-6(교육) · 갈 1:13-17(소명) · 갈 1:18-2:14(예루살렘 여정) · 살전 2:1-12(사역) · 고후 11:23-29(고난)을 구역별로 읽고 발표. <span class="ref">슬라이드 5</span></li>
+<li>교육: <b>흠이 없다 = 알고 있다가 아니라 행함을 포함</b>(수강생 정리). 예루살렘: 3년 후 첫 방문, 중요한 사람을 <b>"사사로이"</b>(개인적으로) 만남.</li>
+<li>사역: 밤낮으로 일한 것은 <b>필요할 때만</b>, 사역의 문이 열리면 사역에 집중.</li>
+<li><span class="b-exam bdg">교수 강조</span> 바울은 <b>목회자가 아니었고 팀 리더</b>에 가까움 — 오늘의 목회에 성급히 적용하지 않아도 된다.</li>
+<li>고난: <b>사십에서 하나 감한 매를 다섯 번</b>. 교수: 로마 시민이라 십자가형은 면제였으니 동족에게 <b>죽이려는 수준</b>으로 맞은 것. "바울의 친구가 돼 보세요."</li>
+<li>소명: 택함받은 것과 <b>이방으로 보내질 것을 분명히 알았다</b>(수강생 정리).</li>
+<li>슬라이드 5의 자료 활용 원칙: 서신 = 일차 자료, 사도행전 = 이차·보충 자료, 초기 교회 전승 = 비평적으로.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>활동 방식 <span class="bdg b-add">강의 추가</span> <span class="ref">슬라이드 5</span></h3>
+    <ul>
+      <li>먼저 <b>서신들에서 바울 자신이 말한 것</b>을 <b>일차 자료</b>로 보고, <b>사도행전</b>의 서술은 <b>이차적·보충적 자료</b>로 쓰며, 초기 교회 전승은 <b>비평적 시각</b>으로 연구한다(슬라이드).</li>
+      <li>교수님이 <b>다섯 본문을 좌석 구역별로 나누어</b> 2~3분간 함께 읽고 의논하게 함: 교육(빌 3:4-6) · 소명(갈 1:13-17) · 예루살렘 여정(갈 1:18-2:14) · 사역(살전 2:1-12) · 고난(고후 11:23-29, 전체 함께). 휴식 전 정리 발표를 함.</li>
+    </ul>
+    <div class="tw"><table>
+      <caption>일차 자료 다섯 본문 — 슬라이드 5의 배정과 이번 시간 발표의 대응</caption>
+      <thead><tr><th>주제</th><th>본문</th><th>수강생 발표·교수님 정리</th></tr></thead>
+      <tbody>
+        <tr><th>교육</th><td>빌 3:4-6 <span class="ref">슬라이드 6에 본문 인용</span></td><td><span class="b-stu bdg">수강생</span> 낭독: <span class="asr">[ASR 불확실 U19-a: "베민 파 숙하고 이요 에 관해서는 바리세요. 그 뒤에 나오는 율법에 있는 의에 대하여는 흠 없는 자다"]</span> (슬라이드 6의 빌 3:5-6 "베냐민 지파요 … 율법으로는 바리새인이요 … 율법의 의로는 흠이 없는 자"와 대조하면 이 구절을 읽은 것). 발표: 본인이 <b>지식인</b>임을 말하는 것 같다. 교수님 질문: "<b>흠이 없다</b>는 것과 <b>알고 있었다</b>는 것은 다르지 않은가?" → 수강생: 알고 있었다는 건 <b>지식</b>이고, 흠이 없었다는 건 <b>행함을 포함</b>하는 것. 교수님 정리: <b>율법에 관련해 흠이 없었다고 말할 수 있을 정도의 사람</b>이었다.</td></tr>
+        <tr><th>소명</th><td>갈 1:13-17</td><td><span class="b-stu bdg">수강생</span> 낭독(원문 훼손): <span class="asr">[ASR 불확실 U19-b: "어머니의 새로 나를 걱정하시고 그의 은혜로 많이 부르십니다"]</span> — 본인이 <b>택함받은 것을 분명히 알았다</b>는 발표. 16절 부분에서 <b>이방으로 보내질 것을 분명히 알았다</b>는 정리(교수님 확인 질문에 수강생 동의).</td></tr>
+        <tr><th>예루살렘 여정</th><td>갈 1:18-2:14</td><td><span class="b-stu bdg">수강생</span> 발표(요지, 전사 훼손 구간 포함 → <span class="asr">U20</span>): 바울이 다메섹에서 주를 만난 뒤 <b>아라비아 → 다메섹 → 3년 후 예루살렘 첫 방문</b>(주의 형제 <b>야고보</b>만 만나고 돌아옴) → 수리아·길리기아에서 복음 전도·다소 → 사도행전 15장의 예루살렘 공회 전까지의 시간 → <span class="asr">[ASR 불확실 U20: "그 다 후에 13년 후에 한례 문제로 인해서 갔던"]</span>(갈 2:1의 "십사 년 후", 슬라이드 32와 숫자가 다르게 전사됨 — 발표자의 말인지 전사 오류인지 불명). 학생 해석: 이 절차는 바울에게 <b>신학적 문제가 있어서가 아니라</b> 전 세계 유대교 회당 조직과 이방인 조직 간에 <b>타협적 합의</b>를 이루기 위한 것 아니었겠느냐(<span class="asr">U20: "희학적으로"</span>), 베드로가 <span class="asr">"연칭"</span>을 당했음에도(단어 불명) 공회에서 조화를 이루어 가는 모습. 교수님 정리: 서로가 이해하는 단계로 보면 되고, <b>"중요한 표현"</b>이 있다 — 중요한 사람들을 만날 때 <b>"사사로이"</b>라고 표현했다. 한국 번역에는 <b>"개인적으로 찾아가 설명하고 대화했다"</b>는 뜻. "이해 차원으로 보시면 돼요."</td></tr>
+        <tr><th>사역</th><td>살전 2:1-12</td><td>교수님 정리(수강생의 <b>"밤낮으로 일하면서"</b> 낭독을 받아): 이것이 <b>바울에 대한 대표적 이해</b>이나 <b>오해하는 경우가 많다</b>. 바울은 늘 그렇게 일하지 않았다. <b>특정하게 그렇게 표현해야 할 때 표현한 것</b>이고, 사역의 문이 열리면 <b>사역에 집중</b>했고 그 전에 필요할 때 일을 했다.</td></tr>
+        <tr><th>고난</th><td>고후 11:23-29 <span class="ref">슬라이드 13에 본문 인용</span></td><td><span class="b-stu bdg">수강생</span> 낭독(원문 훼손, 슬라이드 13 인용문과 대조 → 표기 통일 T6). 교수님 해설은 아래 「고난」 참조.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 오늘의 목회에 성급히 적용하지 않아도 된다</h3>
+      <p>바울은 <b>목회자가 아니었다</b>(지역 교회 목회자가 아님). <b>선교팀 중에서도 지금 개념의 선교사라고 부르기가 좀 그렇고</b>, 같이 했던 팀에서 주요 역할을 해 <b>지금 용어로 하면 팀 리더 역할</b>을 했다. 그러니 이중직 같은 것을 <b>현재의 목회에 성급하게 직접 적용하지 않아도 괜찮다</b>. <span class="ref">슬라이드 12: "팀 선교·리더"</span></p>
+    </div>
+    <h3>고난 — 교수님의 해설 <span class="bdg b-add">강의 추가</span> <span class="ref">슬라이드 13</span></h3>
+    <div class="bq"><span class="ref">고후 11:24-28 (슬라이드 13 인용, 개역개정)</span>
+      "유대인들에게 <b>사십에서 하나 감한 매를 다섯 번</b> 맞았으며 세 번 <b>태장으로</b> 맞고 한 번 돌로 맞고 세 번 파선하고 일 주야를 깊은 바다에서 지냈으며 여러 번 여행하면서 강의 위험과 강도의 위험과 동족의 위험과 이방인의 위험과 시내의 위험과 광야의 위험과 바다의 위험과 거짓 형제 중의 위험을 당하고 또 수고하며 애쓰고 여러 번 자지 못하고 주리며 목마르고 여러 번 굶고 춥고 헐벗었노라 이 외의 일은 고사하고 아직도 날마다 내 속에 눌리는 일이 있으니 곧 모든 교회를 위하여 염려하는 것이라"</div>
+    <ul>
+      <li>교수님: <b>아주 전방위적 위험</b>을 느꼈다. 다만 <b>로마 사람에게 위협을 받은 것은 조금 작다</b> — 자기가 <b>로마 시민</b>이었기 때문에 일단 <b>십자가형은 면제</b>된다는 설명. 그러나 큰 잘못으로 로마에 해를 끼칠 때는 <b>"태장"으로 맞는다</b>는 취지의 발언이 이어지나 문장이 훼손됨: <span class="asr">[ASR 불확실 U21: "일단 십자가 형돌해서 면제가 돼요. 큰 잘못을 했을 때 로마의 위해를 끼칠 때는 퇴장으로 맞아요."]</span></li>
+      <li><b>"사십에서 하나 감한 매를 다섯 번"</b>: 교수님 해설 — 유대인들에게 <b>죽기 직전까지 다섯 번</b> 맞았다는 뜻. 당시 사람들은 <b>40대를 맞으면 죽는다</b>고 생각해서 <b>한 대를 덜 때린</b> 것. <b>유대인들은 로마 시민권자를 그렇게 할 수 있는 권한이 없다</b> → 그렇다면 <b>모르는 데서 죽이려고 그렇게 맞은 것</b>이라고 해석.</li>
+      <li><b>돌로 맞은 일</b>: 돌로 던질 때는 <b>부위를 가리지 않는다</b>. 죽은 줄 알고 쓰러졌는데 제자들이 <span class="asr">[ASR 불확실 U22: "떠며갔는데 살아났다겠죠"]</span>. (교수님은 이 사건의 출처 구절을 말하지 않음)</li>
+      <li>교수님: "고난은 너무 품위 있는 단어 같아요. <b>만약 제 형이 그렇게 맞았다면 저는 못 살 것 같아요</b>. 바울은 그런 사람이에요. <b>바울을 조금 더 친하게 볼 수 있어야 해요. 바울의 친구가 돼 보세요</b>. 그러면 그가 그리스도에 대해 생각한 것들을 그의 시선으로 바라볼 수 있을 거예요."</li>
+    </ul>
+    <p>교수님은 이어 10분 휴식을 공지하고, <b>8시 10분에 마치도록 속보로 가겠다</b>고 진행 계획을 밝힘(수업 진행 메모). 휴식 뒤 참고 도서(영어책) 이야기가 잠깐 있었으나 도서명은 녹취에 없음.</p>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="sources">
+  <div class="sh"><span class="sb">8</span><span class="st">자료의 비중 — 진정 서신, 사도행전, 초기 교회 전승</span><div class="sl"></div></div>
+  <div class="oneline">자료 비중은 <b>바울 서신 &gt; 사도행전 &gt; 초기 교회 전승</b>이며, 서신 진정성의 세부는 부담 없이 큰 그림만 보면 된다.</div>
+  <div class="key"><ul>
+<li>⭐ 바울이 깊이 연관됐다고 보는 서신은 신뢰 비중이 더 높고, 문체·신학 표현이 다르게 보이는 서신은 그다음 비중(교수: "저희들이 볼 때 그렇다" 정도).</li>
+<li><span class="b-ppt bdg">PPT만</span> 진정 서신 7개(롬·고전·고후·갈·빌·살전·몬), 논란 서신 6개. <span class="ref">슬라이드 5</span> — 교수는 명단을 말하지 않음.</li>
+<li>사도행전은 저자(누가)의 관점이 반영되어 바울의 생애 서술에 차이가 있다. <b>Th.M. 정도 가면</b> 세심히 비교하고, 지금은 "부담을 털어내고 큰 그림"을 보라.</li>
+<li>자료 비중 순서: <b>바울 서신 → 사도행전 → 초기 교회 전승</b>(사도행전 이후에 나온 글이므로 더 낮게).</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <ul>
+      <li><b>서신의 두 부류</b>(교수님): 학자들은 바울 서신을 두 부류로 본다 — <b>"토털리 노 익셉션, 바울이 썼구나"</b> 하고 보는 것(바울이 어느 정도 <b>굉장히 깊이 연관되었다는 것까지 포함</b>)과, 그렇지 않은 부류. <span class="bdg b-add">강의 추가</span></li>
+      <li><span class="b-ppt bdg">PPT만</span> <b>7개의 진정 서신</b>이 가장 중요한 자료: 롬, 고전, 고후, 갈, 빌, 살전, 몬. <b>6개의 논란되는 서신</b>은 매우 신중하게 사용. <span class="ref">슬라이드 5</span> (교수님은 <b>구체적 서신명을 나열하지 않음</b>; 검증 요약 grep 참조)</li>
+      <li>교수님: 이 부류 나눔에서 <b>대필자</b>를 "혹시 기억이 나실지도 모르겠어요"라며 잠깐 언급함(어떤 맥락인지는 녹취상 불명). 그리고 <span class="asr">[ASR 불확실 U23: "어떤 서신들은 음 하는 서신들이 있어요"]</span> — 문맥상 바울 저작이 <b>덜 확실하다고 보는 서신들</b>을 가리키며, 그렇게 보는 <b>큰 이유는 문체나 말의 차이</b>(헬라어 문체·어투), 또는 <b>같은 이슈를 신학적으로 약간 다르게 말하는 것</b>이라고 함.</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — "너무 개의치 마세요, 큰 그림을 보세요"</h3>
+      <p>이 구분은 <b>"저희들이 볼 때 그렇다" 정도</b>로만 생각하면 되고, 우리 정도에서는 <b>가름 없이 보아도 된다</b>. 다만 학자들이 세부적으로 보는 이유가 있다 — <b>바울이 궁극적으로 더 집중적으로 쓴 서신은 신뢰의 비중이 더 높고</b>, "음" 하는 소리가 한두 번·세 번 나오는 서신은 이유가 있을지라도 그 <b>다음에 비중</b>을 둔다.</p>
+      <p><b>비중의 순서(교수님)</b>: ① 바울 서신 → ② <b>사도행전</b> → ③ <b>초기 교회 전승</b>(사도행전 이후에 나온 글이므로 훨씬 낮게 봄). <span class="ref">슬라이드 5</span></p>
+    </div>
+    <ul>
+      <li><b>사도행전은 저자가 다르다</b>: 누가가 저자("투 볼륨, 원 워크"). 누가가 <b>중요하게 여기는 관점들을 더 표현</b>했기에 실제 디테일 서술에서도 바울의 생애에 <b>차이</b>가 있다. 차이가 보이면 "이 정도로 이해하시면 돼요". <span class="ref">슬라이드 5: "누가는 그의 신학적 우선순위와 관심에 의해 바울에 대한 묘사를 제공"</span></li>
+      <li><b>학습 수준에 대한 안내</b>: 갈라디아서와 사도행전을 특별히 비교해 연도를 구분하는 일은 <b>이 프로그램을 마칠 때까지도 너무 세심하게 안 해도 된다</b>. <b>Th.M. 정도</b> 가면 세심하게 해야 할 필요가 생기니 그때 하고, 지금은 "비슷하게 했는데 차이도 있구나, 학자들은 이렇게 다르게 보기도 하고 이 만남을 이 만남과 같이 보기도 하는구나" 정도로. <b>"어깨에서 털어내세요. 부담을 털어내세요. 큰 그림을 자꾸 보려고 하세요."</b></li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="early">
+  <div class="sh"><span class="sb">9</span><span class="st">바울의 초기 생애 — 유대인 신분·이름·출신·시민권·교육</span><div class="sl"></div></div>
+  <div class="oneline">바울은 <b>이름이 둘</b>(히브리 사울·로마 바울), 출신은 <b>다소</b>, 로마 시민권은 <b>부모에게 상속</b>됐을 가능성이 높고, 예루살렘에서 <b>가말리엘 문하</b>에서 교육받았다.</div>
+  <div class="key"><ul>
+<li>"회심 후 겸손을 찾아 바울로 개명"이라는 흔한 설교에 교수는 유보 — 유대 지역에서는 사울, 그레코-로만 지역으로 옮기면 바울이 자연스러웠을 것. <b>그 이상은 추측</b>. <span class="ref">슬라이드 7</span></li>
+<li>다소는 빌립보 같은 <b>직속 식민지(colonia)가 아니어서</b> 출생과 함께 시민권이 주어지지 않으므로 상속 가능성이 높다.</li>
+<li>서신에서 자신의 <b>유대인 신분을 강조</b>(교수: 이유가 있어서 쓴 것). <span class="b-ppt bdg">PPT만</span> 롬 11:1, 고후 11:22, 갈 1:13-14 인용. <span class="ref">슬라이드 6</span></li>
+<li><span class="b-ppt bdg">PPT만</span> 시민권 관련 행 16:37-38; 22:25-29, 교육 행 22:3(참조 5:34-39).</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>바울은 자신의 유대인 신분을 강조한다 <span class="ref">슬라이드 6</span></h3>
+    <p>교수님: 이방인을 향해 가는 소명이 분명했음에도, 특별히 <b>서신서들에서</b> 자기 자신을 유대인으로 표현할 필요를 느껴 <b>그냥 쓰지 않고 이유가 있어 쓴다</b>고 함. <span class="bdg b-add">강의 추가</span></p>
+    <div class="bq"><span class="ref">슬라이드 6의 인용 (녹취에는 빌 3:4-6만 다루어짐; 나머지는 PPT만)</span>
+      롬 11:1 "… 나도 이스라엘인이요 아브라함의 씨에서 난 자요 베냐민 지파라" · 고후 11:22 "그들이 히브리인이냐 나도 그러하며 …" · 갈 1:13-14 "… 유대교를 지나치게 믿어 내 조상의 전통에 대하여 더욱 열심이 있었으나" · 빌 3:4-6 "나는 팔일 만에 할례를 받고 이스라엘 족속이요 베냐민 지파요 히브리인 중의 히브리인이요 율법으로는 바리새인이요 열심으로는 교회를 박해하고 율법의 의로는 흠이 없는 자라"</div>
+    <h3>기본 정보 <span class="ref">슬라이드 7</span></h3>
+    <div class="tw"><table>
+      <thead><tr><th>항목</th><th>슬라이드 7</th><th>교수님 설명(녹취)</th></tr></thead>
+      <tbody>
+        <tr><th>이름</th><td>사울(행 7:58-13:9; 22:7; 26:14): 히브리 이름 // 바울: 로마식(라틴어) 이름. 이름을 바꾼 것이라기보다 <b>두 이름을 가졌고</b> 유대인에게는 사울, 이방 세계에는 바울이 더 유용했을 것.</td><td><span class="b-exam bdg">교수 강조</span> 흔한 설교("회심하기 전 사울, 회심 후 <b>겸손을 찾아</b> 바울로 이름을 바꿨다")를 소개하고 <span class="asr">[ASR 불확실 U24: "거짓말 거짓말 거짓말이라기까지 너무 그렇죠"]</span> — 그런 경험이 없어서 그렇다고 함. 자신의 영어 이름(Abraham)과 한국 이름(이영민)이 똑같이 자기라는 예를 듦. <b>사도행전에서 유대 지역을 많이 다닐 때는 히브리식 이름 사울을 많이 쓰고</b>, 활동 지역이 <b>그레코-로만 사람들이 많이 사는 쪽으로 바뀌면</b> 바울이 자연스럽다. 미국 친구들이 영어 이름으로 부르면 "와서 꼭 안아 준다", 편해서 그렇다는 예. 그 이상은 <b>상당한 추측이 들어가는 것</b>이라고 선을 그음.</td></tr>
+        <tr><th>출신</th><td>길리기아 주의 수도 <b>다소</b>(행 22:3; 참조 9:11; 21:39)</td><td>"출신은 다소"(녹취 표기 '다수' → 슬라이드 근거로 통일, T8).</td></tr>
+        <tr><th>시민권</th><td>로마의 시민(행 16:37-38; 22:25-29). 다소는 빌립보와 같은 <b>로마의 직속 식민지(colonia)가 아니었으므로</b> 태어난 지역이 시민권의 직접 원인은 아닐 것이며, <b>부모로부터 상속</b>받았을 가능성이 높다.</td><td>교수님도 같은 설명: 다소는 <b>빌립보같이 직속 도시가 아니라서 시민권이 출생과 함께 주어지지 않는</b> 도시라 <b>부모에게 물려받았을 가능성이 더 높다</b>. "그 정도요. 괜찮죠?"</td></tr>
+        <tr><th>성장·교육</th><td>예루살렘, <b>가말리엘의 문하</b>에서 교육(행 22:3; 참조 5:34-39)</td><td>"성장 및 교육은 예루살렘에서 성장하고 가말리엘 문하에서 교육받았지요. 이건 아까 말씀드렸던 거네요." (앞 §2-4에서 힐렐의 손자로 소개)</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="chron">
+  <div class="sh"><span class="sb">10</span><span class="st">연대의 어려움, 사도행전과 서신 사이의 차이, 연구 방법</span><div class="sl"></div></div>
+  <div class="oneline">같은 사건도 학자마다 연대가 <b>3~5년 차이</b>가 나며, 연구는 질문을 세우고 각주로 자료를 넓히고 날 것으로 가는 것이다.</div>
+  <div class="key"><ul>
+<li>갈라디아서의 "3년 후, 14년 후" — <b>언제부터?</b> "몰라요. 바울만 알아요." <span class="bdg b-add">강의 추가</span></li>
+<li>갈 2장의 예루살렘 방문과 행 15장 공의회가 같은 만남인가에서 학자들이 갈린다. <span class="ref">슬라이드 10</span></li>
+<li><span class="b-exam bdg">교수 강조</span> 이미 연구한 글의 <b>각주·참고 자료</b>로 나만의 자료 뱅크를 만들고, 2차 자료에서 <b>1차 자료(날 것)</b>로 — 미슈나 등은 영어 번역과 AI 도움도 가능.</li>
+<li><span class="b-ppt bdg">PPT만</span> <b>중간기</b>: 서신에는 아라비아·다메섹·남 시리아, 3년 후 예루살렘에서 베드로와 15일·야고보, 이후 수리아·길리기아 10년 이상. <span class="ref">슬라이드 9</span></li>
+<li><span class="b-ppt bdg">PPT만</span> 사도행전과 서신이 어긋나 보이는 예: 예루살렘 성도들이 바울을 잘 알았다는 서술 vs 갈 1:22 "얼굴로는 알지 못하고". <span class="ref">슬라이드 10</span></li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>중간기와 두 자료의 어긋남 <span class="ref">슬라이드 9, 10</span></h3>
+    <ul>
+      <li><span class="b-ppt bdg">PPT만</span> <b>중간기(interim years)</b>: 바울의 선교와 복음 이해가 발전된 기간. <b>서신</b>에서는 그리스도를 만난 후 몇 년을 아라비아·다메섹·남 시리아에서 보냈고(갈 1:15-24; 고후 11:32-33), <b>3년 후 예루살렘에 올라가 15일 동안 베드로와 머물렀고 예수의 형제 야고보도 만났으며</b>, 그다음 수리아와 길리기아에서 <b>10년 이상</b> 머물렀다(갈 1:18; 2:1). <b>사도행전</b>에서는 다메섹 체류(9:19b-25)·예루살렘 방문(9:26-30)·다소와 안디옥에서 보낸 시간(9:30; 11:19-30). (교수님은 <b>15일·10년 이상을 말하지 않음</b> — 앞 수강생 발표에 "3년 후"·야고보만 나옴)</li>
+      <li><span class="b-ppt bdg">PPT만</span> <b>서신의 증언과 어긋나 보이는 사도행전 서술</b> <span class="ref">슬라이드 10</span>: ① 유대인들이 변화된 바울을 얼마나 알았는가 — 사도행전은 예루살렘 성도들에게(헬라파 유대인들까지) 매우 잘 알려진 듯(9:26-29), 갈 1:22는 "그리스도 안에 있는 유대의 교회들이 나를 얼굴로는 알지 못하고". ② 예루살렘 방문 — 행 15:1-35의 사도 회의와 갈 2:1-10의 방문이 같은 사건이라면 조화가 쉽지 않을 수 있고, 일부 학자는 둘을 다른 사건으로 봄. 바울과 소수 사도의 만남(갈 2:1-10) vs 교회적 차원의 사도 회의(행 15:1-35). 대부분의 학자는 행 15장이 <b>바울의 생애(biography)에 초점을 두지 않는다</b>고 본다.</li>
+    </ul>
+    <h3>교수님 설명: "3년 후, 14년 후" <span class="bdg b-add">강의 추가</span> <span class="ref">슬라이드 32</span></h3>
+    <ul>
+      <li>갈라디아서에는 <b>"3년 후", "14년 후"</b>가 나온다. 이때 물어야 한다: <b>"언제부터 3년 후인가?" — 몰라요. 바울만 알아요.</b> 그래서 연구를 하는 것. 가장 가까운 가능성이 높은 것들을 옵션대로 골라 배열하고 "이럴 가능성이 크네" 하고 보기도 하고, 다른 유수한 학자들은 "이쪽에서 배운 게 많지만 이것은 여기 내려놓고 이쪽에 끼는 게 더 좋다"고 한다. 그래서 <b>같은 사건을 다룰 때 바울 생애 연대표가 3년에서 5년은 차이가 난다</b>. 서신도 마찬가지.</li>
+      <li><b>예루살렘 여행에 대한 차이</b>: 하나는 사도행전 15장의 공식 <b>예루살렘 공의회</b>, 하나는 바울이 <b>몇 명만 만난 듯한</b> 설명(갈라디아서). 두 만남을 <b>같은 것으로 본다면</b>, 사도행전에서 누가가 이를 자세히 언급하지 않았을 뿐 이런 일이 있었을 수 있다고 <b>합리적으로 상상의 나래를 펴볼 수도 있고</b>, 그것이 연구를 끌어가는 <b>리서치 퀘스천</b>이다.</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 연구하는 방법</h3>
+      <ul>
+        <li><b>이미 해 놓은 분들의 글</b>을 읽으면 생각보다 조사해 놓은 게 많다. 그 글에서 볼 곳은 <b>각주와 맨 뒤 참고 자료</b> — 그것만 봐도 "내가 뭘 보면 좋겠구나" 하는 <b>리스트, 나의 자료 뱅크</b>가 생긴다.</li>
+        <li>지금은 <b>2차 자료에 의존할 수밖에 없지만</b>, 이 프로그램을 마치면, 아니 과정 중에라도 <b>자꾸 날 것으로 들어가야 한다</b>. 사해 사본류 문서(<span class="asr">U11: "사회사본"</span>)에 대해 "무슨 기록이 있는지 한글 번역이 있지 않을까요?"라는 말이 나왔고(발화자 불명), 교수님은 미슈나(녹취 <span class="asr">U12: "메시나"</span>)도 마찬가지로 <b>영어로 이미 번역</b>되어 있어 <b>AI로 도움을 받으면 대략 무슨 얘기가 쓰여 있는지도 알 수 있다</b>. "누가 해석해 놓은 것보다는 갈수록 날 것을 보셔야 돼요."</li>
+      </ul>
+    </div>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="appearance">
+  <div class="sh"><span class="sb">11</span><span class="st">바울의 외모, 그리고 외경·위경을 읽는 이유</span><div class="sl"></div></div>
+  <div class="oneline">성경에는 바울의 외모 기록이 거의 없고, 외경(테클라 행전)의 묘사는 <b>하나의 예</b>로만 쓴다. 외경·위경은 그 시대의 <b>세계관</b>을 알기 위해 읽는다.</div>
+  <div class="key"><ul>
+<li>고후 10:10: 몸으로 대할 때는 약하나 <b>글로는 힘이 있음</b>(당시 수사학의 목적은 설득). <span class="ref">슬라이드 11</span></li>
+<li>바울과 테클라 행전 2(2세기 외경): 키 작고 대머리, 다리 굽고 몸은 건장 등. 초기 증언이고 바울을 높이려는 의도가 안 보여 객관성 가능성이 있으나 "이런 정도의 비중"으로만.</li>
+<li><span class="bdg b-add">강의 추가</span> 외경 = <b>경건 서적</b>에 가까움, 위경 = 읽으면 안 좋을 내용. 그래도 연구자는 <b>그들이 생각하는 방식</b>을 알려고 읽는다.</li>
+<li>로마 사회는 <b>대갚음(호혜)</b>을 기대하며 주지만, 유대·그리스도인 사회는 나눔을 중시(유대는 "죄인"에게 예외), 그리스도인 사회는 <b>사랑이 최상 가치라 경계가 없음</b>.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>바울의 외모 <span class="ref">슬라이드 11</span></h3>
+    <ul>
+      <li>성경에 별로 언급이 없다. <b>고후 10:10</b> "그가 몸으로 대할 때는 약하고 …" — 이것은 <b>남이 평가해 놓은 것</b>(다른 사람들의 말). <b>글로 대할 때는 힘이 있다</b>: 내적인 것이 글로 표현되어 <b>잘 다듬어진 완성품</b>을 볼 때 사람이 변화될 만큼. 당시 <b>수사학의 목적은 설득</b>이며 바울은 <b>그레코-로만 시대 교육을 충분히 받았을 사람</b>이다. "몸으로 대할 때는 약하다"가 힘이 없다는 뜻인지, 그렇게 표현한 것인지, <b>온유한</b> 것인지는 모르나 <b>박력 있고 하지는 않았다</b>는 의미.</li>
+      <li><span class="b-ppt bdg">PPT만</span> 갈 4:13 "내가 처음에 육체의 약함으로 말미암아 너희에게 복음을 전한 것을 너희가 아는 바라"(슬라이드 11에 헬라어 병기). <b>교수님은 언급하지 않음</b>.</li>
+      <li><b>바울과 테클라 행전 2</b>(2세기 신약 외경)의 목격자 묘사(교수님이 낭독): <span class="vq">"바울은 키가 작고 대머리에다가 다리는 굽었고, 몸은 건장했으며, 눈썹은 서로 붙을 것 같았고, 약간 구부러진 코를 한 인물로 보였다."</span> — 교수님: "이 부분이 조금 걸리긴 하는데 어떤 의미로 이렇게 썼는지 문맥도 모르겠다. 어쨌든 외면적으로는 <b>막 울그락불그락은 아닌 것 같고 열정맨으로 보이지도 않는다</b>. 사람이 사람을 대면했을 때 <b>유하고 연하게</b> 느꼈던 것 같다."</li>
+      <li><b>정확한 증언인가?</b> 슬라이드: 매우 초기의 증언이며 내용상 <b>바울을 더 좋게 보이도록 하려는 의도는 보이지 않는다</b>. 교수님: 바울 개인에 대한 평가를 목적으로 한 것이 아니라면 <b>들은 대로 썼을 가능성이 크고, 어느 정도 객관성을 띨 수 있다</b>. "이런 정도의 비중으로 <b>하나의 예</b>로 자료를 사용하는 거예요."</li>
+    </ul>
+    <h3><span class="bdg b-add">강의 추가</span> 외경과 위경을 어떻게 볼 것인가</h3>
+    <p>교수님이 테클라 행전을 낭독하기 전에 <b>외경을 먼저 설명하려 했다</b>며 "여기 꼭 집어주세요"라고 말한 뒤(맥락 불명), 이렇게 풀어 줌.</p>
+    <ul>
+      <li><b>외경 = 경건 서적</b>: 존경하는 유명한 목사님이 책을 냈다고 하자. 서점에서 성경 카테고리에 들어가나? <b>경건 서적</b>에 들어간다. 외경은 당시 사람들에게 그런 것이어서 <b>읽는 것을 장려하기도 했다</b>. 외경 중에는 <b>신약성경에 들어왔다 나갔다 한 것들</b>도 있고, 교수님은 <b>요한계시록도 꽤 오랫동안 들어왔다 나갔다 했다</b>고 언급하며 <span class="asr">[ASR 불확실 U25: "많이 다르잖아요 공간보금과 다르기 때문에"]</span> 신중하게 시간을 거쳐 검증한 것이라고 봄. "교회는 자기들이 할 일을 했다."</li>
+      <li><b>위경</b>은 <b>읽으면 안 좋겠다 싶은 것들</b>(신앙적으로)이 들어 있는 범주.</li>
+      <li>그런데도 <b>연구자들은 읽는다</b>("저희들은 다 읽어요. 필요해요. 여러분들도 필요하게 될 거예요"). 이유: 한국의 경건 서적을 읽으면 한국 사람들이 무슨 생각을 하는지, 한국 기독교인들이 어떻게 반응하는지 <b>세계관을 알 수 있듯</b>, 외경·위경을 읽으면 <b>그 사람들이 생각하는 방식</b>을 알 수 있다.</li>
+    </ul>
+    <h4><span class="bdg b-add">강의 추가</span> 예: 나눔에 대한 세계관의 차이</h4>
+    <ul>
+      <li><b>로마 사회</b>: 어려운 사람을 그냥 나눠 주지 않는다. <b>시민권자에게 나눠 주고 대갚음을 기대</b>한다 — 필요할 때 은혜를 베풀었으니 <b>은혜에 보답하라</b>. 그 가치를 교수님은 <span class="asr">[ASR 불확실 U27: "성실성이라고 그래요. 로티."]</span>라 부르며, 이것이 <b>그분들의 최상의 가치</b>라고 함.</li>
+      <li><b>유대 사회와 그리스도인 사회</b>는 공통점이 있다: 어려운 사람에게 <b>자비롭게 나눠 주는 것</b>을 <b>금식·기도보다 높게</b> 보고, 나눠 주는 사람은 <b>자신의 죄를 날려 버린다</b>고 생각함(실제로 그랬다고 함).</li>
+      <li><b>유대 사회의 예외</b>: <b>"죄인에게는 절대 주지 말라."</b> 그분들이 볼 때의 죄인(<span class="asr">[U26: "오리 볼 때 주인 아니고 나름대로의 정의가 있겠죠"]</span>) — 가장 먼저 떠오르는 죄인은 <b>이방인</b>. 바울도 그런 표현을 한다: <span class="vq">"우리는 본래 이방인으로부터 나온 죄인이 아니다"</span>(교수님 인용). 어떤 의미인지, "의롭지 못한 것을 행한 사람"을 그 문맥에서 죄인이라 부른 것인지는 <b>설명이 없어 잘 모르겠다</b>고 함. 유대 사회에서는 죄인은 도움을 못 받지만 <b>그리스도인의 사회는 바운더리가 없다</b> — 최상의 가치가 <b>사랑</b>이기 때문. "예수님으로부터 배운 세계관이 형성되기 시작한 거예요. 아주 넘나들어요."</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> 교수님이 인용한 "우리는 본래 이방인으로부터 나온 죄인이 아니다"는 <b>갈 2:15</b>("우리는 본래 유대인이요 이방 죄인이 아니로되")과 문맥이 통한다. 교수님은 <b>구절을 명시하지 않았다.</b> <i>confidence: High (구절 자체는 확실, 교수님이 그 구절을 가리켰는지는 미확인).</i></div>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="mission">
+  <div class="sh"><span class="sb">12</span><span class="st">지중해 세계에서의 선교 사역의 특징</span><div class="sl"></div></div>
+  <div class="oneline">바울은 <b>팀 선교</b>를 했고 <b>종종</b> 자비량이었으며, 교수는 "대도시 중심 선교"라고 규정하기를 <b>주저</b>한다.</div>
+  <div class="key"><ul>
+<li><span class="b-ppt bdg">PPT만</span> 네 지역(갈라디아·아시아·마게도냐·아가야), 거점 도시(에베소·빌립보·데살로니가·고린도), 자비량과 교회 지원, 인간적 권위와 무관한 사역. <span class="ref">슬라이드 12</span></li>
+<li><span class="bdg b-add">강의 추가</span> "항상 대도시로 가는 건 아니에요" — 교수는 도시선교 세미나 논문에서 이 점을 짚은 경험을 소개.</li>
+<li><span class="b-exam bdg">교수 강조</span> 유명한 사람이 썼어도 <b>아닌 건 아니라고</b> 할 수 있다 — 진리 탐구의 <b>용기</b>가 필요.</li>
+<li>슬라이드에 "자비량"은 <b>종종</b>이라고 쓰여 있고(항상이 아님), 홀로가 아닌 <b>팀 선교</b>였다는 점을 교수가 다시 확인했다.</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>슬라이드 요점 <span class="ref">슬라이드 12</span></h3>
+    <ul>
+      <li>초기에는 <b>수리아·길리기아</b>에 머물렀지만 위험을 무릅쓰고 차츰 <b>지중해 북쪽의 로마 제국 지방</b>으로 발걸음을 옮김. <b>네 개 주요 지역</b>: 갈라디아, 아시아, 마게도냐, 아가야(오늘날의 터키와 그리스).</li>
+      <li>서신을 통해 보면 <b>상업 중심의 대도시</b>를 주요 거점으로 삼은 듯: 에베소, 빌립보, 데살로니가, 고린도 등이 반복 언급.</li>
+      <li>바울은 <b>홀로가 아닌 팀 선교</b>를 했고 <b>이끄는 이(리더)</b>였다.</li>
+      <li>종종 머무는 지방에서 일을 하여 <b>자비량</b>으로 선교(고전 9:14-15; 고후 11:9; 살전 2:9). 교회가 세워지면 그 교회의 지원으로 다른 지역 사역을 이어가기도 함(고후 11:8-9; 빌 4:15-16).</li>
+      <li>다른 지도자들과 지역 교회를 존중하지만, 자신의 선교 사역은 <b>어떤 인간적·교회적 권위와도 무관하고 오직 하나님과 그리스도 예수의 뜻</b>에 따라 이어 간다고 표명. <span class="b-ppt bdg">PPT만</span></li>
+    </ul>
+    <h3>교수님의 설명 <span class="bdg b-add">강의 추가</span></h3>
+    <ul>
+      <li><b>위험 무릅쓰기</b>: 지중해 세계는 비교적 위험한데, 고대 사회가 그렇듯 처음엔 단거리를 다니다 나중엔 넓은 곳까지 위험을 무릅써야 했다.</li>
+      <li><b>"상업 중심의 대도시를 주요 거점으로 삼은 듯 보인다"는 문장에 대한 유보</b> — 교수님이 슬라이드 문장을 "조금 주춤해서 썼다"고 함. <b>"항상 대도시로 가는 건 아니에요."</b> <b>대도시 중심 선교</b>로 규정적으로 말하는 것은 <b>조금 주저</b>한다. 교수님은 선교학을 부전공했고 <b>도시선교 세미나</b>(담임 목사님이었던 교수님이 가르침)에서 이 주제로 논문을 썼는데, 어떤 분이 너무 강하게 "바울을 예로 들어, 도시에 인구 5만 명 있고 시골에 50명 있다면 어느 쪽으로 가겠는가"라고 쓴 것에 <b>대답하기를 주저</b>했다. 바울의 선교를 공부하며 <span class="asr">[ASR 불확실 U28: "선교는 선물입니다"]</span>. 도시선교·시골선교가 그렇게 <b>제약된 주제처럼 된 것은 조금 무리</b>라고 봄.</li>
+      <li>이어지는 발화(누구의 말인지 불명): <span class="asr">[ASR 불확실 U29: "스마일 학생들은 저를 농담 삼아 도시 선교 세미나 듣는데 쓰는 게 아니라고 한다고 친구들이니까 교수님은 진짜를 발견해 가는 걸 좋아하시죠."]</span> 교수님은 <b>도시선교 전체를 부인한 것이 아니라</b> 그것을 추구하는 <b>근본 베이스</b>를 다룬 것이 합당하다고 여겼다고 함.</li>
+    </ul>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — "아닌 건 아니라고 하셔도 돼요, 유명한 사람이 썼을지라도"</h3>
+      <p>"정말 그런가?" 하고 물어도 된다. 유명한 사람이 썼을지라도 아닌 건 아니라고 할 수 있지만 <b>용기가 필요</b>하다 — 도시선교를 가르치는 교수님 수업에서 그렇게 쓰려면 <b>신뢰도 필요하고 용기도 필요하다</b>. 무엇에 대한 용기냐면 <b>진리 탐구에 대한 용기, 진짜를 찾아가는 것</b>.</p>
+    </div>
+    <p>슬라이드의 나머지 요점에 대한 교수님의 확인: <b>홀로가 아니고 팀 선교</b>였고, <b>자비량은 "종종"</b>이라고 썼다 — 항상이 아니다. "여기서 도시선교 깨졌죠, 항상 자비량 깨졌죠? 흔들었어요. 다시 세우세요." 앞에서 읽은 <b>어려움들</b>(고후 11)도 여기 연결됨.</p>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="journeys">
+  <div class="sh"><span class="sb">13</span><span class="st">지도와 세 번의 전도 여행</span><div class="sl"></div></div>
+  <div class="oneline">세 번의 전도여행(약 1,900km·4,300km·4,000km 이상)에서 바울이 갔던 곳을 <b>다시 찾은 이유</b>는 "교회가 잘 있는지 보고 싶어서"였다.</div>
+  <div class="key"><ul>
+<li><span class="b-exam bdg">교수 강조</span> "좀 알아두시면 좋아요" — <b>북갈라디아는 인종적 갈라디아인, 남갈라디아는 로마 행정 지역</b>. 갈라디아서는 <b>남갈라디아</b>에 보낸 서신으로 본다.</li>
+<li>1차 여행(행 13-14장) 뒤에 <b>갈라디아서가 쓰였다</b>(교수). 2·3차 여행도 지나간 곳을 반복해 방문.</li>
+<li><span class="bdg b-add">강의 추가</span> 어느 도시에서든 <b>먼저 회당</b>에 가고(유대인을 사랑했기 때문), 거부가 계속되자 "이방인에게로 간다"고 선언.</li>
+<li><span class="b-ppt bdg">PPT만</span> 동역자·연대·도시 목록, 고린도 18개월, 에베소 27개월(슬라이드 메모: 교과서 30개월). <span class="ref">슬라이드 21-26</span></li>
+<li><span class="b-ppt bdg">PPT만</span> 1차 AD 46-48(바나바·마가) · 2차 AD 49-52(실라·디모데·누가) · 3차 AD 53-57(주로 에베소·고린도).</li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>지도 읽기 <span class="ref">슬라이드 15~20</span></h3>
+    <ul>
+      <li>세계 지도에서 한국을 짚고, 그 옆 네모 안이 <b>성경 이야기들이 펼쳐지는 곳</b>임을 보임. 확대: <b>애굽·북아프리카·팔레스타인 유대 지역·선교 거점 안디옥·다소(바울의 고향)</b>. (슬라이드 17·19의 지명 라벨: 대한민국, 갈라디아, 로마, 다소, 마케도니아, 안디옥, 아가야, 유대, 이집트)</li>
+      <li><span class="b-exam bdg">교수 강조</span> <b>"이거는 좀 알아두시면 좋아요"</b> — <b>갈라디아</b>: 큰 네모가 <b>북갈라디아와 남갈라디아</b>를 포함. <b>북갈라디아는 인종적인 갈라디아인</b> — 자기들을 "갈라디아인"이라 부를 수 있는 유일한 사람들. <b>남갈라디아는 로마 행정 지역</b> — 남들이 부르는 이름이고 자기들이 안 부름. 그래서 <b>신약성경에서 제일 처음 쓰였다고 하는 갈라디아서는 남갈라디아에서, 남갈라디아에게 보내진 서신으로 본다</b>(교수님의 설명). <span class="ref">슬라이드 37: '남갈라디아설'</span></li>
+      <li>밑은 그리스, <b>아가야</b> 지역, 위는 <b>마게도니아</b>, 그리고 <b>로마</b>. 교수님은 "갈라디아가 나중에 공부하겠지만"이라며 여기까지만 짚음.</li>
+    </ul>
+    <h3>바울의 첫 번째 전도 여행 — 사도행전 13-14장 <span class="ref">슬라이드 21-22</span></h3>
+    <ul>
+      <li>교수님: 사도행전 때 보았을 것. <b>두 해 정도에 1,900km를 해상과 육로</b>로 다님(녹취 표기 "해산" → 문맥상 해상, 슬라이드에는 거리·기간만 있음).</li>
+      <li><b>특이점 짚기</b>: 안디옥에서 출발해 <b>섬을 지나</b>(교수님: "이 섬이 별거 아닌 것 같은데 <b>굉장히 중요한 섬</b>" — 섬 이름은 말하지 않음) 올라갔다가 <b>갔던 곳을 거꾸로 다시 감</b>. "왜 갔던 데를 다시 갔을까요?" → 답: "<b>보고 싶어서, 잘 지내는지</b>"(발화자 불명확). 교수님: "이 이후에 <b>갈라디아서가 써져요</b>." "그거보다 더 좋은 이유는 제가 발견을 못 할 것 같아요."</li>
+      <li><span class="b-ppt bdg">PPT만</span> 함께한 사람들: <b>바나바와 마가</b>. 기간 AD 46-48. 도시: 안디옥(시리아), 실루기아, 살라미, 앗달리아, 바보, 버가, 안디옥(비시디아), 이고니온, 루스드라, 더베.</li>
+    </ul>
+    <h3>두 번째 — 사도행전 16-18장 <span class="ref">슬라이드 23-24</span></h3>
+    <ul>
+      <li>교수님: 거리가 <b>4,300km로 늘어난다</b>("오 정말요?" 수강생). 지도가 바뀌고, 지나가고, 내려와 <span class="asr">[ASR 불확실 U30: "앱에서 들렸다가 내려와요"]</span>, 조금 확장됨. "왜 갔을까요?"라고 질문만 던짐(답은 전사에 없음).</li>
+      <li><span class="b-ppt bdg">PPT만</span> 함께한 사람들: 실라, 디모데, 누가. AD 49-52, 약 4,300+km. 도시 목록(안디옥, 더베, 루스드라, 이고니온, 비시디아 안디옥, 드로아, 네압볼리, 빌립보, 암비볼리, 아볼로니아, 데살로니가, 베뢰아, 아테네, 고린도, 겐그레아, 에베소, 가이사랴, 예루살렘). <b>고린도에서 적어도 18개월</b> 사역(행 18:11; 참조 18:18).</li>
+    </ul>
+    <h3>세 번째 — 사도행전 19장~21장 <span class="ref">슬라이드 25-26</span></h3>
+    <ul>
+      <li>교수님: 여기도 <b>4,000km가 넘는다</b>. "어디로 가요? 왜 가요?" 지도에서 <span class="asr">[U30: "앱에서 들리 다 들리죠"]</span>(2차와 같은 표기), <b>이번에는 거꾸로 올라와서 내려온다</b>. "왜 반복할까요? 아마도 그게 큰 답일 것 같아요" → <b>잘 있는지, 교회가 든든한지</b>.</li>
+      <li><span class="b-ppt bdg">PPT만</span> 함께한 사람들: 디모데, 누가, 소바더, 가이오, 두기고, 드로비모. AD 53-57, 네다섯 해, 약 4,000+km. 주로 에베소와 고린도. <b>에베소에서 적어도 27개월</b>(행 19:8-10; 참조 20:31). 슬라이드 하단 메모: "교과서 p 270 확인 '2년 6개월' = 30개월 에베소".</li>
+    </ul>
+    <h3>선교 사역에 대한 서술 <span class="ref">슬라이드 27</span></h3>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> 사도행전의 선교 서술: <b>먼저 회당에 간다. 바울은 유대인을 사랑했다</b> — "나의 민족 이스라엘을 사랑해서 먼저 항상 거기로 가요." 어느 시점이 되자 <b>계속 거부</b>하고, 바울이 <b>"난 이방인에게로 간다"</b>고 선언하고 간다.</li>
+      <li><span class="b-ppt bdg">PPT만</span> 사도행전: 가는 지역마다 먼저 유대인 회당에서 전하고 거부 후 이방인에게(13:5-7, 13, 44-48; 14:1-7; 17:1-2, 10; 18:5-6; 19:8-9). <b>기적</b>: 귀신 쫓음(16:16-18), 병자 치유(14:8-10; 28:8), 손수건과 앞치마까지(19:12), 적대자의 눈을 멀게 함(13:9-11). <b>서신</b>: 이방인에게 복음 전함이 소명으로 부각(롬 11:13; 갈 1:16; 2:7; 참조 고전 9:20); 표적과 기사를 상세히 설명하지 않음(롬 15:19; 고후 12:12; 참조 행 14:3; 15:12); 고후 11:24-28과 비교하면 사도행전의 고난 서술은 강도가 약해 보이는데, 누가가 잘 알지 못했거나 글의 목적상 제한적으로 기록한 듯하다.</li>
+    </ul>
+    <p>"가이사랴로 그리고 로마로, 여기는 읽어 보시면 돼요"라며 사도행전 23장·27~28장 부분은 수강생이 읽도록 넘김(다음 §14 이어짐). <span class="ref">슬라이드 28</span></p>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="end">
+  <div class="sh"><span class="sb">14</span><span class="st">가이사랴·로마로의 호송, 그리고 생애의 끝</span><div class="sl"></div></div>
+  <div class="oneline">로마로의 호송은 규모가 컸고, 이후 생애(스페인)는 <b>증거가 나뉘어 확정 불가</b>이므로 "의심 아닌 신중함"이 답이다.</div>
+  <div class="key"><ul>
+<li>호송: 슬라이드 28은 <b>보병 200·기병 70·창병 200</b>(녹취 "5병 200명" → 근거 있는 통일 T12). 교수: 기병은 계급이 확 올라가는 병종인데 <b>바울만 데리고 가는</b> 규모 — 얼마나 중요하게 봤는지. 로마행은 <b>황제부대</b>(특수부대).</li>
+<li><span class="b-exam bdg">교수 강조</span> "요거 중요한 것 같아요" — 스페인에 갔다/못 갔다로 <b>학자 의견이 나뉜다 = 증거가 나뉜다</b>. 초기 교회 이른 시기 자료에 스페인 언급은 있으나 확정은 못 한다.</li>
+<li><span class="b-ppt bdg">PPT만</span> 롬 15:22-23 서바나 요청, 유세비우스 등 교부 자료, 무라토리 단편. <span class="ref">슬라이드 30</span></li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>호송 병력 <span class="ref">슬라이드 28-29</span></h3>
+    <ul>
+      <li>교수님이 병력 구성을 짚음: <span class="asr">[표기 통일 T12: 녹취 "5병 200명"]</span> — 슬라이드 28은 <b>보병 이백 명, 기병 칠십 명, 창병 이백 명이 함께</b>(안디바드리까지, 기병 칠십은 가이사랴까지). 교수님: "<b>별거 아닌 것 같죠? 저는 이거 보고 너무 놀래요.</b> <b>기병은 로마 사회에서 등급이 확 올라가요. 월급이 몇 배예요.</b> 그 사람들이 <b>70명</b>. 창든 사람 … <b>누구를 데리고 가요? 바울만 데리고 가는 거예요</b>. 얼마나 중요하게 생각했는지 조금 알 수 있죠?" 물론 당시 치안이 너무 안 좋았지만, <b>서신까지 써서 호송</b>했다고 함.</li>
+      <li><b>로마로 갈 때</b>는 <b>황제부대(특수부대)</b> — 슬라이드: 황제 부대의 백부장 율리오와 수십 명의 병사, 다른 죄수들. 교수님: 여기서는 "수십 명 병사"라고 했고, <b>황제부대는 융통할 수 있는 물적·인적 자원이 훨씬 여유로웠을 것</b>. 지도에서 <span class="asr">[ASR 불확실 U31: "여기 파도 침대 어렵데 이렇게 뛰어난 거예요"]</span> — 지도(슬라이드 29: 폭풍·크레타·말타 경로) 설명 중으로 추정되나 전사가 훼손됨. 그렇게 로마로 간다.</li>
+      <li><span class="b-ppt bdg">PPT만</span> 바울의 서신에는 이런 선명한 선교 여정 서술이 없다. (슬라이드 28 하단) — 교수님은 <b>백부장 이름·서신에 여정 서술이 없다는 점을 말하지 않음</b>.</li>
+    </ul>
+    <h3>바울 생애의 끝 <span class="ref">슬라이드 30</span></h3>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — "학자들의 의견은 나뉩니다 = 증거가 나뉜다는 뜻"</h3>
+      <p>교수님이 <b>"요거 중요한 것 같아요"</b>라며 자신이 취하는 태도를 밝힘: 생애의 끝에 대해 <b>두 가지</b>가 있다 — 하나는 <b>스페인으로 갔다</b>, 하나는 <b>못 갔다</b>. 그런데 <b>초기 교회의 이른 시기 자료에 스페인 언급이 나온다</b>. 어떻게 봐야 하나? <b>자료가 나온다고 보면 되고, 확정할 수는 없고 논의 중이다</b>. "학자들의 의견은 나뉩니다. 이 말은 <b>증거가 나뉜다</b>는 얘기예요." 이어 전사는 "그러면 의심은 의심은 다 같이 읽어봐야 세요. 의심은 신중함은 그러면 도움이 되더라고요"로 훼손되어 있음(슬라이드 30의 "의심 No! 신중함 Yes!"와 대응해 보이나 정확한 문장은 확정 못 함).</p>
+    </div>
+    <ul>
+      <li><span class="b-ppt bdg">PPT만</span> 로마서(진정 서신/후기 서신)에서 바울은 <b>로마로 가기를 원하며 서바나(스페인)로의 여정 지원을 요청</b>(롬 15:22-23). 로마 압송 이후 생애의 기록은 신약성경에서 찾을 수 없음. 교부·전승: 유세비우스 『교회사』 2.22.2 — 황제 네로 때 처형; 테르툴리아누스 『이단에 대한 항변』 36 — 침례 요한과 동일하게 참수형; 로마의 클레멘트 『1클레멘트』 5:7 — 서쪽 끝(스페인?)까지 여행; 무라토리 단편(ca. 180) — 분명히 스페인 언급. (교수님은 <b>"초기 교회 이른 시기에 스페인을 언급한 자료가 나온다"</b>고만 말하고 <b>위 문헌명·롬 15:22-23을 언급하지 않음</b>)</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="wrap">
+  <div class="sh"><span class="sb">15</span><span class="st">연대표·갈리오 비문·새 관점·바울의 신학·서신 연대기</span><div class="sl"></div></div>
+  <div class="oneline">연대는 논쟁적이지만 <b>갈리오 비문</b>이 기준점이 되고, 바울의 신학은 "그리스도에 합당하게 사는 것"으로 모인다.</div>
+  <div class="key"><ul>
+<li><span class="b-exam bdg">교수 강조</span> 연대표는 훑기만 하고 <b>"연도 차이가 난다는 게 큰 이슈"</b>. <span class="ref">슬라이드 31</span></li>
+<li>고린도의 행정관 <b>갈리오</b> 이름이 새겨진 유물 덕에 바울의 고린도 체류 시기를 특정할 수 있다(<span class="b-ppt bdg">PPT만</span> 재임 51~52년). <span class="ref">슬라이드 32-34</span></li>
+<li><span class="bdg b-add">강의 추가</span> 새 관점(녹취 "세 관점" → T13): <b>바울이 변한 게 아니라 바울을 보는 우리의 이해가 변한 것</b>. 자세한 내용은 나중에.</li>
+<li><span class="b-exam bdg">교수 강조</span> 교수의 정리: 바울은 변함없이 <b>진리·거듭남·자유·선한 일에 동참</b>을 말한다(슬라이드에는 없음). <span class="b-ppt bdg">PPT만</span> "그리스도에 합당하게 사세요", 갈 5:6 "사랑으로 역사하는 믿음". <span class="ref">슬라이드 36</span></li>
+  </ul></div>
+  <details><summary>상세 — 일화·예시·수강생 발표·슬라이드 세부</summary><div class="dbody">
+  <div class="card">
+    <h3>연대표 <span class="ref">슬라이드 31</span></h3>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — "연도 차이가 난다는 게 큰 이슈"</h3>
+      <p>교수님: 이 표는 <b>너무 빨라서</b>(남은 시간 2분) 자세히 못 본다. 지금 <b>포인트아웃</b>만 하면 된다 — <b>"연도 차이가 난다는 게 제가 볼 때는 큰 이슈예요."</b> 나머지는 <b>순서대로 "아, 이렇게 이루어졌구나" 보시면 된다</b>. 슬라이드 하단 네모 박스를 낭독: <b>"연대를 정확히 하기는 어려움이 있습니다."</b></p>
+    </div>
+    <div class="tw sm"><table>
+      <caption><span class="b-ppt bdg">PPT만</span> 슬라이드 31 — 학자들이 제안하는 대략적 연대 (녹취에는 연도 수치가 없음)</caption>
+      <thead><tr><th>바울의 삶</th><th>가장 초기</th><th>가장 후기</th></tr></thead>
+      <tbody>
+        <tr><td>회심</td><td>32</td><td>36</td></tr>
+        <tr><td>아라비아와 다메섹에서의 초기 선교</td><td>32-35</td><td>36-39</td></tr>
+        <tr><td>첫 번째 예루살렘 여행</td><td>35</td><td>39</td></tr>
+        <tr><td>길리기아와 수리아에서의 선교</td><td>35-45</td><td>40-45</td></tr>
+        <tr><td>교회 지도자들과의 개인적 만남</td><td>45</td><td>46</td></tr>
+        <tr><td>제1차 선교 여행</td><td>46-48</td><td>46-49</td></tr>
+        <tr><td>예루살렘 사도 회의(공의회)</td><td>48</td><td>49</td></tr>
+        <tr><td>제2차 선교 여행</td><td>49-51</td><td>50-52</td></tr>
+        <tr><td>제3차 선교 여행</td><td>52-57</td><td>54-58</td></tr>
+        <tr><td>예루살렘에서의 체포</td><td>57</td><td>58</td></tr>
+        <tr><td>가이사랴에서의 투옥</td><td>57-59</td><td>58-60</td></tr>
+        <tr><td>로마로의 여정</td><td>59-60</td><td>60-61</td></tr>
+        <tr><td>로마에서의 투옥</td><td>60-62</td><td>61-63</td></tr>
+        <tr><td>"두 번째 선교 활동"(대부분의 학자들은 인정하지 않음)</td><td>62-64</td><td>63-67</td></tr>
+        <tr><td>죽음</td><td>62</td><td>67</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12px;color:var(--text2)">※ 슬라이드 원문의 "아라비아와 다메섹에서의 초기 선교" 가장 초기 칸은 <b>"32-25"</b>로 인쇄되어 있어(35의 오타로 보임) 위 표에는 <b>32-35</b>로 옮겼다 — 원문 그대로가 아니라 옮긴 사람의 판단이므로 <b>확인 필요</b>. 다른 칸은 원문 그대로.</p>
+    <h3>갈리오 비문 <span class="ref">슬라이드 32-34</span></h3>
+    <ul>
+      <li>교수님: <b>"연대를 정하기는 어렵습니다"</b>. 그런데 <b>한 유물이 발견</b>되었다 — <b>고린도 지역에서 갈리오라는 사람이 행정관</b>이었는데 <b>이 사람 이름이 새겨진 유물</b>. 그래서 <b>바울이 그곳에 머물렀던 시기를 특정</b>할 수 있게 됨. 확대한 사진을 보이며 <b>헬라어 "갈리오"</b>의 글자(감마 알파 …)를 짚음. <span class="ref">슬라이드 33-34: 비문 사진(HolyLandPhotos.org 제공)</span></li>
+      <li><span class="b-ppt bdg">PPT만</span> 갈 2:1 "십사 년 후에 내가 바나바와 함께 디도를 데리고 다시 예루살렘에 올라갔나니" — <b>첫 번째 예루살렘 방문 후인가, 다메섹 회심 후인가?</b>(§10의 "언제부터?"가 이 구절). 행 18:12의 고린도 총독 <b>갈리오</b>는 로마 역사 기록으로 확인됨. <b>51년 여름~52년 여름 약 1년간 고린도에 재임</b>했고 이를 근거로 바울이 고린도에 1년 반 머문 시기가 <b>50년대 초반</b>으로 추정 가능. (교수님은 <b>51-52년 수치를 말하지 않음</b>)</li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충</span> 이 갈리오 비문은 통상 델포이에서 발견된 클라우디우스 황제 관련 비문으로 소개된다(표준 배경사). 슬라이드는 <b>출토지를 적지 않았고</b> 교수님도 "고린도 지역에 갈리오가 행정관이었는데 이름이 새겨진 유물이 발견"이라고만 말함. <i>confidence: Med (출토지는 통설이나 슬라이드·녹취로 확인되지 않음, 별도 스킬 검증 미실시).</i></div>
+    <h3>바울에 대한 새 관점 <span class="ref">슬라이드 35</span></h3>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> 교수님: <span class="asr">[표기 통일 T13: 녹취 "바울에 대한 세 관점"]</span>은 나중에 언급할 일이 있고 <b>더 자세히</b> 해야 한다. 특별히 갈라디아서 등에서 <b>의(義)와 할례</b> 등을 자세히 볼 때 나온다. 이것은 <b>바울의 관점이 변했다는 게 아니라 바울을 바라보는 우리의 관점의 변화</b>이다. "지금은 <b>우리의 이해 변화</b>입니다."</li>
+      <li><span class="b-ppt bdg">PPT만</span> 슬라이드 35의 내용: 이스라엘을 하나님의 선민으로 구분한 <b>특정한 율법 조항들을 지키지 않고서도</b> 사람이 하나님과 올바른 관계를 맺을 수 있다는 것이 주된 요점. 바울은 <b>"행위 의"(works righteousness)에 반박</b>하는 것이라기보다 유대인들이 가졌을 <b>"민족적 특권"(ethnic privilege)</b> 의식을 거부하는 것. (교수님은 <b>이 내용을 읽거나 설명하지 않음</b> — 다음 주 이후 다룰 예고만 있음)</li>
+    </ul>
+    <h3>바울의 신학 <span class="ref">슬라이드 36</span></h3>
+    <div class="emph">
+      <h3>⭐ 교수 강조 — 바울이 "항상 변함없이" 말하는 것 (교수님의 정리)</h3>
+      <p>교수님: "바울의 신학은 이거예요. <b>바울은 항상 변함없이 이렇게 얘기해요</b> — 진리, 다시 태어남(거듭남), 자유를 얻었고, <b>선한 일에 동참하세요</b> 하고 끝나요. 이게 <b>바울을 대표하는 네 가지</b>라고 볼 수 있어요. 진리, 거듭남, 자유를 얻었고, <b>이 자유를 얻은 사람은 선한 일에 동참한다</b>." (녹취 표기 "바울의 신은 이거예요" → 슬라이드 36 제목 "바울의 신학"으로 통일, T14. "네 가지"의 세부 항목은 <b>교수님의 발언</b>이며 슬라이드에는 이 표현이 없음.)</p>
+    </div>
+    <ul>
+      <li><span class="b-ppt bdg">PPT만</span> 슬라이드 36: 바울의 신학은 <b>대단히 실제적 — "그리스도에 합당하게 사세요!"</b>. 하나님과 그리스도에 관해 알고 믿는 모든 진리는 <b>이 세상에서 어떻게 살아야 하는가에 대한 윤리와 직결</b>되며, 이 윤리는 <b>공동체를 생각하는 윤리</b>(고전 12:1-26). 그리스도를 통해 하나님의 구원을 경험한 사람들은 <b>그리스도를 위해 살아야</b> 하며(고후 5:14-15), 가장 중요한 것은 <b>"사랑으로 역사하는 믿음뿐"</b>(갈 5:6).</li>
+    </ul>
+    <h3>바울 서신의 연대기 <span class="ref">슬라이드 37</span></h3>
+    <p>교수님: "서신 연대기, 괜찮아요? 없지요?" 하고 <b>짧게 넘어감</b> — 슬라이드 표는 낭독·해설되지 않았다. 남갈라디아설·북갈라디아설의 대비는 §13에서 지도를 보며 이미 언급됨.</p>
+    <div class="tw sm"><table>
+      <caption><span class="b-ppt bdg">PPT만</span> 슬라이드 37 — 학자들이 제안하는 연대(가장 초기 ~ 가장 후기)와 서신</caption>
+      <thead><tr><th>시기</th><th>상황 및 서신</th></tr></thead>
+      <tbody>
+        <tr><td>46-48 ~ 46-49</td><td>제1차 선교 여행 기간: 갈라디아서('남갈라디아설'에 따르면)</td></tr>
+        <tr><td>49-51 ~ 50-52</td><td>제2차 선교 여행 기간: 데살로니가전서, 데살로니가후서(진정 서신일 경우)</td></tr>
+        <tr><td>52-57 ~ 54-58</td><td>제3차 선교 여행 기간: 갈라디아서('북갈라디아설'에 따르면), 빌레몬서(에베소 감옥일 경우), 골로새서·에베소서(진정 서신일 경우), 빌립보서(에베소 감옥일 경우), 고린도전서, 고린도후서, 로마서</td></tr>
+        <tr><td>57-59 ~ 58-60</td><td>가이사랴 투옥 기간: 빌레몬서(가이사랴 감옥일 경우), 골로새서·에베소서(진정 서신일 경우), 빌립보서(가이사랴 감옥일 경우)</td></tr>
+        <tr><td>59-60 ~ 61-63</td><td>로마 투옥 기간: 빌레몬서(로마 감옥일 경우), 골로새서·에베소서(진정 서신일 경우), 빌립보서(로마에서 기록되었을 경우)</td></tr>
+        <tr><td>62-64 ~ 63-67</td><td>"두 번째 선교 활동"(Second Career): 디모데전서, 디모데후서, 디도서(진정 서신일 경우)</td></tr>
+        <tr><td>62 ~ 67</td><td>바울의 죽음</td></tr>
+        <tr><td>62+ ~ 67+</td><td>바울이 죽은 후: 데살로니가후서(위명 서신일 경우), 골로새서·에베소서(위명 서신일 경우), 디모데전후서·디도서(위명 서신일 경우)</td></tr>
+      </tbody>
+    </table></div>
+    <p>마무리: 교수님은 "좋은 명절 보내세요. 수고 많이 하셨어요"로 수업을 마침. 슬라이드 38(질문 아이콘)은 마지막 질문 슬라이드로 별도 내용 없음.</p>
+  </div>
+  </div></details>
+</div>
+
+<div class="sec" id="emph">
+  <div class="sh"><span class="sb">16</span><span class="st">교수 강조 모음과 시험 언급 여부</span><div class="sl"></div></div>
+  <div class="oneline">교수님이 명시적으로 강조한 대목의 모음이다("시험" 단어는 녹취에 0건).</div>
+  <div class="key"><ul>
+<li>서신 13권이 신약에 포함 = 교회의 수용 · 기독교인의 눈으로 유대교 평가 금지 · 칼로 자르듯 나누지 않기</li>
+<li>학자 의견이 나뉜다 = 증거가 나뉜다 · 연도 차이는 큰 이슈 · 남갈라디아/북갈라디아</li>
+  </ul></div>
+  <details><summary>전체 목록 보기</summary><div class="dbody">
+  <div class="card">
+    <p><b>"시험"이라는 단어는 녹취 전체에서 한 번도 나오지 않았습니다</b>(검증 요약의 grep 참조). 따라서 아래는 시험 범위가 아니라, 교수님이 <b>"중요하다·알아두면 좋다·큰 그림을 보라"</b> 등 <b>명시적 강조 신호</b>를 준 대목의 모음입니다.</p>
+    <ul>
+      <li>바울 서신 13권이 신약에 포함됨 = 교회가 바울과 그의 견해를 수용했다는 증거. ("근데 중요한 것이 하나 있어요") — §5</li>
+      <li>"정통 유대교"는 하나로 정해지지 않은 <b>살아 있는 종교</b>였다; 학자들의 견해를 <b>칼로 자르듯 나누지 않는</b> 태도. — §3, §4</li>
+      <li><b>기독교인의 눈으로 유대교인을 평가하지 말 것</b>; 1차 자료를 직접 볼 것. — §2-4, §10</li>
+      <li>바울은 <b>종교에서 종교로 간 것이 아니라 변화</b>(메시아 이해의 풀림, 복음의 풍성함); 목회 직접 적용에 성급하지 말 것. — §6, §7</li>
+      <li>서신의 진정성·저작 논의는 <b>"부담 없이 큰 그림"</b>으로; 자료 비중 순서: 서신 &gt; 사도행전 &gt; 초기 교회 전승. — §8</li>
+      <li><b>남갈라디아·북갈라디아</b>("좀 알아두시면 좋아요"). — §13</li>
+      <li><b>학자 의견이 나뉜다 = 증거가 나뉜다</b>, 확정하지 말고 신중하게("요거 중요한 거 같아요"); <b>연도 차이는 큰 이슈</b>. — §14, §15</li>
+      <li><b>바울의 신학 네 가지</b>: 진리·거듭남·자유·선한 일에 동참 — 교수님의 정리. — §15</li>
+    </ul>
+  </div>
+  </div></details>
+</div>
+<details class="apx"><summary>부록 — 출처·검증 요약 / 표기 통일·ASR 불확실 목록 / PPT-only 대조표(grep 근거)</summary><div class="dbody">
+<p style="font-size:12.5px;color:var(--text2);margin:8px 0">※ 이 절충판은 <code>week03.html</code>의 내용을 <b>재배치·축약</b>한 것으로 사실을 새로 추가하지 않았다. 아래 건수와 표 번호(T·U)는 원본과 동일하다.</p>
+<div class="verify" id="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 녹취 전문 + PPT 38장 대조</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 15건</span>
+    <span class="stat" style="color:var(--accent2)">강의 추가 · 다수(절 단위 표기)</span>
+    <span class="stat" style="color:var(--gold)">PPT만 · 배지 18곳 (표 C 21항목)</span>
+    <span class="stat" style="color:var(--teal)">보충 · 4건</span>
+    <span class="stat" style="color:var(--gold)">세그먼트 커버리지 · 14/14 (100%)</span>
+    <span class="stat" style="color:var(--text2)">ASR 불확실 · 31건</span>
+  </div>
+  <p>· <b>자료근거·방법</b>: 녹취(27,540자)를 약 2,000자씩 <b>14조각</b>으로 나누고, 조각마다 (시작 20자·주제·대응 슬라이드·노트 반영 위치)를 적은 원장을 먼저 만든 뒤 그대로 반영했습니다. 원장은 함께 제출한 <code>week03_report.md</code> §1에 있습니다. 슬라이드는 PDF 텍스트 추출과, 텍스트가 없는 11장(질문 아이콘·지도·비문 사진)의 이미지 확인으로 대조했습니다.</p>
+  <p>· <b>이 노트가 다루지 않는 것</b>: 슬라이드 14·16·18·20 등 그림 위주 장의 시각 요소(지도 경로선 등)는 설명하지 않았고, 슬라이드 33·34는 비문 사진이라 글자를 판독하지 않았습니다. 교수님이 <b>한 번도 발화하지 않은 집단명</b>(에세네·쿰란·바리새·헤롯당 등)은 본문에 이름을 붙이지 않았고, 통설 식별은 <b>보충</b>에만 적었습니다.</p>
+
+  <h4>A. 표기 통일 — 근거가 있어서 통일한 것 (추측 아님)</h4>
+  <div class="tw sm"><table>
+    <thead><tr><th>번호</th><th>녹취 표기</th><th>통일한 표기</th><th>근거</th></tr></thead>
+    <tbody>
+      <tr><td>T1</td><td>"파울 우리 교제의 저자"</td><td>Powell(교재 저자)</td><td>슬라이드 3 "Powell은 이렇게 말합니다"</td></tr>
+      <tr><td>T2</td><td>"요세프스의 라이프"</td><td>요세푸스, Life</td><td>슬라이드 3 "(See 요세푸스, Life, 12)"</td></tr>
+      <tr><td>T3</td><td>"담의 색/담에색"</td><td>다메섹</td><td>슬라이드 9 "아라비아 지방과 다메색"</td></tr>
+      <tr><td>T4</td><td>"한 신자 … 순자의 글"</td><td>한 순교자의 글</td><td>슬라이드 4 원문</td></tr>
+      <tr><td>T5</td><td>"베민 파 숙하고 이요 …"(수강생 낭독)</td><td>빌 3:5-6 낭독으로 대조</td><td>슬라이드 6 인용문의 베냐민 지파·바리새인·흠 없는 자와 어휘 대응</td></tr>
+      <tr><td>T6</td><td>"40에서 하나 다. 만 이 번 고 산하고 …"(수강생 낭독)</td><td>고후 11:24-28 낭독으로 대조</td><td>슬라이드 13 인용문</td></tr>
+      <tr><td>T7</td><td>"가말리엘 문화에서"</td><td>가말리엘의 문하</td><td>슬라이드 7</td></tr>
+      <tr><td>T8</td><td>"출시는 다수인데요 … 다수 그의 고향"</td><td>출신은 다소</td><td>슬라이드 7 "출신: … 다소"</td></tr>
+      <tr><td>T9</td><td>"에이브라임/에이브라헴/에브랜 리"</td><td>Abraham(교수님의 영어 이름)</td><td>슬라이드 7 "예: Yungmin/Abraham"</td></tr>
+      <tr><td>T10</td><td>"고린도우서 10장 10절"</td><td>고후 10:10</td><td>슬라이드 11</td></tr>
+      <tr><td>T11</td><td>"바울과 테클라 행정 2"</td><td>바울과 테클라 행전 2</td><td>슬라이드 11</td></tr>
+      <tr><td>T12</td><td>"5병 200명"</td><td>슬라이드 28의 '보병 이백 명'으로 읽음. 창병 숫자는 녹취에 없음</td><td>슬라이드 28 "보병 이백 명, 기병 칠십 명, 창병 이백 명" (기병 70명은 녹취 "70명"과 일치)</td></tr>
+      <tr><td>T13</td><td>"바울에 대한 세 관점"</td><td>바울에 대한 새 관점</td><td>슬라이드 35 제목 및 "바울의 관점이 변했다는 게 아니라 우리의 관점의 변화"라는 발화 내용과 순서상 대응</td></tr>
+      <tr><td>T14</td><td>"바울의 신은 이거예요"</td><td>바울의 신학</td><td>슬라이드 36 제목</td></tr>
+      <tr><td>T15</td><td>"티스티투스 장군"</td><td>티투스</td><td>녹취 안에서 바로 앞 문장 "아들의 이름이 티투스입니다"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>B. ASR 불확실 31건 — 원문 보존, 근거 없이는 고치지 않음</h4>
+  <div class="tw sm"><table>
+    <thead><tr><th>번호</th><th>조각</th><th>녹취 원문</th><th>메모(추정 후보는 확정이 아님)</th></tr></thead>
+    <tbody>
+      <tr><td>U1</td><td>1</td><td>"바블로스 바. 굿 파블로"</td><td>헬라어 Παῦλος(슬라이드 2) 발음 따라 읽기; 한글 표기 불확실</td></tr>
+      <tr><td>U2</td><td>1</td><td>"네 권 꽤 많네요"</td><td>슬라이드 2는 13권. 발화와 숫자가 어긋나 원문 보존</td></tr>
+      <tr><td>U3</td><td>1</td><td>"SN . SNS"</td><td>수강생이 유대 집단명을 답한 대목으로 보이나 내용 판독 불가</td></tr>
+      <tr><td>U4</td><td>1</td><td>"알 수 없다고 그냥 내요 얘가 또"</td><td>문맥 불명, 본문에 반영하지 않음</td></tr>
+      <tr><td>U5</td><td>1·2</td><td>"내위기에 나와 있는 규칙들", "레이미들은"</td><td>레위기/레위인 후보이나 슬라이드 근거 없음</td></tr>
+      <tr><td>U6</td><td>1·4</td><td>"부전된 전통", "부전까지"</td><td>구전(oral tradition) 후보이나 슬라이드 근거 없음</td></tr>
+      <tr><td>U7</td><td>3</td><td>"이분들은 정치 테롯과 관련돼서 지원하는 사람들의 모임이에요"</td><td>대상 집단·'테롯' 표기 불명</td></tr>
+      <tr><td>U8</td><td>4</td><td>"이분들은 부활을 생각을 아예 안 해요 … 개념을 갖고 있어요"</td><td>앞 문장의 지시 대상 확정 불가</td></tr>
+      <tr><td>U9</td><td>4</td><td>"라삐 유대군"</td><td>랍비 유대교 후보</td></tr>
+      <tr><td>U10</td><td>4</td><td>"샤마이 힐렌"(뒤에 "힐렐의 손자")</td><td>두 학자 이름 표기 불확실</td></tr>
+      <tr><td>U11</td><td>4·11</td><td>"사회사본"(보물 지도가 나온 문서)</td><td>사해 사본 후보이나 발화자가 확정해 준 표기 없음</td></tr>
+      <tr><td>U12</td><td>4·5·11</td><td>"미시나", "메시나"</td><td>미슈나 후보</td></tr>
+      <tr><td>U13</td><td>5</td><td>"탈모드"</td><td>탈무드 후보</td></tr>
+      <tr><td>U14</td><td>5</td><td>"오리 반 정도 되면"</td><td>"여러분 정도 되면" 취지 추정 불가 수준의 표기</td></tr>
+      <tr><td>U15</td><td>5</td><td>"유신화를 바라보는 일반인들이나 바르세인들은 … 타마크처럼 …"</td><td>수강생 질문 판독 불가; 교수님 답의 취지만 반영</td></tr>
+      <tr><td>U16</td><td>6</td><td>"여기에 소팔 다간 거 이따가 나오는데"</td><td>판독 불가</td></tr>
+      <tr><td>U17</td><td>7</td><td>"고도서 … 고도 후서를 연대에서 바울이 12장에 보면 14년 전에 환상 체험"</td><td>고린도후서 12장 후보(문맥의 14년 전 환상)</td></tr>
+      <tr><td>U18</td><td>7</td><td>"바라바라든가 다른 들 중요한 임을 … 옥에서 온 교사들과의 관계에 바울이 더 배웠을 거라고 추장하고"</td><td>수강생 발언 판독 불가; 교수님이 "바나바" 확인</td></tr>
+      <tr><td>U19</td><td>8</td><td>(a) "베민 파 숙하고 이요 …" (b) "어머니의 새로 나를 걱정하시고 그의 은혜로 많이 부르십니다"</td><td>(a)는 슬라이드 6과 대응하나 낭독 원문은 훼손. (b)는 갈 1:15 취지로 보이나 슬라이드에 본문이 없어 확정 불가 — 이 항목은 1건으로 계산</td></tr>
+      <tr><td>U20</td><td>8·9</td><td>"13년 후에 한례 문제로 인해서", "희학적으로", "갈라디아서 2장 18절에서 14절까지"</td><td>슬라이드 32는 갈 2:1 '십사 년'. 발표자 발언인지 전사 오류인지 불명</td></tr>
+      <tr><td>U21</td><td>9</td><td>"십자가 형돌해서 면제가 돼요 … 퇴장으로 맞아요"</td><td>슬라이드 13은 '태장'. 문장이 훼손되어 교수님의 정확한 주장 확정 불가</td></tr>
+      <tr><td>U22</td><td>9</td><td>"제자들이 떠며갔는데 살아났다겠죠"</td><td>판독 불가</td></tr>
+      <tr><td>U23</td><td>10</td><td>"어떤 서신들은 음 하는 서신들이 있어요"</td><td>바울 저작이 덜 확실한 서신 지칭으로 읽히나 원문 보존</td></tr>
+      <tr><td>U24</td><td>10</td><td>"거짓말 거짓말 거짓말이라기까지 너무 그렇죠"</td><td>교수님 어조 판독 불가</td></tr>
+      <tr><td>U25</td><td>11</td><td>"많이 다르잖아요 공간보금과 다르기 때문에"</td><td>공관복음 후보이나 확정 불가</td></tr>
+      <tr><td>U26</td><td>12</td><td>"오리 볼 때 주인 아니고"</td><td>판독 불가('죄인' 관련 문맥)</td></tr>
+      <tr><td>U27</td><td>12</td><td>"성실성이라고 그래요. 로티."</td><td>로마 호혜 규범을 가리키는 용어의 표기 불명</td></tr>
+      <tr><td>U28</td><td>13</td><td>"선교는 선물입니다"</td><td>맥락 불명</td></tr>
+      <tr><td>U29</td><td>13</td><td>"스마일 학생들은 저를 농담 삼아 도시 선교 세미나 듣는데 쓰는 게 아니라고 한다고 …"</td><td>판독 불가</td></tr>
+      <tr><td>U30</td><td>13</td><td>"앱에서 들렸다가 내려와요"(2회)</td><td>에베소 후보(슬라이드 23·25에 에베소 있음)이나 확정 불가</td></tr>
+      <tr><td>U31</td><td>14</td><td>"여기 파도 침대 어렵데 이렇게 뛰어난 거예요"</td><td>지도 설명 중 발화로 보이나 판독 불가</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>C. PPT엔 있으나 녹취에서 확인되지 않는 항목 — grep 근거</h4>
+  <p>녹취 원문(단일 행 27,540자)에 대해 아래 정규식을 실행한 결과입니다(<code>re.findall</code>, 검색 대상 = 녹취 전체). "0건"은 그 검색어가 녹취에 한 번도 없다는 뜻입니다.</p>
+  <div class="tw sm"><table>
+    <thead><tr><th>슬라이드</th><th>PPT 내용</th><th>검색식</th><th>녹취 결과</th></tr></thead>
+    <tbody>
+      <tr><td>5</td><td>7개 진정 서신 명단(롬·고전·고후·갈·빌·살전·몬), 6개 논란 서신</td><td><code>살전|데살로니가|빌레몬|일곱|7개|7권|진정|논란</code></td><td>0건 (교수님은 '진짜 바울이 썼구나 / 음 하는 서신' 구분만 말함)</td></tr>
+      <tr><td>5</td><td>사도행전 참조 구절 (행 7:58-8:3; 9:1-30; 11:25-30; 12:25-28:31)</td><td><code>행 ?7|7:58|9:1|11:25|12:25</code></td><td>0건</td></tr>
+      <tr><td>6</td><td>롬 11:1·고후 11:22·갈 1:13-14 인용</td><td><code>롬 ?11|11:1[^0-9]|11:22|1:13</code></td><td>0건 (빌 3:4-6만 수강생 낭독으로 다룸)</td></tr>
+      <tr><td>8</td><td>롬 10:2 '잘못된 열심'·예언자적 소명 경험</td><td><code>롬 ?10|10:2|잘못된 열심</code></td><td>0건</td></tr>
+      <tr><td>9</td><td>3년 후 15일 베드로 체류, 수리아·길리기아 10년 이상</td><td><code>15일|십오|10년 이상|십 년</code></td><td>0건 ('3년'은 6회, 모두 다른 맥락)</td></tr>
+      <tr><td>10</td><td>갈 1:22 "얼굴로는 알지 못하고"</td><td><code>1:22|얼굴</code></td><td>0건</td></tr>
+      <tr><td>11</td><td>갈 4:13 육체의 약함</td><td><code>4:13|육체|약함</code></td><td>0건 (고후 10:10 '약하고'는 언급)</td></tr>
+      <tr><td>12</td><td>네 지역(갈라디아·아시아·마게도냐·아가야) 중 '아시아'</td><td><code>아시아|마게도</code></td><td>'마게도'(마게도니아) 1건, '아시아' 0건</td></tr>
+      <tr><td>12</td><td>거점 도시 에베소·데살로니가(빌립보·고린도는 언급)</td><td><code>에베소|데살로니|빌립보</code></td><td>'빌립보' 1건(시민권 맥락), 에베소·데살로니가 0건</td></tr>
+      <tr><td>12</td><td>자비량·교회 지원의 근거 구절(고전 9:14-15; 고후 11:9; 살전 2:9; 빌 4:15-16)</td><td><code>고전 ?9|9:14|빌 ?4|4:15</code></td><td>0건 ('자비량' 단어는 2건)</td></tr>
+      <tr><td>12</td><td>사역은 인간적/교회적 권위와 무관</td><td><code>인간적|교회적|무관</code></td><td>0건</td></tr>
+      <tr><td>21</td><td>첫 여행: 바나바와 마가, 도시 목록, AD 46-48</td><td><code>마가</code> (및 <code>실라|디모데|소바더|가이오|두기고|드로비모</code>)</td><td>'마가' 단독 0건(로마가 등 어절 포함 2건 제외), 동역자 이름 0건. '1900·4300·4000' 거리 수치만 3건</td></tr>
+      <tr><td>23·25</td><td>고린도 18개월, 에베소 27개월(교과서 30개월 메모)</td><td><code>18개월|27개월|30개월|2년 ?6|에베소</code></td><td>0건</td></tr>
+      <tr><td>27</td><td>사도행전의 기적 목록(귀신·치유·손수건·앞치마·눈멂), 서신은 표적과 기사를 상세히 설명하지 않음</td><td><code>귀신|치유|손수건|앞치마|눈을 멀|기사|표적과</code></td><td>0건</td></tr>
+      <tr><td>28</td><td>안디바드리, 백부장 율리오</td><td><code>안디바드리|율리오|백부장</code></td><td>0건 ('황제부대' 3건은 언급)</td></tr>
+      <tr><td>30</td><td>롬 15:22-23 서바나 요청, 유세비우스·테르툴리아누스·1클레멘트·무라토리 단편</td><td><code>서바나|15:22|유세비|에우세|터툴|클레멘|무라토리|참수|처형</code></td><td>0건 ('스페인' 1건, '네로' 2건은 다른 맥락: 유대-로마 전쟁 시대 인물로 언급)</td></tr>
+      <tr><td>31</td><td>연대표의 연도 수치(32~67)</td><td><code>3[26]|4[69]|5[0-9]|6[0-9]</code></td><td>일치 4건은 모두 다른 맥락('60년대 후반', 68·69년 황제 교체, '50'); 표의 수치 낭독 없음</td></tr>
+      <tr><td>32</td><td>갈리오 재임 51-52년, 고린도 체류 1년 반</td><td><code>51|52</code></td><td>0건 ('갈리오'는 2건, '유물' 2건으로 언급)</td></tr>
+      <tr><td>35</td><td>새 관점의 내용(행위 의·민족적 특권·율법 조항)</td><td><code>행위 ?의|민족적|특권|율법 조항</code></td><td>0건 (다음에 자세히 다룬다는 예고만 있음)</td></tr>
+      <tr><td>36</td><td>고전 12:1-26 공동체 윤리, 고후 5:14-15, 갈 5:6 '사랑으로 역사하는 믿음'</td><td><code>고전 ?12|고후 ?5|갈 ?5|사랑으로 역사|윤리</code></td><td>0건 ('공동체' 6건은 모두 광야 공동체·공동체 읽기 맥락; 교수님의 '진리·거듭남·자유·선한 일' 정리는 슬라이드에 없어 강의 추가)</td></tr>
+      <tr><td>37</td><td>서신 연대기 표(서신별 시기, 남/북갈라디아설 등)</td><td><code>연대기|서신연대</code></td><td>표 내용 낭독 0건 ('서신연대기' 1건은 넘어가는 발화만)</td></tr>
+      <tr><td>3</td><td>(참고) Powell 인용·요세푸스</td><td><code>파울|요세프스</code></td><td>있음 — 노트 §5에 반영</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>D. 이전 초안(gemini) 지적 사항에 대한 확인</h4>
+  <ul>
+    <li>녹취 앞부분 유대교 배경(사두개인·열심당·1차 유대-로마 전쟁·랍비 유대교·미슈나) → 조각 1~6, §2·§3에 반영. 스페인 논의 → 조각 14, §14에 반영.</li>
+    <li>가말리엘·시민권·개종·테클라는 녹취에 있음(검색: '가말리엘' 3건, '시민권' 7건, '개종' 1건·'회심' 2건, '테클라' 2건) → 각각 §2-4·§9, §9, §6, §11에 반영.</li>
+  </ul>
+
+  <h4>E. 검증 한계·미확인 목록</h4>
+  <ul>
+    <li><b>보충 4건</b>(장군 부자 이름 §2-2, 광야 공동체 집단 식별 §2-3, 갈 2:15 §11, 갈리오 비문 출토지 §15)은 통설 수준의 배경지식이며, 본 노트 작성 중 sermon-* 스킬이나 웹검색으로 <b>교차검증을 실시하지 않았다</b>. confidence를 각 항목에 표시했고, 게시 전 확인이 필요하면 이 4건만 확인하면 됩니다.</li>
+    <li>슬라이드 31의 "32-25" 표기는 <b>32-35로 옮겨 적은 것이 판단</b>(§15 각주에 표시).</li>
+    <li>수강생 발표·질문 상당 부분은 전사가 심하게 훼손되어(U15·U18·U19·U20) 취지만 반영했고, 그 밖의 정보는 만들지 않았습니다.</li>
+    <li>교수 강조 15건은 "중요하다·알아두면 좋다·핵심 설명"이라는 <b>교수님 발화 신호</b>에 근거하며(모음 §16), 시험 언급은 없었습니다.</li>
+    <li><b>4출처 건수</b>: 교수 강조 15 · PPT만 배지 18곳(표 C는 슬라이드 기준 21항목 + 참고 1행) · 보충 4 · 강의 추가·자료근거는 절 단위로 배지 표시(개별 문장 단위 집계는 하지 않음).</li>
+  </ul>
+</div>
+</div></details>
+
+<div class="foot">신약성서II 3주차 · 이영민 교수 · 절충판 시범(미배포)</div>
+
+</div>
+</body>
+</html>
