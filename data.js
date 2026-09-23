@@ -571,10 +571,10 @@ const SITE_DATA = {
           weeks: [
             { week: 1, title: "", date: "", files: [] },
             { week: 2, title: "", date: "", files: [] },
-            { week: 3, title: "제6부 종교개혁과 개신교의 시대 (1517-1648) - 3주차", date: "2026.09.15", files: [
+            { week: 3, title: "3주차 마틴 루터와 제1세대 종교개혁", date: "2026.09.15", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week03.html" }
           ] },
-            { week: 4, title: "제6부 종교개혁과 개신교의 시대 (1517-1648) - 4주차", date: "2026.09.22", files: [
+            { week: 4, title: "4주차 쯔빙글리와 칼빈의 종교개혁", date: "2026.09.22", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week04.html" }
           ] },
             { week: 5, title: "", date: "", files: [] },
