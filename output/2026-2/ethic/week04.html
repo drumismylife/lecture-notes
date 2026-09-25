@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 4주차 강의노트 | 바울의 윤리와 공동서신의 윤리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 48px 42px; margin-bottom: 36px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 34px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 14px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 400; color: #d6e8de; margin-bottom: 24px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 18px 22px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 15px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 36px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.toc-col h4 { font-size: 13.5px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 6px; font-size: 14px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 48px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 18px 24px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 12px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 4px 10px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 32px 36px; margin-bottom: 28px; box-shadow: var(--shadow-sm); transition: border-color 0.2s; }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px; gap: 16px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 21px; font-weight: 700; color: var(--primary); margin-bottom: 6px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 14px; color: var(--text-muted); }
+p { margin-bottom: 16px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 14px 0 20px 24px; }
+li { margin-bottom: 8px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 14.5px; }
+.custom-table th, .custom-table td { padding: 12px 16px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 36px 40px; margin-top: 50px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 16px; }
+.quiz-q { font-weight: 700; font-size: 15.5px; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 14px; color: var(--primary-light); background: var(--primary-pale); padding: 8px 12px; border-radius: 4px; margin-top: 6px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border-medium); font-size: 13.5px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 11px 18px; margin: 0 0 14px 0; font-weight: 600; color: var(--text-main); font-size: 15.5px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 10px; letter-spacing: .04em; }
+.key { margin: 4px 0 8px 0; }
+.key ul { margin: 6px 0 6px 22px; }
+.key li { margin-bottom: 7px; font-size: 15.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 30px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 20px; color: var(--primary); margin-bottom: 12px; }
+.sum-card h4 { font-size: 13px; color: var(--accent-terracotta); margin: 16px 0 6px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 6px 0 6px 22px; }
+.sum-card li { margin-bottom: 6px; font-size: 15px; }
+.sum-card p { margin-bottom: 6px; font-size: 14.5px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 24px 0; padding: 10px 14px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 14px 0 4px 0; }
+details > summary { cursor: pointer; padding: 10px 16px; font-size: 14px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 14px 18px 8px 18px; }
+details.apx { margin-top: 36px; }
+/* ── week04 추가 ── */
+.vq { font-family: 'Noto Serif KR', serif; color: var(--primary-light); font-style: italic; }
+.ref { font-size: 12.5px; color: var(--text-muted); margin: 0 4px 0 3px; white-space: nowrap; }
+.tq { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.asr { font-size: 12.5px; color: var(--text-muted); border-bottom: 1px dashed var(--border-medium); }
+.tcap { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); margin: 14px 0 -8px 0; }
+.after { font-size: 15px; margin: 4px 0 10px 0; }
+.exam-note { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; }
+.exam-h { font-size: 18px; font-weight: 700; color: var(--primary); margin: 24px 0 12px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 12px 14px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 15px; line-height: 1.7; }
+.quiz-ans ul { margin: 6px 0 2px 20px; }
+.quiz-ans li { margin-bottom: 4px; font-size: 14px; }
+.dbody h4 { font-size: 14px; color: var(--accent-terracotta); margin: 14px 0 6px 0; }
+.dbody li { font-size: 14px; }
+.cmp td { vertical-align: top; font-size: 14px; }
+@media (max-width: 720px) { .unit-card { padding: 22px 18px; } .exam-section { padding: 24px 18px; } .custom-table { font-size: 13px; } .custom-table th, .custom-table td { padding: 8px 8px; } .header-card { padding: 30px 22px; } .header-title { font-size: 26px; } }
+</style>
+</head>
+<body>
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 4주차</span><span>바울의 윤리와 공동서신의 윤리 (1·2강 통합)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>4주차 정규 강의노트</span>
+    </div>
+    <h1 class="header-title">바울의 윤리와 공동서신의 윤리</h1>
+    <div class="header-subtitle">성령 안에서 형성되는 새 공동체 · 나그네의 윤리 — 지배하지도 도피하지도 않는 공적 증언</div>
+    <div class="header-theses">
+      <strong>[이번 주 학습목표 — syllabus 4주차 원문]</strong><br>
+      직설법과 명령법의 관계를 이해하고 <strong>성령 안에서 형성되는 새 공동체의 윤리</strong>를 설명할 수 있다.
+      나그네 됨이 <strong>분리주의로도 체제 순응으로도 귀결되지 않는 제3의 길</strong>임을 설명할 수 있다.
+    </div>
+  </header>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 바울의 윤리와 공동서신의 윤리</h2>
+    
+<ol>
+<li><b>은혜는 도덕을 무너뜨리지 않는다.</b> 바울은 명령→자격→신분의 순서를 <b>새 생명→신분→응답→행위</b>로 뒤집는다(롬 6장).</li>
+<li>문제는 <b>무엇을 원하는가</b>다. 성령이 원함(성품)을 바꾸고, 성품은 <b>몸(교회)을 세우는 힘</b>이다.</li>
+<li>분별은 “누가 옳은가”가 아니라 <b>“누가 짐을 지는가”</b>를 묻고, 자기 비움은 가진 자를 향한 요구다.</li>
+<li>공동서신(벧전)의 열쇠는 <b>나그네</b> — 지배도 도피도 아니며 정체성이 행위에 앞선다.</li>
+<li>권력 없는 교회의 공적 삶은 <b>가시성·해명 가능성</b>, 형식은 <b>혁명적 복종</b>과 보복 대신 복을 빎이다.</li>
+<li>증언은 안에서 먼저 검증되고, 경계는 있되 배제가 되어선 안 된다.</li>
+</ol>
+<h4>꼭 기억할 것</h4>
+<p>직설법/명령법 · 명예의 재배치 · cruciformity · 나그네 · 혁명적 복종 &nbsp;|&nbsp; 롬 6:1-4 · 갈 5:22-23 · 빌 2:5-11 · 벧전 2:9-12</p>
+<h4>⭐ 교수 강조</h4>
+<p><span class="tq">명예의 재배치가 아주 중요합니다</span> · 교리와 윤리를 <span class="tq">구분하셔야 됩니다</span> · 나그네가 <span class="tq">전체를 움직이는 핵심 포인트입니다</span></p>
+
+  </div>
+
+  <div class="lite-note"><b>읽는 법</b> — 각 절은 <b>한 줄 결론 → 핵심 불릿</b> 순서입니다. 배지 없는 문장은 강의와 강의자료(슬라이드·읽기자료)가 함께 다룬 내용이고, ⭐ 교수강조 · 📌 강의추가(슬라이드·읽기자료에 없는 강의 내용) · 📖 읽기자료(강의에서는 다루지 않은 슬라이드·읽기자료 내용)로 구분했습니다. 성경 인용은 개역개정 원문 그대로이며, 개역개정이 ‘세례’로 옮긴 말을 서술에서는 강의처럼 ‘침례’로 씁니다.</div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차 및 빠른 이동</div>
+    <div class="toc-grid"><div class="toc-col"><h4>제1부: 바울의 윤리 (1강)</h4><ul class="toc-list"><li><a href="#s1">§1. 도입 — 은혜는 도덕을 무너뜨리는가</a></li><li><a href="#s2">§2. 은혜 — 명령보다 먼저 온 새 생명</a></li><li><a href="#s3">§3. 성품 — 무엇을 원하는가</a></li><li><a href="#s4">§4. 공동체 — 한 몸을 세우는 힘</a></li><li><a href="#s5">§5. 분별 — 사랑을 위해 멈추는 자유</a></li><li><a href="#s6">§6. 평화 — 악을 악으로 갚지 않음</a></li><li><a href="#s7">§7. 1부 정리</a></li></ul></div><div class="toc-col"><h4>제2부: 공동서신의 윤리 (2강)</h4><ul class="toc-list"><li><a href="#s8">§8. 도입 — 힘이 없을 때에도 윤리는 가능한가</a></li><li><a href="#s9">§9. 나그네 — 정체성이 행위를 낳는다</a></li><li><a href="#s10">§10. 삶이 논증이다 — 증언</a></li><li><a href="#s11">§11. 복종인가 순응인가</a></li><li><a href="#s12">§12. 고난의 구별과 비보복</a></li><li><a href="#s13">§13. 위선 없는 공동체</a></li><li><a href="#s14">§14. 경계 — 분별인가 배제인가</a></li><li><a href="#s15">§15. 정리 — 주장하지 말고 본이 되라</a></li></ul></div><div class="toc-col"><h4>제3부·시험대비</h4><ul class="toc-list"><li><a href="#s16">§16. 연결·비교 — 바울 ↔ 공동서신</a></li><li><a href="#exam">§17. 시험 포인트</a></li><li><a href="#apx">부록</a></li></ul></div></div>
+  </nav>
+
+  <section class="section-block">
+    <div class="part-banner"><h2>제1부: 바울의 윤리 — 성령 안에서 형성되는 새 공동체 (1강)</h2><span class="part-badge">기독교윤리학 개론 4장</span></div>
+<article class="unit-card" id="s1">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§1. 도입 — 은혜는 도덕을 무너뜨리는가</h3></div></div>
+<div class="oneline">바울 윤리의 물음은 “자격 심사가 사라진 자리에서 도덕적 요구는 무엇에 기대어 여전히 요구일 수 있는가”이며, 길은 은혜→성품→공동체→분별→평화이고 전체를 성령이 이끈다.</div>
+<div class="key">
+<ul>
+<li>복음이 지중해 도시들로 넓어지며 유대인과 헬라인이 섞이고 주인과 노예가 한자리에 앉고 우상 제물을 두고 다툰다. 산상수훈은 <b>너무 높아서</b> 피하고, 바울은 <b>너무 관대해서</b> 피한다. 바울 자신이 이 오해를 알고 있었다 — “<span class="vq">그런즉 우리가 무슨 말을 하리요 은혜를 더하게 하려고 죄에 거하겠느냐</span>”<span class="ref">(롬 6:1)</span></li>
+<li>맞은편 물음도 있다: 평등을 말하면서 위계를 옹호하는 듯 보이는 복합성. 그래서 바울에게서 얻을 것은 규칙집이 아니라 <b>분별의 훈련</b>이다 — 바울은 논문이 아니라 현장에 맞춘 편지를 썼다.</li>
+<li>논지: <b>은혜는 명령을 없애지 않고, 명령에 응답할 새 생명을 준다.</b> 은혜(명령보다 먼저 온 새 생명) → 성품(원하는 것 자체가 바뀜) → 공동체(한 몸을 세우는 힘) → 분별(사랑을 위해 멈추는 자유) → 평화(악을 악으로 갚지 않음).</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s2">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§2. 은혜 — 명령보다 먼저 온 새 생명</h3></div></div>
+<div class="oneline">바울은 순서를 뒤집는다 — 명령이 신분을 만드는 것이 아니라, 새 생명과 신분이 응답과 행위를 낳는다.</div>
+<div class="key">
+<ul>
+<li><b>당위와 능력의 간격.</b> “해야 한다”는 “할 수 있다”를 함축한다는 칸트식 전제와 달리 바울은 “<span class="vq">내가 원하는 바 선은 행하지 아니하고 도리어 원하지 아니하는 바 악을 행하는도다</span>”<span class="ref">(롬 7:19)</span> 하고 고백한다. <span class="asr">[장절 ASR — 음성 ‘1장 19절’, 슬라이드 롬 7:19]</span> 한 신약학자는 바울의 문제가 서구적 ‘내면의 양심’이 아니라 공동체·교회론의 문제였다고 논했다 <span class="asr">[학자명 특정 불가 — 후보: 스텐달]</span>.</li>
+<li>바울은 새 규칙으로 답하지 않고 이미 일어난 사건을 진술한다 — “<span class="vq">그럴 수 없느니라 죄에 대하여 죽은 우리가 어찌 그 가운데 더 살리요</span>”<span class="ref">(롬 6:2)</span></li>
+</ul>
+<div class="tcap">옛 순서와 새 순서</div><table class="custom-table"><thead><tr><th></th><th>옛 순서</th><th>새 순서</th></tr></thead><tbody><tr><td class="hl">흐름</td><td>명령 → 노력 → 자격 → 신분</td><td>새 생명 → 신분 → 응답 → 행위</td></tr><tr><td class="hl">실패의 의미</td><td>자격의 상실 — 숨겨야 할 것</td><td>회개의 계기 — 신분이 흔들리지 않으므로 고백할 수 있음</td></tr></tbody></table>
+<ul>
+<li><b>침례는 결심이 아니라 소속</b>이다. 내가 무엇을 하기로 했다는 선언이 아니라 나에게 일어난 일이다 — “<span class="vq">그러므로 우리가 그의 죽으심과 합하여 세례를 받음으로 그와 함께 장사되었나니 이는 아버지의 영광으로 말미암아 그리스도를 죽은 자 가운데서 살리심과 같이 우리로 또한 새 생명 가운데서 행하게 하려 함이라</span>”<span class="ref">(롬 6:4)</span> 옛 사람의 죽음은 욕망의 소멸이 아니라 주인 노릇의 종결이며(롬 6:14), 한 성령으로 한 몸이 됨이다(고전 12:13).</li>
+<li><b>값없이 주어졌으나 응답을 기대한다</b>(바클레이). ‘자격을 따지지 않고 주어진다’와 ‘응답을 기대하지 않는다’는 전혀 다른 말이다. 자유는 모든 주인에게서의 독립이 아니라 생명을 주는 주인에게로 옮겨 가는 일이다 — “<span class="vq">죄로부터 해방되어 의에게 종이 되었느니라</span>”<span class="ref">(롬 6:18)</span> <span class="bdg b-add">📌 강의추가</span> 은혜를 배신하는 배은망덕을 가장 나쁘게 여기는 정서처럼, 은혜에 합당한 삶은 강제가 아니라 자발적이다.</li>
+<li><b>그러나 행위에 따른 심판이 있다.</b> “<span class="vq">하나님께서 각 사람에게 그 행한 대로 보응하시되</span>”<span class="ref">(롬 2:6)</span> “<span class="vq">이는 우리가 다 반드시 그리스도의 심판대 앞에 나타나게 되어 각각 선악간에 그 몸으로 행한 것을 따라 받으려 함이라</span>”<span class="ref">(고후 5:10)</span> 행위는 은혜와 경쟁해 신분을 따내는 공로가 아니라 은혜가 맺은 열매의 증언이며, 은혜는 심판을 누그러뜨리는 말이 아니라 심판 앞에서 행할 힘이다. <span class="asr">[장절 ASR — 음성 ‘5장 17절’, 슬라이드 5:10]</span></li>
+</ul>
+</div></article>
+<article class="unit-card" id="s3">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§3. 성품 — 문제는 무엇을 원하는가</h3></div></div>
+<div class="oneline">아는 것과 하는 것의 간격보다 “무엇을 원하는가”가 문제이고, 성령은 그 원함을 바꿔 성품을 빚는다 — 그 성품은 교회를 세우는 힘이다.</div>
+<div class="key">
+<ul>
+<li>윤리학의 답은 판단을 다듬는 것(규칙)과 행위를 반복해 성향으로 굳히는 것(덕)이며, 바울의 셋째 답은 <b>사람이 무엇을 원하는가</b>다. 자유는 비로소 사랑할 수 있게 된 상태다 — “<span class="vq">형제들아 너희가 자유를 위하여 부르심을 입었으나 그러나 그 자유로 육체의 기회를 삼지 말고 오직 사랑으로 서로 종 노릇 하라</span>”<span class="ref">(갈 5:13)</span> <span class="bdg b-exam">⭐ 교수강조</span> 우리의 고민은 ‘아는데 왜 안 되나’가 아니라 <span class="tq">진짜 무엇을 원하냐 이 말이에요</span>.</li>
+<li><b>육체 vs 성령의 열매.</b> 육체(sarx)는 신체가 아니라 옛 질서에 붙들린 인간 존재 전체다. <span class="bdg b-add">📌 강의추가</span> 세상을 거부한다는 말이 물리적 세상이 아니라 세상을 지배하는 이념·욕망을 거부한다는 뜻인 것과 같다. 육체의 일(갈 5:19-21)은 절반이 넘는 항목이 원수 맺음·분쟁·시기·분열 같은 <b>공동체를 깨뜨리는 관계의 죄</b>다. 반대편은 복수가 아닌 단수 ‘열매’다 — “<span class="vq">오직 성령의 열매는 사랑과 희락과 화평과 오래 참음과 자비와 양선과 충성과 온유와 절제니 이같은 것을 금지할 법이 없느니라</span>”<span class="ref">(갈 5:22-23)</span> 아홉 가지 행위가 아니라 한 열매의 양상이다.</li>
+<li><b>열매는 저절로 맺히지 않는다.</b> 심음→반복의 시간→거둠 — “<span class="vq">스스로 속이지 말라 하나님은 업신여김을 받지 아니하시나니 사람이 무엇으로 심든지 그대로 거두리라</span>”<span class="ref">(갈 6:7)</span> 농부가 열매를 돌보듯 분투해야 하며 성령이 그 반복을 안에서 밀고 간다. 갈등은 사라지지 않고 성격이 달라진다 — 아는 것과 하는 것의 싸움에서 <b>두 종류의 원함</b>의 싸움으로: “<span class="vq">육체의 소욕은 성령을 거스르고 성령은 육체를 거스르나니 이 둘이 서로 대적함으로 너희가 원하는 것을 하지 못하게 하려 함이니라</span>”<span class="ref">(갈 5:17)</span></li>
+</ul>
+<div class="tcap">덕 윤리와 바울 — 어디서 만나고 어디서 갈라지는가</div><table class="custom-table"><thead><tr><th></th><th>내용</th></tr></thead><tbody><tr><td class="hl">접점</td><td>개별 행위보다 사람을 문제 삼음 · 반복과 성향과 지속하는 형성을 전제 · 헬레니즘의 덕목록 형식을 공유</td></tr><tr><td class="hl">차이 1 · 주도권</td><td>덕 윤리: 훈련으로 얻는 덕 / 바울: 심고 자라게 하시는 이에게 돌아가는 열매 → <b>자랑할 것이 없는 성품</b></td></tr><tr><td class="hl">차이 2 · 방향</td><td>덕 윤리: 개인의 탁월함을 재는 눈금 <span class="asr">[플라톤 책의 구두 수선공·말 모는 기술 예 — 서명 특정 불가]</span> / 바울: <b>그리스도의 몸(교회)을 세우는 힘</b> <span class="bdg b-exam">⭐ 교수강조</span> <span class="tq">아주 중요한 부분이니까 여러분 좀 기억해 주시면 좋겠습니다</span></td></tr></tbody></table>
+</div></article>
+<article class="unit-card" id="s4">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§4. 공동체 — 한 몸을 세우는 힘</h3></div></div>
+<div class="oneline">몸은 처분할 소유물이 아니라 받은 선물이고, 지체들은 서로에게 속한 한 몸이라서 명예의 자리까지 새로 짜인다.</div>
+<div class="key">
+<ul>
+<li><b>내 몸은 내 것인가.</b> 몸이 내 소유라면 판단은 처분권의 문제가 된다(생명윤리·성윤리는 뒤 강의에서). 바울은 먼저 이 몸이 누구의 것인지 묻는다 — “<span class="vq">너희 몸은 너희가 하나님께로부터 받은 바 너희 가운데 계신 성령의 전인 줄을 알지 못하느냐 너희는 너희 자신의 것이 아니라 값으로 산 것이 되었으니 그런즉 너희 몸으로 하나님께 영광을 돌리라</span>”<span class="ref">(고전 6:19-20)</span> 부활할 몸이므로 함부로 쓸 수 없고, 첫 권면은 몸을 드리는 일이다 — “<span class="vq">그러므로 형제들아 내가 하나님의 모든 자비하심으로 너희를 권하노니 너희 몸을 하나님이 기뻐하시는 거룩한 산 제물로 드리라 이는 너희가 드릴 영적 예배니라</span>”<span class="ref">(롬 12:1)</span> 그 예배의 자리는 일상이다. <span class="bdg b-sup">📖 읽기자료</span> 몸의 주인은 공동체가 아니라 몸을 값으로 사신 분이다.</li>
+<li><b>고린도의 식탁과 은사.</b> 부자는 일찍 와서 먹고 취하고 늦게 오는 노예는 먹을 것이 없었다(고전 11:20-21) <span class="asr">[장 ASR — 음성 ‘12장’, 만찬은 11장]</span>. 은사는 선물이라 우열이 없으나 방언보다 예언을 앞세우는 기준은 <b>공동체를 세우고 덕을 끼치는가</b>다. 12장(은사)–13장(사랑)–14장(방언·예언) 가운데서 사랑이 기준이 된다(고전 13:1-3) — “<span class="vq">내가 예언하는 능력이 있어 모든 비밀과 모든 지식을 알고 또 산을 옮길 만한 모든 믿음이 있을지라도 사랑이 없으면 내가 아무 것도 아니요</span>”<span class="ref">(고전 13:2)</span> 이것은 교리가 아니라 윤리의 차원이다.</li>
+<li><b>명예의 재배치.</b> 고대의 몸 비유는 ‘각 지체는 제자리를 지켜라’(순응)였다. 바울은 차이를 몸이 몸이기 위한 조건으로 긍정하고(고전 12:14-21) 한 걸음 더 나아간다 — “<span class="vq">그뿐 아니라 더 약하게 보이는 몸의 지체가 도리어 요긴하고 우리가 몸의 덜 귀히 여기는 그것들을 더욱 귀한 것들로 입혀 주며 우리의 아름답지 못한 지체는 더욱 아름다운 것을 얻느니라 그런즉</span>”<span class="ref">(고전 12:22-23)</span> 동등이 아니라 <b>역전</b>이다. <span class="bdg b-exam">⭐ 교수강조</span> <span class="tq">명예의 재배치가 아주 중요합니다</span>.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s5">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§5. 분별 — 사랑을 위해 멈추는 자유</h3></div></div>
+<div class="oneline">옳은 판단이 곧바로 옳은 행동을 낳지 않는다 — 바울은 “누가 옳은가”를 “누가 짐을 지는가”로 바꾸고 그 짐을 옳은(강한) 쪽에 지운다.</div>
+<div class="key">
+<ul>
+<li>우상 제물은 식성이 아니라 <b>그 도시에서 살아갈 수 있느냐</b>의 문제였다. 지식으로는 바울도 강한 자 편이나(고전 8:4) 요구는 정반대다 — “<span class="vq">우상의 제물에 대하여는 우리가 다 지식이 있는 줄을 아나 지식은 교만하게 하며 사랑은 덕을 세우나니</span>”<span class="ref">(고전 8:1)</span> <span class="bdg b-exam">⭐ 교수강조</span> 교회의 문제 상당수는 교리(누가 옳은가)가 아니라 윤리(누가 부담을 지는가)이며 <span class="tq">구분하셔야 됩니다</span>.</li>
+<li><b>권리의 세 층위</b> — ① 판단의 진실(우상은 아무것도 아님: 옳다) ② 권리의 존재(먹을 자유: 있다) ③ 행사의 정당성(지금 이 자리에서 써도 되는가: 여기서 갈린다). 바울 자신이 권리를 조목조목 따진 뒤 하나도 쓰지 않았다(고전 9:4-15). <span class="bdg b-add">📌 강의추가</span> 우상 제물을 다루는 8장과 10장 사이에 바울 자신의 이야기(9장)가 끼어 있다. 이것이 십자가의 신학이다 — “<span class="vq">그리스도께서도 자기를 기쁘게 하지 아니하셨나니 기록된 바 주를 비방하는 자들의 비방이 내게 미쳤나이다 함과 같으니라</span>”<span class="ref">(롬 15:3)</span> 자유는 원하는 것을 마음껏 하는 힘이 아니라, 사랑을 위해 할 수 있는 일을 하지 않고 하지 않던 일을 기꺼이 하는 힘이다.</li>
+</ul>
+<div class="tcap">고린도와 안디옥 — 같은 ‘양보’가 다른 판단을 낳는 이유</div><table class="custom-table"><thead><tr><th></th><th>고린도 (고전 8–9장)</th><th>안디옥 (갈 2:11-14)</th></tr></thead><tbody><tr><td class="hl">쟁점</td><td>우상 제물과 양심</td><td>이방인이 복음 안에서 동등한가</td></tr><tr><td class="hl">잃는 것</td><td>편의</td><td>형제의 자리 그 자체</td></tr><tr><td class="hl">지켜지는 것</td><td>사람</td><td>—</td></tr><tr><td class="hl">바울의 판단</td><td>양보가 사랑이다</td><td>복음의 진리를 어긴 일 — 바울이 베드로를 공개적으로 책망함 <span class="asr">[음성 ‘접객’ — 책망(갈 2:11)의 오인식으로 판단]</span></td></tr></tbody></table><p class="after">묻는 기준은 <b>누가 불편해지는가가 아니라 누가 자리를 잃는가</b>다. <span class="bdg b-sup">📖 읽기자료</span> 남의 존엄과 안전을 부수는 사안에서 중립은 가해자 편에 서는 일이다.</p>
+<ul>
+<li><b>관용이 아니라 받아들임.</b> <span class="bdg b-exam">⭐ 교수강조</span> <span class="tq">이것이 아주 중요한 태도입니다</span>. 관용은 내가 참아 주는 것이라 주체가 여전히 나이고 나와 너 사이에 거리가 있다. 받아들임의 규범은 내가 아니라 하나님이 나를 받아 주신 방식이다 — “<span class="vq">그러므로 그리스도께서 우리를 받아 하나님께 영광을 돌리심과 같이 너희도 서로 받으라</span>”<span class="ref">(롬 15:7)</span> 죄를 짓는 것이 아니고 진리를 부정하지 않는 한 차이를 인정하고 업신여기거나 무시하지 않는다(롬 14:3-4).</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s6">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§6. 평화 — 악을 악으로 갚지 않음</h3></div></div>
+<div class="oneline">자기 비움(십자가)은 교회 안의 갈등 해결에서 교회 밖 원수 사랑까지 이어지며, 그 요구는 언제나 가진 자를 향한다.</div>
+<div class="key">
+<ul>
+<li><b>자기 비움.</b> 하나님과 동등되신 분이 자기를 비워 종이 되셨다면 우리도 자기를 낮춰 타인을 섬긴다 — “<span class="vq">너희 안에 이 마음을 품으라 곧 그리스도 예수의 마음이니 그는 근본 하나님의 본체시나 하나님과 동등됨을 취할 것으로 여기지 아니하시고 오히려 자기를 비워 종의 형체를 가지사 사람들과 같이 되셨고</span>”<span class="ref">(빌 2:5-7)</span> ‘비웠다’(ἐκένωσεν, ekenōsen)에서 케노시스가 나왔다. <span class="bdg b-sup">📖 읽기자료</span> 찬가는 낮아짐에서 끝나지 않고 높이심으로 이어지므로(빌 2:9-11) 후반부를 자르면 비움이 자기 소멸로 읽힌다. 고먼은 그리스도의 이야기가 신자의 삶의 모양이 되는 구조를 <b>십자가를 닮은 삶(cruciformity)</b>이라 부른다 <span class="asr">[고먼·cruciformity는 슬라이드 표기 — 음성은 ‘마이클 코어먼’·‘루시퍼’]</span></li>
+<li><b>원수 사랑은 예외가 아니라 살림살이.</b> 롬 12장은 교회 안의 관계(환대·섬김)에 이어 교회 밖·원수와의 관계로 넘어간다 — “<span class="vq">너희를 박해하는 자를 축복하라 축복하고 저주하지 말라</span>”<span class="ref">(롬 12:14)</span> “<span class="vq">악에게 지지 말고 선으로 악을 이기라</span>”<span class="ref">(롬 12:21)</span> 원수 항목이 회중 안의 일들 사이에 아무 표시 없이 끼어 있으니 배치 자체가 주장이다. 십자가는 원수 되었던 우리를 화목하게 하신 자기 희생적 사랑이므로, 우리를 핍박하는 이에게 십자가의 방식으로 응답하는 것이 제자도의 핵심 원칙이다. <span class="bdg b-add">📌 강의추가</span> 바로 뒤 롬 13장 ‘위에 있는 권세’는 원수의 대표 사례 — 원수의 권리까지 존중하며 악을 선으로 이기는 구체적 사례로 읽는다.</li>
+<li><b>비움은 가진 자의 언어다.</b> 바른 방향은 지위를 가진 이(그리스도·강한 자·사도 바울)가 스스로 내려놓는 것이다. 이미 낮은 자(매 맞는 아내, 착취당하는 노동자)에게 더 비우라고 요구하면 자기 비움의 언어는 <b>수탈의 언어</b>로 뒤집힌다. <span class="bdg b-exam">⭐ 교수강조</span> <span class="tq">기독교 복음이 악용되어서는 결단코 되지 않습니다</span>.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s7">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§7. 1부 정리</h3></div></div>
+<div class="oneline">은혜가 도덕을 무너뜨린다는 의심은 도덕을 자격 심사로 볼 때만 성립하고, 도덕을 형성으로 보면 은혜는 도덕의 조건이다.</div>
+<div class="key">
+<ul>
+<li><span class="bdg b-sup">📖 읽기자료</span> 이 편지들은 잘 지내는 교회에 보낸 축하가 아니라 무너지는 교회에 보낸 개입이며, 새 공동체는 도달한 상태가 아니라 지금도 빚어지는 과정이다.</li>
+</ul>
+</div></article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner"><h2>제2부: 공동서신의 윤리 — 나그네의 윤리 (2강)</h2><span class="part-badge">기독교윤리학 개론 5장</span></div>
+<article class="unit-card" id="s8">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§8. 도입 — 힘이 없을 때에도 윤리는 가능한가</h3></div></div>
+<div class="oneline">공동서신의 물음은 제도에 손댈 수 없는 사람들의 윤리 — 답은 지배도 도피도 아닌 나그네의 삶이다.</div>
+<div class="key">
+<ul>
+<li>수신자들은 이웃의 비방과 사회적 배척 속에서 사회 제도 아래 그리스도인으로 존재하는 것 자체가 위험했다. 세상을 지배하는 것은 폭력·혁명 없이는 불가능한 이상이고, 세상에서 분리되는 것은 요한복음의 예수님의 기도와 십계명 이래의 흐름과 어긋난다.</li>
+<li><b>가장 강한 반론 — 니버</b>(『도덕적 인간과 비도덕적 사회』): 개인 사이에서는 사랑과 설득이 작동해도 집단 사이는 윤리적이기보다 정치적이며, 집단의 이기심을 제어하려면 조직된 힘이 필요하다. <span class="bdg b-sup">📖 읽기자료</span> 그가 말한 힘은 물리적 강제에 한정되지 않고 간디의 비폭력 저항도 강제의 한 형태로 인정했다. 니버 비판은 뒤에서 다루되, 그의 논리는 베드로전서 수신자의 상황에 맞지 않는다고 본다.</li>
+<li><b>도피와 지배는 뿌리가 같다.</b> 밖으로 확장해 지배하려는 쪽과 안으로 축소해 도피하는 쪽은 외양이 달라도 윤리적 행위의 가능성을 <b>지배력의 보유 여부</b>에 맡긴다. 제도 참여·법 호소·연대는 정당한 행위이지만, 공동서신은 그 통로가 닫힌 자리를 다룬다.</li>
+<li>논지: 제도적 지배력이 없어도 공동체는 온전한 도덕적 행위자로 설 수 있다 — 바깥으로는 삶으로 하는 공적 해명과 비보복적 응답으로, 안으로는 위선 없는 관계와 지배하지 않는 질서로. <span class="bdg b-exam">⭐ 교수강조</span> 1강을 관통한 열쇠가 성령이었다면 2강은 <b>나그네</b>이며 이것이 <span class="tq">전체를 움직이는 핵심 포인트입니다</span>.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s9">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§9. 나그네 — 정체성이 행위를 낳는다</h3></div></div>
+<div class="oneline">무엇을 해야 하는가는 우리가 누구인가 뒤에 온다 — 나그네는 세상과 거리를 두되 그 도시의 책임을 진다.</div>
+<div class="key">
+<ul>
+<li>구원의 선포(벧전 1:3-12) 뒤에 ‘그러므로’(1:13)가 오고 권면이 이어진다. 권면 한가운데서도 정체성으로 돌아간다 — “<span class="vq">너희가 전에는 백성이 아니더니 이제는 하나님의 백성이요 전에는 긍휼을 얻지 못하였더니 이제는 긍휼을 얻은 자니라</span>”<span class="ref">(벧전 2:10)</span> 호칭은 거류민(πάροικοι, paroikoi)과 나그네(παρεπίδημοι, parepidēmoi)다 — “<span class="vq">사랑하는 자들아 거류민과 나그네 같은 너희를 권하노니 영혼을 거슬러 싸우는 육체의 정욕을 제어하라</span>”<span class="ref">(벧전 2:11)</span> <span class="bdg b-add">📌 강의추가</span> 영주권자(투표권은 없으나 공적 참여는 가능)에 견주었다. 법적 신분이냐 은유냐보다 이 이름이 만드는 <b>윤리적 위치</b>가 중요하다.</li>
+<li><b>양면성 — 거리와 책임.</b> 거리: 정체성을 하나님 나라에 두고 국가·집단의 요구를 절대화하지 않는다. 책임: 그 도시의 평안을 구한다 — “<span class="vq">너희는 내가 사로잡혀 가게 한 그 성읍의 평안을 구하고 그를 위하여 여호와께 기도하라 이는 그 성읍이 평안함으로 너희도 평안할 것임이라</span>”<span class="ref">(렘 29:7)</span> <span class="bdg b-exam">⭐ 교수강조</span> 자기 나라를 멸망시킨 원수의 나라를 위한 이 기도는 하나님의 주권 의식에 기반하며 교수는 이를 <span class="tq">구약 성경 전체의 아주 중요한 터닝 포인트이고 키포인트</span>라고 본다.</li>
+<li><b>부드러운 차이(soft difference, 볼프).</b> 교회는 세상과 다르지만(분리·틀림이 아니라 다름) 그 경계가 상대를 적으로 규정하고 배척하는 딱딱한 힘이 되면 안 된다. 교회의 차이는 스스로 만든 우월성이 아니라 거듭남에서 온다.</li>
+<li><b>나그네 언어의 오용.</b> 한국 교회를 신뢰하는 이는 약 19%다(한국기독교목회자협의회 조사 — 슬라이드·읽기자료 2024년, 음성은 2023년으로 들려 자료 표기를 따름). 위기를 박해로 읽고 잃은 지위를 정당한 몫으로 여기는 담론은 <b>잃어버린 지배에 대한 애도</b>다. 베드로전서의 나그네는 그 땅을 지배해 본 적이 없다 — 영향력이 어떻게 행사되었는지부터 물어야 한다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s10">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§10. 삶이 논증이다 — 증언</h3></div></div>
+<div class="oneline">비방의 대상은 교리보다 삶이었고, 권력 없는 교회의 공적 삶은 삶으로 하는 증언이다.</div>
+<div class="key">
+<ul>
+<li><b>비방의 원인</b> — “<span class="vq">이러므로 너희가 그들과 함께 그런 극한 방탕에 달음질하지 아니하는 것을 그들이 이상히 여겨 비방하나</span>”<span class="ref">(벧전 4:4)</span> 로마 세계에서 신에 대한 경건은 시민으로서 연대하는 공적 방식이었다. 편지는 지배력이 없는 이들에게도 도시의 ‘선을 행하는 자’와 같은 용어로 선을 행하라 한다. 차이는 행동이 아니라 <b>삶의 모양(라이프 스타일)</b>이며, 비방이 오해임은 오랜 시간의 인내로 증명된다.</li>
+<li><b>공적 삶의 두 조건</b>은 권력을 필요로 하지 않는다. ① 가시성 — “<span class="vq">너희가 이방인 중에서 행실을 선하게 가져 너희를 악행한다고 비방하는 자들로 하여금 너희 선한 일을 보고 오시는 날에 하나님께 영광을 돌리게 하려 함이라</span>”<span class="ref">(벧전 2:12)</span> ② 해명 가능성 — “<span class="vq">너희 마음에 그리스도를 주로 삼아 거룩하게 하고 너희 속에 있는 소망에 관한 이유를 묻는 자에게는 대답할 것을 항상 준비하되 온유와 두려움으로 하고</span>”<span class="ref">(벧전 3:15)</span> <span class="bdg b-sup">📖 읽기자료</span> 이 둘이 공공성의 전부는 아니지만(공동선 기여·제도적 책임도 있다) 권력 없는 교회가 수행할 수 있는 최소 형식이다.</li>
+</ul>
+<div class="tcap">증언·설득·강제</div><table class="custom-table"><thead><tr><th></th><th>내용</th><th>방식</th></tr></thead><tbody><tr><td class="hl">증언</td><td>진실을 드러내고 상대의 응답을 기다림</td><td>삶으로</td></tr><tr><td class="hl">설득</td><td>이유를 제시하여 상대의 판단을 움직임</td><td>논리적인 말로</td></tr><tr><td class="hl">강제</td><td>비용과 선택 조건을 바꾸어 행동을 제한함(영어 force: 물리적 힘)</td><td>힘으로 — 국가 공권력의 물리력은 정당할 수 있음</td></tr></tbody></table><p class="after">관건은 강제인가 아닌가가 아니라 그 강제의 <b>주체·목적·수단·한계</b>이며, 교회의 증언은 상대를 제거하거나 지배하는 방식일 수 없다. <span class="bdg b-exam">⭐ 교수강조</span> 교회가 강제할 영향력이 없는 상태에서 어떻게 설득하고 증언할 것인가가 <span class="tq">핵심 포인트</span>다.</p>
+<ul>
+<li><b>헌터 vs 오도노반.</b> 헌터는 미국 좌우의 변혁 전략이 권력의 논리에 잡혀 있다며 자기 자리에서 하나님 나라를 구현하는 <b>신실한 현존</b>을 제시한다. 교수는 이에 동의하되 일부에 강자·제도적 영향력이 전제된 점을 아쉬워한다<span class="bdg b-sup">📖 읽기자료</span>(주변부의 증언을 설명하지 못한다는 한계로도 정리된다). 오도노반은 통치 권세를 향해 증언할 <b>공적 책임</b>을 강조해 나그네 윤리의 탈정치화를 막는다(벧전 2:14). <span class="bdg b-sup">📖 읽기자료</span> 스스로를 피해자로만 규정하는 교회는 설득할 이유가 사라지고 고발만 남는다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s11">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§11. 복종인가 순응인가</h3></div></div>
+<div class="oneline">베드로전서의 복종은 지배 질서에 대한 순응이 아니라 ‘주를 위하여’의 혁명적 복종이며, 오늘의 적용은 권력에 노출된 몸에서 출발한다.</div>
+<div class="key">
+<ul>
+<li><b>세 관계를 한 범주로 묶지 않는다.</b> 국가·노예제·혼인은 같은 동사(ὑποτάσσεσθαι, hypotassesthai) 아래 놓이지만 이탈 가능성, 폭력의 형태, 제삼자 개입 여지가 다르다. ‘복종’ 한 단어로 묶은 해석 관행이 이 본문 오용의 주요 원인이었다.</li>
+<li><b>복종 ≠ 순응.</b> 복종의 근거는 ‘주를 위하여’이므로 절대적일 수 없다 — “<span class="vq">인간의 모든 제도를 주를 위하여 순종하되 혹은 위에 있는 왕이나</span>”<span class="ref">(벧전 2:13)</span> 순응은 지배자의 판단을 자기 판단으로 받아들이는 것인데 수신자는 이전의 욕망을 본받지 말아야 한다 — “<span class="vq">너희가 순종하는 자식처럼 전에 알지 못할 때에 따르던 너희 사욕을 본받지 말고</span>”<span class="ref">(벧전 1:14)</span> 국가 권력을 존중하되 그 가치 질서는 따르지 않는다.</li>
+<li><b>혁명적 복종</b>(요더). 가훈표는 독립적 주체로 여겨지지 않던 종과 아내에게 직접 말을 건다 — 말을 건다는 사실이 도덕적 주체성의 인정이며, 복종을 통해 제도를 승인하면서 그 근간을 뒤흔든다. 강의는 부부를 동등하게 대한다는 점도 혁명적이라 보되 가부장 질서를 해체하지는 않는다고 덧붙인다. <span class="bdg b-sup">📖 읽기자료</span> 읽기자료는 아내의 복종과 남편의 존중이 대칭이 아니므로 변형의 힘을 과장하지 말라고 경고한다. 이 논리가 노예제를 강화·옹호하는 데 쓰였다면 잘못된 해석임에 틀림없다.</li>
+<li><span class="bdg b-exam">⭐ 교수강조</span> <b>오늘의 판단은 몸에서 출발한다.</b> <span class="tq">그래서 분별이 중요합니다</span>. ① 떠날 수 있는 피해자에게 남으라 요구할 근거는 없다(본인이 기도 중 결단한 선택은 존중하고 공동체가 함께 보호하되 이 본문을 근거로 요구하지 않는다). ② 피해자의 안전을 먼저 확보하고 가해자에게 책임을 묻는다. ③ 약자의 인내보다 <b>권력을 가진 사람의 책임</b>을 요구한다. 이 본문이 다루는 것은 권력에 노출된 몸(매 맞는 종, 남편의 권위 아래 있는 아내, 제국의 통치 아래 있는 신자)이다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s12">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§12. 고난의 구별과 비보복</h3></div></div>
+<div class="oneline">먼저 고난을 구별하고, 선을 행하다 받는 고난에는 보복 대신 복을 빌며 정의는 하나님께 맡긴다.</div>
+<div class="key">
+<ul>
+<li><b>고난 구별.</b> 죄 때문에 받는 것은 고난이 아니라 벌이다(고난에는 ‘부당함’이 전제된다). 선을 행함으로, 곧 신앙 때문에 받는 것이 참된 고난이다 — “<span class="vq">죄가 있어 매를 맞고 참으면 무슨 칭찬이 있으리요 그러나 선을 행함으로 고난을 받고 참으면 이는 하나님 앞에 아름다우니라</span>”<span class="ref">(벧전 2:20)</span> “<span class="vq">만일 그리스도인으로 고난을 받으면 부끄러워하지 말고 도리어 그 이름으로 하나님께 영광을 돌리라</span>”<span class="ref">(벧전 4:16)</span> 물어야 할 것은 ‘누가 우리를 미워하는가’가 아니라 <b>‘우리는 왜 이 고난을 받고 있는가’</b>다. 이 물음을 생략하면 자기 잘못의 불이익도 박해가 되고 교회의 부정에 대한 비판도 믿음에 대한 공격으로 읽힌다.</li>
+<li><b>비보복은 반응의 부재가 아니라 복을 비는 행위</b>다 — “<span class="vq">악을 악으로, 욕을 욕으로 갚지 말고 도리어 복을 빌라 이를 위하여 너희가 부르심을 받았으니 이는 복을 이어받게 하려 하심이라</span>”<span class="ref">(벧전 3:9)</span> 정의가 없으면 폭력을 면해 주는 셈이므로 <b>정의의 위탁</b>이 짝을 이룬다(볼프). 심판은 있어야 하되 내가 아니라 하나님이 하신다 — “<span class="vq">욕을 당하시되 맞대어 욕하지 아니하시고 고난을 당하시되 위협하지 아니하시고 오직 공의로 심판하시는 이에게 부탁하시며</span>”<span class="ref">(벧전 2:23)</span> <span class="bdg b-sup">📖 읽기자료</span> 인간이 그 심판을 대행한다고 주장하는 순간 폭력의 면허가 되며, 보복은 되갚으려 하고 책임 추궁은 더 이상의 피해를 막으려 한다.</li>
+<li><b>따라 쓰는 본(ὑπογραμμός, hypogrammos).</b> 글씨를 배울 때 따라 쓰는 본보기 글자다 — “<span class="vq">이를 위하여 너희가 부르심을 받았으니 그리스도도 너희를 위하여 고난을 받으사 너희에게 본을 끼쳐 그 자취를 따라오게 하려 하셨느니라</span>”<span class="ref">(벧전 2:21)</span> <span class="bdg b-add">📌 강의추가</span> 예수님은 본보기이고 우리는 그 복사본이라는 비유로 설명했다. <span class="bdg b-sup">📖 읽기자료</span> 그리스도의 고난은 죄를 담당하신 구원 사건(벧전 2:24)이기도 하므로, 은혜 위에 선 요구는 따라 쓸 수 있는 글씨가 되고 은혜의 선언 없는 요구는 짐이 된다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s13">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§13. 위선 없는 공동체 — 증언은 안에서 먼저 검증된다</h3></div></div>
+<div class="oneline">야고보서가 요구하는 진정성은 내면의 성실성이 아니라 회중 안에서 확인되는 일관성이다.</div>
+<div class="key">
+<ul>
+<li><b>말</b> — “<span class="vq">한 입에서 찬송과 저주가 나오는도다 내 형제들아 이것이 마땅하지 아니하니라</span>”<span class="ref">(약 3:10)</span> <b>차별</b> — 좋은 자리와 발등상이 갈린다(약 2:1-4): 돈·지위가 있는 이는 우대하고 노숙인·가난한 이는 은연중 배제하는 모습이 교회 안에도 있다. <b>삯</b> — “<span class="vq">보라 너희 밭에서 추수한 품꾼에게 주지 아니한 삯이 소리 지르며 그 추수한 자의 우는 소리가 만군의 주의 귀에 들렸느니라</span>”<span class="ref">(약 5:4)</span> 예수를 믿는다는 부자가 품삯을 제대로 주지 않는 것은 <span class="tq">카피를 제대로 안 한 거예요</span>.</li>
+<li>예배 공간이 사회의 위계를 그대로 되풀이한다면 그 교회가 실제로 가르치는 것은 그 위계다 — 세상의 가치질서가 교회를 잠식한 모습이며 나그네 윤리에 어울리지 않는 순응이다. 그래서 교회 안에서 먼저 이를 극복하는 공동체가 되어야 한다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s14">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§14. 경계 — 분별인가 배제인가</h3></div></div>
+<div class="oneline">정체성에는 경계가 필요하지만, 경계는 권력이 되거나 분리·배제가 되어서는 안 된다.</div>
+<div class="key">
+<ul>
+<li><b>본문 안의 긴장.</b> 요한일서는 사랑의 진위를 형제의 궁핍 앞에서 마음을 닫는가로 가린다 — “<span class="vq">누가 이 세상의 재물을 가지고 형제의 궁핍함을 보고도 도와 줄 마음을 닫으면 하나님의 사랑이 어찌 그 속에 거하겠느냐</span>”<span class="ref">(요일 3:17)</span> 동시에 문을 닫는 말도 있다 — “<span class="vq">누구든지 이 교훈을 가지지 않고 너희에게 나아가거든 그를 집에 들이지도 말고 인사도 하지 말라</span>”<span class="ref">(요이 10)</span> 요한삼서의 디오드레베는 맞아들이려는 사람들까지 교회에서 내쫓았다(요삼 9-10). 둘 다 문을 닫는 행위다. <span class="bdg b-sup">📖 읽기자료</span> 유다서는 힘써 싸우라(유 3)고 하면서 끝에서는 — “<span class="vq">어떤 의심하는 자들을 긍휼히 여기라</span>”<span class="ref">(유 22)</span> <span class="bdg b-add">📌 강의추가</span> 요한신학자들은 요한 공동체를 회당에서 쫓겨난 이들의 무리로 보아 안으로는 서로 사랑하며 정체성을 강화하고 바깥과는 분리를 강조했다고 설명한다.</li>
+<li><b>경계는 권력이 된다.</b> <span class="bdg b-add">📌 강의추가</span> 파이 나누는 규칙을 정하는 사람이 제일 많이 가져가듯 경계를 설정하는 이가 권력자가 되기 쉽다. 마 18장에도 두 면이 함께 있다 — 개인이 권고하고 한두 사람과 함께 권하고 교회에 말하고 그래도 듣지 않으면 교제에서 배제하되(마 18:15-17) 용서에는 끝이 없다 — “<span class="vq">예수께서 이르시되 네게 이르노니 일곱 번뿐 아니라 일곱 번을 일흔 번까지라도 할지니라</span>”<span class="ref">(마 18:22)</span> <span class="asr">[ASR — 음성은 두 번째 단계를 ‘지도자’, 횟수를 ‘일곱 번’으로 말함]</span></li>
+<li><b>분별과 배제를 가르는 세 기준</b> <span class="bdg b-exam">⭐ 교수강조</span> 핵심 고백을 지키는가는 중요하지만 그것만으로는 안 된다. ① 그리스도에 관한 공동체의 핵심 고백(사도신경·아타나시우스 신경·침례교회의 메시지 같은)을 지키는가 ② 취약한 사람을 보호하는가, 지도자의 권력을 보호하는가 ③ 판단의 과정이 공개되고 반론·이의 제기가 허용되는가. <span class="bdg b-sup">📖 읽기자료</span> 첫째 기준만으로 자기를 정당화할 수 있는 구조에서는 경계가 언제든 배제의 도구가 된다. 끝까지 긍휼과 사랑을 잃어서는 안 된다.</li>
+</ul>
+</div></article>
+<article class="unit-card" id="s15">
+<div class="unit-header"><div class="unit-title-group">
+<h3>§15. 정리 — 주장하지 말고 본이 되라</h3></div></div>
+<div class="oneline">바깥의 권력에 영향을 미칠 수 없었던 교회가 자기 내부에서도 권력을 휘두르지 말라고 요구받는다.</div>
+<div class="key">
+<ul>
+<li>장로들은 맡은 자들에게 — “<span class="vq">맡은 자들에게 주장하는 자세를 하지 말고 양 무리의 본이 되라</span>”<span class="ref">(벧전 5:3)</span> ‘주장하는 자세’(κατακυριεύοντες)는 이방인의 통치자들이 백성을 다스리는 방식을 가리킨 말이고(막 10:42), 예수는 그 자리에서 — “<span class="vq">너희 중에는 그렇지 않을지니 너희 중에 누구든지 크고자 하는 자는 너희를 섬기는 자가 되고</span>”<span class="ref">(막 10:43)</span> 지위와 권력을 행사하려는 사람이 아니라 본이 되는 예수를 본받아 권력을 내려놓고 섬기는 사람이 되라는 요구이며 빌 2장의 자기 비움과 이어진다.</li>
+<li><span class="bdg b-sup">📖 읽기자료</span> 힘을 얻으면 곧 정의가 오리라는 착각에도, 힘이 없으니 할 일이 없다는 체념에도 빠지지 않는다. <b>바깥을 향해 지배하지 않는 공동체는 안에서 지배하지 않는 법을 배운 공동체뿐이다.</b></li>
+<li>강의의 정리: 나그네의 정체성을 기억하고 삶으로 증언하되 그 내용은 <span class="tq">혁명적 복종</span>이다 — 순종하지만 세상의 가치 질서와 다른 관점에서 행하므로 순응이 아니다.</li>
+</ul>
+</div></article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner"><h2>제3부: 연결·비교 — 바울 ↔ 공동서신</h2><span class="part-badge">직설법·명령법 / 은혜→성품→공동체</span></div>
+    <article class="unit-card" id="s16">
+      <div class="unit-header"><div class="unit-title-group"><h3>§16. 두 강의의 연결 — 한 번에 보는 비교표</h3></div></div>
+      <div class="oneline">두 강의는 같은 은혜의 축 위에 있다 — 바울은 성령 안에서 형성되는 몸을, 공동서신은 힘없는 자리에서 지배하지 않는 나그네 공동체를 그린다.</div>
+      <table class="custom-table cmp"><thead><tr><th>주제</th><th>바울 (1강)</th><th>공동서신 (2강)</th></tr></thead><tbody><tr><td class="hl">일관 키워드</td><td>성령 — ‘할 수 있다’를 가능하게 하는 능력</td><td>나그네 — 지배도 도피도 아닌 정체성</td></tr><tr><td class="hl">직설법 → 명령법<br>(은혜가 명령에 앞선다)</td><td>롬 6장: 새 생명·신분이 먼저, 응답·행위가 뒤</td><td>벧전 1:3-12 구원의 선포 → 1:13 ‘그러므로’ → 2:9-10 ‘이제는 하나님의 백성’. 십계명(출애굽 해방 뒤)·산상수훈(팔복 선언 뒤)도 같은 축</td></tr><tr><td class="hl">수신 상황</td><td>무너지는 교회: 분열한 고린도, 흔들린 갈라디아, 서로 판단한 로마</td><td>이웃의 비방·사회적 배척 속에서 제도의 통로가 닫힌 사람들</td></tr><tr><td class="hl">윤리의 언어</td><td>성품(원함)·덕 윤리와의 접점 — 개인의 탁월함이 아니라 몸을 세우는 힘</td><td>삶의 모양(행실). 두 강의 모두 고먼의 cruciformity(십자가를 닮은 삶)를 가리킴</td></tr><tr><td class="hl">공동체상</td><td>한 몸 — 명예의 재배치</td><td>안에서 먼저 검증(약: 말·차별·삯) · 지배하지 않는 질서(벧전 5:3)</td></tr><tr><td class="hl">분별의 기준</td><td>누가 짐을 지는가 → 옳은 쪽의 권리 유보 · 관용이 아닌 받아들임</td><td>고난의 구별 · 경계의 세 기준(핵심 고백·약자 보호·공개적 절차)</td></tr><tr><td class="hl">악에 대한 응답</td><td>롬 12:14-21 악을 악으로 갚지 않고 선으로 이김</td><td>벧전 3:9 복을 빎 + 벧전 2:23 정의를 하나님께 위탁 (강의: 바울과 같은 흐름이라 반복하지 않음)</td></tr><tr><td class="hl">약자에게 뒤집히는 경우</td><td>비움은 가진 자의 언어 — 낮은 자에게 요구하면 수탈</td><td>복종 본문은 권력에 노출된 몸에서 출발 — 요구는 권력 가진 자를 향함</td></tr></tbody></table>
+      <div class="key"><ul><li><b>은혜 → 성품 → 공동체</b> 축이 두 강의를 관통한다. 1강은 은혜→성품→한 몸→분별→평화를 성령이 끌고 가고, 2강은 정체성(나그네)→증언→복종→응답→위선 없는 안→경계로 이어진다. 1강이 ‘할 수 있게 하는 성령의 능력’을 답했다면 2강은 그 전제가 되는 힘조차 없는 자리의 행위자성을 답한다.</li></ul></div>
+    </article>
+  </section>
+
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 §17. 시험 포인트</div>
+    <p class="exam-note">강의에서 시험 범위·유형을 직접 언급한 대목은 없었습니다. 아래는 교수 강조 신호와 강의 슬라이드의 토론 질문을 바탕으로 한 예상 문항이며, 평가 방식(A4 3장 분량 — 요약 반, 생각 반)에 맞춰 ‘내 생각’ 메모란을 두었습니다.</p>
+    <h3 class="exam-h">[1강] 바울의 윤리 — O/X</h3>
+    <div class="quiz-item"><div class="quiz-q">Q1. 바울은 “은혜가 죄를 허용하는가”라는 반문에 더 엄격한 새 규칙을 세워 답한다.</div><div class="quiz-ans"><strong>X</strong> — 새 규칙이 아니라 이미 일어난 사건을 진술한다(롬 6:2-4).</div></div><div class="quiz-item"><div class="quiz-q">Q2. 바울의 새 순서에서 실패는 자격의 상실이 아니라 회개의 계기가 된다.</div><div class="quiz-ans"><strong>O</strong> — 신분이 행위에 달려 있지 않으므로 실패가 자격을 흔들지 못한다.</div></div><div class="quiz-item"><div class="quiz-q">Q3. 은혜가 자격을 따지지 않고 주어진다는 말은 응답을 기대하지 않는다는 뜻이다.</div><div class="quiz-ans"><strong>X</strong> — 바클레이: 값없이 주어졌으나 응답을 기대한다.</div></div><div class="quiz-item"><div class="quiz-q">Q4. 바울의 성품 윤리는 덕 윤리와 접점이 있으나 주도권과 방향에서 갈라진다.</div><div class="quiz-ans"><strong>O</strong> — 열매는 자라게 하시는 이의 것이고, 성품은 몸을 세우는 힘이다.</div></div><div class="quiz-item"><div class="quiz-q">Q5. 자기 비움의 요구는 이미 낮은 자리의 사람에게 향할 때 바울의 뜻에 부합한다.</div><div class="quiz-ans"><strong>X</strong> — 비움은 지위를 가진 이가 하는 것 — 낮은 자에게 요구하면 수탈이다.</div></div>
+    <h3 class="exam-h">[2강] 공동서신의 윤리 — O/X</h3>
+    <div class="quiz-item"><div class="quiz-q">Q6. 권력 없는 교회가 수행할 수 있는 공적 삶의 최소 조건은 가시성과 해명 가능성이다.</div><div class="quiz-ans"><strong>O</strong> — 벧전 2:12(보이게 살아냄) · 3:15(묻는 자에게 대답).</div></div><div class="quiz-item"><div class="quiz-q">Q7. 베드로전서의 복종은 지배자의 판단을 자기 판단으로 받아들이는 순응이다.</div><div class="quiz-ans"><strong>X</strong> — 근거가 ‘주를 위하여’이므로 절대적일 수 없다(혁명적 복종).</div></div><div class="quiz-item"><div class="quiz-q">Q8. 국가·노예제·혼인은 같은 ‘복종’ 범주이므로 한 원리로 묶어 적용하면 된다.</div><div class="quiz-ans"><strong>X</strong> — 권력 구조가 다르다 — 묶은 관행이 오용의 원인이었다.</div></div><div class="quiz-item"><div class="quiz-q">Q9. 죄 때문에 받는 고난도 참으면 하나님 앞에서 아름다운 고난이다.</div><div class="quiz-ans"><strong>X</strong> — 죄 때문의 고난은 벌이다. 선 때문에 받는 고난이 아름답다(벧전 2:20).</div></div><div class="quiz-item"><div class="quiz-q">Q10. 핵심 고백을 지킨다는 근거만 있으면 경계와 배제는 언제나 정당하다.</div><div class="quiz-ans"><strong>X</strong> — 약자 보호·공개적 절차라는 기준도 필요하다.</div></div>
+    <h3 class="exam-h">논술 예상</h3>
+    <div class="quiz-item"><div class="quiz-q">논술 1. 직설법과 명령법의 관계를 바울(롬 6장·갈 5장)과 베드로전서(1:3-13; 2:9-10)를 함께 들어 설명하고, ‘은혜가 명령에 앞선다’는 것이 윤리적 요구를 없애지 않는 이유를 논하라.</div><div class="quiz-ans"><strong>답안 골자</strong><ul><li>옛 순서 vs 새 순서 — 실패의 의미가 바뀜</li><li>은혜는 응답을 기대하고(바클레이) 행위에 따른 심판이 있다 — 행위는 공로가 아니라 열매의 증언</li><li>베드로전서에서도 정체성이 권면 앞에 오며, 십계명·산상수훈·바울·벧전이 같은 축</li><li>성령이 원함(성품)을 바꾸어 응답을 가능하게 한다</li></ul></div></div><div class="quiz-item"><div class="quiz-q">논술 2. 나그네 됨이 분리주의로도 체제 순응으로도 귀결되지 않는 제3의 길임을 설명하고, 복종 본문을 오늘 적용할 때의 원칙을 서술하라.</div><div class="quiz-ans"><strong>답안 골자</strong><ul><li>거리와 책임의 양면성(렘 29:7) · 부드러운 차이</li><li>공적 삶의 최소 형식(가시성·해명 가능성)과 증언/설득/강제의 구별</li><li>복종 ≠ 순응 — 혁명적 복종, 세 관계의 구분</li><li>오늘의 원칙: 몸에서 출발 — 떠날 수 있는 피해자에게 요구 금지·안전 우선·권력 가진 자의 책임</li><li>안에서의 검증(약)과 경계의 세 기준</li></ul></div></div>
+    <h3 class="exam-h">✍️ 내 생각 메모란</h3>
+    <textarea class="memo" rows="6" placeholder="요약 반 · 생각 반 — 이번 주 내용에서 내가 붙들 한 문장, 내 교회·공동체에 비추어 본 적용, 남은 질문을 적어 두세요."></textarea>
+  </section>
+
+  <details class="apx" id="apx">
+    <summary>부록 — 강의에서 다루지 않은 자료 · 표기가 불확실한 곳 · 토론 질문</summary>
+    <div class="dbody">
+      <h4>강의에서 다루지 않고 슬라이드·읽기자료에만 있는 항목</h4>
+      <ul><li>1강 — 일곱 서신 중심의 범위 설정, 저작·새 관점 논쟁, 로마서 7장 ‘나’의 정체 논쟁은 읽기자료에만 있다.</li><li>1강 — 갈 2:20(연합은 인격을 지우지 않고 다시 세움), 성령은 바깥에서 조종하는 힘이 아니라 욕망과 정체성을 안에서 빚는 현존(피), 불트만의 직설법·명령법 정식화와 그 한계는 읽기자료에만 있다.</li><li>1강 — 헤이스(공동체·십자가·새 창조), 엥베르그페데르센(헬레니즘 덕목록), 라이트(『그리스도인의 미덕』), 믹스(고린도 만찬의 사회경제적 재구성), 마틴(몸 비유), 베르코프·요더(정사와 권세)는 읽기자료의 인용이다. 로마서 14장 약한 자의 오용 경고와 고전 5장(경계 긋기)·양심(쉬네이데시스)도 읽기자료에만 있다.</li><li>2강 — 『디오그네투스에게』, 윈터(선을 행함의 시혜자 해석), 타키투스의 ‘인류에 대한 증오’, 엘리엇·발크의 가훈표 논쟁, 쉬슬러 피오렌자의 비판, 포춘, 웨스트, 제임스 스미스, 타메스, 볼프(경계와 배제의 구별)는 슬라이드·읽기자료의 인용이다.</li><li>2강 — 유다서(유 3; 22-23)와 벧전 5:13(로마=바벨론)은 슬라이드·읽기자료에만 있고, 강의 정리에는 ‘야고보서와 요한 1·2·3서’가 언급된다.</li></ul>
+      <h4>표기가 불확실하거나 바로잡은 곳</h4>
+      <ul><li>1강 3장 회고: 음성은 ‘불복의 윤리’·‘설복’으로 들리나 문맥(3장 = 산상수훈: 팔복의 성품·원수 사랑의 습관)에 맞춰 ‘산상수훈’으로 옮김. ‘헬링’ = 헬라인, ‘엑티즘’ = 침례, ‘인력개론’ = 기독교윤리학 개론은 문맥상 명확해 바로잡음.</li><li>장절: 롬 7:19(음성 ‘1장 19절’) · 고후 5:10(음성 ‘5장 17절’) · 고전 11:20-21(음성 ‘12장’) · 요한이서 10절(음성 ‘요한일서 10절’) — 강의자료 표기를 우선.</li><li>사도신경·아타나시우스 신경: 음성 ‘사도 신자’·‘아타나시우라’를 문맥상 바로잡음.</li><li>특정 불가: ‘스텐드 스탠다드’(후보: 스텐달 Krister Stendahl — 읽기자료 후주가 다른 문맥에서 인용) · ‘존스’(2강에서 나그네를 정의한 주체 — 이 노트는 ‘편지’로 서술) · ‘맹자’ 언급의 내용 · 플라톤의 책 이름 · ‘아담’(관용 대신 바울이 쓴 동사).</li><li>인명은 슬라이드·읽기자료 표기로 통일: 고먼(‘마이클 코어먼’) · cruciformity(‘루시퍼’) · 오도노반(‘올리브 도노반’) · 볼프(‘슬라브 볼프’·‘미러볼프’) · 요더(‘요도’) · 아리스토텔레스(‘아리셀레스’).</li><li>한국 교회 신뢰도 조사 연도: 강의 음성 2023년 / 슬라이드·읽기자료 2024년 — 자료 표기 채택.</li></ul>
+      <h4>토론 질문 (강의 슬라이드)</h4>
+      <ol><li>은혜의 선행성과 행위에 따른 심판은 서로를 약화하는가, 떠받치는가.</li><li>갈등의 성격만 달라진다면, 성화를 곧은 상승선으로 그려 온 설교와 신앙 교육은 어디서 고쳐야 하는가.</li><li>은사를 공동체의 유익으로 판단한다면, 오늘 교회의 직분과 지도력은 어떻게 달라져야 하는가.</li><li>받아들여야 할 사안과 경계를 그어야 할 사안을 어떻게 구별하는가. 각각 한 가지씩 들어 보라.</li><li>권리의 유보를 요구할 때, 그 요구가 강한 사람을 향하는지 약한 사람을 향하는지 어떻게 가려내는가.</li><li>(2강) 나그네라는 자기 이해가 사회적 책임의 회피로 기울지 않으려면 어떤 조건이 필요한가.</li><li>(2강) 가시성과 해명 가능성은 권력 없는 공동체의 공적 삶의 최소 조건이 될 수 있는가.</li><li>(2강) 불매 운동, 집회, 소송, 파업은 각각 증언과 설득과 강제 가운데 어디에 놓이는가.</li><li>(2강) 국가와 노예제와 혼인을 하나의 ‘복종’ 범주로 묶어 온 관행은 어떤 결과를 낳았는가.</li><li>(2강) 비보복의 요구와 피해자의 안전 확보는 어떻게 함께 갈 수 있는가.</li><li>(2강) 내가 속한 공동체의 최근 갈등 하나를 세 기준(핵심 고백·약자 보호·공개적 절차)으로 판정해 보라.</li></ol>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 강의자료: 『기독교윤리학 개론』 4장(바울의 윤리)·5장(공동서신의 윤리) 강의 슬라이드와 읽기자료</p>
+  </footer>
+
+</div>
+
+<script>
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') { document.documentElement.removeAttribute('data-theme'); }
+  else { document.documentElement.setAttribute('data-theme', 'dark'); }
+}
+</script>
+</body>
+</html>
