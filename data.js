@@ -672,7 +672,8 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week04.html" },
             { type: "guide", label: "아모스서 참고서", href: "output/2026-2/prophet/guide_amos.html" }
           ] },
-            { week: 5, title: "", date: "", files: [
+            { week: 5, title: "제5강 아모스 후반부 · 오바댜서", date: "2026.09.24", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week05.html" },
             { type: "guide", label: "오바댜서 참고서", href: "output/2026-2/prophet/guide_obadiah.html" }
           ] },
             { week: 6, title: "", date: "", files: [

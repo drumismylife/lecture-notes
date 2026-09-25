@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제5강 아모스 후반부 · 오바댜서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(155,90,138,.18);color:var(--crimson2);border:1px solid rgba(155,90,138,.45)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--crimson2);font-style:italic}
+.asr{color:var(--muted);border-bottom:1px dotted var(--muted);font-size:12.5px}
+
+.pair{display:flex;align-items:flex-start;gap:10px;background:var(--subcard);border:1px solid var(--border);border-radius:9px;padding:10px 14px;margin:8px 0;font-size:13.5px}
+.pair .book{font-weight:700;color:var(--crimson2);white-space:nowrap}
+.pair .arrow{color:var(--gold);font-size:16px}
+.pair .desc{color:var(--muted);font-size:12.5px;flex:1}
+
+.view{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:10px 0}
+.view h3{color:var(--crimson2);font-size:13.5px;margin-bottom:6px}
+.view .vlab{display:inline-block;font-size:10px;font-weight:700;color:#180a10;background:var(--crimson2);padding:2px 8px;border-radius:4px;margin-right:6px}
+.view p,.view li{font-size:13px;color:var(--muted)}
+.view b{color:var(--text)}
+
+.jr{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
+.jr>div{padding:13px 15px;font-size:13px;color:var(--text)}
+.jr .j{background:rgba(138,58,58,.16);border-right:1px solid var(--border)}
+.jr .r{background:rgba(90,138,107,.16)}
+.jr .lab{font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.jr .j .lab{color:#e08a8a}
+.jr .r .lab{color:#8fcf9f}
+@media(max-width:520px){.jr{grid-template-columns:1fr}.jr .j{border-right:none;border-bottom:1px solid var(--border)}}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.vblock{margin:8px 0;border-left:2px solid var(--border);padding-left:10px}
+.vl{display:flex;gap:8px;margin:3px 0;font-size:13px;line-height:1.7}
+.vn{color:var(--gold);font-weight:700;min-width:1.6em;text-align:right;flex-shrink:0}
+.b-blank{background:rgba(160,128,143,.14);color:#d9a8b8;border:1px solid rgba(217,168,184,.45)}
+.blank{background:rgba(160,128,143,.08);border:1px dashed rgba(217,168,184,.5);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.blank b{color:var(--text)}
+.sum{background:linear-gradient(180deg,rgba(201,168,76,.08),transparent);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:10px;padding:14px 17px;margin:16px 0 8px;font-size:13.5px}
+.sum h3{color:var(--gold);font-size:14px;margin-bottom:6px}
+.sum p{color:var(--text);margin:5px 0}
+.sum .mini{color:var(--muted);font-size:12.5px}
+td .vblock{margin:2px 0}
+.hb{font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 5주차 · 2026학년도 2학기</div>
+  <h1>제5강 아모스 후반부 · 오바댜서</h1>
+  <div class="prof">담당 오성호 교수 · 100% 영상강의(Panopto) · 제5과 1of2 · 2of2</div>
+</div>
+
+<div class="intro">
+  5주차 두 영상 — <b>제5과 1of2</b>(LMS 제목 "제5과 오바댜-1_아모스서의 메시지", 지난 시간에 마무리하지 못한 아모스서의 신학적 메시지)와
+  <b>제5과 2of2</b>(오바댜서의 구조와 신학 메시지) — 의 Panopto 자막을 이번 학기 강의안과 함께 정리했습니다. <b>1부</b>는 강의안 "제4과 아모스"의 <b>III. 아모스서의 신학적 메시지</b>(다섯 주제)를 뼈대로 삼고
+  서두의 배경·구조 복습을 강의안 해당 항목에 붙였으며, <b>2부</b>는 강의안 "제5과 오바댜서"(I. 서론 · II. 구조와 주요 내용 · III. 신학적 메시지)를 뼈대로 삼았습니다.
+  강의안의 항목 순서와 표기를 그대로 따르고, 교수님이 영상에서 풀어 설명한 내용을 해당 항목에 붙였습니다. 강의안에 빈칸(내용 없이 제목이나 물음만 있는 항목)이 있을 때
+  자막에 답이 있으면 채우고, 자막에도 답이 없으면 지어내지 않고 <span class="b-blank bdg">미해결</span>로 표시했습니다. 모든 성경 본문은 <b>대한성서공회 개역개정</b>
+  원문을 옮겼습니다. 교수님이 반복·강조한 부분은 <span class="b-exam bdg">교수 강조</span>, 강의안에는 없고 구두 설명에만 있는 내용은 <span class="b-add bdg">강의 추가</span>,
+  본문·히브리어 원문·번역본 대조로 보충한 부분은 <span class="b-sup bdg">보충</span>으로 구분했습니다. 자동자막 특성상 문맥이 어색한 구간은 매끄럽게 고치지 않고
+  <span class="asr">[ASR 불확실]</span>로 표시했습니다. 두 영상 자막 어디에도 "시험" 언급은 없습니다. 강조 표현은 1of2의 "우리가 기억해야 합니다"와 "가장 중요한 신학적인 주제" 두 곳뿐이어서,
+  ⭐는 이 두 곳과 반복 설명·명시적 결론·되묻기로 강조한 부분에만 붙였습니다.
+</div>
+
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <p><b>1부 — 아모스서의 신학적 메시지.</b> 네 편의 찬송시는 창조주 여호와의 <b>오심</b>이 피조물의 황폐(1:2)·심판의 황폐(4:12-13)·강한 자의 패망(5:8-9)·우주적 대변동(9:5-6)을 가져온다고 노래합니다.
+  여호와의 날은 통념과 달리 이스라엘을 심판하는 날이며, 9:7은 <b>선택 사상의 무효화</b>를, 9:8 하반절은 심판에서 약속으로의 전환을 말합니다. 다섯 이상은 심판이 유예되다가(황충·불)
+  불가피해지고(다림줄·여름 과일) 성전까지 무너지는 과정이고, 이것이 아모스서의 가장 중요한 신학 주제입니다. 이스라엘의 죄는 우상숭배와 부패한 예배, 사회적 불의이며
+  <b>정의와 공의가 없는 예배는 무용</b>합니다. 남은 자는 언약에 계속 충성하는 자이고(9:9 체질), 아모스는 사회 개혁가가 아니라 <b>언약의 수호자</b>이며, 심판 뒤 다윗의 무너진 장막이 세워집니다.
+  결론은 "여호와를 찾으라 그리하면 살리라 · 정의를 물같이".</p>
+  <p><b>2부 — 오바댜서.</b> 한 장 21절, 대부분 <b>에돔에 대한 심판</b>이며 소선지서에서 아모스와 요나 사이에 놓입니다. 구조: 표제(1a) · 에돔 심판 신탁(1b-9) · 에돔의 죄(10-14) ·
+  만국을 벌할 여호와의 날(15-16) · 하나님 왕국의 영광(17-21). 에돔은 이스라엘과 쌍둥이 형제이자 숙적이며 열방의 대표입니다. 에돔은 지리·경제·지혜·용사에 대한 안전 의식이 교만이 되어
+  멸망하고(1-9), 야곱이 재앙을 당하던 "형제의 날"에 방관·기뻐함·약탈로 죄를 지었으며(10-14), 그 날이 15절에서 만국의 심판인 여호와의 날로 확장됩니다. 신학 메시지는
+  여호와의 보편적 통치 · 만국을 벌하실 심판의 날 · 아브라함 언약의 성취입니다.</p>
+  <p class="mini"><b>꼭 기억할 것</b> · 암 9:8b의 "야곱의 집"은 남북을 포함한 통칭 · 강의안 4과 III의 물음("G=?", "종말론적 개념?", "shalom") 답 · 옵 1-4//렘 49:14-16, 옵 5//렘 49:9, 옵 8//렘 49:7, 옵 16//렘 49:12 ·
+  옵 17 = 욜 2:32 + 3:17이며 에돔의 구원이 아니라 "시온만 피할 곳" · 옵 18(에서 족속에 남은 자 없음) vs 암 9:12(에돔의 남은 자) · 오바댜 연대는 강의 내 진술이 갈림(미해결)</p>
+  <p class="mini"><b>⭐ 교수 강조(반복·명시적 결론·되묻기)</b> · 심판의 불가피성 = 아모스서의 가장 중요한 신학 주제 · 9:7 선택 사상의 무효화("충격적인 개념") · "야곱·이스라엘 족속"은 통칭 · 정의·공의 없는 예배는 무용 ·
+  아모스는 언약의 수호자 · 에돔은 열방의 대표 · 옵 17은 에돔의 구원이 아님 · 옵 18과 암 9:12는 모순이 아님 · 형제의 날과 만국을 벌할 날은 같은 날</p>
+</div>
+
+<div class="toc">
+  <a href="#a0">암 0. 복습</a>
+  <a href="#a1">암 III-1. 오심과 여호와의 날</a>
+  <a href="#a2">암 III-2. 심판의 불가피성</a>
+  <a href="#a2b">호·욜·암 여호와의 날</a>
+  <a href="#a3">암 III-3. 이스라엘의 죄</a>
+  <a href="#a4">암 III-4. 남은 자</a>
+  <a href="#a5">암 III-5. 언약 갱신·결론</a>
+  <a href="#a6">4주차와의 연결</a>
+  <a href="#canon">옵 I-1. 정경적 위치</a>
+  <a href="#edom">옵 I-2. 이스라엘과 에돔</a>
+  <a href="#structure">옵 II-1. 구조</a>
+  <a href="#content">옵 II-2. 주요 내용</a>
+  <a href="#theology">옵 III. 신학적 메시지</a>
+  <a href="#compare">호·욜·암·옵 비교</a>
+  <a href="#intro1">참고: 1강 서론과의 연결</a>
+  <a href="#open">미해결·미언급 정리</a>
+  <a href="#verify">출처·검증 요약</a>
+</div>
+<div class="part-div" id="partA"><span>제5과 1of2 · 지난 시간에 마무리 못한 아모스서의 신학적 메시지</span></div>
+<div class="sec" id="a0">
+  <div class="sh"><span class="sb">암 0</span><span class="st">복습 — 아모스서의 배경·구조·네 편의 찬송시</span><div class="sl"></div></div>
+  <div class="card"><h3>배경과 구조 복습</h3>
+    <p>강의는 "오늘 오바디아를 보기 전에 지난 시간에 마무리 못했던 아모스서의 신학적인 메시지. 이 부분을 같이 한번 보고 마무리를 하도록 그렇게 하겠습니다. 그러고 나서 오바댜를 진행하겠습니다"라는 말로 시작합니다.
+    (4주차 노트 §11에서 다음 주로 이월된 <b>"III. 아모스서의 신학적 메시지" 5가지 주제</b>가 이 1부에서 다뤄집니다.) 교수님은 먼저 아모스의 배경과 구조를 짧게 되짚었습니다.</p>
+    <ul>
+      <li><b>배경</b>: 아모스는 유다 출신 목자로서 북 이스라엘에 가서 말씀을 선포한 선지자입니다. 북 이스라엘의 <b>여로보암 왕</b>은 영토를 많이 회복하고 군사적·경제적으로 성공해 나라가 부강해진 왕이었지만,
+        당시는 사회적·종교적으로 너무 부패한 시기였습니다. 그래서 아모스는 <b>우상을 섬기며 하나님을 떠난 백성</b>과 <b>공평과 의를 떠나 사회적 불의를 행하는 것</b>에 대해 선포했습니다.
+        (강의안 4과: 여로보암 왕의 영토회복 · 권력 집중 및 부유한 귀족 계층 형성 · 도덕적·영적·사회적 타락)
+        <span class="asr">[ASR 불확실: "그때가 유다에는 우시야 왕이 없고요" — 4주차 노트의 1:1 근거(웃시야 시대)와 맞지 않는 어절이라 "없고요"의 뜻은 특정 불가, "우시야"는 웃시야로 판단]</span></li>
+      <li><b>내용</b>: 1-2장 — 유다와 이스라엘을 포함한 <b>8개 나라(열방) 심판 신탁</b> · 3-6장 — 이스라엘에 대한 심판 신탁(왜 예언해야 했는지, 이스라엘 사회와 궁궐이 어떻게 부패했는지, 멸망할 이스라엘을 위한 애가) ·
+        7-9장 — <b>다섯 가지 이상</b>으로 심판의 필연성을 강조. 아모스는 그 심판의 날을 <b>여호와의 날</b>이라 했습니다.</li>
+    </ul></div>
+  <div class="card"><h3>네 편의 찬송시 — 구조</h3>
+    <p>교수님은 아모스서의 특이한 구절인 <b>네 편의 찬송시</b>(1:2, 4:12-13, 5:8-9, 9:5-6 — 강의안 4과 "네 편의 찬송: 피조물에 대한 YH의 주권")를 복습하며 구조적 기능을 설명했습니다.</p>
+    <div class="tw"><table><caption>네 찬송시의 구조적 기능 (교수님의 설명)</caption><thead><tr><th>찬송시</th><th>감싸는 단락</th><th>역할</th></tr></thead><tbody>
+<tr><td>1:2 · 4:12-13</td><td>아모스서를 크게 다섯 단락으로 나눌 때 맨 마지막은 결론이므로, 앞 네 단락 중 <b>첫째(1-2장 열방 심판)·둘째(3-4장 이스라엘 심판)</b></td><td>두 단락의 맨 앞(1:2)과 맨 뒤(4:13)에서 감쌉니다.</td></tr>
+<tr><td>5:8-9 · 9:5-6</td><td><b>셋째·넷째 단락</b>의 맨 앞과 맨 뒤</td><td>5:8-9는 셋째 단락 중 <b>권면하는 내용을 지지</b>하고, 9:5-6은 넷째 단락 중 <b>다섯 개의 심판 이상을 마무리</b>합니다.</td></tr>
+</tbody></table></div>
+
+    <ul>
+      <li>네 찬송은 <b>여호와께서 창조질서 안으로, 곧 이스라엘과 열방에게로 오심에 따라 나타나는 현상들</b>을 표현하며, 그렇게 <b>오시는 날이 바로 여호와의 날</b>이므로 찬송시들은 여호와의 날(신현)과 밀접한 관련이 있습니다.</li>
+      <li>찬송시가 있는 이유: 찬송시는 결국 <b>하나님의 오심</b>을 말하는 것으로, 하나님이 오심으로 그 주권과 권능이 나타나고 모든 피조물에 영향을 미친다는 것을 네 번의 찬송이 말한다고 정리했습니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "1장 1절, 4장 12절, 13절, 5장 8절 9절, 그리고 9장 5절 6절" — 첫 항목의 "1장 1절"은 이어지는 설명 "첫 번째 찬송시 1장 2절"과 강의안(① 1:2)에 따라 1:2로 판단]</span></p></div>
+
+</div>
+<div class="sec" id="a1">
+  <div class="sh"><span class="sb">암 III-1</span><span class="st">III. 아모스서의 신학적 메시지 · 1. YH의 오심과 YH의 날</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III-1: <b>"네 개의 찬송시 ① 1:2 YH의 오심은 모든 피조물에 영향을 미친다 · ② 4:12-13 YH의 오심은 황폐를 가져온다 · ③ 5:8-9 우주와 자연을 통제하시는 G의 오심은 강한 자에게 패망을 가져온다 · ④ 9:5-6 YH의 오심은 우주적인 대변동을 가져온다"</b>.
+    아래는 강의안 항목별로 본문(개역개정)과 교수님의 설명을 붙인 것입니다.</p></div>
+  <div class="card"><h3>① 1:2 — YH의 오심은 모든 피조물에 영향을 미친다</h3>
+    <div class="vblock"><div class="vl"><span class="vn">2</span><span class="vq">"그가 이르되 여호와께서 시온에서부터 부르짖으시며 예루살렘에서부터 소리를 내시리니 목자의 초장이 마르고 갈멜 산 꼭대기가 마르리로다"</span></div></div>
+    <ul>
+      <li>"시온과 예루살렘에서부터 부르짖는다"는 말씀은 <b>삿 5:4</b>(<span class="vq">"세일에서부터 나오시고 에돔 들에서부터 진행하실 때"</span>)와 <b>신 33:2</b>(<span class="vq">"여호와께서 시내 산에서 오시고 세일 산에서 일어나시고 바란 산에서 비추시고"</span>)와 같은 의미의 <b>신현 본문</b>이며, 하나님이 오신다는 것을 표현하는 방법이라고 설명했습니다 <span class="bdg b-add">강의 추가</span>.</li>
+      <li>하나님이 오시면 "목자의 초장이 마르고 갈멜 산 꼭대기가 마르리로다" — <b>모든 피조물에 영향을 미쳐</b> 시들고 가뭄이 들고 황폐해진다는 뜻이며, 욜 3:16 <span class="vq">"하늘과 땅이 진동하리로다"</span>과 같은 맥락이라고 했습니다.</li>
+      <li>"부르짖으시고 소리를 내신다"는 것은 <b>아마도 선지자를 통한 하나님의 말씀 선포</b>가 아닐까 한다고 조심스럽게 풀었습니다. 선지자의 역할이 하나님의 말씀을 전하는 것이므로, 아모스를 통한 말씀이 그대로 성취되어 가뭄과 황폐를 가져온다는 것입니다(교수님의 추측 표현).</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "사사기 5장 4절에 시온의 세일 과 에돔들 에서부터" — 개역개정 삿 5:4에는 "시온"이 없고 "세일에서부터 … 에돔 들에서부터"로 되어 있음. "시온의"가 무엇의 오인식인지 특정 불가]</span>
+    <span class="asr">[ASR 불확실: "신년 본문" — 앞서 "여호와의 날 즉 신현"과 이어져 "신현(神顯) 본문"의 오인식으로 판단]</span></p></div>
+  <div class="card"><h3>② 4:12-13 — YH의 오심은 황폐를 가져온다 · <em>G=?</em></h3>
+    <div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"그러므로 이스라엘아 내가 이와 같이 네게 행하리라 내가 이것을 네게 행하리니 이스라엘아 네 하나님 만나기를 준비하라"</span></div><div class="vl"><span class="vn">13</span><span class="vq">"보라 산들을 지으며 바람을 창조하며 자기 뜻을 사람에게 보이며 아침을 어둡게 하며 땅의 높은 데를 밟는 이는 그의 이름이 만군의 하나님 여호와시니라"</span></div></div>
+    <p>강의안은 이 항목에 <b>"· G=? 산들을 지으시고 바람을 창조 / (그의) 뜻을 사람에게 보이심 / 아침을 어둡게, 땅의 높은 데를 밟으심 ==&gt; 자연과 땅을 지배하시는 G"</b>라고 적고 "G=?"를 물음으로 두었습니다. 교수님이 이 물음에 답했습니다.</p>
+    <div class="tw"><table><caption>강의안 III-1 ② · G=? (세 가지 속성)</caption><thead><tr><th>본문의 속성</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>산들을 지으시고 바람을 창조하시는 분</td><td>산과 바람은 세상의 <b>견고한 것들과 변화무쌍한 것들</b>을 말하며, 견고한 것이든 변화무쌍한 것이든 모두 하나님이 창조하셨다는 뜻입니다.</td></tr>
+<tr><td>자기 뜻을 사람에게 보이시는 분 <span class='hb'>(강의안: (그의) 뜻)</span></td><td>개역개정은 &quot;자기&quot;를 하나님으로 읽어 <b>계시의 하나님, 교제와 교통의 하나님</b>이라는 의미로 번역했습니다. 그런데 킹제임스 번역은 이를 <b>&quot;히즈(his)&quot;</b>로 옮겨 <b>그의 뜻, 곧 사람의 뜻(생각)</b>을 사람에게 보이시는 분으로 읽습니다. 이 경우 하나님이 생각하신 것을 나타내 보이신다기보다 <b>사람이 생각하고 있는 것을 그 사람에게 보이시는 분</b> — 곧 사람의 마음을 살피시고 선지자를 통해 그들의 마음 상태를 사람들에게 나타내시는 분이라는 뜻입니다.</td></tr>
+<tr><td>아침을 어둡게 하며 땅의 높은 데를 밟는 이</td><td><b>자연과 땅을 지배하시는 하나님</b>, 특히 심판하시고 황폐케 하시는 하나님입니다.</td></tr>
+</tbody></table></div>
+
+    <div class="sup"><span class="tag">🔎 보충(원문·번역 대조)</span> 히브리어 마소라 본문 암 4:13은 <b>מַה־שֵּׂחוֹ</b>(mah-śēḥô)로 "그(의) 생각/뜻이 무엇인지"를 가리키며 접미사 <b>-ô</b>("그의")가 누구를 가리키는지가 이 논점의 핵심입니다.
+    KJV는 "and declareth unto man what is <b>his</b> thought"로 옮겨 교수님의 설명과 일치합니다. 개역개정은 "자기 뜻을 사람에게 보이며"입니다.</div>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> 이 표현("그의 이름이 …")은 <b>둘째·셋째·넷째 찬송시에 반복</b>되며 첫째 찬송시에는 없다고 했습니다. 본문 대조: 4:13 <b>"그의 이름이 만군의 하나님 여호와시니라"</b> · 5:8 <b>"그의 이름은 여호와시니라"</b> · 9:6 <b>"그 이름은 여호와시니라"</b>로, 반복되는 것은 "그의 이름은 여호와" 공식이고 "만군의 하나님"까지 붙은 형태는 4:13(그리고 9:5의 "주 만군의 여호와")입니다.</li>
+    </ul></div>
+  <div class="card"><h3>③ 5:8-9 — 우주와 자연을 통제하시는 G의 오심은 강한 자에게 패망을 가져온다</h3>
+    <div class="vblock"><div class="vl"><span class="vn">8</span><span class="vq">"묘성과 삼성을 만드시며 사망의 그늘을 아침으로 바꾸시고 낮을 어두운 밤으로 바꾸시며 바닷물을 불러 지면에 쏟으시는 이를 찾으라 그의 이름은 여호와시니라"</span></div><div class="vl"><span class="vn">9</span><span class="vq">"그가 강한 자에게 갑자기 패망이 이르게 하신즉 그 패망이 산성에 미치느니라"</span></div></div>
+    <ul>
+      <li>하나님은 <b>묘성과 삼성, 밤과 낮, 바다와 땅을 지배하고 통제하시는 하나님</b>입니다. 이스라엘은 어떤 존재인가 — 5:7 <span class="vq">"정의를 쓴 쑥으로 바꾸며 공의를 땅에 던지는 자들아"</span>, 곧 <b>공의와 정의를 버린 자들</b>이라 패망할 수밖에 없습니다.</li>
+      <li><span class="bdg b-add">강의 추가</span> <b>정의는 미쉬파트</b> — 피조물에 대한 하나님의 통치와 그 질서. <b>공의</b>는 하나님의 성품에 따른 행위. 하나님이 주신 <b>언약 질서인 정의와 공의</b>를 버렸기에 하나님의 오심은 그들을 향한 심판일 수밖에 없다고 했습니다.
+        <span class="hb">원문 대조: 암 5:24 마소라 본문은 <b>וְיִגַּל כַּמַּיִם מִשְׁפָּט וּצְדָקָה כְּנַחַל אֵיתָן</b> — 정의=מִשְׁפָּט(mišpāṭ, 미쉬파트), 공의=צְדָקָה(ṣĕdāqāh, 체다카)로 대응합니다.</span></li>
+      <li>"강한 자에게 갑자기 패망이 이르게 하신즉" — 스스로 강하다고 생각하는 사람들, 곧 <b>지도자들·귀족들, 마음이 든든하게 살아가는 사람들</b>에게 갑자기 패망이 이른다는 것입니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "묘선과 삼상" — 개역개정 5:8 "묘성과 삼성"으로 대조 확인 · "공의 체득화라는 것은" — 5:24 원문의 공의 צְדָקָה(체다카)를 가리키는 것으로 판단(개역개정 "공의"·마소라 본문 대조) · 정의를 "미쉬파트/미스파트/미스파티/미시 파트"로 다르게 적은 것은 모두 מִשְׁפָּט의 오인식으로 판단]</span></p></div>
+  <div class="card"><h3>④ 9:5-6 — YH의 오심은 우주적인 대변동을 가져온다</h3>
+    <div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"주 만군의 여호와는 땅을 만져 녹게 하사 거기 거주하는 자가 애통하게 하시며 그 온 땅이 강의 넘침 같이 솟아 오르며 애굽 강 같이 낮아지게 하시는 이요"</span></div><div class="vl"><span class="vn">6</span><span class="vq">"그의 궁전을 하늘에 세우시며 그 궁창의 기초를 땅에 두시며 바닷물을 불러 지면에 쏟으시는 이니 그 이름은 여호와시니라"</span></div></div>
+    <ul>
+      <li>이것은 <b>묵시적인 언어</b>입니다. 문맥적으로는 강대국을 통한 심판으로 폐허를 만드시는 것이지만, 그것을 넘어 <b>궁극적으로 우주 자체의 변화</b>를 가져온다는 의미이며 교수님은 이를 "단순한 은유라기 보다도 문자적으로 이 묵시적인 그러한 의미를 가지고 있는 거죠"라고 설명했습니다.</li>
+      <li>6절: <b>하늘과 땅과 바다의 질서를 세우시고 유지하시고 무너지게도, 되돌리시기도 하시는</b> 하나님이 오십니다. 여호와의 권능과 창조력을 가진 오심은 피조물에 영향을 미치고 황폐와 패망을 가져오며 우주적 대변동을 가져옵니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "땅을 만져 높게 하사" — 개역개정 9:5와 이어지는 "녹게"·"녹게 한다"에 따라 "녹게"로 판단(본문 대조)]</span></p></div>
+  <div class="card"><h3>YH의 날(암 5:18-20) · 종말론적 개념? · 암 9:7</h3>
+    <p>강의안 III-1의 두 번째 묶음: <b>"YH의 날(암 5:18-20) · 요엘과 같이 통념적인 개념을 뒤집음 · 종말론적 개념? · 암 9:7"</b>.</p>
+    <div class="vblock"><div class="vl"><span class="vn">18</span><span class="vq">"화 있을진저 여호와의 날을 사모하는 자여 너희가 어찌하여 여호와의 날을 사모하느냐 그 날은 어둠이요 빛이 아니라"</span></div><div class="vl"><span class="vn">19</span><span class="vq">"마치 사람이 사자를 피하다가 곰을 만나거나 혹은 집에 들어가서 손을 벽에 대었다가 뱀에게 물림 같도다"</span></div><div class="vl"><span class="vn">20</span><span class="vq">"여호와의 날은 빛 없는 어둠이 아니며 빛남 없는 캄캄함이 아니냐"</span></div></div>
+    <ul>
+      <li>여호와의 날은 <b>하나님이 오시는 날</b>이며, 그날에 우주적 심판과 변동이 나타납니다. 암 5:18-20이 보여주듯 <b>여호와의 개입으로 심판과 구원이 나타나는 날</b>입니다.</li>
+      <li><b>통념 뒤집기</b>: 이스라엘이 옹호·변호받는 날, 이스라엘의 전성시대가 아니라 <b>원수의 군대를 보내셔서 자기 백성 이스라엘을 심판하시는 날</b>입니다. 교수님은 "요엘과 같이 통념적인 그 여호와의 날의 개념을 이 아모스는 뒤집었습니다"라고 정리했습니다.</li>
+      <li><b>종말론적 개념?(강의안 물음)</b>: 교수님은 "묵시적인 개념이라고 말할 수 있다고 저는 생각을 하고 있습니다"라고 답했습니다. 여기서 묵시적이란 우주적인 변화까지 나타나는 의미입니다(교수님의 견해로 표현).</li>
+    </ul></div>
+  <div class="card"><h3><span class="bdg b-exam">교수 강조</span> 암 9:7-9 — 선택 사상의 무효화, 그리고 심판에서 약속으로</h3>
+    <div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"여호와의 말씀이니라 이스라엘 자손들아 너희는 내게 구스 족속 같지 아니하냐 내가 이스라엘을 애굽 땅에서, 블레셋 사람을 갑돌에서, 아람 사람을 기르에서 올라오게 하지 아니하였느냐"</span></div><div class="vl"><span class="vn">8</span><span class="vq">"보라 주 여호와의 눈이 범죄한 나라를 주목하노니 내가 그것을 지면에서 멸하리라 그러나 야곱의 집은 온전히 멸하지는 아니하리라 여호와의 말씀이니라"</span></div><div class="vl"><span class="vn">9</span><span class="vq">"보라 내가 명령하여 이스라엘 족속을 만국 중에서 체질하기를 체로 체질함 같이 하려니와 그 한 알갱이도 땅에 떨어지지 아니하리라"</span></div></div>
+    <ul>
+      <li><b>9:7 (강의안 "암 9:7")</b>: 교수님은 "굉장히 충격적인 사상"이라며 "여러분, 놀랍지 않습니까? 충격적인 개념이죠"라고 반응했습니다. 하나님은 이스라엘을 애굽에서 가나안으로 올라오게 하셨고, 이스라엘은 자신들이 선민이며 독특한 민족이라고 생각했는데,
+        하나님은 "너희는 내게 구스 족속 같지 아니하냐"고 하십니다. 곧 <b>이스라엘이 애굽에서 올라온 것이 블레셋(갑돌)이나 아람(기르)의 이동과 다를 바 없다</b>는 것 — <b>선택 사상의 무효화</b>입니다.
+        이스라엘이 하나님의 언약을 파기했기에 이스라엘이나 열방이나 차별성이 없고 똑같이 심판받는다는 뜻이라고 풀었습니다.</li>
+      <li><b>9:8 상반절</b>: 하나님의 눈이 범죄한 나라를 주목해 지면에서 멸하십니다 — 언약을 깨뜨려 열방과 같아졌으므로 당연한 결과입니다. <b>9:8 하반절 "그러나 야곱의 집은 온전히 멸하지는 아니하리라"</b>는 <b>심판에서 약속으로 변하는 결정적인 전환점</b>입니다.
+        <span class="asr">[ASR 불확실: "차일지가 그렇게 표현했어요" — 이 표현을 한 학자의 이름이 자막에서 "차일지"로 나옴. 학자·저작을 특정하지 못함(강의안 4과에는 이 귀속 없음). 임의 확정하지 않음]</span></li>
+      <li><b>"야곱의 집"은 누구인가</b>: 북 왕국도 남 왕국도 아니고 <b>통칭적인 하나님의 언약 백성</b>입니다. 근거는 9:11의 "다윗의 무너진 장막"(다윗 장막에 대한 전망 포함)입니다. 어떤 학자들은 하나님이 북 왕국은 멸망시키지만 남 왕국은 남겨 두시겠다는 약속으로 읽지만 <b>그렇지 않다</b>고 했습니다.
+        9절에서 "이스라엘 족속을 만국 중에서 체질한다"고 하므로 이는 북 왕국만이 아니라 <b>남북 하나님의 백성 가운데 참 하나님의 백성을 가려내는 심판</b>이며, 그 결과 언약을 회복하고 지키는 백성은 구원받아 <b>"그 한 알갱이도 땅에 떨어지지 아니하리라"</b>(9:9)는 것입니다.</li>
+      <li><span class="bdg b-exam">교수 강조</span> 지난 시간에도 말한 대로 아모스서의 <b>"야곱 족속·이스라엘 족속"</b>(3:13, 7:2, 8:7, 9:9, 9:8)이라는 표현은 <b>북 이스라엘뿐 아니라 남 왕국까지 포함하는 통칭적인 명칭</b>이므로 기억해야 한다고 강조했습니다.
+        <span class="hb">본문 대조: 3:13 "야곱의 족속" · 7:2 "야곱" · 8:7 "야곱의 영광" · 9:8 "야곱의 집" · 9:9 "이스라엘 족속" — 개역개정에서 모두 확인.</span></li>
+    </ul></div>
+
+</div>
+<div class="sec" id="a2">
+  <div class="sh"><span class="sb">암 III-2</span><span class="st">III. 아모스서의 신학적 메시지 · 2. 심판의 불가피성</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III-2: <b>"YH의 날/YH의 오심에 따른 심판 · 5가지 환상을 통한 심판의 확실성"</b> — 강의안의 표: 황충·불(심판의 유예) / 다림줄·여름 과일 광주리(심판의 불가피성) / G의 성전(G께서 백성을 버리심).</p>
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> 여호와의 날에 하나님이 오시면 <b>불가피하게 심판</b>이 나타나며, 교수님은 이것이 <b>"아모스서의 가장 중요한 신학적인 주제"</b>라고 못 박았습니다. 다섯 가지 환상(7-9장)은 이스라엘을 멸망시키기로 결심한 <b>하나님의 굳은 결의, 심판의 확실성·필연성</b>을 말합니다.</li>
+      <li>다섯 이상: <b>황충(메뚜기) · 불 · 다림줄 · 여름 과일 광주리 · 하나님의 성전(제단)</b>.</li>
+    </ul>
+    <div class="tw"><table><caption>강의안 III-2 · 다섯 이상의 구조 (강의안 표 + 교수님의 설명)</caption><thead><tr><th>구분</th><th>이상</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>심판의 유예</td><td>① 황충 · ② 불</td><td><b>구조가 동일</b>: 먼저 자연재해가 나타나고 → <b>모세와 같이 중보하는 아모스의 중보기도</b> → 하나님의 <b>용서와 심판의 유예</b>. (본문: 7:1-6에서 아모스의 &quot;청하건대 사하소서&quot;·&quot;청하건대 그치소서&quot; 뒤에 &quot;뜻을 돌이키셨으므로 이것이 이루어지지 아니하리라&quot;)</td></tr>
+<tr><td>심판의 불가피성</td><td>③ 다림줄 · ④ 여름 과일 광주리</td><td>둘 다 <b>언어유희</b>를 사용한다는 점에서 동일하며, 앞의 두 이상은 심판이 유예되었지만 여기서는 <b>심판이 불가피하다</b>는 것을 강조합니다. (본문 7:8 &quot;다시는 용서하지 아니하리니&quot;, 8:2 &quot;내가 다시는 그를 용서하지 아니하리니&quot;)</td></tr>
+<tr><td>G께서 백성을 버리심</td><td>⑤ 하나님의 성전(제단)</td><td><b>하나님의 제단이 심판을 받음</b> — 예배가 부패했고 그 예배의 부패가 백성들의 멸망을 가져옵니다. 백성들이 심판을 피해 어디로 가더라도(9:2-3 스올·하늘·갈멜 산 꼭대기·바다 밑) <b>꼭 찾아내 심판하시겠다</b>고 합니다.</td></tr>
+</tbody></table></div>
+
+    <div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"내가 보니 주께서 제단 곁에 서서 이르시되 기둥 머리를 쳐서 문지방이 움직이게 하며 그것으로 부서져서 무리의 머리에 떨어지게 하라 내가 그 남은 자를 칼로 죽이리니 그 중에서 한 사람도 도망하지 못하며 그 중에서 한 사람도 피하지 못하리라"</span></div><div class="vl"><span class="vn">2</span><span class="vq">"그들이 파고 스올로 들어갈지라도 내 손이 거기에서 붙잡아 낼 것이요 하늘로 올라갈지라도 내가 거기에서 붙잡아 내릴 것이며"</span></div><div class="vl"><span class="vn">3</span><span class="vq">"갈멜 산 꼭대기에 숨을지라도 내가 거기에서 찾아낼 것이요 내 눈을 피하여 바다 밑에 숨을지라도 내가 거기에서 뱀을 명령하여 물게 할 것이요"</span></div><div class="vl"><span class="vn">4</span><span class="vq">"그 원수 앞에 사로잡혀 갈지라도 내가 거기에서 칼을 명령하여 죽이게 할 것이라 내가 그들에게 주목하여 화를 내리고 복을 내리지 아니하리라 하시니라"</span></div></div>
+    <p class="hb"><span class="asr">[ASR 불확실: "받아 끝이나 산꼭대기나 하늘 이나 땅이나" — 9:2-3 "스올 … 하늘 … 갈멜 산 꼭대기 … 바다 밑"을 가리키는 대목으로 판단하나 첫 낱말 "받아 끝이나"는 특정 불가 · "그 황충과 메뚜기. 불. 이상은. 속에서 나타난 이상과 같이 똑같이 용서를 받는다" — 문장이 끊겨 "속에서"가 무엇을 가리키는지 특정 불가]</span></p>
+    <p class="hb">언어유희의 구체적 내용은 강의안 4과 II에 적혀 있습니다(강의안 원문): "다림줄 — 아나크(אנך): 주석(tin)/납(lead)의 의미 --&gt; 주석으로 만든 담, 청동으로 만든 무기를 들고 계신 주님 · 아나크()와 아나크(애곡, 신음)/아나흐(애곡, 신음)의 언어유희로 보는 견해 - אנח אנק אנך" ·
+    "여름 과일 광주리 — 여름: 카이츠; 끝: 케츠"(이 절의 개역개정 각주: "히, 여름 과일이란 말과 끝이란 말의 음이 같음"). 이번 강의(1of2)에서는 이 세부를 다시 풀지 않았습니다(4주차 강의에서 다룸).</p></div>
+
+</div>
+<div class="sec" id="a2b">
+  <div class="sh"><span class="sb">암 III-2+</span><span class="st">여호와의 날 주제 — 호세아 · 요엘 · 아모스</span><div class="sl"></div></div>
+  <div class="card">
+    <p>교수님은 이어서 "우리가 지난. 성경에서 나타난 부분들을 다시 한번 정리를 해 보면요"라며 여호와의 날 주제를 호세아·요엘·아모스의 순서로 종합했습니다(강의안 1강 서론 "소선지서의 YH의 날"·"YH의 날과 구속의 진전"과 같은 취지).</p></div>
+<div class="tw"><table><caption>호세아·요엘·아모스의 여호와의 날 — 교수님의 종합 (본문은 개역개정)</caption><thead><tr><th>책</th><th>교수님의 정리</th><th>관련 본문</th></tr></thead><tbody>
+<tr><td><b>호세아</b></td><td>이스라엘을 언약 파괴로 심판하시며 그날은 <b>형벌의 날·보응의 날</b>. 이후 하나님이 <b>언약을 갱신하고 새롭게 장가들어 관계를 회복</b>하시고, 회복이 <b>창조 언약까지 확장</b>되어 창조와 구속이 하나로 합쳐지며, <b>다윗 왕국에 대한 소망</b>까지 나타납니다.</td><td>호 9:7(오바댜 부 참조) · 호 3:5 <div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"그 후에 이스라엘 자손이 돌아와서 그들의 하나님 여호와와 그들의 왕 다윗을 찾고 마지막 날에는 여호와를 경외하므로 여호와와 그의 은총으로 나아가리라"</span></div></div></td></tr>
+<tr><td><b>요엘</b></td><td>여호와의 날에 <b>이스라엘의 심판이 우선</b> 있고, 나아가 <b>여호사밧 골짜기에서 만국이 심판</b>받습니다. 욜 2:30-31의 이적(피와 불과 연기 기둥·해가 어두워지고 달이 핏빛)과 욜 3:14-21의 <b>우주적 대변혁</b>(해와 달이 캄캄하고 별들이 빛을 거둠, 산들이 포도주를 떨어뜨리고 작은 산들이 젖을 흘림).</td><td><div class="vblock"><div class="vl"><span class="vn">30</span><span class="vq">"내가 이적을 하늘과 땅에 베풀리니 곧 피와 불과 연기 기둥이라"</span></div><div class="vl"><span class="vn">31</span><span class="vq">"여호와의 크고 두려운 날이 이르기 전에 해가 어두워지고 달이 핏빛 같이 변하려니와"</span></div></div><div class="vblock"><div class="vl"><span class="vn">14</span><span class="vq">"사람이 많음이여, 심판의 골짜기에 사람이 많음이여, 심판의 골짜기에 여호와의 날이 가까움이로다"</span></div><div class="vl"><span class="vn">15</span><span class="vq">"해와 달이 캄캄하며 별들이 그 빛을 거두도다"</span></div></div><div class="vblock"><div class="vl"><span class="vn">18</span><span class="vq">"그 날에 산들이 단 포도주를 떨어뜨릴 것이며 작은 산들이 젖을 흘릴 것이며 유다 모든 시내가 물을 흘릴 것이며 여호와의 성전에서 샘이 흘러 나와서 싯딤 골짜기에 대리라"</span></div></div></td></tr>
+<tr><td><b>아모스</b></td><td>요엘 3장의 <b>만국 심판이 아모스 1-2장에서 이루어지고</b>, 이스라엘도 <b>율법을 파괴하고 언약을 파괴하고 공의가 없어졌기 때문에</b> 심판받습니다. 9:5 &quot;땅을 만져서 녹게&quot;는 묵시적 언어이며, 네 찬송시는 창조주의 주권과 권능을 노래하며 하나님의 오심이 피조물에 영향을 미치고 우주의 대변동을 가져온다고 말합니다.</td><td>암 1-2장 · 암 9:5(위 ④ 참조)</td></tr>
+</tbody></table></div>
+  <div class="card">
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> 결론: <b>아모스의 종말론은 호세아·요엘과의 연속성에서 보면 창조 자체의 회복까지 바라보고 있다</b>고 교수님은 정리했습니다. 단, 자연과 창조 회복의 요소가 <b>아모스 자체 안에서는 아주 강조되고 있지는 않으며</b>, 묵시적 용어와 호세아·요엘 종말론의 연장으로 볼 때 아모스도 창조와 자연의 회복까지 바라본다고 했습니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "호세아와 Panopto 서가 가지고 있는 그러한 어떤 그 종말론" — "Panopto 서"는 요엘서의 오인식으로 판단 · "여호수아 골짜기에서 만국이" — 개역개정 욜 3:2 "여호사밧 골짜기"의 오인식으로 판단 · "요일 3장 14절부터 21절"·"요에서 3장 16절" — 욜 3:14-21·욜 3:16으로 판단(개역개정 대조) · 요엘 3장의 만국 심판이 아모스 1-2장에서 이루어진다는 진술은 교수님의 해석 표현으로 그대로 옮김]</span></p></div>
+
+</div>
+<div class="sec" id="a3">
+  <div class="sh"><span class="sb">암 III-3</span><span class="st">III. 아모스서의 신학적 메시지 · 3. 이스라엘의 죄: 우상 숭배와 사회적 불의</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III-3: <b>"이스라엘의 죄: 우상 숭배와 사회적 불의"</b> — ① 우상숭배(2:8, 5:5, 5:26, 7:9-13, 8:14) · <b>YH 숭배 자체가 부패 — 외형적·허식적 예배</b>(4:4-5, 5:21-25, 8:5) · ② 사회적 불의: 정의와 공의의 상실(3:12, 3:15, 6:4-6, 4:1, 5:11-12, 2:6-7, 8:4) · shalom · G의 뜻: 암 5:15, 24.</p></div>
+<div class="tw"><table><caption>강의안 III-3 ① · 우상숭배 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>2:8</td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"힘 없는 자의 머리를 티끌 먼지 속에 발로 밟고 연약한 자의 길을 굽게 하며 아버지와 아들이 한 젊은 여인에게 다녀서 내 거룩한 이름을 더럽히며"</span></div><div class="vl"><span class="vn">8</span><span class="vq">"모든 제단 옆에서 전당 잡은 옷 위에 누우며 그들의 신전에서 벌금으로 얻은 포도주를 마심이니라"</span></div></div></td><td>모든 <b>제단</b>에 대한 언급 — 제단 곁에서 범죄하고 하나님의 거룩한 이름을 더럽히고 있습니다. &quot;아버지와 아들이 한 젊은 여인에게 다녔다&quot;는 <b>아버지와 아들이 똑같이 우상을 섬기는 신전에 갔다</b>는 뜻으로 풀었습니다. <span class='asr'>[ASR 불확실: &quot;그 발을 숭배하는 그런 신전&quot; — 무엇을 숭배하는 신전인지 특정 불가(&quot;바알&quot;의 오인식 가능성이 있으나 확정하지 않음)]</span></td></tr>
+<tr><td>5:5</td><td><div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"벧엘을 찾지 말며 길갈로 들어가지 말며 브엘세바로도 나아가지 말라 길갈은 반드시 사로잡히겠고 벧엘은 비참하게 될 것임이라 하셨나니"</span></div></div></td><td>벧엘·길갈·브엘세바에서 드리는 <b>예배가 부패</b>했고 우상을 섬기는 행태로 나아갔다는 뜻입니다.</td></tr>
+<tr><td>5:26</td><td><div class="vblock"><div class="vl"><span class="vn">26</span><span class="vq">"너희가 너희 왕 식굿과 기윤과 너희 우상들과 너희가 너희를 위하여 만든 신들의 별 형상을 지고 가리라"</span></div></div></td><td><b>우상들을 말합니다</b> — 그들은 <b>별들을 섬겼다</b>고 설명했습니다(&quot;신들의 별 형상&quot;). <span class='asr'>[ASR 불확실: &quot;너희 왕 19 과 기운&quot; — 개역개정 5:26 &quot;식굿과 기윤&quot;의 오인식으로 판단(본문 대조)]</span></td></tr>
+<tr><td>7:9-13</td><td><div class="vblock"><div class="vl"><span class="vn">9</span><span class="vq">"이삭의 산당들이 황폐되며 이스라엘의 성소들이 파괴될 것이라 내가 일어나 칼로 여로보암의 집을 치리라 하시니라"</span></div><div class="vl"><span class="vn">10</span><span class="vq">"때에 벧엘의 제사장 아마샤가 이스라엘의 왕 여로보암에게 보내어 이르되 이스라엘 족속 중에 아모스가 왕을 모반하나니 그 모든 말을 이 땅이 견딜 수 없나이다"</span></div><div class="vl"><span class="vn">11</span><span class="vq">"아모스가 말하기를 여로보암은 칼에 죽겠고 이스라엘은 반드시 사로잡혀 그 땅에서 떠나겠다 하나이다"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"아마샤가 또 아모스에게 이르되 선견자야 너는 유다 땅으로 도망하여 가서 거기에서나 떡을 먹으며 거기에서나 예언하고"</span></div><div class="vl"><span class="vn">13</span><span class="vq">"다시는 벧엘에서 예언하지 말라 이는 왕의 성소요 나라의 궁궐임이니라"</span></div></div></td><td>&quot;이삭의 산당들, 이스라엘의 성소들, 벧엘의 제사장 아마샤&quot;라는 표현들로 <b>우상을 숭배하고 있었다</b>는 것을 보여준다고 했습니다. <span class='asr'>[ASR 불확실: &quot;7장 19절부터 13절&quot;→7:9-13, &quot;베들레헴 제사장 아마시아&quot;→7:10 &quot;벧엘의 제사장 아마샤&quot;(강의안·본문 대조)]</span></td></tr>
+<tr><td>8:14</td><td><div class="vblock"><div class="vl"><span class="vn">14</span><span class="vq">"사마리아의 죄된 우상을 두고 맹세하여 이르기를 단아 네 신들이 살아 있음을 두고 맹세하노라 하거나 브엘세바가 위하는 것이 살아 있음을 두고 맹세하노라 하는 사람은 엎드러지고 다시 일어나지 못하리라"</span></div></div></td><td>&quot;사마리아의 죄된 우상, 단, 브엘세바&quot; 언급이 우상숭배를 보여줍니다.</td></tr>
+</tbody></table></div>
+  <div class="card">
+    <p><span class="bdg b-exam">교수 강조</span> <b>YH 숭배 자체가 부패 — 외형적·허식적 예배</b>: 교수님은 여호와를 섬기지 않은 것은 아니었으나 <b>외형적으로 허식적인 예배를 드림으로써 여호와 숭배 예배 자체가 부패하게 된 것</b>이라고 정리했습니다. <span class="asr">[ASR 불확실: 원문 "여호와를 신비하지 않은 것은 아니었는데" — "신비하지"의 뜻은 특정 불가, 앞뒤 문맥으로 "섬기지"의 취지로만 옮김]</span></p></div>
+<div class="tw"><table><caption>강의안 III-3 ① · 부패한 예배 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>4:4-5</td><td><div class="vblock"><div class="vl"><span class="vn">4</span><span class="vq">"너희는 벧엘에 가서 범죄하며 길갈에 가서 죄를 더하며 아침마다 너희 희생을, 삼일마다 너희 십일조를 드리며"</span></div><div class="vl"><span class="vn">5</span><span class="vq">"누룩 넣은 것을 불살라 수은제로 드리며 낙헌제를 소리내어 선포하려무나 이스라엘 자손들아 이것이 너희가 기뻐하는 바니라 주 여호와의 말씀이니라"</span></div></div></td><td>벧엘과 길갈에 가서 예배하는 것은 <b>결국 죄를 더하는 것</b>이고 우상숭배를 암시하지만, 동시에 그들이 여호와께 예배하려고 거기 가서 드리므로 <b>여호와께 드리는 예배가 부패했다</b>는 것을 말합니다. <span class='asr'>[ASR 불확실: &quot;베들레헴에 가서 범죄하고 길가에&quot; — 4:4 &quot;벧엘&quot;·&quot;길갈&quot;의 오인식으로 판단(본문 대조)]</span></td></tr>
+<tr><td>5:21-25</td><td><div class="vblock"><div class="vl"><span class="vn">21</span><span class="vq">"내가 너희 절기들을 미워하여 멸시하며 너희 성회들을 기뻐하지 아니하나니"</span></div><div class="vl"><span class="vn">22</span><span class="vq">"너희가 내게 번제나 소제를 드릴지라도 내가 받지 아니할 것이요 너희의 살진 희생의 화목제도 내가 돌아보지 아니하리라"</span></div><div class="vl"><span class="vn">23</span><span class="vq">"네 노랫소리를 내 앞에서 그칠지어다 네 비파 소리도 내가 듣지 아니하리라"</span></div><div class="vl"><span class="vn">24</span><span class="vq">"오직 정의를 물 같이, 공의를 마르지 않는 강 같이 흐르게 할지어다"</span></div><div class="vl"><span class="vn">25</span><span class="vq">"이스라엘 족속아 너희가 사십 년 동안 광야에서 희생과 소제물을 내게 드렸느냐"</span></div></div></td><td><b>정의가 사라졌기 때문에</b> 하나님이 받지 않으시는 예배·절기 성회입니다.</td></tr>
+<tr><td>8:5</td><td><div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"너희가 이르기를 월삭이 언제 지나서 우리가 곡식을 팔며 안식일이 언제 지나서 우리가 밀을 내게 할꼬 에바를 작게 하고 세겔을 크게 하여 거짓 저울로 속이며"</span></div></div></td><td>월삭과 안식일을 <b>지키기는 하지만 마음은 그 이후의 장사에 가 있다</b>는 것 — 하나님을 향한 예배 자체가 부패했다는 말입니다.</td></tr>
+</tbody></table></div>
+<div class="tw"><table><caption>강의안 III-3 ② · 사회적 불의: 정의와 공의의 상실 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>(배경)</td><td><span class='hb'>본문 없음</span></td><td>여로보암 2세 하에서 정치적·군사적 성공이 물질적 번영을 가져왔지만 이스라엘 안에 <b>부유한 상류 계층</b>이 나타나고 <b>계층 분리와 소외</b>, 사회적 악의 확장을 가져왔다고 설명했습니다.</td></tr>
+<tr><td>3:12</td><td><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"여호와께서 이와 같이 말씀하시되 목자가 사자 입에서 양의 두 다리나 귀 조각을 건져냄과 같이 사마리아에서 침상 모서리에나 걸상의 방석에 앉은 이스라엘 자손도 건져냄을 입으리라"</span></div></div></td><td>침상 모서리나 걸상 방석에 앉은 <b>사치</b>.</td></tr>
+<tr><td>3:15</td><td><div class="vblock"><div class="vl"><span class="vn">15</span><span class="vq">"겨울 궁과 여름 궁을 치리니 상아 궁들이 파괴되며 큰 궁들이 무너지리라 여호와의 말씀이니라"</span></div></div></td><td>겨울궁·여름궁·상아궁 등 궁궐의 사치. <span class='asr'>[ASR 불확실: &quot;겨울궁, 여름궁, 상하궁&quot; — 개역개정 &quot;상아 궁&quot;으로 대조]</span></td></tr>
+<tr><td>6:4-6</td><td><div class="vblock"><div class="vl"><span class="vn">4</span><span class="vq">"상아 상에 누우며 침상에서 기지개 켜며 양 떼에서 어린 양과 우리에서 송아지를 잡아서 먹고"</span></div><div class="vl"><span class="vn">5</span><span class="vq">"비파 소리에 맞추어 노래를 지절거리며 다윗처럼 자기를 위하여 악기를 제조하며"</span></div><div class="vl"><span class="vn">6</span><span class="vq">"대접으로 포도주를 마시며 귀한 기름을 몸에 바르면서 요셉의 환난에 대하여는 근심하지 아니하는 자로다"</span></div></div></td><td>상아 침상·사치스러운 잔치, 비파·악기·포도주를 즐기면서 <b>요셉의 환난에 대해서는 근심하지 않는</b> 모습입니다. <span class='asr'>[ASR 불확실: &quot;상하상 침상&quot; — 6:4 &quot;상아 상&quot;으로 대조]</span></td></tr>
+<tr><td>4:1</td><td><div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"사마리아의 산에 있는 바산의 암소들아 이 말을 들으라 너희는 힘 없는 자를 학대하며 가난한 자를 압제하며 가장에게 이르기를 술을 가져다가 우리로 마시게 하라 하는도다"</span></div></div></td><td><b>바산의 암소들 = 귀부인들</b>. 힘없는 자를 학대하고 가난한 자를 압제하며 술에 취해 사는 모습입니다.</td></tr>
+<tr><td>5:11-12</td><td><div class="vblock"><div class="vl"><span class="vn">11</span><span class="vq">"너희가 힘없는 자를 밟고 그에게서 밀의 부당한 세를 거두었은즉 너희가 비록 다듬은 돌로 집을 건축하였으나 거기 거주하지 못할 것이요 아름다운 포도원을 가꾸었으나 그 포도주를 마시지 못하리라"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"너희의 허물이 많고 죄악이 무거움을 내가 아노라 너희는 의인을 학대하며 뇌물을 받고 성문에서 가난한 자를 억울하게 하는 자로다"</span></div></div></td><td><b>부당한 세</b>를 거두고 <b>부당한 재판</b>을 합니다.</td></tr>
+<tr><td>2:6-7</td><td><div class="vblock"><div class="vl"><span class="vn">6</span><span class="vq">"여호와께서 이와 같이 말씀하시되 이스라엘의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 은을 받고 의인을 팔며 신 한 켤레를 받고 가난한 자를 팔며"</span></div><div class="vl"><span class="vn">7</span><span class="vq">"힘 없는 자의 머리를 티끌 먼지 속에 발로 밟고 연약한 자의 길을 굽게 하며 아버지와 아들이 한 젊은 여인에게 다녀서 내 거룩한 이름을 더럽히며"</span></div></div></td><td><b>가난한 자들이 돈에 팔립니다</b>.</td></tr>
+<tr><td>8:4</td><td><div class="vblock"><div class="vl"><span class="vn">4</span><span class="vq">"가난한 자를 삼키며 땅의 힘없는 자를 망하게 하려는 자들아 이 말을 들으라"</span></div></div></td><td>가난한 자를 삼키고 땅의 힘없는 자를 망하게 하는 불의와 부패.</td></tr>
+</tbody></table></div>
+  <div class="card">
+    <ul>
+      <li><b>shalom (강의안: "* shalom:" — 빈칸)</b>: 교수님의 답 — <b>샬롬은 평강·평화</b>이며, 고아와 과부, 외국인, 가난한 사람 등 <b>사회적으로 약한 사람들을 돌보는 사회가 되어 있는 상태</b>가 샬롬의 상태입니다.</li>
+      <li><b>G의 뜻: 암 5:15, 24 (정의, 공의)</b>: <div class="vblock"><div class="vl"><span class="vn">15</span><span class="vq">"너희는 악을 미워하고 선을 사랑하며 성문에서 정의를 세울지어다 만군의 하나님 여호와께서 혹시 요셉의 남은 자를 불쌍히 여기시리라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">24</span><span class="vq">"오직 정의를 물 같이, 공의를 마르지 않는 강 같이 흐르게 할지어다"</span></div></div>
+        <b>공의·정의(미쉬파트)의 질서</b>가 바로 <b>언약 질서, 언약이 꿈꾸는 질서</b>이며, 율법이 지향하는 공동체는 <b>샬롬과 미쉬파트가 이루어지는 상태</b>입니다. 하나님이 이스라엘을 부르시고 율법을 주신 것은 그 공동체 안에 <b>샬롬과 미쉬파트, 정의·공의·화평을 이루라</b>는 것이었다고 했습니다.</li>
+      <li><span class="bdg b-add">강의 추가</span> <b>오늘의 적용</b>: "이러한 개념을 한국 사회에 적용할 수 있을까요?" — 한국 사회는 언약적 공동체가 아니므로 직접 적용은 되지 않지만, <b>사회적 이상으로서 샬롬과 정의·공의</b>가 이루어져야 합니다. 정의와 공의가 이루어진다는 것은 <b>가장 가난하고 연약한 사람들까지도 함께 살아갈 수 있는 샬롬의 상태</b>가 되는 것입니다.</li>
+      <li><span class="bdg b-exam">교수 강조</span> <b>결론</b>: 아모스서는 호세아 등 다른 책만큼 우상숭배가 강조되지 않고 <b>공의와 정의의 측면이 더 부각</b>되지만, 아모스의 관점에서 정의와 공의가 사라진 것은 <b>궁극적으로 여호와 신앙의 쇠퇴 때문</b>입니다. "정의와 공의가 없는 것은 여호와 신앙의 침체 때문", <b>"정의와 공의가 없는 예배는 무용한 것이다"</b> — 이것을 호세아와 아모스가 말하고 있다고 반복해 정리했습니다(호세아 언급의 구체적 본문은 이 대목에서 제시되지 않음).</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="a4">
+  <div class="sh"><span class="sb">암 III-4</span><span class="st">III. 아모스서의 신학적 메시지 · 4. 남은 자</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III-4: <b>"아모스는 심판을 넘어서 회복과 소망을 제시(9:11-15) · 남은 자: 계속적으로 G의 언약과 율법에 충성하는 자들(9:8) · 심판의 목적: 9:9, '체질' · 남은 자의 본질: 언약(2:4, 3:1-2) · 언약의 수호자 아모스: 2:8, 2:12, 4:4, 4:11 · 아모스의 자기 의식: 3:7"</b>.</p>
+    <ul>
+      <li>결론부 9:7-15에서 회복에 대한 기대를 제시하며, <b>하나님의 심판은 끝이 아니라 새로운 희망의 시작</b>이고 하나님은 남은 자들을 회복시키십니다.</li>
+      <li><b>남은 자</b>란 시대와 사회가 변해도 계속 하나님께 충성하고 하나님의 언약과 율법에 충성하는 사람들, 곧 <b>하나님의 심판을 통과하고 계속 하나님 백성의 핵심이 되는 자들</b>입니다. 9:8 "야곱의 집은 온전히 멸하지는 아니하리라" — 심판을 통해 공동체를 정결케 함으로써 악한 자는 제거하지만 <b>하나님께 붙어 있는 남은 자는 멸하지 않습니다</b>.</li>
+      <li><b>심판의 목적</b>은 <b>남은 자를 색출하는 것</b>입니다 — 9:9 <span class="vq">"보라 내가 명령하여 이스라엘 족속을 만국 중에서 체질하기를 체로 체질함 같이 하려니와 그 한 알갱이도 땅에 떨어지지 아니하리라"</span>. 교수님은 체와 키의 기능을 견주며 설명했는데 자막이 뒤섞여 있습니다(체질은 알갱이를 거르는 것, 키질은 지푸라기를 버리는 것이라는 취지).
+        <span class="asr">[ASR 불확실: "체와 키가 서로 기능이 반대죠 … 키 체질 이라는 것은 … 체질 혹은 퀴즈를 통해서" — 체질과 키질을 대비해 남은 자를 남기시겠다는 취지로만 확정, 문장별 뜻은 특정 불가]</span></li>
+    </ul></div>
+<div class="tw"><table><caption>강의안 III-4 · 남은 자의 본질은 언약 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>2:4</td><td><div class="vblock"><div class="vl"><span class="vn">4</span><span class="vq">"여호와께서 이와 같이 말씀하시되 유다의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 여호와의 율법을 멸시하며 그 율례를 지키지 아니하고 그의 조상들이 따라가던 거짓 것에 미혹되었음이라"</span></div></div></td><td>유다와 이스라엘을 심판하는 기준이 <b>율법을 멸시한 것</b>입니다 — 율법을 지키는 자들, 그리고 아모스의 심판 메시지의 근거가 되는 것이 언약입니다. <span class='hb'>(개역개정 2:4 각주: &quot;우상&quot; — 본문의 &quot;거짓 것&quot;에 대한 주)</span></td></tr>
+<tr><td>3:1-2</td><td><div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"이스라엘 자손들아 여호와께서 너희에 대하여 이르시는 이 말씀을 들으라 애굽 땅에서 인도하여 올리신 모든 족속에 대하여 이르시기를"</span></div><div class="vl"><span class="vn">2</span><span class="vq">"내가 땅의 모든 족속 가운데 너희만을 알았나니 그러므로 내가 너희 모든 죄악을 너희에게 보응하리라 하셨나니"</span></div></div></td><td>이스라엘을 향한 <b>선택과 언약</b>이 아모스가 심판의 메시지를 전할 수 있는 근거입니다. 그런데 <b>9:7에서 그 선택 사상·언약이 무효화</b>됩니다.</td></tr>
+<tr><td>2:8 · 2:12 · 4:4 · 4:11 <span class='hb'>(언약의 수호자 아모스)</span></td><td><div class="vblock"><div class="vl"><span class="vn">8</span><span class="vq">"모든 제단 옆에서 전당 잡은 옷 위에 누우며 그들의 신전에서 벌금으로 얻은 포도주를 마심이니라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"그러나 너희가 나실 사람으로 포도주를 마시게 하며 또 선지자에게 명령하여 예언하지 말라 하였느니라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">4</span><span class="vq">"너희는 벧엘에 가서 범죄하며 길갈에 가서 죄를 더하며 아침마다 너희 희생을, 삼일마다 너희 십일조를 드리며"</span></div></div><div class="vblock"><div class="vl"><span class="vn">11</span><span class="vq">"내가 너희 중의 성읍 무너뜨리기를 하나님인 내가 소돔과 고모라를 무너뜨림 같이 하였으므로 너희가 불붙는 가운데서 빼낸 나무 조각 같이 되었으나 너희가 내게로 돌아오지 아니하였느니라 여호와의 말씀이니라"</span></div></div></td><td><span class="bdg b-exam">교수 강조</span> 아모스는 <b>사회 개혁가나 급진 종교 개혁가가 아니라 언약의 수호자</b>이며, 정의와 공의를 강조했기 때문에 사회 변혁을 꿈꾸는 사람으로 생각하기 쉽지만 본질적으로는 <b>언약을 수호하기 위해</b> 메시지를 전했다고 두 번 반복해 강조했습니다. 언약 이념을 잘 파악했고 그래서 <b>오경을 자주 언급</b>했습니다 — 2:8 전당 잡은 자의 규례, 2:12 나실인의 규례, 4:4 십일조 규례, 4:11 소돔과 고모라 이야기.</td></tr>
+<tr><td>3:7 <span class='hb'>(아모스의 자기 의식)</span></td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"주 여호와께서는 자기의 비밀을 그 종 선지자들에게 보이지 아니하시고는 결코 행하심이 없으시리라"</span></div></div></td><td>아모스는 <b>모세의 뒤를 잇는 선지자들 중 하나로 자신을 인식</b>했다고 설명했습니다(&quot;여호와는 자기의 비밀을 그 종 선지자들에게 보이신다&quot;).</td></tr>
+</tbody></table></div>
+  <div class="card">
+    <p>결국 <b>남은 자는 여호와의 언약에 계속 머무는 자들</b>이라고 정리했습니다.
+    <span class="hb">본문 확인 메모: 3:7의 개역개정은 "자기의 비밀을 그 종 선지자들에게 <b>보이지 아니하시고는 결코 행하심이 없으시리라</b>"이며, 자막의 "보이신다"는 이 구절의 요지를 줄여 말한 것입니다.</span></p></div>
+
+</div>
+<div class="sec" id="a5">
+  <div class="sh"><span class="sb">암 III-5</span><span class="st">III. 아모스서의 신학적 메시지 · 5. 언약 갱신 · 결론</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III-5: <b>"남은 자들과 언약을 세우심 · 9:11-15, 다윗의 무너진 장막을 일으키실 것"</b>.</p>
+    <div class="vblock"><div class="vl"><span class="vn">11</span><span class="vq">"그 날에 내가 다윗의 무너진 장막을 일으키고 그것들의 틈을 막으며 그 허물어진 것을 일으켜서 옛적과 같이 세우고"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"그들이 에돔의 남은 자와 내 이름으로 일컫는 만국을 기업으로 얻게 하리라 이 일을 행하시는 여호와의 말씀이니라"</span></div><div class="vl"><span class="vn">13</span><span class="vq">"여호와의 말씀이니라 보라 날이 이를지라 그 때에 파종하는 자가 곡식 추수하는 자의 뒤를 이으며 포도를 밟는 자가 씨 뿌리는 자의 뒤를 이으며 산들은 단 포도주를 흘리며 작은 산들은 녹으리라"</span></div><div class="vl"><span class="vn">14</span><span class="vq">"내가 내 백성 이스라엘이 사로잡힌 것을 돌이키리니 그들이 황폐한 성읍을 건축하여 거주하며 포도원들을 가꾸고 그 포도주를 마시며 과원들을 만들고 그 열매를 먹으리라"</span></div><div class="vl"><span class="vn">15</span><span class="vq">"내가 그들을 그들의 땅에 심으리니 그들이 내가 준 땅에서 다시 뽑히지 아니하리라 네 하나님 여호와의 말씀이니라"</span></div></div>
+    <ul>
+      <li>하나님은 심판 후 남은 자들과 <b>언약을 세우십니다</b>. 9:11-15에서 <b>다윗의 무너진 장막을 일으키실 것</b>이며, 다윗 왕적 통치가 회복됩니다.</li>
+      <li>이것은 호세아 3:5, 요엘 2:32, 3:16-17, 21 등에서 반복해 말한 <b>다윗 왕국 회복에 대한 전망</b>을 아모스도 이어받은 것이라고 했습니다. <div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"그 후에 이스라엘 자손이 돌아와서 그들의 하나님 여호와와 그들의 왕 다윗을 찾고 마지막 날에는 여호와를 경외하므로 여호와와 그의 은총으로 나아가리라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">32</span><span class="vq">"누구든지 여호와의 이름을 부르는 자는 구원을 얻으리니 이는 나 여호와의 말대로 시온 산과 예루살렘에서 피할 자가 있을 것임이요 남은 자 중에 나 여호와의 부름을 받을 자가 있을 것임이니라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">16</span><span class="vq">"여호와께서 시온에서 부르짖고 예루살렘에서 목소리를 내시리니 하늘과 땅이 진동하리로다 그러나 여호와께서 그의 백성의 피난처, 이스라엘 자손의 산성이 되시리로다"</span></div><div class="vl"><span class="vn">17</span><span class="vq">"그런즉 너희가 나는 내 성산 시온에 사는 너희 하나님 여호와인 줄 알 것이라 예루살렘이 거룩하리니 다시는 이방 사람이 그 가운데로 통행하지 못하리로다"</span></div></div><div class="vblock"><div class="vl"><span class="vn">21</span><span class="vq">"내가 전에는 그들의 피흘림 당한 것을 갚아 주지 아니하였거니와 이제는 갚아 주리니 이는 여호와께서 시온에 거하심이니라"</span></div></div>
+        <span class="hb">본문 대조: 호 3:5에는 "그들의 왕 다윗"이 명시되어 있으나 욜 2:32·3:16-17, 21의 본문에는 "다윗"이라는 낱말이 없고 시온·예루살렘의 회복을 말합니다 — 교수님이 이 구절들을 다윗 왕국 회복의 전망으로 묶은 것은 교수님의 풀이입니다.</span></li>
+      <li>아모스의 종말론은 <b>우주적 회복까지 포함</b>합니다. 네 개 찬송시뿐 아니라 호세아·요엘과의 <b>정경적 연계성</b> 속에서 아모스도 분명히 종말론적인 우주론, 우주의 회복을 이야기하고 있다고 했습니다.</li>
+    </ul>
+    <div class="blank"><span class="bdg b-blank">미해결</span> <b>강의안 4과 결어(9:11-15)의 세 물음</b> — 강의안에는 "무너진 다윗의 장막=?", "회복=?", "사로잡힌 것=? cf. 호 6:11"이 물음으로만 적혀 있습니다.
+    5주차 1of2에서 다룬 답은 <b>"다윗 왕적 통치가 회복된다"</b>는 첫째 물음에 대한 부분 답뿐이며, 둘째("회복=?")와 셋째("사로잡힌 것=?, 호 6:11")에 대한 명시적 답은 이 자막에 없습니다(4주차 노트 §10에 관련 설명이 있음).</div></div>
+  <div class="card"><h3><span class="bdg b-exam">교수 강조</span> 결론 — 아모스의 메시지</h3>
+    <ul>
+      <li>교수님은 "결론적으로 이 아모스의 메시지가 뭡니까?"라고 물은 뒤 두 가지로 답했습니다: <b>①"여호와를 찾으라 그리하면 살리라"</b> — <span class="vq">"여호와께서 이스라엘 족속에게 이와 같이 말씀하시기를 너희는 나를 찾으라 그리하면 살리라"</span> · <span class="vq">"너희는 여호와를 찾으라 그리하면 살리라 그렇지 않으면 그가 불 같이 요셉의 집에 임하여 멸하시리니 벧엘에서 그 불들을 끌 자가 없으리라"</span> · <span class="vq">"너희는 살려면 선을 구하고 악을 구하지 말지어다"</span> — 그리고 <b>②"오직 정의를 물 같이 공의를 마르지 않는 강 같이 흐르게 할지어다"</b>(5:24) — <span class="vq">"오직 정의를 물 같이, 공의를 마르지 않는 강 같이 흐르게 할지어다"</span>.</li>
+      <li>그러나 이스라엘 백성은 아모스의 말씀에 귀를 기울이지 않고 계속 범죄하여 결국 <b>722년 북 왕국 이스라엘이 멸망</b>에 이르렀습니다.</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="a6">
+  <div class="sh"><span class="sb">연결</span><span class="st">4주차 노트와의 연결</span><div class="sl"></div></div>
+  <div class="card"><h3>4주차 노트와의 연결</h3>
+    <p>4주차 노트 §11("다음 주 예고")이 이월로 적어 둔 5가지 주제와 이번 1부의 대응입니다.</p>
+    <div class="tw"><table><caption>4주차 이월 5주제 ↔ 5주차 1부</caption><thead><tr><th>4주차 §11 이월 주제</th><th>이번 노트 절</th></tr></thead><tbody>
+<tr><td>1. YH(여호와)의 오심과 여호와의 날</td><td>암 III-1 (네 찬송시 · 5:18-20 · 9:7-9)</td></tr>
+<tr><td>2. 심판의 불가피성</td><td>암 III-2 (다섯 이상) · 암 III-2+ (호·욜·암 여호와의 날)</td></tr>
+<tr><td>3. 이스라엘의 죄: 우상숭배와 사회적 불의</td><td>암 III-3</td></tr>
+<tr><td>4. 남은 자</td><td>암 III-4</td></tr>
+<tr><td>5. 언약 갱신</td><td>암 III-5</td></tr>
+</tbody></table></div>
+
+    <p class="hb">4주차 노트가 이미 다룬 내용(열방 8개국 심판 표, 다섯 이상 세부, 9:11-15 두 층위 해석 등)은 여기서 반복하지 않고 강의안 항목 이름으로만 이었습니다.</p></div>
+
+</div>
+<div class="part-div" id="partB"><span>제5과 2of2 · 오바댜서</span></div>
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">옵 I-1</span><span class="st">서론 · 1. 정경적 위치</span><div class="sl"></div></div>
+  <div class="card"><h3>이름과 책의 규모</h3>
+    <div class="pair"><span class="book">이름</span><span class="arrow">▸</span><span class="desc">
+      <b>원문</b> חֲזוֹן עֹבַדְיָה(옵 1:1 히브리어 본문의 "오바댜의 묵시" — 마소라 본문) ·
+      <b>음역</b> ʿōbadyāh · <b>한글 발음</b> 오바드야(오바댜) · <b>뜻</b> 여호와의 종, 여호와를 예배하는 자(교수 설명)</span></div>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> 이름 풀이: "아바드"라는 동사가 <b>섬기다·예배하다</b>는 뜻이고, 여기서 나온 명사형에 맨 뒤의 "야"(여호와)가
+        붙은 형태로, 여호와의 종 혹은 여호와를 예배하는 자라는 뜻이라고 설명했습니다.
+        <span class="asr">[ASR 불확실: "500, 에돔할 때 500 같은 단어죠" — 이어진 문장이 무슨 단어를 가리키는지 특정 불가]</span></li>
+      <li><span class="bdg b-add">강의 추가</span> 이 책은 <b>구약 중에서 가장 짧은 책</b>이며 전체가 <b>1장 21절</b>이고, 대부분이 에돔에 대한 심판의 말씀이라고
+        소개했습니다. 절 수는 개역개정 실측으로 21절임을 확인했습니다(다른 책과의 길이 비교는 이 노트에서 따로 검증하지
+        않았고 교수님의 진술 그대로입니다).</li>
+      <li><span class="vq">"오바댜의 묵시라"</span> — 개역개정 1절 첫머리 "오바댜의 묵시라"가 강의안의 <b>1a 표제</b>에 해당합니다(아래 "옵 II-1 구조" 표).</li>
+    </ul></div>
+  <div class="card"><h3>소선지서 안의 위치</h3>
+    <p><b>소선지서 내 위치 — 아모스와 요나 사이(강의안 I-1)</b>: 마소라 본문(MT) 순서는 호세아·요엘·아모스·<b>오바댜</b>·요나·미가·나훔·
+    하박국·스바냐·학개·스가랴·말라기이며(강의안 1강 서론: "MT: 호, 욜, 암, 옵, 욘, 미, 나, 합, 습, 학, 슥, 말"), 오바댜는
+    <b>네 번째</b>로 아모스와 요나 사이에 위치합니다.</p>
+    <p class="hb"><span class="asr">[ASR 불확실: 열두 소선지서 순서를 외우는 대목("호. 열 아홉. 연미나 학습. / 학습 말. 호. 열 아홉. 호세아. 요엘. 아모스, 오바디아")이 뒤섞여 있어 축약 암송 부분은 판독 불가 — 뒤이어 명시된 "호세아. 요엘. 아모스, 오바디아. 이렇게 네 번째로 위치하고 있고"와 강의안 1강 서론의 MT 순서로 확정]</span></p></div>
+  <div class="card"><h3>아모스와의 관계 (암 9:12 · 1:11-12 · 1:6, 9)</h3>
+    <p>강의안은 "아모스와의 관계"로 <b>암 9:12, 암 1:11-12</b>와 <b>암 1:6, 9</b>를 듭니다. 교수님은 오바댜 바로 앞 책(아모스 9장 12절)에서
+    시작해 이렇게 풀었습니다.</p>
+    <div class="tw"><table><caption>강의안 I-1 · 아모스와 오바댜의 연결 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>암 9:12</td><td><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"그들이 에돔의 남은 자와 내 이름으로 일컫는 만국을 기업으로 얻게 하리라 이 일을 행하시는 여호와의 말씀이니라"</span></div></div></td><td>&quot;에돔의 남은 자&quot;라는 표현으로 <b>에돔에서 구원받을 자들이 있다</b>는 것을 말합니다.</td></tr>
+<tr><td>암 1:11-12</td><td><div class="vblock"><div class="vl"><span class="vn">11</span><span class="vq">"여호와께서 이와 같이 말씀하시되 에돔의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그가 칼로 그의 형제를 쫓아가며 긍휼을 버리며 항상 맹렬히 화를 내며 분을 끝없이 품었음이라"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"내가 데만에 불을 보내리니 보스라의 궁궐들을 사르리라"</span></div></div></td><td>에돔에 대한 심판 말씀입니다. 죄목은 칼로 형제(야곱 족속)를 쫓아가고, 긍휼이 없이 항상 맹렬히 화를 내고 분을 끝없이 품은 것(잔인하고 긍휼이 없는 처신)입니다. 본문 앞머리의 &quot;서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니&quot;가 심판 선언 양식입니다.</td></tr>
+<tr><td>암 1:6, 9</td><td><div class="vblock"><div class="vl"><span class="vn">6</span><span class="vq">"여호와께서 이와 같이 말씀하시되 가사의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 모든 사로잡은 자를 끌어 에돔에 넘겼음이라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">9</span><span class="vq">"여호와께서 이와 같이 말씀하시되 두로의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 그 형제의 계약을 기억하지 아니하고 모든 사로잡은 자를 에돔에 넘겼음이라"</span></div></div></td><td>가사(블레셋)와 두로가 사로잡은 자들을 에돔에 넘겼다는 기사입니다. 교수님은 이를 &quot;야곱 족속에게 쳐들어와 가지고 포로로 사람들을 잡아가고 나서 그것을 에돔의 노예로 팔아 먹었다&quot;고 풀이했습니다 — 본문에는 <b>&quot;모든 사로잡은 자를 끌어 에돔에 넘겼음&quot;</b>까지만 있고 그 포로가 야곱 족속이라는 명시는 없습니다(교수님의 풀이).</td></tr>
+</tbody></table></div>
+
+    <p class="hb"><span class="asr">[ASR 불확실: "그가 칼로 에드미칼로 그의 형제를" — "에돔이 칼로"의 오인식으로 판단(암 1:11 개역개정 "그가 칼로 그의 형제를 쫓아가며"로 대조 확인)]</span>
+    <span class="asr">[ASR 불확실: "이 가사와 이후로도 그들이 사로잡은 자를 에돔에 넘겼다 / 이 가사와 블레셋과. 도로가" — 암 1:6(가사)·1:9(두로)를 가리키는 것으로 판단(개역개정 대조)]</span></p></div>
+  <div class="card"><h3>요나서와의 관계 (강의안 항목 '욘')</h3>
+    <p><b>요나서와의 관계</b> — 강의안 I-1은 항목 이름만 "욘"으로 적어 두었고 세부 내용은 없습니다(강의안 제6과 서론에는
+    "옵: 에돔에 대한 심판 / 욘: 니느웨에 대한 자비"로 정리되어 있음). 교수님의 설명:</p>
+    <ul>
+      <li>오바댜와 요나는 <b>어떤 면에서 정반대의 메시지</b>를 담고 있습니다. 오바댜는 <b>에돔에 대한 심판</b>, 요나서는 <b>니느웨에 대한 하나님의 용서</b>입니다.</li>
+      <li>니느웨(앗수르)와 에돔은 나라는 다르지만 <b>동일하게 이방 민족을 상징</b>하는 것으로 볼 수 있습니다.</li>
+    </ul></div>
+  <div class="card"><h3>여호와의 날 연결 (호 9:7 · 욜 1:15, 2:1 · 암 5:18 · 옵 15)</h3>
+    <p>강의안은 이 항목을 <b>"호 9:7, 욜 1:15, 2:1, 암 5:18, 옵 15 — YH의 날"</b>로 적었습니다. 교수님의 설명: 호세아는 "형벌의 날 보응의 날",
+    요엘·아모스는 "여호와의 날", 오바댜 15절은 "여호와께서 만국을 벌하실 날"이라는 표현으로 같은 주제가 이어집니다.</p>
+    <div class="tw"><table><caption>강의안 I-1 · 소선지서의 YH의 날 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th></tr></thead><tbody>
+<tr><td>호 9:7</td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"형벌의 날이 이르렀고 보응의 날이 온 것을 이스라엘이 알지라 선지자가 어리석었고 신에 감동하는 자가 미쳤나니 이는 네 죄악이 많고 네 원한이 큼이니라"</span></div></div></td></tr>
+<tr><td>욜 1:15</td><td><div class="vblock"><div class="vl"><span class="vn">15</span><span class="vq">"슬프다 그 날이여 여호와의 날이 가까웠나니 곧 멸망 같이 전능자에게로부터 이르리로다"</span></div></div></td></tr>
+<tr><td>욜 2:1</td><td><div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"시온에서 나팔을 불며 나의 거룩한 산에서 경고의 소리를 질러 이 땅 주민들로 다 떨게 할지니 이는 여호와의 날이 이르게 됨이니라 이제 임박하였으니"</span></div></div></td></tr>
+<tr><td>암 5:18</td><td><div class="vblock"><div class="vl"><span class="vn">18</span><span class="vq">"화 있을진저 여호와의 날을 사모하는 자여 너희가 어찌하여 여호와의 날을 사모하느냐 그 날은 어둠이요 빛이 아니라"</span></div></div></td></tr>
+<tr><td>옵 15</td><td><div class="vblock"><div class="vl"><span class="vn">15</span><span class="vq">"여호와께서 만국을 벌할 날이 가까웠나니 네가 행한 대로 너도 받을 것인즉 네가 행한 것이 네 머리로 돌아갈 것이라"</span></div></div></td></tr>
+</tbody></table></div>
+
+    <ul>
+      <li>교수님은 <b>오바댜에서는 "여호와의 날"이라는 표현을 쓰지 않고 "만국을 벌하실 날"이라 한다</b>고 말한 뒤, "그게 결국에는 여호와의 날이 되는 것"이라고 정리했습니다.</li>
+      <li><span class="bdg b-sup">보충</span> 히브리어 본문 대조: 마소라 본문 옵 1:15는 <b>כִּי־קָרוֹב יוֹם־יְהוָה עַל־כָּל־הַגּוֹיִם</b>("여호와의 날이 모든 민족 위에 가깝다"는 뜻)로 되어 있어
+        <b>יוֹם־יְהוָה(욤 아도나이, 여호와의 날)</b>가 원문에 실제로 있고, 개역개정이 이를 "여호와께서 만국을 벌할 날"로 옮긴 것입니다. 곧 "여호와의 날"이라는
+        표현이 없다는 진술은 <b>한글 번역 기준</b>이며, 강의안이 옵 15를 "YH의 날" 항목에 넣은 것과 원문상 일치합니다.</li>
+    </ul></div>
+  <div class="card"><h3>요엘과의 관계 (옵 17 // 욜 2:32 + 3:17)</h3>
+    <p>강의안: <b>"옵 17 // 욜 2:32 + 3:17"</b>. 교수님은 "시온에서 피할 자가 있을 것"이라는 같은 개념이 요엘서에도 나오고, 예루살렘/산이 거룩할 것이라는 표현도
+    같다고 짚었습니다.</p>
+    <div class="tw"><table><caption>강의안 I-1 · 옵 17 // 욜 2:32 + 3:17 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th></tr></thead><tbody>
+<tr><td>옵 17</td><td><div class="vblock"><div class="vl"><span class="vn">17</span><span class="vq">"오직 시온 산에서 피할 자가 있으리니 그 산이 거룩할 것이요 야곱 족속은 자기 기업을 누릴 것이며"</span></div></div></td></tr>
+<tr><td>욜 2:32</td><td><div class="vblock"><div class="vl"><span class="vn">32</span><span class="vq">"누구든지 여호와의 이름을 부르는 자는 구원을 얻으리니 이는 나 여호와의 말대로 시온 산과 예루살렘에서 피할 자가 있을 것임이요 남은 자 중에 나 여호와의 부름을 받을 자가 있을 것임이니라"</span></div></div></td></tr>
+<tr><td>욜 3:17</td><td><div class="vblock"><div class="vl"><span class="vn">17</span><span class="vq">"그런즉 너희가 나는 내 성산 시온에 사는 너희 하나님 여호와인 줄 알 것이라 예루살렘이 거룩하리니 다시는 이방 사람이 그 가운데로 통행하지 못하리로다"</span></div></div></td></tr>
+</tbody></table></div>
+
+    <p class="hb"><span class="asr">[ASR 불확실: "요 에서 3장 2장 32절" — 요엘 2:32로 판단 · "Panopto 서의 1장 15절, 2장 1절 / Panopto 서 2장 32절과 3장 17절 / Panopto 서에서 이야기" — "Panopto 서"는 3곳 모두 "요엘서"의 오인식으로 판단(강의안·본문 절 표기와 대조)]</span></p></div>
+
+  <div class="card"><p>강의안: <b>"예레미야와의 관련성: 옵 1-4 // 렘 49:14-16, 옵 5 // 렘 49:9, 옵 8 // 렘 49:7, 옵 16 // 렘 49:12"</b>. 교수님은 예레미야서 49장을 찾아 대조하도록 하며
+  내용뿐 아니라 <b>문장 표현까지 거의 같다</b>고 하고, 관련성이 분명히 있다고 말했습니다. <span class="bdg b-add">강의 추가</span> 대조를 <b>지리적·경제적·지적·군사적 "안전"</b>이라는 틀로 정리했습니다.</p></div>
+  <div class="tw"><table><caption>강의안 I-1 · 오바댜와 예레미야 49장의 평행 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>오바댜 (개역개정)</th><th>예레미야 49장 (개역개정)</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>옵 1-4 // 렘 49:14-16<br><span class='hb'>(1-2절 ↔ 렘 49:14-15 · 3절 ↔ 렘 49:16)</span></td><td><div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"오바댜의 묵시라 주 여호와께서 에돔에 대하여 이와 같이 말씀하시니라 우리가 여호와께로 말미암아 소식을 들었나니 곧 사자가 나라들 가운데에 보내심을 받고 이르기를 너희는 일어날지어다 우리가 일어나서 그와 싸우자 하는 것이니라"</span></div><div class="vl"><span class="vn">2</span><span class="vq">"보라 내가 너를 나라들 가운데에 매우 작게 하였으므로 네가 크게 멸시를 받느니라"</span></div><div class="vl"><span class="vn">3</span><span class="vq">"너의 마음의 교만이 너를 속였도다 바위 틈에 거주하며 높은 곳에 사는 자여 네가 마음에 이르기를 누가 능히 나를 땅에 끌어내리겠느냐 하니"</span></div><div class="vl"><span class="vn">4</span><span class="vq">"네가 독수리처럼 높이 오르며 별 사이에 깃들일지라도 내가 거기에서 너를 끌어내리리라 여호와의 말씀이니라"</span></div></div></td><td><div class="vblock"><div class="vl"><span class="vn">14</span><span class="vq">"내가 여호와에게서부터 오는 소식을 들었노라 사절을 여러 나라 가운데 보내어 이르시되 너희는 모여와서 그를 치며 일어나서 싸우라"</span></div><div class="vl"><span class="vn">15</span><span class="vq">"보라 내가 너를 여러 나라 가운데에서 작아지게 하였고 사람들 가운데에서 멸시를 받게 하였느니라"</span></div><div class="vl"><span class="vn">16</span><span class="vq">"바위 틈에 살며 산꼭대기를 점령한 자여 스스로 두려운 자인 줄로 여김과 네 마음의 교만이 너를 속였도다 네가 독수리 같이 보금자리를 높은 데에 지었을지라도 내가 그리로부터 너를 끌어내리리라 이는 여호와의 말씀이니라"</span></div></div></td><td><b>지리적 안전</b> — 바위틈·높은 곳에 사는 에돔이 &quot;누가 능히 나를 땅에 끌어내리겠느냐&quot; 하며 교만해졌습니다. 옵 1절은 렘 49:14, 옵 2절은 렘 49:15, 옵 3절은 렘 49:16과 표현까지 거의 같습니다. 옵 1절에서 에돔을 치러 열방을 부르는 대목은 렘 49:14에도 동일하게 나옵니다.</td></tr>
+<tr><td>옵 5 // 렘 49:9</td><td><div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"혹시 도둑이 네게 이르렀으며 강도가 밤중에 네게 이르렀을지라도 만족할 만큼 훔치면 그치지 아니하였겠느냐 혹시 포도를 따는 자가 네게 이르렀을지라도 그것을 얼마쯤 남기지 아니하였겠느냐 네가 어찌 그리 망하였는고"</span></div></div></td><td><div class="vblock"><div class="vl"><span class="vn">9</span><span class="vq">"포도를 거두는 자들이 네게 이르면 약간의 열매도 남기지 아니하겠고 밤에 도둑이 오면 그 욕심이 차기까지 멸하느니라"</span></div></div></td><td><b>경제적 안전</b> — 도둑이 들어도 만족할 만큼 훔치면 그치고, 포도 따는 자도 얼마쯤은 남기는 것이 일반 상식인데 에돔에 대해서는 그렇지 않다, 곧 <b>일반적인 멸망보다 더 철저한 멸망</b>이라고 풀었습니다(렘 49:9는 포도가 먼저 나오는 순서 차이가 있음).</td></tr>
+<tr><td>옵 8 // 렘 49:7</td><td><div class="vblock"><div class="vl"><span class="vn">8</span><span class="vq">"여호와의 말씀이니라 그 날에 내가 에돔에서 지혜 있는 자를 멸하며 에서의 산에서 지각 있는 자를 멸하지 아니하겠느냐"</span></div></div></td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"에돔에 대한 말씀이라 만군의 여호와께서 이와 같이 말씀하시되 데만에 다시는 지혜가 없게 되었느냐 명철한 자에게 책략이 끊어졌느냐 그들의 지혜가 없어졌느냐"</span></div></div></td><td><b>지적 안전</b> — 지혜 있는 자·지각 있는 자가 사라진다는 같은 내용입니다.</td></tr>
+<tr><td>옵 16 // 렘 49:12</td><td><div class="vblock"><div class="vl"><span class="vn">16</span><span class="vq">"너희가 내 성산에서 마신 것 같이 만국인이 항상 마시리니 곧 마시고 삼켜서 본래 없던 것 같이 되리라"</span></div></div></td><td><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"여호와께서 이와 같이 말씀하시니라 보라 술잔을 마시는 습관이 없는 자도 반드시 마시겠거든 네가 형벌을 온전히 면하겠느냐 면하지 못하리니 너는 반드시 마시리라"</span></div></div></td><td>옵 16절의 술잔(마심)이 렘 49:12의 술잔과 같습니다. 교수님은 이를 &quot;에돔의 용사들에 대한 그러한 이야기인 것 같습니다&quot;라고 조심스럽게 풀며, 아무리 용맹한 용사가 있어도 하나님의 심판의 잔을 다 마실 수밖에 없으니 <b>군사적 안전</b>을 보장할 수 없다는 뜻으로 설명했습니다(잠정적 풀이).</td></tr>
+</tbody></table></div>
+
+  <div class="sup"><span class="tag">🔎 보충(개역개정 각주)</span> 렘 49:9에는 개역개정 각주에 다른 번역이 달려 있습니다: "네게 이를지라도 약간의 열매를 남기지 아니하겠느냐 밤에 도적도 그 욕심이 차면 그치지 아니하겠느냐".
+  교수님이 "예레미야 49장 14절부터 17절"이라고 말한 부분은 강의안의 <b>14-16절</b>과 절 범위가 다릅니다 — 강의안 표기(14-16)를 기준으로 표에 넣었고, 17절과의 대응은 자막에서 확인되지 않습니다.
+  <span class="asr">[ASR 불확실: "오바댜를 에돔을 향해서 에돔을 향해서 그 나라들이 일어나서 싸우라고" — 렘 49:14와 옵 1절의 대응을 말하는 대목으로 판단(개역개정 대조)]</span></div>
+  <div class="card"><h3>두 책의 선후 관계 — 세 가지 학설</h3>
+    <ul>
+      <li>① 오바댜가 예레미야를 참고했다 ② 예레미야가 오바댜를 참고했다 ③ 둘이 공통 자료에서 같은 내용을 썼다. 교수님은 <b>"어느 것이 더 오랜 것이고 어느 것이 더 원본에 가까운 것인지 우린 알 수는 없습니다"</b>라고 명시했습니다.</li>
+      <li>그러나 <b>정경적 위치</b>로 보면 예레미야가 오바댜의 예언을 인용했을 것 같다고 추측했습니다. 이유: 예레미야는 예루살렘 멸망 직전에 사역했고, 오바댜서는 "주전 8세기에 사역했던 그러한 사람이라고 볼 수가 있다면" 오바댜가 먼저 있었던 것이라는 추측입니다(조건부 추측).</li>
+    </ul>
+    <div class="blank"><span class="bdg b-blank">미해결</span> <b>오바댜서의 연대</b> — 강의안 제5과에는 저자·연대 항목이 없습니다. 자막 안에서도 위 추측에서는 "주전 8세기"를, 뒤의 역사적 배경에서는 "카이리나 이제영 같은 경우는 … 주전 9세기 중엽"(옵 I-2 역사적 상황)을 말해
+    두 진술이 서로 다르고 어느 쪽이 교수님의 결론인지 자막만으로는 확정할 수 없습니다. 노트는 두 진술을 모두 그대로 남깁니다.</div>
+  </div>
+</div>
+<div class="sec" id="edom">
+  <div class="sh"><span class="sb">옵 I-2</span><span class="st">서론 · 2. 이스라엘과 에돔과의 관계 및 역사적 배경</span><div class="sl"></div></div>
+  <div class="card"><p><b><span class="bdg b-add">강의 추가</span> 형제이면서 숙적</b> — 교수님은 이 항목 전체를 "이스라엘과 굉장히 밀접한 관계가 역사적으로 있어왔다"는 말로 열고, 강의안이 적은 13개 본문을 차례로 짚었습니다.
+아래 표는 강의안 항목 순서 그대로이며 본문은 개역개정입니다.</p></div>
+<div class="tw"><table><caption>강의안 I-2 · 이스라엘과 에돔과의 관계 (13개 항목)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>창 25:23-26</td><td><div class="vblock"><div class="vl"><span class="vn">23</span><span class="vq">"여호와께서 그에게 이르시되 두 국민이 네 태중에 있구나 두 민족이 네 복중에서부터 나누이리라 이 족속이 저 족속보다 강하겠고 큰 자가 어린 자를 섬기리라 하셨더라"</span></div><div class="vl"><span class="vn">24</span><span class="vq">"그 해산 기한이 찬즉 태에 쌍둥이가 있었는데"</span></div><div class="vl"><span class="vn">25</span><span class="vq">"먼저 나온 자는 붉고 전신이 털옷 같아서 이름을 에서라 하였고"</span></div><div class="vl"><span class="vn">26</span><span class="vq">"후에 나온 아우는 손으로 에서의 발꿈치를 잡았으므로 그 이름을 야곱이라 하였으며 리브가가 그들을 낳을 때에 이삭이 육십 세였더라"</span></div></div></td><td>리브가가 잉태했을 때 하나님이 하신 말씀입니다. 두 민족이 나뉘고, 쌍둥이로 <b>에서(에돔)가 형, 야곱이 동생</b>이며, 큰 자가 어린 자를 섬기리라 했다고 풀었습니다. 교수님은 &quot;이 족속이 저 족속보다 강하겠고&quot;를 <b>에돔 족속이 야곱 족속보다 더 강하게 될 것</b>으로 읽었습니다(본문은 &quot;이 족속/저 족속&quot;의 지시 대상을 적지 않음 — 교수님의 풀이). 한 뱃속에서 자라고 태어난 두 민족이라는 점을 강조했습니다.</td></tr>
+<tr><td>창 36:6-8</td><td><div class="vblock"><div class="vl"><span class="vn">6</span><span class="vq">"에서가 자기 아내들과 자기 자녀들과 자기 집의 모든 사람과 자기의 가축과 자기의 모든 짐승과 자기가 가나안 땅에서 모은 모든 재물을 이끌고 그의 동생 야곱을 떠나 다른 곳으로 갔으니"</span></div><div class="vl"><span class="vn">7</span><span class="vq">"두 사람의 소유가 풍부하여 함께 거주할 수 없음이러라 그들이 거주하는 땅이 그들의 가축으로 말미암아 그들을 용납할 수 없었더라"</span></div><div class="vl"><span class="vn">8</span><span class="vq">"이에 에서 곧 에돔이 세일 산에 거주하니라"</span></div></div></td><td>형 에서가 <b>에돔 족속의 조상</b>이 되었다는 대목입니다.</td></tr>
+<tr><td>민 20:14-21</td><td><div class="vblock"><div class="vl"><span class="vn">14</span><span class="vq">"모세가 가데스에서 에돔 왕에게 사신을 보내며 이르되 당신의 형제 이스라엘의 말에 우리가 당한 모든 고난을 당신도 아시거니와"</span></div><div class="vl"><span class="vn">15</span><span class="vq">"우리 조상들이 애굽으로 내려갔으므로 우리가 애굽에 오래 거주하였더니 애굽인이 우리 조상들과 우리를 학대하였으므로"</span></div><div class="vl"><span class="vn">16</span><span class="vq">"우리가 여호와께 부르짖었더니 우리 소리를 들으시고 천사를 보내사 우리를 애굽에서 인도하여 내셨나이다 이제 우리가 당신의 변방 모퉁이 한 성읍 가데스에 있사오니"</span></div><div class="vl"><span class="vn">17</span><span class="vq">"청하건대 우리에게 당신의 땅을 지나가게 하소서 우리가 밭으로나 포도원으로 지나가지 아니하고 우물물도 마시지 아니하고 왕의 큰길로만 지나가고 당신의 지경에서 나가기까지 왼쪽으로나 오른쪽으로나 치우치지 아니하리이다 한다고 하라 하였더니"</span></div><div class="vl"><span class="vn">18</span><span class="vq">"에돔 왕이 대답하되 너는 우리 가운데로 지나가지 못하리라 내가 칼을 들고 나아가 너를 대적할까 하노라"</span></div><div class="vl"><span class="vn">19</span><span class="vq">"이스라엘 자손이 이르되 우리가 큰길로만 지나가겠고 우리나 우리 짐승이 당신의 물을 마시면 그 값을 낼 것이라 우리가 도보로 지나갈 뿐인즉 아무 일도 없으리이다 하나"</span></div><div class="vl"><span class="vn">20</span><span class="vq">"그는 이르되 너는 지나가지 못하리라 하고 에돔 왕이 많은 백성을 거느리고 나와서 강한 손으로 막으니"</span></div><div class="vl"><span class="vn">21</span><span class="vq">"에돔 왕이 이같이 이스라엘이 그의 영토로 지나감을 용납하지 아니하므로 이스라엘이 그들에게서 돌이키니라"</span></div></div></td><td>이스라엘이 모세의 인도로 애굽에서 나와 가나안에 들어가려 할 때 에돔이 그 영토를 차지하고 있었고, 영토를 통과하게 해 달라는 요청을 <b>허락하지 않았습니다</b>.</td></tr>
+<tr><td>민 24:18</td><td><div class="vblock"><div class="vl"><span class="vn">18</span><span class="vq">"그의 원수 에돔은 그들의 유산이 되며 그의 원수 세일도 그들의 유산이 되고 그와 동시에 이스라엘은 용감히 행동하리로다"</span></div></div></td><td>발람이 야곱을 저주하려다 저주하지 못하고 오히려 <b>에돔이 야곱에게 정복당할 것을 예언</b>하게 된 대목입니다.</td></tr>
+<tr><td>삼하 8:13-14</td><td><div class="vblock"><div class="vl"><span class="vn">13</span><span class="vq">"다윗이 소금 골짜기에서 에돔 사람 만 팔천 명을 쳐죽이고 돌아와서 명성을 떨치니라"</span></div><div class="vl"><span class="vn">14</span><span class="vq">"다윗이 에돔에 수비대를 두되 온 에돔에 수비대를 두니 에돔 사람이 다 다윗의 종이 되니라 다윗이 어디로 가든지 여호와께서 이기게 하셨더라"</span></div></div></td><td>다윗이 에돔을 점령해 <b>속국</b>으로 삼는 이야기입니다(다윗 시대에 에돔이 속국이 됨).</td></tr>
+<tr><td>왕하 8:20-22 // 대하 21:8-10</td><td><div class="vblock"><div class="vl"><span class="vn">20</span><span class="vq">"여호람 때에 에돔이 유다의 손에서 배반하여 자기 위에 왕을 세운 고로"</span></div><div class="vl"><span class="vn">21</span><span class="vq">"여호람이 모든 병거를 거느리고 사일로 갔더니 밤에 일어나 자기를 에워싼 에돔 사람과 그 병거의 장관들을 치니 이에 백성이 도망하여 각각 그들의 장막들로 돌아갔더라"</span></div><div class="vl"><span class="vn">22</span><span class="vq">"이와 같이 에돔이 유다의 수하에서 배반하였더니 오늘까지 그러하였으며 그 때에 립나도 배반하였더라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">8</span><span class="vq">"여호람 때에 에돔이 배반하여 유다의 지배하에서 벗어나 자기 위에 왕을 세우므로"</span></div><div class="vl"><span class="vn">9</span><span class="vq">"여호람이 지휘관들과 모든 병거를 거느리고 출정하였더니 밤에 일어나서 자기를 에워싼 에돔 사람과 그 병거의 지휘관들을 쳤더라"</span></div><div class="vl"><span class="vn">10</span><span class="vq">"이와 같이 에돔이 배반하여 유다의 지배하에서 벗어났더니 오늘까지 그러하였으며 그 때에 립나도 배반하여 여호람의 지배 하에서 벗어났으니 이는 그가 그의 조상들의 하나님 여호와를 버렸음이더라"</span></div></div></td><td>유다 왕 여호람 때 에돔이 <b>반역해서 독립</b>했습니다. 다윗 시대에 점령했지만 여호람 때 독립하게 되었다는 흐름입니다.</td></tr>
+<tr><td>왕하 14:7</td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"아마샤가 소금 골짜기에서 에돔 사람 만 명을 죽이고 또 전쟁을 하여 셀라를 취하고 이름을 욕드엘이라 하였더니 오늘까지 그러하니라"</span></div></div></td><td>유다 왕 아마샤가 에돔을 쳐서 <b>다시 정복</b>했다고 풀이했습니다.</td></tr>
+<tr><td>대하 28:17</td><td><div class="vblock"><div class="vl"><span class="vn">17</span><span class="vq">"이는 에돔 사람들이 다시 와서 유다를 치고 그의 백성을 사로잡았음이며"</span></div></div></td><td>유다 왕 아하스 때에는 <b>반대로 에돔 사람들이 유다를 쳤습니다</b>.</td></tr>
+<tr><td>암 1:11-12</td><td><div class="vblock"><div class="vl"><span class="vn">11</span><span class="vq">"여호와께서 이와 같이 말씀하시되 에돔의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그가 칼로 그의 형제를 쫓아가며 긍휼을 버리며 항상 맹렬히 화를 내며 분을 끝없이 품었음이라"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"내가 데만에 불을 보내리니 보스라의 궁궐들을 사르리라"</span></div></div></td><td>에돔에 대한 심판의 말씀 선포입니다(앞 절 참조).</td></tr>
+<tr><td>암 1:6, 9</td><td><div class="vblock"><div class="vl"><span class="vn">6</span><span class="vq">"여호와께서 이와 같이 말씀하시되 가사의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 모든 사로잡은 자를 끌어 에돔에 넘겼음이라"</span></div></div><div class="vblock"><div class="vl"><span class="vn">9</span><span class="vq">"여호와께서 이와 같이 말씀하시되 두로의 서너 가지 죄로 말미암아 내가 그 벌을 돌이키지 아니하리니 이는 그들이 그 형제의 계약을 기억하지 아니하고 모든 사로잡은 자를 에돔에 넘겼음이라"</span></div></div></td><td>에돔이 이스라엘 노예들을 거래(인신 거래)했다는 기사가 나옵니다(앞 절 참조).</td></tr>
+<tr><td>시 137:7</td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"여호와여 예루살렘이 멸망하던 날을 기억하시고 에돔 자손을 치소서 그들의 말이 헐어 버리라 헐어 버리라 그 기초까지 헐어 버리라 하였나이다"</span></div></div></td><td>에돔이 이스라엘의 멸망을 기뻐한 대목입니다.</td></tr>
+<tr><td>애 4:21-22</td><td><div class="vblock"><div class="vl"><span class="vn">21</span><span class="vq">"우스 땅에 사는 딸 에돔아 즐거워하며 기뻐하라 잔이 네게도 이를지니 네가 취하여 벌거벗으리라"</span></div><div class="vl"><span class="vn">22</span><span class="vq">"딸 시온아 네 죄악의 형벌이 다하였으니 주께서 다시는 너로 사로잡혀 가지 아니하게 하시리로다 딸 에돔아 주께서 네 죄악을 벌하시며 네 허물을 드러내시리로다"</span></div></div></td><td>에돔이 이스라엘의 멸망을 기뻐하지만 결국 벌을 받는다는 대목입니다.</td></tr>
+<tr><td>겔 25:12-14</td><td><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"주 여호와께서 이같이 말씀하셨느니라 에돔이 유다 족속을 쳐서 원수를 갚았고 원수를 갚음으로 심히 범죄하였도다"</span></div><div class="vl"><span class="vn">13</span><span class="vq">"그러므로 주 여호와께서 이같이 말씀하셨느니라 내가 내 손을 에돔 위에 펴서 사람과 짐승을 그 가운데에서 끊어 데만에서부터 황폐하게 하리니 드단까지 칼에 엎드러지리라"</span></div><div class="vl"><span class="vn">14</span><span class="vq">"내가 내 백성 이스라엘의 손으로 내 원수를 에돔에게 갚으리니 그들이 내 진노와 분노를 따라 에돔에 행한즉 내가 원수를 갚음인 줄을 에돔이 알리라 주 여호와의 말씀이니라"</span></div></div></td><td>에돔이 유다를 친 뒤 심판받는다는 말씀입니다.</td></tr>
+</tbody></table></div>
+
+  <div class="sup"><span class="tag">🔎 보충 — 본문 대조 메모(강의 설명과 본문의 차이)</span>
+  ① <b>대하 28장의 절 표기</b>: 교수님은 "역대하 28장 7절"이라고 말했으나 강의안은 <b>28:17</b>입니다. 개역개정에서 에돔 사람들이 유다를 친 기사는 28:17이므로 강의안 표기를 따랐습니다.
+  ② <b>민수기 절 표기</b>: 교수님은 "민수기 14장 18절… 24장이 나타나죠"라고 말했으나 강의안은 <b>민 24:18</b>이고 발람과 에돔을 다루는 개역개정 본문도 24:18입니다.
+  ③ <b>삼하 8:13</b>: 개역개정 각주에 "히, 아람[시편 60편 제목과 대상 18:11, 12]"라고 달려 있어, 히브리어 본문의 독법이 "에돔"이 아니라 "아람"이라는 사본상의 차이를 각주가 알려 줍니다(강의에서는 언급되지 않음).
+  ④ <b>시 137:7 · 애 4:21-22 · 겔 25:12-14</b>: 교수님은 이 본문들이 "에돔이 이스라엘의 멸망을 기뻐하면서 그들을 쳤지만 결국 에돔은 멸망당한다 — 바벨론에 의해서 멸망을 당하죠"라고 기록한다고 했습니다.
+  위 세 본문(개역개정)에는 에돔이 유다를 치고 기뻐한 점과 여호와의 벌이 나오지만 <b>"바벨론에 의해"라는 표현은 없고</b>(겔 25:14는 "내 백성 이스라엘의 손으로"), 바벨론에 의한 에돔의 멸망은 이 세 본문 밖의 교수님 설명입니다.
+  ⑤ <b>암 1:6, 9</b>: 위 표 아래에 적은 대로 본문은 "모든 사로잡은 자를 에돔에 넘겼음"입니다.</div>
+  <div class="card"><h3>역사적 상황 (강의안 항목: 옵 11-14는 예루살렘 멸망을 묘사? 왕하 8:20-22을 반영?)</h3>
+    <p>강의안 I-2는 이 항목을 <b>"역사적 상황: 옵 11-14는 예루살렘 멸망을 묘사? 왕하 8:20-22을 반영?"</b>이라는 물음 형태로 두었습니다. 교수님의 답변:</p>
+    <ul>
+      <li>옵 11-14절에는 "형제의 날(재앙의 날)"에 야곱이 재앙과 외적의 침략을 당해 환난을 겪는 기사가 나오는데, 어떤 학자들은 이를 <b>예루살렘 멸망</b>을 묘사하는 것으로 봅니다.</li>
+      <li>다른 학자들은 <b>왕하 8:20-22</b>(에돔이 반역해 독립한 사건)을 묘사하는 것으로 추측합니다.</li>
+      <li>왕하 8장의 사건은 비교적 이른 시기이고 예루살렘 멸망은 늦은 시기여서 <b>어느 것이 맞느냐는 논쟁</b>이 있다고 설명했습니다.</li>
+      <li>결론: 오바댜서가 이런 성격이라는 점과 정경적 위치를 고려하면, <b>여호람 왕 때 에돔이 반역해서 독립했을 때의 상황을 말하는 것으로 보는 것이 좋겠다</b>고 권했습니다(단정이 아닌 권고형 결론).
+        <span class="asr">[ASR 불확실: "아마도. 이 오바댜서가 이런식이라는 것을 고려하고" — 무엇을 고려하라는 것인지 문장 앞부분이 끊겨 특정 불가(정경적 위치 고려라는 뒷부분은 명확)]</span></li>
+      <li><span class="bdg b-add">강의 추가</span> 오바댜서 연대에 대해 교수님은 <b>"카이리나 이제영 같은 경우는 이. 오바댜서가 주전 9세기 중엽에 쓰여진 것이 아닐까 이렇게 추정을 하고 있습니다"</b>라고 말했습니다.
+        <span class="asr">[ASR 불확실: "카이리나 이제영" — 학자명 특정 불가. 후보로 확인된 것은 주전 9세기 여호람 시대설을 취하는 보수 학자들(Archer, Freeman, Delitzsch 등)이지만 자막의 이름과의 일치는 확인하지 못함. 임의 확정하지 않음]</span></li>
+    </ul>
+    <div class="sup"><span class="tag">🔎 보충(개역개정)</span> 같은 여호람 시대 기록인 대하 21:16-17에는 다음 대목이 있습니다 — <span class="vq">"여호와께서 블레셋 사람들과 구스에서 가까운 아라비아 사람들의 마음을 격동시키사 여호람을 치게 하셨으므로 그들이 올라와서 유다를 침략하여 왕궁의 모든 재물과 그의 아들들과 아내들을 탈취하였으므로 막내 아들 여호아하스 외에는 한 아들도 남지 아니하였더라"</span>
+    이 기사와 옵 11-14의 연결은 <b>강의에서 언급되지 않았습니다</b>(참고용).</div>
+    <div class="blank"><span class="bdg b-blank">미해결</span> 위 두 견해 중 어느 쪽이 맞는지, 그리고 오바댜서의 저작 연대(자막 내 8세기 vs 9세기 중엽)는 강의안에도 답이 없고 자막에서도 하나로 확정되지 않습니다.</div></div>
+  <div class="card"><h3>형제이면서 숙적 — 에돔이 상징하는 것</h3>
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> <b>에돔은 열방의 대표</b> — 이스라엘과 에돔은 <b>쌍둥이 형제이지만 숙적(원수) 관계</b>이며, 가장 가까운 사람이면서 가장 먼 사람이라고 했습니다. 이 에돔은 어떤 면에서 <b>열방을 상징</b>합니다. 교수님은 이 요지를 "이 에돔은 어떤 면에서 열방을 상징하죠", "이 에돔은 열방의 대표로서 열방을 상징하는 대표적인 그러한 나라이다"로 반복했습니다.</li>
+      <li><span class="bdg b-add">강의 추가</span> 같은 구조로 <b>가인과 셋</b>의 관계를 예로 들었습니다 — "믿는 자들의 민족과 또 불신자들의 민족이 형제관계죠. 형제관계지만 숙적 관계라는 것입니다."</li>
+      <li><span class="bdg b-add">강의 추가</span> 이것은 <b>이스라엘 안에서도 참 백성과 거짓 백성이 나뉘게 된다</b>는 것을 상징한다고 풀었습니다 — 한 집안의 에돔과 야곱이 원수가 되고, 가인과 셋이 한 집안에서 갈라져 원수가 되었던 것처럼 이스라엘 안에서도 그렇게 나뉘게 된다는 것입니다.</li>
+      <li><span class="bdg b-add">강의 추가</span> 옵 11-14의 사건 묘사: <b>형제의 날 · 재앙의 날</b>에 이방인이 예루살렘에 들어가 재물을 탈취할 때 에돔이 동참했고, 이스라엘과 유다가 재앙을 당할 때 기뻐하며 입을 크게 벌리고, 도망하는 자들을 막아 오히려 원수에게 넘겼다고 정리했습니다.</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="structure">
+  <div class="sh"><span class="sb">옵 II-1</span><span class="st">II. 오바댜서의 구조와 주요 내용 · 1. 구조</span><div class="sl"></div></div>
+  <div class="card">
+    <p>교수님은 구조를 강의안 그대로 설명했습니다: 1절 <b>상반절은 표제</b>("오바댜의 묵시라"), <b>1절 하반절부터 21절까지</b>가 본문이며, 크게는 <b>14절까지</b>와 <b>15절 이하</b> 둘로 나뉩니다 —
+    전반부는 에돔의 죄와 그에 대한 심판, 후반부는 여호와의 날에 있을 하나님의 심판과 이스라엘의 회복입니다.
+    <span class="asr">[ASR 불확실: "오바댜에 묶이라" — 1절 표제 "오바댜의 묵시라"의 오인식으로 판단(개역개정 1절 대조)]</span></p></div>
+<div class="tw"><table><caption>강의안 II-1 · 오바댜서의 구조</caption><thead><tr><th>강의안 표기</th><th>구분</th><th>교수님의 설명</th></tr></thead><tbody>
+<tr><td>1a</td><td>표제</td><td>1절 상반절 — &quot;오바댜의 묵시라&quot;.</td></tr>
+<tr><td>1b-9</td><td>에돔에 대한 심판 신탁</td><td><b>에돔에 어떤 일이 일어날 것인가</b>를 말하는 단락입니다.</td></tr>
+<tr><td>10-14</td><td>에돔의 멸망 원인(즉, 에돔의 죄)</td><td>앞 단락이 &quot;심판이 에돔에게 있을 것&quot;이라면 이 단락은 <b>왜 그런 일이 있을 것인가</b>, 곧 에돔의 죄 때문이라고 답합니다.</td></tr>
+<tr><td>15-16</td><td>열방을 심판할 YH의 날</td><td>에돔이 멸망한다면 그 사건의 <b>더 큰 의미가 무엇인가</b> — 그것은 여호와의 날이라고 설명했습니다.</td></tr>
+<tr><td>17-21</td><td>G의 왕국의 영광</td><td>여호와의 날 <b>다음에는 어떤 일이 일어날 것인가</b>를 말하는 단락입니다.</td></tr>
+<tr><td>크게 보면</td><td>1-14 / 15-21</td><td>1-14절: 에돔의 죄와 그에 대한 심판 · 15-21절: YH의 날의 보수와 이스라엘의 회복.</td></tr>
+</tbody></table></div>
+
+</div>
+<div class="sec" id="content">
+  <div class="sh"><span class="sb">옵 II-2</span><span class="st">II. 오바댜서의 구조와 주요 내용 · 2. 주요 내용</span><div class="sl"></div></div>
+  <div class="card"><h3>1-2절 · 이방 민족을 들어 에돔을 심판하실 것</h3>
+    <div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"오바댜의 묵시라 주 여호와께서 에돔에 대하여 이와 같이 말씀하시니라 우리가 여호와께로 말미암아 소식을 들었나니 곧 사자가 나라들 가운데에 보내심을 받고 이르기를 너희는 일어날지어다 우리가 일어나서 그와 싸우자 하는 것이니라"</span></div><div class="vl"><span class="vn">2</span><span class="vq">"보라 내가 너를 나라들 가운데에 매우 작게 하였으므로 네가 크게 멸시를 받느니라"</span></div></div>
+    <ul>
+      <li>1절에서 에돔에 대한 하나님의 말씀이 전해집니다. "우리가 여호와께로 말미암아 소식을 들었나니"는 <b>여호와가 전해 주신 계시의 말씀</b>이고, 여호와가 <b>사자를 열방 가운데 보내</b> "너희는 일어날지어다 우리가 일어나서 그와 싸우자"고 선포하게 하십니다 — "그"는 <b>에돔</b>입니다. 렘 49장에도 같은 내용이 나옵니다. 그래서 1절은 하나님이 <b>이방 민족을 들어 에돔을 심판하실 것</b>을 말합니다.</li>
+      <li>2절: 스스로 위대한 나라라고 생각한 에돔이 <b>가장 보잘것없고 크게 멸시받는 자리</b>에 빠지게 될 것이라고 풀었습니다.</li>
+    </ul></div>
+  <div class="card"><h3>3-4절 · 에돔의 교만</h3>
+    <div class="vblock"><div class="vl"><span class="vn">3</span><span class="vq">"너의 마음의 교만이 너를 속였도다 바위 틈에 거주하며 높은 곳에 사는 자여 네가 마음에 이르기를 누가 능히 나를 땅에 끌어내리겠느냐 하니"</span></div><div class="vl"><span class="vn">4</span><span class="vq">"네가 독수리처럼 높이 오르며 별 사이에 깃들일지라도 내가 거기에서 너를 끌어내리리라 여호와의 말씀이니라"</span></div></div>
+    <ul>
+      <li><span class="bdg b-add">강의 추가</span> "마음의 교만이 너를 속였도다" — 마음이 교만하면 <b>자기가 자기를 속이게 되고</b>, 진리와 바른 것을 보지 못하고 바르게 판단하지 못한다고 풀었습니다.</li>
+      <li>에돔은 바위틈·산꼭대기 높은 곳에 살았고, 4절 "독수리처럼 높이 오르며 별 사이에 깃들일지라도"처럼 살았기 때문에 "어떤 나라가 우리를 침략해 들어올 것인가, 어떤 나라가 우리를 이길 것인가" 하며 교만을 품었다고 풀었습니다.</li>
+      <li>에돔은 스스로를 <b>난공불락의 요새</b>라고 생각했지만 하나님은 그것이 <b>인간적인 생각일 뿐</b>이며 "거기서부터 너를 끌어내리리라"고 말씀하신다고 정리했습니다.</li>
+    </ul></div>
+  <div class="card"><h3>5-9절 · 에돔이 철저히 멸망당할 것 — 네 가지</h3>
+    <p>강의안: ① 물질/보물(5-6) ② 동맹국들(7) ③ 인간적 지혜(8) ④ 용사(9).</p>
+    <div class="tw"><table><caption>강의안 II-2 · 5-9절 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>① 물질/보물 (5-6절)</td><td><div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"혹시 도둑이 네게 이르렀으며 강도가 밤중에 네게 이르렀을지라도 만족할 만큼 훔치면 그치지 아니하였겠느냐 혹시 포도를 따는 자가 네게 이르렀을지라도 그것을 얼마쯤 남기지 아니하였겠느냐 네가 어찌 그리 망하였는고"</span></div><div class="vl"><span class="vn">6</span><span class="vq">"에서가 어찌 그리 수탈되었으며 그 감춘 보물이 어찌 그리 빼앗겼는고"</span></div></div></td><td>도둑이나 강도가 밤중에 들어와도 적당히 훔치면 들킬까 봐 빨리 도망가고, 포도 따는 자도 얼마쯤은 남기는 것이 통상인데 에돔은 <b>일반적인 멸망보다 훨씬 심하게</b> 수탈되었고 <b>감춘 보물까지 들키고 빼앗겼다</b>는 뜻으로 풀었습니다. 물질이 약탈당하는 것이 첫째입니다.</td></tr>
+<tr><td>② 동맹국들 (7절)</td><td><div class="vblock"><div class="vl"><span class="vn">7</span><span class="vq">"너와 약조한 모든 자들이 다 너를 쫓아 변경에 이르게 하며 너와 화목하던 자들이 너를 속여 이기며 네 먹을 것을 먹는 자들이 네 아래에 함정을 파니 네 마음에 지각이 없음이로다"</span></div></div></td><td>&quot;너와 약조한 모든 자, 너와 화목하던 자들이 다. 쫓겨날 것이다&quot; — 동맹국들과의 그 언약과 약조들이 다 <b>무익하게 될 것</b>이라고 풀었습니다.</td></tr>
+<tr><td>③ 인간적 지혜 (8절)</td><td><div class="vblock"><div class="vl"><span class="vn">8</span><span class="vq">"여호와의 말씀이니라 그 날에 내가 에돔에서 지혜 있는 자를 멸하며 에서의 산에서 지각 있는 자를 멸하지 아니하겠느냐"</span></div></div></td><td>에돔이 지혜롭고 똑똑하다고 자랑하지만 <b>그 모든 인간적인 지혜를 멸망시키겠다</b>는 것입니다.</td></tr>
+<tr><td>④ 용사 (9절)</td><td><div class="vblock"><div class="vl"><span class="vn">9</span><span class="vq">"드만아 네 용사들이 놀랄 것이라 이로 말미암아 에서의 산에 있는 사람은 다 죽임을 당하여 멸절되리라"</span></div></div></td><td>용사들이 놀라고 에서의 산에 있는 사람이 다 죽임을 당해 멸절된다는 것입니다.</td></tr>
+</tbody></table></div>
+
+    <p>교수님은 종합해 인간적인 지혜, 경제적인 능력, 사회적인 보장, 개인적인 능력 — 이런 모든 것들이 철저하게 멸망당할 것을 말한다고 정리했습니다.
+    <span class="asr">[ASR 불확실: 9절 낭독 부분의 "둠하나 내 용사들이 놀랄 것이라" — 개역개정 9절 "드만아 네 용사들이 놀랄 것이라"의 오인식으로 판단(본문 대조)]</span></p></div>
+  <div class="card"><h3>10-14절 · 에돔의 죄 (심판의 이유)</h3>
+    <p>강의안: ① 11절 ② 12절 ③ 14절.</p>
+    <div class="vblock"><div class="vl"><span class="vn">10</span><span class="vq">"네가 네 형제 야곱에게 행한 포학으로 말미암아 부끄러움을 당하고 영원히 멸절되리라"</span></div><div class="vl"><span class="vn">11</span><span class="vq">"네가 멀리 섰던 날 곧 이방인이 그의 재물을 빼앗아 가며 외국인이 그의 성문에 들어가서 예루살렘을 얻기 위하여 제비 뽑던 날에 너도 그들 중 한 사람 같았느니라"</span></div><div class="vl"><span class="vn">12</span><span class="vq">"네가 형제의 날 곧 그 재앙의 날에 방관할 것이 아니며 유다 자손이 패망하는 날에 기뻐할 것이 아니며 그 고난의 날에 네가 입을 크게 벌릴 것이 아니며"</span></div><div class="vl"><span class="vn">13</span><span class="vq">"내 백성이 환난을 당하는 날에 네가 그 성문에 들어가지 않을 것이며 환난을 당하는 날에 네가 그 고난을 방관하지 않을 것이며 환난을 당하는 날에 네가 그 재물에 손을 대지 않을 것이며"</span></div><div class="vl"><span class="vn">14</span><span class="vq">"네거리에 서서 그 도망하는 자를 막지 않을 것이며 고난의 날에 그 남은 자를 원수에게 넘기지 않을 것이니라"</span></div></div>
+    <ul>
+      <li>10-14절은 <b>형제의 날 · 재앙의 날 · 유다 자손이 패망하는 날</b>을 말합니다.</li>
+      <li><b>① 11절</b>: 이방인이 재물을 빼앗아 가고 성문에 들어가 예루살렘을 두고 제비 뽑을 때 <b>"너도 그들 중 한 사람 같았다"</b>.</li>
+      <li><b>② 12절</b>: 그 재앙의 날에 <b>방관하고</b> 유다 자손이 패망하는 것을 <b>기뻐하고</b>, 고난받는 것을 보며 <b>입을 크게 벌리고</b> 좋아했다.</li>
+      <li><b>③ 14절</b>: 네거리에 서서 <b>도망하는 자를 막고</b> 고난의 날에 그 남은 자를 <b>원수에게 넘겼다</b>.</li>
+      <li>교수님은 이 구절들의 죄를 마땅히 했어야 했던 행동, 곧 도리와 윤리를 행하지 않은 것으로 요약하고, 그로 인해 에돔이 멸절당한다고 정리했습니다.</li>
+    </ul>
+    <div class="blank"><span class="bdg b-blank">미해결</span> <b>10절과 13절</b> — 강의안은 11·12·14절만 항목으로 들고, 자막에서도 10절("야곱에게 행한 포학")과 13절("그 재물에 손을 대지 않을 것")은 별도로 풀이되지 않았습니다(13절의 "재물 탈취"는 옵 I-2 역사적 상황 설명에서 한 차례 언급). 개역개정 원문만 위에 수록합니다.</div></div>
+  <div class="card"><h3>15-16절 · 여호와께서 만국을 벌하실 날 = 여호와의 날</h3>
+    <p>강의안: 15-16절, YH께서 만국을 벌할 날 = YH의 날; cf. 12절, 13절 · <b>16절: 술마심 vs. 술취함</b>.</p>
+    <div class="vblock"><div class="vl"><span class="vn">15</span><span class="vq">"여호와께서 만국을 벌할 날이 가까웠나니 네가 행한 대로 너도 받을 것인즉 네가 행한 것이 네 머리로 돌아갈 것이라"</span></div><div class="vl"><span class="vn">16</span><span class="vq">"너희가 내 성산에서 마신 것 같이 만국인이 항상 마시리니 곧 마시고 삼켜서 본래 없던 것 같이 되리라"</span></div></div>
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> <b>같은 날 — 역사적 심판은 종말론적 심판의 예조</b>: 10-14절에서는 "내 백성이 환난을 당하는 날 · 형제의 날 · 유다 자손이 패망하는 날"이었는데 15절은 "만국을 벌할 날"입니다. 교수님은 이것이
+        유다·이스라엘이 당한 역사적인 징벌의 날이 <b>의도적으로 종말론적으로 확대</b>되면서 만국을 벌할 날이 된 것이라고 설명했습니다. 12-13절의 형제의 날·재앙의 날·패망하는 날·환난 당하는 날과 15절의 만국을 벌할 날은 <b>사실은 같은 날</b>이며,
+        이스라엘이 당하는 심판과 에돔이 당하는 심판이 종말론적으로 서로 연결되어 있고, <b>이 역사적인 심판은 종말론적인 심판의 예조가 되고 확장될 수 있다</b>고 했습니다.</li>
+      <li>15절: "네가 행한 대로 너도 받을 것" — 에돔이 예루살렘의 멸망을 즐거워하고 그들을 약탈했던 일이 <b>도리어 그들 자신에게 돌아갈 것</b>입니다.</li>
+      <li><b>16절 "마신다"의 두 해석</b> <span class="bdg b-add">강의 추가</span>: "너희가 내 성산에서 마신 것 같이 만국인이 항상 마시리니" — (가) 시온과 예루살렘에서 <b>약탈했던 것처럼</b> 만국이 에돔을 항상 약탈하게 될 것 (나) 야곱 족속이 고통당하는 것을 <b>즐거워했던 것처럼</b> 만국이 에돔이 멸망당하는 것을 보고 즐거워하게 될 것.</li>
+      <li><span class="bdg b-add">강의 추가</span> <b>마신 것(과거) vs 항상 마시리니</b>: 처음의 "마셨다"는 유쾌하고 바람직한 것일 수도 있지만 "항상 마시리니"는 술 <b>취함</b>, 곧 과도하고 파괴적·치명적인 것을 말합니다. 하나님은 이방인들에게 <b>계속 마시게 하여 취하게</b> 하고, 인사불성이 되어 죽을 때까지 마시게 됩니다. "마시고 삼켜서 본래 없던 것 같이 되리라"는 에돔이 <b>원래 없던 것같이 철저히 멸망해 자취조차 없어진다</b>는 뜻입니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "너희가 내 성산에서 마신 것같이 한국인이 항상 마신다"(2회) — 개역개정 16절 "만국인이"의 오인식으로 판단 · "망국을 보라" 등 이어지는 대목의 "만국"도 같은 계열]</span></p></div>
+  <div class="card"><h3>17-21절 · 하나님 왕국의 영광 — 시온의 남은 자</h3>
+    <div class="vblock"><div class="vl"><span class="vn">17</span><span class="vq">"오직 시온 산에서 피할 자가 있으리니 그 산이 거룩할 것이요 야곱 족속은 자기 기업을 누릴 것이며"</span></div><div class="vl"><span class="vn">18</span><span class="vq">"야곱 족속은 불이 될 것이며 요셉 족속은 불꽃이 될 것이요 에서 족속은 지푸라기가 될 것이라 그들이 그들 위에 붙어서 그들을 불사를 것인즉 에서 족속에 남은 자가 없으리니 여호와께서 말씀하셨음이라"</span></div><div class="vl"><span class="vn">19</span><span class="vq">"그들이 네겝과 에서의 산과 평지와 블레셋을 얻을 것이요 또 그들이 에브라임의 들과 사마리아의 들을 얻을 것이며 베냐민은 길르앗을 얻을 것이며"</span></div><div class="vl"><span class="vn">20</span><span class="vq">"사로잡혔던 이스라엘의 많은 자손은 가나안 사람에게 속한 이 땅을 사르밧까지 얻을 것이며 예루살렘에서 사로잡혔던 자들 곧 스바랏에 있는 자들은 네겝의 성읍들을 얻을 것이니라"</span></div><div class="vl"><span class="vn">21</span><span class="vq">"구원 받은 자들이 시온 산에 올라와서 에서의 산을 심판하리니 나라가 여호와께 속하리라"</span></div></div>
+    <div class="tw"><table><caption>강의안 II-2 · 17-21절 항목</caption><thead><tr><th>강의안 항목</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>17a: 욜 2:32 + 욜 3:17 (시온에 피할 곳)</td><td>&quot;오직 시온 산에서 피할 자가 있으리니 그 산이 거룩할 것&quot; — 욜 2:32와 3:17을 <b>종합적으로 반복</b>하고 있습니다(옵 I-1 &quot;요엘과의 관계&quot; 표 참조). 만국을 벌할 날에는 <b>하나님의 성산에서 심판이 있고</b>, 에돔이 그 성산에서 야곱 족속을 비웃었는데 <b>바로 그곳이 피할 곳</b>이 됩니다. <b>시온만이 피할 곳</b>이고, 야곱 족속 중 남은 자들은 자기 기업을 누립니다.</td></tr>
+<tr><td>17b: 암 9:12</td><td>&quot;야곱 족속은 자기 기업을 누릴 것&quot;과 이어서 암 9:12 — <b>다윗의 무너진 장막을 일으켜 새로운 다윗의 통치에 들어가는 남은 자들이 에돔의 남은 자와 만국을 기업으로 얻게 된다</b>는 말씀과 연결됩니다. 교수님은 암 9:12가 <b>에돔 족속이 마지막 종말의 때에 남은 자의 무리에 가입하게 될 것</b>을 말한다고 풀었습니다.</td></tr>
+<tr><td>18, 21절: 남은 자들(18)/구원받은 자들(21)이 에서를 심판</td><td>18절 &quot;에서 족속은 지푸라기가 될 것&quot; — 시온에서 구원받은 <b>요셉 족속(이스라엘 백성 중 남은 자들)</b>이 에서 족속과 열방을 심판하게 되고, 21절 &quot;구원 받은 자들이 시온 산에 올라와서 에서의 산을 심판하리니 나라가 여호와께 속하리라&quot;로 마무리됩니다.</td></tr>
+</tbody></table></div>
+
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> <b>18절 "에서 족속에 남은 자가 없으리니"와 암 9:12 "에돔의 남은 자"는 모순이 아니다</b> — 교수님이 "이게 서로 모순이 아닐까요?"라고 직접 물은 뒤 답했습니다. 암 9:12는 분명히 <b>에돔의 남은 자</b>(여호와를 경외하는 자들)가 남은 자의 무리에 들어가 시온에서 하나님의 새 백성이 된다고 말합니다. 18절이 말하는 것은 에돔이 <b>야곱을 조롱하고 핍박하고 약탈한 죄로 분명히 형벌을 받는다</b>는 것이고, 여기서 "에서 <b>족속</b>"은 <b>정치적 공동체·국가적 집단</b>을 가리킵니다. 곧 <b>에서 족속이라는 정치 집단은 패망하고 이스라엘의 원수로서의 에서는 멸망당해 없어지지만</b>, 그 가운데 개개인이 남은 자로 시온에 피하는 것은 배제되지 않습니다.</li>
+      <li><span class="bdg b-exam">교수 강조</span> <b>17절을 에돔의 구원으로 읽지 말 것</b> — 10-16절이 계속 에돔을 말하다가 17절에서 "시온 산에서 피할 자가 있으리니"가 나오므로 "에돔 족속 중에서 피할 자가 시온에 있다"는 뜻으로 생각할 수도 있지만, 교수님은 <b>이 오바댜서 자체 안에는 에돔의 구원이 명시되지 않았고</b> 17절은 그런 뜻이 아니라 <b>오직 시온 산만이 피할 곳</b>이라는 의미라고 분명히 했습니다. 에돔 중 남은 자의 시온 편입은 <b>암 9:12를 통해서 우리가 알고 있는 것</b>입니다.</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "18절에 보면 남은 자들은. 애굽에서 족속은 남은 자가 없으리라 / 요에서 족속은" — "에서 족속"의 오인식(개역개정 18절 대조)]</span>
+    <span class="asr">[ASR 불확실: "에서족속의 남자라고 해서 족속측에서 가족의 남은 자라고" — 앞 문장의 "에돔의 남은 자"(암 9:12)와 대비되는 "에서 족속에 남은 자"(옵 18)를 말하는 대목으로 판단(문장 자체는 원문 그대로 보존)]</span>
+    <span class="asr">[ASR 불확실: "그러나 유다족속의 개개인 한 사람 한 사람들이 그냥 깡그리 남은 자가 되지 않을 것이다, 이런 말은 아니라는 거죠" — 논지상 "유다 족속"은 "에서 족속"(에돔)의 개개인을 가리키는 것으로 판단하나 확정하지 않음]</span></p>
+    <div class="blank"><span class="bdg b-blank">미해결</span> <b>19-20절</b> — 네겝·에서의 산·평지·블레셋·에브라임·사마리아·길르앗·사르밧·스바랏 등을 얻는다는 대목은 강의안에도 항목이 없고 자막에서도 풀이되지 않았습니다. 개역개정 원문만 위에 수록합니다.</div></div>
+
+</div>
+<div class="sec" id="theology">
+  <div class="sh"><span class="sb">옵 III</span><span class="st">III. 오바댜서의 신학적 메시지(주제들)</span><div class="sl"></div></div>
+  <div class="card"><h3>1. YH의 보편적 통치</h3>
+    <ul>
+      <li><b>교만한 자를 심판하시는 하나님</b>: 3-4절 — 에돔은 자기를 당할 자가 없다고 생각했지만 하나님은 그들을 심판하십니다.</li>
+      <li><span class="bdg b-add">강의 추가</span> 이방 민족을 심판하실 때는 아모스서에서 본 것처럼 <b>율법에 근거해서가 아니라 하나님의 성품 자체에 근거해</b> 일반적인 윤리와 도덕을 어긴 자들에 대해 심판하십니다.</li>
+      <li><b>행한 대로 갚으시는 하나님(15b)</b>: 뿌린 대로 거두시는 하나님.</li>
+    </ul>
+    <p><b>에돔이 가지는 상징적 의미 — 강의안: 사 34:1-2, 5-6, 욜 3:19, 암 9:12</b>. 교수님은 에돔이 <b>하나님과 이 땅에 하나님의 나라가 건설되는 것을 반대하는 원수들, 열방을 대표하는 자</b>로 나타난다고 정리했습니다.</p>
+    <div class="tw"><table><caption>강의안 III-1 · 에돔의 상징적 의미 (본문은 개역개정)</caption><thead><tr><th>강의안 항목</th><th>개역개정 원문</th><th>강의 설명</th></tr></thead><tbody>
+<tr><td>사 34:1-2</td><td><div class="vblock"><div class="vl"><span class="vn">1</span><span class="vq">"열국이여 너희는 나아와 들을지어다 민족들이여 귀를 기울일지어다 땅과 땅에 충만한 것, 세계와 세계에서 나는 모든 것이여 들을지어다"</span></div><div class="vl"><span class="vn">2</span><span class="vq">"대저 여호와께서 열방을 향하여 진노하시며 그들의 만군을 향하여 분내사 그들을 진멸하시며 살륙 당하게 하셨은즉"</span></div></div></td><td>하나님이 열국을 향해 진노하시는 대목입니다.</td></tr>
+<tr><td>사 34:5-6</td><td><div class="vblock"><div class="vl"><span class="vn">5</span><span class="vq">"여호와의 칼이 하늘에서 족하게 마셨은즉 보라 이것이 에돔 위에 내리며 진멸하시기로 한 백성 위에 내려 그를 심판할 것이라"</span></div><div class="vl"><span class="vn">6</span><span class="vq">"여호와의 칼이 피 곧 어린 양과 염소의 피에 만족하고 기름 곧 숫양의 콩팥 기름으로 윤택하니 이는 여호와를 위한 희생이 보스라에 있고 큰 살륙이 에돔 땅에 있음이라"</span></div></div></td><td>열국을 향한 진노 속에서 <b>여호와의 칼이 에돔 위에 내릴 것</b>이라고 에돔의 심판을 말합니다. <span class='hb'>(개역개정 각주: 34:5 &quot;여호와의 칼&quot;에 &quot;히, 나&quot;)</span></td></tr>
+<tr><td>욜 3:19</td><td><div class="vblock"><div class="vl"><span class="vn">19</span><span class="vq">"그러나 애굽은 황무지가 되겠고 에돔은 황무한 들이 되리니 이는 그들이 유다 자손에게 포악을 행하여 무죄한 피를 그 땅에서 흘렸음이니라"</span></div></div></td><td>에돔이 <b>애굽과 더불어 열방을 대표</b>하며 황무한 들이 된다고 설명했습니다(자막에서는 &quot;이사야 34장이라든가 아니면 3장 19절&quot;로 요엘 표기가 빠짐 — 강의안 표기 욜 3:19로 확정).</td></tr>
+<tr><td>암 9:12</td><td><div class="vblock"><div class="vl"><span class="vn">12</span><span class="vq">"그들이 에돔의 남은 자와 내 이름으로 일컫는 만국을 기업으로 얻게 하리라 이 일을 행하시는 여호와의 말씀이니라"</span></div></div></td><td>에돔이 <b>만국을 대표하는 나라</b>로 등장하고, 에돔의 남은 자가 다윗 왕국에 편입됩니다.</td></tr>
+</tbody></table></div>
+
+    <p class="hb"><span class="asr">[ASR 불확실: "요약해서 3장 19절에 보시면 에돔은 애굽과 더불어 열방을 대표하고" — 욜 3:19를 가리키는 것으로 판단 · "아모스 9장 12절에서 애럼은 한국을 대표하는 나라로" — "에돔은 만국을 대표하는 나라"의 오인식으로 판단(개역개정 암 9:12 "만국"과 대조)]</span></p></div>
+  <div class="card"><h3>2. 만국을 벌하실 심판의 날, YH의 날</h3>
+    <ul>
+      <li>에돔에 대한 심판은 <b>이방 열국의 심판과 함께 이루어집니다</b> — 만국을 벌할 날에 에돔이 심판받습니다.</li>
+      <li><span class="bdg b-exam">교수 강조</span> 처음에는 형제의 날·재앙의 날로 유다와 이스라엘에게 역사적 심판이 임했는데 그것이 결국 <b>만국을 벌하실 심판의 날 · 여호와의 날</b>로 발전·전환된다고 정리했습니다(옵 II-2 "15-16절" 참조).</li>
+      <li><b>열방의 대표적 국가로 에돔 심판이 기록</b>됩니다 — 에돔은 열방을 대표하는 국가로서 심판받습니다.</li>
+      <li><b>열방 심판을 통해 남은 자들이 기업을 누리게 될 것</b>이며, 그 결과 <b>에돔 중의 남은 자들도 시온에 편입될 것</b>을 이야기할 수 있다고 했습니다(암 9:12).</li>
+    </ul>
+    <p class="hb"><span class="asr">[ASR 불확실: "두 번째는 망국을 보라. 실 심판의 날 여호와의 날 인데요" — 강의안 항목 "만국을 벌하실 심판의 날, YH의 날"의 오인식으로 판단(강의안과 바로 이어진 "만국을 벌할 날에 이 에돔이 심판을 받게 된다"로 대조)]</span></p></div>
+  <div class="card"><h3>3. Abe 언약의 성취</h3>
+    <p>강의안: <b>창 12:3</b>.</p>
+    <div class="vblock"><div class="vl"><span class="vn">3</span><span class="vq">"너를 축복하는 자에게는 내가 복을 내리고 너를 저주하는 자에게는 내가 저주하리니 땅의 모든 족속이 너로 말미암아 복을 얻을 것이라 하신지라"</span></div></div>
+    <ul>
+      <li>오바댜서의 <b>종말론적 비전은 아브라함 언약의 성취</b>라고 교수님은 정리했습니다.</li>
+      <li>에돔이 아브라함의 후손인 야곱 족속을 핍박하고 저주하고 괴롭혔는데 <b>결국 똑같은 일을 당하게 됩니다</b>.</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="compare">
+  <div class="sh"><span class="sb">옵 III+</span><span class="st">강의안 III의 마지막 항목 — 호·욜·암·옵 비교표</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의안 III의 마지막 줄은 <b>"호/욜/암/옵에서의 심판의 주요 대상과 이유, 열방심판의 유무, 회복의 범위 등"</b>이라는 <b>표 제목만</b> 있고 표 내용은 강의안에 없습니다(구두 설명을 전제한 빈칸).
+    아래 표는 교수님이 오바댜 강의 끝에서 "우리가 다시 한번 지금까지. 여호와 날 주제를 한번 간략하게 살펴보면요"라며 호세아부터 차례로 말한 내용을 세 항목(심판의 주요 대상과 이유 · 열방 심판의 유무 · 회복의 범위)에 맞춰 옮긴 것입니다. 교수님이 말하지 않은 칸은 지어내지 않고 비워 두었습니다.</p></div>
+<div class="tw"><table><caption>강의안 III 끝 · 호/욜/암/옵 비교 (교수님의 말을 항목별로 정리)</caption><thead><tr><th></th><th>심판의 주요 대상과 이유</th><th>열방 심판의 유무</th><th>회복의 범위</th></tr></thead><tbody>
+<tr><td><b>호세아</b></td><td><b>언약을 어긴 이스라엘과 유다</b>에 대한 심판. &quot;형벌의 날 보응의 날&quot;(호 9:7).</td><td><b>열방 심판에 대한 신탁 기사가 나타나지 않음</b>.</td><td>언약의 회복 — <b>아브라함 언약·모세 언약·다윗 언약·창조 언약</b>이 회복됨. 그래서 <b>우주적 구원</b>이 나타남.</td></tr>
+<tr><td><b>요엘</b></td><td>메뚜기 재앙과 여호와의 날. (심판의 이유는 이 대목에서 언급 없음)</td><td><b>여호사밧 골짜기에서 만국을 모아 심판</b>하심.</td><td>만민에게 영을 부어 주어 <b>보편적 구원</b>이 나타남. 종말론적 비전에 하늘과 땅의 이적, 해가 어두워지고 달이 핏빛으로 변하는 묵시적 용어가 나타나 <b>우주적 변화</b>도 나타남.</td></tr>
+<tr><td><b>아모스</b></td><td><b>우상숭배와 사회적 불의</b>에 대한 하나님의 심판. <b>여호와를 찾는 자들이 살게 될 것</b>.</td><td>책 <b>맨 처음(1-2장)부터</b> 열방 심판 신탁이 나타남. 에돔의 심판 이유는 <b>형제애를 버리고 무자비했기 때문</b>.</td><td><b>다윗이 회복</b>되어 새로운 왕으로 나타나고 <b>낙원이 회복</b>되는 비전.</td></tr>
+<tr><td><b>오바댜</b></td><td><b>에돔</b>이 심판받음 — 아모스에서는 형제를 버린 것이었고, 오바댜에서는 <b>교만하고 형제를 버린 동일한 이유</b>로 심판받음.</td><td><b>만국이 심판을 받음</b>.</td><td><b>시온에서 남은 자들이 회복</b>됨.</td></tr>
+</tbody></table></div>
+  <div class="card">
+    <ul>
+      <li><span class="bdg b-exam">교수 강조</span> 교수님은 이렇게 정리했습니다: <b>여호와의 날 주제가 호세아서부터 오바댜서까지 계속 이어지고 있다</b>는 것을 볼 수 있습니다.</li>
+      <li>요엘의 "여호사밧 골짜기"는 자막에 <b>"여호수아 밭 골짜기"</b>로 나오는데, 개역개정 욜 3:2 "내가 만국을 모아 데리고 <b>여호사밧 골짜기</b>에 내려가서 … 그들을 심문하리니"와 대조해 오인식으로 판단했습니다.
+      <span class="asr">[ASR 불확실: "여호수아 밭 골짜기에서 만 국을 불러모으고" — 욜 3:2 "여호사밧 골짜기"의 오인식으로 판단]</span></li>
+      <li>요엘 항목의 "종말론적 비전"(하늘과 땅의 이적, 해와 달)은 개역개정 욜 2:30-31 <span class="vq">"내가 이적을 하늘과 땅에 베풀리니 곧 피와 불과 연기 기둥이라 여호와의 크고 두려운 날이 이르기 전에 해가 어두워지고 달이 핏빛 같이 변하려니와"</span>와 대응하는 설명으로 판단했습니다(교수님이 절 번호를 명시하지는 않음).</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="intro1">
+  <div class="sh"><span class="sb">참고</span><span class="st">1강 서론과의 연결 — 강의안의 오바댜·에돔 항목</span><div class="sl"></div></div>
+  <div class="card"><h3>강의안 1강·6강에 흩어진 오바댜 언급</h3>
+    <p>강의안 1강(소선지서 서론)에는 오바댜·에돔을 언급하는 항목이 여러 곳 있습니다. 5주차 강의(2of2)는 이 항목들을 하나씩 짚지는 않았지만, 강의안의 내용을 그대로 옮겨 둡니다.</p>
+    <ul>
+      <li>12권으로 볼 수 없는 이유 ① <b>오바댜, 나훔 등의 짧은 책들의 분량</b>.</li>
+      <li>12선지서들 간의 내적 연결 고리 — <b>에돔: 오바댜, 욜 3:19, 암 1:11-12, 9:12</b> · 핵심어들: <b>암 9:12 // 옵</b>.</li>
+      <li>MT 순서 호·욜·암·옵·욘·미·나·합·습·학·슥·말 / LXX: 호, 암, 미, 욜, 옵, 욘.</li>
+      <li>통합적 이해의 신학적 의의 — 강의안 항목 <b>"오바댜"</b>는 제목만 있고 내용이 비어 있습니다.
+        <div class="blank"><span class="bdg b-blank">미해결</span> 이 항목(정경 속에서 오바댜의 의의·역할)에 대해 5주차 자막에는 이 문장을 그대로 적은 명시적 답이 없습니다. 인접한 진술은 ① 아모스와 요나 사이라는 위치와 두 책과의 연결(옵 I-1) ② 여호와의 날 주제가 호세아부터 오바댜까지 이어진다는 정리(옵 III+ 비교표)뿐이며 이를 강의안 항목에 대한 교수님의 답으로 단정하지 않습니다.</div></li>
+      <li>크리스텐센의 동심원 구조: <b>A 호, 욜, 암 + 옵</b> / B 욘 + 미 / B' 나 + 합 / A' 습 + 학, 슥, 말.</li>
+      <li>문학적 구조: <b>D 오바댜: 에돔에 대한 심판 — G은 공의의 G</b> · D' 하박국: 유다와 바벨론에 대한 심판 — 공의의 G.</li>
+      <li>소선지서의 YH의 날: <b>오바댜 1:15, YH께서 만국을 벌할 날</b> · YH의 날과 구속의 진전: 모든 역사적 심판은 종말론적 심판의 예조(옵 II-2 "15-16절"의 교수님 설명과 같은 취지).</li>
+      <li>강의안 제6과 서론: 정경적 위치 — <b>옵: 에돔에 대한 심판 / 욘: 니느웨에 대한 자비</b>(옵 I-1 "요나서와의 관계"와 같은 정리).</li>
+    </ul></div>
+
+</div>
+<div class="sec" id="open">
+  <div class="sh"><span class="sb">정리</span><span class="st">미해결 · 미언급 항목 정리 (지우지 않고 남김)</span><div class="sl"></div></div>
+  <div class="card">
+    <ol>
+      <li><span class="bdg b-blank">미해결</span> <b>오바댜서의 저작 연대</b> — 강의안에 항목 없음. 자막: "주전 8세기에 사역했던 그러한 사람이라고 볼 수가 있다면"(예레미야와의 선후 추측) vs "카이리나 이제영 같은 경우는 … 주전 9세기 중엽". 하나로 확정 불가.</li>
+      <li><span class="bdg b-blank">미해결</span> <b>옵 11-14의 역사적 상황</b> — 강의안은 물음(예루살렘 멸망? 왕하 8:20-22?)이고, 교수님은 정경적 위치 등을 고려해 왕하 8장 쪽이 좋겠다고 <b>권고형</b>으로 답함(단정 아님, 논쟁이 있음을 명시).</li>
+      <li><span class="bdg b-blank">미해결</span> <b>학자명 "카이리나 이제영"</b> — 특정 불가(후보 확정 못함). 노트는 발음 표기만 유지.</li>
+      <li><span class="bdg b-blank">미해결</span> <b>강의안 "오바댜" 항목(통합적 이해 속 오바댜의 역할)</b> — 강의안 빈칸, 자막에 직접 답 없음.</li>
+      <li><span class="bdg b-blank">미해결</span> <b>옵 10·13절, 옵 19-20절</b> — 강의안 항목에도 없고 자막에서 개별 풀이 없음(원문만 수록).</li>
+      <li><span class="bdg b-blank">미해결</span> <b>호·욜·암·옵 비교표의 빈 칸</b> — 요엘의 "심판의 이유"는 자막에서 언급되지 않아 비워 둠.</li>
+      <li><span class="bdg b-blank">미해결</span> <b>"에돔이 바벨론에 의해 멸망"</b> — 시 137:7·애 4:21-22·겔 25:12-14 본문에는 명시되지 않는 교수님의 설명이며, 이 노트는 그 진술을 교수님의 것으로만 남깁니다.</li>
+      <li>강의안 <b>"인신 거래 · 이스라엘 노예" 표현(암 1:6, 9)</b>: 본문 "모든 사로잡은 자를 끌어 에돔에 넘겼음"까지만 확인, 포로가 이스라엘(야곱 족속)이라는 부분은 교수님의 풀이.</li>
+      <li><b>"오늘의 적용" · 시험 언급</b> — 시험 언급은 두 영상 모두 없음. 적용은 1of2에서만 정의·공의의 한국 사회 적용 한 대목(암 III-3)이 있고, 2of2(오바댜)에는 적용 항목이 없음.</li>
+    </ol></div>
+
+</div>
+
+<div class="verify" id="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 1of2·2of2 자막 전량 + 강의안 제4과 III(1부)·제5과(2부) 전 항목</span>
+    <span class="stat" style="color:var(--exam)">교수 강조 · 14곳(명시적 시험 언급 없음)</span>
+    <span class="stat" style="color:var(--crimson2)">강의 추가 · 16곳</span>
+    <span class="stat" style="color:var(--gold)">보충 · 5곳(히브리어 원문·KJV·개역개정 각주·본문 대조)</span>
+    <span class="stat" style="color:var(--muted)">미해결 표시 · 13곳 · ASR 불확실 표시 · 29곳</span>
+  </div>
+  <p>· <b>자료근거</b>: 1부는 강의안 "제4과 아모스"의 <b>III. 아모스서의 신학적 메시지</b>(1~5)와 서두 복습에 해당하는 구조·배경 항목, 2부는 강의안 "제5과 오바댜서" 전 항목(I. 서론 1·2, II. 구조와 주요 내용 1·2, III. 신학적 메시지 1~3, 마지막 비교 항목)이 노트의 뼈대이며, 각 항목에 자막의 설명을 붙였습니다. 1of2·2of2 자막은 처음부터 끝까지 읽었고, 강의안에 있는 항목 중 자막에서 다루지 않은 것은 없습니다(예외는 미해결 절에 표시: 옵 10·13·19-20절, 강의안 4과 결어의 "회복=?"·"사로잡힌 것=?").</p>
+  <p>· <b>성경 본문</b>: 대한성서공회 개역개정 본문을 인용했습니다. 각주가 있는 구절(삼하 8:13, 사 34:5, 렘 49:9, 암 2:4, 암 8:1)은 본문과 각주를 분리했고, 히브리어 인용(옵 1:1 חֲזוֹן עֹבַדְיָה, 옵 1:15 יוֹם־יְהוָה, 암 4:13 מַה־שֵּׂחוֹ, 암 5:24 מִשְׁפָּט·צְדָקָה)은 마소라 본문을 따랐습니다.</p>
+  <p>· <b>ASR 불확실 · 통일 표기</b> — 아래 표 참조.</p>
+  <div class="tw"><table><caption>자막 오인식·표기 통일 목록</caption><thead><tr><th>자막 표기</th><th>처리</th></tr></thead><tbody>
+<tr><td><b>[1부 · 1of2]</b> &quot;그때가 유다에는 우시야 왕이 없고요&quot;</td><td>&quot;우시야&quot;는 웃시야로 판단, &quot;없고요&quot;의 뜻은 특정 불가</td></tr>
+<tr><td>&quot;1장 1절, 4장 12절, 13절 …&quot;</td><td>첫 항목은 1:2(강의안 ① 1:2)</td></tr>
+<tr><td>&quot;사사기 5장 4절에 시온의 세일과 에돔들&quot;</td><td>개역개정 삿 5:4에 &quot;시온&quot;이 없음 — &quot;시온의&quot; 특정 불가</td></tr>
+<tr><td>&quot;신년 본문&quot;</td><td>&quot;신현 본문&quot;으로 판단(앞 문장의 &quot;신현&quot;)</td></tr>
+<tr><td>&quot;묘선과 삼상&quot;</td><td>묘성과 삼성(암 5:8)</td></tr>
+<tr><td>&quot;공의 체득화&quot; · &quot;미쉬파트/미스파트/미스파티/미시 파트&quot;</td><td>공의 צְדָקָה(체다카)로 판단 · 정의 מִשְׁפָּט(미쉬파트)로 통일(암 5:24 마소라 본문·개역개정 대조)</td></tr>
+<tr><td>&quot;땅을 만져 높게 하사&quot;</td><td>&quot;녹게&quot;(암 9:5)</td></tr>
+<tr><td>&quot;차일지가 그렇게 표현했어요&quot;</td><td>학자·저작 특정 불가</td></tr>
+<tr><td>&quot;여호수아 골짜기&quot;</td><td>여호사밧 골짜기(욜 3:2)</td></tr>
+<tr><td>&quot;요일 3장 14절부터 21절&quot; · &quot;요에서 3장 16절&quot;</td><td>욜 3:14-21 · 욜 3:16</td></tr>
+<tr><td>&quot;호세아와 Panopto 서&quot;</td><td>요엘서(2부의 Panopto 서 3곳과 같은 유형)</td></tr>
+<tr><td>&quot;받아 끝이나 산꼭대기나 하늘이나 땅이나&quot; · &quot;속에서 나타난 이상과&quot;</td><td>특정 불가(9:2-3 대목으로 판단하나 첫 낱말 불명 / 문장 끊김)</td></tr>
+<tr><td>&quot;그 발을 숭배하는 그런 신전&quot;</td><td>특정 불가(&quot;바알&quot; 가능성만 있고 확정하지 않음)</td></tr>
+<tr><td>&quot;너희 왕 19 과 기운&quot;</td><td>&quot;식굿과 기윤&quot;(암 5:26 본문 대조)</td></tr>
+<tr><td>&quot;7장 19절부터 13절&quot; · &quot;베들레헴 제사장 아마시아&quot;</td><td>7:9-13 · 벧엘의 제사장 아마샤(7:10)</td></tr>
+<tr><td>&quot;베들레헴에 가서 범죄하고 길가에&quot;</td><td>벧엘 · 길갈(암 4:4)</td></tr>
+<tr><td>&quot;겨울궁, 여름궁, 상하궁&quot; · &quot;상하상 침상&quot;</td><td>상아 궁(3:15) · 상아 상(6:4)</td></tr>
+<tr><td>&quot;체와 키가 서로 기능이 반대죠 … 퀴즈&quot;</td><td>특정 불가(체질·키질을 견줘 남은 자를 남기신다는 취지만 확정)</td></tr>
+<tr><td><b>[2부 · 2of2]</b> 오바디아(7회) / 오바댜(38회)</td><td>강의안 표기 <b>오바댜</b>로 통일(자막에 두 표기가 섞임)</td></tr>
+<tr><td>애덤(4)·애럼(1)·앨범(1)·에고(1)·에드먼(2)·에드미(2)</td><td><b>에돔</b>의 오인식으로 판단(에돔 100회 등장·강의안 표기)</td></tr>
+<tr><td>Panopto 서 (3회)</td><td><b>요엘서</b>의 오인식(강의안 욜 1:15, 2:1, 2:32, 3:17과 대조)</td></tr>
+<tr><td>&quot;호. 열 아홉. 연미나 학습&quot; 등</td><td>열두 소선지서 순서를 외우는 대목 — 판독 불가, 강의안 MT 순서로 확정</td></tr>
+<tr><td>&quot;500, 에돔할 때 500 같은 단어죠&quot;</td><td>특정 불가</td></tr>
+<tr><td>&quot;카이리나 이제영&quot;</td><td>학자명 특정 불가</td></tr>
+<tr><td>&quot;오바댜에 묶이라&quot;</td><td>&quot;오바댜의 묵시라&quot;(옵 1:1a)</td></tr>
+<tr><td>&quot;둠하나 내 용사들&quot;</td><td>옵 9 &quot;드만아 네 용사들&quot;(본문 대조)</td></tr>
+<tr><td>&quot;한국인이 항상 마신다&quot;, &quot;한국을 대표&quot;</td><td>&quot;만국인&quot;·&quot;만국을 대표&quot;(옵 16·암 9:12 본문 대조)</td></tr>
+<tr><td>&quot;애굽에서 족속&quot;·&quot;요에서 족속&quot;</td><td>&quot;에서 족속&quot;(옵 18)</td></tr>
+<tr><td>&quot;여호수아 밭 골짜기&quot;</td><td>&quot;여호사밧 골짜기&quot;(욜 3:2 본문 대조)</td></tr>
+<tr><td>&quot;망국을 보라. 실 심판의 날&quot;</td><td>&quot;만국을 벌하실 심판의 날&quot;(강의안 항목)</td></tr>
+<tr><td>&quot;민수기 14장 18절&quot; · &quot;역대하 28장 7절&quot;</td><td>강의안·본문 대조로 <b>민 24:18</b> · <b>대하 28:17</b></td></tr>
+<tr><td>&quot;예레미야 49장 14절부터 17절&quot;</td><td>강의안 표기 <b>14-16절</b>(옵 I-1 예레미야 표)</td></tr>
+<tr><td>&quot;에드미칼로&quot; · &quot;이 가사와 블레셋과. 도로가&quot;</td><td>&quot;에돔이 칼로&quot;(암 1:11) · 가사와 두로(암 1:6, 9) — 본문 대조</td></tr>
+<tr><td>&quot;아마도. 이 오바댜서가 이런식이라는 것을 고려하고&quot;</td><td>앞부분이 끊겨 특정 불가(정경적 위치 고려라는 뒷부분만 확정)</td></tr>
+</tbody></table></div>
+
+</div>
+
+<div class="foot">예언문학연구입문 5주차 · 오성호 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
