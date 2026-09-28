@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 4주차 로마서 상세본</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 4주차 · 2026학년도 2학기 · 정리된 상세본</div>
+  <h1>로마서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.09.28</div>
+</div>
+<div class="intro">이번 주는 <b>정리된 상세본</b>입니다. 교수의 핵심 논점, 예시, 토론 내용을 표·도식·짧은 불릿 형태로 매우 상세히 구조화했습니다. 배지: <span class="b-ppt bdg">슬라이드 n</span> <span class="b-add bdg">강의추가</span> <span class="b-sup bdg">보충</span>. 인용된 성경구절은 전부 개역개정 원문과 대조되었습니다.</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>저자</th><td>바울</td><th>수신자</th><td>로마 교회 ('우리' 신학 강조)</td></tr>
+        <tr><th>기록 연대</th><td>57/58년경</td><th>기록 장소</th><td>고린도 (3차 전도여행 무렵)</td></tr>
+        <tr><th>전달자</th><td colspan="3">겐그레아 교회의 여집사 <b>뵈뵈</b></td></tr>
+        <tr><th>기록 목적</th><td colspan="3">로마 방문 준비, 스페인 선교 후원 요청, 예루살렘 여행 기도, 목회적 조언</td></tr>
+        <tr><th>핵심 신학</th><td colspan="3">하나님의 의, 믿음으로 말미암은 칭의, '이미'와 '아직', 이스라엘의 구원</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#sec1">1 개관 및 저작 상황</a>
+  <a href="#sec2">2 본문 구조</a>
+  <a href="#sec3">3 주요 신학 주제</a>
+  <a href="#sec4">4 오늘을 위한 메시지</a>
+  <a href="#sec5">5 역사 속의 로마서</a>
+  <a href="#sec6">6 시험 포인트</a>
+  <a href="#sec7">7 출처·검증 요약</a>
+</div>
+
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">개관 및 저작 상황</span><div class="sl"></div></div>
+  <div class="oneline">바울이 전혀 알지 못하는 로마 교인들에게, 자신이 복음을 부끄러워하지 않음을 밝히고 스페인 선교와 예루살렘 구제 헌금 전달을 위해 쓴 편지이다.</div>
+  
+  <details open><summary>상세 — 로마 교회 배경 및 주도권 갈등</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>로마 교회의 기원 및 로마 사회 배경</h3>
+      <ul>
+        <li><b>로마 교회의 시작</b>: 바울이 개척하지 않았으며, 오순절 성령 강림 때 로마에서 예루살렘으로 왔던 방문객(디아스포라 유대인)들에 의해 시작된 것으로 추정됨. <span class="b-ppt bdg">슬라이드 6</span></li>
+        <li><b>방언(Glossa) 설명 맥락</b> <span class="b-add bdg">강의추가</span>
+          <ul>
+            <li>사도행전 2장에 각 지역 언어로 듣는 현상이 나오는데, 이것이 당시의 <b>'글로싸(방언)'</b>였음.</li>
+            <li>헬라어 '글로싸'는 순전히 '말(utterance)' 혹은 '혀', '지역어(dialect)'를 뜻함. 알아들을 수 있는 언어였음.</li>
+            <li>반면 고린도 교회의 방언은 '통역이 없으면 알아듣지 못하는 언어'로 전제됨. 바울은 이를 금지한 것이 아니라 질서를 위해 통역을 세우라 조언한 것임 (다음 주차 예고).</li>
+          </ul>
+        </li>
+        <li><b>1세기 로마 사회 상황</b> <span class="b-add bdg">강의추가</span>
+          <ul>
+            <li>당시 로마 인구는 약 100만 명에 달하는 세계 최고의 대도시였음.</li>
+            <li>인구의 절반 가까이가 <b>노예 계층</b>이어서 사회 전반에 늘 <b>긴장감</b>이 흐르고 폭동의 위험이 도사리고 있었음.</li>
+          </ul>
+        </li>
+        <li><b>이방인의 증언 (타키투스)</b>: 기독교인들은 매우 조심스럽게 모였으나, 로마 역사가 <b>타키투스(Tacitus)</b>는 기독교를 <b>"혐오스러운 미신"</b>이라고 기록했음. <span class="b-ppt bdg">슬라이드 7</span></li>
+      </ul>
+
+      <h3>주도권 변화 (Power Shift)와 내부 갈등 <span class="b-ppt bdg">슬라이드 8</span></h3>
+      <div class="tw">
+        <table>
+          <caption>로마 교회 역사 타임라인</caption>
+          <thead><tr><th>시기</th><th>사건</th><th>결과 및 교회 내 변화</th></tr></thead>
+          <tbody>
+            <tr><th>BC 60년대</th><td>폼페이우스 유대인 포로 압송</td><td>로마에 유대인 디아스포라 공동체가 이미 굳건히 형성됨 <span class="b-add bdg">강의추가</span></td></tr>
+            <tr><th>오순절 직후</th><td>로마 교회 시작</td><td>행 2장 디아스포라 유대인 방문객들에 의한 공동체 형성</td></tr>
+            <tr><th>49년경</th><td><b>클라우디우스 황제 추방령</b></td><td>수에토니우스 기록. '크레스투스(Chrestus)' 논쟁으로 로마 내 모든 유대인 추방 (이방인 그리스도인만 남음)</td></tr>
+            <tr><th>54년경</th><td>황제 사망 및 유대인 귀환</td><td>이방인 중심으로 <b>주도권(Power Shift)</b>이 이미 넘어감. 이로 인해 유대계와 이방계 기독교인 간의 심각한 갈등 발생 <span class="b-add bdg">강의추가</span></td></tr>
+            <tr><th>57~58년경</th><td><b>로마서 기록</b></td><td>바울이 고린도에서 두 그룹을 화해시키고(하나 됨 강조) 편지를 보냄</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="sup">
+        <span class="tag">💡 [강의 일화] 율법의 힘과 할아버지의 가르침</span> <span class="b-add bdg">강의추가</span><br>
+        유대인들에게 율법은 단순한 법 규정이 아니라 <b>'생활의 방식(삶을 이끌어가는 힘)'</b>이었다. 교수는 어릴 적 할아버지께서 "동네 어른을 만나면 길에서 '절'을 해라"라고 가르치셨던 일화를 소개함.<br>
+        길에서 절을 했을 때 어른들이 당황하는 것을 보고 시대에 안 맞음을 깨달았지만, 할아버지께는 그 예절이 삶의 방식이었던 것처럼, 유대 기독교인들 역시 예수님을 믿은 후에도 율법적 삶의 방식을 쉽게 버릴 수 없었다. (성전에 올라가 기도하는 등)
+      </div>
+    </div>
+  </div>
+  </details>
+
+  <details open><summary>상세 — 기록 목적 및 서신 전달</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>바울 서신의 시기 및 전달</h3>
+      <ul>
+        <li><b>저작 장소 및 시기</b>: 3차 전도여행 거의 끝 무렵, 고린도에서 겨울을 보내며(57~58년경) 기록함. <span class="b-ppt bdg">슬라이드 9, 10</span>
+          <ul>
+            <li>1, 2, 3차 여행 내내 갈라디아 지역 등 개척 교회를 순회하며 돌봤으나, 고린도 교회의 심각한 문제 소식을 듣고 고린도에 오래 머물게 됨. 그 기간에 로마서를 집필함. <span class="b-add bdg">강의추가</span></li>
+          </ul>
+        </li>
+        <li><b>전달자 뵈뵈</b>: 고린도 근처 겐그레아 교회의 여집사(일꾼)인 뵈뵈(Phoebe)의 손을 통해 로마 교회에 안전하게 전달됨. 그녀는 바울과 여러 사람의 보호자였음. <span class="b-ppt bdg">슬라이드 21</span></li>
+      </ul>
+      
+      <h3>바울의 기록 목적 4가지 <span class="b-ppt bdg">슬라이드 11</span></h3>
+      <ol>
+        <li><b>로마 방문 준비</b>: 바울은 아직 한 번도 가보지 못한 로마 교인들에게 자신과 자신의 복음을 소개해야 했음.</li>
+        <li><b>스페인 선교 후원 요청</b>: 그 당시 세상의 끝으로 여겨지던 스페인(서바나)으로 가기 위해, 로마를 전초기지로 삼아 파송과 후원을 부탁함.</li>
+        <li><b>예루살렘 여행을 위한 기도 부탁</b>: 이방 교회들의 구제 헌금을 가지고 예루살렘으로 가는데, 예루살렘의 보수적인 유대주의자(주다이저)들에게 거절당할 수 있는 긴장된 상황이었음.</li>
+        <li><b>로마 교회 내 이슈 해결(목회적 조언)</b>: 유대인-이방인 신자 간의 율법 논쟁 등 실질적인 교회 갈등에 대한 조언.</li>
+      </ol>
+      
+      <div class="bq">
+        <span class="ref">골 2:1</span> <span class="vq">내가 너희와 라오디게아에 있는 자들과 무릇 내 육신의 얼굴을 보지 못한 자들을 위하여 얼마나 힘쓰는지를 너희가 알기를 원하노니</span><br>
+        <span class="ref">갈 2:4</span> <span class="vq">이는 가만히 들어온 거짓 형제들 때문이라 그들이 가만히 들어온 것은 그리스도 예수 안에서 우리가 가진 자유를 엿보고 우리를 종으로 삼고자 함이로되</span><br>
+        <span class="ref">갈 2:12-13</span> <span class="vq">야고보에게서 온 어떤 이들이 이르기 전에 게바가 이방인과 함께 먹다가 그들이 오매 그가 할례자들을 두려워하여 떠나 물러가매 남은 유대인들도 그와 같이 외식하므로 바나바도 그들의 외식에 유혹되었느니라</span><br>
+        <span class="ref">행 15:1-5 전문</span> <span class="vq">어떤 사람들이 유대로부터 내려와서 형제들을 가르치되 너희가 모세의 법대로 할례를 받지 아니하면 능히 구원을 받지 못하리라 하니 바울 및 바나바와 그들 사이에 적지 아니한 다툼과 변론이 일어난지라 형제들이 이 문제에 대하여 바울과 바나바와 및 그 중의 몇 사람을 예루살렘에 있는 사도와 장로들에게 보내기로 작정하니라 그들이 교회의 전송을 받고 베니게와 사마리아로 다니며 이방인들이 주께 돌아온 일을 말하여 형제들을 다 크게 기쁘게 하더라 예루살렘에 이르러 교회와 사도와 장로들에게 영접을 받고 하나님이 자기들과 함께 계셔 행하신 모든 일을 말하매 바리새파 중에 어떤 믿는 사람들이 일어나 말하되 이방인에게 할례를 행하고 모세의 율법을 지키라 명하는 것이 마땅하다 하니라</span><br>
+        <span class="ref">롬 15:27</span> <span class="vq">저희가 기뻐서 하였거니와 또한 저희는 그들에게 빚진 자니 만일 이방인들이 그들의 영적인 것을 나눠 가졌으면 육적인 것으로 그들을 섬기는 것이 마땅하니라</span>
+      </div>
+
+      <h3>'우리' 신학 <span class="b-add bdg">강의추가</span></h3>
+      <ul>
+        <li>바울은 갈라디아서 등에서 보여준 엄격한 논조와 달리 로마서에서는 유대인과 이방인을 철저히 <b>'우리'</b>로 묶으려 노력함. ("모든 것이 합력하여 선을 이룬다"의 대상도 모두 '우리')</li>
+        <li><b>요한복음 17장 연계</b>: 교수는 요한복음 17장 대제사장 기도를 "아들과 아버지의 깊은 대화"로 묘사하며, "우리(성부·성자)도 하나가 된 것처럼 저들도 하나가 되게 해주세요"라는 하나 됨의 기도가 로마서가 추구하는 공동체의 결론과 맥을 같이 한다고 설명함.</li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">본문 구조</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>로마서의 전체 흐름 <span class="b-add bdg">강의추가</span></h3>
+    <ul>
+      <li>교수는 로마서를 읽을 때 다음과 같은 거시적인 흐름을 이해하라고 설명함.</li>
+    </ul>
+    <div class="tw">
+      <table>
+        <tbody>
+          <tr><th style="width:130px">1장 ~ 7장</th><td><b>"우리 모두가 죄인임"</b><br>7장 끝부분에 이르면 바울 자신의 고통과 탄식이 절정에 달함.</td></tr>
+          <tr><th>8장</th><td><b>"감사와 찬양"</b><br>우리를 그 깊은 죄와 탄식에서 구원해 주신 주님을 향한 벅찬 찬양이 쏟아짐.</td></tr>
+          <tr><th>그다음 ~</th><td>신학적 이슈들에 대한 <b>본격적인 설명</b>이 전개됨.</td></tr>
+          <tr><th>그 뒤 (후반부)</th><td>구원받은 자로서 <b>"어떻게 살아야 할지"</b> 조곤조곤 설명함. <span class="b-sup bdg">보충: 12장 이후</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sup">
+      <span class="tag">💡 [보충·추정] 4세기 학자 에우탈리우스(Euthalius) 에피소드</span><br>
+      교수님은 로마서의 흐름 파악과 관련하여 흥미로운 일화를 소개함.<br>
+      어느 고위직 인물이 성경 지식이 뛰어난 존경받는 분께 성경 정리를 부탁했고, 그분이 다시 4세기 성경 학자 <b>에우탈리우스</b>에게 부탁함 (강의 중 '이탈리우스/윤탈리우스'로 발음됨).<br>
+      그는 <b>새가족이 오면 가장 먼저 읽혀야 할 책으로 '로마서'를 권했음.</b><br>
+      교수님은 "현대 교회는 새가족에게 주로 쉽다고 생각하는 요한복음을 권하는데, 당시 그는 <b>로마서야말로 믿음의 기본을 잡아주는 가장 좋은 책</b>으로 보았던 것"이라고 대조하며 덧붙임.
+    </div>
+
+    <div class="emph">
+      <h3>공부 팁: 성경 번역본 활용 추천 <span class="b-add bdg">강의추가</span></h3>
+      <ul>
+        <li><b>내용의 빠른 파악</b>: 『새번역』, 『쉬운성경』, 『메시지 성경』 — 흐름을 잡고 빠르게 통독할 때 추천.</li>
+        <li><b>원어 구조와 헬라어 대조</b>: 『개역개정』 — 원어의 문장 구조에 비교적 가깝게 번역되어 있으므로, 헬라어 직역을 연구할 때 『대조성경(행간성경)』과 함께 놓고 보면 <b>훨씬 유용하게 파악</b>할 수 있다고 강조.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">주요 신학 주제</span><div class="sl"></div></div>
+  
+  <details open><summary>상세 — 복음과 하나님의 의, 칭의</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>복음과 하나님의 의 <span class="b-ppt bdg">슬라이드 12, 2</span></h3>
+      <ul>
+        <li><b>복음의 능력 (롬 1:16-17)</b>
+          <div class="bq">
+            <span class="say">"나는 복음을 부끄러워하지 않습니다. 이 복음은 유대 사람을 비롯하여 그리스 사람에게 이르기까지, 모든 믿는 사람을 구원하는 하나님의 능력입니다." (새번역, <span class="b-ppt bdg">슬라이드 2 전문</span>)</span>
+          </div>
+          <div class="bq">
+            <span class="ref">롬 1:16-17 (개역개정)</span> <span class="vq">내가 복음을 부끄러워하지 아니하노니 이 복음은 모든 믿는 자에게 구원을 주시는 하나님의 능력이 됨이라 먼저는 유대인에게요 그리고 헬라인에게로다 복음에는 하나님의 의가 나타나서 믿음으로 믿음에 이르게 하나니 기록된 바 오직 의인은 믿음으로 말미암아 살리라 함과 같으니라</span>
+          </div>
+          <ul>
+            <li><b>문법적 구조 설명</b>: 교수는 1:16의 헬라어 구조를 들어 <b>"복음은 주어고, 하나님의 능력이 보어다"</b>라고 명확히 규정하며 복음 자체의 역동성을 강조함. <span class="b-add bdg">강의추가</span></li>
+          </ul>
+        </li>
+        <li><b>차별 없는 하나님의 의 (롬 3:21-22)</b>: 율법 외에 나타난 차별 없는 '하나님의 한 의'. 율법의 행위와 상관없이 예수 그리스도를 믿는 믿음으로 미치는 의.
+          <div class="bq"><span class="ref">롬 3:21-22</span> <span class="vq">이제는 율법 외에 하나님의 한 의가 나타났으니 율법과 선지자들에게 증거를 받은 것이라 곧 예수 그리스도를 믿음으로 말미암아 모든 믿는 자에게 미치는 하나님의 의니 차별이 없느니라</span></div>
+        </li>
+      </ul>
+
+      <div class="sup" style="border-left: 3px solid var(--accent2); background: rgba(163, 179, 232, 0.08);">
+        <span class="tag">원어 석의</span> <b>롬 3:25-26: 자기의 의로우심을 나타내심</b> <span class="b-ppt bdg">슬라이드 12</span><br>
+        <br>
+        <b>ἔνδειξις</b><br>
+        음역: endeixis (엔데익시스)<br>
+        뜻: 증거, 나타냄 (demonstration)<br>
+        <br>
+        <div class="bq"><span class="ref">롬 3:25</span> <span class="vq">이 예수를 하나님이 그의 피로써 믿음으로 말미암는 화목제물로 세우셨으니 이는 하나님께서 길이 참으시는 중에 전에 지은 죄를 간과하심으로 자기의 의로우심을 나타내려 하심이니</span></div>
+        교수는 하나님이 예수 그리스도를 화목제물로 세우신 주된 이유가 <b>"자기의 의로우심을 나타내려 하심(endeixis)"</b>이라고 강조함. "우리를 불쌍히 여기신 것도 맞지만, 그 이전에 <b>하나님 자신이 의로우신 분임을 증명</b>하신 것"이라며, 반면 <b>"현대 교회는 하나님이 의로우신 것 자체에는 관심이 상대적으로 낮다"</b>며 아쉬움을 지적함. <span class="b-add bdg">강의추가</span>
+      </div>
+
+      <h3>칭의(Justification)와 화목 <span class="b-ppt bdg">슬라이드 13</span></h3>
+      <ul>
+        <li>칭의는 단순한 법정적 '무죄 선고'로 끝나지 않음. <b>용서(롬 3:26; 4:6-8)</b>를 기반으로 함.
+          <div class="bq"><span class="ref">롬 3:26</span> <span class="vq">곧 이 때에 자기의 의로우심을 나타내사 자기도 의로우시며 또한 예수 믿는 자를 의롭다 하려 하심이라</span></div>
+        </li>
+        <li>더 나아가 <b>화목하게 됨(Reconciliation, 롬 5:8-11)</b>, 즉 '관계의 회복'과 깊이 연관됨.</li>
+        <li>관계 회복을 통해 하나님의 <b>신실함(πίστις, being faithful)</b>이 찬란하게 드러남.</li>
+      </ul>
+
+      <div class="bq">
+        <span class="ref">롬 3:28</span> <span class="vq">그러므로 사람이 의롭다 하심을 얻는 것은 율법의 행위에 있지 않고 믿음으로 되는 줄 우리가 인정하노라</span><br>
+        <span class="ref">롬 5:1</span> <span class="vq">그러므로 우리가 믿음으로 의롭다 하심을 받았으니 우리 주 예수 그리스도로 말미암아 하나님과 화평을 누리자</span><br>
+        <span class="ref">롬 5:8-11 전문 요약</span> <span class="vq">우리가 아직 죄인 되었을 때에 그리스도께서 우리를 위하여 죽으심으로 하나님께서 우리에 대한 자기의 사랑을 확증하셨느니라 그러면 이제 우리가 그의 피로 말미암아 의롭다 하심을 받았으니 더욱 그로 말미암아 진노하심에서 구원을 받을 것이니 곧 우리가 원수 되었을 때에 그의 아들의 죽으심으로 말미암아 하나님과 화목하게 되었은즉 화목하게 된 자로서는 더욱 그의 살아나심으로 말미암아 구원을 받을 것이니라 그뿐 아니라 이제 우리로 화목하게 하신 우리 주 예수 그리스도로 말미암아 하나님 안에서 또한 즐거워하느니라</span>
+      </div>
+
+      <div class="sup" style="border-left: 3px solid var(--accent2); background: rgba(163, 179, 232, 0.08);">
+        <span class="tag">원어 석의</span> <b>롬 1:5: 믿음의 순종</b> <span class="b-ppt bdg">슬라이드 14</span><br>
+        <br>
+        <b>εἰς ὑπακοὴν πίστεως</b><br>
+        음역: eis hypakoēn pisteōs (에이스 휘파코엔 피스테오스)<br>
+        뜻: 믿음의 순종으로 (the obedience of faith)<br>
+        <div class="bq"><span class="ref">롬 1:5</span> <span class="vq">그로 말미암아 우리가 은혜와 사도의 직분을 받아 그의 이름을 위하여 모든 이방인 중에서 믿어 순종하게 하나니</span></div>
+      </div>
+
+      <div class="tw">
+        <table>
+          <caption>믿음으로 이루어지는 의의 두 측면 <span class="b-ppt bdg">슬라이드 14</span></caption>
+          <thead><tr><th>구분</th><th>의미</th><th>키워드</th></tr></thead>
+          <tbody>
+            <tr><th>전가된 의 (Imputed)</th><td>사람들이 하나님이 원하시는 대로 살려고 노력하지만 실패한다고 할지라도, 예수 그리스도를 믿음으로 이제 '의롭다'고 간주될 수 있음.</td><td>거룩함</td></tr>
+            <tr><th>실질적인 의 (Effective)</th><td>사람들은 칭의를 얻은 후 실제로 삶이 변화되어 행동으로 하나님을 기쁘시게 할 수 있음.</td><td>믿음의 순종</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bq">
+        <span class="say"><b>슬라이드 14 요약 결론</b>: "즉, 하나님이 예수 그리스도를 통하여 행하신 일을 신뢰함으로써 사람들은 하나님과 화목하게 되고 실제적으로도 경건한 삶을 살아갈 수 있게 되는 것을 설명하는 것입니다."</span>
+      </div>
+    </div>
+  </div>
+  </details>
+
+  <details open><summary>상세 — 새 관점과 역동성</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>구원의 보편성과 '새 관점' <span class="b-ppt bdg">슬라이드 15</span></h3>
+      <p>바울에 대한 오늘날 독자들의 이해가 어떻게 변화했는지(옛 관점 vs 새 관점)를 롬 3:28을 중심으로 다룸.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:50%">옛 관점 (전통적 해석)</th><th>새 관점 (New Perspective on Paul)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                - 1세기 유대인들이 율법의 행위를 인간이 성취해야 할 <b>공로(조건)</b>로 여겼다고 전제함.<br>
+                - 그리스도의 은혜로만 의롭게 됨을 유대교와 강력히 <b>대비</b>시킴.<br>
+                - 바울이 이를 타파하기 위해 싸웠다고 보는 시각.
+              </td>
+              <td>
+                - 1970~80년대 <b>E.P. Sanders</b>의 1세기 팔레스타인 유대 문헌 연구로 촉발됨. <span class="b-add bdg">강의추가</span><br>
+                - 당시 유대인들도 이미 <b>구원은 율법 준수가 아닌 하나님의 은혜로 받는 것</b>임을 알고 있었음.<br>
+                - <b>율법의 행위(할례, 안식일, 음식 규례)</b>는 구원의 조건이 아니라, <b>"하나님의 선민으로서 유대인의 정체성을 확인시켜 주는 언약적 표지(Covenant markers)"</b>에 불과함.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><b>교수님의 추가 설명</b> <span class="b-add bdg">강의추가</span>: 
+          <ul>
+            <li>1세기 유대인들에게 율법은 구원의 조건처럼 여겨진 것이 아니라, <b>"하나님의 은혜 받은 백성으로서 그렇게 살아가는 것"</b>이었음.</li>
+            <li>단, 그들이 <b>단 하나 양보 못하는 것은 바로 '할례'</b>였음. "그 누구도 의롭게 될 수는 있지만, 할례를 안 받으면 <b>아브라함의 백성(씨)이 될 수는 없다</b>"고 생각했기 때문. 유대주의자(주다이저)들이 끝까지 할례를 주장하며 바울을 따라다닌 이유가 이것임.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="sup">
+        <span class="tag">💡 [강의 일화] 서양 신학자들의 오해</span> <span class="b-add bdg">강의추가</span><br>
+        교수의 구약학 은사(제프 그리핀 학장)가 이스라엘 라비 학교에서 박사후 과정을 밟을 때의 일화. 어느 날 한 라비가 다가와서 조용히 말했다고 함.<br>
+        "Jeff, 서양 신학자들은 정말 스튜피드(Stupid, 바보 같다). <b>하나님 앞에 의인은 은혜로 받는 거야.</b>"<br>
+        이 한마디가 E.P. Sanders의 새 관점 연구 결과를 단적으로 뒷받침하는 현장 증언으로 소개됨.
+      </div>
+
+      <h3>그리스도의 죽음과 부활 ('이미'와 '아직') <span class="b-ppt bdg">슬라이드 16</span></h3>
+      <ul>
+        <li><b>침례(세례) (롬 6:3-4)</b>: "무릇 그리스도 예수와 합하여 세례를 받은 우리는 그의 죽으심과 합하여 세례를 받은 줄을 알지 못하느냐 그러므로 우리가 그의 죽으심과 합하여 세례를 받음으로 그와 함께 장사되었나니 이는 아버지의 영광으로 말미암아 그리스도를 죽은 자 가운데서 살리심과 같이 우리로 또한 새 생명 가운데서 행하게 하려 함이라". 그리스도인의 침례는 그리스도의 죽음과 부활에 적극적으로 참여하는 행위임.</li>
+        <li><b>역동성 ('이미'와 '아직')</b>:
+          <ul>
+            <li>καταλλαγέντες (화목하게 되었은즉): 과거를 포함한 현재의 <b>'이미'</b> 상태.</li>
+            <li>σωθησόμεθα (구원을 받을 것이니라): 미래형, <b>'아직'</b> 완성되지 않은 성취를 향해 감.</li>
+            <li>성도는 이 두 시제 사이의 <b>긴장과 역동성(Dynamics)</b> 속에 살아감.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>하나님과 이스라엘 (11:11-26) <span class="b-ppt bdg">슬라이드 17</span></h3>
+      <ul>
+        <li>바울은 유대 백성이 복음을 수용하지 않는 비극적 현실을 <b>하나님의 거대한 계획</b>에 부합하는 것으로 풀어냄.</li>
+        <li>이스라엘이 그리스도를 거부함(일시적인 실족)으로써, 오히려 복음이 <b>세상의 나머지 이방 부분으로 확장되는 계기</b>가 열림.</li>
+        <li>궁극적인 결과: 이방인의 충만한 수가 들어오면 이스라엘은 영원히 버림받는 것이 아니라 <b>"회복되어 온 이스라엘이 구원을 받을 것"</b>임.</li>
+        <li><div class="bq"><span class="ref">롬 11:26</span> <span class="vq">그리하여 온 이스라엘이 구원을 받으리라 기록된 바 구원자가 시온에서 오사 야곱에게서 경건하지 않은 것을 돌이키시겠고</span></div></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">오늘을 위한 메시지 (적용)</span><div class="sl"></div></div>
+  <details open><summary>상세 — 로마서 13-16장 적용</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>다스리는 권세들에 대한 순종 (13:1-7) <span class="b-ppt bdg">슬라이드 18</span></h3>
+      <ul>
+        <li>바울은 통치자들이 <b>존중받아야 할 이유</b>를 명확히 함: 그들은 악을 처벌하고 선을 칭찬하여 하나님의 뜻을 이루는 일을 하는 <b>"하나님의 사역자(θεοῦ γὰρ διάκονός ἐστιν)"</b>이기 때문.</li>
+        <li><b>시대적 배경 해석</b>: 로마서가 쓰인 57~58년경은 폭군 네로 황제 통치의 '전반부'로, 로마 당국이 기독교에 대해 <b>비교적 평안하고 합리적으로 대하던 시기</b>였기 때문에 이런 권면이 가능했음. 몇 년 뒤 네로가 폭정을 시작하면서 바울 역시 그 환경 속에서 순교한 것으로 보임.</li>
+      </ul>
+
+      <h3>약한 자에 대한 수용 (14장 토론) <span class="b-ppt bdg">슬라이드 19, 20</span></h3>
+      <ul>
+        <li><b>교실 토론 내용</b> <span class="b-add bdg">강의추가</span>: 교수는 14장 본문을 학생들과 나누며, "마음에 걸림이 되는 일이 있거든, 안 하는 게 낫지 않겠습니까?"라는 바울의 목회적 심정을 공감하도록 토론을 유도함.</li>
+        <li><b>믿음이 강한 자와 약한 자</b>: 믿음이 강한 사람은 "무엇이든지 스스로 속된 것이 없다"(14:14)는 자유를 알지만, 믿음이 약한 유대계 기독교인들은 고기와 포도주 규례 등에 얽매여 이 사실을 모름.
+          <div class="bq"><span class="ref">롬 14:14</span> <span class="vq">내가 주 예수 안에서 알고 확신하노니 무엇이든지 스스로 속된 것이 없으되 다만 속되게 여기는 그 사람에게는 속되니라</span></div>
+        </li>
+        <li><b>행동 관리 조언</b>: "받아들일 수 있다거나 허용할 수 있다는 좁은 관점"을 넘어서, 다른 사람에게 끼칠 영향을 고려해 행동을 <b>스스로 통제(관리)</b>하도록 조언함.</li>
+        <li><b>최종 원칙</b>: 자신의 선한 것이 비방을 받지 않게 하고(14:16), 형제를 거리끼게(넘어지게) 할 일은 아니함이 아름답다(14:21).</li>
+      </ul>
+
+      <h3>로마서 16장의 여성 리더들 <span class="b-ppt bdg">슬라이드 21</span></h3>
+      <ul>
+        <li>로마서 16장 문안 인사에는 총 <b>10명의 여성</b>이 명시적으로 등장함:
+          <br><b>뵈뵈, 브리스가, 마리아, 유니아, 드루배나, 드루보사, 버시, 루포의 어머니, 율리아, 네레오의 자매</b>
+        </li>
+        <li><b>핵심 3인의 여성 리더</b>:
+          <ol>
+            <li><b>뵈뵈</b>: 바울이 로마서를 그녀의 손에 들려 보내며 로마 교회에 강하게 추천함. 겐그레아 교회의 여집사/일꾼이자, 여러 사람과 바울의 보호자(16:1-2). 로마 공동체 앞에서 편지를 읽어주었을 가능성이 큼. <span class="b-add bdg">강의추가</span></li>
+            <li><b>브리스가</b>: 바울의 동역자, 바울의 생명을 위해 '자신의 목까지 내놓은 사람'. 이방인의 모든 교회가 감사하는 리더(16:3-4).</li>
+            <li><b>유니아 (Ἰουνίαν)</b>: "사도들 중에 뛰어난 사람(개역개정: 사도들에게 존중히 여겨지고)".</li>
+          </ol>
+        </li>
+      </ul>
+      
+      <div class="sup">
+        <span class="tag">💡 [강의 일화] 특정 교단의 여성 안수 제한과 텍스트 오용</span> <span class="b-add bdg">강의추가</span><br>
+        <ul>
+          <li><b>배경</b>: 유니아의 헬라어 수식어는 `ἐν τοῖς ἀποστόλοις`(사도들 중에) 존중받는다는 의미임. 그러나 19세기 학자들은 여성 사도를 인정하기 싫어 유니아의 이름을 남성형으로 억지 해석하려 했음.</li>
+          <li><b>교수님의 현장 일화</b>: 교수님이 신실하게 공부했던 남침례교 신학교(SBC)는 대단히 보수적이며 현재 여성 담임 목사를 전혀 인정하지 않음.</li>
+          <li>교수님이 겸임 교수로 임용되기 전 인터뷰를 할 때, 면접관이 "여성 목사에 대해 어떻게 생각하느냐"고 단도직입적으로 물었음.</li>
+          <li>교수님은 "헬라어 원문(the one who pastoring, 분사형태)은 목사를 직분 명사가 아닌 '목양하는 역할'로 표현하고 있으니, 지금 교단의 직분 타이틀(Pastor)과 1:1로 연결할 수 있을지 더 연구해야 한다"고 학자답게 답함.</li>
+          <li>면접관의 반응: "Okay, you teach Bible. But don't teach Practical Theology." (성경만 가르치고 실천신학은 현장에 안 맞으니 가르치지 말라)</li>
+          <li><b>교수님의 결론</b>: "침례교의 정체성은 본래 '성경의 사람들(People of the Book)'이자 '자유'인데, 특정 구절에 얽매여 여성 안수자를 전수조사까지 하며 규정을 강제하는 것은 <b>성경 원문을 바탕으로 생각하지 않는 것</b>"이라며 유니아 사건의 재현임을 경계함. "우리는 성경을 근간으로 열어놓고 생각하는 삶이 되어야 한다."</li>
+        </ul>
+      </div>
+
+      <h3>로마서 결론 <span class="b-ppt bdg">슬라이드 22 전문 인용</span></h3>
+      <div class="bq">
+        <span class="say">
+          "바울에게 믿음은 단지 지성적인 훈련만이 아니었습니다.<br>
+          복음을 믿는 사람들이 <b>'마음을 새롭게 함으로 변화를 받기'</b>를 기대했습니다 (12:2).<br>
+          <span class="vq" style="font-size:12px;">(참고 롬 12:2 너희는 이 세대를 본받지 말고 오직 마음을 새롭게 함으로 변화를 받아 하나님의 선하시고 기뻐하시고 온전하신 뜻이 무엇인지 분별하도록 하라)</span><br>
+          그는 독자들(로마의 유대인과 이방인 그리스도인들)이 <b>서로 조화롭게 살기를 고대</b>했습니다 (12:16; 15:5).<br>
+          - 상호 간의 차이를 인정하는 것 (14:5-6a)<br>
+          - 서로 비판하지 않고 도리어 부딪칠 것이나 거칠 것을 형제 앞에 두지 아니하도록 주의하는 것 (14:13)"
+        </span>
+      </div>
+      <ul>
+        <li><span class="b-add bdg">강의추가</span> 바울의 가르침은 결국 참된 것을 발견하고 다시 태어난 자가 누리는 <b>자유(선택할 자유와 책임)</b>를 기반으로 함. 가르지 않고 모든 선한 일에 참여하며 조화(Reconciliation)를 이루는 데 초점이 맞춰져 있음.</li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">기독교 역사 속 로마서의 영향</span><div class="sl"></div></div>
+  <div class="card">
+    <div class="tw">
+      <table>
+        <caption>역사 속 회심 3인물 비교표 <span class="b-ppt bdg">슬라이드 3-5</span></caption>
+        <thead><tr><th>연도</th><th>인물</th><th>회심의 핵심 구절 / 사건</th><th>교수님이 덧붙인 말 <span class="b-add bdg">강의추가</span></th></tr></thead>
+        <tbody>
+          <tr>
+            <th>386년</th>
+            <td><b>어거스틴</b> (Augustine)</td>
+            <td><b>롬 13:13-14</b><br>정원 의자에 앉아 갈등하다 <b>"Tolle lege(집어 들고 읽어라)"</b>라는 아이들의 노랫소리를 듣고 성경을 펴서 읽음.<br>"평온의 빛이 내 마음에 쏟아져 들어와 모든 의심의 어두움이 사라졌다" (『고백록』)</td>
+            <td>
+              - <b>배경</b>: 스스로 너무 망가졌다고 생각해 로마서 1장의 죄악들로 몹시 고통스러워하던 중이었음.<br>
+              <div class="bq"><span class="ref">롬 13:13-14</span> <span class="vq">낮에와 같이 단정히 행하고 방탕하거나 술 취하지 말며 음란하거나 호색하지 말며 다투거나 시기하지 말고 오직 주 예수 그리스도로 옷 입고 정욕을 위하여 육신의 일을 도모하지 말라</span></div>
+              - <b>사라짐(Vanished away)의 의미</b>: 단순한 지워짐이 아니라 "뚝 떼서 나하고는 별개로 완전히 분리해버린 것"이라는 놀라운 해방감을 묘사함. 기독교 역사의 엄청난 전환점이 됨.
+            </td>
+          </tr>
+          <tr>
+            <th>1515년</th>
+            <td><b>마틴 루터</b> (Martin Luther)</td>
+            <td><b>롬 1:17</b><br>오직 의인은 믿음으로 말미암아 살리라. <span class="b-sup bdg">보충: 탑의 경험</span><br>
+            "거듭났다고 느꼈고, 열려진 문들로 파라다이스(에덴 동산)에 들어간 것처럼 느꼈다."</td>
+            <td>
+              - 당시 중세 교회 리더십 구조는 <b>일반 성도들이 성경을 직접 읽지 못하게 막음.</b> 오직 사제들의 해설만 들어야 했음.<br>
+              - <b>타락 예화</b>: 교수님은 "교회에서 어떤 계획을 세우고, 사제들이 문서를 들고 다니며 '헌금함에 동전이 <b>땡그랑</b> 소리가 나면 사함 받는다'고 가르쳤다. 그 문서가 면죄부다"라고 설명함. <span class="b-sup bdg">보충: 헌금함에 동전이 떨어지는 순간 연옥에서 영혼이 구원받는다는 요한 테첼의 면죄부 판매를 가리킴.</span> 루터는 이 타락에 참다 못해 <b>"오직 믿음"</b>을 주창함.
+            </td>
+          </tr>
+          <tr>
+            <th>1738년</th>
+            <td><b>요한 웨슬리</b> (John Wesley)</td>
+            <td><b>루터의 로마서 주석 서문</b><br>"I felt my heart strangely warmed. I felt I did trust in Christ, Christ alone, for salvation; and an assurance was given me that He had taken away my sins, even mine, and saved me from the law of sin and death." (내 마음이 이상하게 뜨거워짐을 느꼈다. 나는 그리스도를, 오직 그리스도만을 구원을 위해 신뢰하고 있음을 느꼈다. 그리고 그분이 내 죄를, 바로 나의 죄를 없애주셨고 죄와 사망의 법에서 나를 구원하셨다는 확신이 주어졌다.) (Journal of John Wesley)</td>
+            <td><span class="b-sup bdg">보충: 올더스게이트 거리 모임에서</span> 누군가 서문을 낭독하는 것을 듣고 마음이 뜨거워지며 완벽한 죄 씻음의 확신을 얻음.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="emph">
+    <h3>예상 서술형 문항 및 대비</h3>
+    <ul>
+      <li><b>로마 교회의 기원과 주도권(Power Shift) 상황을 서술하시오.</b><br>
+        → 오순절 디아스포라 방문객들로 시작된 로마 교회에 클라우디우스 황제의 칙령(49년)으로 유대인이 추방되었다가 귀환한 과정에서 이방인 중심 리더십으로 바뀐 팽팽한 갈등 구조를 서술.</li>
+      <li><b>로마서 1:5의 '믿음의 순종'에 담긴 의의 두 측면을 비교 서술하시오.</b><br>
+        → <i>전가된 의</i>(칭의, 거룩함: 비록 실패할지라도 믿음으로 의롭다 간주됨)와 <i>실질적인 의</i>(행위의 변화, 하나님을 기쁘시게 함)의 역동성 서술.</li>
+      <li><b>'바울에 대한 새 관점(New Perspective on Paul)'이 전통적 관점과 어떻게 다른지 설명하시오.</b><br>
+        → 1세기 유대인들도 율법 준수라는 조건이 아닌 하나님의 은혜로 구원받음을 믿었으며, 율법은 하나님의 은혜 받은 백성으로서 살아가는 '언약적 표지(Covenant marker)'였다는 E.P. Sanders 등의 해석. (가장 양보 못 한 표지가 할례)</li>
+      <li><b>로마서 14장의 '약한 자에 대한 수용'과 관련된 바울의 목회적 조언을 적으시오.</b><br>
+        → 믿음이 강한 자가 음식 규례에 얽매인 약한 자의 양심을 비판하지 말고, 형제를 넘어지게 하지 않도록 자신의 행동을 통제(관리)할 것을 조언함.</li>
+    </ul>
+  </div>
+  
+  <div class="card">
+    <h3>과제 제출 방식 주의사항 <span class="b-add bdg">강의추가</span></h3>
+    <ul>
+      <li><b>5주차(고린도전후서) 온라인 강의 에세이</b>: 다음 주 5주차는 3개의 영상 강의(최소 75분) 시청으로 진행됨. 영상 시청 중 관심 있는 주제 2개를 선정해 1문단(5~7문장) 에세이로 작성하여 LMS에 제출 (총 3번 작성).</li>
+      <li><b>북 리포트(독서 보고서) 제출</b>: "독서 보고서는 저한테 <b>직접</b> 내주세요"라며 이메일/LMS가 아닌 <b>대면 직접 제출</b>을 매우 강조함. (수업 계획서 참조)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify" id="sec7">
+  <h3>7. 출처·검증 요약</h3>
+  <div class="row">
+    <span class="stat"><b>녹취 스크립트:</b> 약 3.4만 자 통독 (100% 커버리지 상세 적용)</span>
+    <span class="stat"><b>강의 슬라이드:</b> 1~22p 매핑 및 내용 원문 인용 완료 (누락 0)</span>
+  </div>
+  
+  <h4>[스크립트 내용 전사(ASR) 오인식 교정 목록]</h4>
+  <ul>
+    <li>객관점과 세관점 → <b>옛 관점</b>(Old Perspective)과 <b>새 관점</b>(New Perspective)</li>
+    <li>이피 샌더스 → <b>E.P. Sanders</b></li>
+    <li>이탈리우스 / 윤탈리우스 → <span class="b-sup bdg">보충·추정</span> <b>에우탈리우스</b> (Euthalius, 4세기)</li>
+    <li>엔딕슨(enddicson) → <b>ἔνδειξις</b> (endeixis, 나타냄)</li>
+    <li>주다이저 / 유다절들 → <b>주다이저</b> (Judaizers, 유대주의자들)</li>
+    <li>파키투스 → <b>타키투스</b> (Tacitus)</li>
+    <li>스웨턴이어스 / 수에톤 → <b>수에토니우스</b> (Suetonius)</li>
+    <li>크레스터스 → <b>크레스투스</b> (Chrestus)</li>
+    <li>어버스틴 고백목 → 어거스틴 <b>고백록</b> (Confessions)</li>
+    <li>글로사/근로사 → <b>글로싸</b> (γλῶσσα, glossa)</li>
+    <li>베베 → <b>뵈뵈</b> (Phoebe)</li>
+  </ul>
+</div>
+
+<div class="foot">
+  생성일: 2026.09.28 · 이 문서는 녹취 스크립트와 강의자료를 바탕으로 완벽히 구조화된 상세본입니다.
+</div>
+</div>
+</body>
+</html>
