@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — LMS 4주차 영국 종교개혁과 청교도운동, 그리고 미국 교단의 성립</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>영국 종교개혁과 청교도운동, 그리고 미국 교단의 성립</h1>
+<p class="meta">교회사II · LMS 4주차(학습기간 9/28~10/6) · 2026.09.29 정리 · 제6부 종교개혁과 개신교의 시대(1517-1648) <span class="badge era">종교개혁의 시대</span><br>
+자료: 영상 3회차 + 교재 p.138~145 (교재 7~11장) &nbsp;|&nbsp; 배지:
+<span class="bd v1">영상1</span><span class="bd v2">영상2</span><span class="bd v3">영상3</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span></p>
+<table>
+<caption>회차 구성</caption>
+<tr><th>회차</th><th>주제</th><th>교재 범위</th></tr>
+<tr><td><span class="bd v1">영상1</span></td><td>영국 성공회의 탄생(헨리 8세) · 성경 영역(틴데일) · 에드워드 6세~엘리자베스 1세 · 청교도의 등장</td><td>7장 영국 성공회 (p.138~139)</td></tr>
+<tr><td><span class="bd v2">영상2</span></td><td>틴데일 성경 회고 · 킹제임스 흠정역과 KJV 유일주의 비판 · 반종교개혁(예수회·트렌트 공의회)</td><td>KJV(p.140) · 8장 반종교개혁 (p.140~142)</td></tr>
+<tr><td><span class="bd v3">영상3</span></td><td>청교도주의 · 미국 교단 성립(회중교회·침례교) · 영국 분리주의자 · 퀘이커</td><td>9~11장 (p.142~145)</td></tr>
+</table>
+
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <ul class="tight">
+    <li><strong>영국 성공회</strong> = 헨리 8세의 이혼 문제로 로마와 결별(1532~1534 수장령)한 <strong>"영국식 가톨릭"</strong>. 신학·직제는 가톨릭과 유사하고 수장만 교황→국왕으로 바뀜.</li>
+    <li>종교를 국가가 규정·운영하는 수단으로 삼은 체제 = <strong>시민 종교(civic religion)</strong>.</li>
+    <li><strong>영어 성경 계보</strong>: 위클리프 → 틴데일(신약 1526, 1536 화형) → 매튜 성경(1537) → 대 성경 → 킹제임스 흠정역(1611, 틴데일 70% 근거).</li>
+    <li><strong>왕위 3단계</strong>: 에드워드 6세(친개신교) → 메리(친가톨릭, "피의 메리") → 엘리자베스 1세(중간노선, 양쪽에서 비난).</li>
+    <li><strong>청교도(Puritans)</strong> = 성공회를 종교개혁 사상으로 <strong>정화(purify)</strong>하려던 사람들. 성공회 안에 남아 개혁하려는 쪽 vs 분리해 나가는 <strong>분리주의자</strong>.</li>
+    <li>분리주의자 → 네덜란드·신대륙(1620 메이플라워) → <strong>회중교회</strong>(하버드·예일 설립) · <strong>침례교</strong>(일반 1609 / 특수 1638) · <strong>퀘이커</strong>(1647).</li>
+    <li>대륙에서는 개신교와의 재결합이 결렬(교황권·화체설) → 로욜라와 <strong>예수회</strong>(1540) → <strong>트렌트 공의회</strong>(1545~1563) → 위그노 학살(1572)·30년 전쟁(1618~1648).</li>
+  </ul>
+  <p><strong>꼭 기억할 것</strong></p>
+  <ul class="tight">
+    <li><strong>용어</strong>: 시민 종교 · 수장령 · 흠정역 · 화체설 · 회중정체 · 일반/특수 침례교 · 퀘이커</li>
+    <li><strong>인물</strong>: 헨리 8세 · 틴데일 · 엘리자베스 1세 · 로욜라 · 존 스미스 · 조지 폭스</li>
+    <li><strong>연도</strong>: 1534(수장령) · 1611(KJV) · 1540(예수회) · 1545~1563(트렌트) · 1620(메이플라워) · 1609/1638(침례교) · 1647(퀘이커)</li>
+    <li><span class="bd hi">⭐교수강조</span> ① 침례교 안에는 처음부터 알미니우스주의(일반)와 칼빈주의(특수)가 공존 ② KJV만 유일한 성경이라는 주장은 넌센스 ③ 믿을 "자유"와 다른 성경을 믿으면 구원이 없다고 "주장하는 것"은 별개</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>0. 큰 흐름 한눈에</h2>
+  <div class="flow">
+    <div class="fb">헨리 8세 이혼 문제<br><small>1527~1533</small></div><div class="fa">→</div>
+    <div class="fb">수장령<br><small>1534</small></div><div class="fa">→</div>
+    <div class="fb">영국 성공회<br><small>영국식 가톨릭</small></div><div class="fa">→</div>
+    <div class="fb">에드워드 6세<br><small>친개신교</small></div><div class="fa">→</div>
+    <div class="fb">메리 1세<br><small>친가톨릭·화형</small></div><div class="fa">→</div>
+    <div class="fb">엘리자베스 1세<br><small>중간노선</small></div>
+  </div>
+  <div class="flow">
+    <div class="fb">대륙 피난<br><small>루터·칼빈·쯔빙글리·재세례파 영향</small></div><div class="fa">→</div>
+    <div class="fb">청교도<br><small>성공회 정화</small></div><div class="fa">→</div>
+    <div class="fb">분리주의자<br><small>독립교회</small></div><div class="fa">→</div>
+    <div class="fb">네덜란드 · 신대륙<br><small>1608~1620</small></div><div class="fa">→</div>
+    <div class="fb">회중교회 · 침례교 · 퀘이커</div>
+  </div>
+  <div class="flow">
+    <div class="fb">재결합 시도 결렬<br><small>1541</small></div><div class="fa">→</div>
+    <div class="fb">예수회<br><small>1540</small></div><div class="fa">→</div>
+    <div class="fb">트렌트 공의회<br><small>1545~1563</small></div><div class="fa">→</div>
+    <div class="fb">위그노 학살 · 30년 전쟁<br><small>1572 · 1618~1648</small></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>1. 시대 개관 / 통합 연표</h2>
+  <div class="oneline">영국은 왕의 이혼으로 로마와 갈라섰고, 그 안에서 밀려난 개혁 세력이 신대륙과 침례교·회중교회를 낳았으며, 대륙의 가톨릭은 트렌트와 예수회로 맞섰습니다.</div>
+  <table>
+  <caption>통합 연표 (연도는 ASR 교정 후 표기 — 교정 근거는 7장 표 참조)</caption>
+  <tr><th style="width:15%">연도</th><th>사건</th><th style="width:16%">출처</th></tr>
+  <tr><td>13세기(1198~1216)</td><td>인노첸시오 3세 교황 시대 — 예수회가 되찾으려는 교회의 영적·세속적 권세의 정점</td><td><span class="bd tb">p.140</span><span class="bd bo">보충</span></td></tr>
+  <tr><td>1509</td><td>헨리 8세 즉위(헨리 7세의 뒤). 강의는 "18살", 실제 만 17세</td><td><span class="bd v1">영상1</span><span class="bd bo">보충</span></td></tr>
+  <tr><td>1516</td><td>딸 메리(훗날 메리 1세) 출생 · 에라스무스 헬라어 신약성경 출간</td><td><span class="bd v1">영상1</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>1517</td><td>루터의 종교개혁 시작</td><td><span class="bd v2">영상2</span></td></tr>
+  <tr><td>1521</td><td>로욜라, 군 복무 중 한 전투에서 중상 → 병상에서 『그리스도를 본받아』 읽고 회심</td><td><span class="bd tb">p.140</span></td></tr>
+  <tr><td>1526</td><td>틴데일의 영어 신약성경 인쇄(독일 보름스, 6천 부)</td><td><span class="bd v1">영상1</span><span class="bd v2">영상2</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>1527</td><td>헨리, 교황(클레멘트 7세)에게 캐서린과의 혼인 무효 요청</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>1531</td><td>캐서린과 별거 시작 → 변방으로 추방, 딸 메리는 공주 신분 박탈</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>1532.4</td><td>크롬웰이 대신회의를 주도, 영국교회가 가톨릭에서 분리되어 국왕 통치하의 독립 교회로 선포</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>1533</td><td>1월 앤 볼레인과 비밀 결혼 · 5월 교회 법원이 캐서린과의 혼인 무효 선언 · 9월 딸 엘리자베스 출생 · 교황이 헨리에게 파문령</td><td><span class="bd tb">p.138</span><span class="bd v1">영상1</span></td></tr>
+  <tr><td>1534</td><td><strong>수장령(Act of Supremacy)</strong> → 영국 성공회 탄생 · 8월 15일 로욜라가 동지 6명과 서원 · 바오로 3세 재위(1534~49)</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138·140·141</span></td></tr>
+  <tr><td>1535~1536</td><td>틴데일 체포(교재는 1536, 실제 1535) → 1536.10.6 화형</td><td><span class="bd tb">p.138·139</span><span class="bd bo">보충</span></td></tr>
+  <tr><td>1537</td><td>존 로저스가 매튜 성경 출판(틴데일 사후 1년)</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>1539</td><td>대 성경(The Great Bible) 출판 — 헨리 8세가 매튜 성경을 커버데일에게 개정시킴 (출판 연도는 보충)</td><td><span class="bd tb">p.138·139</span><span class="bd bo">보충</span></td></tr>
+  <tr><td>1540</td><td>교황 바오로 3세, 예수회 승인</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>1541</td><td>독일 레겐스부르크에서 가톨릭-개신교 재결합 회담(멜랑히톤 참석) → 결렬</td><td><span class="bd tb">p.140</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>1545~1563</td><td><strong>트렌트 공의회</strong>(19번째 공의회, 18년간, 3차 회기: 1545-47 / 1551-52 / 1562-63)</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140~141</span></td></tr>
+  <tr><td>1547</td><td>에드워드 6세 10세로 즉위(헨리 8세 사망)</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>1549</td><td>예수회의 사비에르, 유럽 교회 역사상 처음으로 일본에 복음 전함 (개신교의 인도·일본 선교사 파송보다 150년 앞섬)</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>1553</td><td>42개 신조문 작성 · 에드워드 6세 사망, 메리 즉위</td><td><span class="bd tb">p.139</span><span class="bd v1">영상1</span></td></tr>
+  <tr><td>1556</td><td>크랜머, 최종 재판에서 신앙 철회를 취소하고 신앙 재확인 → 화형</td><td><span class="bd tb">p.139</span></td></tr>
+  <tr><td>1558</td><td>엘리자베스 1세 즉위 (재위 연도는 보충)</td><td><span class="bd v1">영상1</span><span class="bd bo">보충</span></td></tr>
+  <tr><td>1560~1660</td><td>청교도 운동이 등장·전개된 시기</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>1564.1.26</td><td>비오 4세, 트렌트 공의회 결정을 승인하는 칙서 발표</td><td><span class="bd tb">p.141</span></td></tr>
+  <tr><td>1572</td><td>위그노 학살(프랑스 개신교인)</td><td><span class="bd v2">영상2</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>1581</td><td>로버트 브라운, Norwich(네덜란드 공동체)에 분리주의자 교회 설립</td><td><span class="bd tb">p.143</span></td></tr>
+  <tr><td>1592 · 1596</td><td>Francis Johnson · Henry Ainsworth가 런던 분리주의 회중 목회자 / 1596 Truth Confession 작성</td><td><span class="bd tb">p.143~144</span></td></tr>
+  <tr><td>1603~1604</td><td>제임스 1세 즉위(1603, 보충) → 1604 햄프턴 코트 회의(청교도 개혁안 거절) · KJV 번역 착수</td><td><span class="bd tb">p.143</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>1606 · 1608</td><td>존 스미스, 고향 Gainsborough에서 분리주의 회중 설립(1606) → 1608 암스테르담으로 이주</td><td><span class="bd tb">p.144</span></td></tr>
+  <tr><td>1609</td><td>네덜란드에서 최초의 침례교회 탄생(존 스미스) — 일반침례교의 시작</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  <tr><td>1611</td><td>킹제임스 흠정역 완성 · 헬위스 일행 영국으로 귀환, A Declaration of Faith of English People 발표(첫 일반침례교 신앙고백) → 영국 침례교 시작</td><td><span class="bd v2">영상2</span><span class="bd v3">영상3</span><span class="bd tb">p.140·144</span></td></tr>
+  <tr><td>1612 · 1616</td><td>스미스 사망(1612), 헬위스 Mystery of Iniquity 저술(1612) / 헬위스 감옥에서 사망(1616) · JLJ 교회 Southwark에서 설립(1616)</td><td><span class="bd tb">p.144~145</span></td></tr>
+  <tr><td>1618~1648</td><td>독일 30년 전쟁</td><td><span class="bd v2">영상2</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>1620</td><td>9월, 약 100명이 메이플라워호로 뉴잉글랜드 매사추세츠 플리머스에 상륙 · 존 머튼 Humble Supplication 저술</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143·145</span></td></tr>
+  <tr><td>1624경 → 1647경</td><td>일반침례교 회중 5개 → 40~50개</td><td><span class="bd tb">p.145</span></td></tr>
+  <tr><td>1629~1642</td><td>수천 명의 청교도가 뉴잉글랜드로 이주</td><td><span class="bd tb">p.143</span></td></tr>
+  <tr><td>1630</td><td>400명 이상이 영국 사우스햄프턴에서 출항 예배, 존 코튼이 삼하 7:10 설교</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>1638</td><td>존 스필스베리가 신자의 침례를 실시하고 첫 특수침례교회 설립</td><td><span class="bd v3">영상3</span><span class="bd tb">p.145</span></td></tr>
+  <tr><td>1641 · 1644 · 1646</td><td>Richard Blunt를 네덜란드로 파견해 침례 받게 함(1641) / First London Confession(1644, 1646 개정) — 7개 회중 서명(4개는 JLJ 출신)</td><td><span class="bd tb">p.145</span></td></tr>
+  <tr><td>1646~1659</td><td>퀘이커 운동 시작기(영국 시민전쟁 중 동부 내륙). 1647 조지 폭스 창시</td><td><span class="bd v3">영상3</span><span class="bd tb">p.145</span></td></tr>
+  <tr><td>1689</td><td>종교 자유법(Act of Toleration) — 장로교·회중교·침례교·퀘이커가 예배의 자유를 누림</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  <tr><td>1648~</td><td>다음 주 예고: 제7부 이성과 부흥의 시대(1648~1789)</td><td><span class="bd v3">영상3</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>2. 주요 인물 / 운동</h2>
+  <div class="oneline">영국 성공회의 왕실 인물 → 성경 번역가 → 청교도·분리주의 지도자 → 가톨릭 개혁 인물 순으로 정리합니다.</div>
+  <table>
+  <caption>2-1. 영국 왕실·성공회 인물</caption>
+  <tr><th style="width:17%">인물</th><th style="width:16%">생몰·재위</th><th>핵심</th><th style="width:13%">출처</th></tr>
+  <tr><td><strong>헨리 8세</strong></td><td>재위 1509~1547</td><td>후계자(아들)가 없어 캐서린과 이혼 → 로마와 결별, 수장령(1534). 정식 왕비 6명(정식 결혼·정식 이혼 반복, 당시 가톨릭 시대라 일부일처제가 원칙). 수도원 폐지, 성경 영역 허용</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td><strong>아라곤의 캐서린</strong> (Catherine of Aragon)</td><td>—</td><td>스페인 공주, 찰스 5세의 고모. 헨리의 형 아서의 미망인 → 헨리와 결혼, 딸 메리 출산 후 유산 반복·폐경. 끝까지 "왕비 캐서린"이라 서명, 수도원 제안 거부</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td><strong>앤 볼레인</strong> (Anne Boleyn)</td><td>—</td><td>캐서린의 시녀(당시 25세), 헨리가 사랑에 빠짐. 1533 비밀 결혼 → 딸 엘리자베스 출산. 두 번째 왕비</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td><strong>제인 시모어</strong></td><td>—</td><td>세 번째 왕비. 아들 에드워드 6세의 어머니</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td><strong>토머스 크롬웰</strong> (Thomas Cromwell)</td><td>—</td><td>1532.4 대신회의를 주도해 영국교회를 가톨릭에서 분리(교재·강의). 교재·강의는 "대주교로 임명된 크롬웰이 결혼 무효를 선언"이라 서술하나, <span class="bd bo">보충</span> 1533년 무효를 선언한 것은 캔터베리 대주교 크랜머이고 크롬웰은 국왕 측근 대신 — 시험에는 교재 서술 기준, 사실관계는 확인 필요</td><td><span class="bd tb">p.138</span><span class="bd v1">영상1</span></td></tr>
+  <tr><td><strong>토머스 크랜머</strong> (Thomas Cranmer)</td><td>—</td><td>에드워드 6세 섭정·고문. 영어 공동기도서(Book of Common Prayer) 작성. <span class="bd bo">보충</span> 1533 캔터베리 대주교로 헨리의 혼인 무효 선언. 메리 시대 압박으로 신앙 철회 서명 → 1556 재판에서 취소·재확인, 서명했던 손을 먼저 불 속에 넣고 화형</td><td><span class="bd tb">p.139</span><span class="bd v1">영상1</span></td></tr>
+  <tr><td><strong>에드워드 6세</strong></td><td>재위 1547~1553</td><td>10세 즉위(만 9세), 12살에 사망(교재·강의 표기 — 실제 만 15세). 고문들이 친프로테스탄트 정책 추진</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span><span class="bd bo">보충</span></td></tr>
+  <tr><td><strong>메리 1세</strong> ("피의 메리", Bloody Mary)</td><td>재위 1553~1558</td><td>캐서린의 딸. 어머니의 억울함·자신의 공주 지위 박탈에 대한 "복수" → 친가톨릭 정책, 대주교 크랜머 등 300여 명 화형</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td><strong>엘리자베스 1세</strong> (Queen Elizabeth I)</td><td>재위 1558~1603</td><td>앤 볼레인의 딸. 가톨릭도 개신교도 아닌 <strong>중간 노선</strong>(의례는 가톨릭, 신학은 개신교). 자신을 "교회의 수장" 대신 "최고 집정관(Supreme Governor)"으로 부름</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td><strong>제임스 1세</strong></td><td>영국 왕 1603~1625</td><td>엘리자베스가 후계자 없이 서거 → 스코틀랜드 여왕 메리의 아들 제임스 6세가 영국왕으로 즉위. 왕권신수설(군주는 지상 최고의 자리, 하나님의 대리인) 주장. KJV 번역을 임명</td><td><span class="bd tb">p.143</span><span class="bd v2">영상2</span></td></tr>
+  </table>
+  <ul class="tight">
+    <li><span class="bd bo">보충</span> 헨리 8세의 여섯 왕비: 아라곤의 캐서린(이혼) · 앤 볼레인(처형) · 제인 시모어(사망) · 클레베스의 앤(이혼) · 캐서린 하워드(처형) · 캐서린 파(생존) — 강의에서는 첫째·둘째·셋째 왕비만 언급.</li>
+  </ul>
+
+  <table>
+  <caption>2-2. 성경 번역·가톨릭 개혁 인물</caption>
+  <tr><th style="width:17%">인물</th><th style="width:16%">생몰</th><th>핵심</th><th style="width:13%">출처</th></tr>
+  <tr><td><strong>윌리엄 틴데일</strong> (William Tyndale)</td><td>1494~1536</td><td>옥스퍼드·캠브리지에서 그리스어·르네상스 인문주의 수학, 위클리프의 영향. 영어 신약 번역·출판(1526), 1536.10.6 화형</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138~139</span></td></tr>
+  <tr><td><strong>존 로저스</strong> · <strong>마일스 커버데일</strong></td><td>—</td><td>로저스: 틴데일 사후 1년(1537) 매튜 성경 출판. 커버데일: 헨리 8세의 명으로 매튜 성경을 개정해 대 성경 출판</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td><strong>에라스무스</strong></td><td>—</td><td>인문학자. 헬라어 사본을 대조·교정해 <strong>최초의 헬라어 신약성경 출판(1516)</strong> → 루터·틴데일·KJV 번역의 기초</td><td><span class="bd v2">영상2</span></td></tr>
+  <tr><td><strong>이그나티우스 로욜라</strong> (Ignatius Loyola)</td><td>1491~1556</td><td>스페인 귀족 가문. 군인 시절 쾌락 추구("플레이보이 생활"), 1521 부상 후 『그리스도를 본받아』(토마스 아 켐피스)로 회심. 파리에서 7년 신학. 예수회 창설</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td><strong>프란시스 사비에르</strong> (Francis Xavier)</td><td>—</td><td>로욜라의 동지(6명 중 한 명). 1549 유럽 교회 역사상 처음으로 일본에 복음 전함</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td><strong>바오로 3세</strong> (Paul III)</td><td>재위 1534~1549</td><td>1540 예수회 승인. 개혁 의지 있는 인물을 추기경으로 임명해 개혁위원회 결성, 트렌트 공의회 소집</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140~141</span></td></tr>
+  </table>
+
+  <table>
+  <caption>2-3. 청교도·분리주의·침례교·퀘이커 인물</caption>
+  <tr><th style="width:17%">인물</th><th style="width:16%">생몰</th><th>핵심</th><th style="width:13%">출처</th></tr>
+  <tr><td><strong>존 코튼</strong> (John Cotton)</td><td>—</td><td>1630 사우스햄프턴 출항 예배에서 삼하 7:10 설교 — 신대륙을 "약속의 땅", 이주자를 "택한 백성"으로 축복</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td><strong>로버트 브라운</strong> (Robert Browne)</td><td>1550~1633</td><td>분리주의 시조(교재). 주교가 아닌 <strong>회중이 목회자를 선출</strong>해야 한다고 믿음. 1581 Norwich(네덜란드 공동체)에 분리주의자 교회 설립, 투옥 후 홀란드로 피신, 후에 해체</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  <tr><td><strong>헨리 배로우 · 존 그린우드 · 프랜시스 존슨 · 헨리 에인즈워스</strong></td><td>—</td><td>런던에서 분리주의자 교회 설립·투옥. 1592 존슨·에인즈워스가 목회자. 이 교회들이 1596 Truth Confession 작성</td><td><span class="bd tb">p.143~144</span></td></tr>
+  <tr><td><strong>존 스미스</strong> (John Smyth)</td><td>c.1560~1612</td><td>캠브리지 출신, 성공회 → 분리주의자. 신약(헬라어) 연구 중 유아세례의 부당성 자각 → 신앙고백 후 스스로 침례를 주고 이후 다른 사람들에게도 줌. <strong>일반침례교의 시조</strong>. Gainsborough(1606) → 암스테르담(1608) → 메노나이트 가입을 원하다 1612 사망</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143~144</span></td></tr>
+  <tr><td><strong>토머스 헬위스</strong> (Thomas Helwys)</td><td>1550~1616</td><td>스미스의 후원자. 메노나이트 가입에 동조하지 않고 남은 자들의 목사가 됨 → 1611 영국 귀환. 영국 최초로 종교 자유 주장 · A Declaration of Faith of English People(1611), Mystery of Iniquity(1612) · 감옥에서 사망(1616)</td><td><span class="bd v3">영상3</span><span class="bd tb">p.144</span></td></tr>
+  <tr><td><strong>존 머튼</strong> (John Murton)</td><td>—</td><td>헬위스가 투옥된 후 목사로 선택. Humble Supplication(1620) — 일상사(civic matters)에서는 왕께 복종하나 영적인 일에서는 아님. Newgate 감옥에서 사망</td><td><span class="bd v3">영상3</span><span class="bd tb">p.144~145</span></td></tr>
+  <tr><td><strong>존 스필스베리 · 윌리엄 키핀 · 핸서드 놀리스</strong></td><td>—</td><td>특수침례교 주요 지도자. 스필스베리가 1638 신자의 침례를 실시하고 첫 특수침례교회 설립</td><td><span class="bd v3">영상3</span><span class="bd tb">p.145</span></td></tr>
+  <tr><td><strong>로저 윌리엄스</strong> (Roger Williams)</td><td>—</td><td>청교도였으나 신약을 통해 유아세례 거부·신자의 침례 주장 — 미국 최초의 침례교인(강의)</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  <tr><td><strong>앤 허친슨</strong> (Anne Hutchinson)</td><td>—</td><td>뉴잉글랜드 청교도 사회의 분파 운동 주도자(교재에 이름만 병기)</td><td><span class="bd tb">p.143</span></td></tr>
+  <tr><td><strong>조지 폭스</strong> (George Fox)</td><td>1624~</td><td>레스터셔 Fenny Drayton 출생. 1647 퀘이커(Friends) 창시</td><td><span class="bd v3">영상3</span><span class="bd tb">p.145</span></td></tr>
+  <tr><td><strong>찰스 5세</strong></td><td>—</td><td>신성로마제국 황제·스페인 왕·이탈리아 군주(합스부르크 가문 수장). 제국이 넓어 "태양이 지지 않는 나라"라 불림. 캐서린의 조카 → 교황이 이혼을 머뭇거린 이유</td><td><span class="bd v1">영상1</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>3. 사건 / 전개</h2>
+  <div class="oneline">교재 7~11장 순서(영국 성공회 → 반종교개혁 → 청교도·미국 교단 → 분리주의자 → 퀘이커)로 정리합니다.</div>
+
+  <h3>3-1. 영국 성공회의 탄생 (교재 7장 · 영상1)</h3>
+  <table>
+  <caption>원인 — 시민 종교와 헨리 8세의 결혼 문제</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td><strong>시민 종교</strong> (civic religion) <span class="bd hi">⭐</span></td><td>종교를 국가가 사용하는 수단으로 삼음 = 정치와 종교가 분리되지 않고 국가가 종교를 규정·운영하는 시스템</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>미국의 시민 종교 흔적</td><td>미국은 기독교 국가가 아니지만 사회 구석구석에 기독교의 흔적 — ① 예배당에 성조기와 십자가 ② 대통령 취임 시 성경에 손을 얹고 선서 ③ 주요 절기가 부활절·추수감사절(땡스기빙)·크리스마스</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>헨리와 캐서린의 관계</td><td><ul class="tight"><li>헨리의 형 아서가 캐서린(찰스 5세의 고모, 스페인 공주)과 결혼 → 아서가 병으로 곧 사망, 캐서린은 미망인 <span class="bd bo">보충</span> 아서 사망 1502</li><li>교황 율리우스 2세가 캐서린이 아직 처녀임을 인정해 이전 혼인을 무효화 → 헨리 7세의 둘째 아들 헨리와 약혼·결혼</li><li>8년의 공백 후 헨리 8세 즉위(18세라 함 — <span class="bd bo">보충</span> 실제 만 17세). 부부 금실은 좋았음</li></ul></td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>후계자 문제</td><td>1516 딸 메리 출산 후 캐서린은 계속 유산, 폐경으로 더 이상 출산 불가 → 왕위 계승자가 없어 부부 사이가 틀어짐</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>헨리의 태도</td><td>정부(블런트)를 통해 건강한 아들 헨리 피츠로이를 낳아 "자기는 문제없고 아들을 못 낳는 캐서린이 문제"라고 주장. 당시 관습이 아들을 못 낳는 원인을 여자에게 돌림 <span class="bd bo">보충</span> 출생 연도는 1519(자막 "15009년"은 표기 불명)</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>앤 볼레인</td><td>캐서린의 시녀 앤 볼레인(당시 25세)을 사랑하게 되어 1527 교황에게 혼인 무효 요청. 논리: "혼인이 성립되었다고 선언할 권리가 교황에게 있다면, 이혼도 허락해 달라" (교재: 교황 클레멘트 7세, 17년간의 결혼 생활)</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>이혼 근거 ① (성경)</td><td>레위기 20:21 — 형의 아내를 취하면 저주가 임한다는 근친 규정. "하나님의 저주로 캐서린과 자신 사이에 아들이 태어나지 않았다"</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>이혼 근거 ② (교수: "치사한 주장")</td><td>교황이 "처녀임을 인정"하고 결혼시켰는데 헨리는 "결혼해 보니 처녀가 아니었다"고 주장</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>교황의 반응</td><td>캐서린이 스페인 왕(찰스 5세)의 고모라서 교황이 이혼을 머뭇거림 → 헨리가 크롬웰에게 회의를 주도하게 함(1532.4)</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  </table>
+
+  <table>
+  <caption>분리의 경과 (교재 p.138 "A. 원인 · B. 경과")</caption>
+  <tr><th style="width:13%">시기</th><th>사건</th></tr>
+  <tr><td>1531</td><td>캐서린이 헨리와 별거 시작. 헨리는 수도원에 들어가 조용히 살라고 제안했으나 캐서린이 거부 → 변방으로 추방, 딸 메리도 공주 신분 박탈</td></tr>
+  <tr><td>1532.4</td><td>크롬웰이 대신회의 주도 → 영국교회가 가톨릭에서 완전 분리되어 국왕의 통치하에 있는 독립적인 교회가 됨(영국식 가톨릭) 선포</td></tr>
+  <tr><td>1533.1</td><td>왕이 앤 볼레인과 비밀 결혼</td></tr>
+  <tr><td>1533.5</td><td>영국의 교회 법원이 헨리와 캐서린의 혼인은 처음부터 무효였다고 선언</td></tr>
+  <tr><td>1533.9</td><td>딸 엘리자베스 탄생</td></tr>
+  <tr><td>이후</td><td>교황이 헨리에게 파문령 → 헨리는 영국 내에서 교황의 권위를 전복하려 함. 14세기의 법령(외국 정부와의 관계 금지)을 찾아내 영국 성직자가 교황(로마=외국)과 연락하는 것을 금지</td></tr>
+  <tr><td><strong>1534</strong></td><td><strong>수장령(Act of Supremacy)</strong> — "국왕 폐하는 정당하고 올바르고 마땅히, 앵글리카 에클레시아라고 불리는 이 지구상의 영국 교회(the Church of England)의 유일하신 수장이다" → 영국은 국왕을 수장으로 하는 국교를 갖게 됨 = <strong>영국 성공회의 탄생</strong></td></tr>
+  </table>
+  <ul class="tight">
+    <li><strong>성공회의 성격</strong>: 로마식 가톨릭이 아니라 <strong>영국식 가톨릭</strong>을 선언. 신학은 천주교 신학이고, 교황을 제외한 모든 직제는 가톨릭과 매우 유사 → 오늘날 성공회에 <strong>사제</strong>가 있음 <span class="bd hi">⭐</span> <span class="bd v1">영상1</span></li>
+    <li><strong>헨리의 정책</strong>: ① 로마에서 분리해 영국 가톨릭 교회 수립 ② 수도원 폐지 — 압류한 수도원 재산으로 귀족·향사(지방 지주) 계급의 지지를 얻음 ③ 수도사들에게도 상당한 연금 ④ 성경의 영어 번역 허용 <span class="bd v1">영상1</span><span class="bd tb">p.138</span></li>
+    <li><strong>캐서린 인물평(교수)</strong> <span class="bd v1">영상1</span>
+      <ul class="tight"><li>어릴 때부터 역사·법·정치와 라틴어·프랑스어·그리스어를 공부</li>
+      <li>붉은 빛 도는 금발에 통통한 체형, 신앙심 깊고 겸손하며 기품 있는 여인</li>
+      <li>이혼·추방 뒤에도 서신에 "왕비 캐서린"이라 서명, 죽기 직전까지 회복을 꿈꿈 → "죽을 때까지 왕비의 기품을 잃지 않은 불운의 여인"</li></ul></li>
+  </ul>
+
+  <h3>3-2. 영어 성경 번역의 계보 (교재 7장 · 영상1·2)</h3>
+  <table>
+  <caption>윌리엄 틴데일 (1494~1536)</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>배경</td><td>캠브리지·옥스퍼드에서 그리스어와 르네상스 인문주의를 공부(인문주의 = 중세의 신 중심 세계관과 달리 인간 중심·이성과 합리성 강조). 위클리프(영어 번역, 종교개혁 이전)의 영향 → 유럽(독일)으로 도피해 신약 번역·출판. 어느 부유한 일가의 목사가 됨</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138~139</span></td></tr>
+  <tr><td>번역 동기</td><td>당시 대부분의 사제도 성경이 없었고 일반인은 읽을 수도 없었음. 한 연회에서 성직자가 "교황의 법 없이 사는 것보다 하나님의 법 없이 사는 것이 더 낫다"고 하자 틴데일이 반박: "하나님께서 제 생명을 연장시켜 주신다면 두메산골 촌뜨기 소년이 당신보다 성경을 더 많이 알 수 있도록 만들 수 있습니다"</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>번역·출판</td><td>그리스어 신약을 쉬운 영어로 번역하려 했으나 주교가 허락하지 않음 → 주교의 간섭이 없는 독일 보름스로 피신, <strong>1526</strong> 한 인쇄업자로부터 6천 부 인쇄 <span class="bd bo">보충</span> 자막 "1926/15206"은 1526</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>영국 주교들의 대응</td><td>영국 성공회(주교들)가 출간된 성경을 <strong>대량 구입해 불태우려고</strong> 사들임 → 그 금액으로 틴데일이 개정판을 냄. 이후 구약 일부 번역·신약 재개정</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>체포·순교</td><td>한 소책자를 통해 캐서린을 버린 헨리 왕을 비판 → 체포(교재 1536; <span class="bd bo">보충</span> 체포는 1535) → <strong>17개월</strong> 옥살이(자막 "27개월" — 교재 17개월 기준) 후 1536.10.6 화형. 마지막 외침: "주님, 영국 국왕의 눈을 열어 보게 하소서"</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138~139</span></td></tr>
+  <tr><td>교수의 소장품 소개</td><td>교수가 틴데일이 번역한 신약 <strong>초판(1526)</strong>을 가지고 있다며 보여줌. 틴데일 번역본은 지금도 시중에 나와 있음</td><td><span class="bd v2">영상2</span><span class="bd v1">영상1</span></td></tr>
+  </table>
+  <table>
+  <caption>영어 성경 계보</caption>
+  <tr><th style="width:17%">성경</th><th style="width:11%">연도</th><th>핵심</th><th style="width:13%">출처</th></tr>
+  <tr><td>위클리프 성경</td><td>종교개혁 이전</td><td>영어로 성경을 번역한 선구. 틴데일이 그 영향을 받음</td><td><span class="bd v1">영상1</span><span class="bd tb">p.138</span></td></tr>
+  <tr><td>틴데일 신약</td><td>1526</td><td>영국 성직자들이 사들여 불태움. 이후 구약 일부·신약 개정</td><td><span class="bd v1">영상1</span></td></tr>
+  <tr><td>매튜 성경 (The Matthew Bible)</td><td>1537</td><td>틴데일 사후 1년, 영국의 개혁가 존 로저스가 출판. 틴데일 성경과 커버데일 성경의 편집물</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>대 성경 (The Great Bible)</td><td>1539(보충)</td><td>헨리 8세가 매튜 성경을 커버데일에게 개정시킨 뒤 출판, <strong>영국 성공회 모든 교회에 배치</strong>. 처음에는 독자를 부유한 상인·귀족층으로 제한</td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>킹제임스 흠정역 (KJV)</td><td>1611</td><td>제임스 1세 때 틴데일 성경에 기초해 번역, <strong>70%가 틴데일 성경에 근거</strong></td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  </table>
+
+  <h3>3-3. 에드워드 6세 · 메리 1세 · 엘리자베스 1세 (교재 7장 · 영상1)</h3>
+  <table>
+  <tr><th style="width:15%">군주</th><th style="width:13%">성향</th><th>주요 조치·사건</th><th style="width:13%">출처</th></tr>
+  <tr><td>에드워드 6세<br><small>1547~1553</small></td><td>친개신교</td><td><ul class="tight"><li>헨리 사망 후 10세로 즉위. 뒤의 섭정·고문들이 주로 프로테스탄트, 크랜머도 섭정 중 한 명</li><li>6개 신조문 폐지 · 성직자 결혼 허용 · 크랜머가 작성한 영어 공동기도서 사용</li><li><strong>42개 신조문</strong>(1553): 성상 제거 · 고해성사 폐지 · 성직자 결혼 허락 · 성찬식에서 빵과 포도주 사용 허락</li><li>마틴 부서·존 아 라스코·피터 마터 등 칼빈주의자를 옥스퍼드·캠브리지 교수로 임명</li><li>헨리의 세 번째 왕비 제인 시모어의 아들. 12살에 사망(강의·교재 표기, <span class="bd bo">보충</span> 실제 만 15세)</li></ul></td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>메리 1세<br><small>1553~1558</small></td><td>친가톨릭<br>"피의 메리"</td><td><ul class="tight"><li>캐서린의 딸. 어머니가 평생 억울하게 살았고 자신도 군주 지위를 상실 → 왕이 되며 <strong>"복수"</strong></li><li>친개신교 정책을 버리고 친가톨릭 정책. 크랜머 등이 핍박에 신앙을 철회하고 가톨릭으로 복귀</li><li>크랜머: 거듭되는 압력에 신앙 철회 진술서에 서명 → <strong>1556 최종 재판에서 취소·재확인</strong>, 화형장에서 서명했던 손을 먼저 불 속에 넣음</li><li>크랜머를 비롯한 <strong>300여 명 화형</strong></li></ul></td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  <tr><td>엘리자베스 1세<br><small>1558~1603</small></td><td>중간 노선</td><td><ul class="tight"><li>앤 볼레인의 딸. 가톨릭도 개신교도 아닌 중간 지대 = <strong>영국 국교</strong></li><li>의례는 가톨릭, 신학은 개신교(교재. 강의 자막 "의회는 카톨릭이지만 신학은 개신교"는 "의례"의 ASR로 추정)</li><li>자신을 "교회의 수장" 대신 "최고 집정관(Supreme Governor)"으로 부름</li><li><strong>가톨릭과 개신교 양쪽에서 모두 비난</strong>받음(교수 문답: "정답은 둘 다 아닙니다")</li><li>이 시기 핍박을 피한 개신교인이 대륙(주변 나라)으로 피난 → 청교도의 씨앗</li></ul></td><td><span class="bd v1">영상1</span><span class="bd tb">p.139</span></td></tr>
+  </table>
+  <ul class="tight">
+    <li>헨리 8세는 모두 <strong>6명의 정식 왕비</strong>를 둠 — 가톨릭 시대라 일부일처제가 원칙이었으므로 그만큼 정식 결혼과 정식 이혼을 반복했다는 뜻 <span class="bd v1">영상1</span></li>
+  </ul>
+
+  <h3>3-4. 킹제임스 흠정역(KJV)과 "KJV 유일주의" 비판 (교재 p.140 · 영상2)</h3>
+  <table>
+  <caption>KJV 편찬</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>정의</td><td>"흠정역" = 영국 국교회가 인정한(왕이 인정한) 번역. 제임스 1세가 틴데일 성경에 기초해 번역시킴. 내용의 <strong>70%가 틴데일 성경</strong>에 근거</td></tr>
+  <tr><td>연도 <span class="bd bo">보충</span></td><td>교수 발언: "1604년 번역 시작 → <em>1611년</em> 완료 → 그 다음 해 <em>1622년</em> 인쇄·보급"(자막에는 1621이라고도 나옴). <strong>KJV 초판 출판은 1611</strong>이며 교재도 1611 — 강의의 "1622 인쇄"는 착오로 보임</td></tr>
+  <tr><td>편찬자</td><td>제임스 1세가 당대 최고 학자 <strong>47명</strong>을 임명. 성공회 학자와 청교도 학자를 같이 뽑아 연합 번역. 7년 소요</td></tr>
+  <tr><td>편성</td><td>웨스트민스터 · 캠브리지 · 옥스퍼드 3곳 × 2 = <strong>6개 그룹</strong>으로 나눠 번역</td></tr>
+  </table>
+  <table>
+  <caption>그룹별 번역 범위 (교수 설명)</caption>
+  <tr><th style="width:22%">그룹</th><th>범위</th></tr>
+  <tr><td>웨스트민스터</td><td>창세기~열왕기하(자막 "11기 하") + 신약 로마서와 서신들(자막 "로마서와 다섯 가지" — 범위 확인 필요)</td></tr>
+  <tr><td>캠브리지</td><td>역대상~아가서 + 구약 외경</td></tr>
+  <tr><td>옥스퍼드</td><td>이사야~말라기 + 사복음서 · 사도행전 · 요한계시록</td></tr>
+  </table>
+  <table>
+  <caption>저본(底本)과 사본 상황</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>원본의 부재</td><td>성경 원본(구약·신약)은 현재 존재하지 않고, 여러 사본을 연구·편집한 것들이 남아 있음. 현존 헬라어 사본은 약 5,400여 개</td></tr>
+  <tr><td><strong>마소라 사본</strong></td><td><ul class="tight"><li>고대 유대인이 가진 히브리어 구약 사본. 교수 설명: 모음 없이 자음만 있음</li><li><span class="bd bo">보충</span> 원래의 자음 본문에 마소라 학자들이 모음 부호를 덧붙인 본문이 마소라 본문</li><li>교수 발언: 구약 전체를 수록한 사본보다 훨씬 앞선(약 500년~천 년 전) 마소라 사본들에는 구약 전체가 들어 있지 않음</li><li>구약 전체를 수록한 현존 사본은 자막상 "2008년경 4번" — 레닌그라드 사본(B19A, 약 1008년)을 가리키는 ASR로 추정, 확인 필요</li></ul></td></tr>
+  <tr><td>히브리어→아람어</td><td><ul class="tight"><li>북왕국 이스라엘이 앗수르에 멸망(BC 722), 남 유다가 신바벨론에 멸망(BC 586) 후 포로기</li><li>당시 중동 공통어가 <strong>아람어</strong>(자막 "아랍어"는 ASR) → 히브리어 사용이 희미해졌으나 구약은 히브리어로 기록</li><li>고레스 칙령으로 일부만 귀환, 대부분은 지중해 전역 <strong>디아스포라</strong> 유대인("나그네 된 유대인")</li></ul></td></tr>
+  <tr><td><strong>에라스무스 헬라어 신약</strong></td><td>인문학자 에라스무스가 헬라어 사본을 대조·교정해 낸 <strong>최초의 헬라어 성경(1516)</strong>. 루터의 종교개혁(1517)과 같은 시기. 중세 불가타 역의 오류를 교정 → 루터의 독일어 번역, 틴데일, KJV의 기초</td></tr>
+  <tr><td>그 밖의 사본</td><td>KJV 번역자들은 마소라·에라스무스 사본 외에 12세기경 사본 5종을 참조했다고 함(교수 발언 — "당시 5가지 여러 사본")</td></tr>
+  </table>
+  <div class="key">
+    <strong>KJV 유일주의(말씀보존학회 계열) vs 교수의 반론</strong> <span class="bd hi">⭐</span> <span class="bd v2">영상2</span>
+    <ul class="tight">
+      <li><strong>주장</strong>: KJV만 하나님이 주신 말씀이 완전히 보존된 성경이고 나머지는 사탄이 변개한(독약을 넣은) 성경 → KJV를 믿어야 온전한 신앙생활 가능</li>
+      <li><strong>배경</strong>: 최근 합신 측(장로교)이 정동수 목사의 KJV 관련 주장의 이단성을 계속 판정하고 있음(교수 발언)</li>
+      <li><strong>반론 ①</strong> 원본이 없다 → 어떤 번역이 가장 잘 됐다고 믿을 <strong>자유</strong>는 있다. 그러나 다른 성경을 믿으면 구원이 없다고 <strong>주장하는 것</strong>은 완전히 별개의 문제</li>
+      <li><strong>반론 ②</strong> KJV의 저본은 완벽한 사본이 아니라 여러 사본의 종합</li>
+      <li><strong>반론 ③</strong> 번역자가 한 사람이 아니라 47명·6그룹·7년 → 번역 오류 가능성이 분명히 존재</li>
+      <li><strong>반론 ④</strong> 그것을 다시 한국어로 번역한 것이 한국의 "킹제임스 버전"</li>
+      <li><strong>반론 ⑤</strong> 2천 년간 수많은 성경으로 신앙생활하고 순교한 사람이 얼마나 많은가 — 그 성경이 다 사탄이 장난친 것이고 1611년에 완성된 KJV만 완벽하다는 주장은 <strong>"넌센스, 비합리적"</strong></li>
+      <li><strong>역사적 대비(교수)</strong>: 틴데일·위클리프 같은 사람은 성경을 번역한 죄로 이단 판정을 받고 화형에 처해졌는데, 제임스 1세는 오히려 당대 최고 학자들을 임명해 공식 번역을 냄 <span class="bd bo">보충</span> 위클리프는 1384 자연사 후 1428 유해가 파내져 불태워졌음</li>
+      <li><strong>권면</strong>: 수강생 중 KJV가 유일한 완전한 성경이라고 믿는 사람이 있다면 그 생각을 버리고 정상적인 신앙생활을 하기 바란다</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h3>3-5. 반종교개혁(가톨릭 개혁) (교재 8장 · 영상2)</h3>
+  <div class="oneline">질문: 가톨릭의 개혁은 개신교에 대한 반종교개혁인가, 자체적인 개혁인가? — 원래는 개신교와 재결합하려는 노력에서 출발했습니다.</div>
+  <table>
+  <caption>① 재결합 시도와 결렬</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>배경</td><td>종교개혁 이후 영국·프랑스·스위스·네덜란드 등에서 개혁이 일어나 유럽의 절반 가까이가 개신교 진영으로 넘어감 → 로마 가톨릭이 재결합 시도</td><td><span class="bd v2">영상2</span></td></tr>
+  <tr><td>회담</td><td>1541 루터의 동역자 필립 멜랑히톤을 포함한 독일 개신교 개혁자 몇 명과 독일 라티스본(레겐스부르크)에서 만남 — 양측이 여러 차례 회의</td><td><span class="bd tb">p.140</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>합의한 점</td><td>칭의와 하나님의 은혜 — 믿음으로 죄인이 의로워지며, 구원에 대한 믿음이 선행을 낳는다는 것</td><td><span class="bd tb">p.140</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>결렬 원인</td><td>가톨릭이 ① 교황의 권위 인정 ② 성만찬의 <strong>본질 변형설(화체설)</strong> 동의를 요구. 개신교는 교황 권위를 인정할 수 없었고(루터가 비난한 것이 교황 권위), 성공회도 영국 국왕이 지도력을 행사하는 체제 → 모임 결별</td><td><span class="bd tb">p.140</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>결과</td><td>이때부터 가톨릭은 <strong>독자적인 개혁</strong> 추진 → 가톨릭 신앙을 대변하는 새로운 인물(한 병사) 등장</td><td><span class="bd tb">p.140</span></td></tr>
+  </table>
+  <table>
+  <caption>② 이그나티우스 로욜라와 예수회</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>생애</td><td><ul class="tight"><li>1491~1556, 에스파냐(스페인) 귀족 가문. 어릴 때 군인 훈련과 쾌락 추구("플레이보이 생활")</li><li>군인으로 복무 중 1521 한 전투에서 중상(강의 자막 "아쪼 전투" — 전투명 불명)</li><li>오랜 병상 생활 중 토마스 아 켐피스의 『그리스도를 본받아』를 읽고 감명 받아 가톨릭 신앙을 받아들임(이 책은 우리나라에도 일찍 번역)</li></ul></td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>서원</td><td>파리에서 7년간 신학 공부 후 1534.8.15 프란시스 사비에르 포함 6명의 친구와 함께 가난·순결·순종·순례(강의 자막 "신뢰")와 영혼구원에 헌신할 것을 맹세하고 수도 단체 설립</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>승인</td><td>1540 교황 바오로 3세가 승인 — 정식 명칭 <strong>"예수회(Society of Jesus)" 또는 "예수회 수도단(Jesuit Order)"</strong>. 형태: 선교사 지원 활동 · 복음화 · 연구와 교육 분야의 활동으로 명성</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>선교</td><td>개신교가 인도·일본에 선교사를 파송하기 <strong>150년 전인 1549</strong>에 사비에르가 유럽 교회 역사상 처음으로 일본에 복음 전함 (자막 "1949" = 1549) — 16세기에 일본에 가톨릭 선교사를 보낸 것은 놀라운 일 <span class="bd hi">⭐</span></td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>목적</td><td>개신교인들에게 빼앗겼던 영적 영역을 다시 가톨릭으로 회복 — 인노첸시오 3세 시대(13세기)에 누렸던 영적 권세와 세속적 권력을 다시 회복 <span class="bd bo">보충</span> 교재 표기 "3세기 전"은 13세기의 오기로 보임(인노첸시오 3세 재위 1198~1216)</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  <tr><td>활동</td><td>프랑스·네덜란드·중부 유럽 등지에서 개신교 영향력 전파를 막고 가톨릭 영토 회복. 특히 <strong>교육</strong>에 힘씀 — 미국의 조지타운대, 로욜라대(시카고·메릴랜드·뉴올리언스), 한국의 서강대 설립</td><td><span class="bd v2">영상2</span><span class="bd tb">p.140</span></td></tr>
+  </table>
+  <table>
+  <caption>③ 트렌트 공의회 (Council of Trent, 1545~1563)</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>개요</td><td><ul class="tight"><li>가톨릭의 <strong>19번째 공의회</strong>, 18년간 모임(자막의 "1945~1963", "제1차 바티칸 종교회의"는 ASR/구두 착오 — 1545~1563 트렌트)</li><li>콘실리움(Concilium) = 세계 교회 지도자들이 교리·의식 등 중요 문제를 논의하는 세기의 종교회의</li><li>325 니케아 공의회 이래 20세기의 1962 제2차 바티칸 공의회까지 <strong>모두 21차례</strong>(교재)</li></ul></td><td><span class="bd v2">영상2</span><span class="bd tb">p.140~141</span></td></tr>
+  <tr><td>목적</td><td><ul class="tight"><li>개신교의 개혁으로 혼란스러워진 가톨릭 진영의 회복</li><li>한스 큉의 평가: "개신교의 종교개혁 요구에 수많은 파문과 정죄로서 응답한 공의회"</li><li>무엇이 이단인지 밝혀 로마 가톨릭 신앙교리의 명확한 한계를 정립, 빠르게 개신교화 되는 유럽을 재가톨릭화</li><li>이 목적을 정치·군사적으로 수행해 전 유럽에 <strong>폭력의 홍수</strong> 유발</li></ul></td><td><span class="bd tb">p.141</span><span class="bd v2">영상2</span></td></tr>
+  <tr><td>과정</td><td><ul class="tight"><li>3회기(1545-47, 1551-52, 1562-63) 이탈리아 트렌트</li><li>회의 도중 교황 4명 서거(바오로 3세·율리오 3세·마르첼로 2세·바오로 4세)</li><li>바오로 3세(재위 1534-49)가 개혁 의지 있는 인물을 추기경으로 임명해 개혁위원회 결성 — 루터의 신조문(1517)이 나온 지 약 30년 후</li><li>1564.1.26 후임 비오 4세가 결정을 승인하는 칙서 발표</li></ul></td><td><span class="bd tb">p.141</span><span class="bd v2">영상2</span></td></tr>
+  </table>
+  <table>
+  <caption>④ 트렌트 결정 내용 vs 개신교 입장</caption>
+  <tr><th style="width:38%">트렌트 공의회 결정</th><th>대비되는 개신교 입장 / 설명</th></tr>
+  <tr><td>면죄부 판매 폐지</td><td>루터의 비판 대상 (면죄부)</td></tr>
+  <tr><td>성직자에게 "사소한 실수도 하지 말 것" 명령</td><td>성직자 규율 강화</td></tr>
+  <tr><td>7성례 재천명</td><td>—</td></tr>
+  <tr><td><strong>빵과 포도주가 실제로 변한다(본질 변형설·화체설)</strong> 재강조</td><td>루터·칼빈·쯔빙글리는 각각 다른 견해 주장</td></tr>
+  <tr><td>다시 라틴어로 미사 드릴 것 강조 (자국어·영어 미사 반대)</td><td>자국어 예배·성경 번역</td></tr>
+  <tr><td>라틴어 <strong>불가타(Vulgate)</strong>, 구약 39권·신약 27권을 공식 성서로 선포 (제2경전 10권 추가)</td><td>루터의 독일어 번역 성경 배격. 교재 설명: 제롬은 제2경전을 읽어서 신앙에 유익하지만 교리를 도출하면 안 된다고 주장, 어거스틴은 10권도 정경으로 포함시킴 → 현재 로마 가톨릭은 어거스틴의 주장을 따름</td></tr>
+  <tr><td>오직 교회만이 성경을 올바로 해석할 수 있다</td><td>루터의 서민이 스스로 읽는 <strong>성서 해석의 자유</strong> 거부</td></tr>
+  <tr><td><strong>성경과 전통 둘 다 필요</strong> — "오직 성경"은 이단설</td><td>전통 = 성경 해석을 위해 공의회 등을 통해 결정한 해석·교리·신조 (교수 설명)</td></tr>
+  <tr><td>사도신경 재확인 · 연옥 재확인</td><td>—</td></tr>
+  <tr><td>가톨릭 교리를 부정하면 이단으로 파문</td><td>—</td></tr>
+  <tr><td>교회 음악에서 세속적인 가락·리듬을 사용하지 말고 악기 사용을 최소화</td><td>—</td></tr>
+  <tr><td>칼빈의 예정설과 루터의 믿음에 의한 구원설(이신칭의)을 이단 신앙으로 규정</td><td>개신교의 핵심 교리</td></tr>
+  <tr><td>개신교의 사제 독신제 폐지 요구 거부</td><td>—</td></tr>
+  <tr><td>성화(聖畵) 전통 계속 존중 (6세기부터 문맹 신자를 위한 것) — 그림의 신성성을 엄히 하고 미켈란젤로 그림 일부를 가리게 함</td><td>개신교는 성상 반대. 교재는 "최후의 만찬(?)"으로 표기 <span class="bd bo">보충</span> 통상 시스티나 성당 "최후의 심판" 벽화의 일부를 가린 일로 알려져 있음, 확인 필요</td></tr>
+  </table>
+  <div class="key"><strong>⭐ 5가지 결의사항 (교재 p.142)</strong>
+    <ol class="tight">
+      <li>성경만이 아니라 교회의 살아있는 전통도 계시의 원천으로서 동일한 권위를 가진다</li>
+      <li>성경의 목록은 외경을 포함한다</li>
+      <li>라틴어 불가타만이 신뢰할 수 있는 성경으로서의 권위를 가진다</li>
+      <li>오직 교회만이 올바른 성경 해석의 권위를 가진다</li>
+      <li>성경 해석과 관련된 서적은 오직 교회의 가르침과 합치 승인을 받은 것(로마 가톨릭의 승인)만 출판할 수 있다</li>
+    </ol>
+  </div>
+  <ul class="tight">
+    <li><strong>영향</strong>: 가톨릭과 개신교의 분열로 유럽의 재통합은 물거품 → 프랑스 개신교인(<strong>위그노</strong>) 학살(1572) → 독일 중심의 <strong>30년 전쟁</strong>(1618~1648) <span class="bd v2">영상2</span><span class="bd tb">p.142</span></li>
+    <li><span class="bd bo">보충</span> 1572 위그노 학살 = 성 바돌로매 축일 학살로 알려진 사건(강의에서는 "학살"로만 언급).</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>3-6. 청교도(Puritans)의 등장 (영상1·3 · 교재 9~10장)</h3>
+  <table>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>정의</td><td>영국 성공회의 핍박을 피해 주변 나라로 피난 → 루터·칼빈·쯔빙글리·재세례파 사상에 영향 → 그 신학으로 영국 성공회를 종교개혁하려 한 사람들. <strong>퓨리탄스(Puritans) = 정화(purify)시키려는 사람들</strong> <span class="bd hi">⭐</span></td><td><span class="bd v1">영상1</span><span class="bd v3">영상3</span></td></tr>
+  <tr><td>시기</td><td>1560~1660 사이에 등장한 운동 (자막 "1960년"은 1560 ASR). 캠브리지가 개혁의 본산지</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142~143</span></td></tr>
+  <tr><td>피난 생활</td><td>성공회를 떠나 예배하면 경찰·비밀경찰에 발각 시 죽음 → 인원이 많아지면 어려워 여러 그룹으로 나뉘어 네덜란드(라이덴·암스테르담)·신대륙 등으로 피난</td><td><span class="bd v3">영상3</span></td></tr>
+  <tr><td>왕권과의 충돌</td><td>엘리자베스가 후계자 없이 서거 → 제임스 6세가 제임스 1세로 즉위, <strong>왕권신수설</strong> 주장. 1604 햄프턴 코트 회의에서 청교도측이 영국교회 개혁안을 제출했으나 거절. <span class="bd bo">보충</span> 이 회의에서 새 성경 번역이 제안된 것이 KJV의 계기로 알려져 있음</td><td><span class="bd tb">p.143</span></td></tr>
+  <tr><td>제2의 종교개혁</td><td>메리의 핍박을 피해 제네바로 피신해 칼빈주의 신학 학습 → 영국교회의 "제2의 종교개혁" 지향. 일부 청교도는 주교·기도서 없이도 성경 원리대로 예배하기 원함 → 성공회를 떠나 분리주의 운동으로</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142~143</span></td></tr>
+  </table>
+  <table>
+  <caption>청교도(성공회 안에서 개혁) vs 분리주의자 <span class="bd hi">⭐</span></caption>
+  <tr><th style="width:22%">구분</th><th>청교도(Puritans)</th><th>분리주의자(Separatists)</th></tr>
+  <tr><td>교회관</td><td>성공회가 타락했지만 <strong>예수님이 세우신 교회</strong> → 성공회 안에 머물며 개혁</td><td>성공회는 타락했고 <strong>성령이 떠난 교회</strong> → 분리해 나가 독립교회를 세워 종교개혁</td></tr>
+  <tr><td>목표</td><td>교리·예배·정체를 개혁주의로 전환 (교재: 캠브리지가 본산지)</td><td>메리·엘리자베스 통치하에서 국교회를 거부한 사람들, 신자들의 "모임" 혹은 "계약"의 회중 (교재)</td></tr>
+  <tr><td>세례·정체</td><td>—</td><td>유아세례를 인정한 사람들 / 반대한 침례교인들 / 회중정체를 좋아한 회중교인들. 장로제·감독제를 거부하고 회중정체를 실시 (강의·교재)</td></tr>
+  <tr><td>이후</td><td>—</td><td>침례교와 회중교회가 여기서 나옴</td></tr>
+  </table>
+  <table>
+  <caption>영국 분리주의 계보 (교재 p.143~144)</caption>
+  <tr><th style="width:15%">연도</th><th>내용</th></tr>
+  <tr><td>1581</td><td>로버트 브라운(1550~1633, 시조)이 Norwich에 분리주의자 교회 설립 → 투옥 후 대부분 Holland로 피신, 후에 해체</td></tr>
+  <tr><td>—</td><td>헨리 배로우·존 그린우드가 런던에서 분리주의자 교회 설립, 투옥</td></tr>
+  <tr><td>1592</td><td>Francis Johnson이 목회자가 됨(투옥), Henry Ainsworth도 목회자가 됨</td></tr>
+  <tr><td>1596</td><td>이 교회들이 <strong>Truth Confession</strong> 작성. 신학: 개혁신학 · <strong>이중 예정</strong>(하나님께서 이 세상을 창조하시기 전에 영원한 생명을 얻을 사람들과 영원한 죽음을 당할 사람들을 미리 예정하셨다는 교리) · 대속 · 유아세례 인정. 포도주와 빵은 상징, 왕은 권력을 이용해 교리와 실천을 바로잡을 수 있음</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>3-7. 신대륙 이주와 미국 교단의 성립 (교재 9장 · 영상3)</h3>
+  <table>
+  <caption>① 출항과 이주</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>1630 출항 예배</td><td><ul class="tight"><li>400명 이상이 신세계로 항해하기 위해 영국 사우스햄프턴 해변에서 예배(자막 "1930·한카툰" = 1630·존 코튼)</li><li>존 코튼이 <strong>삼하 7:10</strong> 설교: "또한 내가 내 백성 이스라엘을 위하여 한 곳을 정하여 이들을 심고 이들이 자기들의 곳에 거하며 다시는 옮기지 않게 하며 전처럼 악한 자들이 이들을 괴롭히지 못하게 하리라"(교재 인용 그대로)</li><li><span class="bd bo">보충</span> 이 출항은 매사추세츠 만 식민지 이주단(1630)으로 알려져 있음</li></ul></td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>설교의 의미</td><td>이들이 <strong>하나님의 택한 백성</strong>, 신대륙은 <strong>약속의 땅</strong> → 언약사상 강조 (교재)</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>주요 주장</td><td>① 아메리카 = <strong>새로운 영국 건설</strong> ② 하나님께 택함 받은 백성으로서의 특권과 의무 ③ 이 세상 속에서 택자의 사명 — 성경적 원칙에 따라 살 것 ④ "영국교회의 제2의 종교개혁"</td><td><span class="bd v3">영상3</span><span class="bd tb">p.142</span></td></tr>
+  <tr><td>메이플라워</td><td>네덜란드(라이덴·암스테르담)에 정착했다가 일부는 신대륙으로 — <strong>1620년 9월 약 100명이 메이플라워호</strong>를 타고 뉴잉글랜드 지방 매사추세츠 <strong>플리머스</strong>에 상륙</td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  <tr><td>대규모 이주</td><td>1629~1642 수천 명의 청교도가 뉴잉글랜드로 이주. 신대륙은 일손이 부족해 <strong>종교 자유를 주겠다고 유인</strong></td><td><span class="bd v3">영상3</span><span class="bd tb">p.143</span></td></tr>
+  </table>
+  <table>
+  <caption>② 이주자들의 실상과 교파 분포</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>모두 신앙인은 아니었다</td><td><ul class="tight"><li>메이플라워 승객 중에도 신앙인은 다수가 아니었음</li><li>이전부터 식민지에는 이익을 노리는 상인·범죄자가 주로 도착(담배 등 농산물이 많았음)</li><li>유럽의 정상적인 사람·지도자는 갈 이유가 적었고, 이혼한 사람·쫓겨난 사람·범죄자가 "자유를 주고 노력하는 만큼 땅도 얻는다"는 희망으로 이주</li><li>→ <strong>초창기 미국은 종교적 열정이 대단하지 않았고 범죄·싸움·죄악이 많았다</strong></li><li><span class="bd bo">보충</span> 자막의 "동인도회사"는 북미 식민 사업과 맞지 않아 확인 필요(통상 버지니아 회사 등)</li></ul></td></tr>
+  <tr><td>교파별 이주지</td><td>
+    <table class="in"><tr><th>교파</th><th>중심 지역</th></tr>
+    <tr><td>퀘이커</td><td>펜실베이니아</td></tr>
+    <tr><td>가톨릭</td><td>메릴랜드</td></tr>
+    <tr><td>화란(네덜란드) 개혁파</td><td>뉴욕</td></tr>
+    <tr><td>스웨덴 루터파 · 프랑스 위그노 · 영국 침례교 · 스코틀랜드 장로교</td><td>신대륙 이주 (지역 명시 없음)</td></tr></table></td></tr>
+  <tr><td>아이러니 <span class="bd hi">⭐</span></td><td>종교 자유를 찾아 이주한 사람들이 <strong>다시 국가 교회 체제</strong>를 가짐 — 뉴잉글랜드의 청교도는 모든 주민이 청교도인 국교(국가교회) 체제 → 다른 종교는 불가능해 핍박. 그러다 계속해서 분파 운동 발생(로저 윌리엄스, 앤 허친슨)</td></tr>
+  <tr><td>종교 자유법 <span class="bd hi">⭐</span></td><td><strong>1689</strong> 종교 자유법(Act of Toleration) — 장로교·회중교·침례교·퀘이커가 원하는 곳에서 예배드릴 자유를 누림 (자막 "1989" = 1689 ASR) <span class="bd bo">보충</span> 관용법은 영국 의회 법률이고, 미국 식민지·연방 차원의 종교 자유는 별도 전개(연방 수정헌법 제1조는 1791)</td></tr>
+  </table>
+  <table>
+  <caption>③ 회중교회의 성립</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>신학</td><td>분리주의자 대부분은 원래 성공회 신자(가톨릭 신학) → 피난지의 종교개혁 사상 영향으로 주로 <strong>칼빈주의</strong></td></tr>
+  <tr><td>교회 정치</td><td>감독제(주교제도, 로마 가톨릭식)와 칼빈의 장로제를 <strong>모두 거부</strong>하고, 성경 원리에 따라 모든 회중이 동일한 권리를 가지는 <strong>회중정체(회중교회)</strong> 수립</td></tr>
+  <tr><td>대학 설립</td><td>미국에서 목회자를 수입할 수 없어(유럽에서 식민지로 올 사람이 없음) 스스로 목회자를 양성할 대학을 세움 → <strong>하버드와 예일</strong>은 회중교회주의자들이 세운 대학 <span class="bd bo">보충</span> 하버드 1636, 예일 1701</td></tr>
+  <tr><td>플리머스 사담(교수)</td><td>뉴잉글랜드 플리머스에 메이플라워 모형과 당시 마을(초가, 학교, 교회)이 관광지로 조성, 원주민 복장을 한 사람들이 앉아 있고 사진을 찍으면 팁을 줘야 함</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>3-8. 침례교의 기원 (교재 9~10장 · 영상3)</h3>
+  <div class="oneline">분리주의자들이 신약을 스스로 읽다가 "유아세례가 성경에 명확히 없다"는 결론에 이르러 신자의 침례를 주장하며 침례교가 탄생했습니다.</div>
+  <table>
+  <caption>일반침례교 (General Baptists)</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>계기</td><td>성경에는 유아세례가 명확히 없고 오히려 신앙고백 한 사람이 세례를 받았다 → "신앙고백을 하고 세례든 침례든 받아야 한다"는 결론에 도달한 그룹이 있음 (교수는 이 그룹을 "스위스의 그룹"이라고 언급 — 스위스 재세례파 계통을 가리키는 듯하나 자막이 불분명해 확인 필요)</td><td><span class="bd v3">영상3</span></td></tr>
+  <tr><td>존 스미스</td><td><ul class="tight"><li>네덜란드로 피난 간 존 스미스 그룹이 헬라어 신약을 공부하던 중 유아세례가 옳지 않음을 자각 → 신앙고백 후 다시 세례</li><li>본인이 스스로 세례(침례)를 주고 이어 다른 사람들에게 줌. 초기에는 세례(뿌림), 한 세대 뒤 침수(교재: 침수례를 행했으나 연도는 불확실)</li><li>근대 최초의 침례교회로 간주 → <strong>1609 네덜란드에서 최초의 침례교</strong> (자막 "169·16008·16009" = 1609)</li></ul></td><td><span class="bd v3">영상3</span><span class="bd tb">p.143~144</span></td></tr>
+  <tr><td>이력 (교재)</td><td><ul class="tight"><li>캠브리지 출신, 고향 Gainsborough에서 설교 시작 → 1606 분리주의 회중 설립</li><li>William Brewster·William Bradford·Pastor John Robinson이 Scrooby Manor에서 두 번째 branch 설립</li><li>1608 두 회중이 Amsterdam으로 이주</li><li>몇 주 후 Waterlander Mennonites 가입을 원함 → 1612 가입하지 못하고 죽음</li></ul></td><td><span class="bd tb">p.144</span></td></tr>
+  <tr><td>내부 논쟁</td><td>"내가 내 자신에게 세례를 줬다"는 것이 불완전하다고 생각 → 네덜란드 주변에서 신앙고백 후 침례를 주는 교단을 알아보다 <strong>100년 전부터 이미 있던 재세례파(재침례파)</strong>를 알게 되어 그 교회 가입 청원</td><td><span class="bd v3">영상3</span></td></tr>
+  <tr><td>토머스 헬위스</td><td>영국에서 네덜란드로 피난 올 때 재정을 후원한 사람. 반대: "우리는 정당한 신앙고백을 하고 세례를 받았다, 재침례파에 들어가지 않겠다" → 영국으로 돌아와(강의 "1621", 교재·강의 정리 <strong>1611~1612</strong>) 영국 땅에 최초로 종교 자유 사상과 신자의 침례 교회를 시작 = <strong>영국 침례교의 시작</strong></td><td><span class="bd v3">영상3</span><span class="bd tb">p.144</span></td></tr>
+  <tr><td>헬위스의 저술 (교재)</td><td><ul class="tight"><li><em>A Declaration of Faith of English People</em>(1611): 영국 일반침례교의 첫 신앙고백</li><li>신자의 침례와 폐쇄성찬 · 일반대속 · 계약이 아닌 신앙고백과 침례에 의해 설립되는 교회 · 교회의 자치권</li><li>직분은 장로들과 집사들(남자·여자), 정부에 참여 허용</li><li><em>Mystery of Iniquity</em>(1612): 영국 최초의 종교자유 주장 — 왕이 아닌 그리스도가 교회의 머리, 왕은 양심을 지배할 권한이 없다</li><li>2주 후 잡혀 감옥에서 죽음(1616)</li></ul></td><td><span class="bd tb">p.144</span></td></tr>
+  <tr><td>존 머튼</td><td>헬위스 투옥 후 목사. Humble Supplication(1620): 일상적 일(civic matters)에서는 왕께 복종하되 영적인 일에는 아님, 신자들의 제사장직은 영적인 일에서 능력을 줌. Newgate 감옥에서 사망. 회중 수 1624경 5개 → 1647경 40~50개</td><td><span class="bd tb">p.144~145</span></td></tr>
+  <tr><td>호칭</td><td>지금까지 스미스·헬위스(자막 "토마스 헬/헤이즈")·머튼(자막 "노튼"·"잔 너트"는 존 머튼으로 추정)은 <strong>일반침례교</strong></td><td><span class="bd v3">영상3</span></td></tr>
+  </table>
+  <table>
+  <caption>특수침례교 (Particular Baptists) — 교재 p.145</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>JLJ Church</td><td><ul class="tight"><li>첫 목사들의 이름 Henry Jacob(1616-22), John Lathrop(1624-34), Henry Jessey(1637)에서 딴 이름</li><li>1616 Southwark에서 독립적인 청교도 회중으로 설립</li><li>교구와 침례 문제로 여러 차례 분열. 영국국교회의 침례와 유아세례에 반대해 모든 사람을 재침례</li></ul></td></tr>
+  <tr><td>시작</td><td>1638 John Spilsbury가 신자의 침례를 실시하고 첫 번째 특수침례교회 설립 (강의: 일반침례교 뒤 "한 세대 후") · 1641 Richard Blunt를 메노나이트로부터 침례 받도록 네덜란드에 보냄</td></tr>
+  <tr><td>신앙고백</td><td><strong>First London Confession</strong>(1644, 1646 개정) — 급진적 재세례파 비난, <strong>특수 대속</strong>, 성도의 견인, 교회는 가시적 성도들의 모임, 침수례, 회중정체, 칼빈의 4중 사역자(목사·교사·장로·집사), 국가교회 해체. 1644 7개 회중(4개는 JLJ 출신)이 서명</td></tr>
+  <tr><td>주요 지도자</td><td>John Spilsbury · William Kiffin · Hanserd Knollys</td></tr>
+  </table>
+  <table>
+  <caption>일반침례교 vs 특수침례교 ⭐ (교수: "일반과 특수라는 단어가 중요")</caption>
+  <tr><th style="width:18%">구분</th><th>일반침례교 (General)</th><th>특수침례교 (Particular)</th></tr>
+  <tr><td>그리스도의 대속</td><td>십자가에서 <strong>이 땅의 모든 사람</strong>을 위해 돌아가셨다 = 일반 대속</td><td><strong>오직 택한 자</strong>만을 위해 돌아가셨다 = 특수 대속</td></tr>
+  <tr><td>신학</td><td><strong>알미니우스</strong> 사상 (네덜란드 주변 재침례파의 영향)</td><td><strong>칼빈</strong>의 영향 (영국 내에서)</td></tr>
+  <tr><td>시작</td><td>먼저 시작 — 1609(네덜란드) / 1611~12(영국)</td><td>나중에 시작 — 1638 (한 세대 후)</td></tr>
+  <tr><td>공통</td><td colspan="2">신자의 침례 · 회중정체(감독제·장로제 거부)</td></tr>
+  </table>
+  <ul class="tight">
+    <li>⭐ 침례교는 출발부터 계속 <strong>알미니우스주의와 칼빈주의가 공존</strong> — 시기에 따라 어느 쪽이 지배적일 수는 있어도 항시 공존 (17세기 초에 이미 두 가지가 있었음). 미국·영국 침례교를 볼 때 한 신학사상이 일방적이지 않았음 <span class="bd v3">영상3</span></li>
+    <li><strong>회중교회 vs 침례교</strong>: 둘 다 회중정체를 취한다는 점은 같으나 신학이 다름 — 회중교회는 칼빈주의, 침례교는 칼빈주의 혹은 알미니우스주의(나중에 분열) <span class="bd v3">영상3</span></li>
+    <li>침례교·회중교회의 시조 논의: 로버트 브라운을 시조로 보는 견해와 일반침례교의 존 스미스 <span class="bd v3">영상3</span><span class="bd tb">p.143</span></li>
+    <li>침례교의 상세한 전개(영국·네덜란드·미국)는 침례교회사 시간에 배우면 된다는 교수 언급 <span class="bd v3">영상3</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>3-9. 퀘이커 교도와 그들의 신앙 (교재 11장 · 영상3)</h3>
+  <table>
+  <caption>정의와 시작</caption>
+  <tr><th style="width:22%">항목</th><th>내용</th><th style="width:13%">출처</th></tr>
+  <tr><td>정의</td><td>"1647 George Fox가 창시한 개신교의 한 파, <strong>프렌드(Friend)파</strong>라고 불림. 17세기 영국의 <strong>급진적 청교도 신비주의</strong>에서 출발하였으며 신자들이 자기 신앙을 육체의 진동으로 표현하여 퀘이커라는 이름이 붙여짐" (자막 "이케이크·팍스" = 퀘이커·폭스)</td><td><span class="bd tb">p.145</span><span class="bd v3">영상3</span></td></tr>
+  <tr><td>이름의 뜻</td><td>기도할 때 성령이 강하게 임재하시면 몸이 떨림(흔들림) → 흔들리는 사람들 = quake. "mighty power of the Lord", "quaking by power"</td><td><span class="bd v3">영상3</span><span class="bd tb">p.145</span></td></tr>
+  <tr><td>시작기 (1646~1659)</td><td><ul class="tight"><li>영국의 시민전쟁 중 동부 내륙지방에서 시작</li><li>그 당시 <strong>참다운 교회는 존재하지 않는다</strong>고 생각해 신약성서교회 혹은 다가올 그리스도의 나라를 추구하는 사람들이 영국 성공회의 교구로부터 분리</li><li>곧 종말이 오고 하나님의 나라가 임하리라는 희망의 신비주의자들</li><li>폭스의 Short Journal에 따르면 첫 모임은 1646 혹은 1648</li></ul></td><td><span class="bd tb">p.145</span><span class="bd v3">영상3</span></td></tr>
+  <tr><td>자칭</td><td>서로를 <strong>"종교친우회(Religious Society of Friends, Society of Friends)"</strong>라 부름</td><td><span class="bd tb">p.145</span><span class="bd v3">영상3</span></td></tr>
+  <tr><td>지도자</td><td>George Fox — 1624 Leicestershire의 Fenny Drayton에서 출생</td><td><span class="bd tb">p.145</span></td></tr>
+  </table>
+  <table>
+  <caption>교리와 관습 (교수 설명)</caption>
+  <tr><th style="width:38%">항목</th><th>내용</th></tr>
+  <tr><td>신학적 입장</td><td>폭스는 칼빈주의 신학을 비판하고 원죄론에 회의를 가짐</td></tr>
+  <tr><td>의식 거부</td><td>종교적 의식과 전통적 예식을 모두 거부. 국교 참여 거부, 국교의 십일조 납부 거부</td></tr>
+  <tr><td>종말 의식</td><td>최후의 심판이 임했다고 봄, <strong>임박한 종말·재림</strong> 강조. 하나님이 주시는 예언·예언 활동을 중시</td></tr>
+  <tr><td>맹세</td><td>성경이 맹세하지 말라고 했으므로 맹세 거부(맹세 금지)</td></tr>
+  <tr><td>세상과의 분리</td><td>철저한 세상과의 분리, 그리스도·하나님과의 <strong>직접적인 연합</strong> 강조. 이방 종교에서 기원했다 하여 일요일(Sunday) 명칭을 거부하고 12월도 "12번째 달"이라는 명칭을 씀 <span class="bd bo">보충</span> 퀘이커는 요일·월을 숫자로 부름. 관습적인 인사도 하지 않음, 금식</td></tr>
+  <tr><td>신학에 대해</td><td>자막상 "신학 같은 것은 말할 것 없이 하지 않고"라는 취지 — 신학적 논의를 거부했다는 뜻으로 들리나 자막이 불명확, 확인 필요</td></tr>
+  <tr><td>박해</td><td>법에 의해 처벌, 수많은 사람이 영국 감옥에서 사망. 공직 진출과 고등교육이 불가능(자막은 "미국이었기 때문에"라 하나 문맥상 영국 상황으로 추정, 확인 필요)</td></tr>
+  <tr><td>유럽 사회의 반응</td><td>극심한 혼란과 분열을 일으킴. 퀘이커·급진적 재세례파가 퍼지자 칼빈·루터를 따르는 나라들(독일·프랑스·영국)이 이들을 요주의 인물로 색출·핍박 (자막 "칼빈이나 니체" = 루터 계열 추정)</td></tr>
+  <tr><td>영국 침례교의 대응</td><td>"우리는 재세례파와 다르다"는 <strong>신앙고백서</strong>를 발표 (자막 "제3파·제 친일파" = 재세례파(재침례파) 추정)</td></tr>
+  <tr><td>이주</td><td>미국으로 건너가 펜실베이니아 중심으로 이민</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>4. 신학적 쟁점</h2>
+  <div class="oneline">교회 정치(감독·장로·회중) · 세례(유아 vs 신자) · 대속의 범위(일반 vs 특수) · 권위의 원천(성경 vs 성경+전통)이 교파를 가르는 네 축입니다.</div>
+  <table>
+  <caption>4-1. 교파·운동 비교표 (강의·교재 언급 범위만 기재, 언급 없는 칸은 "—")</caption>
+  <tr><th style="width:12%">구분</th><th>성립</th><th>교회 정치</th><th>세례</th><th>신학 경향</th><th>핵심 특징</th></tr>
+  <tr><td>영국 성공회</td><td>1534 수장령 (헨리 8세)</td><td>국왕이 수장, 주교(감독)제·사제 존재</td><td>—</td><td>가톨릭 신학·직제 유사 / 엘리자베스 때 의례는 가톨릭·신학은 개신교</td><td>영국식 가톨릭, 시민 종교</td></tr>
+  <tr><td>청교도(국교회 내)</td><td>1560~1660 운동</td><td>—</td><td>—</td><td>개혁주의(칼빈주의) 지향</td><td>국교회 안에서 교리·예배·정체 개혁, 캠브리지 본산</td></tr>
+  <tr><td>분리주의·회중교회</td><td>1581 브라운 → 1620 메이플라워</td><td>감독제·장로제 거부, <strong>회중정체</strong></td><td>유아세례 인정</td><td>칼빈주의</td><td>하버드·예일 설립, 계약의 회중</td></tr>
+  <tr><td>일반침례교</td><td>1609 네덜란드 / 1611~12 영국</td><td>회중정체</td><td>신자의 침례</td><td>알미니우스주의(일반 대속)</td><td>스미스·헬위스·머튼</td></tr>
+  <tr><td>특수침례교</td><td>1638 영국</td><td>회중정체</td><td>신자의 침례(침수)</td><td>칼빈주의(특수 대속)</td><td>스필스베리·키핀·놀리스, First London Confession</td></tr>
+  <tr><td>퀘이커</td><td>1647 조지 폭스</td><td>—</td><td>예식 전반 거부</td><td>칼빈주의 비판, 원죄론 회의, 신비주의</td><td>떨림, 맹세·십일조·국교 거부, 종말 강조</td></tr>
+  </table>
+  <table>
+  <caption>4-2. 로마 가톨릭 vs 개신교 (트렌트 공의회 관점)</caption>
+  <tr><th style="width:20%">쟁점</th><th>로마 가톨릭 (트렌트)</th><th>개신교</th></tr>
+  <tr><td>성경의 권위</td><td>성경 + 교회의 살아있는 전통 = 동일한 권위 ("오직 성경"은 이단설)</td><td>오직 성경(루터·칼빈)</td></tr>
+  <tr><td>성경 해석</td><td>오직 교회만이 올바르게 해석, 해석서는 교회 승인 필수</td><td>서민이 스스로 읽는 성서 해석의 자유(루터)</td></tr>
+  <tr><td>성경 목록·언어</td><td>외경(제2경전) 포함, 라틴어 불가타만 권위</td><td>자국어 번역(루터 독일어, 틴데일 영어)</td></tr>
+  <tr><td>성만찬</td><td>본질 변형설(화체설), 라틴어 미사</td><td>루터·칼빈·쯔빙글리가 각기 다른 견해</td></tr>
+  <tr><td>구원론</td><td>루터의 이신칭의·칼빈의 예정설을 이단 규정</td><td>칭의(믿음으로 의롭게 됨)를 강조 — 재결합 회담에서는 칭의·선행 부분은 서로 동의</td></tr>
+  <tr><td>교황권</td><td>교황의 권위 인정 필수</td><td>인정 불가(성공회는 국왕이 수장)</td></tr>
+  <tr><td>사제 독신제</td><td>유지 (폐지 요구 거부)</td><td>폐지 요구</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>5. 목회현장 연결</h2>
+  <div class="oneline">강의 중 직접 언급된 것만 정리합니다(추측으로 채우지 않음).</div>
+  <ul class="tight">
+    <li><strong>시민 종교와 오늘</strong> — 미국 교회 예배당의 성조기와 십자가, 대통령의 성경 선서, 부활절·추수감사절·크리스마스 중심의 명절 → 정치와 종교가 결합한 흔적 <span class="bd v1">영상1</span></li>
+    <li><strong>성경 번역과 "성경 읽을 자유"</strong> — 틴데일의 소원("두메산골 촌뜨기 소년도 성경을 알게 하겠다")은 일반 성도가 성경을 읽는 시대의 출발점 <span class="bd v1">영상1</span><span class="bd tb">p.139</span></li>
+    <li><strong>한국 교회의 KJV 유일주의 논쟁</strong> — 합신 측이 정동수 목사의 KJV 관련 주장의 이단성을 계속 판정 중이라 언급. 교수의 입장: 어떤 성경을 가장 완벽하다고 믿을 자유는 있으나, 다른 성경으로는 구원이 없다고 주장하는 것은 넌센스. 수강생 중 그런 믿음이 있다면 정상적인 신앙생활을 하길 권면 <span class="bd v2">영상2</span></li>
+    <li><strong>가톨릭 예수회의 교육·선교</strong> — 개신교보다 150년 앞선 일본 선교, 조지타운·로욜라·서강대 등 교육기관 설립 → 교육이 영향력의 핵심이었다는 점 <span class="bd v2">영상2</span></li>
+    <li><strong>초창기 미국의 실상</strong> — 신대륙 이주자가 모두 신앙인은 아니었고 초창기 미국은 종교적 열정이 대단하지 않았다는 교수의 지적 <span class="bd v3">영상3</span></li>
+    <li><strong>신학의 공존</strong> — 침례교 안에 알미니우스주의와 칼빈주의가 처음부터 공존했다는 점을 기억하라는 교수의 당부 <span class="bd v3">영상3</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>6. 시험 대비 포인트</h2>
+  <div class="oneline">아래 문항은 강의·교재 내용에서 만든 <strong>예상 문항</strong>입니다(교수가 실제 출제를 예고한 것은 아님). ⭐는 교수가 강조한 부분입니다.</div>
+
+  <h3>6-1. OX 문항</h3>
+  <table>
+  <tr><th style="width:60%">문항</th><th style="width:8%">정답</th><th>해설</th></tr>
+  <tr><td>영국 성공회는 루터교와 마찬가지로 교리 문제(이신칭의)에서 출발했다.</td><td>X</td><td>헨리 8세의 결혼(이혼) 문제에서 출발 <span class="bd v1">영상1</span></td></tr>
+  <tr><td>1534년 수장령으로 영국 국왕이 영국 교회의 유일한 수장이 되었다.</td><td>O</td><td>영국 성공회의 탄생 <span class="bd tb">p.138</span></td></tr>
+  <tr><td>영국 성공회는 로마식 가톨릭이 아니라 영국식 가톨릭을 선언했다.</td><td>O</td><td>신학·직제는 교황을 제외하면 가톨릭과 유사 ⭐</td></tr>
+  <tr><td>틴데일의 영어 신약(1526)은 영국 성공회가 환영하여 모든 교회에 배포했다.</td><td>X</td><td>주교들이 사들여 불태우려 했고, 틴데일은 1536 화형</td></tr>
+  <tr><td>킹제임스 흠정역은 약 70%가 틴데일 성경에 근거한다.</td><td>O</td><td><span class="bd tb">p.140</span></td></tr>
+  <tr><td>엘리자베스 1세의 중간 노선은 가톨릭과 개신교 양쪽에서 모두 비난받았다.</td><td>O</td><td>교수 문답 <span class="bd v1">영상1</span></td></tr>
+  <tr><td>청교도(Puritans)는 성공회를 정화시키려는 사람들이라는 뜻이다.</td><td>O</td><td>⭐</td></tr>
+  <tr><td>분리주의자들은 성공회가 예수님이 세우신 교회이므로 그 안에서 개혁해야 한다고 보았다.</td><td>X</td><td>그것은 성공회 안에 남은 청교도의 입장. 분리주의자는 성령이 떠난 교회로 봄</td></tr>
+  <tr><td>회중교회는 감독제와 장로제를 모두 거부하고 회중정체를 취했다.</td><td>O</td><td>하버드·예일이 회중교회주의자들의 대학</td></tr>
+  <tr><td>일반침례교는 그리스도가 택한 자만을 위해 죽으셨다고 믿는다.</td><td>X</td><td>그것은 특수침례교. 일반침례교는 모든 사람을 위한 일반 대속 ⭐</td></tr>
+  <tr><td>침례교는 처음부터 칼빈주의 하나의 신학만 가졌다.</td><td>X</td><td>알미니우스주의와 칼빈주의가 처음부터 공존 ⭐</td></tr>
+  <tr><td>트렌트 공의회는 성경과 교회 전통에 동일한 권위를 부여했다.</td><td>O</td><td>5가지 결의사항 (1) <span class="bd tb">p.142</span></td></tr>
+  <tr><td>예수회는 1540년 교황 바오로 3세의 승인을 받았다.</td><td>O</td><td><span class="bd tb">p.140</span></td></tr>
+  <tr><td>퀘이커는 맹세를 거부하고 세상과의 철저한 분리를 주장했다.</td><td>O</td><td>교수 설명</td></tr>
+  </table>
+
+  <h3>6-2. 단답형 문항</h3>
+  <table>
+  <tr><th style="width:55%">문항</th><th>답</th></tr>
+  <tr><td>종교를 국가가 사용하는 수단으로 삼아 정치와 종교가 분리되지 않은 체제를 무엇이라 하는가?</td><td>시민 종교(civic religion)</td></tr>
+  <tr><td>영국 국왕을 교회의 유일한 수장으로 선언한 1534년 법령은?</td><td>수장령(Act of Supremacy)</td></tr>
+  <tr><td>엘리자베스 1세가 자신을 "교회의 수장" 대신 부른 칭호는?</td><td>최고 집정관(Supreme Governor)</td></tr>
+  <tr><td>KJV 번역에 임명된 학자 수, 번역 기간, 그룹 수는?</td><td>47명, 7년(1604~1611), 6개 그룹(웨스트민스터·캠브리지·옥스퍼드 각 2)</td></tr>
+  <tr><td>로욜라가 창설하고 1540년 교황이 승인한 수도단체는?</td><td>예수회(Society of Jesus)</td></tr>
+  <tr><td>트렌트 공의회의 기간과 회차 수(공의회 번호)는?</td><td>1545~1563년(18년), 19번째 공의회 (교재는 325년 니케아 이래 제2차 바티칸까지 모두 21차례)</td></tr>
+  <tr><td>1620년 9월 약 100명이 청교도가 타고 플리머스에 상륙한 배는?</td><td>메이플라워호</td></tr>
+  <tr><td>네덜란드에서 최초의 침례교회를 세운 인물은?</td><td>존 스미스(John Smyth), 1609</td></tr>
+  <tr><td>1647년 퀘이커를 창시한 인물은?</td><td>조지 폭스(George Fox)</td></tr>
+  <tr><td>회중교회주의자들이 세운 미국 대학 두 곳은?</td><td>하버드, 예일</td></tr>
+  </table>
+
+  <h3>6-3. 약술형 문항 (답안 골격)</h3>
+  <div class="key">
+    <strong>Q1. 영국 성공회의 성립 과정과 성격을 서술하시오.</strong>
+    <ul class="tight">
+      <li>배경: 헨리 8세 — 아들(후계자) 없음, 캐서린과 이혼 → 앤 볼레인과 결혼 원함</li>
+      <li>과정: 1527 교황에 혼인 무효 요청 → 교황 머뭇거림(캐서린이 찰스 5세의 고모) → 1532 크롬웰, 1533 결혼 무효·앤과 결혼·엘리자베스 출생 → 교황 파문 → 1534 수장령</li>
+      <li>성격: 로마식이 아닌 영국식 가톨릭. 신학·직제는 가톨릭과 유사, 수장만 국왕. 시민 종교. 이후 에드워드 6세(개신교) → 메리(가톨릭 복귀) → 엘리자베스 1세(중간 노선)</li>
+    </ul>
+    <strong>Q2. 청교도와 분리주의자의 차이, 그리고 분리주의자에서 나온 교파를 설명하시오.</strong>
+    <ul class="tight">
+      <li>청교도 = 성공회를 정화하려는 사람들(안에서 개혁) / 분리주의자 = 성령이 떠났다고 보고 독립교회를 세움</li>
+      <li>분리주의자 → 신약 연구 → 유아세례 부정 → 침례교(일반 1609, 특수 1638), 회중정체 → 회중교회(메이플라워 1620, 하버드·예일)</li>
+    </ul>
+    <strong>Q3. 트렌트 공의회의 배경·결정·영향을 서술하시오.</strong>
+    <ul class="tight">
+      <li>배경: 재결합 시도(1541) 결렬(교황권·화체설) → 독자 개혁, 예수회(1540)</li>
+      <li>결정: 성경+전통 동등, 불가타·외경, 교회만 해석, 7성례·화체설·라틴어 미사, 이신칭의·예정설 이단 규정 등</li>
+      <li>영향: 유럽 재통합 무산, 위그노 학살(1572), 30년 전쟁(1618~1648)</li>
+    </ul>
+    <strong>Q4. KJV 유일주의에 대한 교수의 비판을 요약하시오.</strong>
+    <ul class="tight">
+      <li>원본 부재 · 여러 사본의 종합 · 47명의 번역 · 한국어 재번역 · 2천 년간 다른 성경으로 신앙한 순교자들</li>
+      <li>"가장 완벽하다고 믿을 자유"와 "다른 성경으로는 구원이 없다는 주장"은 별개 → 후자는 넌센스</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2>7. 출처·검증 요약</h2>
+  <div class="oneline">자막(음성 인식)의 인명·지명·연도 오류를 교정한 근거와, 교수 발언의 연도 착오를 바로잡은 내용, 확인이 필요한 항목을 모았습니다.</div>
+
+  <table>
+  <caption>7-1. 연도 교정표 (자막 표기 → 교정 표기)</caption>
+  <tr><th style="width:16%">자막 표기</th><th style="width:16%">교정</th><th>맥락</th><th style="width:20%">근거</th></tr>
+  <tr><td>15009년</td><td>(불명, 1519 추정)</td><td>정부 블런트가 낳은 아들 헨리 피츠로이</td><td>표기 불명 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>1520 7년</td><td>1527</td><td>교황에게 혼인 무효 요청</td><td>교재 p.138 흐름(1532 이전)</td></tr>
+  <tr><td>1932년 4월</td><td>1532년 4월</td><td>크롬웰의 대신회의</td><td>교재 p.138</td></tr>
+  <tr><td>1933년 · 1933</td><td>1533</td><td>앤과 비밀 결혼 · 엘리자베스 출생</td><td>교재 p.138</td></tr>
+  <tr><td>15304년</td><td>1534</td><td>수장령</td><td>교재 p.138</td></tr>
+  <tr><td>15206년 · 1526</td><td>1526</td><td>틴데일 신약 인쇄</td><td>교재 p.139</td></tr>
+  <tr><td>15306년</td><td>1535(체포)</td><td>틴데일 체포 (교재는 1536으로 표기)</td><td>교재 p.139 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>1947년</td><td>1537</td><td>매튜 성경 (틴델 사후 1년)</td><td>교재 p.139</td></tr>
+  <tr><td>11503년 · "12살"</td><td>1553</td><td>에드워드 6세 사망 시점</td><td>교재 p.139</td></tr>
+  <tr><td>1926년 초판</td><td>1526</td><td>교수가 보여준 틴데일 신약 초판</td><td>교재 p.139</td></tr>
+  <tr><td>1621년 번역 / 1600 이 11년</td><td>1611</td><td>KJV 완성</td><td>교재 p.140</td></tr>
+  <tr><td>164년부터</td><td>1604</td><td>KJV 번역 착수</td><td>교수 "1604년에 시작"</td></tr>
+  <tr><td>1622년 인쇄</td><td>1611(초판)</td><td>교수 발언 유지 · 실제 초판은 1611</td><td>교재 p.140 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>722년 · 86 586년</td><td>BC 722 · BC 586</td><td>북왕국 앗수르 멸망 · 유다 신바벨론 멸망</td><td>구약 역사 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>2008년경 4번</td><td>(약 1008년, B19A로 추정)</td><td>구약 전체를 수록한 마소라 사본</td><td>불확실 · 확인 필요</td></tr>
+  <tr><td>17년 (루터)</td><td>1517</td><td>루터의 종교개혁 시작</td><td>교수 "17년에 루터가"</td></tr>
+  <tr><td>1945~1963년</td><td>1545~1563</td><td>트렌트 공의회</td><td>교재 p.140</td></tr>
+  <tr><td>3205년</td><td>325</td><td>니케아 공의회</td><td>교재 p.140</td></tr>
+  <tr><td>1949년</td><td>1549</td><td>사비에르 일본 선교 (개신교보다 150년 앞)</td><td>교재 p.140</td></tr>
+  <tr><td>제 3세기 전</td><td>13세기</td><td>인노첸시오 3세 시대</td><td>인노첸시오 3세 재위 1198~1216 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>1960년에서 1660년</td><td>1560~1660</td><td>청교도 운동 시기</td><td>교재 p.142</td></tr>
+  <tr><td>1930년 · 1630년</td><td>1630</td><td>사우스햄프턴 출항 예배</td><td>교재 p.142</td></tr>
+  <tr><td>169년 · 16008/16009년</td><td>1609</td><td>네덜란드 최초 침례교</td><td>교재 p.143</td></tr>
+  <tr><td>1621년 (영국 귀환)</td><td>1611(~12)</td><td>헬위스, 영국 침례교 시작</td><td>교재 p.144 · 교수 정리 "1611 내지 12년"</td></tr>
+  <tr><td>1600 38 · 1938</td><td>1638</td><td>특수침례교 시작</td><td>교재 p.145</td></tr>
+  <tr><td>1989년</td><td>1689</td><td>종교 자유법</td><td>교재 p.143</td></tr>
+  </table>
+
+  <table>
+  <caption>7-2. 인명·지명·용어 교정표</caption>
+  <tr><th style="width:24%">자막 표기</th><th style="width:24%">교정</th><th>근거</th></tr>
+  <tr><td>교황 2세 / 율리우스 2세</td><td>교황 율리우스 2세</td><td>교수 "율리우스 2세" (앞 표기는 ASR)</td></tr>
+  <tr><td>크로멜 / 크롬웰</td><td>토머스 크롬웰 (Thomas Cromwell)</td><td>교재 p.138</td></tr>
+  <tr><td>앤 볼레이는 · 앤 불레인 · 볼레인</td><td>앤 볼레인 (Anne Boleyn)</td><td>교재 p.138 "앤 불레인"</td></tr>
+  <tr><td>제인 시무</td><td>제인 시모어 (Jane Seymour)</td><td>교재 p.139</td></tr>
+  <tr><td>배쉬 블런트 · 헨리 피츠</td><td>블런트(정부) · 헨리 피츠로이(아들)</td><td>자막 문맥 · <span class="bd bo">보충</span></td></tr>
+  <tr><td>윌리암 틴데일 / 팀델 / 트레일</td><td>윌리엄 틴데일 (William Tyndale)</td><td>교재 p.138 "틴데일"</td></tr>
+  <tr><td>로저스 · 커버데이</td><td>존 로저스(John Rogers) · 마일스 커버데일(Miles Coverdale)</td><td>교재 p.139</td></tr>
+  <tr><td>크랜베 · 크랜머이 · 그랜머</td><td>토머스 크랜머 (Cranmer)</td><td>교재 p.139</td></tr>
+  <tr><td>킹제임스 흠정역 · 김진수/김지수 버전</td><td>킹제임스 버전(KJV)</td><td>문맥 (ASR)</td></tr>
+  <tr><td>정동수 교수 목사님</td><td>정동수 목사</td><td>문맥 · 인물 호칭 확인 필요</td></tr>
+  <tr><td>마소라 · 마술사 · 마스터로 4번</td><td>마소라 사본</td><td>문맥 (ASR)</td></tr>
+  <tr><td>아랍어</td><td>아람어</td><td>바벨론 포로기 공통어 (ASR)</td></tr>
+  <tr><td>이그나티우스 롤라</td><td>이그나티우스 로욜라 (Ignatius Loyola)</td><td>교재 p.140</td></tr>
+  <tr><td>프란시스 샐비어 · 사비에르 · 사벨</td><td>프란시스 사비에르 (Francis Xavier)</td><td>교재 p.140</td></tr>
+  <tr><td>토마스 캠피스</td><td>토마스 아 켐피스</td><td>교재 p.140</td></tr>
+  <tr><td>파울 3세 · 이노센트 3세</td><td>바오로 3세 · 인노첸시오 3세</td><td>교재 표기(Paul III, 이노센트 3세)</td></tr>
+  <tr><td>파채 설 / 본질 변형설</td><td>화체설(본질 변형설)</td><td>교재·문맥</td></tr>
+  <tr><td>한카툰 / 코튼</td><td>존 코튼 (John Cotton)</td><td>교재 p.142</td></tr>
+  <tr><td>잔 스미스 · 전 스미스 · 짠 스미스</td><td>존 스미스 (John Smyth)</td><td>교재 p.143~144</td></tr>
+  <tr><td>토마스 헬 · 헤이즈</td><td>토머스 헬위스 (Thomas Helwys)</td><td>교재 p.144</td></tr>
+  <tr><td>노튼 · 잔 너트</td><td>존 머튼(John Murton) 추정</td><td>교재 p.144~145 · 확인 필요</td></tr>
+  <tr><td>로저 윌리암스 · 앤 허친슨</td><td>로저 윌리엄스(Roger Williams) · 앤 허친슨(Anne Hutchinson)</td><td>교재 p.143</td></tr>
+  <tr><td>이케이크 · 퀘이크 · 팍스</td><td>퀘이커(Quaker) · 조지 폭스(George Fox)</td><td>교재 p.145</td></tr>
+  <tr><td>화란</td><td>네덜란드</td><td>동의어</td></tr>
+  <tr><td>제 3파 / 제 친일파 / 재침례파</td><td>재세례파(재침례파)</td><td>문맥 추정</td></tr>
+  </table>
+
+  <table>
+  <caption>7-3. 교수 발언의 사실 착오·교재 오기 정정 ([보충])</caption>
+  <tr><th style="width:26%">항목</th><th>강의·교재 표기</th><th>정정·비고</th></tr>
+  <tr><td>KJV 인쇄 연도 <span class="bd hi">⭐</span></td><td>"번역을 1604년에 시작 → 1611년 완료 → 다음 해 1622년 인쇄"</td><td>KJV 초판은 1611 (교재 p.140도 1611)</td></tr>
+  <tr><td>헨리 8세 즉위 나이</td><td>18세</td><td>만 17세 (1509 즉위)</td></tr>
+  <tr><td>에드워드 6세 즉위·사망 나이</td><td>10세 즉위, 12살 사망</td><td>즉위 만 9세, 사망 만 15세</td></tr>
+  <tr><td>틴데일 체포 연도·옥살이</td><td>교재 "1536년 체포, 17개월 감옥, 1536.10.6 화형" / 자막 "27개월"</td><td>체포는 1535년. 17개월이 맞으며 자막 "27개월"은 ASR로 봄</td></tr>
+  <tr><td>혼인 무효를 선언한 대주교</td><td>"대주교로 임명된 크롬웰이 선언"</td><td>캔터베리 대주교 크랜머가 선언, 크롬웰은 대신 — 교재 기준으로 암기하되 사실관계는 확인 필요</td></tr>
+  <tr><td>인노첸시오 3세 시기</td><td>교재 "3세기 전"</td><td>13세기</td></tr>
+  <tr><td>트렌트 공의회 명칭</td><td>교수 "제1차 바티칸 종교회의"</td><td>트렌트 공의회 (제1차 바티칸은 1869~70)</td></tr>
+  <tr><td>최후의 만찬 그림</td><td>교재 "미켈란젤로의 최후의 만찬 그림 일부(?)"</td><td>물음표로 남아 있음 — 통상 "최후의 심판" 벽화 일부를 가린 일로 알려짐. 확인 필요</td></tr>
+  <tr><td>1541 회담 장소</td><td>교재 "독일의 라티스본-레겐스부르크"</td><td>라티스본 = 레겐스부르크의 옛 명칭(같은 도시)</td></tr>
+  </table>
+
+  <div class="key"><strong>확인 필요 목록</strong>
+    <ul class="tight">
+      <li>15009년(헨리 피츠로이 출생) — 표기 불명</li>
+      <li>마소라 사본 "2008년경 4번"의 실체(레닌그라드 사본 B19A 추정)</li>
+      <li>KJV 웨스트민스터 그룹의 신약 범위("로마서와 다섯 가지")</li>
+      <li>정동수 목사 관련 합신 측 판정 — 교수 발언을 그대로 옮긴 것이며 별도 검증하지 않음</li>
+      <li>"동인도회사"(신대륙 상인 관련) 발언 — 북미 식민 사업과 맞지 않아 확인 필요</li>
+      <li>퀘이커 "신학을 하지 않고" 발언의 취지 / 박해 서술의 "미국"이 영국을 뜻하는지</li>
+      <li>존 머튼으로 추정한 "노튼·잔 너트"</li>
+      <li>삼하 7:10 인용문 — 교재 표기 그대로 옮겼으며 개역개정 원문과의 대조는 하지 않음</li>
+    </ul>
+  </div>
+
+  <table>
+  <caption>7-4. 교재 확인 결과</caption>
+  <tr><th style="width:24%">교재 쪽수</th><th>확인 내용</th></tr>
+  <tr><td>p.138</td><td>7장 영국 성공회: A 원인(시민 종교·헨리 8세 결혼문제·1532~1533 경과) · B 경과(1534 수장령) · C 헨리의 정책 · 윌리엄 틴데일(1494~1536)</td></tr>
+  <tr><td>p.139</td><td>틴데일 번역 과정·화형 · 매튜 성경(1537) · 대 성경 · 에드워드 6세~메리~엘리자베스 1세 · 청교도의 기원</td></tr>
+  <tr><td>p.140</td><td>킹제임스 흠정역(1611) · 8장 반종교개혁: 재결합 시도(1541) · 로욜라 · 예수회 · 트렌트 공의회 개요</td></tr>
+  <tr><td>p.141</td><td>트렌트 목적·과정·결정내용(전반)</td></tr>
+  <tr><td>p.142</td><td>트렌트 결정내용(후반)·5가지 결의사항·영향 · 9장 청교도주의의 시작과 미국의 교단성립: 배경(1630)·주요 주장</td></tr>
+  <tr><td>p.143</td><td>제임스 1세·햄프턴 코트 회의 · 메이플라워(1620) · 존 스미스·침례교회 탄생(1609) · 1629~1642 이주 · 1689 종교 자유법 · 10장 청교도와 분리주의자, 로버트 브라운</td></tr>
+  <tr><td>p.144</td><td>Truth Confession · 일반침례교(스미스·헬위스·머튼) · A Declaration of Faith of English People(1611)</td></tr>
+  <tr><td>p.145</td><td>존 머튼 · 특수침례교(JLJ Church, 스필스베리, First London Confession) · 11장 퀘이커: 정의·운동의 시작기·폭스</td></tr>
+  </table>
+  <p class="meta">교재 PDF(교회사2_교재.pdf)는 A3 한 장에 두 쪽씩 실린 스캔본(텍스트 레이어 없음)이라 p.138~145에 해당하는 PDF 16~19쪽을 이미지로 확인함. 자막 3개는 통독 후 교재 p.138~145 및 표준 역사 사실과 대조. ⭐ 표시는 자막에서 교수가 "기억하시길 바랍니다·중요합니다" 등으로 강조한 부분.</p>
+</div>
+
+</body>
+</html>
