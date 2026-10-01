@@ -610,8 +610,12 @@ const SITE_DATA = {
             { week: 3, title: "복음이란 (2) — 하나님의 해법 · 인간의 반응(회개)", date: "2026.09.17", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week03.html" }
           ] },
-            { week: 4, title: "", date: "", files: [] },
-            { week: 5, title: "", date: "", files: [] },
+            { week: 4, title: "전도의 어원 및 정의 — 구약·신약의 성경적 어원과 신학적 정의", date: "2026.09.24", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week04.html" }
+          ] },
+            { week: 5, title: "복음이란 (3) — 참된 믿음 · 성령 충만한 삶(성화)", date: "2026.10.01", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week05.html" }
+          ] },
             { week: 6, title: "", date: "", files: [] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },

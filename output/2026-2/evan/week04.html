@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 4주차 — 전도의 어원 및 정의</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">전도학개론 · 4주차(2026.09.24) · 2026학년도 2학기</div>
+  <h1>전도의 어원 및 정의 — 구약·신약의 성경적 어원과 신학적 정의</h1>
+  <div class="prof">담당 김완 교수 · 온라인 영상 강의 (유튜브 2편 완결)</div>
+</div>
+
+<div class="intro">
+  이번 4주차 강의(2026.09.24)는 <b>온라인 영상 강의(유튜브 2편 전체 녹취: 총 47,725자 — 1부 28,769자, 2부 18,956자)</b>와 강의자료 PPT("4강 전도의 어원 및 정의.pptx.pptx", 전체 38매)를 100% 대조하여 정리했습니다.
+  영상 제목은 '3강'으로 표기되어 있으나 실질 진도상 <b>4주차</b>에 해당합니다. <b>구약의 전도 어원(바사르)</b>, <b>신약의 복음 어원(유앙겔리온·유앙겔리조마이)</b>, <b>신약 5대 전도 핵심 동사(유앙겔리조·케룻소·마르튜레오·디다스코·마테튜오)</b>, <b>위대한 지상명령(마 28장)의 헬라어 본동사 구조와 제자 삼는 제자(Disciple Maker)</b>, <b>20세기 대표 신학자 4인(빌리 그레이엄·J.I. 패커·존 스토트·도널드 맥가브란)의 전도 정의</b>, <b>2대 교회사적 진영(복음주의 vs 에큐메니컬 WCC·로잔)의 전도관</b>, 그리고 <b>전도의 궁극적 본질(하나님과의 친밀한 사랑의 교제)</b>까지 다루었습니다.
+  교수님이 시험 출제 및 중간고사 반영을 명시한 5개 항목과 핵심 강조 사항은 <span class="b-exam bdg">시험·교수 강조</span>로 빠짐없이 수록했습니다.
+</div>
+
+<div class="toc">
+  <a href="#intro-q">1. 전도란 무엇인가 — 핵심 질문과 영역 논쟁</a>
+  <a href="#ot-etym">2. 구약의 전도 어원 — 바사르(בָּשַׂר)</a>
+  <a href="#nt-etym">3. 신약의 복음 어원 — 유앙겔리온과 제국의 전복</a>
+  <a href="#verbs5">4. 신약의 5대 전도 핵심 동사 분석</a>
+  <a href="#commission">5. 지상명령(마 28장)의 문법 구조와 제자도</a>
+  <a href="#theologians">6. 신학자 4인의 전도 정의 대조</a>
+  <a href="#traditions">7. 2대 진영과 교단별 전도관 (복음주의 vs 에큐메니컬)</a>
+  <a href="#nature">8. 전도의 궁극적 본질 — 친밀한 사랑의 교제</a>
+  <a href="#exam-box">🎯 시험 및 교수 강조 포인트 총괄</a>
+  <a href="#verify">📋 출처 · 검증 요약</a>
+</div>
+
+<div class="sec" id="intro-q">
+  <div class="sh"><span class="sb">1</span><span class="st">전도란 무엇인가 — 핵심 질문과 전도·선교의 관계 (PPT §1~6)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>강의는 전도에 대해 우리가 반드시 던져보아야 할 4가지 근본적 질문으로 시작합니다.</p>
+    <ul>
+      <li><b>Q1. 전도는 설득해서 영접기도를 시키면 끝나는가, 아니면 그 이상인가?</b>
+        <br>단순한 영접기도 유도나 천국행 보험 티켓 전달은 전도의 시작일 뿐입니다. 신약성경이 말하는 전도는 그리스도의 장성한 분량에 이르는 제자 양육과 성화(Sanctification)까지 포괄하는 총체적 과정입니다.
+      </li>
+      <li><b>Q2. 전도(Evangelism)와 선교(Mission)는 어떤 차이가 있는가?</b>
+        <br>· <b>지리적·문화적 차원</b>: 동일 문화권(E-0, E-1) 내의 복음화를 주로 '전도'라 부르고, 타문화권 및 지리적 경계를 넘는 사역(E-2, E-3)을 주로 '선교'라 명명합니다.
+        <br>· <b>사역적 범위 차원</b>: 선교는 디아코니아(구제·사회봉사), 교육, 의료, 문화 변혁, 하나님 나라 확장 등 광범위한 총체적 사역을 포괄하는 상위 개념이며, <b>전도는 선교의 가장 중심이자 심장(Heart)</b>입니다.
+      </li>
+      <li><b>Q3. 받아들이는 상대방의 입장도 고려해야 하는가?</b>
+        <br>내 할 말만 일방적으로 쏟아붓는 방식(단순 지식 통보)은 니느웨가 회개하지 않기를 바라며 억지로 외쳤던 요나의 불순종과 다를 바 없습니다. 상대방의 상황과 인격을 존중하고 이해시키는 설득과 소통의 과정이 필요합니다.
+      </li>
+      <li><b>Q4. 전도는 개인의 일인가, 공동체적 일인가?</b>
+        <br>개인의 증언 사역임과 동시에 교회 공동체가 함께 감당하는 집단적·공동체적 사역(Corporate Evangelism)입니다.
+      </li>
+    </ul>
+
+    <p><b>복음 메시지 5대 핵심 복습(PPT §6)</b>: <a href="../week05.html" style="color:var(--accent2);text-decoration:underline;">5주차 강의노트</a>에서 이미 상세히 다룬 바와 같이, 온전한 복음 제시는 <b>①하나님은 누구신가 ②인간의 문제 ③하나님의 해법 ④인간의 반응 ⑤성화(Sanctification)</b>의 5단계 구조를 갖추어야 합니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="ot-etym">
+  <div class="sh"><span class="sb">2</span><span class="st">구약의 전도 성경적 어원 — 바사르 (בָּשַׂר, bāśar) (PPT §7~9)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="bdg b-exam">시험 문제 (2회 반복 강조)</span> <b>"구약 성경에서 '전도(좋은 소식을 전하다)'를 뜻하는 히브리어 단어는 무엇인가? 바사르(בָּשַׂר)입니다. 따라서 하실까요? 바사르! 바사르!"</b> 교수는 강의 전반부(~4,296자)와 후반부(~5,859자)에서 <b>"시험 문제입니다. 잊지 마십시오! 복음을 전하다, 전도라는 단어로 대치될 수 있는 히브리어는 바사르입니다"</b>라고 두 번이나 강력히 출제를 예고했습니다.</p>
+    <ul>
+      <li><b>원어 철자 및 기본 의미</b>: 히브리어 <b>בָּשַׂר (바사르, bāśar)</b>는 본래 <b>"좋은 소식(Good News)을 가져오다, 전하다"</b>라는 동사입니다. 70인역(LXX)에서는 이를 헬라어 동사 <b>εὐαγγελίζω(유앙겔리조)</b>로 번역했습니다.</li>
+    </ul>
+
+    <div class="tw">
+      <table>
+        <caption>구약 본문에서 '바사르(בָּשַׂר)'의 2대 용례 차원</caption>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>신학적 성격</th>
+            <th>대표 성경 본문 (개역개정 GAE)</th>
+            <th>본문 해설 및 의미</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1차원</th>
+            <td>세속적·군사적<br>승전보 전달</td>
+            <td>삼상 31:9 <span class="vq">"사울의 머리를 베고 그의 갑옷을 벗기고 자기들의 신당과 백성에게 알리기 위하여(לְבַשֵּׂר, lebaśśēr) 그것을 블레셋 사람들의 땅 사방에 보내고"</span><br>삼하 18:19 (아히마아스의 승전보 전달)</td>
+            <td>전쟁에서 승리했거나 적군이 패망했다는 소식을 백성들에게 널리 공포하는 일상적 군사 용어로 쓰임</td>
+          </tr>
+          <tr>
+            <th>2차원</th>
+            <td>종말론적·구속사적<br>메시아 구원의 복음</td>
+            <td>사 40:9 <span class="vq">"아름다운 소식을 시온에 전하는 자여(מְבַשֶּׂרֶת, mebaśśeret) 너는 높은 산에 오르라 아름다운 소식을 예루살렘에 전하는 자여 너는 힘써 소리를 높이라"</span><br>사 52:7 <span class="vq">"좋은 소식을 전하며(מְבַשֵּׂר, mebaśśēr) 평화를 공포하며 복된 좋은 소식을 가져오며 구원을 공포하며 시온을 향하여 이르기를 네 하나님이 통치하신다 하는 자의 산을 넘는 발이 어찌 그리 아름다운가"</span></td>
+            <td>바벨론 포로기 이후, 단순한 군사적 승리를 넘어 <b>"여호와 하나님이 온 세상을 공의와 평화로 통치하신다"</b>는 메시아적 구원과 해방의 소식으로 승화됨</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><b>신학적 의의</b>: 구약의 '바사르'는 신약의 '유앙겔리온'으로 이어지는 구속사적 디딤돌입니다. 전쟁의 승리를 알리던 기쁜 소식이, 이사야 선지자에 이르러 죄와 사망의 포로 된 인류를 해방하시는 하나님의 구원 통치 선포로 발전했습니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="nt-etym">
+  <div class="sh"><span class="sb">3</span><span class="st">신약의 복음 어원 — 유앙겔리온과 제국의 전복 (PPT §10~11)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>1. 명사: εὐαγγέλιον (유앙겔리온, euangelion) <span class="bdg b-exam">시험 문제 (자주색 표시)</span></h3>
+    <p><span class="bdg b-exam">시험 문제</span> 교수가 슬라이드의 <b>자주색 텍스트(RGB 255,0,255)</b>를 직접 지목하며 출제를 예고했습니다. <i>"역시 이 자주색으로 된 게 시험에 나올 것입니다. 복음이라는 명사의 헬라어는 무엇입니까? 유앙겔리온. 전도라는 명사의 헬라어는 무엇입니까? 유앙겔리온입니다. 둘 다 유앙겔리온입니다."</i> (1부 녹취 약 6,181자)</p>
+    <ul>
+      <li><b>어원적 구성</b>: 좋은·기쁜 뜻의 접두어 <b>εὖ(유)</b> + 사자·전령을 뜻하는 <b>ἄγγελος(앙겔로스)</b>가 결합되어 <b>"기쁜 소식(Good News)"</b>을 의미합니다. 한자어로는 복 복(福) 자에 소리 음(音) 자를 쓴 <b>복음(福音)</b>입니다.</li>
+      <li><b>언어적 계승</b>: 헬라어 εὐαγγέλιον → 라틴어 Evangelium → 고대 영어 Gōdspel(Good spell, 거룩하고 복된 이야기) → 현대 영어 <b>Gospel</b> 및 <b>Evangel</b>.</li>
+    </ul>
+
+    <h3>2. 로마 제국의 황제 숭배와 기독교의 전복적 복음 선포</h3>
+    <p>로마 제국 당시 '유앙겔리온'은 결코 종교적 언어가 아닌 <b>강력한 정치적 선전(Propaganda) 용어</b>였습니다.</p>
+    <ul>
+      <li><b>로마 제국의 유앙겔리온</b>: 로마 내전(삼두정치)을 종식시키고 팍스 로마나(Pax Romana)를 연 <b>옥타비아누스(아우구스투스 황제)의 등극</b>이나, 제국의 정복 전쟁 승리 소식을 알릴 때 제국 전역에 파견된 전령들이 <i>"황제가 등극하셨으니 온 제국이여 환호하라! 이것이 로마의 유앙겔리온이다!"</i>라고 외쳤습니다.</li>
+      <li><b>초대교회의 신앙고백적 전복</b>: 초대 사도들은 이 제국의 단어를 정면으로 차용하여 전복시켰습니다. <i>"인간 황제의 등극이나 군사적 정복만이 유앙겔리온이 아니다. 온 우주의 유일하신 왕, 하나님의 아들 예수 그리스도께서 죄인들을 위해 이 땅에 오시고 십자가에서 죽으시고 부활하심으로 사탄과 사망의 권세를 깨뜨리신 사건이야말로 온 인류를 위한 진정한 유앙겔리온이다!"</i></li>
+    </ul>
+
+    <h3>3. 동사: εὐαγγελίζω / εὐαγγελίζομαι (유앙겔리조마이)</h3>
+    <p><span class="bdg b-exam">시험 문제</span> <b>"헬라어로 '복음을 전하다'라는 핵심 동사는 무엇인가? 유앙겔리조마이(εὐαγγελίζομαι)입니다. 시험 문제입니다. 따라서 하실까요? 유앙겔리조마이!"</b></p>
+    <p>라틴어의 evangelizare, 영어의 evangelize(복음화하다, 전도하다)의 직접적 어원이며, 복음의 기쁜 소식을 능동적으로 구두 선포하는 신약 전도 사역의 중심 동사입니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="verbs5">
+  <div class="sh"><span class="sb">4</span><span class="st">신약의 5대 전도 핵심 개념과 동사 분석 (PPT §12~17)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="bdg b-exam">시험 문제 (전부 출제 예고)</span> <b>"지금부터 신약에 나타나는 전도의 5가지 주요 개념을 살펴보겠습니다. 요거 하나하나 시험에 내겠습니다!"</b> (1부 녹취 약 7,324자 / PPT §12~17 전 슬라이드 자주색 RGB 255,0,255 표기). 신약성경은 복음이 전파되고 개인과 사회를 변화시키는 다차원적 양태를 아래의 5가지 핵심 동사로 규정합니다.</p>
+
+    <div class="tw">
+      <table>
+        <caption>신약성경의 5대 전도 핵심 동사 (PPT §12~17)</caption>
+        <thead>
+          <tr>
+            <th>동사 (원어/음역)</th>
+            <th>기본 의미</th>
+            <th>대표 성경 본문 (개역개정 GAE)</th>
+            <th>전도학적 본질 및 사역 적용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>유앙겔리조</b><br>(εὐαγγελίζω)</td>
+            <td>기쁜 소식을 전하다<br>(To bring good news)</td>
+            <td>눅 4:18 <span class="vq">"주의 성령이 내게 임하셨으니 이는 가난한 자에게 복음을 전하게 하시려고(εὐαγγελίσασθαι) 내게 기름을 부으시고..."</span></td>
+            <td>고통과 상처, 절망에 빠진 죄인들에게 생명과 해방의 기쁜 소식을 전하는 위로와 회복의 사역</td>
+          </tr>
+          <tr>
+            <td><b>케룻소</b><br>(κηρύσσω)</td>
+            <td>선포하다, 외치다<br>(To proclaim, herald)</td>
+            <td>마 4:17 <span class="vq">"이 때부터 예수께서 비로소 전파하여(ἐκήρυσσεν, 에케륏센) 이르시되 회개하라 천국이 가까이 왔느니라"</span></td>
+            <td>왕의 전령(Keryx, 헤럴드)처럼 자신의 의견을 섞지 않고 <b>왕의 칙령을 권위와 확신을 가지고 당당하게 대언</b>함</td>
+          </tr>
+          <tr>
+            <td><b>마르튜레오</b><br>(μαρτυρέω)</td>
+            <td>증인이 되다, 증언하다<br>(To bear witness)</td>
+            <td>행 1:8 <span class="vq">"오직 성령이 너희에게 임하시면... 내 증인이 되리라(μάρτυρες)"</span><br>요일 1:1 <span class="vq">"태초부터 있는 생명의 말씀에 관하여는 우리가 들은 바요 눈으로 본 바요 자세히 보고 우리의 손으로 만진 바라"</span></td>
+            <td><b>순교자(Martyr)</b>의 어원. 교리 지식의 전달이 아니라, <b>"내가 직접 경험하고 만난 예수, 내 삶을 바꾸신 주님"</b>을 인격과 생명을 걸고 증언함</td>
+          </tr>
+          <tr>
+            <td><b>디다스코</b><br>(διδάσκω)</td>
+            <td>가르치다<br>(To teach)</td>
+            <td>마 4:23 <span class="vq">"회당에서 가르치시며(διδάσκων) 천국 복음을 전파하시며..."</span><br>마 5:1-2 <span class="vq">"산에 올라가 앉으시니 제자들이 나아온지라 입을 열어 가르쳐(ἐδίδασκεν) 이르시되"</span></td>
+            <td>일방적 외침(케룻소)에 머물지 않고, 상대방의 눈높이와 지성에 맞추어 영적 진리를 <b>체계적으로 설명하고 대화하여 납득시키는 교육적 전도</b></td>
+          </tr>
+          <tr>
+            <td><b>마테튜오</b><br>(μαθητεύω)</td>
+            <td>제자로 삼다<br>(To make disciples)</td>
+            <td>마 28:19 <span class="vq">"그러므로 너희는 가서 모든 민족을 제자로 삼아(μαθητεύσατε)..."</span></td>
+            <td>명사 마테테스(μαθητής, 제자·배우는 자). 일회적 결신에 그치지 않고 삶 전체를 양육하여 성숙한 제자로 세움</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><span class="bdg b-exam">교수 강조</span> <b>선포와 가르침의 균형</b>: 예수님도 산상수훈(마 5~7장)에서 앉아서 차근차근 제자들을 가르치셨습니다(디다스코). 전도를 무조건 길거리 외침으로만 치부하거나, 반대로 가르침을 전도가 아니라고 폄하해서는 안 됩니다. <b>권위 있는 선포(케룻소)와 인격적 가르침(디다스코), 삶의 체험적 증언(마르튜레오)</b>이 온전히 조화를 이루어야 합니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="commission">
+  <div class="sh"><span class="sb">5</span><span class="st">위대한 지상명령(마 28장)의 문법 구조와 제자도 (PPT §18~22)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>마태복음 28:18-20 원문의 문법적 분석</h3>
+    <p>마 28:18-20 <span class="vq">"예수께서 나아와 말씀하여 이르시되 하늘과 땅의 모든 권세를 내게 주셨으니 그러므로 너희는 가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라 볼지어다 내가 세상 끝날까지 너희와 항상 함께 있으리라 하시니라"</span></p>
+
+    <div class="emph">
+      <h3>🎯 지상명령의 4대 핵심 동사 (★교수 강조: 동그라미 4개)</h3>
+      <p><span class="bdg b-exam">교수 강조(동그라미)</span> <i>"위대한 지상명령의 핵심 동사 4가지를 아예 표시가 되게 써 놨습니다. 동그라미 1번부터 4번까지 정확히 파악하십시오."</i></p>
+      <ol>
+        <li><b>동그라미 ①: 너희는 가서 (πορευθέντες, poreuthentes / Go)</b> — 수식 분사 (안주하는 자리를 박차고 세상 속으로 나아감)</li>
+        <li><b>동그라미 ②: 제자로 삼아라 (μαθητεύσατε, mathēteusate / Make Disciples)</b> — ★<b>본문 전체의 유일한 명령법 주동사(Main Verb)</b></li>
+        <li><b>동그라미 ③: 세례(침례)를 베풀고 (βαπτίζοντες, baptizontes / Baptizing)</b> — 수식 분사 (회심의 공적 고백과 교회 공동체로의 영적 연합)</li>
+        <li><b>동그라미 ④: 가르쳐 지키게 하라 (διδάσκοντες, didaskontes / Teaching to obey)</b> — 수식 분사 (단순 암기가 아닌 삶 속에서 순종하도록 훈련함)</li>
+      </ol>
+      <p><b>문법적 결론</b>: 헬라어 원문에서 본동사는 오직 <b>"제자로 삼으라(μαθητεύσα테)"</b> 하나뿐입니다. '가서', '세례를 베풀고', '가르쳐 지키게 하는 것'은 모두 '제자 삼는 사역'을 수행하기 위한 방법적 분사 구문입니다.</p>
+    </div>
+
+    <h3>제자도에 관한 2대 핵심 교훈 (PPT §20~22)</h3>
+    <ul>
+      <li><b>교훈 1. Making Disciple이 아니라 "Disciple Maker(제자 삼는 제자)"를 만드는 것</b>:
+        <br>위대한 명령의 궁극적 핵심은 내가 몇 명의 제자를 거느리고 있는가가 아닙니다. 내게 양육받은 그 사람이 또 다른 사람을 제자 삼을 수 있는 영적 재생산자(Disciple Maker)로 세워지는 것입니다.
+        <br>· <b>디모데후서 2:2의 4세대 영적 재생산 사슬</b>:
+        <br><span class="vq">"또 네가(1세대: 디모데) 많은 증인 앞에서 내게(바울) 들은 바를 충성된 사람들(2세대)에게 부탁하라 그들이 또 다른 사람들(3세대)을 가르칠 수 있으리라"</span>
+        <br>→ 바울 → 디모데 → 충성된 사람들 → 또 다른 사람들에게로 이어지는 영적 생명의 배가(Multiplication) 원리입니다.
+      </li>
+      <li><b>교훈 2. 제자됨이란 "자기 부인과 권리 포기"의 삶</b>:
+        <br>제자도는 열정적인 종교 활동이나 바쁜 교회 봉사가 아닙니다.
+        <br>· 마 16:24 <span class="vq">"누구든지 나를 따라오려거든 자기를 부인하고 자기 십자가를 지고 나를 따를 것이니라"</span>
+        <br>· 갈 5:24 <span class="vq">"그리스도 예수의 사람들은 육체와 함께 그 정욕과 탐심을 십자가에 못 박았느니라"</span>
+        <br>· 롬 8:13 <span class="vq">"너희가 육신대로 살면 반드시 죽을 것이로되 영으로써 몸의 행실을 죽이면 살리니"</span>
+        <br>제자도의 본질은 내 자아가 십자가에 못 박혀 죽고(자기 부인), 성령 하나님께 삶의 전권을 넘겨드려 순복하는 것입니다. 육신적 그리스도인(Carnal Christian)의 상태를 깨뜨리는 영성이 제자도의 핵심입니다.
+      </li>
+    </ul>
+
+    <div class="story">
+      <h3>📖 사역 일화 요약 — 열심과 탈진 속에서 깨달은 제자도</h3>
+      <p>신학생 시절 4년 내내 주일학교 사역, 성가대 베이스 찬양대, 방송실 음향 등 1인 다역으로 지치도록 봉사했으나, 영혼을 제자로 세우지 못했던 한계를 돌아보며, 사역의 본질은 프로그램의 분주함이 아니라 '사람을 세우는 제자 삼기'와 '자기 부인'에 있음을 간증했습니다.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="theologians">
+  <div class="sh"><span class="sb">6</span><span class="st">신학자들의 전도 정의 (4인 대조) (PPT §23~26)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>20세기 복음주의와 선교학을 대표하는 신학자 4인의 전도 정의를 대조 분석합니다.</p>
+
+    <div class="tw">
+      <table>
+        <caption>대표적 신학자 4인의 전도 정의 비교</caption>
+        <thead>
+          <tr>
+            <th>신학자</th>
+            <th>핵심 정의 내용 (영문/국문)</th>
+            <th>전도학적 특징 및 강조점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>빌리 그레이엄</b><br>(Billy Graham)</td>
+            <td><i>"Evangelism is proclaiming Jesus Christ by the power of the Holy Spirit, and leaving the results to God."</i><br>(전도란 <b>성령의 능력으로 예수 그리스도를 선포</b>하고, 그 <b>결과는 하나님께 맡기는 것</b>이다.)</td>
+            <td>인간적 설득이나 심리적 조작을 배격하고, 성령의 권능을 힘입은 신실한 선포와 하나님의 절대 주권에 결과를 의탁함</td>
+          </tr>
+          <tr>
+            <td><b>J. I. 패커</b><br>(J. I. Packer)</td>
+            <td><i>"Evangelism is presenting Christ Jesus in the power of the Holy Spirit to sinful people, in order that they may come to put their trust in God through Him, to accept Him as their Savior, and to serve Him as their King in the fellowship of His Church."</i><br>(전도란 성령의 능력으로 죄인들에게 그리스도를 제시하여, 하나님을 신뢰하고 <b>구주로 영접</b>하며 <b>교회의 교제 안에서 왕으로 섬기게</b> 하는 것이다.)</td>
+            <td>『전도관과 하나님의 주권』의 저자. 단순 결신에 그치지 않고 <b>'교회 공동체 안에서의 주권 순종과 섬김'</b>으로 이어짐을 강조</td>
+          </tr>
+          <tr>
+            <td><b>존 스토트</b><br>(John Stott)</td>
+            <td><i>"Evangelism is not preaching a religion, but preaching a person, Jesus Christ."</i><br>(전도란 <b>종교를 전파하는 것이 아니라, 살아계신 인격체이신 예수 그리스도를 전파</b>하는 것이다.)</td>
+            <td>『사도행전 강해』. 교리나 의식, 종교 제도가 아니라 <b>살아계신 인격자이신 그리스도와의 생명적 만남</b>을 소개함</td>
+          </tr>
+          <tr>
+            <td><b>도널드 맥가브란</b><br>(Donald McGavran)</td>
+            <td><i>"Evangelism is to proclaim Jesus Christ as God and Savior... so that they may become His disciples and responsible members of His Church."</i><br>(전도란 예수 그리스도를 하나님과 구주로 선포하여 사람들이 그분의 제자가 되고 <b>그분 교회의 책임 있는 지체</b>가 되도록 하는 것이다.)</td>
+            <td>교회성장학의 개척자. 영혼 구원 후 방치하는 것을 '갓난아기를 찬 길바닥에 내버리는 행위'로 경고하며, <b>지역 교회의 책임 있는 일원으로 정착</b>시킬 것을 역설</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sup">
+      <span class="tag">보충</span> <b>키프리아누스 교부의 교회론</b><br>
+      강의 중 교수가 <i>"터툴리안인가요? 교부 중 한 분이 이런 말을 했습니다"</i>라고 인용한 <b>"하나님을 아버지로 모시는 자는 교회를 어머니로 모셔야 한다 (He cannot have God for his Father who has not the Church for his mother)"</b>라는 명언은 3세기 카르타고의 주교 <b>키프리아누스(Cyprian, 『교회의 일치에 관하여』 De Ecclesiae Catholicae Unitate)</b>의 유명한 선언입니다. 맥가브란의 정의처럼, 참된 전도는 영혼을 낳아 지역 교회라는 거룩한 모태 안에서 양육하는 데까지 나아가야 합니다.
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="traditions">
+  <div class="sh"><span class="sb">7</span><span class="st">20세기 2대 진영과 교단별 전도관 (복음주의 vs 에큐메니컬) (PPT §27~37)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><span class="bdg b-exam">시험 문제</span> <b>"20세기 기독교를 양분한 2대 진영: 보수적인 진영을 '복음주의권(Evangelical)', 진보적인 진영을 '에큐메니컬권(Ecumenical)'이라고 합니다. 요건 시험입니다. 따라서 하실까요? 복음주의권! 에큐메니컬권!"</b></p>
+
+    <div class="tw">
+      <table>
+        <caption>복음주의 진영 vs 에큐메니컬 진영의 신학 및 전도관 비교</caption>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>복음주의 (Evangelicalism)<br>예: 남침례교(SBC), 로잔 운동</th>
+            <th>에큐메니컬 (Ecumenism)<br>예: 세계교회협의회(WCC)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>성경관 및 기초</th>
+            <td>성경의 무오성과 최종 권위, 역사적 정통 신앙</td>
+            <td>역사비평학 수용, 사회적·문맥적 성경 해석</td>
+          </tr>
+          <tr>
+            <th>구원관</th>
+            <td>개인의 회심, 십자가 대속의 보혈, 영생</td>
+            <td>사회적 구원, 샬롬, 하나님의 선교(Missio Dei)</td>
+          </tr>
+          <tr>
+            <th>전도의 초점</th>
+            <td>개인의 죄 사함과 영혼 구원, 제자 양육</td>
+            <td>사회 구조 개혁, 억압 해방, 평화, 피조세계 보전</td>
+          </tr>
+          <tr>
+            <th>제자도 개념</th>
+            <td>개인의 성화와 십자가 순종</td>
+            <td><b>변혁적 제자도 (Transforming Discipleship)</b></td>
+          </tr>
+          <tr>
+            <th>세계적 연대</th>
+            <td>세계복음주의연맹(WEA), 로잔 위원회</td>
+            <td>세계교회협의회(WCC), 에큐메니컬 협의체</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>한국 교단의 신학적 스펙트럼과 올바른 신학 연구 태도</h3>
+    <ul>
+      <li><b>스펙트럼의 흐름</b>:
+        <br>· 보수(문자적 성경 해석, 영혼 구원 중심): 고신, 그리스도의교회(무악기파), 합신, 합동, 침례교(기침)
+        <br>· 중도/온건: 통합, 기성, 감리교(기감)
+        <br>· 진보(사회 참여, 에큐메니컬 연대): 기장(한국기독교장로회), 성공회 등
+      </li>
+      <li><b>신학 연구의 대원칙 (1차 자료 확인)</b>:
+        <br><span class="bdg b-exam">교수 강조</span> <i>"신학을 신대원(Master 레벨)에서 공부한다는 것은 남의 말(2·3차 자료)만 듣고 편견으로 정죄하는 것이 아니라, <b>1차 자료(Primary Sources)를 직접 읽고 파서 정직하게 판단하는 것</b>입니다."</i> 상대 진영의 주장이나 타종교(이슬람, 남묘호란게교 등)를 대할 때도 1차 자료를 연구하고 인격적으로 소통해야 합니다.
+      </li>
+    </ul>
+
+    <h3>주요 문서별 전도관 분석</h3>
+    <ul>
+      <li><b>남침례교 신앙과 메시지 (Baptist Faith and Message 2000, 제11조)</b>:
+        <br>지상명령 순종은 모든 그리스도인과 교회의 거룩한 의무임. 개인전도뿐 아니라 교회가 함께 감당하는 <b>공동체적 전도(Corporate Evangelism)</b>의 책임을 밝히며, 각 영혼의 거듭남(Regeneration of each soul)을 신앙의 기초로 삼음.
+      </li>
+      <li><b>세계교회협의회 WCC (World Council of Churches)</b>:
+        <br>전도를 '하나님의 선교(Missio Dei)'의 틀 안에서 파악하며, 세상의 깨어진 불의를 치유하고 사회를 갱신하는 <b>'변혁적 제자도(Transforming Discipleship)'</b>를 전도의 핵심으로 천명함.
+      </li>
+      <li><b>로잔 언약 (The Lausanne Covenant, 1974, 제4조 전도의 본질)</b>:
+        <br>빌리 그레이엄과 존 스토트가 주도한 로잔 운동(Lausanne Movement)은 1974년 스위스 로잔에서 제1차 대회가 열린 이래 복음주의 선교 운동의 나침반 역할을 해왔습니다(강의 중 교수는 최근 한국 인천 송도에서 개최된 제4차 로잔대회를 언급함). 로잔 언약은 에큐메니컬 진영의 도전에 응답하여 그리스도인의 사회적 책임(제5조)을 복음의 온전한 실천으로 강력히 천명하면서도, <b>"전도 자체(Evangelism itself, 제4조)는 역사적·성경적 그리스도를 구주와 주님으로 선포하여 사람들을 하나님과 화목하게 하는 것"</b>으로 명확히 구별하여 <b>'전도의 본질적 우선성(Primacy of Evangelism)'</b>을 굳건히 수호했습니다.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="nature">
+  <div class="sh"><span class="sb">8</span><span class="st">전도의 궁극적 본질 — 하나님과의 친밀한 사랑의 교제 (PPT §37~38)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>복음은 넓은 의미에서 기독교 신앙 전체를 포함하는 총체적 메시지(총체적 복음)이지만, 전도학에서 다루는 복음의 본질은 분명합니다.</p>
+
+    <div class="emph">
+      <h3>🎯 복음 전도의 핵심 (★교수 중간고사 출제 예고)</h3>
+      <p><span class="bdg b-exam">중간고사 시험 예고</span> <i>"수도 없이 많이 반복됐습니다. 중간에 시험에 낼 겁니다!"</i></p>
+      <p><b>"복음 전도의 핵심은 인격이시고 생명 되시는 하나님과의 친밀한 사랑의 교제를 하는 것입니다. 그리고 그 친밀한 사랑의 교제, 하나님과의 사귐으로 하나님과 멀어졌던 사람들을 이끄는 것 — 이것이 복음 전도의 핵심입니다!"</b></p>
+      <ul>
+        <li><b>단순한 사후 천국행 티켓이 아님</b>: 전도를 "죽어서 천국 가는 법"으로만 협소화하는 것은 기독교 신앙의 왜곡입니다.</li>
+        <li><b>인격적이신 하나님과의 관계 회복</b>: 생명의 근원 되시는 하나님과의 끊어졌던 관계가 회복되고, 매일 그분의 임재 안에서 주님과 데이트하듯 사랑을 나누는 친밀한 사귐(Fellowship) 속으로 인도하는 것이야말로 전도의 알파요 오메가입니다.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="exam-box">
+  <div class="sh"><span class="sb">★</span><span class="st">🎯 시험 및 교수 강조 포인트 총괄 정리</span><div class="sl"></div></div>
+
+  <div class="emph">
+    <h3>📝 [명시적 시험 문제] 교수 발화 및 PPT 자주색 근거 7항목</h3>
+    <ul>
+      <li><b>1. 구약의 전도 어원 — 바사르 (בָּשַׂר, bāśar) (2회 강조: 잊지 마십시오)</b>
+        <br>· <b>내용</b>: 구약 성경에서 '좋은 소식을 전하다'를 뜻하는 히브리어 단어는 '바사르'임 (70인역에서는 유앙겔리조로 번역). 슬라이드 §7 자주색 표기.
+        <br>· <b>녹취 근거</b>: <i>"이거 시험 문제인데요. 히브리어로 전도를 뭐라 그러는가? 바사르라고 합니다. 따라서 하실까요? 바사르! 바사르!"</i> (~4,296자) 및 <i>"시험 문제입니다. 잊지 마십시오! 복음을 전하다, 전도라는 단어로 대치될 수 있는 히브리어는 바사르입니다."</i> (~5,859자)
+      </li>
+      <li><b>2. 신약의 복음·전도 명사 어원 — 유앙겔리온 (εὐαγγέλιον) (슬라이드 자주색 표시)</b>
+        <br>· <b>내용</b>: 헬라어에서 '복음'과 '전도'를 뜻하는 명사는 둘 다 동일하게 '유앙겔리온'임. 슬라이드 §10 자주색 표기.
+        <br>· <b>녹취 근거</b>: <i>"역시 이 자주색으로 된 게 시험에 나올 것입니다. 우리 복음이라는 명사의 헬라어는 무엇입니까? 유앙겔리온. 전도라는 명사의 헬라어는 무엇입니까? 유앙겔리온입니다. 둘 다 유앙겔리온입니다."</i> (1부 녹취 약 6,181자)
+      </li>
+      <li><b>3. 신약의 전도 동사 어원 — 유앙겔리조마이 (εὐαγγελίζομαι)</b>
+        <br>· <b>내용</b>: 헬라어로 '복음을 전하다(전도하다)'를 뜻하는 핵심 동사. 라틴어 evangelizare, 영어 evangelize의 어원. 슬라이드 §10 자주색 표기.
+        <br>· <b>녹취 근거</b>: <i>"헬라어는 유황겔리조마이라는 단어로 표현이 되어 있습니다. 한번 따라서 하실까요? 유황겔리조마이. 시험 문제입니다. 유황겔리조마이."</i> (1부 녹취 약 6,583자)
+      </li>
+      <li><b>4. 신약의 5대 전도 핵심 동사 (하나하나 시험 출제 예고)</b>
+        <br>· <b>내용</b>: ①기쁜 소식을 전함(유앙겔리조, εὐαγγελίζω) ②선포함(케룻소, κηρύσσω) ③증인이 됨(마르튜레오, μαρτυρέω) ④가르침(디다스코, διδάσκω) ⑤제자로 삼음(마테튜오/마테테스, μαθητεύω/μαθητής). 슬라이드 §12~17 전 슬라이드 핵심 용어 자주색 표기.
+        <br>· <b>녹취 근거</b>: <i>"지금부터 신약에 나타나는 전도의 다섯 가지 주요 개념을 살펴보겠습니다. 요거 하나 하나 시험에 내겠습니다."</i> (1부 녹취 약 7,324자)
+      </li>
+      <li><b>5. 위대한 지상명령(마 28장)의 4대 핵심 동사와 제자 삼기 (동그라미 4개)</b>
+        <br>· <b>내용</b>: ①가라(Go) ②제자로 삼아라(Make disciples, 유일한 본동사) ③세례를 베풀고(Baptizing) ④가르쳐 지키게 하라(Teaching to obey). 핵심은 disciple maker(제자 삼는 제자)를 양성하는 것임.
+        <br>· <b>녹취 근거</b>: <i>"위대한 명령의 핵심 동사 네 가지를 아예 표시가 되게 써 놨습니다. 동그라미 1번 너희가 가라, 2번 제자로 삼아라, 3번 세례를 베풀고, 4번 가르쳐 지키게 하라... making disciple이 아니라 disciple maker를 만드는 것이 핵심!"</i> (1부 녹취 약 17,488자 / Slide 18~20)
+      </li>
+      <li><b>6. 20세기 기독교 2대 진영: 복음주의(Evangelical) vs 에큐메니컬(Ecumenical)</b>
+        <br>· <b>내용</b>: 지난 1세기 동안 기독교를 양분한 보수적 복음주의 진영과 진보적 에큐메니컬 진영의 명칭 및 전도관 차이.
+        <br>· <b>녹취 근거</b>: <i>"진보적인 진영을 에큐메니컬 진영, 보수적인 진영을 복음주의 진영이라고 이야기합니다. 요건 시험이 되겠습니다. 한번 따라서 하실까요? 복음주의권! 에큐메니컬권!"</i> (2부 녹취 약 4,304자 / Slide 27)
+      </li>
+      <li><b>7. 복음 전도의 궁극적 핵심: 하나님과의 친밀한 사랑의 교제 (중간고사 예고)</b>
+        <br>· <b>내용</b>: 전도의 본질은 죽어서 천국 가는 표를 주는 것이 아니라, 인격적이시며 생명 되시는 하나님과의 친밀한 사랑의 교제(사귐)로 사람들을 이끄는 것임.
+        <br>· <b>녹취 근거</b>: <i>"수도 없이 많이 반복됐습니다. 중간에 시험에 낼 겁니다. 여러분 복음 전도의 핵심은 인격이시고 생명 되시는 하나님과의 친밀한 사랑의 교제를 하는 것입니다. 그리고 하나님과의 사귐으로 하나님과 멀었던 사람을 이끄는 것... 그것이 복음 전도의 핵심입니다."</i> (2부 녹취 약 18,737자 / Slide 37)
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💡 [교수 핵심 강조 포인트] 6항목</h3>
+    <ul>
+      <li><b>1. 디모데후서 2:2의 4세대 영적 재생산 모델 (PPT §20)</b>: 바울 → 디모데 → 충성된 사람들 → 또 다른 사람들에게로 이어지는 지속 가능한 영적 제자 생산 구조.</li>
+      <li><b>2. 제자됨의 본질 = 자기 부인과 권리 포기 (PPT §21~22)</b>: 마 16:24, 갈 5:24, 롬 8:13에 근거하여 자아가 십자가에 죽고 성령 하나님께 순복하는 삶.</li>
+      <li><b>3. 신학자 4인의 전도 정의 대조 (PPT §23~26)</b>: 빌리 그레이엄(성령의 능력과 선포, 결과는 하나님께), J.I. 패커(교회 안에서의 주권 순종), 존 스토트(살아계신 인격체 예수 선포), 도널드 맥가브란(지역 교회의 책임 있는 지체).</li>
+      <li><b>4. 남침례교(BF&M 2000)의 전도관 (PPT §31~32)</b>: 지상명령은 모든 신자와 교회의 거룩한 의무이며, 개인전도와 함께 '공동체적 전도(Corporate Evangelism)' 및 '영혼의 거듭남(중생)'을 역설.</li>
+      <li><b>5. WCC의 변혁적 제자도 vs 로잔 언약(1974)의 전도의 우선성 (PPT §33~36)</b>: WCC의 사회 변혁적 제자도와 로잔 언약의 그리스도 중심적 전도의 본질적 우선성(Primacy of Evangelism) 대조.</li>
+      <li><b>6. 올바른 신학 연구의 대원칙 (1차 자료 직접 탐구)</b>: 남의 말이나 2·3차 자료에 의한 편견과 정죄를 버리고, 원전과 1차 자료(Primary Sources)를 직접 연구하고 대화하는 태도.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify" id="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">자료근거 · 유튜브 2편 녹취(47,725자) + PPT 38매 전수 대조</span>
+    <span class="stat" style="color:var(--exam)">시험 명시 7건 + 교수 강조 6건 (총 13건) 완벽 추출</span>
+    <span class="stat" style="color:var(--accent2)">성경 본문 13개 개역개정 대조 완결</span>
+    <span class="stat" style="color:var(--gold)">신학·성경 보충 4건</span>
+    <span class="stat" style="color:var(--gold)">ASR 오인식 교정 8건</span>
+  </div>
+
+  <p>· <b>슬라이드 범위 대조 결과</b>: "4강 전도의 어원 및 정의.pptx.pptx" 전체 38매 중 슬라이드 1번부터 38번(끝)까지 <b>1·2부 강의를 통해 100% 완결</b>되었음을 대조 확인했습니다.</p>
+
+  <p>· <b>[보충] 신학 및 사실관계 확인 (4건)</b>:</p>
+  <ul>
+    <li><b>1. 강의 제목 및 주차 매핑</b>: 유튜브 영상 제목은 '3강'으로 표기되어 있으나 강의계획서 및 진도상 <b>4주차 온라인 영상 강의</b>에 해당함.</li>
+    <li><b>2. 마태복음 28장 헬라어 본동사 분석</b>: 마 28:19의 유일한 명령법 본동사는 '제자로 삼아라'(μαθητεύσατε)이며, '가서'(πορευθέντες), '세례를 베풀고'(βαπτίζοντες), '가르쳐'(διδάσκοντες)는 본동사를 수식하는 분사형(participles)임.</li>
+    <li><b>3. 로잔 언약(1974) 제4조 역사적 배경</b>: WCC의 세속화된 사회 구원론(Missio Dei)에 맞서 복음주의 진영이 사회적 책임을 인정하면서도 "전도 자체는 그리스도의 구주 선포"라는 전도의 우선성(Primacy of Evangelism)을 확립함.</li>
+    <li><b>4. J. I. 패커의 저서</b>: 강론 중 언급된 책은 복음전도학의 고전인 『전도관과 하나님의 주권』(<i>Evangelism and the Sovereignty of God</i>, 1961)임.</li>
+  </ul>
+
+  <p>· <b>[?] 및 ASR(자동자막) 오인식 교정 목록 (8건)</b>:</p>
+  <ul>
+    <li>1. <code>김한 교수</code> (1부 녹취 25자) → <b>김완 교수</b> (교수 본인 성명)</li>
+    <li>2. <code>유황리온 / 유황겔리조마이</code> (1부 녹취 ~6,090자, ~6,583자) → <b>유앙겔리온 (εὐαγγέλιον) / 유앙겔리조마이 (εὐαγγελίζομαι)</b></li>
+    <li>3. <code>옥타비누스</code> (1부 녹취 ~8,200자) → <b>옥타비아누스 (Octavianus, 아우구스투스 황제)</b></li>
+    <li>4. <code>제 백커 / 제커</code> (2부 녹취 ~569자) → <b>J. I. 패커 (J. I. Packer)</b></li>
+    <li>5. <code>맥가브란 / 도날드 맥가브란</code> (2부 녹취 ~1,400자) → <b>도널드 맥가브란 (Donald McGavran)</b></li>
+    <li>6. <code>에큐미니컬 / 에큐메니권</code> (2부 녹취 ~4,304자) → <b>에큐메니컬 (Ecumenical)</b></li>
+    <li>7. <code>남미호양객 / 남미호양개</code> (2부 녹취 ~16,100자) → <b>남묘호란게교 (남무호렌게쿄, SGI 창가학회)</b></li>
+    <li>8. <code>슬레이트/슬리트 치겠습니다</code> (1부/2부 말미) → 영상 촬영용 컷 사인 (본문 정리 제외)</li>
+  </ul>
+</div>
+
+<div class="foot">전도학개론 4주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
