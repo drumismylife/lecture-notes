@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 5주차 강의노트 | 아우구스티누스의 윤리와 아퀴나스의 윤리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 44px 38px; margin-bottom: 32px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: #d6e8de; margin-bottom: 20px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 14.5px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 22px 26px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 16.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.toc-col h4 { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 7px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 5px; font-size: 13.5px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 42px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 16px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 11.5px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 3px 9px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; gap: 14px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 19.5px; font-weight: 700; color: var(--primary); margin-bottom: 5px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 13.5px; color: var(--text-muted); }
+p { margin-bottom: 14px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 10px 0 16px 20px; }
+li { margin-bottom: 6px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+.custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 32px 36px; margin-top: 44px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 13.5px; color: var(--primary-light); background: var(--primary-pale); padding: 7px 11px; border-radius: 4px; margin-top: 5px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-medium); font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 10px 16px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); font-size: 15px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 8px; letter-spacing: .04em; }
+.key { margin: 4px 0 6px 0; }
+.key ul { margin: 4px 0 6px 18px; }
+.key li { margin-bottom: 5px; font-size: 14.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+.sum-card h4 { font-size: 12.5px; color: var(--accent-terracotta); margin: 14px 0 5px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 4px 0 5px 18px; }
+.sum-card li { margin-bottom: 5px; font-size: 14px; }
+.sum-card p { margin-bottom: 5px; font-size: 14px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 22px 0; padding: 9px 13px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 12px 0 4px 0; }
+details > summary { cursor: pointer; padding: 9px 15px; font-size: 13.5px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 12px 16px 6px 16px; }
+details.apx { margin-top: 30px; }
+.tq { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.exam-note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+.exam-h { font-size: 17px; font-weight: 700; color: var(--primary); margin: 20px 0 10px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 14.5px; line-height: 1.6; }
+.quiz-ans ul { margin: 4px 0 2px 18px; }
+.quiz-ans li { margin-bottom: 3px; font-size: 13.5px; }
+.dbody h4 { font-size: 13.5px; color: var(--accent-terracotta); margin: 12px 0 5px 0; }
+.dbody li { font-size: 13.5px; }
+.cmp td { vertical-align: top; font-size: 13.5px; }
+@media (max-width: 720px) { .unit-card { padding: 18px 16px; } .exam-section { padding: 20px 16px; } .custom-table { font-size: 12.5px; } .header-card { padding: 26px 18px; } .header-title { font-size: 24px; } }
+</style>
+</head>
+<body>
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 5주차</span><span>아우구스티누스와 아퀴나스의 윤리 (1·2강 통합)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>5주차 정규 강의노트</span>
+    </div>
+    <h1 class="header-title">아우구스티누스와 아퀴나스의 윤리</h1>
+    <div class="header-subtitle">사랑의 질서와 두 도성 · 은혜와 자연의 완성 (자연법, 덕, 공동선)</div>
+    <div class="header-theses">
+      <strong>[이번 주 학습목표]</strong><br>
+      1. 윤리의 출발점을 ‘무엇을 해야 하는가’에서 <strong>‘무엇을 사랑하는가(ordo amoris)’</strong>로 옮긴 아우구스티누스의 통찰을 이해하고, 두 사랑이 짓는 두 도성의 긴장과 평화의 역학을 설명할 수 있다.<br>
+      2. <strong>“은혜는 자연을 폐하지 않고 완성한다(gratia non tollit naturam, sed perficit)”</strong>는 아퀴나스의 전제 아래, 목적·덕(사려와 사랑)·자연법·공동선이 어떻게 기독교 윤리의 일상적 질서를 구성하는지 설명할 수 있다.
+    </div>
+  </header>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 아우구스티누스와 아퀴나스의 윤리</h2>
+    <ol>
+      <li><b>핵심 질문의 전환:</b> 아우구스티누스는 윤리의 첫 물음을 ‘무엇을 해야 하는가’에서 <b>‘무엇을 사랑하는가’</b>로 옮겼다. 사람은 지식이 아니라 사랑하는 대상(욕망)을 따라 살며, 개신교는 의지를 중시하는 주의주의(voluntarism) 전통에 서 있다.</li>
+      <li><b>은혜와 습관의 쇠사슬:</b> 펠라기우스의 도덕 상식에 맞서, 왜곡된 의지가 굳어진 ‘습관의 쇠사슬’을 고발하고 “명하시는 것을 주시고 원하시는 것을 명하소서”라는 선행 은혜를 역설했다.</li>
+      <li><b>두 사랑과 두 도성:</b> 자기 사랑은 땅의 도성을, 하나님 사랑은 하늘 도성을 세운다. 지상 도성의 평화(질서의 고요함)는 잠정적이며, 두 도성은 종말까지 뒤섞여 순례한다.</li>
+      <li><b>은혜는 본성을 완성한다:</b> 아퀴나스는 은혜가 자연을 파괴하지 않고 치유·고양하여 완성한다고 선언하며 교회 밖의 선과 학문, 법을 긍정했다.</li>
+      <li><b>덕과 자연법의 구조:</b> 덕은 좋은 습성(habitus)이며 사려(prudentia)와 사랑(caritas)이 중심이다. 자연법은 <b>‘영원법에 대한 이성적 피조물의 참여’</b>이며 제1원리는 “선은 행하고 악은 피하라”이다.</li>
+      <li><b>한계와 성찰:</b> 도나투스파를 제국 공권력으로 강제 진압한 아우구스티누스와, 이단을 영적 위조범으로 사형한 아퀴나스의 이단 처벌론은 사랑과 공동선이 폭력과 결탁할 때의 역사적 경고다.</li>
+    </ol>
+    <h4>꼭 기억할 것</h4>
+    <p>사랑의 질서(ordo amoris) · 습관의 쇠사슬 · “명하시는 것을 주시고 원하시는 것을 명하소서” · 주의주의(voluntarism) · 은혜는 본성을 완성함 · 사려(prudentia) · 자연법=영원법 참여 · 인정법의 한계 · 지푸라기 고백</p>
+    <h4>⭐ 교수 강조</h4>
+    <p><span class="tq">윤리학에서 가장 중요한 포인트는 바로 사랑이라는 단어입니다</span> · <span class="tq">습관의 쇠사슬이라는 말을 꼭 기억하십시오</span> · <span class="tq">자연법은 영원법에 대한 이성적 피조물의 참여라는 것이 핵심입니다</span> · <span class="tq">아퀴나스주의가 아니라 토마스주의(Thomism)라 부릅니다</span></p>
+  </div>
+
+  <div class="lite-note"><b>읽는 법</b> — 각 절은 <b>한 줄 결론 → 핵심 불릿</b> 순서입니다. 배지 없는 문장은 공통 내용이며, <span class="bdg b-exam">⭐ 교수강조</span> · <span class="bdg b-add">📌 강의추가</span> · <span class="bdg b-sup">📖 교재참고</span>로 구분했습니다.</div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차 및 빠른 이동</div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 아우구스티누스의 윤리 (1강)</h4>
+        <ul class="toc-list">
+          <li><a href="#s1">§1. 도입 — 나그네가 제국의 종교가 되었을 때</a></li>
+          <li><a href="#s2">§2. 은혜 — 분열된 의지와 습관의 쇠사슬</a></li>
+          <li><a href="#s3">§3. 성품 — 덕은 잘 질서 잡힌 사랑이다</a></li>
+          <li><a href="#s4">§4. 서사 — 고백은 과거를 은혜로 읽는 일</a></li>
+          <li><a href="#s5">§5. 공동체 — 두 사랑이 두 도성을 만든다</a></li>
+          <li><a href="#s6">§6. 평화와 시험 — 질서의 고요함과 강제의 그림자</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 아퀴나스의 윤리 (2강)</h4>
+        <ul class="toc-list">
+          <li><a href="#s7">§7. 도입 — 이교도의 책을 들고 신학을 하다</a></li>
+          <li><a href="#s8">§8. 목적과 행위 — 인간은 무엇을 향해 행하는가</a></li>
+          <li><a href="#s9">§9. 은혜와 자연 — 폐하지 않고 고양하여 완성한다</a></li>
+          <li><a href="#s10">§10. 덕과 성품 — 사려로 판단하고 사랑으로 형성된다</a></li>
+          <li><a href="#s11">§11. 자연법과 공동선 — 이성은 선을 어떻게 분별하는가</a></li>
+          <li><a href="#s12">§12. 소유와 교환 그리고 비판적 성찰</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 비교 및 시험 대비</h4>
+        <ul class="toc-list">
+          <li><a href="#s13">§13. 종합 비교 — 아우구스티누스 ↔ 아퀴나스</a></li>
+          <li><a href="#exam">§14. 시험 포인트 (예상 문항 및 논술 과제)</a></li>
+          <li><a href="#apx">부록: 교재 심화 논점 및 토론 질문</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PART 1 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 아우구스티누스의 윤리 — 사랑의 질서와 두 도성 (1강)</h2>
+      <span class="part-badge">기독교윤리학 개론 6장</span>
+    </div>
+
+    <article class="unit-card" id="s1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — 나그네가 제국의 종교가 되었을 때</h3>
+          <div class="unit-desc">배나무 사건에서 로마 함락(410년)까지: 지배욕과 사랑의 문제</div>
+        </div>
+      </div>
+      <div class="oneline">개인의 내면(배나무 도둑질)과 제국의 정치(로마의 팽창)는 둘 다 지배욕(libido dominandi)이라는 왜곡된 사랑에서 비롯된다.</div>
+      <div class="key">
+        <ul>
+          <li><b>배나무 사건과 로마 약탈:</b> 16세에 훔침 자체의 쾌감을 위해 배를 턴 일탈(『고백록』 2권)과, 410년 서고트족에 의해 로마가 약탈당한 뒤 로마의 번영이 지배욕(libido dominandi) 위에 세워졌음을 밝힌 사건(『신국론』)은 같은 인간 본성의 구조를 보여 준다.</li>
+          <li><b>나그네에서 제국 종교로:</b> 4세기 국교화 이후 “나그네였던 교회가 제국의 중심이 된 뒤에도 여전히 나그네일 수 있는가?”라는 물음이 윤리학의 출발점이다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> 윤리학에서 <span class="tq">가장 중요한 포인트는 바로 '사랑'이라는 단어</span>다. 윤리의 첫 물음은 “무엇을 해야 하는가”가 아니라 <b>“무엇을 사랑하는가”</b>이며, 사람이 사랑하는 대상이 습관과 성품을 만들고 도시를 세운다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 은혜 — 분열된 의지와 습관의 쇠사슬</h3>
+          <div class="unit-desc">펠라기우스 논쟁과 개신교 주의주의(voluntarism) 전통의 뿌리</div>
+        </div>
+      </div>
+      <div class="oneline">인간은 아는 것을 행하지 못하고 사랑하는 것에 끌려간다 — 왜곡된 의지는 습관의 쇠사슬에 묶여 있으므로 오직 선행 은혜만이 자유를 준다.</div>
+      <div class="key">
+        <ul>
+          <li><b>펠라기우스 vs 아우구스티누스:</b> 펠라기우스는 “명령은 능력을 함축한다”며 도덕적 능력을 주장했으나, 아우구스티누스는 마음이 마음에 명해도 움직이지 않는 의지의 분열을 직시했다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <span class="tq">"습관의 쇠사슬(chain of habits)"이라는 말을 꼭 기억해야 한다.</span> 왜곡된 의지가 정욕이 되고, 정욕을 섬기면 습관이 되며, 습관을 거스르지 않으면 필연(사슬)이 된다(『고백록』 8.5.10). 인간은 스스로 이 사슬을 풀 수 없다.</li>
+          <li><span class="bdg b-add">📌 강의추가</span> <b>주의주의(voluntarism) 전통:</b> 루터, 칼뱅으로 이어지는 개신교 전통은 이성을 앞세우는 주지주의보다 의지와 욕망을 중시하는 주의주의 전통에 서 있다. 몰라서 못 행하는 것이 아니라 욕망이 뒤틀려 행하지 못한다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>“당신이 명하시는 것을 주시고, 당신이 원하시는 것을 명하소서(Da quod iubes et iube quod vis)”</b> — 은혜가 명령보다 먼저 선물로 주어져야 한다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 성품 — 덕은 잘 질서 잡힌 사랑이다</h3>
+          <div class="unit-desc">사랑의 질서(ordo amoris) · 사주덕 재편 · 향유(frui)와 사용(uti)</div>
+        </div>
+      </div>
+      <div class="oneline">덕은 규칙 준수가 아니라 ‘사랑의 질서(ordo amoris)’이며, 하나님만을 온전히 누리고(향유) 세상은 하나님을 향해 써야(사용) 한다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>사랑의 질서(ordo amoris):</b> “덕에 대한 짧고 참된 정의는 사랑의 질서다”(『신국론』 15.22). 악은 새로운 실체가 아니라 사랑의 질서가 뒤틀린 결핍(privatio boni)이다.</li>
+          <li><b>사주덕의 재편:</b> 절제(자기를 하나님께 드림), 용기(하나님을 위해 견딤), 정의(하나님께 속한 것을 돌려드림), 사려(유익한 것을 분별함) 등 4주덕은 오직 하나님을 향한 사랑의 네 양태다.</li>
+          <li><b>향유(frui)와 사용(uti):</b> 영원한 삼위일체 하나님만을 그 자체로 기뻐하고(향유), 유한한 피조물은 하나님을 향하는 수단으로 삼아야(사용) 한다. 피조물을 향유하고 하나님을 수단 삼는 것이 우상숭배다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>“사랑하라, 그리고 네가 원하는 것을 하라(Dilige et quod vis fac)”:</b> 방종이 아니라, 사랑의 올바른 질서가 잡힌 사람은 그 사랑의 본성을 따라 자연스럽게 선을 행하게 된다는 통찰이다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 서사 — 고백은 과거를 은혜 안에서 다시 읽는 일이다</h3>
+          <div class="unit-desc">『고백록』의 서사적 구조: 1~9권 자서전, 10권 기억론, 11~13권 시간·창조론</div>
+        </div>
+      </div>
+      <div class="oneline">그리스도인의 윤리는 파편화된 과거를 하나님의 은혜와 창조의 거대한 서사 안에서 재해석하는 고백적 작업이다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-add">📌 강의추가</span> <b>『고백록』의 거대한 서사 구조:</b>
+            <ul>
+              <li><b>1~9권:</b> 유년기 일탈부터 회심과 어머니 모니카의 죽음까지의 자서전.</li>
+              <li><b>10권:</b> 과거가 머무는 ‘기억론’.</li>
+              <li><b>11~13권:</b> 흩어지는 인간의 시간을 넘어 창조주 안에서 참 안식을 찾는 ‘시간론과 창조론’. “주 안에서 쉴 때까지 안식이 없습니다.”</li>
+            </ul>
+          </li>
+          <li><b>서사적 치유:</b> 과거의 상처와 죄책을 숨기지 않고 하나님의 구속적 은혜 아래 고백할 때 성품의 온전한 형성이 일어난다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 공동체 — 두 사랑이 두 도성을 만든다</h3>
+          <div class="unit-desc">지상 도성(civitas terrena)과 하늘 도성(civitas Dei)의 공존과 순례</div>
+        </div>
+      </div>
+      <div class="oneline">하나님을 멸시하는 자기 사랑은 땅의 도성을, 자기를 멸시하는 하나님 사랑은 하늘 도성을 세우며 종말까지 함께 뒤섞여 순례한다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>두 도성의 근원:</b> “두 사랑이 두 도성을 세웠다. 하나님을 멸시하는 자기 사랑이 땅의 도성을, 자기를 멸시하는 하나님 사랑이 하늘 도성을 세웠다”(『신국론』 14.28).</li>
+          <li><b>백성의 정의:</b> “백성이란 사랑하는 대상들에 대한 합의로 결속된 모임이다”(『신국론』 19.24). 사회의 성격은 그 사회 구성원들이 함께 무엇을 사랑하느냐에 달려 있다.</li>
+          <li><b>세속(saeculum)에서의 뒤섞임:</b> 역사 속에서 두 도성은 알곡과 가라지처럼 뒤섞여 있다. 그리스도인은 국가를 우상화하지도 전면 거부하지도 않으며 나그네로서 지상 평화를 빌려 쓴다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s6">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 평화와 시험 — 질서의 고요함과 강제의 그림자</h3>
+          <div class="unit-desc">평화의 정의(tranquillitas ordinis) · 도나투스파 논쟁과 국가 권력 동원의 그늘</div>
+        </div>
+      </div>
+      <div class="oneline">평화는 질서의 고요함이나 지상 평화는 잠정적이다 — 도나투스파 진압을 위해 공권력을 동원한 아우구스티누스의 실천은 사랑이 강제로 변질될 위험을 보여 준다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>평화는 질서의 고요함:</b> “평화는 질서의 고요함(tranquillitas ordinis)이다”(『신국론』 19.13). 강도 집단조차도 내부의 평화를 원하듯 문제는 ‘누구의 어떤 평화인가’이다.</li>
+          <li><b>정당한 전쟁론:</b> 전쟁의 목적은 오직 불의를 바로잡고 평화를 회복하는 데 있어야 하며 합법적 권위와 사랑의 동기가 요구된다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>시험과 그늘 — 도나투스파와 공권력:</b> 분리주의 도나투스파의 폭력에 직면하여 “사람을 강제로 데려오라(compelle intrare, 눅 14:23)”를 근거로 제국 군대를 동원했다. 영혼을 구하기 위한 ‘교정적 사랑’이라 변호했으나, 훗날 종교재판과 폭력적 강제를 정당화하는 위험한 선례가 되었다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- PART 2 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 아퀴나스의 윤리 — 은혜와 자연의 완성 (2강)</h2>
+      <span class="part-badge">기독교윤리학 개론 7장</span>
+    </div>
+
+    <article class="unit-card" id="s7">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 도입 — 이교도의 책을 들고 신학을 하다</h3>
+          <div class="unit-desc">1277년 파리 단죄령과 아리스토텔레스 수용 · 토마스주의(Thomism)</div>
+        </div>
+      </div>
+      <div class="oneline">아퀴나스는 이교 철학자 아리스토텔레스를 배척하지 않고, 은혜가 자연을 치유하고 완성한다는 방대한 스콜라 윤리학을 구축했다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-add">📌 강의추가</span> <span class="tq">아키노 출신의 토마스이므로 사상적 학파 명칭은 ‘아퀴나스주의’가 아니라 <b>‘토마스주의(Thomism)’</b>라 부른다.</span></li>
+          <li><b>금령 속의 신학적 기획:</b> 13세기 파리 대학의 아리스토텔레스 금령과 1277년 단죄령 속에서도 아리스토텔레스 철학을 수용하며 “은혜는 자연을 어떻게 대하는가?”에 답했다.</li>
+          <li><b>『신학대전』의 방대한 윤리학:</b> 전체 문항의 약 59%가 인간 행위를 다루는 제2부에 속하며 일상 전체를 포괄한다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s8">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 목적과 행위 — 인간은 무엇을 향해 행하는가</h3>
+          <div class="unit-desc">목적론적 행위론 · 완전한 행복(하나님 직관) · 행위 평가 3요소</div>
+        </div>
+      </div>
+      <div class="oneline">모든 행위는 목적을 지향하며 참된 행복은 오직 하나님을 봄(visio Dei)에 있다 — 선한 목적이 악한 수단을 정당화하지 못한다.</div>
+      <div class="key">
+        <ul>
+          <li><b>목적론:</b> “행위하는 모든 것은 필연적으로 목적을 위하여 행위한다”(『신학대전』 I-II, 1, 2). 재물, 권력, 명예, 쾌락은 인간을 만족시키지 못하며, 참된 완전한 행복은 하나님을 직접 뵘(visio beatifica)에 있다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>행위 평가 3요소:</b> 대상(행위 자체), 의도(궁극 목적), 상황. 셋 모두가 선해야 선한 행위가 되며, 좋은 의도가 대상 자체가 악한 수단을 결코 정당화할 수 없다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s9">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§9. 은혜와 자연 — 폐하지 않고 고양하여 완성한다</h3>
+          <div class="unit-desc">Gratia non tollit naturam, sed perficit · 일반 은혜와 세상 속의 선</div>
+        </div>
+      </div>
+      <div class="oneline">은혜는 창조된 자연 본성을 없애지 않고 치유하고 고양하여 초자연적 완성으로 이끈다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>핵심 명제:</b> <span class="tq">“은혜는 본성을 폐하지 않고 완성한다(Gratia non tollit naturam, sed perficit)”</span>(『신학대전』 I, 1, 8). 은혜는 본성을 파괴하는 것이 아니라 상처를 치유하고 하나님과의 연합으로 고양한다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>교회 밖의 선:</b> 신앙이 없는 이들의 학문, 정의, 예술이 참된 선이라면 배척할 이유가 없다. 그리스도인은 세상과 동일한 몸과 제도로 살아가되 하나님을 향한 목적과 사랑 안에서 다르게 쓴다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s10">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§10. 덕과 성품 — 사려로 판단하고 사랑으로 형성된다</h3>
+          <div class="unit-desc">습성(habitus) · 사려(prudentia)와 기억의 방식 · 사랑(caritas)의 완성</div>
+        </div>
+      </div>
+      <div class="oneline">덕은 확고한 습성(habitus)이며, 구체적 현실을 바르게 분별하는 사려(prudentia)와 모든 덕의 형상인 사랑(caritas)이 중심이다.</div>
+      <div class="key">
+        <ul>
+          <li><b>습성으로서의 덕:</b> 덕은 일시적 기분이 아니라 행위 능력을 선한 방향으로 굳힌 ‘습성(habitus)’이다. 습성을 얻은 자는 선을 쉽고 즐겁게 행한다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>사려(prudentia)와 기억:</b> 상황에 맞는 최선의 길을 찾는 실천적 지혜다. <span class="tq">“과거를 기억하느냐도 중요하지만, 그 사건을 어떤 방식으로 기억해 내느냐가 사려의 깊이를 결정한다.”</span></li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>사랑은 모든 덕의 형상(forma virtutum):</b> 믿음·소망·사랑 중 사랑이 빠진 정의나 용기는 불완전하다. 사랑이 다른 모든 덕에 생명을 부여한다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s11">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§11. 자연법과 공동선 — 이성은 선을 어떻게 분별하는가</h3>
+          <div class="unit-desc">자연법=영원법 참여 · 제1원리 · 인정법(실정법)의 한계와 두 명제</div>
+        </div>
+      </div>
+      <div class="oneline">자연법은 영원법에 대한 이성적 피조물의 참여이며, 인간 실정법은 모든 악을 금지할 수 없고 공동선을 위한 최소한을 지킨다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>자연법의 핵심 정의:</b> <span class="tq">“자연법은 영원법에 대한 이성적 피조물의 참여(participatio legis aeternae in rationali creatura)다.”</span></li>
+          <li><b>자연법 제1원리:</b> “선은 행하고 추구해야 하며, 악은 피해야 한다.” (생명 보존, 종족 보존, 진리 인식과 사회적 평화 추구)</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>인정법(실정법)의 두 명제:</b>
+            <ol>
+              <li><b>모든 악을 금지하지 않는다:</b> 인간 법은 도덕 군자를 만드는 법이 아니다. 보통 사람이 견딜 수 있는 중대한 악(살인, 절도 등 사회 파괴적 악)만 금한다. 무리한 법 적용은 더 큰 악을 부른다.</li>
+              <li><b>불의한 법은 법이 아니다(lex iniusta non est lex):</b> 자연법에 위배되는 폭군의 악법은 참된 법이 아니라 폭력이다.</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s12">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§12. 소유와 교환 그리고 비판적 성찰</h3>
+          <div class="unit-desc">사유재산과 공동선 · 정당한 가격 · 이단 처벌론의 그늘과 지푸라기 고백</div>
+        </div>
+      </div>
+      <div class="oneline">재화의 사용은 공동선을 향해야 하며, 이단 처벌론은 공동선의 명분이 배제로 흐른 한계이고 아퀴나스 역시 순례자의 신학자였다.</div>
+      <div class="key">
+        <ul>
+          <li><b>소유와 궁핍:</b> 사적 소유 관리는 인정하되 사용은 공동선을 지향해야 한다. 극단적 궁핍(굶주림) 상황에서는 모든 재화가 본래의 보편적 공유 상태로 돌아가므로 생존을 위해 빵을 취하는 것은 절도가 아니다.</li>
+          <li><b>정당한 가격과 이중결과의 원리:</b> 탐욕으로 폭리를 취하지 않는 정당한 가격 규범을 제시했고, 하나의 행위가 선악 결과를 동시에 낳을 때의 도덕적 원리를 확립했다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>이단 처벌론의 어두운 그늘:</b> 영혼을 파멸시키는 이단자를 영적 위조범으로 보아 두 번 권면 후 세속 정부에 넘겨 사형하도록 정당화했다. 유기체적 공동선 개념이 폭력적 배제로 전락한 뼈아픈 한계다.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>지푸라기(쓰레기) 고백과 순례자:</b> 생애 말년 신비 체험 후 <span class="tq">“내가 본 것에 비하면 내가 쓴 모든 것은 지푸라기(paleae)에 불과하다”</span>며 붓을 꺾었다. 아퀴나스 또한 완성된 군주가 아니라 하나님 앞의 불완전함을 알았던 <b>나그네이자 순례자의 신학자</b>였다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- PART 3 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 비교 및 시험 대비</h2>
+      <span class="part-badge">교부 ↔ 스콜라 / 주의주의 ↔ 주지주의</span>
+    </div>
+
+    <article class="unit-card" id="s13">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§13. 종합 비교 — 아우구스티누스 ↔ 아퀴나스</h3>
+          <div class="unit-desc">중세 기독교 윤리를 지탱하는 두 거인의 신학적 좌표 비교</div>
+        </div>
+      </div>
+      <div class="oneline">아우구스티누스가 의지를 치유하는 사랑의 질서와 두 도성의 순례를 그렸다면, 아퀴나스는 은혜가 자연을 완성하는 목적·덕·자연법의 질서를 체계화했다.</div>
+      <table class="custom-table cmp">
+        <thead>
+          <tr><th>비교 항목</th><th>아우구스티누스 (Augustine)</th><th>토마스 아퀴나스 (Thomas Aquinas)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hl">시대 및 맥락</td>
+            <td>4~5세기 교부 시대 (로마 쇠퇴, 나그네 교회의 국교화)</td>
+            <td>13세기 스콜라 신학 (대학 번영, 아리스토텔레스 유입)</td>
+          </tr>
+          <tr>
+            <td class="hl">철학 및 심리학</td>
+            <td>신플라톤주의 / <b>주의주의 (Voluntarism)</b> (의지의 분열과 사랑의 욕망)</td>
+            <td>아리스토텔레스주의 / <b>주지주의 (Intellectualism)</b> (이성의 안내와 덕론)</td>
+          </tr>
+          <tr>
+            <td class="hl">은혜와 자연</td>
+            <td>자연의 전적 부패와 선행 은혜에 의한 해방</td>
+            <td><b>은혜는 자연을 폐하지 않고 완성함 (연속과 고양)</b></td>
+          </tr>
+          <tr>
+            <td class="hl">윤리의 핵심 개념</td>
+            <td><b>사랑의 질서 (ordo amoris)</b>, 향유와 사용, 서사적 고백</td>
+            <td><b>목적과 덕, 자연법 (lex naturalis)</b>, 사려, 공동선</td>
+          </tr>
+          <tr>
+            <td class="hl">사회·국가관</td>
+            <td>두 도성 (지상 도성 vs 하늘 도성), 잠정적 평화</td>
+            <td>유기체적 공동선, 인간 본성에 부합하는 자연적 제도</td>
+          </tr>
+          <tr>
+            <td class="hl">역사적 그늘</td>
+            <td>도나투스파 진압을 위한 제국 공권력 동원</td>
+            <td>공동선의 영적 순결을 위한 이단 처벌론 사형 정당화</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <!-- EXAM SECTION -->
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 §14. 시험 포인트 (예상 문항 및 논술 과제)</div>
+    <p class="exam-note">강의 중 교수 강조 신호와 교재 핵심 논점을 종합한 시험 대비 문항입니다.</p>
+
+    <h3 class="exam-h">[1강] 아우구스티누스의 윤리 — O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 아우구스티누스는 윤리의 첫 물음을 ‘무엇을 해야 하는가’에서 ‘무엇을 사랑하는가’로 바꾸었다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 사랑하는 대상이 습관과 성품을 만들고 공동체를 형성한다는 것이 핵심이다.</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. “습관의 쇠사슬(chain of habits)”이란 왜곡된 의지가 정욕이 되고 습관이 되어 인간을 묶어 버리는 상태를 뜻한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 『고백록』 8.5.10에서 강조된 대목으로, 교수 강조 핵심 어휘다.</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. “사랑하라, 그리고 네가 원하는 것을 하라”는 말은 그리스도인은 아무렇게나 행동해도 된다는 방종의 선언이다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 사랑의 올바른 질서(ordo amoris)가 서 있는 사람은 그 사랑을 따라 자연스럽게 선을 행하게 된다는 뜻이다.</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 아우구스티누스는 『신국론』에서 강도 집단조차도 자기들끼리의 평화를 원한다고 보았다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 평화는 질서의 고요함이며, 문제는 ‘누구의 어떤 평화인가’이다.</div>
+    </div>
+
+    <h3 class="exam-h">[2강] 아퀴나스의 윤리 — O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q5. 아퀴나스의 핵심 명제는 “은혜는 자연(본성)을 완전히 파괴하고 새로 시작한다”이다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 은혜는 자연을 폐하지 않고 치유하고 완성한다(Gratia non tollit naturam, sed perficit).</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q6. 아퀴나스의 사상 체계를 부를 때 올바른 표현은 ‘아퀴나스주의’가 아니라 ‘토마스주의(Thomism)’이다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 아키노 마을의 토마스이므로 이름에서 유래한 ‘토마스주의’가 정확하다.</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q7. 자연법은 인간의 주관적 생각이 아니라 “영원법에 대한 이성적 피조물의 참여”이다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 자연법의 가장 중요한 정의로서 교수 강의에서 거듭 강조되었다.</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q8. 아퀴나스에 따르면 인정법(인간 실정법)은 모든 악을 철저히 금지하고 처벌해야 한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 인간 법은 모든 악을 금할 수 없으며 다수가 견딜 수 있는 중대한 악만 금한다.</div>
+    </div>
+
+    <h3 class="exam-h">서술·논술 예상 과제</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 1. 아우구스티누스의 ‘사랑의 질서(ordo amoris)’와 ‘습관의 쇠사슬’, ‘두 도성’ 개념을 설명하고 역사적 한계를 논하라.</div>
+      <div class="quiz-ans">
+        <strong>답안 골자</strong>
+        <ul>
+          <li>윤리의 출발점: 무엇을 행하는가가 아니라 무엇을 사랑하는가 (배나무 사건과 지배욕).</li>
+          <li>의지의 분열과 선행 은혜: 습관의 쇠사슬을 끊기 위해 “명하시는 것을 주시고 원하시는 것을 명하소서” 기도 필요.</li>
+          <li>두 도성의 공존: 자기 사랑의 땅의 도성과 하나님 사랑의 하늘 도성이 뒤섞여 순례함.</li>
+          <li>한계: 도나투스파 진압 시 교정적 사랑이라는 명분으로 국가 폭력을 동원한 역사적 그늘.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 2. “은혜는 자연을 폐하지 않고 완성한다”는 토마스 아퀴나스의 전제 아래 자연법과 사려, 공동선 및 그 한계를 논하라.</div>
+      <div class="quiz-ans">
+        <strong>답안 골자</strong>
+        <ul>
+          <li>은혜와 자연의 조화: 교회 밖의 선과 학문을 긍정하는 기초.</li>
+          <li>자연법의 기초: 영원법에 대한 이성적 피조물의 참여이며 “선은 행하고 악은 피하라”는 제1원리.</li>
+          <li>사려와 사랑: 과거를 기억하는 방식으로서의 사려와 모든 덕의 형상인 사랑.</li>
+          <li>인정법과 공동선: 실정법은 모든 악을 금하지 않음. 사유재산과 공동 사용.</li>
+          <li>한계와 고백: 이단 처벌론의 잔혹한 배제 vs 말년의 지푸라기 고백을 통한 순례자적 자각.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="exam-h">✍️ 내 생각 메모란</h3>
+    <textarea class="memo" rows="5" placeholder="요약 반 · 생각 반 — 이번 주 강의에서 내 삶과 목회에 비추어 본 가장 인상적인 통찰과 비판적 질문을 기록해 두세요."></textarea>
+  </section>
+
+  <!-- APPENDIX -->
+  <details class="apx" id="apx">
+    <summary>부록 — 교재 심화 논점 및 토론 질문</summary>
+    <div class="dbody">
+      <h4>교재 심화 논점 요약</h4>
+      <ul>
+        <li>자유선택과 자유의 4단계(posse peccare 등)는 후대 개혁파의 도식화임.</li>
+        <li>‘화려한 악덕’ 표어는 아우구스티누스 직접 표현은 아니나 참된 경건 없는 덕의 한계를 지적한 것임.</li>
+        <li>향유와 사용 논쟁: 니그렌의 에로스 비판 대 오도노반의 유한한 선 궁극화 방지 변호.</li>
+        <li>정당한 가격의 복합성: 등가성, 고지 의무, 절박한 필요 악용 금지, 노동 보상의 조화.</li>
+      </ul>
+
+      <h4>토론 질문</h4>
+      <ol>
+        <li>“당신이 명하시는 것을 주시고, 당신이 원하시는 것을 명하소서”가 도덕적 나태가 되지 않으려면 무엇이 필요한가?</li>
+        <li>내가 지금 가장 많은 시간과 돈을 쓰는 대상은 나의 ‘사랑의 질서’에 대해 무엇을 말하는가?</li>
+        <li>은혜가 본성을 완성한다면 신앙 없는 동료들의 윤리적 성취를 어떻게 인정하고 협력할 것인가?</li>
+        <li>인정법이 모든 악을 금하지 않는다는 원칙은 오늘날 기독교인의 입법 참여에 어떤 기준을 주는가?</li>
+      </ol>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 교재: 『기독교윤리학 개론』 6장(아우구스티누스의 윤리) · 7장(아퀴나스의 윤리) 및 수업 자막</p>
+  </footer>
+
+</div>
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>

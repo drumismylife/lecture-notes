@@ -647,7 +647,9 @@ const SITE_DATA = {
             { week: 4, title: "바울의 윤리와 공동서신의 윤리", date: "2026.09.25", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week04.html" }
           ] },
-            { week: 5, title: "", date: "", files: [] },
+            { week: 5, title: "아우구스티누스의 윤리와 아퀴나스의 윤리", date: "2026.10.02", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week05.html" }
+          ] },
             { week: 6, title: "", date: "", files: [] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },
@@ -686,7 +688,8 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week05.html" },
             { type: "guide", label: "오바댜서 참고서", href: "output/2026-2/prophet/guide_obadiah.html" }
           ] },
-            { week: 6, title: "", date: "", files: [
+            { week: 6, title: "요나서의 구조, 신학, 메시지", date: "2026.10.02", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week06.html" },
             { type: "guide", label: "요나서 참고서", href: "output/2026-2/prophet/guide_jonah.html" }
           ] },
             { week: 7, title: "", date: "", files: [] },

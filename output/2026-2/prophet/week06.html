@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제6강 요나서의 구조, 신학, 메시지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(155,90,138,.18);color:var(--crimson2);border:1px solid rgba(155,90,138,.45)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--crimson2);font-style:italic}
+.asr{color:var(--muted);border-bottom:1px dotted var(--muted);font-size:12.5px}
+
+.sum{background:linear-gradient(180deg,rgba(201,168,76,.08),transparent);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:10px;padding:14px 17px;margin:16px 0 8px;font-size:13.5px}
+.sum h3{color:var(--gold);font-size:14px;margin-bottom:6px}
+.sum p{color:var(--text);margin:5px 0}
+.sum .mini{color:var(--muted);font-size:12.5px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 6주차 · 2026학년도 2학기</div>
+  <h1>제6강 요나서의 구조, 신학, 메시지</h1>
+  <div class="prof">담당 오성호 교수 · 100% 영상강의(Panopto) · 제6과 1of2 · 2of2</div>
+</div>
+
+<div class="intro">
+  6주차 두 영상 — <b>제6과 1of2</b>(서론, 역사성, 연대, 장르, 구조)와 <b>제6과 2of2</b>(2장 시편의 역할과 정경적 의도, 신학적 메시지, 차일즈의 해석학적 통찰) — 의 수업 자막과 공식 강의안(제6과)을 바탕으로 정리했습니다. 모든 성경 본문은 <b>대한성서공회 개역개정</b> 원문을 확인 표기했습니다. 교수님이 강조한 핵심 논점은 <span class="b-exam bdg">교수 강조</span>, 강의안 뼈대 외에 구두로 상세히 설명한 내용은 <span class="b-add bdg">강의 추가</span>로 구분했습니다.
+</div>
+
+<div class="sum">
+  <h3>1쪽 요약 — 요나서의 구조, 신학, 메시지</h3>
+  <p><b>1. 정경적 위치와 인물:</b> 소선지서 배열에서 에돔에 대한 심판을 선포한 오바댜서 바로 다음에 위치하여, 이방 앗시리아의 수도 니느웨에 대한 하나님의 자비와 긍휼을 대조적으로 보여 줍니다. 요나는 여로보암 2세 시대(BC 8세기) 영토 확장을 예언했던(왕하 14:25) 열렬한 친이스라엘 국수주의자였습니다.</p>
+  <p><b>2. 역사성과 장르 논쟁:</b> 3일간 물고기 뱃속 생존, 사료 부재 등 허구설의 난점들이 제기되지만, 성경적 내러티브와 예수님의 증언(마 12:39-40)은 역사적 기반을 시사합니다. 반게메렌(VanGemeren)은 이를 <b>“비유 효과를 갖는 역사”</b>(비유가 반드시 비역사적일 필요는 없음)로, 스튜어트(Stuart)는 교훈적 예언 내러티브로, 차일즈(Childs)는 신학적 메시지에 집중하는 “비유 같은(parable-like) 형식”으로 규정합니다.</p>
+  <p><b>3. 2장 기도의 정경적 역할:</b> 비평학자들은 2장의 감사의 시편(2:2-9)이 내러티브의 흐름을 끊는 후대 삽입이라고 보았습니다. 그러나 정경적 관점에서 2장의 도입은 결정적입니다. <b>2장(자신의 구원에 대한 감사)과 4장(니느웨의 구원에 대한 분노와 불평)이 대칭</b>을 이루며, 요나가 특별한 악인이 아니라 전통적이고 판에 박힌 신앙을 가진 ‘전형적인 이스라엘 백성’임을 고발합니다.</p>
+  <p><b>4. 신학적 메시지:</b> 이스라엘의 편협한 선민의식과 국수주의를 폭로하고, 원래 아브라함 언약(창 12:1-3)과 출애굽 언약(출 19:5-6)에 내포되어 있던 <b>“열방(언약 공동체 밖의 사람들)을 향한 하나님의 보편적 사랑과 구원”</b>을 선포합니다. 오히려 이방인 선원들과 니느웨 백성들이 영적으로 더 민감하게 반응하고 회개합니다.</p>
+  <p class="mini"><b>⭐ 교수 강조 핵심</b> · 2장(감사)과 4장(불평)의 극적 대조 · 2장은 회개 기도가 아니라 구원받은 자의 전형적 감사 시편 · 요나는 요나 개인을 넘어 편협한 선민의식에 갇힌 ‘이스라엘 전체’의 표상 · 반게메렌의 “비유 효과를 지닌 역사” · 니느웨에 대한 하나님의 긍휼은 하나님의 창조주적 본성에 근거함(4:11)</p>
+</div>
+
+<div class="toc">
+  <a href="#canon">I-1. 정경적 위치 & 저자 요나</a>
+  <a href="#history">I-2. 요나서의 역사성 논쟁</a>
+  <a href="#genre">I-3. 연대와 10가지 장르 견해</a>
+  <a href="#struct">I-4. 요나서의 대칭 구조 (반게메렌 & 치점)</a>
+  <a href="#ch2">I-5. 2장 기도의 비평적·정경적 이해</a>
+  <a href="#theology">III. 요나서의 신학적 메시지</a>
+  <a href="#childs">IV. 신학적·해석학적 의미 (Childs)</a>
+  <a href="#verify">검증 및 요약</a>
+</div>
+
+<!-- PART 1 -->
+<div class="part-div" id="part1"><span>제6과 1of2 · 서론, 역사성, 연대, 장르, 구조</span></div>
+
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">욘 I-1</span><span class="st">정경적 위치와 저자 요나</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>정경적 위치: 오바댜서 다음</h3>
+    <ul>
+      <li><b>오바댜서와의 대조:</b> 오바댜서는 이스라엘의 숙적이자 형제인 ‘에돔에 대한 심판’을 다루는 반면, 바로 뒤에 이어지는 요나서는 이스라엘을 압제하던 원수 ‘니느웨에 대한 자비와 긍휼’을 다룹니다. 심판과 자비의 날카로운 대조가 12소선지서 정경 배열의 깊은 의도를 드러냅니다.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>저자 요나: 아밋대의 아들</h3>
+    <ul>
+      <li><b>역사적 배경:</b> 열왕기하 14:25에 등장하는 북이스라엘 여로보암 2세(BC 786-746년 재위) 시대의 선지자입니다. 아모스, 호세아와 동시대 인물입니다.</li>
+      <li><b>사역 성격:</b> 여로보암 2세의 영토 확장(하맛 어귀에서부터 아라바 바다까지)을 예언하여 민족적 부흥을 이끈 선지자였습니다.</li>
+      <li><span class="bdg b-exam">⭐ 교수강조</span> 요나는 단순한 인물이 아니라 <b>“열렬한 국수주의자, 친이스라엘파, 철저한 반(反)외세·반(反)앗시리아 선지자”</b>였습니다. 자신의 조국을 위협하는 앗시리아의 수도 니느웨가 회개하고 구원받는 것을 죽기보다 싫어했던 심리적 배경이 바로 여기에 있습니다.</li>
+      <li><b>저자성에 대한 회의:</b> 3인칭 내러티브로 기록되어 있고 요나 자신의 실패와 옹졸함을 가감 없이 드러내고 있어, 요나 본인이 직접 썼는지에 대해서는 학문적 회의가 존재합니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="history">
+  <div class="sh"><span class="sb">욘 I-2</span><span class="st">요나서의 역사성 논쟁</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>(1) 역사적 내러티브 입장</h3>
+    <ul>
+      <li>그 사건이 일어난 때와 거의 같은 시기에 작성되었다고 보는 전통적 견해입니다.</li>
+      <li>① 요나는 열왕기하 14:25에 언급된 실존 선지자였습니다.</li>
+      <li>② 요나서의 시작(“여호와의 말씀이 아밋대의 아들 요나에게 임하니라”)은 열왕기나 다른 구약 역사서들의 양식과 밀접하게 연결되어 있습니다(1:1).</li>
+      <li>③ 신약에서 예수 그리스도께서 요나와 니느웨의 사건을 실존했던 표적으로 직접 언급하셨습니다(마 12:39-40, 눅 11:29-30). “요나가 밤낮 사흘 동안 큰 물고기 뱃속에 있었던 것 같이 인자도 밤낮 사흘 동안 땅 속에 있으리라.”</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>(2) 허구적 이야기(Non-historical) 입장</h3>
+    <ul>
+      <li>역사적 사실이 아니라 교훈을 위해 지어낸 이야기라고 보는 비평적 견해입니다.</li>
+      <li>① 물고기 뱃속에서 사람이 3일 동안 살아남았다는 이야기의 비현실성.</li>
+      <li>② 한 히브리 무명 선지자의 외침으로 당시 세계 최강국 앗시리아의 니느웨 전체가 회개했다는 고대 역사 사료나 고고학적 문서의 부재.</li>
+      <li>③ 역사적 사실로 볼 때 모호한 점들:
+        <ul>
+          <li>니느웨가 당시 앗시리아의 수도(핵심 도시)였다는 인상을 주지만, 앗시리아 역사의 실제 수도 이전 연대와 차이가 있음.</li>
+          <li>도성을 도보로 통과하는 데 3일이 걸릴 만큼 거대했다는 묘사(고고학적 실제 성벽 규모와의 차이).</li>
+          <li>사람뿐 아니라 짐승, 양 떼, 소 떼까지 금식하며 굵은 베 옷을 입고 회개했다는 과장된 표현(3:7-8).</li>
+        </ul>
+      </li>
+      <li>④ 책의 성격: 구체적인 정치·역사적 연대나 왕의 이름에 무관심하고, 고도의 문학적 기교와 기이한 사건들로 구성되어 있음.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>강의의 균형 잡힌 결론</h3>
+    <p><span class="bdg b-exam">⭐ 교수강조</span> 고대 사료에 니느웨 회개 기록이 아직 발견되지 않았다고 해서 <b>“반드시 없었다고 단정할 수는 없다”</b>. 또한 왕이라는 표현도 총독이나 지방 통치자, 임시 거처의 왕일 가능성이 열려 있습니다. 역사적 사실성을 무조건 부정할 것이 아니라, 문학적 형식 속에 담긴 하나님의 역사적·신학적 실재를 보아야 합니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="genre">
+  <div class="sh"><span class="sb">욘 I-3</span><span class="st">연대와 10가지 장르 견해</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>요나서의 작성 연대</h3>
+    <ul>
+      <li><b>① BC 8세기설:</b> 요나의 실제 활동 시대인 여로보암 2세 당대에 기록되었다는 견해.</li>
+      <li><b>② 포로 후기설:</b> 책에 사용된 아람어풍 어휘, 모호한 역사적 표현, 이방인을 향한 보편주의적 신학 등을 이유로 바벨론 포로기 이후에 작성되었다는 비평적 견해.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>요나서의 장르에 대한 학자들의 10가지 분류</h3>
+    <table class="tw">
+      <thead>
+        <tr><th>번호</th><th>장르 분류</th><th>대표 학자 / 특징</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>역사 (History)</td><td>J. H. Steck (“해석된 역사”)</td></tr>
+        <tr><td>2</td><td>교훈적 소설 (Didactic Fiction)</td><td>게르하르트 폰 라트 (von Rad)</td></tr>
+        <tr><td>3</td><td>우화 / 알레고리 (Allegory)</td><td>애크로이드 (Ackroyd) — 확장된 은유, 이야기 외부에서 의미 발견</td></tr>
+        <tr><td>4</td><td>풍자 (Satire)</td><td>버로우스 (Burrows) — 불순종하는 선지자를 향한 영적 풍자</td></tr>
+        <tr><td>5</td><td>비유 (Parable)</td><td>명백히 허구적인 짧은 이야기로 청자에게 교훈을 줌</td></tr>
+        <tr><td>6</td><td>미드라쉬 (Midrash)</td><td>쾨니히(König), 쿠트(Coote) — 욜 2:13-14 등 기존 성경 본문의 주석적 확장</td></tr>
+        <tr><td>7</td><td>구술된 교의 (Kerygma)</td><td>슈미트 (Schmidt)</td></tr>
+        <tr><td>8</td><td><span class="bdg b-exam">⭐</span> <b>비유 효과를 갖는 역사</b></td><td><b>반게메렌 (VanGemeren)</b> — “비유가 반드시 비역사적일 필요는 없다”</td></tr>
+        <tr><td>9</td><td>교훈적 성격의 선지적 내러티브</td><td>더글러스 스튜어트 (Douglas Stuart, WBC) — 역사성 강조</td></tr>
+        <tr><td>10</td><td><span class="bdg b-exam">⭐</span> <b>“비유 같은”(parable-like) 형식</b></td><td><b>브레바드 차일즈 (Brevard Childs)</b> — 역사성 논쟁을 넘어 신학적 권위에 주목</td></tr>
+      </tbody>
+    </table>
+    <p><span class="bdg b-add">📌 강의추가</span> 스튜어트(Stuart)는 역사성을 변호하는 데 많은 지면을 할애하지만, 차일즈(Childs)는 역사성의 시시비비에 매몰되기보다 이 책이 교회에 전하는 ‘예언적·신학적 메시지’에 집중할 것을 촉구합니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="struct">
+  <div class="sh"><span class="sb">욘 I-4</span><span class="st">요나서의 대칭 구조 (반게메렌 & 치점)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>구조 I: 반게메렌 (VanGemeren)의 구조</h3>
+    <ul>
+      <li><b>제1부: 요나의 임무와 도주 (1:1-2:10)</b>
+        <ul>
+          <li>A 요나의 임무 (1:1-2)</li>
+          <li>B 다시스로 가는 배 위의 요나 (1:3)</li>
+          <li>C 사공들의 궁지와 그들의 기도 (1:4-8)</li>
+          <li>D 요나의 선포 (1:9)</li>
+          <li>C’ 응답과 구원 (1:10-16)</li>
+          <li>B’ 물고기 뱃속의 요나 (1:17-2:1) & 요나의 기도 (2:2-9)</li>
+          <li>B” 육지 위의 요나 (2:10)</li>
+        </ul>
+      </li>
+      <li><b>제2부: 니느웨에서의 요나 (3:1-4:11)</b>
+        <ul>
+          <li>A 요나의 임무 (3:1-2)</li>
+          <li>B 니느웨에서의 요나 (3:3)</li>
+          <li>D 요나의 선포 (3:4)</li>
+          <li>C 니느웨의 궁지, 반응, 구원 (3:5, 10) & 요나의 탄식 (4:1-4)</li>
+          <li>B’ 그늘 아래 앉은 요나 (4:5-7)</li>
+          <li>C’ 요나의 궁지와 반응 (4:8-9)</li>
+          <li>D’ 하나님의 선포 (4:10-11)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>구조 II: 치점 (Chisholm)의 평행 대칭 구조</h3>
+    <table class="tw">
+      <thead>
+        <tr><th>제1부 (1~2장: 바다와 물고기)</th><th>대응</th><th>제2부 (3~4장: 니느웨와 박넝쿨)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A 여호와께서 요나를 부르심 (1:1-2)</td><td>대칭</td><td>A' 여호와께서 요나를 다시 부르심 (3:1-2)</td></tr>
+        <tr><td>B 요나가 부르심을 거부하고 도망함 (1:3)</td><td>대조</td><td>B' 요나가 부르심을 받아들여 일어남 (3:3)</td></tr>
+        <tr><td>C 주권자 여호와께서 권능을 드러내심 (1:4)</td><td>대칭</td><td>C' 주권자 여호와께서 계획을 선포하심 (3:4)</td></tr>
+        <tr><td>D 선원들이 여호와께 복종하여 구원받음 (1:5-16)</td><td>대칭</td><td>D' 니느웨 사람들이 복종하여 재앙을 피함 (3:5-10)</td></tr>
+        <tr><td>E 물고기를 예비하여 요나를 구원하심 (1:17)</td><td>대칭</td><td>E' 박넝쿨·벌레·동풍으로 교훈하심 (4:4-11)</td></tr>
+        <tr><td><span class="bdg b-exam">⭐</span> <b>F 요나의 기도: 생명 구원에 감사 (2:1-9)</b></td><td><b>극적 대조</b></td><td><span class="bdg b-exam">⭐</span> <b>F' 요나의 기도: 니느웨 구원에 불평 (4:1-3)</b></td></tr>
+        <tr><td>G 물고기가 요나를 육지에 토해냄 (2:10)</td><td>—</td><td>(열린 결말: 하나님의 마지막 반문 4:11)</td></tr>
+      </tbody>
+    </table>
+    <p><span class="bdg b-exam">⭐ 교수강조</span> 1장과 3장이 완벽하게 평행을 이루며, <b>2장과 4장 사이의 대조(자신의 구원에 대한 감사 vs 타인의 구원에 대한 불평)</b>가 요나서 전체의 핵심 축을 이룹니다.</p>
+  </div>
+</div>
+
+<!-- PART 2 -->
+<div class="part-div" id="part2"><span>제6과 2of2 · 2장의 정경적 역할, 신학적 메시지, 해석학적 의미</span></div>
+
+<div class="sec" id="ch2">
+  <div class="sh"><span class="sb">욘 I-5</span><span class="st">2장 기도의 비평적 이해와 정경적 이해</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>비평주의자들의 견해: 후대 삽입설</h3>
+    <ul>
+      <li>많은 비평학자들은 2장의 시편(2:2-9)이 후대에 삽입된 것이라고 주장했습니다.</li>
+      <li>① <b>내러티브 구조 방해:</b> 1장의 물고기 사건에서 3장의 니느웨 사역으로 자연스럽게 이어지는 흐름을 기도가 가로막음.</li>
+      <li>② <b>메시지의 혼란:</b> 산문 서술 속의 불순종하고 완고한 요나의 모습과 2장 시편 속의 경건한 찬양자 요나의 모습이 서로 조화되지 않음.</li>
+      <li>③ <b>문체의 상이성:</b> 내러티브 산문과 구별되는 전형적인 시편 감사시의 운율.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="bdg b-exam">⭐</span> 정경적 이해 (Canonical Approach): 2장의 결정적 역할</h3>
+    <ul>
+      <li><b>2장은 회개 기도가 아니다:</b> 2장의 기도를 자세히 읽어 보면 요나는 “하나님 제가 불순종했습니다, 살려주십시오”라는 참회의 기도를 단 한 줄도 드리지 않습니다. 대신 시편에 흔히 나오는 <b>“신실한 유대인들의 전형적이고 판에 박힌 구원 감사 기도”</b>를 드리고 있습니다.</li>
+      <li><span class="bdg b-exam">⭐ 교수강조</span> <b>2장의 도입 효과:</b>
+        <ul>
+          <li>2장이 삽입됨으로써 요나는 괴팍한 예외적 악인이 아니라, <b>“이스라엘의 전통적 신앙을 고스란히 가진 전형적인 유대인”</b>으로 묘사됩니다.</li>
+          <li>출애굽기 34:6의 하나님 은혜 선언(“은혜로우시며 자비로우시며 노하기를 더디하시며”)을 자신에게 적용될 때는 2장에서 환호하며 감사하지만, 원수인 니느웨 사람들에게 베풀어질 때는 4장에서 “내가 이럴 줄 알았습니다! 차라리 나를 죽여주십시오!”라며 분노하고 항의합니다(4:2-3).</li>
+          <li><b>최종 형태의 목적:</b> 요나 개인을 공격하는 것이 아니라, <b>“이방에까지 미치는 하나님의 구원과 은혜에 대해 완강하게 반발하고 거부하는 이스라엘 전체의 편협한 신앙”</b>을 정면으로 고발하고 있습니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="theology">
+  <div class="sh"><span class="sb">욘 III</span><span class="st">요나서의 신학적 메시지</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>1. 언약 공동체 밖에 있는 사람들에 대한 하나님의 관심</h3>
+    <ul>
+      <li><b>본래 언약의 본질:</b> 이방인을 향한 하나님의 사랑은 신약에 와서 갑자기 생긴 것이 아닙니다. 구약의 근본 언약인 <b>아브라함 언약(창 12:1-3: “땅의 모든 족속이 너로 말미암아 복을 얻을 것이라”)</b>과 <b>시내산 언약(출 19:5-6: “너희가 내게 대하여 제사장 나라가 되며”)</b> 속에 이미 온 열방을 구원하시려는 하나님의 목적이 내포되어 있었습니다.</li>
+      <li>이스라엘은 제사장 나라로서 열방을 하나님께로 인도해야 하는 사명을 망각하고, 선택을 특권과 배타적 소유로 오해했습니다.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>2. 이방인들의 영적 민감성 vs 불순종하는 선지자</h3>
+    <ul>
+      <li><b>선원들의 반응 (1장):</b> 이방인 선원들은 풍랑 속에서 각자의 신을 부르다가, 요나의 말을 듣고 여호와를 두려워하며 제물을 드리고 서원합니다(1:16). 요나의 생명을 구하기 위해 끝까지 노를 저으며 애쓰는 인간적 긍휼과 도덕성을 보여 줍니다.</li>
+      <li><b>니느웨 왕과 백성들의 반응 (3장):</b> 요나가 도성을 하루 동안 대충 지나며 “사십 일이 지나면 니느웨가 무너지리라”(히브리어 단 5단어)고 마지못해 외쳤을 뿐인데, 왕부터 짐승에 이르기까지 금식하며 철저히 회개합니다.</li>
+      <li><b>요나의 완고함 (4장):</b> 정작 하나님의 음성을 듣고 선택받은 선지자 요나는 끝까지 불순종하고 도망치며, 하나님의 자비하심에 격렬하게 화를 냅니다.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>3. 결론부: 니느웨에 대한 하나님의 마음 (욘 4:10-11)</h3>
+    <div class="sum">
+      <p class="vq">“여호와께서 이르시되 네가 수고도 아니하였고 재배도 아니하였고 하룻밤에 났다가 하룻밤에 말라 버린 이 박넝쿨을 아꼈거든, 하물며 이 큰 성읍 니느웨에는 좌우를 분변하지 못하는 자가 십이만여 명이요 가축도 많이 있나니 내가 어찌 아끼지 아니하겠느냐 하시니라” (욘 4:10-11)</p>
+    </div>
+    <ul>
+      <li><span class="bdg b-exam">⭐ 교수강조</span> 요나는 자신이 수고하지도 않은 하찮은 박넝쿨 하나가 햇볕을 가려 주다 말라죽은 것에는 분노하며 아꼈습니다. 그러나 하나님은 <b>좌우를 분별하지 못하는 12만 명의 생명과 수많은 가축</b>을 긍휼히 여기십니다.</li>
+      <li>요나서는 하나님의 반문으로 끝나며 요나의 대답이 기록되어 있지 않은 <b>‘열린 결말’</b>입니다. 이 질문은 요나를 넘어 오늘 독자인 우리와 하나님의 백성 모두에게 던져지는 도전입니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="childs">
+  <div class="sh"><span class="sb">욘 IV</span><span class="st">신학적·해석학적 의미들 (B. Childs)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>차일즈(Brevard Childs)의 정경적 해석학 요약</h3>
+    <ol>
+      <li><b>“비유 같은”(parable-like) 이야기:</b> 역사성의 난점과 변증에 얽매이다 보면 성경이 정작 전하고자 하는 거대한 신학적 질문을 놓치게 됩니다. 요나서는 비유처럼 청자의 폐부를 찌르는 예언적 형식을 취하고 있습니다.</li>
+      <li><b>메시지 전달자로서의 예언적 기능:</b> 요나서의 권위는 선지자 요나 개인의 영웅적 위대함이나 흠 없는 도덕성에 있지 않습니다. 요나의 치명적인 결함과 저항을 통하여 역설적으로 <b>하나님의 말씀과 뜻이 얼마나 온전한가</b>를 드러내는 예언적 기능에 근거합니다.</li>
+      <li><b>참된 구약 성경의 증언:</b> 열방을 향한 하나님의 긍휼은 후대 유대교의 산물이 아닙니다. 그것은 이스라엘의 왜곡된 편협한 선택 사상에 맞서, <b>창조주 하나님(만유의 주)의 본래 속성</b>에 뿌리를 둔 참된 성경의 핵심 증언입니다.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="verify" id="verify">
+  <h3>출처 및 검증 요약</h3>
+  <div class="row">
+    <span class="stat">영상 자막 1of2: 13,361자</span>
+    <span class="stat">영상 자막 2of2: 8,438자</span>
+    <span class="stat">합계: 21,799자</span>
+    <span class="stat">출처: 수업 자막 · 강의안 제6과</span>
+  </div>
+  <ul>
+    <li>교수의 핵심 강조 사항(2장 감사의 성격, 2장과 4장의 대칭 대조, 이스라엘 전체의 표상으로서의 요나, 반게메렌의 비유 효과를 지닌 역사, 창조주 하나님의 속성에 근거한 열방 사랑)을 빠짐없이 배치했습니다.</li>
+    <li>성경 본문은 대한성서공회 개역개정 원문(욘 4:10-11, 왕하 14:25, 마 12:39-40, 창 12:1-3, 출 19:5-6 등)을 대조하여 정확히 인용했습니다.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 신학대학원 2026학년도 2학기 예언문학연구입문 · 담당 오성호 교수<br>
+  강의 녹취 및 공식 소선지서 강의안 제6과 바탕 요약 정리 (초안)
+</div>
+
+</div>
+</body>
+</html>
