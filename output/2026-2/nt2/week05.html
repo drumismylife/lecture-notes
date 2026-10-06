@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 5주차 고린도전서·후서 상세본</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 5주차 · 2026학년도 2학기 · 정리된 상세본</div>
+  <h1>고린도전서와 고린도후서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.10.05 (온라인 영상 3편)</div>
+</div>
+<div class="intro">교수가 강조한 대목 6곳은 <b>★ 붉은 박스</b>(발언 원문+위치)로 표시했습니다. 배지: <span class="b-ppt bdg">자료N p.n</span> <span class="b-add bdg">영상N 줄</span> <span class="b-sup bdg">보충</span>.</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>고린도전서</th><td>53~57년, 에베소에서(16:8), 소스데네와 함께(1:1) — 두 번째 편지</td></tr>
+        <tr><th>고린도후서</th><td>55~58년, 마게도냐에서 — 네 번째 편지, 고전 약 1년 후</td></tr>
+        <tr><th>연대 근거</th><td><b>갈리오</b>(행 18:12) 재임 51년 여름~52년 여름 → 바울의 고린도 체류를 50~53년으로 추정</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#sec1">1 배경·서신 왕래</a>
+  <a href="#sec2">2 고전: 하나됨·십자가</a>
+  <a href="#sec3">3 고전: 부활·자유</a>
+  <a href="#sec4">4 고전: 실제 이슈</a>
+  <a href="#sec5">5 고후: 배경</a>
+  <a href="#sec6">6 고후: 사역·사도·구제금</a>
+  <a href="#sec7">7 고후: 자랑·그 후</a>
+  <a href="#sec8">8 시험 포인트</a>
+  <a href="#sec9">9 출처·검증</a>
+</div>
+
+<!-- SEC 1 -->
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">고린도 배경과 서신 왕래</span><div class="sl"></div></div>
+  <div class="oneline">쾌락의 도시 고린도에 다양한 계층의 교회가 섰고, 바울과 교회가 주고받은 편지 중 일부는 남아 있지 않다.</div>
+
+  <details open><summary>상세 — 도시·교회 구성, 갈리오, 서신 왕래</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>고린도와 고린도 교회 <span class="b-ppt bdg">자료1 p.6-11</span></h3>
+      <ul>
+        <li>그리스 = <b>마게도냐</b>(수도 데살로니가) + <b>아가야</b>(수도 고린도). 고린도: 가장 번성한 도시 중 하나, <b>이스미언 게임</b>(올림픽 다음 인기). 아덴=지성, 고린도=호화·소비·오락. "고린도 사람처럼 산다"=성적 난잡함의 속어(Crinagoras).</li>
+        <li><b>교회</b>: 대부분 이방인(12:2)·하층민(1:26). 그리스보·소스데네(회당 지도자), 가이오(큰 건물 소유), 에라스도(재무관)도 있어 <b>갈등 소지가 높았을 가능성</b>. <span class="b-add bdg">영상1 68-81줄</span></li>
+      </ul>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 1] 바울의 연대를 정하는 근거: 갈리오</h3>
+      <p><b>[영상1 59-60, 64줄]</b> <span class="say">"사도행전 18장 12절에 나오는 고린도의 총독 갈리오는 로마의 역사기[?역사 기록]로 확인이 되었습니다. 이래서 바울의 연대를 정하는데 중요한 근거가 되었습니다. … 갈리오 인스크립션 이라고 불리워지는 색인[?새긴] 글이에요."</span></p>
+      <p>재임 <b>51년 여름~52년 여름</b> → 바울의 1년 반 체류를 <b>50~53년</b>으로 추정. <span class="b-ppt bdg">자료1 p.8-10</span> <span class="b-sup bdg">보충</span> 61줄 "52년 여름부터"는 말실수(자료1 p.8: 51년).</p>
+    </div>
+
+    <div class="card">
+      <h3>서신 왕래 <span class="b-ppt bdg">자료1 p.5, 12-13</span></h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>순서</th><th>서신</th><th>내용</th></tr></thead>
+          <tbody>
+            <tr><th>1</th><td>잃어버린 서신</td><td>개척 직후, 음행하는 자들과 사귀지 말라(고전 5:9). 소실.</td></tr>
+            <tr><th>2</th><td><b>고린도전서</b></td><td>글로에의 집 사람들의 방문(1:11) + 교회가 보낸 편지(7:1, 스데바나·브드나도·아가이고 전달)에 답함.</td></tr>
+            <tr><th>3</th><td>눈물의 편지</td><td>괴로운 방문 뒤 많은 눈물로, 디도 편(고후 2:4). 소실.</td></tr>
+            <tr><th>4</th><td><b>고린도후서</b></td><td>디도의 회개 소식 후 안도·기쁨.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>교회가 바울에게 보낸 편지도 남지 않음 → <b>"읽는 속도를 조금은 늦추어야"</b>. <span class="b-add bdg">영상1 30-38줄</span></p>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 2 -->
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">고전 신학 주제 ①: 하나됨·지혜와 능력·십자가</span><div class="sl"></div></div>
+  <div class="oneline">교회는 이미 그리스도의 몸이고, 하나님은 약하고 어리석어 보이는 십자가로 일하신다.</div>
+
+  <details open><summary>상세 — 편지 방식, 14:34-35, 세 주제</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>교회의 모습과 편지 방식 <span class="b-ppt bdg">자료1 p.2-4</span></h3>
+      <ul>
+        <li>성도로 부르심 받았으나(1:2) <b>밥</b>(βρῶμα)이 아니라 <b>젖</b>(γάλα)을 먹는 상태(3:1-2).</li>
+        <li><b>인용 후 조언</b>: 교인들이 질문해 온 말을 인용하고 답함. 예) "모든 것이 가하나" → 모든 것이 유익하거나 덕을 세우는 것은 아니다(10:23).</li>
+        <li><b>14:34-35</b>("여자는 교회에서 잠잠하라"): <b>어떤 학자들은</b> 바울이 아니라 고린도 교인들의 견해를 서술한 것으로 보고, 바울의 반응을 14:36 <span class="vq">"하나님의 말씀이 너희로부터 난 것이냐 또는 너희에게만 임한 것이냐"</span>로 본다. 그렇지 않으면 고전 11:11-12, 갈 3:28, 행 2:17-18, 행 21:9와 대치되어 보인다. <span class="b-add bdg">영상1 10-29줄</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>하나됨 · 지혜와 능력 · 십자가에 달린 그리스도 <span class="b-ppt bdg">자료1 p.14-17</span></h3>
+      <ul>
+        <li><b>하나됨</b>: 바울·아볼로·게바 계파는 시기와 분쟁을 부름(3:3). 교회는 "하나님의 성전"·"그리스도의 몸", 구성원은 지체(12:12-27) — <b>이미 이루어진 현실</b>(헬라어 현재형). <span class="b-add bdg">영상1 104-119줄</span></li>
+        <li><b>지혜와 능력</b>: 유대인은 표적, 헬라인은 지혜를 구하나 우리는 십자가에 못 박힌 그리스도를 전함(1:22-24). <span class="vq">"십자가의 도가 멸망하는 자들에게는 미련한 것이요 구원을 받는 우리에게는 하나님의 능력이라"</span>(1:18). 자신들을, 바울을 보라 → <b>약하고 어리석은 것들을 통해 일하시는 하나님</b>.</li>
+        <li><b>십자가</b>: 기적·은사로 결핍 없는 영광스러운 삶을 산다 여겼으나 영적 어린아이(3:1) — <span class="vq">"너희가 이미 배부르며 이미 풍성하며"</span>(4:8). 그리스도인의 삶은 악의 세력의 영향, 제한적인 하나님 임재, 많은 죄의 유혹, 어려움을 겪는 삶. <span class="b-add bdg">영상1 135-143줄</span></li>
+      </ul>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 2] 반드시 들어야 할 메시지: 십자가</h3>
+      <p><b>[영상1 144-147줄]</b> <span class="say">"아마도 바울의 생각에 고린도 교회의 그리스도인들은 부활하신 그리스도 만을 인식하고. 십자가에 달리신 그리스도는 조금 외면하면서 사는 사람들이 아닌가? … 고린도 교인들이 반드시 들어야 할 메시지는 십자가의 메시지라고 생각했던 것 같습니다."</span> <span class="b-ppt bdg">자료1 p.18</span></p>
+      <p>"예수 그리스도와 그가 십자가에 못 박히신 것 외에는 아무 것도 알지 아니하기로 작정"(2:1-2)을 상기시킴.</p>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 3 -->
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">고전 신학 주제 ②: 몸의 부활·그리스도인의 자유</span><div class="sl"></div></div>
+  <div class="oneline">부활은 미래의 몸의 부활이고, 자유는 선한 일에 참여하는 자유다.</div>
+
+  <details open><summary>상세 — 부활, 자유</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>몸의 부활 (15장) <span class="b-ppt bdg">자료2 p.1-2</span></h3>
+      <ul>
+        <li>어떤 이들은 부활을 이미 이루어진 <b>영적 부활</b>로만 생각한 듯함. 바울은 먼저 확증: 부활의 증인들(15:5-8), 부활이 없다면 가장 불쌍한 사람들(15:19).</li>
+        <li>바른 이해: ① 그리스도는 부활의 첫 열매(15:23) ② 그리스도 안에서 죽은 자는 망하지 않음(15:18) ③ 영혼이 아닌 <b>몸의 부활</b>, 썩지 아니할 것으로 변화(15:35-54).</li>
+      </ul>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 3] 부활을 바르게 이해해야 한다</h3>
+      <p><b>[영상2 8-9, 15줄]</b> <span class="say">"고린도 교회가 이러한 부활을 변혁적으로 이해하는 것이 아니라 바르게 이해해야 한다는 것을 꼭 말해주고 싶었던 것처럼 보여요. … 부활을 바로 알아야만 하고 … 인내하는 가운데 신실하게 살아가야 할 것이라고 말해주는 것입니다."</span></p>
+      <p>미래의 몸의 부활을 모르니 현재 은사를 부풀리고 도덕적으로 무관심해졌다. <span class="b-ppt bdg">자료2 p.2</span></p>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 4] 바울이 언제나 중요하게 말하는 것: 그리스도인의 자유</h3>
+      <p><b>[영상2 16-17, 26-28줄]</b> <span class="say">"그 다음으로는 바울이 언제나 늘 중요하게 말해주는 것인데요. 그리스도인의 자유라는 것입니다. … 내가 이 일을 해도 되느냐 … 이런 관점이기보다는 이 일이 내가 해야 할, 또는 내가 참여해야 할 선한 일인가? 정도가 되어야 한다는 그런 견해를 제공하는 것 같이 보여요."</span></p>
+      <p>창기를 찾고(6:16-18) 계모와 근친상간하며 자랑까지 한 이들(5:1-2)은 방종을 복음의 철저한 이행으로 오해함. 모든 것이 가할지라도 <b>유익(6:12)·공동체의 덕(10:23)·하나님의 영광(6:20)</b>을 위한 일을 해야 한다. 갈라디아서 끝에서도 선한 일 동참을 말함 — 중생한 자의 자유는 <b>선한 것에 참여할 자유</b>. <span class="b-ppt bdg">자료2 p.3</span> <span class="b-add bdg">영상2 17-32줄</span></p>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 4 -->
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">고전 실제적인 이슈들과 결론</span><div class="sl"></div></div>
+  <div class="oneline">만찬·파문·우상 제물·은사 문제마다 기준은 형제를 귀히 여기는 사랑, 공동체의 덕, 질서다.</div>
+
+  <details open><summary>상세 — 만찬, 파문, 우상 제물, 은사, 결론</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>주의 만찬 (11:17-34) <span class="b-ppt bdg">자료2 p.4-5</span></h3>
+      <ul>
+        <li>도착 시간이 달라 먼저 온 이들은 배불리 먹고 취하고, 늦은 이들은 먹지 못함 — <b>다른 계층이었을 가능성이 큼</b>. 종은 따로 먹고 남은 음식을 받는 그레코-로마 만찬 관례. 이는 <span class="vq">"하나님의 교회를 업신여기고 빈궁한 자들을 부끄럽게"</span> 하는 것(11:22) → <span class="vq">"서로 기다리라"</span>(11:33).</li>
+        <li><b>11:27-29 다시 읽기(교수 제안)</b>: 보통 개인적 잘못을 회개하고 참여하라는 뜻으로 읽지만, 이 맥락에서는 <b>형제자매를 귀하게 여기지 못하는 만찬이 되어서는 안 된다</b>는 것을 일깨우는 것이 <b>아닌가</b> 한다. <span class="b-add bdg">영상2 52-59줄</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>파문 · 우상에게 바쳐진 음식 <span class="b-ppt bdg">자료2 p.6-7</span></h3>
+      <ul>
+        <li><b>파문</b>: <span class="vq">"이 악한 사람은 너희 중에서 내쫓으라"</span>(5:13, ἐξάρατε). <b>형제라 불리는 이</b>가 음행·탐욕·우상숭배·폭언·술취함·착취를 하면 사귀지도 먹지도 말라(5:11). 누룩의 위험. "실행 가능할까요?" — 참조 마 18:15-17.</li>
+        <li><b>우상 제물 ①</b> 공적 행사(생일·결혼·잔치)의 제의 식사: 교회 밖과의 관계 단절은 아니나(5:10) 이교적 활동 참여는 <b>경고</b> — 주의 만찬과 함께할 수 없음(10:14-22).</li>
+        <li><b>우상 제물 ②</b> 시장 고기: 대부분 신에게 바친 짐승이라 유대인은 <b>코셔 가게</b>에서 따로 샀음. <span class="b-add bdg">영상2 60-87줄</span></li>
+      </ul>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 5] 목회적 관심: 믿음이 약한 성도 보호</h3>
+      <p><b>[영상2 89-91줄]</b> <span class="say">"음식은 음식일 뿐입니다. 그런데 여기가 중요하죠. 그의 목회적 관심이 있어요. 믿음이 약한 성도들을 보호하는 것에 언제나 바울은 마음이 있습니다. 때로는 가능한 일을, 그 믿음이 약한 형제자매들을 위해서 포기해야 할 때도 있다고 권면하는 거예요."</span> <span class="b-ppt bdg">자료2 p.8</span></p>
+      <p>사랑이 지식을 능가함(8:1-3). 지식 있는 자는 남의 유익을 구하라(10:24). <span class="vq">"너희가 먹든지 마시든지 무엇을 하든지 다 하나님의 영광을 위하여 하라"</span>(10:31).</p>
+    </div>
+
+    <div class="card">
+      <h3>사랑 · 은사 · 방언 (12-14장) <span class="b-ppt bdg">자료2 p.9-11</span></h3>
+      <ul>
+        <li><b>사랑(ἀγάπη)</b>: 조건 없는 사랑, 대상이 사랑스럽든 아니든 호의를 베푸는 사랑, 남의 유익을 위하는 사랑(13:4-7). 예언·지식은 <b>부분적·일시적</b>, 사랑이 없으면 아무것도 아님(13:1-3, 8-12).</li>
+        <li><b>은사(χάρισμα) = '선물'</b>. 공동체 유익을 위한 <b>성령의 나타남</b>(12:7). 9가지 은사(12:8-10).</li>
+        <li><b>방언(γλῶσσα)</b> = 직역 "언어"·"말". 고린도 방언은 <b>알아들을 수 있는 언어라는 안내가 없고</b>(14:2) 원하면 언제든 할 수 있는 듯. 사도행전 방언은 각 지방 언어로 이해됨.</li>
+        <li><b>문제가 된 이유(추측)</b>: 예배 지장 / 과시 / 일부가 완전히 금하자며 과잉 반응. → <span class="vq">"방언 말하기를 금하지 말라"</span>(14:39), 모든 것을 <b>품위와 질서</b>로(14:40). <span class="b-add bdg">영상2 96-136줄</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>결론: 로마서와 비교 <span class="b-ppt bdg">자료2 p.12-13</span></h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>서신</th><th>특성</th><th>바울</th></tr></thead>
+          <tbody>
+            <tr><th>로마서</th><td>신학 주제를 체계적으로 — 이론적</td><td><b>신학자</b>, 그 속에 목회적 면모</td></tr>
+            <tr><th>고린도전서</th><td>특정 상황의 문제 — 실천적</td><td><b>목회자</b>, 그 속에 신학적 면모</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>그 후 재방문·서신 2통 이상, 문제는 악화. 고린도에 오래 머물며 로마서를 썼을 것으로 봄.</p>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 5 -->
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">고후: 편지의 성격과 역사적 배경</span><div class="sl"></div></div>
+  <div class="oneline">괴로운 방문과 눈물의 편지 뒤, 디도의 좋은 소식을 들은 바울이 마게도냐에서 고후를 보냈다.</div>
+
+  <details open><summary>상세 — 어조 변화, 고전 이후의 경과</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>성격 <span class="b-ppt bdg">자료3 p.2</span></h3>
+      <ul>
+        <li>고전보다 <b>성급하게 작성된 듯</b> — 기쁨(7:13-16)과 근심(11:13-21)이 오가는 어조 변화. 이유: ① 여행 중 몇 주에 걸쳐 썼을 가능성 ② 여러 서신을 모은 <b>서신집</b>일 가능성(학자들).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>고전 이후의 경과 <span class="b-ppt bdg">자료3 p.4-9</span></h3>
+      <ul>
+        <li><b>계획 변경</b>: 마게도냐를 지나 고린도에 머물 계획(고전 16:5-7) → 먼저 고린도에 들르는 "두 번 은혜" 계획(고후 1:15-16).</li>
+        <li><b>괴로운 방문</b>: "죄 지은 자들"과 대면, 노하여 떠남. 재방문은 <b>또 다른 고통을 주지 않으려</b> 취소(1:23; 2:1-3).</li>
+        <li><b>눈물의 편지</b>(세 번째): 많은 눈물로 써서 디도 편에. 근심하게 한 것을 잠시 후회했으나 지금은 후회하지 않음(7:8).</li>
+        <li><b>환난</b>: 아시아(아마도 에베소)에서 사형 선고를 받은 줄 알 정도의 고난(1:8-9) → 드로아에서 고린도 소식을 못 들어 마게도냐로(2:12-13) → <span class="vq">"밖으로는 다툼이요 안으로는 두려움이었노라"</span>(7:5).</li>
+        <li><b>디도의 소식</b>: 교인들이 회개하고 불의를 행한 그룹을 징계(2:6-7) → 바울은 위로받고 다시 신뢰 → <b>고후</b>(네 번째)에서 처벌받은 자를 <span class="vq">"용서하고 위로할 것이니"</span>(2:7) 권함. <span class="b-add bdg">영상3 21-76줄</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 6 -->
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">고후 신학 주제: 바울의 사역·사도적 권위·구제금</span><div class="sl"></div></div>
+  <div class="oneline">바울은 자기 사역이 하나님의 사역임을 밝혔고, 사도직 네 기준은 고린도 상황에서 나온 것일 수 있다.</div>
+
+  <details open><summary>상세 — 사역, 경쟁자, 사도직 기준과 유니아, 구제금</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>바울의 사역 <span class="b-ppt bdg">자료3 p.10</span></h3>
+      <ul>
+        <li><b>진실함</b>: 아무에게도 불의를 행하거나 속여 빼앗은 일이 없음(7:2). 교회와는 <b>마음을 주고받는 사랑의 관계</b>(6:11-13).</li>
+        <li>사람이 아닌 <b>하나님의 사역</b>이면서, 고난과 시련을 겪는 <b>평범한 인간이 수행하는 사역</b>(4:16; 11:21-33). <span class="b-add bdg">영상3 79-83줄</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>"지극히 크다는 사도들"과 사도직의 네 기준 <span class="b-ppt bdg">자료3 p.6-7, 12-13</span></h3>
+      <ul>
+        <li>유대계(11:22)로 그리스도의 일꾼을 자처했으나 바울은 <span class="vq">"거짓 사도요 속이는 일꾼"</span>(11:13)이라 부름. 다른 예수·영·복음을 전했고 교회는 이를 용납(11:4). 바울을 폄하: <span class="vq">"그가 몸으로 대할 때는 약하고 그 말도 시원하지 않다"</span>(10:10).</li>
+        <li>사도는 <b>하나님이 세우심</b> — 스스로 될 수 없음(고전 12:28).</li>
+        <li><b>네 기준</b>: ① 사도의 표 — 참음·표적·기사·능력(고후 12:12) ② 부활하신 주를 봄(고전 9:1) ③ 교회 설립(고전 9:1-2) ④ 받은 전통의 전달(고전 15:3) — 거짓 사도는 다른 복음을 전함. <span class="b-add bdg">영상3 105-120줄</span></li>
+      </ul>
+    </div>
+
+    <div class="emph">
+      <h3>★ [강조 6] 네 기준은 절대적이지 않을 수 있다: 유니아</h3>
+      <p><b>[영상3 121, 128-131줄]</b> <span class="say">"사도직에 대한 절대적 기준은 꼭 4가지만 있는 것은 아닌 듯 보입니다. … 사도들 중에 뛰어난 사람들로 안드로니고와 유니아를 소개하는데, 정말 흥미롭게도 유니아는 여성입니다. … 그것이 절대적인 네 가지는 아닐 수 있다."</span> <span class="b-ppt bdg">자료3 p.14</span></p>
+      <p>로마서에서 안드로니고와 유니아를 <b>"사도들 중에 뛰어난"</b>(ἐπίσημοι ἐν τοῖς ἀποστόλοις) 사람들로 소개. 개역개정의 "사도들에게 존중히 여겨지는"은 직역으로는 좋은 번역이 아니라고 함(영상3 126줄). <span class="b-sup bdg">보충</span> 롬 16:7.</p>
+    </div>
+
+    <div class="card">
+      <h3>구제금 (8-9장) <span class="b-ppt bdg">자료3 p.11</span></h3>
+      <ul>
+        <li>신약에서 구제금에 관한 <b>가장 넓은 논의</b>. 어떤 학자들은 8장(고린도)·9장(아가야)을 <b>따로 쓴 두 서신</b>으로 봄.</li>
+        <li>구제 참여 = <b>하나님이 주신 은혜</b>(8:1-2). 자발적으로, 형편에 맞게(9:5; 8:3) — 자원하는 자에게서만 받으라던 성막 예물과 맥을 같이 함. 근거는 <b>청지기</b> 정체성(고전 4:7).</li>
+        <li><b>예루살렘 교회의 가난한 성도</b>를 위한 섬김(롬 15:25-27). <b>교수가 따로 짚은 배경</b>: 유대인은 자선을 금식·기도보다 높이 여기고 자선으로 죄를 없앨 수 있다 믿었으나 <b>죄인에게 나누는 것은 철저히 금지</b>했고 이방인은 죄인 목록에 있었다 → 이방인 교회의 모금을 받을 수 있겠는가, 바울에게도 <b>근심</b>이 있었던 것으로 보임. <span class="b-add bdg">영상3 84-104줄</span> <span class="b-sup bdg">보충</span> 99줄 "로마교회"는 말실수(예루살렘).</li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 7 -->
+<div class="sec" id="sec7">
+  <div class="sh"><span class="sb">7</span><span class="st">고후: 자랑, 결론, 그 후 이야기</span><div class="sl"></div></div>
+  <div class="oneline">바울은 약함을 자랑했고, 교회는 편지를 보존할 만큼 권면을 받아들였으나 훗날 다시 분열을 겪었다.</div>
+
+  <details open><summary>상세 — 자랑, 결론, 클레멘트의 편지</summary>
+  <div class="dbody">
+    <div class="card">
+      <h3>자랑 <span class="b-ppt bdg">자료3 p.15-16</span></h3>
+      <ul>
+        <li>바울은 원래 자랑을 좋아하지 않음 — <span class="vq">"자랑하는 자는 주 안에서 자랑할지니라"</span>(고후 10:17).</li>
+        <li><b>그래도 자랑한 이유</b>: ① 거물급 사도들이 스스로를 추켜세움 ② 바울을 인정해야 할 교인들이 그러지 않음(바울은 그들을 자주 자랑했는데).</li>
+        <li>자기 자랑이 어리석음을 인정 — <b>포인트</b>: 거물급 사도들이 자랑할 때 <b>그들 역시 어리석음을 드러낸다</b>. <span class="b-add bdg">영상3 143줄</span></li>
+        <li><b>약함의 자랑</b>: 광주리 탈출(11:32-33), 육체의 가시(12:7), 응답되지 않은 기도(12:8-9) → 모든 사역을 이루시는 분이 <b>하나님</b>이심을 알리려고(12:9-10).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>결론과 그 후 이야기 <span class="b-ppt bdg">자료3 p.17-18</span></h3>
+      <ul>
+        <li>적어도 두 편지가 <b>필사·보존</b>된 것은 교회가 권면을 존중했다는 증거. 1년 안에 쓴 로마서는 <b>행복한 결말</b>을 암시: 구제금 모금 성공(롬 15:25-26), 고린도 교인들의 문안 — 뵈뵈(16:1), 가이오·에라스도(16:23).</li>
+        <li><b>클레멘트의 편지</b>(속사도 시대, 1 Clement 47.6, ca. 95-97) — 교수 번역: <span class="say">"정말 잘 세워졌던 그 고린도에 고대 그 교회가 한 두 사람으로 인해서 지금은 그들의 장로들에게 대항하고 있다."</span> → 다시 어려움을 겪음. <span class="b-add bdg">영상3 150-170줄</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+</div>
+
+<!-- SEC 8 -->
+<div class="sec" id="sec8">
+  <div class="sh"><span class="sb">8</span><span class="st">시험 포인트</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>예상 서술형 문항 (노트 정리용 — 교수가 출제를 언급한 것은 아님)</h3>
+    <ul>
+      <li><b>1. 갈리오 인스크립션의 의의</b> → 갈리오 재임(51~52년)이 확인되어 바울의 고린도 체류를 50~53년으로 추정하게 하는, 바울 연대의 중요한 근거. [영상1 59-64줄 / 자료1 p.8]</li>
+      <li><b>2. 고전 14:34-35에 대한 일부 학자들의 해석</b> → 고린도 교인들의 견해를 먼저 서술한 것이고 14:36이 바울의 반응이라는 견해. [영상1 17-29줄 / 자료1 p.4]</li>
+      <li><b>3. 주의 만찬의 문제와 11:27-29 다시 읽기</b> → 먼저 온 이들이 먹고 취하고 늦은 이들은 굶음. 교수는 11:27-29를 개인 회개보다 형제자매를 귀히 여기지 못하는 만찬에 대한 일깨움으로 다시 생각해 볼 것을 제안. [영상2 35-59줄 / 자료2 p.4-5]</li>
+      <li><b>4. 몸의 부활을 가르친 이유</b> → 영적 부활로만 여겨 도덕적으로 무관심해진 이들이 미래의 몸의 부활을 바로 알고 끝까지 신실하게 살도록. [영상2 1-15줄 / 자료2 p.1-2]</li>
+      <li><b>5. 사도직의 네 기준과 유니아</b> → 사도의 표·주를 봄·교회 설립·전통 전달. 고린도 상황에서 나온 기준으로 볼 수 있고 절대적이지 않을 수 있다 — 예: 로마서의 여성 유니아("사도들 중에 뛰어난"). [영상3 110-131줄 / 자료3 p.13-14]</li>
+      <li><b>6. 고후에서 자랑한 이유와 약함을 자랑한 목적</b> → 거물급 사도들의 자기 추켜세움과 교인들의 불인정 때문. 약함을 자랑해 모든 사역을 이루시는 분이 하나님이심을 알림. [영상3 131-148줄 / 자료3 p.15-16]</li>
+      <li><b>7. 서신 왕래 순서</b> → 잃어버린 서신(고전 5:9) → 고전 → 눈물의 편지(디도 편) → 고후. [영상1 34-35줄, 영상3 55, 74줄 / 자료1 p.5]</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verify" id="sec9">
+  <h3>9. 출처·검증 요약</h3>
+  <div class="row">
+    <span class="stat"><b>녹취 스크립트:</b> 영상1·2·3 (약 2.4만 자)</span>
+    <span class="stat"><b>강의자료:</b> 자료1(18쪽)·자료2(13쪽)·자료3(18쪽)</span>
+  </div>
+
+  <h4>[스크립트 내용 전사(ASR) 오인식 교정 목록]</h4>
+  <ul>
+    <li>로마 / 알라 → <b>βρῶμα</b> / <b>γάλα</b> [영상1 6-7줄]</li>
+    <li>아카디아 → <b>아가야</b> [영상1 46줄]</li>
+    <li>503년 → <b>53년</b> [영상1 58줄]</li>
+    <li>그리스도라고 하는 사람 → <b>그리스보</b> [영상1 76줄]</li>
+    <li>스데반 아와보드나 도아가 이곳 → <b>스데바나, 브드나도, 아가이고</b> [영상1 92줄]</li>
+    <li>쏘세네 → <b>소스데네</b> [영상1 99줄]</li>
+    <li>참 길을 찾아가는 사람들 → <b>창기를 찾아가는 사람들</b> [영상2 18줄]</li>
+    <li>그레고르 세계 → <b>그레코-로마</b> 세계 [영상2 50줄]</li>
+    <li>코셔 호슈가게 → <b>코셔 가게</b> [영상2 85줄]</li>
+    <li>드루와 → <b>드로아</b> [영상3 65줄]</li>
+    <li>기도가 → <b>디도가</b> [영상3 70줄]</li>
+    <li>과두직 → <b>사도직</b> [영상3 110줄]</li>
+    <li>인신인 것 → <b>인친</b> 것 [영상3 116줄]</li>
+    <li>예배 → 겐그레아 교회의 <b>뵈뵈</b> [영상3 161줄]</li>
+    <li>클레멘 → <b>클레멘트</b> [영상3 165줄]</li>
+  </ul>
+
+  <h4>[교수 발언 착오·자료 표기 보충]</h4>
+  <ul>
+    <li><span class="b-sup bdg">보충</span> 영상1 61줄 갈리오 "52년 여름부터" → 자료1 p.8의 <b>51년 여름~52년 여름</b>.</li>
+    <li><span class="b-sup bdg">보충</span> 영상3 99줄 "로마교회" → 94줄·자료3 p.11의 <b>예루살렘 교회</b>.</li>
+    <li><span class="b-sup bdg">보충</span> 영상3 115줄 "고린도전서 9장 12절" → 읽은 본문·자료3 p.13은 <b>고전 9:1-2</b>.</li>
+    <li><span class="b-sup bdg">보충</span> "품위와 질서": 자료2 p.11은 14:39로 표기, 해당 구절은 <b>14:40</b>.</li>
+    <li><span class="b-sup bdg">보충</span> 안드로니고와 유니아: 강의·자료는 "로마에 보내는 편지"로만 언급 → <b>롬 16:7</b>.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  수정일: 2026.10.06 · 신약성서 II 5주차 녹취(영상1·2·3)와 강의자료 1·2·3 기반 (수정 2: 독립검토 반영)
+</div>
+</div>
+</body>
+</html>
