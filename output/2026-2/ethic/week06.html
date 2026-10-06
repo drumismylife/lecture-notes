@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 6주차 강의노트 | 루터의 윤리와 칼뱅의 윤리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 44px 38px; margin-bottom: 32px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: #d6e8de; margin-bottom: 20px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 14.5px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 22px 26px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 16.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.toc-col h4 { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 7px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 5px; font-size: 13.5px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 42px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 16px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 11.5px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 3px 9px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; gap: 14px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 19.5px; font-weight: 700; color: var(--primary); margin-bottom: 5px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 13.5px; color: var(--text-muted); }
+p { margin-bottom: 14px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 10px 0 16px 20px; }
+li { margin-bottom: 6px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+.custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 32px 36px; margin-top: 44px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 13.5px; color: var(--primary-light); background: var(--primary-pale); padding: 7px 11px; border-radius: 4px; margin-top: 5px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-medium); font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 10px 16px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); font-size: 15px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 8px; letter-spacing: .04em; }
+.key { margin: 4px 0 6px 0; }
+.key ul { margin: 4px 0 6px 18px; }
+.key li { margin-bottom: 5px; font-size: 14.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+.sum-card h4 { font-size: 12.5px; color: var(--accent-terracotta); margin: 14px 0 5px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 4px 0 5px 18px; }
+.sum-card li { margin-bottom: 5px; font-size: 14px; }
+.sum-card p { margin-bottom: 5px; font-size: 14px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 22px 0; padding: 9px 13px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 12px 0 4px 0; }
+details > summary { cursor: pointer; padding: 9px 15px; font-size: 13.5px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 12px 16px 6px 16px; }
+details.apx { margin-top: 30px; }
+.tq { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.exam-note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+.exam-h { font-size: 17px; font-weight: 700; color: var(--primary); margin: 20px 0 10px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 14.5px; line-height: 1.6; }
+.quiz-ans ul { margin: 4px 0 2px 18px; }
+.quiz-ans li { margin-bottom: 3px; font-size: 13.5px; }
+.dbody h4 { font-size: 13.5px; color: var(--accent-terracotta); margin: 12px 0 5px 0; }
+.dbody li { font-size: 13.5px; }
+.cmp td { vertical-align: top; font-size: 13.5px; }
+@media (max-width: 720px) { .unit-card { padding: 18px 16px; } .exam-section { padding: 20px 16px; } .custom-table { font-size: 12.5px; } .header-card { padding: 26px 18px; } .header-title { font-size: 24px; } }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 6주차</span><span>루터의 윤리와 칼뱅의 윤리 (1·2강 통합)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>6주차 강의노트</span>
+    </div>
+    <h1 class="header-title">루터의 윤리와 칼뱅의 윤리</h1>
+    <div class="header-subtitle">은혜로 얻은 자유와 이웃을 위한 소명 · 하나님께 속한 삶과 서로를 빚는 공동체</div>
+    <div class="header-theses">
+      <strong>[이번 주 학습목표]</strong><br>
+      1. 루터의 물음 <strong>“어떻게 나는 은혜로운 하나님을 만날 수 있는가”</strong>에서 이신칭의·두 종류의 의·소명·두 통치가 어떻게 이어지는지 설명하고, 농민전쟁과 이단 처벌에서 드러난 한계를 말할 수 있다.<br>
+      2. 칼뱅의 명제 <strong>“우리는 우리 자신의 것이 아니라 하나님의 것이다”</strong>를 중심으로 그리스도와의 연합·율법의 세 용도·자기부인·교회의 직분과 권징을 설명하고, 세르베투스 사건이 보여 주는 한계를 말할 수 있다.
+    </div>
+  </header>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 루터와 칼뱅의 윤리</h2>
+    <ol>
+      <li><b>루터의 출발:</b> 구원의 확신을 내 안의 성취(고행·고해)에서 찾을 수 없다는 물음에서 시작해, 은혜는 내 밖에서 주어진다는 이신칭의에 이르렀다. 이신칭의는 윤리와 직결된다.</li>
+      <li><b>두 종류의 의:</b> 밖에서 온 의(첫째)가 있고, 인간 고유의 의(둘째)는 그 열매다. 첫째 없이 둘째만 세우면 공로주의, 둘째 없이 첫째만 말하면 삶 없는 의론이 된다.</li>
+      <li><b>의인이자 죄인·소명:</b> 그리스도인은 의인이면서 여전히 죄인(자기 안으로 굽은 인간)이다. 소명은 수도사의 것에서 모든 신자의 것이 되어 부엌과 일터가 거룩한 자리가 되었다.</li>
+      <li><b>두 통치와 한계:</b> 영적 통치와 세속 통치를 구별해 권세의 한계를 세웠으나, 농민전쟁(1525)과 재세례파 처벌에서 그 원칙이 흔들렸고 영주 교회 체제로 굳어졌다.</li>
+      <li><b>칼뱅의 중심:</b> 윤리는 교리의 부록이 아니라 은혜를 받고 누리는 방식이다. 성령이 이루시는 그리스도와의 연합 안에서 칭의와 성화는 구별되나 나뉘지 않는다.</li>
+      <li><b>율법·순례·교회:</b> 율법은 거울·억제·가르침의 세 용도이며 셋째가 가장 중요하다. 자기부인은 소유권의 이전이고, 교회는 어머니로서 네 직분과 권징으로 신자를 빚는다. 그러나 제네바의 권징은 시의회와 연결되었고 세르베투스는 화형당했다.</li>
+    </ol>
+    <h4>꼭 기억할 것</h4>
+    <p>의롭게 된 다음에 의로운 일을 행한다 · 두 종류의 의 · 의인이자 죄인 · 자기 안으로 굽은 인간 · 전신자 제사장 · 소명 · 두 통치 · 시련(Anfechtung) · 우리는 우리 자신의 것이 아니다 · 그리스도와의 연합 · 율법의 제3용법 · 아디아포라 · 하나님의 형상(원수 사랑) · 권징은 근육 · 콩시스투아르 · 세르베투스</p>
+    <h4>⭐ 교수 강조 (원문 인용)</h4>
+    <p><span class="tq">정말 명문장이에요</span>(스콜라 논박) [1강 54] · <span class="tq">정말 대단한 거예요</span>(자기 안으로 굽은 인간) [1강 138] · <span class="tq">우리가 좀 알아야 될 것이</span>(전신자 제사장) [1강 259] · <span class="tq">늘 말씀드리지만</span>(윤리는 은혜를 누리는 방식) [2강 60] · <span class="tq">아주아주 중요한 키워드</span>(그리스도와의 연합, 바울신학·칼뱅) [2강 94–95] · <span class="tq">가장 중요하게 보는 거죠</span>(율법의 셋째 용도) [2강 156]</p>
+  </div>
+
+  <div class="lite-note"><b>읽는 법</b> — 각 절은 <b>한 줄 결론 → 핵심 불릿</b> 순서입니다. <span class="bdg b-exam">⭐ 교수강조</span>(강조 표현 원문 인용+[N강 줄]) · <span class="bdg b-add">📌 강의추가</span>(강의에서만 나온 내용) · <span class="bdg b-sup">📖 교재참고</span>(교재 PDF 쪽)로 구분했습니다. 자막 교정 [?]·교재와 다른 곳 [보충]은 부록에 있습니다.</div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차 및 빠른 이동</div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 루터의 윤리 (1강)</h4>
+        <ul class="toc-list">
+          <li><a href="#s1">§1. 도입 — 은혜로운 하나님을 어디서 만나는가</a></li>
+          <li><a href="#s2">§2. 은혜 — 두 종류의 의와 그리스도인의 자유</a></li>
+          <li><a href="#s3">§3. 성품과 양심 — 의인이자 죄인</a></li>
+          <li><a href="#s4">§4. 서사와 소명 — 침례받은 사람은 어디서 사는가</a></li>
+          <li><a href="#s5">§5. 공동체와 십자가</a></li>
+          <li><a href="#s6">§6. 평화와 칼 — 두 통치와 그 시험</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 칼뱅의 윤리 (2강)</h4>
+        <ul class="toc-list">
+          <li><a href="#s7">§7. 도입 — 참된 교회는 어디에 있는가</a></li>
+          <li><a href="#s8">§8. 은혜와 연합 — 칭의·성화·예정</a></li>
+          <li><a href="#s9">§9. 율법과 성품 — 세 용도와 자유</a></li>
+          <li><a href="#s10">§10. 서사와 순례 — 자기부인과 내세 묵상</a></li>
+          <li><a href="#s11">§11. 공동체 — 직분·성례·권징</a></li>
+          <li><a href="#s12">§12. 시민 정부와 세르베투스 사건</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 비교 및 정리</h4>
+        <ul class="toc-list">
+          <li><a href="#s13">§13. 종합 비교 — 루터 ↔ 칼뱅</a></li>
+          <li><a href="#exam">§14. 예상 문항 (노트 정리용)</a></li>
+          <li><a href="#apx">부록: 토론 질문 · 자막 교정·보충 목록</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PART 1 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 루터의 윤리 — 은혜로 얻은 자유와 이웃을 위한 소명 (1강)</h2>
+      <span class="part-badge">기독교윤리학 개론 8장</span>
+    </div>
+
+
+    <article class="unit-card" id="s1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — 은혜로운 하나님을 어디서 만나는가</h3>
+          <div class="unit-desc">벼락과 수도원 · 중세 후기 신학 · 이신칭의와 윤리</div>
+        </div>
+      </div>
+      <div class="oneline">루터의 출발 물음은 “어떻게 나는 은혜로운 하나님을 만날 수 있는가”이며, 그 답인 이신칭의는 윤리와 직결된다.</div>
+      <div class="key">
+        <ul>
+          <li><b>수도사가 된 계기:</b> 법률가가 되길 바란 아버지의 기대로 법대를 다니다, 부모 집에서 에르푸르트 대학으로 돌아가는 길에 벼락을 만나 수도사가 되겠다고 서원하고 성 아우구스티누스회에 들어갔다 [1강 7–12]. <span class="bdg b-sup">📖 교재 p.1</span> 1505년, 서원 이야기는 훨씬 뒤의 기록이다.</li>
+          <li><b>물음:</b> 고행과 고해를 많이 해도 구원의 근거가 되지 못한다. 구원은 내 안이 아니라 <b>내 밖에서 주시는 은혜</b>로만 받는다 [1강 14–34]. 중세 후기 신학은 “안에 있는 은혜를 따라 행하면 거절하지 않으신다”로 흘러 공로주의·율법주의가 되었다 [1강 17–21].</li>
+          <li><b>이신칭의와 윤리:</b> 십자가로 의롭게 되었음을 믿음으로 받고 사랑으로 이웃을 대한다. 그래서 이신칭의는 윤리와 직결된다 [1강 38–41]. <span class="bdg b-sup">📖 교재 p.2</span> “그리스도인은 믿음으로 그리스도 안에 살고, 사랑으로 이웃 안에 산다.”</li>
+          <li><span class="bdg b-add">📌 강의추가</span> <b>한계(교수):</b> 루터의 불안·공포·시련은 바울의 문제가 아니라는 것이 현대 성서신학자들의 연구이고, 개인주의적 위험 때문에 공적 영역에 세상 가치관이 남을 여지가 있었다 [1강 42–47].</li>
+          <li><b>읽는 틀:</b> 은혜·성품·서사·공동체·평화의 다섯 키워드 [1강 49].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 은혜 — 두 종류의 의와 그리스도인의 자유</h3>
+          <div class="unit-desc">스콜라 논박 · 하이델베르크 논쟁 · 두 종류의 의 · 십계명</div>
+        </div>
+      </div>
+      <div class="oneline">의는 밖에서 선물로 오고 선행은 그 열매다. 하나님 앞에서 받기만 하는 사람이 이웃 앞에서는 끝까지 주는 사람이 된다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>「스콜라 신학 논박」(1517):</b> “우리는 의로운 일을 행함으로써 의롭게 되는 것이 아니라 의롭게 된 다음에 의로운 일을 행한다.” 교수: <span class="tq">“정말 명문장이에요”</span> [1강 54], <span class="tq">“제 핵심 주장이기도 하고”</span> [1강 56]. <span class="bdg b-sup">📖 교재 p.2</span> 논제 40.</li>
+          <li><b>하나님의 의:</b> 로마서 1장 16–17절에서 ‘하나님의 의’가 벌하는 의가 아니라 용서하시는 의임을 알고 “다시 태어나 열린 문으로 천국에 들어간 것 같았다” [1강 60–73].</li>
+          <li><b>영광의 신학 vs 십자가의 신학</b>(하이델베르크 논쟁 1518, 논제 19–21): 영광의 신학은 창조 세계·인간 업적에서 하나님을 찾다 번영신학으로 흐르고, 십자가의 신학은 고난받으신 하나님의 약함과 수치에서 하나님을 안다 [1강 74–83]. “하나님의 사랑은 사랑할 만한 것을 찾아내지 않고 창조한다” [1강 84–87].</li>
+          <li><b>두 종류의 의:</b> 첫째는 하나님에게서 온 의, 둘째는 인간 안의 의이며 둘째는 첫째의 열매다. 첫째 없이 둘째만 강조하면 공로주의, 첫째만 강조하면 삶 없는 의론이 된다 [1강 91–98]. <span class="bdg b-sup">📖 교재 p.3</span> 밖에서 온 의(iustitia aliena).</li>
+          <li><b>『그리스도인의 자유』(1520):</b> 그리스도인은 자유로워 아무에게도 예속되지 않으나 하나님의 종이므로 모든 것에 예속된다. 믿음으로 자유하니 자기 증명이 필요 없고 의는 이웃 섬김으로 나타난다 [1강 100–111].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>십계명:</b> 교수: <span class="tq">“십계명에 대한 공부를 꼭 성공하시길 바라고”</span> [1강 114]. 루터의 『대교리문답』, 칼뱅의 『기독교강요』와 신명기 설교를 공부하라고 했다 [1강 115–116]. 금지 계명은 이웃의 몸·생명·생계·재산·명예를 지키는 적극적 행동으로 읽는다 [1강 117–126].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 성품과 양심 — 의인이자 죄인</h3>
+          <div class="unit-desc">자기 안으로 굽은 인간 · 습관과 성품 · 노예 의지론 · 율법의 용법 · 보름스의 양심</div>
+        </div>
+      </div>
+      <div class="oneline">구원받았으나 여전히 죄와 싸우는 ‘의인이자 죄인’이며, 루터가 거부한 것은 습관 형성이 아니라 그것이 공로의 근거가 된다는 생각이다.</div>
+      <div class="key">
+        <ul>
+          <li><b>의인이자 죄인:</b> 구원은 시작되었으나 완성되지 않았다. 치료를 시작해 낫기 시작한 환자의 비유 [1강 130–135]. <span class="bdg b-sup">📖 교재 p.4</span> simul iustus et peccator.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>자기 안으로 굽은 인간:</b> 교수: <span class="tq">“이 알이 정말 대단한 거예요”</span> [1강 138]. 자기 이익과 욕망이 우선이어서 하나님도 이웃도 자기 이익의 수단으로 쓴다 [1강 139–146]. <span class="bdg b-sup">📖 교재 p.4</span> homo incurvatus in se.</li>
+          <li><b>성품:</b> 선택 → 반복 → 습관 → 성품 → 자기. 그 출발은 아리스토텔레스이며 루터가 아퀴나스를 비판한 것은 인간이 쌓아 올린 것이 공로가 될 위험 때문이지 본질 자체는 아니다 [1강 150–162]. 의롭게 된 사람도 몸을 훈련하고 아침·저녁·식탁 기도를 한다 [1강 163–166].</li>
+          <li><b>노예 의지론(1525):</b> 에라스무스(『자유의지론』 1524)에 대한 반박. 일상의 선택이 아니라 자유로운 선택이 구원과 어떤 관계인가의 문제이며, 인간은 하나님이냐 사탄이냐 어느 기수가 타느냐에 따라 달라지는 말과 같다 [1강 171–183]. <span class="bdg b-add">📌 강의추가</span> 성경은 평이한 의미(plain sense)로 서 있어 거듭난 사람이면 누구나 이해할 수 있다 [1강 192–199].</li>
+          <li><b>율법의 용법:</b> 외적 행동을 규제하는 시민적 용법, 내면의 악을 폭로해 하나님께 이끄는 신학적 용법 [1강 201–206]. <b>[보충]</b> 교재 8장 후주 3(p.13)은 루터 자신이 ‘제3용법’이라는 문구를 쓰지 않았다고 한다(교수 발언 [1강 207]은 자막이 불분명).</li>
+          <li><b>양심:</b> 보름스 의회에서 “나는 하나님의 말씀과 양심에 따라 말한다.” 말씀에 사로잡힌 양심에는 왕도 영주도 명령할 수 없다 [1강 213–222]. <span class="bdg b-sup">📖 교재 p.2, 6</span> 1521년.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 서사와 소명 — 침례받은 사람은 어디서 사는가</h3>
+          <div class="unit-desc">날마다의 침례 · 소명의 확장 · 전신자 제사장 · 세 신분</div>
+        </div>
+      </div>
+      <div class="oneline">거룩한 자리는 수도원이 아니라 부엌과 일터이며 모든 신자가 사제다. 교수는 곧바로 체념의 신학은 아니라고 하되, ‘받은 자리’는 체념의 신학이 될 위험이 있다.</div>
+      <div class="key">
+        <ul>
+          <li><b>날마다의 침례:</b> 예수와 함께 죽고 함께 사는 침례는 한 번으로 끝나지 않고 매일 되풀이된다 [1강 225–232].</li>
+          <li><b>소명의 확장:</b> 소명은 수도사·사제의 것이었으나 루터는 모든 신자가 소명받았다고 했다. 성실한 농부와 일꾼이 수도사보다 귀하고 기저귀를 빠는 아버지를 하나님과 천사들이 기뻐하신다. 교수는 종교개혁을 보여 주는 것으로 성경 번역과 결혼을 들었다 [1강 235–250]. 성경 번역은 사제의 중재를 빼고 직접 하나님을 만나게 한 것이며 목회자는 중요하나 구원의 근거는 아니다 [1강 251–255].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>전신자 제사장:</b> 교수: <span class="tq">“용어 하나 우리가 좀 알아야 될 것이”</span> [1강 259]. 모든 사람이 아니라 거듭난 신자가 제사장이므로 ‘만인제사장’이 아니라 <b>‘전신자 제사장’</b>이다 [1강 260–264]. 구두 수선공·대장장이·농부도 각기 성별받은 사제와 주교와 같고 [1강 265, 자막 ‘의료 수송공’은 교재 p.6로 교정], 교수는 이 점에서 침례교와 상당히 유사하나 교회론은 다르다고 한다 [1강 266–268]. <span class="bdg b-sup">📖 교재 p.6</span> 『독일 그리스도인 귀족에게』(1520).</li>
+          <li><b>세 신분과 위험:</b> 교회·가정·정치 공동체의 자리에서 소명을 따라 살라고 했다. 불의한 명령에는 복종하지 말라고도 했으나 자칫 봉건 질서를 정당화할 위험이 있고 농민전쟁에서 드러났다 [1강 270–277].</li>
+          <li><b>사례 — 금융회사 영업직원:</b> 위험을 숨기고 수수료 높은 상품을 팔 수 있는 자리에서 충분히 설명하고 부당한 것은 거절한다 [1강 278–288]. <span class="bdg b-sup">📖 교재 p.7</span> 그 뒤의 결정은 루터의 원칙만으로는 안 되고 공동체의 분별이 필요하다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 공동체와 십자가</h3>
+          <div class="unit-desc">교회의 표지 · 셋째 형태의 예배 · 시련</div>
+        </div>
+      </div>
+      <div class="oneline">루터는 말씀·성례로 형성되는 교회를 그렸으나 회중이 서로 권면하는 구상은 실행되지 않았다.</div>
+      <div class="key">
+        <ul>
+          <li><b>교회의 표지 7가지:</b> 말씀, 침례, 만찬, 열쇠의 직무, 직분자, 공동 기도와 찬송, 거룩한 십자가 [1강 290–293]. <span class="bdg b-sup">📖 교재 p.7</span> 『공의회와 교회에 관하여』(1539).</li>
+          <li><b>한계:</b> 『독일 미사』 서문의 셋째 형태의 예배(오늘의 셀·침례교적 모임)를 교회 안에 두지 못했다 [1강 295–297]. 권징의 권리를 영주·주교·회중 중 누구에게 두는가가 다르며 침례교로서는 비판적으로 읽을 수밖에 없다 [1강 298–300].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>시련(Anfechtung):</b> 교수: <span class="tq">“이 루트에서 참 중요한 단어에요”</span> [1강 302]. 믿음으로 살아서 오는 어려움, 그와 무관하게 오는 것, 내적 불안이 있고, 십자가는 고난을 인내하며 소망하는 그리스도인됨의 표지다 [1강 303–314]. <span class="bdg b-sup">📖 교재 p.8</span> 시련은 믿음의 경험이고 박해는 타인이 가하는 행위여서 같지 않다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s6">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 평화와 칼 — 두 통치와 그 시험</h3>
+          <div class="unit-desc">두 통치 · 네 구별 · 영주 교회 · 농민전쟁 · 재세례파</div>
+        </div>
+      </div>
+      <div class="oneline">두 통치로 세속 권세의 한계를 그었으나 농민전쟁과 이단 처벌에서 그 원칙은 약자에게 불리하게 무너졌다.</div>
+      <div class="key">
+        <ul>
+          <li><b>두 통치:</b> 영적 통치(말씀·양심·성령)와 세속 통치(법과 강제력으로 악을 억제하고 평화를 추구) [1강 315–322]. 세속 권세는 내면·종교에 설 수 없고 이단은 칼이 아니라 말씀으로 다스려야 한다고 했으나 나중에 바꾼다 [1강 325–333]. <span class="bdg b-sup">📖 교재 p.8</span> 『세속 권세』(1523).</li>
+          <li><b>네 구별:</b> 사적 보복은 금하고 공적 강제력은 이웃 사랑의 한 형태로 정당화한다 [1강 334–340]. <span class="bdg b-sup">📖 교재 p.9</span> 자기를 위한 보복 · 긴급한 방어 · 복음 때문의 박해 · 공적 직무의 강제력.</li>
+          <li><b>영주 교회:</b> 영주의 지원이 제도가 되어 영주가 교회를 지배했고 루터·칼뱅의 교회는 국가 교회다. 이에 반해 1세기 신앙을 살려다 고난받은 이들이 급진 종교개혁이다 [1강 340–361]. <span class="bdg b-sup">📖 교재 p.9</span> 1527년 이후 ‘비상 감독’이 영주 교회 체제로 굳어졌다. 교수는 시대의 철저라는 면에서 가톨릭과 같다고 보고, 침례교는 국가 교회가 아니라 프리 처치의 영향을 받았으며 회중이 교회를 이끌어야 하고 오늘의 세상은 정교분리라고 말한다 [1강 346–351]. 급진 종교개혁은 시대를 앞서가 죽을 수밖에 없었다 [1강 358].</li>
+          <li><b>첫째 시험 — 농민전쟁(1525):</b> 처음에는 제후를 책망하며 농민을 옹호했으나 농민에게는 대항이 그리스도의 법이 아니라고 했고, 반란이 거세지자 제후에게 “쳐 죽이고 … 찔러 죽이라”고 했다 [1강 371; <span class="bdg b-sup">📖 교재 p.10</span> “쳐 죽이고 목 졸라 죽이고 찔러 죽이게”]. 칼 아래 쓰러지는 쪽은 약자였다 [1강 362–376].</li>
+          <li><b>둘째 시험 — 재세례파:</b> 유아세례는 오늘의 주민등록증 같은 것이어서 이를 거부하면 국가 질서의 전복으로 여겨졌다. 교수는 신앙이 다르다고 처벌할 수 없다고 본다 [1강 377–386]. <span class="bdg b-sup">📖 교재 p.10–11</span> 1529 슈파이어, 1536 비텐베르크 의견서(영적 오류에도 사형 허용). 2010년 루터교세계연맹이 메노나이트에게 용서를 구했다.</li>
+          <li><b>배울 것(교수 정리):</b> ① 이신칭의로 자기 증명에서 해방 ② 직업 소명으로 일상의 중요성 ③ 권세의 한계를 인정했으나 권력이 종교 영역까지 들어오게 한 점은 비판 [1강 390–394].</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- PART 2 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 칼뱅의 윤리 — 하나님께 속한 삶과 서로를 빚는 공동체 (2강)</h2>
+      <span class="part-badge">기독교윤리학 개론 9장</span>
+    </div>
+
+
+    <article class="unit-card" id="s7">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 도입 — 참된 교회는 어디에 있는가</h3>
+          <div class="unit-desc">제네바에 남은 칼뱅 · 『기독교강요』 · 하나님의 것으로 사는 삶</div>
+        </div>
+      </div>
+      <div class="oneline">루터의 물음이 “은혜로운 하나님”이었다면 칼뱅의 물음은 “참된 교회”이며, 윤리는 은혜를 누리는 방식이다.</div>
+      <div class="key">
+        <ul>
+          <li><b>제네바:</b> 칼뱅은 루터와 달리 차분하고 학자적이다. 제네바에 하룻밤 들르려다 파렐이 학문의 평안만 찾으면 하나님이 저주하실 것이라 하자 남아 종교개혁을 완수했다 [2강 4–21]. <span class="bdg b-sup">📖 교재 p.1</span> 1536년, 인문학·법학 수학, 공직 없음.</li>
+          <li><b>『기독교강요』 4권:</b> 창조주 / 구속주 / 은혜를 받는 방식과 열매 / 교회·성례·국가. 윤리는 독립된 권이 아니라 각 권에 녹아 있다(율법·십계명 2권, 회개·자유·기도 3권, 교회·권징·국가 4권) [2강 33–40].</li>
+          <li><b>중심 명제:</b> 하나님이 창조자·주권자이시므로 우리는 우리 자신이 아니라 하나님의 것이다. 몸·시간·재물은 이웃의 유익을 위해 쓴다 [2강 41–52]. <span class="bdg b-sup">📖 교재 p.1</span> 구별은 소유권의 이전.</li>
+          <li><b>네 통념:</b> 예정론=운명론, 율법주의, 자본주의의 아버지, 신정 독재 [2강 53–58].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>윤리는 교리의 부록이 아니다:</b> 교수: “은혜를 받고 누리는 방식입니다. <span class="tq">늘 말씀드리지만</span>…” [2강 59–60]. 윤리를 은혜의 조건으로 삼으면 주객이 전도된다 [2강 62–63].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>『기독교강요』 읽기:</b> 교수: <span class="tq">“졸업하기 전에 반드시 한번은 꼭 좀 읽으시면 좋겠습니다”</span> [2강 67].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s8">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 은혜와 연합 — 칭의·성화·예정</h3>
+          <div class="unit-desc">경건 · 그리스도와의 연합 · 평생의 회개 · 예정론의 위치</div>
+        </div>
+      </div>
+      <div class="oneline">칼뱅 윤리의 근거는 성령이 이루시는 그리스도와의 연합이다. 칭의와 성화는 구별되나 나뉘지 않는다.</div>
+      <div class="key">
+        <ul>
+          <li><b>두 지식과 경건:</b> 하나님을 아는 지식과 나를 아는 지식은 하나이며 하나님을 아는 것이 먼저다. 둘의 통합이 경건이고 계명을 일상에서 살아내는 것이 윤리다 [2강 71–90]. <span class="bdg b-sup">📖 교재 p.2</span> 1.1.1, 1.2.1.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>그리스도와의 연합:</b> 교수: <span class="tq">“아주아주 중요한 키워드입니다”</span> [2강 94–95]. 교수는 하나님과의 연합이 바울신학의 핵심 키워드이고 칼뱅에게서도 그렇다고 말한다. 성령이 예수님과 우리를 하나로 묶으셔야 그 삶을 살 수 있다 [2강 96–98]. 칭의와 성화는 구별되나 결단코 나뉠 수 없다 [2강 103–104]. <span class="bdg b-sup">📖 교재 p.2</span> ‘이중의 은혜’(3.11.1).</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>평생의 회개:</b> 교수: <span class="tq">“날마다 때마다 시마다 한평생 필요하다”</span> [2강 109], <span class="tq">“아주 중요하죠”</span> [2강 110]. 어디까지 올랐는가보다 그리스도와 동행하는 <b>삶의 방향</b>이 중요하다 [2강 111–113].</li>
+          <li><b>예정론의 위치:</b> 칼뱅은 최종판에서 예정론을 섭리에서 떼어 3권으로 옮겼다. 예정은 은혜받았다는 것의 확증이고 열매는 겸손, 확신의 근거는 그리스도다 [2강 117–125]. <span class="bdg b-sup">📖 교재 p.3</span> 3.21–24. <span class="bdg b-add">📌 강의추가</span> 예정론이 이렇게 중요해진 것은 후계자 때문이고 칼뱅 자신은 아니며 17세기 ‘실천적 삼단논법’도 칼뱅의 가르침이 아니다 [2강 126–128].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s9">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§9. 율법과 성품 — 세 용도와 그리스도인의 자유</h3>
+          <div class="unit-desc">거울·억제·가르침 · 십계명 해석 원칙 · 자연법 · 아디아포라</div>
+        </div>
+      </div>
+      <div class="oneline">율법은 구원의 조건이 아니라 은혜받은 사람이 감사로 걸어갈 길이며, 그리스도인의 자유가 율법주의를 막는 균형추다.</div>
+      <div class="key">
+        <ul>
+          <li><b>율법의 세 용도:</b> ① 거울 — 내 죄와 부끄러움을 보게 함 ② 억제 — 외적 행동 억제(도둑질 안 한다고 좋은 사람이 되지는 않으므로 성품의 변화가 필요) ③ 가르침 — 그리스도와 연합한 삶으로 하나님께 영광 돌릴 길을 알려 줌 [2강 138–158]. 첫째·둘째는 루터의 신학적·시민적 용법에 대응한다 [2강 145–148]. <span class="bdg b-sup">📖 교재 p.3</span> 2.7.6–12.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>셋째 용도:</b> 교수: <span class="tq">“이게 칼뱅에 의해서 가장 중요하게 보는 거죠”</span> [2강 156], <span class="tq">“제3용도 후에 기억하시면 돼요”</span> [2강 372]. “신자는 율법의 저주에서 해방되었으나 율법의 가르침에서는 해방되지 않았다”(2권 7장 13–15절) [2강 159–160].</li>
+          <li><b>십계명 해석 세 원칙:</b> 영적(마음까지 겨냥) · 금지는 반대의 적극적 의무를 포함(살인하지 말라 → 생명을 지켜라) · 극단적 예가 그 아래를 포함(살인 → 미움) [2강 162–176]. <span class="bdg b-sup">📖 교재 p.3–4</span> 2.8.6–10.</li>
+          <li><b>자연법:</b> 십계명은 양심에 새겨진 자연법과 연결되어 시민의 공정·형평에 필요하고 비그리스도인과 정의·평화를 실천할 길이 열린다. 동시에 거듭남이 필요하다 [2강 177–181].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>아디아포라:</b> 성경에 명하지도 금하지도 않은 일은 자유에 맡긴다. 교수: <span class="tq">“아주 중요한 얘기입니다”</span> [2강 189]. 그 자유는 로마서 14장처럼 이웃의 종이 되는 사랑의 자유다 [2강 190–203]. <span class="bdg b-sup">📖 교재 p.4</span> 3.19.</li>
+          <li><b>율법과 자유의 공존:</b> 율법이 성령·공동체의 인도에서 떨어지면 점수 매기는 목록이 되어 자유가 사라진다. 그래서 3권에서 셋째 용도와 그리스도인의 자유를 함께 말한다 [2강 204–212].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s10">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§10. 서사와 순례 — 자기부인과 내세 묵상</h3>
+          <div class="unit-desc">소유권의 이전 · 원수 사랑 · 십자가 · 현세의 누림 · 막스 베버</div>
+        </div>
+      </div>
+      <div class="oneline">자기부인은 자기 학대가 아니라 소유권의 이전이며, 그 방향은 원수를 포함한 이웃 사랑과 나눔이다.</div>
+      <div class="key">
+        <ul>
+          <li><b>순례:</b> 신자의 삶은 아브라함·이삭·야곱에서 이어진 긴 이야기이며 이 땅의 보상보다 하늘나라의 소망으로 사는 순례자다 [2강 214–217]. 네 주제: 자기부인, 십자가, 내세 묵상, 현실의 삶 [2강 219]. <span class="bdg b-sup">📖 교재 p.5</span> 3.6–10.</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>자기부인과 원수 사랑:</b> 내 삶의 주인이 내가 아니라 하나님이라는 소유권의 이전이며 원수 사랑에까지 이른다 [2강 220–225]. 교수: <span class="tq">“아주 중요한 포인트였습니다”</span> [2강 226]. 원수 안에도 하나님의 형상이 있어 사랑받아 마땅하다 [2강 227–234]. <span class="bdg b-sup">📖 교재 p.5</span> 3.7.6.</li>
+          <li><b>십자가:</b> 부당한 폭력을 폭력으로 갚지 않고 소망하는 것. 스토아적 무감각이 아니라 탄식하며 소망한다. 칼뱅 자신이 망명자였다 [2강 235–241].</li>
+          <li><b>내세 묵상과 누림:</b> 내세 묵상은 현실로 돌아오게 한다. 하나님이 주신 것은 “누림이 먼저”이고 쾌락주의가 되지 않게 절제해 이웃과 나눈다. 소명은 받은 것을 타인에게 나누는 데 있다 [2강 243–253]. <span class="bdg b-sup">📖 교재 p.6</span> 3.10.3.</li>
+          <li><b>막스 베버:</b> 칼뱅이 자본주의 정신을 낳았다는 것은 칼뱅과 관계가 별로 없다. 정직·절제·절약·부의 창출이 자본주의와 맞아떨어지는 면은 없지 않으나, 그것은 하나님의 것이라는 인식의 열매이고 자본주의와 곧바로 잇는 것은 과도한 해석이다. 베버가 본 것은 17세기 청교도다 [2강 254–260].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s11">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§11. 공동체 — 직분·성례·권징</h3>
+          <div class="unit-desc">교회는 어머니 · 네 직분 · 권징은 근육 · 콩시스투아르</div>
+        </div>
+      </div>
+      <div class="oneline">교회는 어머니로서 말씀·성례·돌봄·권징으로 신자를 빚으며 권징의 목적은 배제가 아니라 회복이다. 다만 제네바에서는 시의회와 연결된 한계가 있었다.</div>
+      <div class="key">
+        <ul>
+          <li><b>네 직분:</b> 목사(말씀 선포·성례), 교사(가르침), 장로(꾸짖고 바르게 함), 집사(물질적 구제). 장로는 시 의회 의원이 될 수 있어 교회와 의회가 연결되어 있어서 오늘은 거리를 두고 읽는다 [2강 262–271]. <span class="bdg b-sup">📖 교재 p.6</span> 4.1.4, 4.3.</li>
+          <li><span class="bdg b-add">📌 강의추가</span> <b>교회의 표지 — 교수의 비판:</b> 칼뱅의 표지는 말씀과 성례다(루터는 일곱). 그런데 행하는 이는 목사이므로 사제 중심의 중세적 잔재가 남아 있다는 비판이다. 서로 사랑하고 원수를 사랑하며 십자가를 따르는 것이 교회됨의 표지라고 본다 [2강 272–279].</li>
+          <li><b>집사:</b> 나그네를 맞아들이고 돌보는 일은 집사가 맡는다 [2강 285–288]. <span class="bdg b-sup">📖 교재 p.7</span> 박해받아 온 프랑스 난민을 위한 ‘프랑스 기금’.</li>
+          <li><b>권징은 근육:</b> 말씀과 성례가 생명이라면 권징은 몸을 결속하는 근육이며 표지는 아니다(교수는 재세례파에서는 권징이 아주 중요하다고 하며, 자막 오인식으로 재세례파는 추정 [?]). 목적은 추방이 아니라 회복과 화해다 [2강 291–300]. <span class="bdg b-sup">📖 교재 p.7</span> 4.12.1.</li>
+          <li><b>콩시스투아르:</b> 두 해 동안 600여 건을 다뤘고 가장 흔한 것은 훈계와 책망이었으나 춤 등도 조사했다 [2강 309–312]. 평가 물음: 누가 판단하는가(목사·남성 장로) · 판단받는 사람은 말할 수 있는가 · 회복인가 순응인가 · 약자는 보호받는가 [2강 315–319]. <span class="bdg b-sup">📖 교재 p.7–8</span></li>
+          <li><b>📌 강의추가 니버 분류와의 비교:</b> 교수는 칼뱅이 노래와 춤을 경시한 점에서 보면, 리처드 니버가 루터를 ‘역설’, 칼뱅을 ‘변혁’으로 본 분류와 오히려 반대이고 루터가 당시 유행가 가사를 붙인 찬송가를 지은 점에서 루터가 더 변혁적이라고 본다 [2강 311–314, 자막 오인식 있음].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s12">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§12. 시민 정부와 세르베투스 사건</h3>
+          <div class="unit-desc">정부의 일 · 참된 종교의 보호 · 신정 독재 · 세르베투스</div>
+        </div>
+      </div>
+      <div class="oneline">칼뱅은 시민 정부를 필수적 선물로 높이면서도 참된 종교의 보호를 맡겼고, 그 결과 세르베투스 사건에서 신앙의 일치를 칼로 지키려는 판단이 문제로 드러났다.</div>
+      <div class="key">
+        <ul>
+          <li><b>정부:</b> 빵과 물과 공기처럼 필수불가결한 선물이다. 두 통치를 구별하는 점은 루터와 비슷하나 루터가 대립을, 칼뱅은 하나님의 주권으로 통합을 더 강조한다 [2강 324–329]. <span class="bdg b-sup">📖 교재 p.8</span> 4.20.3.</li>
+          <li><b>참된 종교의 보호:</b> 정부는 치안·재산 외에 우상숭배·신성모독을 막고 이를 어기는 자를 벌한다. 교수는 오늘 적응하기 어려워 비판적 거리를 두고 읽어야 한다고 한다 [2강 330–337]. 저항은 시민이 아니라 정부 관리만 할 수 있다고 했다 [2강 342–344].</li>
+          <li><b>신정 국가였는가:</b> 아니다. 칼뱅은 공직을 맡지 않았고 의회가 핵심 주체였다. 오늘 같은 정교분리는 아니나 당시로는 앞섰다 [2강 347–353].</li>
+          <li><b>세르베투스:</b> 삼위일체를 부정한 이단이다. 칼뱅은 화형 대신 칼(참수)로 처형하자고 요청했으나(<span class="bdg b-sup">📖 교재 p.10</span>) 이단을 법적으로 제재할 수 있다는 점에서 중세적 사고가 남아 있다 [2강 354–362]. 교수는 교회는 회복을 위해 권징하면서 국가의 사형은 인정하는 일관성 부족을 지적하되, 층위가 달라서 가능했다고 볼 수도 있다고 한다 [2강 365–369]. 세르베투스는 스스로 제네바에 와 칼뱅의 설교 예배에 갔고 [2강 357–358], 재세례파는 종교 문제에 국가가 개입·간섭할 수 없다고 주장했다 [2강 363–364]. 교수의 정리: 국가의 칼을 거부하는 교회도 피해자 보호와 내부 권력 양면에 책임져야 한다 [2강 370]. <span class="bdg b-sup">📖 교재 p.10–11</span> 1553년 10월 27일 화형. 교재는 루터와 칼뱅 모두 종교적 이견을 공적 질서의 문제로 다루어 칼을 허용했다고 본다(p.12).</li>
+          <li><b>정리(교수):</b> 모든 것이 하나님의 것이므로 하나님의 뜻에 따라 살아야 한다. 성화·셋째 용도·순례의 정체성·형성하는 공동체를 기억하되 칼뱅의 비판할 점도 기억한다 [2강 371–380].</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- PART 3 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 비교 및 정리</h2>
+      <span class="part-badge">루터 ↔ 칼뱅</span>
+    </div>
+
+    <article class="unit-card" id="s13">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§13. 종합 비교 — 루터 ↔ 칼뱅</h3>
+          <div class="unit-desc">강의와 교재에 나온 내용만 정리한 비교표</div>
+        </div>
+      </div>
+      <div class="oneline">루터는 은혜의 확실성과 권세의 한계를, 칼뱅은 은혜가 빚는 삶과 공동체의 제도를 구체화했으나 마지막 시험에서는 같은 자리에 섰다.</div>
+      <table class="custom-table cmp">
+        <thead>
+          <tr><th>비교 항목</th><th>루터</th><th>칼뱅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="hl">핵심 물음</td><td>어떻게 은혜로운 하나님을 만날 수 있는가 [1강 14]</td><td>어디서 참된 교회를 발견할 수 있는가 [2강 5; 교재 p.1]</td></tr>
+          <tr><td class="hl">중심 명제</td><td>믿음으로 그리스도 안에, 사랑으로 이웃 안에 산다 [교재 8장 p.2]</td><td>우리는 우리 자신의 것이 아니라 하나님의 것이다 [2강 44; 교재 9장 p.1]</td></tr>
+          <tr><td class="hl">은혜의 구조</td><td>밖에서 온 의(첫째) → 고유의 의(둘째, 열매) [1강 91–93]</td><td>그리스도와의 연합 안에서 칭의·성화 구별되나 불가분 [2강 99–104]</td></tr>
+          <tr><td class="hl">율법</td><td>시민적 용법·신학적 용법 [1강 201–206]</td><td>거울·억제·가르침, 셋째가 가장 중요 [2강 138–158]</td></tr>
+          <tr><td class="hl">성품</td><td>습관이 공로가 되는 것을 경계, 몸 훈련·기도는 인정 [1강 159–166]</td><td>율법으로 마음을 빚음, 자기부인(소유권 이전) [2강 175, 220–223]</td></tr>
+          <tr><td class="hl">소명</td><td>모든 신자의 소명, 세 신분(교회·가정·정치) [1강 239, 270]</td><td>삶의 자리(초소), 받은 것을 이웃에게 나눔 [2강 252–253; 교재 p.6]</td></tr>
+          <tr><td class="hl">교회의 표지</td><td>말씀·침례·만찬·열쇠·직분·기도와 찬송·십자가 (7가지) [1강 290]</td><td>말씀과 성례, 권징은 근육 [2강 272–296]</td></tr>
+          <tr><td class="hl">통치 이해</td><td>두 통치, 대립을 더 강조 [2강 328]</td><td>두 통치, 하나님의 주권으로 통합을 더 강조 [2강 328]</td></tr>
+          <tr><td class="hl">시험과 한계</td><td>농민전쟁, 재세례파 처벌, 영주 교회 [1강 340–386]</td><td>콩시스투아르와 시의회 연결, 세르베투스 화형 [2강 315–360]</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <!-- EXAM SECTION -->
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 §14. 예상 문항</div>
+    <p class="exam-note">(노트 정리용 예상 문항 — 교수 언급 아님) 답은 이 노트 본문 내용만으로 작성했고 끝에 근거 위치를 적었습니다.</p>
+
+    <h3 class="exam-h">[1강] 루터의 윤리 — O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 루터는 “의로운 일을 행함으로써 의롭게 되는 것이 아니라, 의롭게 된 다음에 의로운 일을 행한다”고 했다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 「스콜라 신학 논박」(1517). [§2, 1강 53]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 교수는 ‘만인제사장’보다 ‘전신자 제사장’이 문자 그대로의 표현이라고 설명했다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 모든 사람이 아니라 거듭난 그리스도인이 제사장이기 때문이다. [§4, 1강 259–264]</div>
+    </div>
+
+    <h3 class="exam-h">[2강] 칼뱅의 윤리 — O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 칼뱅은 최종판에서 예정론을 섭리에서 떼어 3권(은혜를 받는 방식과 열매)으로 옮겼다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 예정은 은혜받았다는 것의 확증이며 열매는 겸손이다. [§8, 2강 117–125]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 칼뱅이 가장 중요하게 본 율법의 용도는 외적 행동을 억제하는 둘째 용도이다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 가장 중요하게 본 것은 셋째 용도인 가르침이다. [§9, 2강 156]</div>
+    </div>
+
+    <h3 class="exam-h">서술 예상 과제</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 1. 루터의 ‘두 종류의 의’, ‘의인이자 죄인’, ‘소명’을 설명하고 두 통치가 농민전쟁과 재세례파 문제에서 어떤 한계를 드러냈는지 논하라.</div>
+      <div class="quiz-ans">
+        <strong>답안 골자</strong>
+        <ul>
+          <li>밖에서 온 의와 그 열매로서의 고유의 의, 자기 증명에서의 해방 [§2].</li>
+          <li>구원은 시작되었으나 완성되지 않았고 자기 안으로 굽은 인간이 남아 있음 [§3].</li>
+          <li>소명이 모든 신자에게 확장되었으나 세 신분이 체념의 신학이 될 위험 [§4].</li>
+          <li>세속 권세의 한계를 세웠으나 농민전쟁(1525)과 1536년 의견서에서 원칙이 무너짐 [§6].</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 2. 칼뱅이 그리스도와의 연합, 율법의 세 용도, 자기부인, 교회의 권징을 어떻게 연결하는지 설명하고 세르베투스 사건이 보여 주는 한계를 논하라.</div>
+      <div class="quiz-ans">
+        <strong>답안 골자</strong>
+        <ul>
+          <li>성령이 이루시는 연합에서 칭의와 성화가 함께 주어짐 [§8].</li>
+          <li>거울·억제·가르침, 셋째 용도와 그리스도인의 자유의 균형 [§9].</li>
+          <li>자기부인(소유권의 이전) → 이웃 사랑·원수 사랑·나눔 [§10].</li>
+          <li>교회는 어머니, 권징은 근육이며 목적은 회복 [§11].</li>
+          <li>콩시스투아르와 시의회의 통로, 참된 종교를 보호하는 정부, 세르베투스 화형 [§12].</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="exam-h">✍️ 내 생각 메모란</h3>
+    <textarea class="memo" rows="5" placeholder="이번 주 강의에서 내 삶과 목회에 비추어 본 가장 인상적인 통찰과 비판적 질문을 기록해 두세요."></textarea>
+  </section>
+
+  <!-- APPENDIX -->
+  <details class="apx" id="apx">
+    <summary>부록 — 토론 질문 · 자막 교정[?]·보충[보충] 목록</summary>
+    <div class="dbody">
+      <h4>교재 토론 질문(발췌, 원문)</h4>
+      <ol>
+        <li>루터: 성적, 실적, 외모, 화면 속의 반응처럼 오늘 우리 사회가 사람의 가치를 매기는 기준 가운데 나를 가장 강하게 붙드는 것은 무엇인가. ‘나는 침례받았다’는 고백과 ‘나의 거룩함도 무자격함도 마음에 두지 않고 그리스도를 믿는다’는 고백은 그 기준 앞에서 나의 선택을 실제로 어떻게 바꿀 수 있는가. (교재 8장 p.14, 질문 2)</li>
+        <li>칼뱅: 내가 지키고 있다고 생각하는 계명 하나를 골라 그 계명이 명하는 적극적 의무를 적어 보라. 나는 그 의무 앞에서도 계명을 지키고 있다고 말할 수 있는가. (교재 9장 p.13, 질문 2)</li>
+      </ol>
+
+      <h4>자막 오인식 교정 [?] (자동 자막이라 오인식이 많음)</h4>
+      <ul>
+        <li>‘리츠유’ · ‘루트’ → 루터(의 윤리) [1강 1]. ‘빨갱이’ · ‘깔뱅’ → 칼뱅 [2강 전반]. — 티켓·교재 장 제목 근거.</li>
+        <li>‘성 어거스틴계열의 15회’ → 성 아우구스티누스회 수도원 [1강 12] — 교재 8장 p.1.</li>
+        <li>‘로마서 12장 12’ → 로마서 1장 16–17절 [1강 62–63] — 같은 대목에서 교수가 1장 16–17절을 말하고 교재 p.2가 롬 1:17을 인용.</li>
+        <li>‘해독은 시작되었지만’ → 치료·회복은 시작되었으나 [1강 130] — 환자 비유(교재 p.4 “회복은 시작되었으나”).</li>
+        <li>‘20수가 쓴 책’ → 에라스무스의 『자유의지론』 [1강 172] — 교재 p.5.</li>
+        <li>‘보름시 국회’ → 보름스 제국의회 [1강 213] — 교재 p.2. ‘히라이’는 영어 Here I stand로 추정되며 교재에는 없음 [1강 214].</li>
+        <li>‘안깨우통’ → Anfechtung(시련) [1강 302] — 교재 p.6.</li>
+        <li>‘아나빈티지/알베르티스트/아라비아들’ → 아나뱁티스트(재세례파) [1강 352–354, 385] — 교재 p.9–11.</li>
+        <li>‘기욤 발레리’ → 기욤 파렐 [2강 15] — 교재 9장 p.1.</li>
+        <li>‘디아스포라’ → 아디아포라(adiaphora) [2강 189–190] — 교재 p.4(“결정된 것 없으면 자유” 설명과 일치).</li>
+        <li>‘말씀과 승리’ → 말씀과 성례(성찬) [2강 272–276] — 같은 대목의 ‘성례자성찬’, 교재 p.7.</li>
+        <li>‘공시’ → 콩시스투아르 [2강 309] — 교재 p.7.</li>
+        <li>‘세르베툴’ → 세르베투스 [2강 354]. ‘백들에게서는 권징이…’ [2강 291] → 문맥상 재세례파(추정). ‘대자’ [2강 126]는 후계자 이름으로 보이나 불명.</li>
+        <li>‘13직무’ → 열쇠의 직무 [1강 290] · ‘의료 수송공’ → 구두 수선공 [1강 265] — 교재 8장 p.6–7. ‘곤증·곤중’ → 권징 [1강 298, 2강 306] · ‘십자군’ → 4권 [2강 39] · ‘직소’ → 그리스도(추정) [2강 125] · ‘로마서 12장 12’는 1장 16–17절의 반복 오인식으로 추정.</li>
+      </ul>
+
+      <h4>[보충] 교수 발언과 교재의 차이</h4>
+      <ul>
+        <li>율법의 ‘제3용법’을 루터와 연결한 듯한 대목 [1강 207]: 교재 8장 후주 3(p.13)은 루터 자신은 이 문구를 쓰지 않았다고 설명한다. 자막이 불분명해 교수가 정확히 무엇을 말했는지는 확정할 수 없다. 같은 후주는 이 용어가 멜란히톤과 칼뱅을 거쳐 루터교 정통주의에서 굳어졌다고 한다.</li>
+        <li>벼락 서원 이야기 [1강 9–11]: 교재 8장 p.1의 사료 주석 — 이 이야기는 훨씬 뒤의 기록으로 전해진다.</li>
+        <li>교수는 영광의 신학을 “문자적으로 읽으면 가톨릭” [1강 76]이라 했으나 교재 p.3은 영광의 신학자·십자가의 신학자라는 두 유형의 대조로 서술하고 가톨릭이라는 규정은 하지 않는다.</li>
+        <li>세르베투스 [2강 360–361]: 교수는 칼뱅이 사형을 반대하고 참수를 말한 “약간의 관용”을 언급하나(자막 불분명), 교재 9장 p.10은 칼뱅의 고발·구금, “살아서 나가지 못하게 하겠다”는 서신, 처형 이듬해 『정통 신앙 옹호』를 통한 변호를 책임으로 짚는다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 교재: 『기독교윤리학 개론』 8장(루터의 윤리) · 9장(칼뱅의 윤리) 및 수업 자막 · 쪽수는 교재 PDF 쪽</p>
+  </footer>
+
+</div>
+
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>
