@@ -583,7 +583,9 @@ const SITE_DATA = {
             { week: 5, title: "5주차 영국 종교개혁과 청교도운동, 그리고 미국 교단의 성립", date: "2026.09.29", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week05.html" }
           ] },
-            { week: 6, title: "", date: "", files: [] },
+            { week: 6, title: "이성과 부흥의 시대 — 근대 철학과 경건주의의 탄생", date: "2026.10.06", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week06.html" }
+          ] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },

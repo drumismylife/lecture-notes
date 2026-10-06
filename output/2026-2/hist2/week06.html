@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 6주차 이성과 부흥의 시대: 근대 철학과 경건주의의 탄생</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>이성과 부흥의 시대 — 근대 철학과 경건주의의 탄생</h1>
+<p class="meta">교회사II · 6주차(2026.10.06 대면수업) · 제7부 이성과 부흥의 시대(1648~1789) <span class="badge era">이성·부흥의 시대</span><br>
+자료: 수업 전사(아이폰 자동 전사) + 교재 p.151~159 (PDF 22~26쪽, A3 한 장에 두 쪽씩 스캔) &nbsp;|&nbsp; 배지:
+<span class="bd v1">수업</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br>
+<span style="color:var(--text2)">[전사 n] = 전사문 약 n천 자 지점(전사는 줄바꿈이 없어 글자 수로 위치 표기). 전사는 오인식이 많아 인명·지명은 교재 표기로 맞추고 교정 내역은 맨 아래에 모았다.</span></p>
+
+<div class="key">
+  <strong>지난 시간 복습</strong> <span class="bd v1">수업</span>
+  <ul class="tight">
+    <li>영국 성공회도 개신교: 로마 가톨릭에 대항해 영국 국왕이 리더십을 갖는 "영국식 가톨릭"이며, 국왕에 따라 친개신교·친가톨릭·중도 정책이 갈렸다. [전사 0]</li>
+    <li>청교도 = 성공회 안에 남아 개혁하려는 쪽, 분리주의자 = 성공회에서 나와 독립교회를 세우려던 쪽. [전사 0~1]</li>
+    <li>침례교의 정체성은 <strong>"신자의 침례"</strong> — 침례 양식보다 <strong>누가</strong> 받느냐(신앙 고백한 사람)가 핵심. [전사 2~4]</li>
+    <li>유아세례 이해(교수): 구원이 오는 행위로 보지 않고 신자 부모가 신앙으로 양육하겠다는 고백·언약으로 설명. [전사 5~6]</li>
+  </ul>
+</div>
+
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <ul class="tight">
+    <li><strong>시대의 구도</strong>: 이성과 부흥의 시대는 사실 <strong>이성 vs 체험·감정(경건)</strong>의 싸움. 이성(합리주의·계몽주의)이 먼저 오고, 그 반발로 부흥운동이 나온다. [전사 9] <span class="bd tb">p.151</span></li>
+    <li><strong>데카르트(1589~1650)</strong> = 합리론, "근대철학의 아버지". 정신/자연 이원론, "나는 생각한다 고로 존재한다". 루터(종교개혁 1517)보다 한참 뒤 사람. [전사 10]</li>
+    <li><strong>합리론(데카르트·스피노자·라이프니츠) → 반발: 영국 경험론(로크·버클리·흄) → 회의론</strong>. 계몽주의는 이성으로 미신·무지를 타파, 이신론·자유와 평등.</li>
+    <li>신학에서는 <strong>개신교 정통주의(스콜라주의·신앙고백주의)</strong>가 신조·교리로 신앙을 규정(16~18세기) → 그 반발이 <strong>경건주의</strong>. [전사 13~14]</li>
+    <li><strong>경건주의 계보</strong>: 슈페너(1675 『경건한 열망』 서문=경건주의 시작) → 프랑케(할레) → 진젠도르프(모라비아). 선교·평신도·에큐메니칼로 이어져 웨슬리·휫필드에게 계승. <span class="bd tb">p.155~159</span></li>
+    <li>철학 부분에 대한 교수 발언: "이건 좀 철학적인 내용이라서 … 우리에게 그렇게 필요하지는 않은 것 같습니다" (노트 요약: 큰 흐름 위주로 보면 됨). [전사 22~23]</li>
+    <li>다음 주: 경건주의에 영향받은 <strong>감리교 운동</strong>. [전사 33]</li>
+  </ul>
+  <p><strong>⭐ 교수 강조</strong></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>데카르트의 시기를 꼭 파악</strong> — "시기적으로 이걸 꼭 파악하시고" (루터가 죽은 한참 후의 근대세계) <span class="bd v1">전사 10</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>극단 뒤에는 반발이 반드시 온다(진자 운동)</strong> — "극단으로 치달으면 그에 대한 반발은 반드시 나오게 돼 있어요" <span class="bd v1">전사 20</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>파스칼의 핵심 = 이성이 아니라 심장</strong> — "이 파스칼의 핵심이 뭐냐 팡세라는 책의 핵심이 뭐냐" … "이성이 아니라 심장으로" <span class="bd v1">전사 25</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>평신도의 입장에서 어떻게 살 것인가</strong> — "교리가 중요한 게 아니라 일반 평신도의 입장에서 어떻게 살 것인가가 더 중요합니다" (안트 『경건한 열망』 서문 설명 중) <span class="bd v1">전사 30</span></div>
+</div>
+
+<div class="card">
+  <h2>1. 근대세계의 시작 — 합리론과 영국 경험론</h2>
+  <table>
+  <caption>근대 철학자 비교 (교재 p.151~153)</caption>
+  <tr><th style="width:17%">인물</th><th>핵심 주장</th><th style="width:15%">출처</th></tr>
+  <tr><td><strong>데카르트</strong><br><small>1589~1650 · 합리론</small></td><td>정신의 속성=사유, 물체의 속성=연장(공간)으로 세계를 <strong>정신과 자연</strong>으로 나눔. 공간·시간은 균질적 → 좌표(XY)로 계산 가능(교수 예화: 병영 천장의 파리 위치를 XY축으로 잡은 수학 천재. 모든 지식을 의심해 객관·보편 지식을 찾다가 수학 — 1+1=2, 삼각형 내각합 180도 — 이 사람·장소와 무관해 가장 확실하다고 봄). 연장 없는 존재(천사·정령)는 세상에서 추방(중세 animism 추방) → 자연은 "의미"가 제거된 <strong>역학적·기계론적 세계관</strong>(교수: 그래서 설교에서 바위·나무가 하나님을 찬양한다고 <em>단정</em>하면 이단 시비에 걸릴 수 있으니 "찬양하는 것 같다"로 말하라 — 전사 "2단"은 이단으로 읽음 [?]). "생각하는 나"의 존재는 확실. 이성("자연의 빛")은 만인에게 공평 → 인간은 평등하다는 이념, 신의 절대성을 인간 이성의 절대성으로 계승.</td><td><span class="bd tb">p.151</span><span class="bd v1">전사 10~16</span></td></tr>
+  <tr><td><strong>스피노자</strong><br><small>1632~1677</small></td><td>유대인 철학자, 비정통 사상으로 유대교회에서 제명, 하이델베르크 대학 교수직 거절. 정신도 물체도 실체가 아니고 세계는 하나의 실체=신 → <strong>범신론</strong>, 신=자연(헤겔에 영향). 우연성이 들어올 여지 없음 → 인간의 자유의지 부정(교수: 모든 것이 신의 역사이므로 우연도 기적도 없다). 교수: 교수직을 거절한 이유는 "일반적으로 알려지기는" 사상을 마음대로 펼 수 없어서라고 한다.</td><td><span class="bd tb">p.151</span><span class="bd v1">전사 16~18</span></td></tr>
+  <tr><td><strong>라이프니츠</strong><br><small>1646~1716</small></td><td>라이프치히 출생, 21세에 법학박사. 세계는 무수한 <strong>모나드</strong>(연장 없는 정신적 실체)로 구성, 변화는 모나드가 합쳐진 것 사이에서 발생(데모크리토스의 원자론과 유사).</td><td><span class="bd tb">p.151~152</span><span class="bd v1">전사 18</span></td></tr>
+  <tr><td><strong>로크</strong><br><small>1632~1704 · 경험론</small></td><td>마음은 글씨가 없는 <strong>백지(Tabula rasa)</strong>. 관념은 경험에서 → 보편적(객관적) 진리는 없다. 지식=감각(sensation)+내성(reflection). 교수 예화: 핸드폰의 생김새·촉감·용도가 감각으로 들어오면 정신이 숙고해 관념을 만든다 — 갓난아기에게 보여줘도 모른다.</td><td><span class="bd tb">p.152</span><span class="bd v1">전사 18~19</span></td></tr>
+  <tr><td><strong>버클리</strong><br><small>1685~1753</small></td><td>"존재하는 것은 지각하는 것이다" — 지각되지 않으면 존재하지 않는다는 뜻. (교수: 감각으로 못 느꼈다고 존재하지 않는 건 아니라는 문제 제기)</td><td><span class="bd tb">p.152</span><span class="bd v1">전사 19</span></td></tr>
+  <tr><td><strong>흄</strong><br><small>1711~1776</small></td><td>지식은 관념의 연합(다발). 정신은 경험으로 받아들여지는 지각의 다발 → <strong>회의주의</strong>. 결과는 진리의 주관성.</td><td><span class="bd tb">p.152</span><span class="bd v1">전사 19</span></td></tr>
+  </table>
+  <p>왜 철학을 보나(교수): 합리주의가 말하는 진리는 보편적·객관적이어야 하고, 이 틀에서 신앙도 주관적이어서는 안 된다. 성경에 오류가 없어야 하고 신앙은 신조·교리로 표현되어야 한다는 쪽(개신교 정통주의)과, 신앙은 개인적 만남·체험·삶이라는 쪽(경건주의)이 갈린다. 경건주의는 문자의 오류 여부보다 말씀대로 어떻게 살 것인가, 성령과 어떻게 동행하며 친밀하게 교제할 것인가, 신앙 공동체 생활을 어떻게 할 것인가를 중시했다(교수 Q&A). <span class="bd v1">전사 12~14</span></p>
+
+  <h3>계몽주의와 역사관 (1648~1789) <span class="bd tb">p.152</span></h3>
+  <ul class="tight">
+    <li>중세의 초자연적 세계·인생관 극복, 신대륙 발견·식민지화·제국주의 대두, 인간 이성·이신론 발달. 인간 중심적·낙관주의 경향. 대표자: 볼테르(교재).</li>
+    <li><strong>이신론</strong>(교수): 신이 시계 제작자처럼 세상을 만들어 놓으면 세상이 스스로의 원리로 돌아간다 → 신은 세상에 직접 관여하지 않는 멀리 계신 타자. <span class="bd v1">전사 20</span></li>
+    <li>모든 인간이 이성·양심을 가졌으므로 자유와 평등이 기본 권리 → 절대왕정 비판. <span class="bd v1">전사 20</span></li>
+  </ul>
+
+  <h3>낭만주의(1789~1850)와 독일 관념론 <span class="bd tb">p.152~153</span></h3>
+  <ul class="tight">
+    <li>낭만주의 = 인생의 감성·신비·상상력과 개인을 중시. 독일에서 시작. 철학·이성의 나라 독일에서 오히려 경건주의·낭만주의가 나온 것을 교수는 진자 운동으로 설명. 교회에도 적용: 교리·예전(성만찬·유아세례·교리공부) 강조 ↔ 그리스도와의 체험·만남 강조, 제자훈련 ↔ 삶을 나누는 셀그룹이 오간다. <span class="bd v1">전사 20~21</span></li>
+  </ul>
+  <table>
+  <tr><th style="width:17%">인물</th><th>핵심</th></tr>
+  <tr><td>칸트<br><small>1724~1803</small></td><td>세계를 현상 세계/현상을 초월한 세계(물 자체)로, 의식을 이론적 의식/실천적 의식으로 나눔 → 인간을 존재와 의식(윤리)으로 분열 → 교수: 존재를 중시하느냐 윤리를 중시하느냐에 따라 칸트 이후 좌·우파 후계자로 갈림. 교수: 양심을 통해 하나님이 명령하신다는 <strong>정언명령</strong>. <span class="bd v1">전사 16·21~22</span></td></tr>
+  <tr><td>피히테<br><small>1762~1814</small></td><td>칸트의 이원론 극복: 인식하는 자아와 실천하는 자아는 같다. 인류라는 자아를 근본 원리로 생각. 베를린 대학 학장, 『독일 국민에게 고함』.</td></tr>
+  <tr><td>셸링<br><small>1775~1854</small></td><td>헤겔의 친구. 우리 안의 무제약적·절대적 자아가 직감으로 모습을 나타냄. 자연과 정신은 같다고 봄.</td></tr>
+  <tr><td>헤겔<br><small>1770~1831</small></td><td>칸트의 모순을 <strong>변증법</strong>으로 통일. 정신은 세계에 편재(스피노자 범신론 계승), 세계사에 나타난 절대정신=<strong>세계정신</strong>(나폴레옹에게서 나타난다고 봄), 프랑스 혁명에서 자유의 실현을 봄. 교수: 헤겔에게는 인간의 자유의지가 없고 신의 섭리 역사만 있다. → "정신의 역사에서 현실의 역사로"(마르크스). 교수: 마르크스는 이에 반발해 가장 확실한 것은 정신이 아니라 물질이라는 유물론을 주장. <span class="bd v1">전사 22~23</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>2. 이성 대 경험 — 신앙에서 무엇이 우선하는가 <span class="bd tb">p.153~154</span></h2>
+  <p>교재의 질문: <strong>신앙에 있어서 이성과 경험 중 어느 것이 우선하는가?</strong></p>
+  <table>
+  <tr><th style="width:22%">구분</th><th>내용</th></tr>
+  <tr><td>이성의 시대의 특징</td><td>계몽주의로 표현된 인간 이성의 혁명. 교회(중세)와 성경(종교개혁기)의 권위에 대한 인간 이성의 도전. 이성의 1차 목적은 "이 세상에서의 행복과 보람의 추구" → 신앙(감정·신화·미신)은 배제. 인간은 원죄에 빠진 존재가 아닌 합리적 존재(교재: 아리우스 사상과 비슷). 칸트는 종교적 편견을 초월한 모든 인간을 위한 자유와 진리를 추구. 현대과학이 인간 이성에 확실함을 부여(실례: 코페르니쿠스·뉴턴·파스칼). 이신론은 기적·특별계시를 부인(하나님을 배제).</td></tr>
+  <tr><td>버틀러 주교<br><small>1692~1752</small></td><td>『종교의 유추』: 이신론은 삶 속의 재난·악의 문제를 설명하지 못한다고 비난. 이성은 완전한 지식체계가 아니라 <strong>개연성</strong>만 제공. 종교적 문제는 <strong>경험</strong>을 통해 알려진다(교리·신조의 문자가 아니라).</td></tr>
+  <tr><td>잔센주의<br><small>코넬리우스 잔센 1585~1638</small></td><td>루벵 대학 성경학 교수·이프레스 주교. 로마 가톨릭(예수회) 성직자들의 해이해진 도덕을 비판하며 칼빈의 예정설을 주장. 교수: 예수회는 인간의 자유의지와 도덕적 노력을 강조해 펠라기우스와 비슷. 1638년 잔센 사후 안톤 아놀드 2세가 계승 → 가톨릭은 아놀드를 "가톨릭의 제복을 입은 칼빈주의자"라 비판, 1656년 교황이 아놀드 정죄. <span class="bd v1">전사 24</span></td></tr>
+  <tr><td>파스칼<br><small>1623~1662</small></td><td>잔센주의자 의사들을 만나(1646) 칼빈 교리 배움. 예수회를 비판한 『시골사람들의 편지』(18개), 사후 8년 뒤 친구들이 『팡세』로 출간. 자연은 하나님에 대한 확실한 증거가 아니며 이성만으로 인간을 설명할 수 없다 → 하나님과 인생의 의미는 <strong>이성이 아니라 심장</strong>으로. 인간은 생각하는 존재, 기독교만이 기원·원죄·부활 같은 신비를 해결. 교수: 1654년(31세) 종교 체험 — 학자들의 신이 아닌 "아브라함의 하나님". 39세에 사망. 사후 가톨릭 교회와 루이 14세가 프랑스에서 잔센주의를 몰아내 홀란드(네덜란드)로 피신. 교수: 이 잔센주의의 경건운동·소그룹 모임이 네덜란드→스위스를 거쳐 독일로 "역수입"되어 루터주의·스콜라주의에 반대하는 경건주의가 확산되고, 그 핵심 인물이 웨슬리 형제(성공회 사제, 대학에서 경건운동 시작)라고 연결(전사 불명확 [?]). <span class="bd v1">전사 24~25</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>3. 신앙고백주의에서 경건주의로 <span class="bd tb">p.154~155</span></h2>
+  <h3>3-1. 개신교 스콜라주의(신앙고백주의)</h3>
+  <ul class="tight">
+    <li>루터교의 교리적 선언서 = <strong>아우크스부르크 신앙고백</strong>(1530.6.25, 21개 조항). 니케아 신조(325)+사도신조+아타나시우스 신조+루터 자신의 신조로 구성. <span class="bd tb">p.154</span><span class="bd v1">전사 26</span></li>
+    <li>신앙 = 하나님의 자비 대신 교리적 진술을 인정하는 것 + 국가교회에 참석해 성례전을 받는 것으로 국한. 이 형식주의에 대한 반동으로 경건주의 일어남. <span class="bd tb">p.154</span></li>
+    <li>(교수) 개신교 정통주의 = 신조·신경·교리로 성경과 신앙을 규정(루터교 일치신조 등), 16~18세기. <span class="bd v1">전사 13</span></li>
+  </ul>
+  <h3>3-2. 경건주의의 배경 <span class="bd tb">p.154~155</span></h3>
+  <ul class="tight">
+    <li>루터 사후 약 100년 뒤인 17세기 중엽, 독일 루터교는 생명력을 잃은 사변적 기독교로 전락. 군주들이 교회법 제정·성직자 임명을 장악 → 정권이 교권을 지배.</li>
+    <li>성직자는 사변적 교리논쟁에 몰두, 목회·성경주석보다 신조에만 관심. 존 게르하르트(1582~1637)의 장례에서 "그는 교회에서 잔 적이 한 번도 없었다"는 말이 칭송으로 쓰일 정도. 30년 전쟁(1618~1648)을 거치며 교회는 영적·물적으로 역할을 못함.</li>
+    <li><strong>반응</strong>: 개인적 신앙의 중요성 강조(최고 권위는 체험). 기독교는 회심한 신자로부터 출발, 신앙의 핵심은 신자의 가슴속에서 하나님의 은혜를 경험하는 것. 신자들의 중심생활은 살아있는 신앙을 가진 사람들끼리의 밀접한 교제(소그룹). 하나님과 개인의 인격적 만남, 성령의 창조적 사역, 내주하시는 그리스도, 말씀의 실천과 거룩한 생활(웨슬리·오순절로 이어짐). <span class="bd v1">전사 27~28</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>4. 주요 인물 — 슈페너 · 프랑케 · 진젠도르프</h2>
+  <h3>4-1. 필립 야곱 슈페너 (1635~1705) — 독일 경건주의의 창시자 <span class="bd tb">p.155~157</span></h3>
+  <table>
+  <tr><th style="width:16%">연도</th><th>사건</th></tr>
+  <tr><td>1635</td><td>엘사스 지방 라폴츠바일러에서 법률가의 아들로 출생. 어머니·할머니의 신앙과 루터교회 목사 슈톨의 지도. 『슈페너의 생애』(1740): 어린 시절 가장 나쁜 짓은 12살 때 댄스파티에 참여하려 한 것. <span class="bd v1">전사 28</span></td></tr>
+  <tr><td>1651</td><td>스트라스부르 대학에서 역사학·철학·언어 공부. 금욕적 은둔생활(술·댄스 불참, 이성교제 피함, 일주일에 한 번 저녁금식, 주일엔 경건서적 읽고 토의). 1653 철학석사 <span class="bd bo">보충</span>교수는 "철학박사"라 말함(전사 28~29), 교재 기준.</td></tr>
+  <tr><td>대학 시절</td><td>단하우어(J. C. Dannhauer)를 통해 루터의 저서 접함. 존 안트 『진정한 기독교』(1606), 베일러 『경건의 연습』, 박스터 『자기 부정에 관한 논설』에서 신학 논쟁·사색보다 신앙과 경건의 실천의 중요성을 인식. 1660~61 여행 중 라바티의 영향으로 중생한 신자들의 작은 교회(초대교회의 이상) 사상을 배움. 평생 루터를 존경했으나 그의 불완전한 개혁을 비판했고 칼빈주의도 비판(교수·교재 p.155~156). <span class="bd v1">전사 28~29</span></td></tr>
+  <tr><td>1663~64</td><td>3월 스트라스부르에서 목회 시작, 이듬해 신학박사.</td></tr>
+  <tr><td>1666~85</td><td>프랑크푸르트에서 19년 목회. 초기엔 시민들의 생활에 변화가 없었음.</td></tr>
+  <tr><td>1669</td><td>산상수훈(마 5:20-26)으로 철저한 회개와 산 믿음의 필요성을 설교 → 큰 변화. 사람들이 주일·수요일마다 슈페너 집에 모여 베일러의 서적과 신약성서 공부 → "경건한 자들의 모임" → <strong>"경건주의"가 탄생</strong>. <span class="bd v1">전사 29</span></td></tr>
+  <tr><td>1674~75</td><td>프랑크푸르트 출판사가 존 안트의 설교집 『경건한 열망』(Pious Desires) 서문을 부탁 → 1675년 출판, 서문에서 소그룹 조직을 주장 → <strong>1675년을 경건주의 시대의 시작으로 봄</strong>. <span class="bd tb">p.156</span></td></tr>
+  <tr><td>1686~91</td><td>드레스덴 궁정목사. 젊은 교사 아우구스트 헤르만 프랑케 등과 라이프치히 대학 안에 Collegium Philobiblicum(성경을 사랑하는 모임). 1691 쾌락을 즐기는 작센 군주 존 조지 3세를 비판해 드레스덴을 떠남.</td></tr>
+  <tr><td>1691~1705</td><td>브란덴부르크 선제후(후에 프러시아의 프레데릭 1세)의 초청으로 베를린에서 14년간 목회·저술, 많은 논쟁. 비텐베르크 대학 신학교수단이 284가지 이단 항목으로 슈페너의 경건주의 운동 정죄. 1705.2.6 베를린에서 별세.</td></tr>
+  </table>
+  <div class="key"><strong>『경건한 열망』 서문의 주요 주장</strong> <span class="bd tb">p.156~157</span> <span class="bd v1">전사 29~30</span>
+    <ul class="tight">
+      <li>마지막 심판 때 묻는 것은 학식·칭송·명예·재산이 아니라 <strong>얼마나 충실하고 순수하고 경건한 가르침과 본을 보였는가</strong> (교수가 서문을 낭독·설명).</li>
+      <li>성직자 비판(교수: "아주 도전적인 서문"): 성직자의 생활은 겉으론 흠 없어 보여도 실제로는 세속 풍습·육체적 쾌락과 안목의 정욕·교만에 빠져 좋은 자리만 찾아 옮겨 다닌다. 신자의 술취함·법정 소송도 비판(교재 p.156).</li>
+      <li>믿음의 중요성: "우리는 오직 믿음을 통해서만 구원을 얻게 되며 우리의 선행이나 경건생활은 구원 얻는데 아무런 도움도 주지 않는다"(교재 인용).</li>
+      <li>교회 개혁방안: 광범위한 성경공부, 영적 제사장직의 수립과 활용, 신앙의 지식보다 실천, 논쟁을 피하고 오류에 빠진 자를 사랑으로 권면, 신학교육·설교의 개혁("강단은 사람의 재주를 나타내는 곳이 아니다…").</li>
+      <li>결과: 책 출판 직후 열광적 반응(편지 300통 이상). 평신도 지위가 높아지자 위협을 느낀 성직자들의 불만과 비판. 슈페너는 교회 안에서 참 신자들로 구성된 작은 교회의 모임을 추구해 분파주의적 성향을 가지게 됨.</li>
+    </ul>
+  </div>
+
+  <h3>4-2. 아우구스트 헤르만 프랑케 (1663~1727) — 슈페너의 후계자 <span class="bd tb">p.157~158</span></h3>
+  <ul class="tight">
+    <li>대학 졸업 후 2년간 깊은 종교적 고민, 하나님의 존재를 의심. 신약성서를 펴고 있을 때 기숙사 사감의 외침 "이 책 속에 우리는 놀라운 보배를 소유하고 있다" — 고린도후서 4:7("우리가 이 보배를 질그릇에 가졌으니 이는 심히 큰 능력은 하나님께 있고 우리에게 있지 아니함을 알게 하려 함이라", 개역개정)을 읽던 중이어서 놀람. 1687 요한복음 20:31 자기설교를 통해 회의와 절망에서 벗어나 영혼의 평안 체험. <span class="bd v1">전사 31</span></li>
+    <li>1689 라이프치히에서 성경공부반을 지도하며 경건주의 발전 → 비판이 높아지자 라이프치히 대학을 떠남. 슈페너가 브란덴부르크 선제후에게 부탁해 프랑케를 <strong>할레대학</strong>(1694년 설립)에 초청, 1698 희랍어·동양어 교수.</li>
+    <li>할레에서 가난한 이들을 위한 학교·고아원·병원을 세워 할레를 <strong>경건주의 사역의 중심지</strong>로 만듦.</li>
+    <li>1705 덴마크 프리드리히 4세가 인도에 개신교 최초의 선교기지를 건설했을 때 할레의 프랑케 제자들이 최초의 선교사 → 경건주의가 선교에 끼친 영향은 지대. <span class="bd v1">전사 31</span></li>
+  </ul>
+
+  <h3>4-3. 니콜라스 폰 진젠도르프 (1700~1760) — 모라비아 경건주의 운동의 지도자 <span class="bd tb">p.158</span></h3>
+  <ul class="tight">
+    <li>10~16세 프랑케의 학교(할레)에서 훈련받고 감화. 14세 때 "제자씨 단"(교재 표기 [?])이라는 소년단체를 조직해 사랑의 실천. 4살(1704년) 때 슈페너의 축복기도를 받음.</li>
+    <li>30년 전쟁과 가톨릭에게 박해받아 유랑하는 <strong>모라비안 사람들</strong>(형제단·모라비안 후스파)을 자기 땅에 받아들여 영적 지도자가 됨 <span class="bd bo">보충</span>교수 발언에는 "후터파"로 들림(전사 불명확), 교재는 후스파. <strong>1727.8.12</strong>로 추정 = 모라비아 교회의 시작.</li>
+    <li>특징: 참교회 = "성령 안에 있는 하나님의 교회"(교파로부터 자유). 그리스도 체험 신비주의·수난 체험주의 — 찬송가 가사에 피·상처·못자국·사랑·신랑·신부. 공동체: 세족식·평화의 키스, 결혼·선교사 임명 등은 제비를 뽑되 맏형(=그리스도)이 결정. 삼위일체를 아버지·어머니·아들로 표현(성자 중심). 인간의 자유의지 강조.</li>
+    <li>선교: 예수 그리스도의 심장을 가지고 선교 오지(독일·네덜란드·아일랜드·덴마크·노르웨이·수리남·기니·이집트·남아프리카·식민지 미국)로 나감 → <strong>웨슬리 형제들에게 큰 감동</strong>. 교수: 웨슬리 형제가 식민지 미국에 갔다가 모라비안의 신앙에 감동받아 나중에 찾아간다(다음 주에 나옴). <span class="bd v1">전사 32</span></li>
+    <li>주요 주장: 각자는 영적 제사장, 모든 신자는 기도·감사·선행·구제 등으로 하나님께 삶을 드려야 함. 신앙은 지식이 아닌 실천, 훈련을 통한 경건.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>5. 경건주의의 의의와 한계 <span class="bd tb">p.158~159</span></h2>
+  <table>
+  <tr><th style="width:22%">구분</th><th>내용</th></tr>
+  <tr><td>긍정적인 면</td><td>메마른 신학논쟁을 벗어나 진정한 영적 목회와 사역으로 관심 이동. 주요 주제는 <strong>중생(regeneration)과 성화</strong>. 현대 모든 부흥운동의 근원 → 존 웨슬리와 조지 휫필드에게 계승. 찬송학과 살아있는 설교에 공헌. 현대선교운동·교회의 사회개혁운동의 시작, 성경의 대중화, 평신도 운동의 발전, 현대 에큐메니칼 사상 태동. 인도적·사회적 관심은 20세기 초 미국 독일 침례교회 목사 라우쉔부쉬의 사회복음 운동으로 나타남. <span class="bd v1">전사 32~33</span></td></tr>
+  <tr><td>부정적인 면</td><td>신앙의 개인화·내면화(체험에서 감정의 우위) ↔ 스콜라 신학과 전혀 반대. 이러한 주관적 체험주의가 슐라이어마허의 주관적 자유주의 신학을 태동(사랑·기쁨·구원의 확신 강조). 칼빈의 교리를 "흉악한 가르침"이라 배격(교수: 구원의 기쁨을 강조하는데 예정론을 강조할 수는 없었을 것이라는 취지). 배타적 분파주의·반제도·반전통주의, 현세 도피적·부정적 문화관. <span class="bd v1">전사 33</span></td></tr>
+  </table>
+  <div class="key"><strong>cf. 경건주의의 네 가지 특징</strong> <span class="bd tb">p.159</span> <span class="bd v1">전사 33</span>
+    <ol class="tight">
+      <li><strong>체험적·내면적·인격적 신앙</strong> 강조.</li>
+      <li><strong>이상주의</strong>: 현재 상황에 만족하지 않고 더 높은 영적·도덕적 이상 추구(경건서적·성서 읽기·기도·묵상) → 사회 개혁과 강력한 선교열정.</li>
+      <li><strong>성경 강조</strong>: 신비적 묵상의 대상도, 합리적·이성적 연구 대상도 아니라 삶의 구체적인 규범.</li>
+      <li><strong>저항의 요소</strong>: 생명력을 상실한 당대 교회에 저항 → 에큐메니칼·세계선교운동에 힘씀.</li>
+    </ol>
+  </div>
+  <p>에큐메니칼 사상(교수): 예수 그리스도만 믿으면 교단·교파를 초월해 손잡을 수 있다는 것이며, 웨슬리의 설교에서 천국에 있는 것은 교파 사람이 아니라 그리스도인뿐이라는 취지로 소개했다(전사 오인식이 심해 문구는 [?]). <span class="bd v1">전사 32</span></p>
+  <p class="meta">다음 주 예고: 경건주의의 영향을 받은 감리교 운동. 교재 p.159 하단의 "6. 대각성운동과 감리교 운동"(알미니우스 소개)은 이번 시간에 다루지 않았다.</p>
+</div>
+
+<div class="card">
+  <h2>6. 한눈에 보는 연표</h2>
+  <table>
+  <tr><th style="width:20%">연도</th><th>사건</th></tr>
+  <tr><td>1517</td><td>루터 종교개혁 시작(교수가 데카르트와의 시간 차를 말하며 언급)</td></tr>
+  <tr><td>1530.6.25</td><td>아우크스부르크 신앙고백(21개 조항)</td></tr>
+  <tr><td>1589~1650</td><td>데카르트</td></tr>
+  <tr><td>1618~1648</td><td>30년 전쟁</td></tr>
+  <tr><td>1635</td><td>슈페너 출생</td></tr>
+  <tr><td>1648~1789</td><td>제7부 이성과 부흥의 시대</td></tr>
+  <tr><td>1654</td><td>파스칼의 종교 체험(교수)</td></tr>
+  <tr><td>1666~85</td><td>슈페너 프랑크푸르트 목회</td></tr>
+  <tr><td>1669</td><td>산상수훈 설교 → 경건한 자들의 모임</td></tr>
+  <tr><td>1675</td><td>『경건한 열망』 서문 → 경건주의 시대 시작</td></tr>
+  <tr><td>1694</td><td>할레대학 설립(1698 프랑케 교수)</td></tr>
+  <tr><td>1705</td><td>슈페너 별세(2.6) · 덴마크 왕의 인도 선교기지 → 프랑케 제자들이 최초 선교사</td></tr>
+  <tr><td>1727.8.12(추정)</td><td>진젠도르프, 모라비아 교회의 시작</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>7. 예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span></h2>
+  <table>
+  <tr><th style="width:5%">#</th><th>문항</th><th style="width:34%">답 · 근거</th></tr>
+  <tr><td>1</td><td>(OX) 데카르트는 경험론의 대표 철학자이다.</td><td>X — 합리론(근대철학의 아버지). 1장 표</td></tr>
+  <tr><td>2</td><td>(OX) 이신론은 신이 세상을 만든 뒤 직접 간섭하지 않는다고 본다.</td><td>O — 교재 p.153, 계몽주의 이신론 설명</td></tr>
+  <tr><td>3</td><td>(OX) 경건주의 시대의 시작은 1675년으로 본다.</td><td>O — 교재 p.156, 4-1 표</td></tr>
+  <tr><td>4</td><td>(단답) 파스칼이 이성이 아니라 이해의 기관으로 강조한 것은?</td><td>심장 — 2장 파스칼, 전사 25</td></tr>
+  <tr><td>5</td><td>(단답) 슈페너가 서문을 쓴 존 안트 설교집의 제목은?</td><td>『경건한 열망』(Pious Desires) — 교재 p.156</td></tr>
+  <tr><td>6</td><td>(단답) 프랑케가 학교·고아원·병원 사역으로 경건주의 사역의 중심지로 만든 곳은?</td><td>할레 — 교재 p.157~158</td></tr>
+  <tr><td>7</td><td>(약술) 경건주의의 네 가지 특징을 쓰시오.</td><td>체험적·내면적·인격적 신앙 / 이상주의 / 성경 강조 / 저항의 요소 — 교재 p.159, 5장 박스</td></tr>
+  <tr><td>8</td><td>(약술) 경건주의가 일어난 배경과 긍정·부정적 평가를 쓰시오.</td><td>3-2(교리 중심으로 생명력 상실한 루터교) + 5장 표 — 교재 p.154~155, 158~159</td></tr>
+  </table>
+</div>
+
+<details class="apx">
+  <summary>부록 — 출처·전사 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 전사 오인식 교정 (교재 표기 기준)</caption>
+  <tr><th>전사 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>해결 / PT / 퍼틀러 / 라이프티·라이프체 / 데브 크리스 원자로</td><td>헤겔 / 피히테 / 조셉 버틀러 / 라이프치히 / 데모크리토스의 원자론</td><td>교재 p.152~153, p.151</td></tr>
+  <tr><td>스페네·슈피·수편 / 단하오 / 전 갤 하르트 / 라바티 / 라오셴부시</td><td>슈페너 / 단하우어 / 존 게르하르트 / 라바티 / 라우쉔부쉬</td><td>교재 p.154~159</td></tr>
+  <tr><td>전 안트 / 베일러 / 지젠노르프·진진도르프</td><td>존 안트(교재 표기; 전사는 "요한 아른트") / 베일러(Lewis Bayly) / 진젠도르프</td><td>교재 p.155, p.158 (교재는 "존 안트")</td></tr>
+  <tr><td>"이 사람은 21살이 무슨 더 팍팍살이 받아요"</td><td>라이프니츠가 21세에 법학박사</td><td>교재 p.151</td></tr>
+  <tr><td>잔센 "칼빈의 예정설을 수정하게 됩니다"</td><td>칼빈의 예정설을 <strong>주장</strong>(수용)한 것으로 읽음 — 이어지는 설명(예정설 강조)과 맞음</td><td>교재 p.154</td></tr>
+  <tr><td>"교황에게 이단으로 정지당합니다"</td><td>정죄로 읽음(교재: 1656년 교황이 아놀드 정죄; 전사상 주어는 잔센으로 들림)</td><td>교재 p.154 · 전사 24</td></tr>
+  <tr><td>웨슬리 설교 "청루교인·침대교인·성교교인…"</td><td>문구 불명 — 교파가 아니라 그리스도인뿐이라는 취지만 기록</td><td>전사 32</td></tr>
+  <tr><td>교재 "제자씨 단"(p.158)</td><td>겨자씨 단의 오기일 수 있음 [?] (교재 표기 그대로 둠)</td><td>교재 p.158</td></tr>
+  <tr><td>"독일 침력의 목사" / "사회보금화 운동"</td><td>독일 침례교회 목사 / 사회복음 운동으로 읽음</td><td>교재 p.159 · 전사 33</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(전사)</th><th>노트 처리</th></tr>
+  <tr><td>안트 설교집 서문 연도</td><td>교수 언급 "1614년"(전사 29)</td><td>본문은 교재 p.156 기준: 1674년 서문 요청 · 1675년 출판. 1614는 교재에 없음</td></tr>
+  <tr><td>슈페너 학위</td><td>"철학박사 학위 받고"(전사 28~29)</td><td>교재 p.155 기준 1653 <strong>철학석사</strong></td></tr>
+  <tr><td>진젠도르프가 받아들인 모라비안</td><td>"후터파"로 들림(전사 31~32, 불명확·오인식 가능)</td><td>교재 p.158 기준 모라비안 <strong>후스파</strong>(형제단)</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽)</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th></tr>
+  <tr><td>p.151</td><td>22(오른쪽)</td><td>제7부 시작 · 근대세계(데카르트·스피노자·라이프니츠 시작)</td></tr>
+  <tr><td>p.152~153</td><td>23</td><td>라이프니츠~피히테 · 셸링·헤겔 · 이성 대 경험 · 버틀러</td></tr>
+  <tr><td>p.154~155</td><td>24</td><td>잔센주의·파스칼 · 신앙고백주의 · 경건주의 배경 · 슈페너 시작</td></tr>
+  <tr><td>p.156~157</td><td>25</td><td>슈페너 · 서문 주요 주장 · 프랑케 시작</td></tr>
+  <tr><td>p.158~159</td><td>26</td><td>프랑케 · 진젠도르프 · 의의 · 네 가지 특징 · 6장 도입(미다룸)</td></tr>
+  </table>
+  <p class="meta">교재 PDF는 텍스트 레이어가 없는 스캔본이라 PDF 22~26쪽 이미지를 직접 읽고 정리했다. 전사는 아이폰 자동 전사로 띄어쓰기·인명 오인식이 많아 교재와 대조해 교정했다.</p>
+  </div>
+</details>
+
+
+</body>
+</html>
