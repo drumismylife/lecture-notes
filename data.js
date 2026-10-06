@@ -549,6 +549,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week04.html" }
           ] },
             { week: 5, title: "고린도전서와 고린도후서", date: "2026.10.05", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week05.html" },
             { type: "guide", label: "고린도전서 참고서", href: "output/2026-2/nt2/guide_1corinthians.html" },
             { type: "guide", label: "고린도후서 참고서", href: "output/2026-2/nt2/guide_2corinthians.html" }
           ] },
