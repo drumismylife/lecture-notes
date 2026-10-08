@@ -619,7 +619,9 @@ const SITE_DATA = {
             { week: 5, title: "복음이란 (3) — 참된 믿음 · 성령 충만한 삶(성화)", date: "2026.10.01", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week05.html" }
           ] },
-            { week: 6, title: "", date: "", files: [] },
+            { week: 6, title: "구원의 서정 — 칼빈주의와 알미니안주의", date: "2026.10.08", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week06.html" }
+          ] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
