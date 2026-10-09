@@ -699,7 +699,7 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week06.html" },
             { type: "guide", label: "요나서 참고서", href: "output/2026-2/prophet/guide_jonah.html" }
           ] },
-            { week: 7, title: "제7강 미가서의 구조, 신학, 메시지", date: "2026.10.09", files: [
+            { week: 7, title: "제7강 미가서의 구조, 신학, 메시지", date: "2026.10.08", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week07.html" }
           ] },
             { week: 8, title: "", date: "", files: [] },
