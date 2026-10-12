@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 6주차 갈라디아서 초안</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 6주차 · 2026학년도 2학기 · 초안 (핵심 위주)</div>
+  <h1>갈라디아서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.10.12 (대면 수업)</div>
+</div>
+<div class="intro">교수가 <b>중요·꼭·절대</b> 등으로 강조한 대목은 <b>★ 붉은 박스</b>로 표시했습니다. 배지: <span class="b-ppt bdg">자료 p.n</span>(06주차 갈라디아서 PDF 쪽수) <span class="b-add bdg">녹취 @n</span>(녹취 전체 36,598자 중 해당 말이 시작되는 글자 위치 — 녹취가 한 줄이라 줄 번호 대신 사용). 녹취 오인식 의심은 <b>[?]</b>. 성경 본문은 대한성서공회 개역개정 본문과 대조했습니다. 이 노트는 <b>초안</b>입니다.</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>핵심 한 줄</th><td>바울은 <b>갈라디아 교인들에게는 목회적 아픔</b>(자녀·형제로 부름), <b>교란하는 유대주의자들에게는 저주·거세 언급</b> — 두 심정의 <b>대상을 구분</b>해서 읽어야 한다.</td></tr>
+        <tr><th>쟁점</th><td><b>할례</b>(와 음식 규정)를 그리스도인에게 요구하는 것 = 바울에게는 "예수 + 모세" = 그리스도 제거</td></tr>
+        <tr><th>수신자</th><td>남갈라디아설(현재 거의 다수) / 북갈라디아설(예전 우세) — 서신의 때와 장소를 확실히는 알 수 없음</td></tr>
+        <tr><th>결론</th><td>그리스도 안에서 <b>하나</b>(3:28) · <b>자유</b>(5:1) — 그 자유는 선한 일에 동참하는 데 쓴다</td></tr>
+        <tr><th>다음 시험</th><td><b>중간고사 2026.10.26(월)</b>, 평소 수업 시작 시간과 같음 · 청년 가르치기형 서술 · 앞뒤 한 장 이내 손글씨 — 아래 7번</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#sec1">1 바울의 두 심정</a>
+  <a href="#sec2">2 할례와 유대주의자</a>
+  <a href="#sec3">3 역사적 배경</a>
+  <a href="#sec4">4 신학 주제</a>
+  <a href="#sec5">5 결론·질문</a>
+  <a href="#sec6">6 바울 이야기(보강 예정)</a>
+  <a href="#sec7">7 중간고사</a>
+  <a href="#sec8">8 시험 포인트</a>
+  <a href="#sec9">9 출처·검증</a>
+</div>
+
+<!-- SEC 1 -->
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">바울의 두 가지 심정과 그 대상</span><div class="sl"></div></div>
+  <div class="oneline">갈라디아서에는 결이 다른 심정이 섞여 있고, 각각이 향하는 대상이 다르다.</div>
+
+  <div class="emph">
+    <h3>★ [강조 1] 첫 단추: 심정과 그 대상을 혼동하지 않는다</h3>
+    <p><b>[녹취 @1210]</b> <span class="say">"바울의 심정과 그 심정 향하는 대상을 혼동하지 않는 것이 첫 단추라고 생각이 들어요."</span> 섞여 있는 감정이 독자인 우리를 향하는 것으로 읽히기 쉽다("어리석도다 갈라디아 사람들아" → 나한테 하는 말처럼). <span class="b-add bdg">녹취 @236~1200</span> <span class="b-ppt bdg">자료 p.3</span></p>
+  </div>
+
+  <div class="card">
+    <h3>① 갈라디아 교인들을 향한 심정: 당황과 목회적 고뇌 <span class="b-ppt bdg">자료 p.3</span></h3>
+    <ul>
+      <li><b>1:6</b> "…다른 복음을 따르는 것을 내가 <b>이상하게 여기노라</b>" — 헬라어 <b>θαυμάζω</b>(다우마조). 복음서에서 놀라운 일 앞에서 말을 못 하고 멈추는 순간에 쓰이는 표현이라고 설명. <span class="b-add bdg">녹취 @1806</span></li>
+      <li><b>3:1</b> "어리석도다 갈라디아 사람들아" — 교수 해석: 번역("어리석다")이 한국어에서 모멸감을 주지만, 헬라어 의미는 <b>"조금 더 생각할 수 있었을 것을 멈추셨군요"</b> 정도에 가깝고 경멸이 담겼는지는 <b>물음표(교수 개인 견해)</b>. <span class="b-add bdg">녹취 @2335~2800</span></li>
+      <li><b>4:19</b> "나의 자녀들아…해산하는 수고를 하노니" — τέκνα μου: 보호받아야 할 존재를 애정으로 부를 때 쓰는 말 + μου(강조). 어머니들이 읽도록 요청 — "경로인지 사랑인지 분간". <span class="b-add bdg">녹취 @3002~4170</span></li>
+      <li><b>6:1</b> "형제들아…" — Ἀδελφοί: 확장된 가족 개념. 매섭게 다그치는 호칭으로 상상하기 힘들다. <span class="b-add bdg">녹취 @3399</span></li>
+      <li><b>두 가지 오해</b>: ⓐ 갈라디아 교인들이 어리석기만 했는가? → <b>4:13-14</b> [자료 p.7: 4:13-15] "나를 하나님의 천사와 같이 또는 그리스도 예수와 같이 영접하였도다" ⓑ 바울이 매서운 눈초리로 보았는가? → 4:19. <span class="b-ppt bdg">자료 p.7</span> <span class="b-add bdg">녹취 @7635</span></li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조 2] 두 번째 감정(저주·거세)은 절대 누그러뜨리지 않는다</h3>
+    <p><b>[녹취 @4176]</b> <span class="say">"여기서 두 번째 감정은 절대 누그러뜨리면 안 돼요. 여러분 절대로 있는 그대로 받으셔야 됩니다. … 우리는 평가자가 아니고 관찰자예요."</span> 대상은 갈라디아 교회를 혼란시킨 <b>유대주의자들</b>.</p>
+    <ul>
+      <li><b>1:8-9</b> "…다른 복음을 전하면 <b>저주를 받을지어다</b>(ἀνάθεμα ἔστω)" — 9절 "우리가 전에 말하였거니와 내가 지금 다시 말하노니": 교수 설명은 <b>"방금 말했습니다, 한 번 더 말합니다"</b>(오래전이 아님). 편지를 낭독하는 자리에 유대주의자도 앉아 있었을 수 있고, 눈을 마주치고 읽었을 수도 있다. <span class="b-ppt bdg">자료 p.4</span> <span class="b-add bdg">녹취 @4480</span></li>
+      <li><b>5:12</b> "너희를 어지럽게 하는 자들은 <b>스스로 베어 버리기를 원하노라</b>" — 할례를 강요하는 사람들에게 그 부위를 제거하라고 말한 셈. 우리는 이 부분을 너그럽게 읽어 왔다. <span class="b-add bdg">녹취 @5582</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>③ 흔들리지 않는 확신 <span class="b-ppt bdg">자료 p.5</span></h3>
+    <ul>
+      <li><b>6:14-16</b> 십자가 외에 자랑할 것이 없다 / 할례나 무할례가 아무것도 아니고 <b>새로 지으심</b>만 중요 / 평강과 긍휼. 교수가 "평강과 긍휼"의 대상을 묻자(갈라디아 교인들? 유대주의자들?) 학생 답에 "저도 그렇게 생각해요"라고 동의 — 갈라디아 교인들을 향한 것으로 읽음. <span class="b-add bdg">녹취 @6009</span></li>
+      <li><b>6:17</b> "내가 내 몸에 <b>예수의 흔적</b>(στίγματα)을 지니고 있노라" — 당시 주인의 이름을 몸에 새기는 풍습(스티그마)의 비유로 설명. 바울이 문자 그대로 새겼는지는 교수도 <b>모르겠다</b>고 함. 매 맞음(40에서 하나 감한 매 5번)과 돌에 맞음 같은 <b>누구나 볼 수 있는 흔적</b>이 있었을 것이라고 봄. <span class="b-add bdg">녹취 @6371~6925</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 2 -->
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">갈등의 원인: 할례와 유대주의자</span><div class="sl"></div></div>
+  <div class="oneline">할례는 언약의 표징이었는데, 그것이 "하나님 백성이 되려면 반드시 필요한 조건"으로 바뀌었다.</div>
+
+  <div class="card">
+    <h3>할례 <span class="b-ppt bdg">자료 p.8</span> <span class="b-add bdg">녹취 @8002~13590</span></h3>
+    <ul>
+      <li>하나님이 아브라함과 후손에게 주신 명령이자 약속(<b>창 17:10-14</b>, "너희 사이의 언약의 표징" 17:11). <b>율법 이전</b>에 주어졌다.</li>
+      <li>교수: 할례는 <b>율법 이전</b>에 아브라함 언약의 징표로 주어졌는데, 시대가 흐르면서 그 징표를 이해하는 이해가 조금 어색해졌다(@8002~8320).</li>
+      <li>유대인에게는 하나님과 이스라엘이 맺은 <b>언약의 표시</b>. 외부인은 신앙이 깊어도 할례를 받아야 선택된 백성에 속한다고 생각했다. 예언자들은 상징으로도 썼다: "할례 받지 못한 귀"(렘 6:10), "할례 받지 아니한 마음"(레 26:41).</li>
+      <li>교수의 흐름 설명: 이스라엘이 하나님을 온전히 이해하기까지 오래 걸렸다 — 출애굽 때 정체성이 생겼지만 이방신(예: 가나안의 바알)을 섬기는 모습이 <b>포로기까지</b> 이어졌고, 포로기 성찰 이후 유일신 신앙이 자리 잡았다. 그 뒤에도 율법을 오해했고(산상수훈에서 예수님이 율법 뒤의 뜻을 가르치심), 메시아가 왔을 때도 온전히 이해하지 못한 대표 사례가 할례.</li>
+      <li>이 표지는 <b>할례 + 음식 규정(레 11장)</b> → 나중엔 "누구와 먹느냐"까지 → 사회적으로 그룹과 그룹을 나누는 <b>경계표지</b>가 되었다. <span class="b-add bdg">녹취 @11094</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>유대주의자(Judaizers)의 주장과 바울의 판단 <span class="b-ppt bdg">자료 p.9, 17</span></h3>
+    <ul>
+      <li><b>유대주의자</b>: 예수 그리스도를 믿었지만 그리스도 안의 은혜는 궁극적으로 <b>유대인에게만 해당</b>된다고 믿은 일부 유대 출신 그리스도인(전통적 호칭). <span class="b-add bdg">녹취 @22861</span></li>
+      <li>그들의 말: 예수를 믿어도 <b>모세의 법을 지켜야</b> 하나님 앞에 의롭게 된다. 교수 설명: 바울에게는 <b>"예수 그리스도 + 모세" = 그리스도를 통째로 빼는 결과</b>. 바울에게는 의롭게 되는 데 그리스도로 충분하기 때문. <span class="b-add bdg">녹취 @11555</span></li>
+      <li>비유: 신앙 1년 된 사람에게 15~20년 신앙생활한 분이 "그래도 이렇게 해야 더 좋은 그리스도인"이라고 힘 있게 말한다면 마음이 끌리고 혼란스럽다. <span class="b-add bdg">녹취 @11778</span></li>
+      <li><b>바울의 입장</b>(자료 p.9): 바울은 유대인이다. 그가 반대한 것은 전통을 지키는 것 자체가 아니라, 그 전통이 하나님과 올바른 관계에 <b>반드시 필요하다는 사고방식</b>(= 사람들 사이의 <b>경계지표</b>로 삼는 것). 그에게 하나님과의 관계는 <b>그리스도의 은혜로 말미암은 믿음</b>이 유일한 길. 5:6 "그리스도 예수 안에서는 할례나 무할례나 효력이 없으되 사랑으로써 역사하는 믿음뿐이니라"; 6:15 "새로 지으심". <span class="b-add bdg">녹취 @12600~13586</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>복음을 왜곡하는 자들이 한 일 <span class="b-ppt bdg">자료 p.10</span> <span class="b-add bdg">녹취 @18851~19700</span></h3>
+    <ul>
+      <li>교인들을 교란·혼란시킴(1:7; 5:10) · 복음을 왜곡(1:7) · 교인들을 꾐(3:1) · 환심을 산 뒤 바울과 <b>이간</b>시켜 자기들에게 충성하게 함(4:17) · 진리를 순종하지 못하게 함(5:7)</li>
+      <li>실제 의도는 <b>유대인의 박해를 피하기</b> 위함(6:12) · 스스로는 율법을 지키지 않는 위선자(6:13) · 교인이 할례를 받게 해 <b>성공을 자랑</b>하려 함(6:13)</li>
+      <li>교수 설명: 박해를 피하려는 의도 = 그들이 최고의 법(모세의 법)을 지키면 "우리 이단 아니에요"가 되고, 한 지역 교회에서 성공시키면 면책이 된다.</li>
+      <li>바울은 편지 서두에 <b>감사를 생략</b>하고, 혼란을 주는 이들을 <b>두 번 저주</b>(1:8-9), 스스로 거세하기를 원한다고(5:12) 했다. 교수: "혼란"은 너무 부드러운 표현 — 생명의 존폐 위기로 본 것.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 3 -->
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">갈라디아서의 역사적 배경</span><div class="sl"></div></div>
+  <div class="oneline">갈라디아는 오늘의 터키에 있던 로마 속주이고, 서신이 북쪽인지 남쪽 교회들에게 보낸 것인지는 확실히 알 수 없다.</div>
+
+  <div class="card">
+    <h3>갈라디아 지역 <span class="b-ppt bdg">자료 p.12-14</span> <span class="b-add bdg">녹취 @19677~21650</span></h3>
+    <ul>
+      <li>갈라디아 = 터키에 위치한 로마 제국 <b>지방(province)</b> 전체의 이름. 스스로를 "갈라디아인"으로 부른 사람은 <b>북갈라디아의 켈트족 후손</b>. 남갈라디아는 로마가 점령 후 행정적으로 재정비한 도시들로, 남들이 "갈라디아"라고 부르는 곳(교수 비유: 대전 시민들이 사는 곳).</li>
+      <li><b>1차 선교여행</b>: 남부 도시들 방문(행 13:14; 14:1). 그때 북부를 방문한 것 같지는 않다.</li>
+      <li>2·3차 때 방문 가능성: 행 16:6 "브루기아와 갈라디아 땅으로 다녀가", 행 18:23 "갈라디아와 브루기아 땅을 차례로 다니며 모든 제자를 굳건하게". 교수: 모두 "<b>보고 싶어서</b>" 다시 간 것 — 바울은 지역 목회자가 아니라 교회를 세우는 사람. 지형상 북쪽까지 가기는 어렵다고 설명.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>북갈라디아설 vs 남갈라디아설 <span class="b-ppt bdg">자료 p.15-16</span> <span class="b-add bdg">녹취 @21646~22861</span></h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th></th><th>북갈라디아설</th><th>남갈라디아설</th></tr></thead>
+        <tbody>
+          <tr><th>순서</th><td>① 남부 전도(행 13-14) ② 예루살렘 공의회(행 15; 갈 2:1-10) ③ 북부 갈라디아 종족 전도(행 16:6; 18:5) ④ 북부 교인들에게 서신</td><td>① 남부 전도 ② 예루살렘에서 지도자들 <b>사적</b> 만남(갈 2:1-10) ③ 남부 교회들에 서신 ④ 예루살렘 공의회(행 15)</td></tr>
+          <tr><th>기록 시기·장소</th><td>약 <b>50년 중반</b>, <b>에베소</b> (교수: 이 경우 <b>데살로니가전서가 바울서신 중 가장 먼저</b> 쓴 편지로 확정)</td><td>약 <b>48년</b>, 1차 선교여행 후 수리아 <b>안디옥</b> (교수: 예루살렘 회의가 49년 — 그 바로 전, 데살로니가전서 쓰기 좀 전)</td></tr>
+          <tr><th>특징</th><td>예전에 오랫동안 우세 (교수: 이유를 이해 못 하겠다고 함)</td><td>갈 2:1-10과 행 15장을 같은 사건으로 볼 때 생기는 <b>불일치 문제 해결에 도움</b> / 최근 거의 다수</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>그러나 서신이 언제 누구에게 보내졌는지는 <b>확실하게 알 수 없다</b> — 더 확실한 증거가 나올 때까지 열어둔다("우린 관찰자"). <span class="b-add bdg">녹취 @22611~22850</span></p>
+    <div class="sup"><span class="tag">[?]</span> 녹취 @22073 "예루살렘을 방문한 게 두 번이 아니에요"는 오인식 혼재로 뜻이 불분명 — 기록하지 않음. 교수 도입부(@1369)에는 "수신자는 북쪽이 아니고 남쪽, 원래는 북쪽에 무게" 발언이 있으나 위 자료 표와 같은 취지.</div>
+  </div>
+</div>
+
+<!-- SEC 4 -->
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">갈라디아서의 주요 신학 주제</span><div class="sl"></div></div>
+  <div class="oneline">바울의 권위 → 안디옥 사건 → 의롭게 됨은 믿음으로 → 때가 참 → 성령은 율법이 못하는 일을 한다.</div>
+
+  <div class="card">
+    <h3>⑴ 바울의 권위 <span class="b-ppt bdg">자료 p.20 (필기본: 제목 형광펜)</span> <span class="b-add bdg">녹취 @24150</span></h3>
+    <ul>
+      <li>할례를 주장하는 이들의 영향으로 바울에 대한 신뢰가 약해진 듯 → 바울이 권위를 말해야 했다. 교수 비유: 내가 없을 때 누가 와서 나를 깎아내리면 내가 전한 것이 힘을 잃는다.</li>
+      <li>자신의 복음 이해를 다른 사도들도 공식적으로 인정(<b>2:1-10</b>): 유력한 자들에게 <b>사사로이</b>(κατ' ἰδίαν) 제시, 기둥 같은 <b>야고보·게바·요한</b>이 친교의 악수 — "우리는 이방인에게로, 그들은 할례자에게로"(2:9). 이방인 <b>디도</b>도 억지로 할례를 받지 않음(2:3).</li>
+      <li>추천서가 필요 없을 만큼 복음의 출처가 분명 — "사람에게서 받은 것도 아니요 배운 것도 아니요 오직 <b>예수 그리스도의 계시</b>"(1:11-12).</li>
+      <li>교수 설명: 권위를 말하는 목적은 자기를 자랑이 아니라 갈라디아 교인들이 <b>평안과 긍휼</b>을 얻게 하려는 것.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑵ 안디옥 사건과 사회적 가치의 힘 <span class="b-ppt bdg">자료 p.21-22</span> <span class="b-add bdg">녹취 @24784~26200</span></h3>
+    <ul>
+      <li><b>2:11-14</b>: 게바(베드로)가 안디옥에서 이방인과 함께 먹다가 야고보에게서 온 이들이 오자 <b>할례자들을 두려워하여 물러남</b> → 남은 유대인들·바나바도 외식(2:13) → 바울이 모든 자 앞에서 책망. 자료: 이방인에게 "유대인이 되어야 한다"는 <b>사회적 압박</b>을 준 것. (게바는 바울에게 수긍한 듯 — 겸손: 자료)</li>
+      <li>교수 설명: 베드로의 행동은 <b>거의 무의식적·즉각적</b> — 유대인으로 사회화된 세계관이 몸에 밴 결과.</li>
+      <li>세계관의 힘 — <b>토빗</b>(외경): 자선은 사람을 죽음에서 건지고 모든 죄를 없앤다(12:9); "의인들의 무덤에는 빵을 풍성하게 내놓되 죄인들에게는 주지 마라"(4:17). 교수: 유대인 세계관에서 가장 먼저 "죄인"으로 분류되는 것이 <b>이방인</b>. (<b>희년서</b> 22:16도 자료에만 인용 — 수업에서 설명하지 않음 / 자료 p.22)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑶ 그리스도와 율법: 의롭게 됨은 믿음으로 <span class="b-ppt bdg">자료 p.18-19, 23</span> <span class="b-add bdg">녹취 @22996~24100</span></h3>
+    <ul>
+      <li>갈라디아서에서 유대주의자들이 <b>구원</b>의 근거를 할례·율법에 둔다는 명확한 표현은 찾기 어렵고, 대신 <b>"의롭게 됨"</b>을 말한다: <b>2:16</b>(사람이 의롭게 되는 것은 율법의 행위가 아니요 예수 그리스도를 믿음으로), <b>3:11</b>("의인은 믿음으로 살리라"), <b>5:4</b>(율법 안에서 의롭다 함을 얻으려 하는 너희는 그리스도에게서 끊어지고 은혜에서 떨어진 자).</li>
+      <li><b>사도행전</b>의 유대주의자는 <b>구원</b>과 연결: 행 15:1 "모세의 법대로 할례를 받지 아니하면 능히 구원을 받지 못하리라"(οὐ δύνασθε σωθῆναι). 교수: 누가가 쓴 책이라 누가가 중요하게 여긴 신학 이슈가 부각된 것 — 바울이 직접 쓴 갈라디아서와 표현이 다르다. 이런 사상이 얼마나 퍼졌는지, 주장의 정도도 사람마다 다양했을 수 있다.</li>
+      <li><b>믿음</b>: 예수 그리스도를 믿음 / 예수 그리스도의 믿음 / 예수 그리스도의 신실함(자료 p.23, 헬라어 διὰ πίστεως Ἰησοῦ Χριστοῦ). 하나님과의 올바른 관계는 율법 행위가 아니라 <b>하나님 은혜의 충분성(sufficiency)</b>을 신뢰함으로.</li>
+      <li>하나님의 은혜는 <b>보편적</b> — 율법의 우선적 기능은 유대인을 구별하는 것이었는데, 그리스도 안에서 차별이 제거되었다(자료 p.23).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑷ 때가 참 · ⑸ 성령 <span class="b-ppt bdg">자료 p.24</span> <span class="b-add bdg">녹취 @26200~26900</span></h3>
+    <ul>
+      <li><b>4:1-4</b> 유업을 이을 어린아이가 후견인·청지기 아래 종과 다름없다가 아버지가 정한 때에 → <b>"때가 차매"</b> 하나님이 아들을 보내심. 헬라어 <b>πλήρωμα τοῦ χρόνου</b>: 시간 개념 두 단어 χρόνος(길이)와 καιρός(적절한 때)가 있는데 여기서는 <b>크로노스</b> — 교수: 하나님이 보실 때 <b>시간의 분량이 꽉 찬 것</b>. 보통은 카이로스를 떠올리기 쉽지만 언어적으로는 크로노스 — 시간의 분량이 꽉 차서 예수님이 오셨고 그래서 카이로스가 된 것(@26760).</li>
+      <li><b>5:22-23</b> 성령의 열매(사랑·희락·화평…절제) "이같은 것을 금지할 법이 없느니라" — 성령은 <b>율법이 할 수 없는 일</b>을 한다.</li>
+      <li>"옛 관점과 새 관점"(자료 p.25): 유대인이 율법을 어떻게 이해했는지, 그에 대한 바울 관점의 우리 견해 변화를 논하는 것 — 율법과 할례가 두 주요 이슈. 교수: <b>"이 용어는 그냥 휘발하세요"</b>, 용어 자체에 매이지 말라. <span class="b-add bdg">녹취 @26926</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 5 -->
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">결론: 하나 · 자유 · 질문</span><div class="sl"></div></div>
+  <div class="oneline">차별을 없앤 그리스도 안에서 하나이고, 얻은 자유는 선한 일에 동참하는 데 쓴다.</div>
+
+  <div class="card">
+    <h3>하나입니다 <span class="b-ppt bdg">자료 p.26 (필기본: 원 표시·형광펜)</span> <span class="b-add bdg">녹취 @27306</span></h3>
+    <ul>
+      <li><b>3:28</b> "너희는 유대인이나 헬라인이나 종이나 자유인이나 남자나 여자나 다 그리스도 예수 안에서 하나이니라." 교수: "갈릴(나눌) 게 있어요 없어요? 없어요."</li>
+      <li>바울은 세 가지 차별 형태를 언급했지만 이 서신은 한 가지(유대인과 헬라인)만 자세히 설명. 이후 그리스도인들은 이를 <b>다른 차별 관계에도 적용</b>하려 노력해 왔고, 오늘날의 차별도 하나님의 보편적 은혜 안에서 개선되어야 하지 않을까(자료).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>자유: 기독교 자유 대헌장 <span class="b-ppt bdg">자료 p.27 (필기본: '자유'·'선한 일' 형광펜)</span> <span class="b-add bdg">녹취 @27860~28100</span></h3>
+    <ul>
+      <li>"The Magna Carta of Christian Liberty". <b>5:1</b> "그리스도께서 우리를 자유롭게 하려고 자유를 주셨으니 그러므로 굳건하게 서서 다시는 종의 멍에를 메지 말라" / <b>5:13</b> "그 자유로 육체의 기회를 삼지 말고 오직 <b>사랑으로 서로 종 노릇</b> 하라."</li>
+      <li>교수의 정리(바울의 신학): 참된 것을 알고 → 거듭나고 → 자유로워지고 → 이 자유(선택할 자유)를 <b>모든 선한 일에 동참</b>하는 데 사용.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>학생 질문: 이스라엘 밖에서도 박해가 있었나 <span class="b-add bdg">녹취 @28128~29700</span></h3>
+    <ul>
+      <li>교수 답: 있었다고 봐야 한다. 집단주의 사회에서는 시선·통제도 박해 범주에 넣을 수 있다고 봄(교수는 "전 세계 65% 이상이 집단주의 사회"라고 말함 — 출처 언급 없음 [?]). 데살로니가 회당 장면 등 이스라엘 밖에서도 동족의 위험을 수차례 받았다.</li>
+      <li>당시 그리스도인은 <b>양쪽에서 박해</b>: 유대인들로부터는 "진짜가 아닌 집단", 로마 제국은 오래되고 검증된 제도엔 관용을 베풀지만 <b>신흥</b> 집단은 사회적 리스크로 보아 제외. 교수는 네로 때의 로마 대화재와 그리스도인 박해(횃불로 쓰임), 바울이 68년경 네로 아래에서 죽은 것으로 이해한다고 말함 [교수 발언 — 연도·사건 외부 확인 안 함].</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 6 -->
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">바울에 관한 이야기</span><div class="sl"></div></div>
+  <div class="card" style="border-style:dashed">
+    <h3>바울 부분은 수업 PPT 입수 후 보강 예정</h3>
+    <p>이번 초안에는 본문을 쓰지 않았습니다. 녹취에서 이 구간이 시작·끝나는 위치와 앞뒤 문장은 별도 기록(<code>_draft/week06_바울구간.md</code>)에 남겼습니다.</p>
+  </div>
+</div>
+
+<!-- SEC 7 -->
+<div class="sec" id="sec7">
+  <div class="sh"><span class="sb">7</span><span class="st">중간고사 설명</span><div class="sl"></div></div>
+  <div class="oneline">상황: 청년 모임에서 "바울이 쓴 편지가 있다면서요?" 하고 묻는 형제에게 가르쳐 주는 서술형 — 손글씨, 앞뒤 한 장 이내.</div>
+  <p style="font-size:12.5px;color:var(--text2);margin:0 0 8px">녹취 @14450~18800 (쉬는 시간 후 재개 구간). 아래는 교수 발언 그대로의 정리이며 녹취에 없는 정보는 넣지 않았습니다.</p>
+
+  <div class="emph">
+    <h3>★ [강조 3] 반드시 포함할 네 가지 · 한 장 제한 · 부정확한 정보 감점</h3>
+    <p><b>[녹취 @15173~15500]</b> <span class="say">"네 가지를 꼭 포함시켜서 써주십사 하고…"</span></p>
+    <ul>
+      <li>① 바울서신이 <b>편지라는 장르</b>를 이해하고 읽으면 <b>좋은 점</b></li>
+      <li>② 그것을 인지하지 않고 읽을 때 <b>해로운 점</b> (교수: "해로운 점들이라고 했거든요. 그 표현을 꼭 쓰고 싶었어요")</li>
+      <li>③ 바울과 수신자들이 살았던 <b>사회·문화</b>(언어 포함) 를 인지하며 읽을 때 <b>도움이 되는 점</b> [?: 학생이 상기시켜 준 부분의 ASR 오인식 — "문화와 언어" 취지로 정리]</li>
+      <li>④ 그것을 인지하지 않고 읽을 때 <b>해로운 점</b></li>
+    </ul>
+    <p><b>[녹취 @16370]</b> <span class="say">"한 장 이상 쓰지 마세요. 한 장 이상 쓰지 마세요 앞뒤로."</span> — 손으로 쓴다. 컴퓨터·핸드폰 사용 안 함.</p>
+    <p><b>[녹취 @16100~16250]</b> 부정확한 정보를 쓰면 <b>감점</b> — 확실하지 않으면 더 <b>포괄적으로 정확하게</b> 쓰거나 아예 쓰지 않는 편이 낫다(잘못된 정보를 가르치면 안 되므로).</p>
+  </div>
+
+  <div class="card">
+    <h3>시험 개요 <span class="b-add bdg">녹취 @14516~14700</span></h3>
+    <div class="tw">
+      <table>
+        <tbody>
+          <tr><th>일정</th><td>시험까지 약 <b>2주</b>(주간 반은 다음 주에 본다는 말 — @16962 [?]). 날짜는 교수가 "<b>26일</b>"이라고 확인 → <b>2026.10.26(월)</b>(오너 확인). 이 반은 다른 반보다 <b>한 주 더</b> 준비 기간. 시작은 <b>평소 수업 시작 시간과 같음</b>(녹취 @14600 "시작 시간은 같은 시간에 하고요").</td></tr>
+          <tr><th>시간</th><td>최대 <b>1시간 반</b>(딱 이 시간을 줌). 시작 시간은 같이 시작.</td></tr>
+          <tr><th>형식</th><td>이미 <b>LMS에 올려 둔 한 장짜리 상황 설명문</b>(실제 있을 만한 일)을 읽고 <b>일주일 동안 생각해 올 것</b>(@15480~15640). 지난 학기 중간고사와 <b>"매우 흡사"</b>. 기말도 "비슷하게, 주제만 다르게".</td></tr>
+          <tr><th>답안</th><td>지난 학기와 같은 <b>B4 용지</b>(녹취 "비포 용지" = B4, 오너 확인), <b>앞뒤 한 장 이내</b>. 볼펜 사용 중 틀려도 화이트로 지울 필요 없음 — "내용만 읽으니까".</td></tr>
+          <tr><th>준비물·규칙</th><td>손에 맞는 필기구(연필/볼펜). 시험 중 <b>다 덮어 둔다</b> — <b>요약본을 가져오는 것이 아니라 "마음에 담아오는" 것</b>(@17282~17350 "요약해서 가져오시는 거 아니고요. 마음에 담아오시는 거고요").</td></tr>
+          <tr><th>분량 감각</th><td>청년들에게 <b>1시간 분량</b> 이야기한다는 컨셉으로 준비. 교수가 지시한 항목만으로도 앞면은 채워질 것이고, <b>뒷면은 자유</b>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>답안의 관점·범위 <span class="b-add bdg">녹취 @15700~18700</span></h3>
+    <ul>
+      <li><b>대상</b>: 30대 초반 남성, 같은 청년 그룹도 비슷한 나이. 청년들은 부끄러움이 많으므로 <b>친절하게 따뜻하게</b> 가르쳐 준다. 한국침례신학대학원에서 이번 학기 신약성서2를 듣는 학생에게 도움을 청한 상황.</li>
+      <li><b>예시</b>: 바울서신 안의 실제 예를 들어 설명. 너무 자세히(장·절) 쓸 필요 없음 — "고린도전서"/"고린도서" 수준이면 충분. 바울서신을 처음 다룬 때의 <b>"편지는 무엇인가·어떻게 써졌나"</b> 섹션을 <b>자세히 리뷰</b>할 것.</li>
+      <li><b>범위</b>: 학생 질문("오늘 수업까지?")에 "예스 앤 노" — 질문이 바울서신을 이해하는 전반적 내용이라 <b>오늘까지 한 것으로 충분</b>. 더 좋은 예가 있다면 다가오는 수업에서 찾아도 됨. 중심은 <b>이 강의에서 다룬 내용</b>이고 성경은 예시 정도.</li>
+      <li><b>시험 당일</b>: 교수가 A4 용지에 뽑아 한 장씩 나눠 주면(@17400 "A포지에다가 뽑아서") 받자마자 <b>뒤집어서</b> 기억해 둔 것을 메모하고 그걸 토대로 작성한다(@17350~17450). A4에 무엇이 인쇄되는지는 녹취에 없음. 실제로 청년부·중고등부·성인 대상으로 가르칠 <b>기회를 만들라</b>는 권유도 있었음(@17282).</li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조 4] 오늘(갈라디아서)은 중요하다 — 단, 꼭 쓰라는 뜻은 아니다</h3>
+    <p><b>[녹취 @18319]</b> <span class="say">"특별히 오늘은 중요해요. 그 중요해요. 갈라디아서가 중요해요. 갈라디아서를 꼭 [쓰라는] 소리는 아니에요. 편안하게 생각하시고 실제 가르치는 청년 그룹을 가르친다. 그거가 초점이고요."</span> ([ ] 부분은 녹취에 "느라"로 인식됨 [?]) 이번 한 주 동안 질문을 갖고 있다가 <b>다음 주에 가져오라</b>고 함(@18572).</p>
+  </div>
+</div>
+
+<!-- SEC 8 -->
+<div class="sec" id="sec8">
+  <div class="sh"><span class="sb">8</span><span class="st">시험 포인트 (압축)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>심정과 대상 분리</b>: 목회적 고뇌(자녀·형제 호칭 4:19; 6:1, 4:13-14) vs 저주·거세(1:8-9; 5:12) — 후자는 <b>유대주의자</b>에게. [강조 1·2]</li>
+      <li><b>쟁점</b>: 할례(+음식 규정) = 언약의 표징이 <b>경계표지</b>로 변함 → 바울: "예수 + 모세" = 그리스도 제거; 믿음만이 유일한 길(2:16; 5:6; 6:15).</li>
+      <li><b>북 vs 남</b>: 북 = 50년 중반·에베소·(1데살로니가가 최초 서신) / 남 = 48년경·안디옥·예루살렘 회의(49년) 이전. 확실히는 모름.</li>
+      <li><b>바울의 권위</b>: 2:1-10(공식 인정, 디도 할례 안 받음) · 1:11-12(계시로 받음). <b>안디옥 사건</b> 2:11-14.</li>
+      <li><b>갈라디아서 vs 사도행전</b> 유대주의자 표현 차이: 의롭게 됨(갈) vs 구원(행 15:1).</li>
+      <li><b>때가 참(4:4)</b> = χρόνος(시간의 분량이 참) · <b>성령</b> = 율법이 못 하는 일(5:22-23).</li>
+      <li><b>결론</b>: 3:28 하나 · 5:1 자유(기독교 자유 대헌장) · 5:13 사랑으로 종 노릇.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 9 -->
+<div class="verify" id="sec9">
+  <h3>9. 출처·검증 요약</h3>
+  <div class="row">
+    <span class="stat"><b>녹취:</b> 신약성서_6주차_녹취스크립트_261012.txt (36,598자 · 한 줄)</span>
+    <span class="stat"><b>강의자료:</b> 06주차 00 갈라디아서.pdf (27쪽) + -필기.pdf(오너 필기: 쪽 9·20·26·27에 형광펜·원 표시, 쪽 5·27의 색 글씨)</span>
+    <span class="stat"><b>성경:</b> 대한성서공회 개역개정 (갈 1~6, 행 13·14·15·16·18, 창 17, 렘 6, 레 26 장 대조)</span>
+  </div>
+
+  <h4>[제외한 녹취 구간]</h4>
+  <ul>
+    <li>시작 기도·인사 (@0~180) — 수업 소개 부분의 일부만 사용</li>
+    <li>쉬는 시간·출석 부르기·수업 외 잡담 (@13631~14500)</li>
+    <li>바울 구간 (@29710~36573) → 별도 기록, 이번 노트에서는 본문 제외 (6번)</li>
+    <li><code>06주차 01 에베소서.pdf</code>, 사이트 guide_*.html 참고서는 사용하지 않음</li>
+  </ul>
+
+  <h4>[녹취 오인식 교정·의심 목록]</h4>
+  <ul>
+    <li>"사우마저/따우마존/다우마저" → <b>θαυμάζω</b>(다우마조) [@1806, @12310]</li>
+    <li>"테크나 무" → <b>τέκνα μου</b> [@3002] · "아델/아델포스" → <b>Ἀδελφοί</b> [@3399] · "안 notema esto" → <b>ἀνάθεμα ἔστω</b> [@4480] · "스티그마" → <b>στίγματα</b> [@6371]</li>
+    <li>"한리/할 일/할레/한례" → <b>할례</b> 다수 · "경로" → <b>격노</b>(자료 p.3 "신학적 격노") [@1263, @3961]</li>
+    <li>"유다이자들/유대인주의자" → <b>유대주의자(Judaizers)</b> · "토빗" 맞음 · "크루노스/크로노스" → <b>χρόνος</b>, "카이루스" → <b>καιρός</b> [@26647]</li>
+    <li>"세관점" → <b>새 관점</b> [@26926]</li>
+    <li>"한국침대신학 개학원" → 한국침례신학대학원 [@16876] · "A포지" → A4지 [@17400] · "비포 용지" → B4 용지(오너 확인) [@16348]</li>
+  </ul>
+
+  <h4>[자료·발언 간 차이 및 확인 사항 — 교수 착오로 단정할 곳은 찾지 못함]</h4>
+  <ul>
+    <li>교수 도입(@1369)과 달리 자료 p.15-16은 북·남 모두 가능성을 열어 두고 "확실하게 알 수 없다"로 마무리 — 노트는 둘 다 기록.</li>
+        <li>자료 p.20은 2:2와 2:9를 "…"로 이어 붙여 인용했다(생략된 부분은 2:2 후반 "내가 달음질하는 것이나…"와 2:3-8) — 개역개정과 대조해 인용된 어구는 일치.</li>
+    <li>자료 p.10의 "(1:7; 5:10) 교란" — 개역개정 5:10은 "<b>요동하게</b> 하는 자"로 어휘가 다름(1:7은 "교란"). 자료 표기 그대로 두되 확인.</li>
+    <li>자료 p.18의 "3.11", "5.4" 표기는 3:11·5:4를 뜻함. 3:11의 "의인은 믿음으로 살리라"는 개역개정 각주에 합 2:4로 표기됨.</li>
+  </ul>
+
+  <h4>[교수 개인 해석·외부 미확인 발언]</h4>
+  <ul>
+    <li>3:1 "어리석도다"의 어감 해석 / 6:17 스티그마 설명 / 집단주의 65% / 네로·68년 순교 발언 — 수업에서의 교수 발언으로만 기록, 외부 자료로 확인하지 않음.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  초안 작성: 2026.10.12 · 신약성서 II 6주차 녹취와 강의자료(06주차 00 갈라디아서·필기본) 기반 · 배포 전 오너 확인 필요
+</div>
+</div>
+</body>
+</html>

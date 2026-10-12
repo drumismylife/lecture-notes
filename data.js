@@ -553,7 +553,9 @@ const SITE_DATA = {
             { type: "guide", label: "고린도전서 참고서", href: "output/2026-2/nt2/guide_1corinthians.html" },
             { type: "guide", label: "고린도후서 참고서", href: "output/2026-2/nt2/guide_2corinthians.html" }
           ] },
-            { week: 6, title: "", date: "", files: [] },
+            { week: 6, title: "갈라디아서", date: "2026.10.12", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week06.html" }
+          ] },
             { week: 7, title: "", date: "", files: [] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
