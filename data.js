@@ -605,6 +605,15 @@ const SITE_DATA = {
             title: "전도학",
             desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
           },
+          tools: [
+            {
+              name: "중간고사 연습 문제지",
+              icon: "📝",
+              desc: "중간고사 자주색 문제 빈칸 채우기 — 입력 후 채점(띄어쓰기·따옴표 무시)",
+              href: "output/2026-2/evan/midterm_quiz.html",
+              isNew: true
+            }
+          ],
           weeks: [
             { week: 1, title: "오리엔테이션 — 소그룹 가이드라인·자기소개·강의소개", date: "2026.09.10", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week01.html" }
