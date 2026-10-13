@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 7주차 대각성운동과 감리교 운동: 알미니우스주의, 에드워즈, 휫필드</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>대각성운동과 감리교 운동 — 알미니우스주의, 에드워즈, 휫필드</h1>
+<p class="meta">교회사II · 7주차(2026.10.13 대면수업) · 제7부 이성과 부흥의 시대(1648~1789) <span class="badge era">이성·부흥의 시대</span><br>
+자료: 수업 전사(아이폰 자동 전사) + 교재 p.159~167 (PDF 26~30쪽, A3 한 장에 두 쪽씩 스캔) &nbsp;|&nbsp; 배지:
+<span class="bd v1">수업</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br>
+<span style="color:var(--text2)">[전사 n] = 전사문 약 n천 자 지점(전사는 줄바꿈이 없어 글자 수로 위치 표기). 전사는 오인식이 많아 인명·지명은 교재 표기로 맞추고 교정 내역은 맨 아래에 모았다.</span></p>
+
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <ul class="tight">
+    <li><strong>알미니우스(1560~1609)</strong>: 칼빈주의를 옹호하려고 연구하다가 상대(예정론 비판 쪽) 견해가 옳다고 확신 → 칼빈주의가 갈라짐. 사후 1610년 추종자 45명이 <strong>항변서(5개 조항)</strong> 제출 → 1618~19년 <strong>도르트 회의</strong>가 정통이 아니라고 결론, <strong>도르트 신조</strong> 발표. <span class="bd tb">p.159~160</span><span class="bd v1">전사 1~13</span></li>
+    <li><strong>핵심 차이</strong>: 칼빈주의 = 하나님의 강권적 은혜로 <strong>거듭남이 먼저</strong> / 알미니우스 = 선행은총으로 <strong>자유의지가 회복되는 것이 먼저</strong>, 은혜와 인간 자유의지의 협력. <span class="bd v1">전사 10~11</span></li>
+    <li>알미니우스주의는 웨슬리를 거쳐 감리교·성결교·오순절 등으로 이어짐. 극단으로 가면 인간이 모든 것을 결정하는 유니테리언주의. <span class="bd v1">전사 12~17</span></li>
+    <li><strong>대각성운동</strong>: 제1차(미국 식민지, 1725~60; 휫필드·에드워즈) / 제2차(1787~; 캠프미팅). 청교도들의 물질적 번영 앞의 신앙 무관심이 배경. <span class="bd tb">p.160</span><span class="bd v1">전사 18</span></li>
+    <li><strong>조나단 에드워즈</strong> = 하나님의 주권(칼빈주의) + 구원의 체험 강조. 1734~35 노스햄턴 부흥, 1750 교인 자격 문제로 사임. <span class="bd tb">p.161~163</span><span class="bd v1">전사 20~28</span></li>
+    <li><strong>조지 휫필드(1714~70)</strong> = 현대 부흥전도의 아버지, 순회·기획 전도. 찬성(신파)·반대(구파)로 교회가 갈라지고, 반대 쪽 목회자들의 비판·제재가 뒤따름. <span class="bd tb">p.164~166</span><span class="bd v1">전사 30~33</span></li>
+    <li>결과: 회중교회에서 이탈한 사람들이 침례교회로(130개), 1784년 미국 감리교회(Methodist Episcopal Church), 여러 대학 설립(뉴저지·로드아일랜드 등). <span class="bd tb">p.166</span><span class="bd v1">전사 33~34</span></li>
+  </ul>
+  <p><strong>⭐ 교수 강조</strong></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>오늘 내용은 2학기에서 가장 중요한 내용 중 하나</strong> — "2학기 중에서 가장 중요한 내용 중에 하나" (대각성운동과 감리교 운동의 시작) <span class="bd v1">전사 0</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>굵직한 신학자들의 시기적 순서를 기억</strong> — "굵직굵직한 중요한 신학자들이 신학자들이 이렇게 시기적으로 계속해서 생겨났다는 것을 여러분들이 1차적으로 기억하시고" (루터·츠빙글리 → 칼빈 → 알미니우스 → 웨슬리) <span class="bd v1">전사 1</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>예지 예정은 이중 예정이 아니다</strong> — "다시 이게 중요한 거예요. 하나님은 맹목적으로 딱 너는 구원 받은 사람 너는 구원받지 못할 사람 선택하신 게 아니에요" (항변서 1조 설명 중) <span class="bd v1">전사 5</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>칼빈주의와 알미니우스의 핵심 차이 = 거듭남이 먼저냐, 자유의지 회복이 먼저냐</strong> — "이 알미뉴스와 칼빈 주의 가장 큰 핵심점은 뭐냐면" … "그러니까 핵심은 거듭남이 우선이에요. 논리적으로." <span class="bd v1">전사 10</span></div>
+</div>
+
+<div class="card">
+  <h2>1. 알미니우스주의와 칼빈주의의 형성 <span class="bd tb">p.159~160</span></h2>
+  <h3>1-1. 야곱 알미니우스(Jacob Arminius, 1560~1609)</h3>
+  <ul class="tight">
+    <li>교수: 종교개혁 1세대는 루터·츠빙글리, 루터가 거의 죽을 때 칼빈이 이어받고, 칼빈이 죽을 때쯤 알미니우스가 등장, 그 뒤 계승자가 웨슬리. <span class="bd v1">전사 0~1</span></li>
+    <li>네덜란드 출신, <strong>칼빈이 죽을 때 4살</strong>. 공동생활 형제단이 세운 학교에서 초기 교육, 말부르크 대학 수학, 1576~81년 라이덴 대학 제1회 졸업생. <span class="bd tb">p.159</span><span class="bd v1">전사 1</span></li>
+    <li>암스테르담 길드(교수: 같은 업종의 모임)의 도움으로 1582~86년 유학, <strong>칼빈의 제자 데오도르 베자(1519~1605)</strong> 밑에서 공부. 교수: 베자는 칼빈 신학을 정리·집대성한 사람. <span class="bd tb">p.159</span><span class="bd v1">전사 1~3</span></li>
+    <li>이탈리아 여행 후 1587년 귀국, 이듬해 목사가 되어 암스테르담에서 15년 목회, 라이덴 대학 교수가 됨. 교수: 누가 봐도 정통 칼빈주의를 배웠고 칼빈주의를 지켜야 할 사람이었다. <span class="bd tb">p.159</span><span class="bd v1">전사 3</span></li>
+    <li><strong>계기</strong>: 어느 목회자가 칼빈주의 예정론이 틀렸다고 주장하자 칼빈의 교리를 옹호하려고 결심 → 칼빈과 상대방 사상을 연구하다가 <strong>상대의 견해가 옳다고 확신</strong> → 이 결론으로 칼빈주의가 분열. <span class="bd tb">p.159</span><span class="bd v1">전사 3~5</span></li>
+    <li>교수는 그 목회자를 코른헤르트(1522~1590, 네덜란드 인문주의자, 신앙의 자유·종교 관용 주장)로 소개하고, 이중 예정론이면 구원받지 못할 자의 죄책의 원인도 하나님이 된다고 반박했다고 설명. <span class="bd bo">보충</span>교재에는 이름 없음, 전사 표기 불일치 [?]. <span class="bd v1">전사 3~4</span></li>
+    <li>1609년 알미니우스 사망.</li>
+  </ul>
+  <div class="key"><strong>이중 예정설 vs 예지 예정설</strong> <span class="bd v1">전사 3~6</span>
+    <ul class="tight">
+      <li><strong>이중 예정설(칼빈)</strong>(교수): 하나님이 창세 전부터 택자와 불택자를 정하셨다 → 논리적으로 죄의 원인이 하나님이 된다는 비판.</li>
+      <li><strong>예지 예정설(알미니우스)</strong>(교수): 하나님은 맹목적으로 선택하지 않고, 누가 복음을 듣고 믿을지를 <strong>미리 아시고 그 믿음에 근거해</strong> 구원을 예정하신다.</li>
+      <li>교수: 이것은 <strong>열린 신론</strong>(미래가 열려 있어 하나님이 확정하지 않으셨다는 입장)과는 다르다 — 알미니우스는 "그것까지는 아니다". 성경 해석(예: 예레미야에서 민족의 회개에 따라 멸망 작정이 바뀌는 구절)에 따라 신학이 갈린다고 설명. <span class="bd v1">전사 6~7</span></li>
+    </ul>
+  </div>
+
+  <h3>1-2. 항변서(Remonstration, 1610) 5개 조항 <span class="bd tb">p.160</span></h3>
+  <p>알미니우스 사후 이듬해(1610) 추종자 45명이 서명한 신앙진술서를 네덜란드 시의회에 제출(교재). 교수: 알미니우스가 추정한 신학을 다섯 가지로 정리한 것. <span class="bd v1">전사 5</span></p>
+  <table>
+  <tr><th style="width:5%">#</th><th style="width:34%">조항 (교재 p.160)</th><th>교수 설명</th><th style="width:11%">출처</th></tr>
+  <tr><td>1</td><td>하나님은 개인의 신앙과 불신앙을 <strong>예지</strong>에 기초하여 선택하시고 또한 유기하신다</td><td>예지 예정설. 미리 아신 대로 예정할 뿐 맹목적 선택이 아니다(위 박스).</td><td><span class="bd v1">전사 5~7</span></td></tr>
+  <tr><td>2</td><td>그리스도는 믿는 자들뿐만이 아니라 <strong>모든 인류</strong>를 위해 죽으셨다</td><td>그러나 모든 사람이 구원받는다는 <strong>보편구원론</strong>은 이단. 구원의 <strong>효력은 믿는 자에게만</strong> 있다 → 믿는 자에게 책임이 있다. (교수: 복음을 못 들은 사람들을 위한 '익명의 그리스도인' 논의는 신앙적으로 문제.)</td><td><span class="bd v1">전사 8~9</span></td></tr>
+  <tr><td>3</td><td>믿음과 선행에 하나님의 은혜가 반드시 필요하다(하지만 사람은 복음을 믿을 수 없을 만큼 죄에 의해 타락하지 않았다)</td><td>인간은 전적으로 타락해 스스로 구원받을 수 없지만, 하나님이 모든 사람에게 그리스도를 통해 <strong>선행은총</strong>을 주셔서 <strong>자유의지가 회복</strong>되고 복음에 응답할 수 있다.</td><td><span class="bd v1">전사 9</span></td></tr>
+  <tr><td>4</td><td>하나님의 은혜는 거절될 수 있다</td><td>회복된 자유의지로 은혜를 거부할 수 있다. 거부할 수 없다면 자유의지가 작동하지 않는 것.</td><td><span class="bd v1">전사 9~10</span></td></tr>
+  <tr><td>5</td><td>중생자의 견인에 관해서는 좀 더 연구할 여지가 있다(그리스도 안에 있는 사람들은 떨어질 수도, 떨어지지 않을 수도 있다)</td><td>복음을 선택한 사람이 끝까지 그리스도 안에 있을 수 있는지는 확실치 않다. 떨어질 수도 있다.</td><td><span class="bd v1">전사 10</span></td></tr>
+  </table>
+
+  <table>
+  <caption>칼빈주의 vs 알미니우스주의 — 교수 설명 정리</caption>
+  <tr><th style="width:18%">구분</th><th>칼빈주의</th><th>알미니우스주의</th></tr>
+  <tr><td>출발점</td><td><strong>거듭남이 우선</strong>. 하나님이 강권적으로 거듭나게 하시고, 그 뒤에 죄인임을 깨닫고 선행·성령의 열매. 인간의 자유의지는 상관없다.</td><td><strong>자유의지 회복이 우선</strong>. 회복된 의지로 복음을 듣고 본인이 선택.</td></tr>
+  <tr><td>믿음</td><td>하나님이 강권적으로 주심(사로잡아 변화시킴)</td><td>선행은총으로 살아난 의지가 선택</td></tr>
+  <tr><td>구원의 구조</td><td>하나님의 절대 은혜</td><td>하나님의 은혜와 인간 자유의지의 <strong>협력</strong></td></tr>
+  <tr><td>속죄 범위</td><td>제한 속죄(택자만)</td><td>모든 인류를 위한 속죄(일반 속죄)</td></tr>
+  <tr><td>결단·초청 설교</td><td>교수: 칼빈주의에서는 있을 수 없다("하나님이 하시는 일이지 사람이 하는 일은 아니에요")</td><td>"이 시간 예수를 영접하라"는 결단 초청과 연결(교수: 복음주의 부흥집회·빌리 그레이엄 같은 사례)</td></tr>
+  </table>
+  <p>교수: 19세기 미국에서 가장 큰 신학 논쟁 중 하나가 설교 후 <strong>초청(invitation)을 할 수 있느냐 없느냐</strong>였다(연도 표현 [?]). <span class="bd v1">전사 11~13</span></p>
+
+  <h3>1-3. 도르트 회의(1618~19)와 도르트 신조 <span class="bd tb">p.160</span></h3>
+  <ul class="tight">
+    <li>항변 후 8년이 지나 네덜란드 시의회가 항의서를 심의하려고 <strong>도르트 교회회의</strong>를 소집. 1618년 11월~1619년 5월 <strong>7개월간 154번</strong>의 정식 회의. 각 지방 교회회의 대표 참석, 잉글랜드·스코틀랜드·독일 칼빈주의 교회 대표는 고문으로 참석, 화란 의회가 5명의 신학교 교수와 18명의 위원을 선임 → 정식 대표 총 56명. <span class="bd tb">p.160</span><span class="bd v1">전사 13</span></li>
+    <li><strong>결론</strong>: 알미니우스파의 저작물을 면밀히 검토한 결과 <strong>정통이 아니며 성경의 가르침과 어긋난다</strong> → 이에 반대하는 <strong>도르트 신조</strong> 발표. <span class="bd tb">p.160</span></li>
+  </ul>
+  <table>
+  <caption>도르트 신조 5개 항목 (교재 p.160) — 교수 설명</caption>
+  <tr><th style="width:5%">#</th><th style="width:30%">항목</th><th>교수 설명</th></tr>
+  <tr><td>1</td><td>인간의 전적 타락(Total depravity)</td><td>노예 의지. 스스로 살아날 길이 없다.</td></tr>
+  <tr><td>2</td><td>무조건적 선택(Unconditional election)</td><td>의지가 살아나야 선택할 수 있으므로 전적으로 하나님의 선택.</td></tr>
+  <tr><td>3</td><td>제한된 속죄(Limited atonement)</td><td>예수님은 택자만을 위해 돌아가셨다.</td></tr>
+  <tr><td>4</td><td>불가항력적 은혜(Irresistible grace)</td><td>은혜가 임하면 자유의지가 없으니 그냥 받아들인다.</td></tr>
+  <tr><td>5</td><td>성도의 견인(Perseverance of the saints)</td><td>구원받은 사람이 떨어지는 일은 없다.</td></tr>
+  </table>
+  <p>교수: 알미니우스와 칼빈주의는 논리적 순서가 맞물려 있어 중간에 벗어날 길이 없다. <span class="bd v1">전사 13~14</span></p>
+
+  <h3>1-4. 침례교의 위치 (교수) <span class="bd v1">전사 14~16</span></h3>
+  <ul class="tight">
+    <li>침례교는 원죄·전적 타락은 인정하되 <strong>하나님의 은혜로 자유의지가 일부 회복</strong>되어 복음을 받거나 거절할 수 있다고 본다. 속죄는 <strong>일반 속죄</strong>(모든 사람을 위함)가 대다수.</li>
+    <li>성도의 견인은 대다수가 인정(소수는 배교 가능성 주장): 하나님의 강권적 사랑이 더 강하다는 입장. 교수: 이 점까지 거부하면 완전히 웨슬리안으로 간다.</li>
+    <li>교수: 침례교 신학은 엄밀히 말하면 칼빈의 5대 교리 그대로가 아니라 <strong>중간 입장</strong>. "일반 대속설"과 "하나님이 자유의지를 활용해 구원하신다"는 두 가지를 빼면 장로교와 다를 것이 없다. 그래서 "3.5포인트·4포인트 칼빈주의" 같은 표현을 쓴다.</li>
+  </ul>
+
+  <h3>1-5. 영향과 평가 <span class="bd tb">p.160</span></h3>
+  <ul class="tight">
+    <li>알미니우스주의자들은 한동안 교회회의에서 정죄당하고 정치적 박해를 받았으나 1630년에 법으로 자유를 보장받음. <span class="bd tb">p.160</span><span class="bd v1">전사 16</span></li>
+    <li>18세기 존 웨슬리가 알미니우스주의의 영향을 받아 자신이 편집한 <strong>『알미니우스지』(The Arminian Magazine)</strong> 발행. 교수: 웨슬리는 이 다섯 가지를 그대로 받아들였다. <span class="bd v1">전사 16</span></li>
+    <li>이 사상은 <strong>감리교와 성결교, 복음주의 진영, 미국 유니테리언주의</strong>에 영향. 교수: 감리교·성결교·오순절은 같은 웨슬리 계열이고 많은 복음주의 교단에도 영향(침례교에도 19~20세기에 이런 신학이 많았다고 언급 [?]). <span class="bd tb">p.160</span><span class="bd v1">전사 12~13</span></li>
+    <li>교수: 알미니우스는 하나님의 무서운 심판·정의보다 <strong>사랑과 자비</strong>를 강조하려 했으나, 극단으로 가면 모든 결정을 인간이 하는 유니테리언으로 빠진다("구원에 있어서 인간의 결정이 중요하지 하나님의 은혜가 중요하지 않다"). <span class="bd v1">전사 16~17</span></li>
+    <li><strong>교재 평가</strong>: 그리스도의 사랑을 강조하려 했던 신학이 오히려 복음에 생명력을 잃게 되는 결과를 초래. <span class="bd tb">p.160</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>2. 대각성운동(The Great Awakenings) <span class="bd tb">p.160~161</span></h2>
+  <table>
+  <tr><th style="width:22%">구분</th><th>내용</th></tr>
+  <tr><td>정의 (교재 인용 McKim)</td><td>18세기 미국의 두 부흥운동. <strong>제1차</strong>: 미국 식민지(1725~60), 지도자에 <strong>조지 휫필드(1714~70)</strong>와 <strong>조나단 에드워즈(1703~58)</strong>. <strong>제2차</strong>: 1787년에 시작, 여러 지도자와 <strong>캠프미팅</strong>이 특징. <span class="bd tb">p.160</span><span class="bd v1">전사 18</span></td></tr>
+  <tr><td>캠프미팅 (교수)</td><td>당시에는 예배·부흥회를 하려면 교구교회의 허락을 받아야 했으나, 캠프미팅은 야외 천막·광장에서 가능했다. <span class="bd v1">전사 18</span></td></tr>
+  <tr><td>배경 (교재)</td><td>청교도운동은 16세기 영국에서 시작되었지만 주요 영향은 17세기 북아메리카에서 드러났고, 17세기 수많은 칼빈주의자들의 본거지가 됨. 그러나 1700년대 초반에 청교도주의는 <strong>물질적 변영 앞에 신앙에 무관심</strong>해짐. 이 영적 위기를 극복하려고 프렐링하우젠(네덜란드 출신 목사)과 길버트 테넌트 중심의 부흥운동이 뉴저지에서 펜실베이니아·버지니아로 번져감. 가장 극적인 변화는 1734년 매사추세츠 노스햄턴의 조나단 에드워즈에게서 시작. <span class="bd tb">p.160~161</span><span class="bd v1">전사 18</span></td></tr>
+  </table>
+
+  <h3>반언약(Half-covenant) 논쟁 <span class="bd tb">p.161~162</span></h3>
+  <ul class="tight">
+    <li><strong>정회원 조건</strong>: 17세기 초까지 뉴잉글랜드 교회의 정식 교인이 되려면 개인적으로 회심한 경험을 <strong>공개적으로 간증(15분)</strong>할 수 있어야 했고, 일정 기간 후 엄격한 심사를 거쳐 정회원이 됨. 그 전까지는 <strong>준회원</strong>(성찬 참여 금지, 투표권 없음 → 치리권 행사 불가). 교수: 15분간 죄를 고백하고 거듭난 삶을 보여야 해서 부담이 컸다. <span class="bd tb">p.162</span><span class="bd v1">전사 19</span></li>
+    <li><strong>문제</strong>: 시간이 지나며 회심 경험을 간증할 사람이 드물어졌고, 준회원들도 자녀의 <strong>유아세례와 장례식</strong>은 원함. 원래 유아세례는 정회원(신자)의 자녀에게만 허락(교수: 완전한 언약 사상). → <strong>반언약</strong>: 1660년 이후 준회원이나 완전히 회심하지 않은 사람이 교회 치리권을 받아들이면 그 자녀가 유아세례를 받을 수 있게 됨. 교수: 교회가 한마디로 <strong>절충</strong>한 것. <span class="bd tb">p.162</span><span class="bd v1">전사 19~20</span></li>
+    <li>반언약의 원칙은 1657·1662년 교회회의에서 공식화되었으나, 이 용어 자체가 쓰이기 시작한 때는 1760년대(교재). <span class="bd tb">p.161</span></li>
+    <li>18세기 초에는 교회에 다니는 사람 중 반 정도가 <strong>명목상 그리스도인</strong>, 신앙생활이 시민생활의 일부가 됨. 조지 휫필드의 비판: 설교자들이 자기도 경험한 적 없는 그리스도에 대해 말하며, 교회가 죽어 있는 이유는 죽은 사람들이 회중을 상대로 설교했기 때문(교재 인용). <span class="bd tb">p.162</span><span class="bd v1">전사 23</span></li>
+    <li><strong>교재 평가</strong>: ①개인의 신앙양심에 대한 철저한 성찰에서 시작 ②뉴잉글랜드 회중교회들이 교회 회원권의 확대를 시도 ③뉴잉글랜드 교회는 성장 ④논쟁 중에 평신도의 주도권이 역동적으로 표출 → 반언약의 도입을 성직자들은 찬성, 젊은 평신도들은 반대. <span class="bd tb">p.162</span><span class="bd v1">전사 24</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>3. 조나단 에드워즈(Jonathan Edwards, 1703~1758) <span class="bd tb">p.161~164</span></h2>
+  <p class="meta">교수: 에드워즈의 특징 = 칼빈주의자로서 <strong>하나님의 주권</strong>을 강조하되 <strong>구원의 체험</strong>도 강조. 하나님이 강권적으로 선택한 자에게는 강권적 체험이 동반되며, 구원받은 사람은 반드시 성령의 열매를 맺는다. 지금까지 칼빈주의는 체험을 따로 강조하지 않았다. <span class="bd v1">전사 20</span></p>
+  <table>
+  <tr><th style="width:14%">연도</th><th>사건 (교재 p.161~164)</th></tr>
+  <tr><td>1703.10.5</td><td>코네티컷 이스트 윈저에서 목사 가문에 출생(11남매 중 다섯 번째, 외아들). 아버지 티모시 에드워즈(회중교회 목사), 외할아버지 <strong>솔로몬 스토다드</strong>(1643~1729, 노스햄턴 영적 지도자). 6세부터 라틴어, 13세에 라틴어·그리스어·히브리어를 구사. <span class="bd v1">전사 21</span></td></tr>
+  <tr><td>1716~20</td><td>예일 칼리지 입학(1716.9), 1720년 최우수 졸업, 이후 2년 더 신학 공부. 이때 회심을 체험한 것으로 추정(1720년, 17세). 계기: 디모데전서 1장 17절을 읽었을 때의 경험(교재). <span class="bd bo">보충</span>전사는 "7살로 수정"으로 들림 [?]. <span class="bd v1">전사 21</span></td></tr>
+  <tr><td>1722~26</td><td>뉴욕 장로교회 초빙·목회(1722~, 2년), 1724년 예일로 돌아와 2년간 강사. 사라 피어폰트와 교제 시작. 1726년 외할아버지의 목회 현장에 동역하러 노스햄턴으로 감. <span class="bd v1">전사 22</span></td></tr>
+  <tr><td>1727</td><td>2월 15일 스물셋에 회중교회 목사안수, 같은 해 7월 결혼(평생 회중교회 목사). 3남 8녀, 75명의 손자녀(교재). <span class="bd v1">전사 22</span></td></tr>
+  <tr><td>1729</td><td>외할아버지 사후 담임목사. 1750년 추방될 때까지 사역. 심방·대화를 거의 하지 않고 <strong>설교에만 집중</strong>, 교회와 도시의 큰 부흥. <span class="bd v1">전사 22~23</span></td></tr>
+  <tr><td>1731</td><td>보스턴 대중집회 초청, 알미니우스주의 비판 설교. 교수: 하버드·예일 졸업생 중 목회자 비율이 줄어드는 원인을 인간의 자유의지(알미니우스주의) 탓으로 비판. <span class="bd v1">전사 23</span></td></tr>
+  <tr><td>1734~35</td><td><strong>"믿음으로만 말미암는 칭의"</strong>(Justification by Faith alone) 설교(다섯 번) → 놀라운 각성운동 시작(교재: 1740년부터의 제1차 대각성운동의 시작이 됨). 1735년 3~4월 부흥 절정, <strong>300여 명 회심</strong>, 설교를 들으러 동네 술집이 텅 빔. <span class="bd v1">전사 25</span></td></tr>
+  <tr><td>1737~</td><td>소책자 <strong>『놀라운 회심 이야기』</strong>(A Faithful Narrative of the Surprising Work of God)가 런던·보스턴에서 발행, 웨슬리·휫필드 등에게 영향(1737~39년 3판 20쇄). 책의 요지: 이 각성운동은 인간의 노력·기교가 아니라 <strong>전적으로 하나님의 은혜와 성령의 사역</strong>, 곧 하나님의 주권적 사역(교재: 제2차 대각성운동의 찰스 피니와 대조). <span class="bd v1">전사 25~26</span></td></tr>
+  <tr><td>1741</td><td>엔필드에서 가장 유명한 설교 <strong>"진노하시는 하나님의 손안에 있는 죄인들"</strong>(신 32:35) — 청중이 무서운 심판 선고에 떨며 탄식·흐느껴 에드워즈가 조용히 하라고 명함. 교수: 원고를 그대로 읽었는데도 사람들이 눈물을 흘렸다. <span class="bd v1">전사 26</span></td></tr>
+  <tr><td>1750</td><td>교인 자격 문제("진정한 교인만이 성찬에 참여해야 한다")로 노스햄턴 교회와 마찰, 사임(23년 사역, 47세). 교수: 200여 명이 해임 청원. 에드워즈의 원칙: <strong>"교회 회원권의 전제조건은 개인적인 종교체험의 증거이다."</strong> <span class="bd tb">p.163</span><span class="bd v1">전사 26~27</span></td></tr>
+  <tr><td>1751~</td><td>스톡브리지에서 목회 시작, 인디언 선교사역과 저술 활동, 미국 백인들의 인디언 착취 비판. 『의지의 자유』(Freedom of Will)로 알미니우스주의를 반박하며 <strong>하나님의 절대주권</strong>을 주장하면서도 <strong>인간의 자유의지</strong>를 변호 → 하나님의 역사에 힘입어 하나님이 기뻐하시는 쪽으로 자유의지가 발휘됨. <span class="bd v1">전사 27</span></td></tr>
+  <tr><td>1757~58</td><td>1757년 뉴저지 대학(프린스턴 전신) 학장 초빙. 1758년 천연두 면역 접종을 잘못 맞은 후 3월 22일 사망. <span class="bd v1">전사 27</span></td></tr>
+  </table>
+  <p>교수: 1740~41년 대각성운동에서 <strong>감정적 열광주의</strong>(전사: 찬양하고 춤추는 일 등 [?])가 나타났고 교재는 이를 비판으로 기록(교재: "감정적 열광주의는 비판"). 에드워즈는 성령의 역사와 능력, 감정 측면도 부각했는데(전통 칼빈주의는 덜 부각), 그래서 "정통 칼빈주의자냐 신비주의자냐" 평가가 갈린다. <span class="bd tb">p.162</span><span class="bd v1">전사 26~27</span></p>
+
+  <div class="key"><strong>에드워즈의 주요 사상</strong> <span class="bd tb">p.163</span><span class="bd v1">전사 27~28</span>
+    <ul class="tight">
+      <li>"개인의 노력으로 구원받을 수 있다"는 근대적 <strong>성취적 기독교</strong> 비판: "하나님이 친히 의롭다고 선포하시기 전에는 모든 사람은 죄인이다…구원을 추구하라." 명목상의 그리스도인(예배나 세례를 사회적 습관으로 여기는 사람) 비판.</li>
+      <li><strong>진리 = 지성 + 심성으로 경험되어야 한다</strong>(복음이 마음과 생각을 온통 사로잡아야 한다). 기독교 교리에 대한 지적 동의(인지적)만으로는 충분하지 않고, 하나님의 임재와 권능을 매일의 삶 속에서 <strong>경험</strong>해야 한다. → 중생에 관심, 하나님과의 합일 강조(신비주의 경향). 교수: 약간 정통 칼빈주의와 결이 다르다.</li>
+      <li>누구든지 회심하지 않고서는 복음의 진정한 의미를 충분히 음미할 수 없다. <strong>마음</strong>은 단순한 감정의 결집체가 아니라 이성·의지·감정이 모두 결합된 것.</li>
+      <li>중생의 과정에서 다양한 신비적 현상을 인정(감정의 고조, 육체적 변화, 신앙의 확신, 찬양에 몰두, 가시적 사랑의 표현).</li>
+      <li>이 사상은 19세기 미국 사회에서 ①신비적 체험에 몰두하는 그룹 ②윤리적 특성을 강조하는 그룹 ③사회개혁운동으로 발전시킨 그룹으로 진화(교재; 교수도 같은 3분화로 설명).</li>
+    </ul>
+  </div>
+
+  <h3>데이빗 브레이너드(David Brainerd, 1718~1747) <span class="bd tb">p.163~164</span><span class="bd v1">전사 28~29</span></h3>
+  <ul class="tight">
+    <li>인디언 선교사. 1739년(21세) 개종 체험, 1742년 4월 20일 기도 중 인디언 선교 헌신, 그해 여름부터 선교 시작, 1744년 뉴욕 장로회에서 안수를 받고 델라웨어 인디언에게 파송. 1745년(27세) 몸이 쇠약, 폐결핵과 과로로 1747년(29세) 사망(마지막 몇 달은 에드워즈의 집에 머묾; 교수: 에드워즈의 딸과 약혼 관계).</li>
+    <li>조나단 에드워즈·존 웨슬리·윌리엄 캐리·헨리 마틴·짐 엘리엇 같은 위대한 선교사들에게 큰 영향(특히 인디언·해외·이방인 선교). <span class="bd bo">보충</span>전사에 "윌랍 캐리, 헬리 마틴, 짐 엘리오스"로 나옴 → 교재 표기로 교정.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>4. 조지 휫필드(George Whitefield, 1714~1770) — 현대 부흥전도의 아버지 <span class="bd tb">p.164~166</span></h2>
+  <p>교재: "현대 부흥전도의 아버지 ⇔ 존 웨슬리(1703~1791)". 교수: 탁월한 설교가·언변이 뛰어난 사람(말 한마디에 은혜를 받고, 수천~수만이 모여도 목소리가 들림). 웨슬리는 반대로 내성적이었다고 대비. <span class="bd v1">전사 30</span></p>
+  <ul class="tight">
+    <li><strong>순회사역</strong>: 영국 성공회는 원래 교구사역인데 휫필드는 여러 지역을 다니는 순회 사역. 영국뿐 아니라 미국 전 도시를 돌며 순회사역하자 많은 사역자들이 위협으로 인식 → 각 교단이 <strong>구파(부흥회 거부)와 신파(찬성)</strong>로 분열. <span class="bd tb">p.164</span><span class="bd v1">전사 30</span></li>
+    <li>1739.11.2 필라델피아 도착(24세). "메소포타미아"라는 발음만 해도 청중이 눈물을 흘렸다고 함. 처음엔 성공회 교회, 이후 여러 교회, 나중에는 수천 명이 광장으로 모여 들음. <span class="bd v1">전사 30~31</span></li>
+    <li>벤자민 프랭클린: 휫필드의 설교가 끼친 영향력에 대해 "마치 전 세계가 점점 종교적이 되어가는 것 같았다"고 회고. <span class="bd tb">p.164</span></li>
+    <li>1740.9.14 로드아일랜드 뉴포트 도착 후 73일 동안 800마일을 여행하며 <strong>113회</strong> 설교. 1740~42년 뉴잉글랜드 지방에서만 <strong>25,000명에서 50,000명</strong>의 교인 증가. <span class="bd tb">p.164</span><span class="bd v1">전사 31</span></li>
+    <li><strong>기획 전도</strong>: 렘버트의 평 — 찰스 피니·빌리 그레이엄 같은 복음 전도자들의 선조가 되게 한 것은 전문 경영자·감독(impresario)으로서의 기술이었다. 방문하려는 도시에 보도자료를 계속 보내 명성을 일으키고, 캠페인을 일정보다 2년 앞서 시작, 설교가 인쇄된 수천 부를 배포, 신문광고까지 냄. 교수: 철저히 계획·기획하는 사람. <span class="bd tb">p.164~165</span><span class="bd v1">전사 31</span></li>
+  </ul>
+
+  <h3>휫필드에 대한 비판 <span class="bd tb">p.165~166</span></h3>
+  <table>
+  <tr><th style="width:20%">사건</th><th>내용</th></tr>
+  <tr><td>테넌트의 설교</td><td>장로교 목회자 <strong>길버트 테넌트</strong>가 1740년 3월 8일 펜실베이니아 노팅햄에서 한 설교 <strong>"거듭나지 못한 목회의 위험성"</strong>(The Danger of an Unconverted Ministry). 거듭나지 않은 목사들은 수영도 못 배우고 남을 가르치다 빠져 죽는 얼간이와 같다며, 그런 목회자들에게서 벗어나 다른 교회를 찾으라고 공개적으로 요청. <span class="bd v1">전사 31~32</span></td></tr>
+  <tr><td>필라델피아 총회</td><td>반대파들이 결집하여 1741년 <strong>필라델피아 총회</strong>에서 부흥사 그룹을 축출 → 축출당한 사람들이 <strong>뉴욕노회</strong> 구성. 17년 후인 1758년 뉴욕 및 필라델피아 노회로 합동하며 분열 종식. <span class="bd tb">p.165</span><span class="bd v1">전사 32</span></td></tr>
+  <tr><td>찰스 촌시</td><td>보스턴 제일교회 목사 <strong>찰스 촌시(Charles Chauncy)</strong>가 테넌트의 설교는 무식하고 혼란스럽고 준비도 엉망이며 전달기술도 형편없다고 비판. 보스턴 제일교회 강단에서 "경계해야 할 열광주의"라는 설교로 부흥운동을 맹렬히 비난. <span class="bd tb">p.165</span><span class="bd v1">전사 32</span></td></tr>
+  <tr><td>휫필드의 반격</td><td>휫필드의 뉴잉글랜드 여행기에서 뉴잉글랜드 목사들의 자질을 언급한 글로 폭발. 휫필드는 "회중들이 죽은 이유는 죽은 사람들이 그들에게 설교했기 때문이며 어떻게 죽은 사람들이 살아있는 아이들을 출산할 수 있겠는가"라고 비판(교수: 목사들이 원고에 의존해 설교한다고 비판, 설교는 성령이 주신 감동·은사에 따라 해야 한다는 취지). <span class="bd tb">p.165</span><span class="bd v1">전사 32</span></td></tr>
+  <tr><td>하버드의 성명 (1743)</td><td>1743년 말 하버드 대학의 총장과 교수단이 만장일치로 <strong>『조지 휫필드 경과 그의 행위에 반대하는 증언』</strong> 발표: 그의 <strong>광신(enthusiasm)</strong>을 비난, 사람들을 흥분시키고 호의를 얻기 위해 최상의 기교와 교활함을 사용했다고 비판. <span class="bd tb">p.165~166</span><span class="bd v1">전사 32</span></td></tr>
+  <tr><td>커네티컷 법령 (1742)</td><td>커네티컷 목회자들이 세 가지 새 법령: ①순회설교자는 그 교구 사역자의 허가 없이 설교 금지 ②각 교구가 대학 졸업장 없는 사람을 사역자로 뽑는 것 금지 ③예일대학 학생들과 교수진에게 정통신앙을 주장하는 맹세를 요구. <span class="bd tb">p.166</span><span class="bd v1">전사 32~33</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>5. 분열의 결과와 대각성운동의 영향 <span class="bd tb">p.166</span></h2>
+  <table>
+  <tr><th style="width:22%">항목</th><th>내용</th></tr>
+  <tr><td>c. 사건의 결과(분열)</td><td><strong>98개의 분리파 교회</strong> 설립, 그중 최소 19개가 침례교회가 됨. 불만에 가득 찬 회중교인들에 의해 추가로 <strong>130개의 침례교회</strong>가 세워짐 → 초기 뉴잉글랜드 부흥운동에서의 침례교의 어부지리. 교수: 휫필드식 부흥운동의 결과 분열된 회중교회에서 침례교로 많이 넘어옴. <span class="bd v1">전사 33</span></td></tr>
+  <tr><td>d. 남부의 대각성운동</td><td>버지니아·노스캐롤라이나·켄터키·조지아의 침례교 부흥, 하노버를 중심으로 한 장로교 부흥, 딘위디 카운티를 중심으로 한 성공회 부흥. 성공회와의 단절을 선언하고 <strong>1784년 감리교회(Methodist Episcopal Church)</strong> 형성 — 교수: 원래 성공회 안의 분파운동(감리교 운동)에서 감독이 있는 감독교회로. <span class="bd v1">전사 33</span></td></tr>
+  <tr><td>e. 영향</td><td>하나님께서 미국에게 특별한 운명을 부여하셨다는 <strong>민족의식</strong> 형성 · 인디언·흑인·노예에 대한 선교, 학교 건설, 다양한 자선 사업 · 교회 내 평신도 역할 증대 · 목회자의 가치 급상승, 목회 지망 젊은이 급증 · 침례교와 감리교의 순회설교자들이 흑인들을 기독교로 회심시키는 일에 큰 성공 · 목회자 교육의 필요성과 고등교육에 대한 관심 증가로 여러 대학이 세워짐. <span class="bd v1">전사 33~34</span></td></tr>
+  </table>
+  <table>
+  <caption>f. 세워진 대학들 (교재 p.166)</caption>
+  <tr><th style="width:15%">연도</th><th>대학</th><th>비고</th></tr>
+  <tr><td>1746</td><td>뉴저지 대학(현 프린스턴)</td><td>뉴욕 노회가 헌장 확보 <span class="bd v1">전사 34</span></td></tr>
+  <tr><td>1764</td><td>로드아일랜드 대학(현 브라운)</td><td>침례교 목회자 양성을 위해 세움. 교수: 브라운은 원래 침례교 목회자 양성 대학. <span class="bd v1">전사 34</span></td></tr>
+  <tr><td>1776</td><td>퀸즈 대학(현 러트거스)</td><td>화란 개혁파 사이의 친 부흥회적 인물들이 헌장 확보 <span class="bd v1">전사 34</span></td></tr>
+  <tr><td>1769 법인</td><td>다트머스 대학</td><td>인디언 자선학교로 출발 <span class="bd v1">전사 34</span></td></tr>
+  <tr><td>1776</td><td>햄든-시드니 대학(버지니아)</td><td>하노버노회가 설립 <span class="bd bo">보충</span>전사는 "버지니아의 한 노예가 설립"으로 들림 [?]</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>6. g. 신학적인 경향 <span class="bd tb">p.167</span></h2>
+  <ul class="tight">
+    <li>철저한 칼빈주의였던 <strong>뉴잉글랜드 신학</strong>(조나단 에드워즈, 조셉 벨라미, 사무엘 홉킨스)이 <strong>복음주의(Evangelicalism)</strong>를 주장하는 자들(뜨거운 가슴을 중시하고 신학적인 논쟁에는 부담스러워하는 경향)에 의해 공격받음. <span class="bd tb">p.167</span><span class="bd v1">전사 34</span></li>
+    <li><strong>예정론은 모든 도덕적인 노력을 파괴하는 것</strong>으로 정죄 받음. 교수: 모든 것이 결정되어 있고 자유의지도 없다면 인간의 노력을 파괴한다는 비판. <span class="bd tb">p.167</span><span class="bd v1">전사 34</span></li>
+    <li>존 웨슬리는 필라델피아 법원 발코니 앞에서 설교(교재 인용): 아브라함에게 "천국에는 누가 있습니까? 성공회인입니까? 장로교인입니까?" 하고 묻자 "아니다"라 하고, 모든 사람이 그리스도인이다 → "그렇다면 하나님, 저희들이 그런 분파적 이름들은 잊어버리고, 행위와 진리에 있어서 그리스도인이 되도록 도와주옵소서." <span class="bd tb">p.167</span><span class="bd v1">전사 34~35</span></li>
+    <li>교수: 알미니우스주의와 웨슬리는 좀 더 달라서 나중에(웨슬리를 다룰 때) 보겠다고 함. <span class="bd v1">전사 14~15</span></li>
+  </ul>
+  <p class="meta">교재 p.167 아래쪽의 "D. 감리교와 대각성운동"(존 웨슬리의 생애 등)은 이번 시간에 다루지 않았다.</p>
+</div>
+
+<div class="card">
+  <h2>7. 한눈에 보는 연표</h2>
+  <table>
+  <tr><th style="width:20%">연도</th><th>사건</th></tr>
+  <tr><td>1560~1609</td><td>야곱 알미니우스 (1582~86 베자 밑에서 공부, 1609 사망)</td></tr>
+  <tr><td>1610</td><td>알미니우스 추종자 45명, 항변서(Remonstration) 제출 — 5개 조항</td></tr>
+  <tr><td>1618.11~1619.5</td><td>도르트 교회회의(7개월, 154회) → 도르트 신조</td></tr>
+  <tr><td>1630</td><td>알미니우스주의자들이 법으로 자유를 보장받음(교재)</td></tr>
+  <tr><td>1703.10.5</td><td>조나단 에드워즈 출생</td></tr>
+  <tr><td>1714~1770</td><td>조지 휫필드</td></tr>
+  <tr><td>1725~60</td><td>제1차 대각성운동(미국 식민지)</td></tr>
+  <tr><td>1727</td><td>에드워즈 목사안수(2.15), 같은 해 7월 결혼</td></tr>
+  <tr><td>1734~35</td><td>"믿음으로만 말미암는 칭의" 설교 → 노스햄턴 부흥(1735.3~4 절정)</td></tr>
+  <tr><td>1739.11.2</td><td>휫필드 필라델피아 도착</td></tr>
+  <tr><td>1740~42</td><td>휫필드의 뉴잉글랜드 부흥(교인 25,000~50,000명 증가) · 1740.3.8 테넌트 "거듭나지 못한 목회의 위험성"</td></tr>
+  <tr><td>1741</td><td>에드워즈의 엔필드 설교 · 필라델피아 총회가 부흥사 그룹 축출</td></tr>
+  <tr><td>1742</td><td>커네티컷 목회자들의 세 가지 법령</td></tr>
+  <tr><td>1743</td><td>하버드 총장·교수단의 휫필드 반대 증언</td></tr>
+  <tr><td>1746</td><td>뉴저지 대학(현 프린스턴) 헌장</td></tr>
+  <tr><td>1750</td><td>에드워즈 노스햄턴 교회 사임</td></tr>
+  <tr><td>1758</td><td>에드워즈 사망(3.22) · 뉴욕·필라델피아 노회 합동</td></tr>
+  <tr><td>1764</td><td>로드아일랜드 대학(현 브라운) — 침례교 목회자 양성</td></tr>
+  <tr><td>1784</td><td>미국 감리교회(Methodist Episcopal Church) 형성</td></tr>
+  <tr><td>1787~</td><td>제2차 대각성운동(캠프미팅)</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>8. 예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span></h2>
+  <table>
+  <tr><th style="width:5%">#</th><th>문항</th><th style="width:34%">답 · 근거</th></tr>
+  <tr><td>1</td><td>(OX) 알미니우스는 칼빈주의를 비판하려고 연구를 시작했다.</td><td>X — 칼빈주의를 옹호하려 연구하다 상대 견해가 옳다고 확신. 교재 p.159</td></tr>
+  <tr><td>2</td><td>(OX) 도르트 신조의 '제한된 속죄'는 그리스도가 택자만을 위해 죽으셨다는 입장이다.</td><td>O — 교재 p.160, 교수 설명(전사 14)</td></tr>
+  <tr><td>3</td><td>(단답) 알미니우스 추종자들이 1610년 네덜란드 시의회에 제출한 신앙진술서의 이름은?</td><td>항변서(Remonstration) — 교재 p.160</td></tr>
+  <tr><td>4</td><td>(단답) 교재에서 제1차 대각성운동의 지도자로 든 두 사람은?</td><td>조지 휫필드, 조나단 에드워즈 — 교재 p.160</td></tr>
+  <tr><td>5</td><td>(단답) 에드워즈가 1741년 엔필드에서 한 가장 유명한 설교 제목은?</td><td>"진노하시는 하나님의 손안에 있는 죄인들" — 교재 p.162</td></tr>
+  <tr><td>6</td><td>(약술) 칼빈주의와 알미니우스주의의 차이를 거듭남·자유의지를 중심으로 쓰시오.</td><td>3장 표 — 전사 10~11</td></tr>
+  <tr><td>7</td><td>(약술) 반언약(Half-covenant)이 도입된 배경과 평가를 쓰시오.</td><td>2장 — 교재 p.162</td></tr>
+  <tr><td>8</td><td>(약술) 휫필드식 부흥운동이 낳은 교회의 분열과 그 결과를 쓰시오.</td><td>4~5장 — 교재 p.164~166</td></tr>
+  </table>
+</div>
+
+<details class="apx">
+  <summary>부록 — 출처·전사 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 전사 오인식 교정 (교재 표기 기준)</caption>
+  <tr><th>전사 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>라미루스·알미뉴스·알비누스·알메리우스·알리뉴스 / 야곱 알미누스</td><td>알미니우스 / 야곱 알미니우스</td><td>교재 p.159</td></tr>
+  <tr><td>쭈빙글리</td><td>츠빙글리(전사의 인명 표기를 맞춤, 교재 p.159~167에는 없음)</td><td>전사 0</td></tr>
+  <tr><td>데오도로 베자 · 배자</td><td>데오도르 베자(Theodore Beza)</td><td>교재 p.159</td></tr>
+  <tr><td>데르크 코헤르트·코른헤르트·코르헤르트·코헤르트</td><td>인명 표기 미확정 — 교재에 없음. 전사 표기 중 "코른헤르트"로 적음</td><td>전사 3~4</td></tr>
+  <tr><td>대가수·대가성·저작성·대학성 운동</td><td>대각성운동</td><td>교재 p.159~160</td></tr>
+  <tr><td>전적 탈락·전적 단락</td><td>전적 타락</td><td>교재 p.160</td></tr>
+  <tr><td>플라이징 하우젠·하우징</td><td>프렐링하우젠</td><td>교재 p.160</td></tr>
+  <tr><td>길버트 터넨트·딜버트·터멘트·테렌트</td><td>길버트 테넌트</td><td>교재 p.160, 165</td></tr>
+  <tr><td>전화된 에드워드·조나란 에드워드</td><td>조나단 에드워즈(교재는 "에드워드"와 "에드워즈" 혼용)</td><td>교재 p.161~163</td></tr>
+  <tr><td>휘필드·히필드·피필드·해필드·와필드</td><td>휫필드</td><td>교재 p.164</td></tr>
+  <tr><td>스토타드·슬로몬 스타드</td><td>솔로몬 스토다드</td><td>교재 p.161</td></tr>
+  <tr><td>절반 언약·절반 허장·절반 항량·반언약</td><td>반언약(Half-covenant)</td><td>교재 p.161</td></tr>
+  <tr><td>놀라운 회식 이야기</td><td>『놀라운 회심 이야기』</td><td>교재 p.162</td></tr>
+  <tr><td>차스 천씨·찰 손 씨</td><td>찰스 촌시</td><td>교재 p.165</td></tr>
+  <tr><td>1741 필라덴피아 총회 / 그라덴피아 총회</td><td>필라델피아 총회</td><td>교재 p.165</td></tr>
+  <tr><td>델라스 운동의 영향</td><td>대각성운동의 영향(e)</td><td>교재 p.166</td></tr>
+  <tr><td>퀸스 대학 → "러츠고·라츠고"</td><td>러트거스(교재: Rutgers University)</td><td>교재 p.166</td></tr>
+  <tr><td>햄튼 시니 대학 / "버지니아의 한 노예가 설립"</td><td>햄든-시드니 대학 / 버지니아 하노버노회가 설립</td><td>교재 p.166</td></tr>
+  <tr><td>"청강고사 기간"</td><td>중간고사 기간으로 읽음</td><td>전사 35 (문맥)</td></tr>
+  <tr><td>"인비티션" · "내비게이터" 등</td><td>초청(invitation) · 20세기 복음주의 집회 사례 — 문구 불명확, 취지만 기록</td><td>전사 12~13</td></tr>
+  <tr><td>"19세기 10세기에 미국의 역사에서"</td><td>시기 표현 불명확 — 연도를 쓰지 않고 "19세기 미국"으로 기록</td><td>전사 13</td></tr>
+  <tr><td>"침내교 같은 경우도 19세기 20세기에는 이런 신학이 가장 많았어요"</td><td>침례교로 읽음 — 취지 불명확하여 본문에 [?]로 표시</td><td>전사 12~13</td></tr>
+  <tr><td>"감누교는 갈 수가 없어요. 근데 보금주의 진영에서는 다 …"</td><td>초청 설교에 관한 문장으로 보이나 문구 불명확 — 본문에 쓰지 않음</td><td>전사 13</td></tr>
+  <tr><td>1587 귀국 · 이탈리아 여행</td><td>교재 기준(교수 발언은 전사에서 판독 불가)</td><td>교재 p.159</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(전사)</th><th>노트 처리</th></tr>
+  <tr><td>도르트 회의 기간</td><td>"1년 반 동안 회의를 하는데"라고 한 뒤 바로 "1618년 11월부터 1619년 5월까지 7개월간 154번"(전사 13)</td><td>교재 p.160 기준 7개월(1618.11~1619.5)</td></tr>
+  <tr><td>알미니우스주의자들의 법적 자유</td><td>"1630년대에 이르러서"(전사 16)</td><td>교재 p.160 기준 1630년</td></tr>
+  <tr><td>에드워즈 회심 시기</td><td>"7살로 수정합니다"로 들림(전사 21, 오인식 가능)</td><td>교재 p.161 기준 1720년, 17세로 추정</td></tr>
+  <tr><td>웨슬리 필라델피아 설교</td><td>"어느 날 꿈을 꿨는데 죽어서 천국에 갔어요…"처럼 이야기로 풀어 설명한 것으로 들림(전사 34~35)</td><td>교재 p.167 인용 기준(아브라함에게 묻고 답을 듣는 형식)으로 적음 — 꿈 장면은 교재에 없어 쓰지 않음</td></tr>
+  <tr><td>코른헤르트 논쟁</td><td>목회자의 이름·생몰연도를 교수가 설명(전사 3)</td><td>교재 p.159에는 이름 없음 — 본문에 [?]·[보충]으로 표시</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽)</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th></tr>
+  <tr><td>p.159</td><td>26(오른쪽)</td><td>6장 도입 — 알미니우스</td></tr>
+  <tr><td>p.160~161</td><td>27</td><td>항변서·도르트 신조·알미니우스주의 평가 · A. 대각성운동 정의 · 에드워즈 생애</td></tr>
+  <tr><td>p.162~163</td><td>28</td><td>반언약 평가 · 에드워즈 부흥·사임 · 주요 사상 · 브레이너드</td></tr>
+  <tr><td>p.164~165</td><td>29</td><td>휫필드 · 휫필드에 대한 비판</td></tr>
+  <tr><td>p.166~167</td><td>30</td><td>분열의 결과 · 남부 · 영향 · 대학 · g. 신학적인 경향 (· D. 감리교 시작은 미다룸)</td></tr>
+  </table>
+  <p class="meta">교재 PDF는 텍스트 레이어가 없는 스캔본이라 PDF 26~30쪽 이미지를 직접 읽고 정리했다. 전사는 아이폰 자동 전사로 띄어쓰기·인명 오인식이 많아 교재와 대조해 교정했다.</p>
+  </div>
+</details>
+
+<div class="card">
+  <h2>중간고사 안내 <span style="font-size:0.7em;color:var(--text2)">(녹취 근거 · 불명확한 부분은 '녹취 불명확')</span></h2>
+  <ul class="tight">
+    <li><strong>수업 첫머리</strong>(전사 0): "다음 주에는 안 와도 되는 거지? 다 수업을 사 영 안 합니다. 수업 저 중간고사 대신해서 제가 뭐 하나 가져 하나 드릴게요." — 다음 주 수업을 하지 않는다는 취지로 들리고 중간고사를 대신해 무언가를 주겠다는 말로 들리나 <strong>녹취 불명확</strong>(대체 과제의 내용·분량·제출 방식 모두 녹취 불명확). 이어서 "원래 중간고사는 편하게 제행하는 시간이니까 너무 걱정하지 마시고"라고 말함(문구 일부 불명확).</li>
+    <li><strong>수업 끝부분</strong>(전사 35): "다음 주가 청강고사(중간고사로 읽음) 기간인데 미리 그냥 어사인(assign으로 읽음)만 드릴게요…" 하며, <strong>"나중에 기말고사 되시면 알미루스주의와 칼균주의를 비교를 하셔야 돼요. 다음 주는 그걸 그냥 미리 한번 공부하시는 걸로."</strong> (알미니우스주의와 칼빈주의 비교는 위 1장의 표 참고)</li>
+    <li>학생이 "그 책에 나오는 거 아니에요?" 하고 묻고 교수가 "…종교 선택에는 이게 안 나와 있어요"라고 답한 대목, 그리고 "다음 주 중간고사고 여러분들이 미리 기말고사 나오는 그 문제가 나올 테니 준비하시는 게…"는 문구 일부가 <strong>녹취 불명확</strong>하여 요지를 단정하지 않는다. 날짜·분량·제출 방식은 녹취에서 확인되지 않는다.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>기말고사 대비 — 알미니우스주의와 칼빈주의의 비교</strong> — "나중에 기말고사 되시면 알미루스주의와 칼균주의를 비교를 하셔야 돼요" <span class="bd v1">전사 35</span></div>
+</div>
+
+</body>
+</html>
