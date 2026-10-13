@@ -533,6 +533,15 @@ const SITE_DATA = {
             title: "신약성서2",
             desc: "2026학년도 2학기 신규 편입 과목 — 학업계획서 확정 시 상세 내용 추가 예정."
           },
+          tools: [
+            {
+              name: "중간고사 대비 공부자료",
+              icon: "📝",
+              desc: "1~6주차 강의 근거 정리 — 시험 항목별 원문 인용·실례·스스로 정리하기",
+              href: "output/2026-2/nt2/midterm_study.html",
+              isNew: true
+            }
+          ],
           weeks: [
             { week: 1, title: "수업소개 — 교과목 개관·목표·북 리포트 안내", date: "2026.09.07", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week01.html" }
