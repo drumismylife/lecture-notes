@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 7주차 — 구원의 서정: 회심에서 견인까지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">전도학개론 · 7주차(2026.10.15) · 2026학년도 2학기</div>
+  <h1>구원의 서정 — 회심·칭의·양자됨·성화·견인</h1>
+  <div class="prof">담당 김완 교수 · 5,6강 구원의 서정 · 슬라이드 25~46번 범위</div>
+</div>
+
+<div class="intro">
+  7주차(2026.10.15) 녹취(35,144자)와 PPT "5,6강 구원의 서정"(58매)을 대조해 핵심만 정리했습니다. 수업은 <b>중간고사 문제 복습 → 예정·소명·중생 빠른 복습 → 회심 → 칭의 → 양자됨 → 성화 → 견인</b> 순이었고, 교수가 "견인까지만 하고 오늘 수업 마칩니다"라고 해서 <b>슬라이드 47번(영화) 이후는 다루지 않았습니다.</b>
+  교수가 시험 문제로 짚은 대목은 <span class="b-exam bdg">시험</span>, 사실관계 보완은 <span class="b-sup bdg">보충</span>, 음성인식 교정은 <span class="asr">[ASR 교정]</span>, 확신 없는 부분은 [?]로 표시했습니다.
+</div>
+
+<div class="toc">
+  <a href="#exam-box">📝 중간고사 안내</a>
+  <a href="#recap">1. 지난주 복습</a>
+  <a href="#conv">2. 회심</a>
+  <a href="#just">3. 칭의</a>
+  <a href="#adopt">4. 양자됨</a>
+  <a href="#sanct">5. 성화</a>
+  <a href="#persev">6. 견인</a>
+  <a href="#purple">🟣 자주색 글씨</a>
+  <a href="#verify">📋 출처·검증</a>
+</div>
+
+<div class="sec" id="exam-box">
+  <div class="emph">
+    <h3>📝 중간고사 안내 (수업 첫머리 복습)</h3>
+    <ul>
+      <li>교수는 "다음 주 시험 문제 여러분들한테 이미 다 드렸습니다 요거 그대로 냅니까? 네 그대로 냅니다"라며 연습문제를 순서대로 읽어 주었습니다. 연습문제: <a href="midterm_quiz.html" style="color:var(--accent2);text-decoration:underline;">전도학 중간고사 연습문제(midterm_quiz.html)</a></li>
+      <li><b>시험은 다음 주 7시</b>입니다. 6시 30분에 못 오는 분들이 있어 30분 늦추기로 했고, 시험 후에는 채점·짧은 나눔만 하고 일찍 끝납니다.</li>
+      <li><b>한 글자도 틀리면 안 됩니다</b>(특히 조사). 띄어쓰기만 봐줍니다. 예: "너희가 육신대로 살면 반드시 죽을 것이로되"를 조사 하나 틀리게 쓰는 경우. 최상위권 변별은 여기서 납니다.</li>
+      <li><b>구원의 서정 9단계는 한글·영어 모두</b> 다음 주에 쓰게 됩니다(아래 1번 표).</li>
+      <li>"세상에서 가장 위대한 전도자 = 하나님(5번)"과 "에큐메니컬 vs 복음주의 구분은 이런 식으로 시험 본다"고 말했습니다.</li>
+    </ul>
+    <p style="margin-top:8px"><b>연습문제 정답과 달리 들리는 대목 (master 확인용)</b></p>
+    <ul>
+      <li><b>히브리어 표기</b>: 학생의 질문에 "히브리어 나는 거 요거밖에 없어요 아파르 … 나머지도 다 한국말만 쓰면" — 교수는 히브리어 글자 대신 <b>한국어('아파르')만 써도 되는 것</b>으로 말한 듯합니다. 정답 파일 13번에는 히브리어 עָפָר도 함께 있습니다. [?] (녹취 약 730자)</li>
+      <li><b>죄의 저주 개수</b>: "죄의 [?] 하나 둘 쓰시면" — '둘'로 들리나 정답 파일 19번은 3가지입니다. ASR이 심해 [?]. (녹취 약 840자)</li>
+      <li><b>"가장 위대한 전도자"</b>: 교수는 5지선다(1 김한 교수 … 5 하나님)로 읽었으나 정답 파일 37번은 빈칸 형식(하나님/아버지·아들·성령)입니다. 답 자체는 같습니다.</li>
+      <li>그 밖의 정답(YHWH, 친밀한 사랑의 교제, 생명이신 하나님이 없음, 대속적 죽음과 부활, 회개 = 죄를 뉘우침 + 회개에 합당한 열매, 번제·화목제, 속죄제)은 연습문제와 같게 들립니다. 1~5번 객관식은 "정답은 5번"만 확인되고 어느 문항인지는 ASR로 불명 [?].</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="recap">
+  <div class="sh"><span class="sb">1</span><span class="st">지난주 복습 — 서정 9단계와 에큐메니컬·복음주의</span><div class="sl"></div></div>
+  <div class="card">
+    <p>6주차는 예정·소명·중생까지 다뤘고(<a href="week06.html" style="color:var(--accent2);text-decoration:underline;">6주차 노트</a>), 오늘 이 셋은 "빨리빨리" 다시 훑었습니다. 교수는 "하나하나를 차근차근 가르치는 수업이 아니라 전도 현장에서 따먹을 수 있는 열매만" 알려준다고 했습니다.</p>
+    <div class="tw"><table>
+      <caption>구원의 서정 9단계 (PPT §6) <span class="bdg b-exam">시험: 한글·영어</span></caption>
+      <thead><tr><th>번호</th><th>단계</th><th>영어</th><th>오늘</th></tr></thead>
+      <tbody>
+        <tr><th>0</th><td>예정</td><td>Predestination / Election</td><td>복습</td></tr>
+        <tr><th>1</th><td>소명</td><td>Calling</td><td>복습</td></tr>
+        <tr><th>2</th><td>중생</td><td>Regeneration</td><td>복습</td></tr>
+        <tr><th>3</th><td>회심(믿음·회개)</td><td>Conversion</td><td>§2</td></tr>
+        <tr><th>4</th><td>칭의</td><td>Justification</td><td>§3</td></tr>
+        <tr><th>5</th><td>양자</td><td>Adoption</td><td>§4</td></tr>
+        <tr><th>6</th><td>성화</td><td>Sanctification</td><td>§5</td></tr>
+        <tr><th>7</th><td>견인</td><td>Perseverance of the Saints</td><td>§6</td></tr>
+        <tr><th>8</th><td>영화</td><td>Glorification</td><td>다음 시간 이후(오늘 미진행)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="sup"><span class="tag">보충</span> 교수가 칠판에 쓰며 읽을 때는 "0번인데 첫 번째가 예정 … 9번이 영화죠"로 번호가 한 칸씩 어긋나게 들립니다. 슬라이드 6번은 0(예정)~8(영화)입니다. 영어 이름 중 칭의·성화·견인·영화는 녹취에 소리로 나오지 않아 PPT·6주차 노트 기준으로 적었습니다.</p>
+    <div class="tw"><table>
+      <caption>에큐메니컬 vs 복음주의 (시험 복습 중 설명 · 연습문제 38번 관련)</caption>
+      <thead><tr><th>구분</th><th>특징</th></tr></thead>
+      <tbody>
+        <tr><th>복음주의(Evangelical)</th><td>성경을 더 문자적으로 해석하고 영혼 구원을 우선. 국제기구: WEA·로잔운동. 그중 가장 보수적인 쪽 = <b>근본주의</b></td></tr>
+        <tr><th>에큐메니컬</th><td>사회 참여를 더 강조하며 연합을 추구. 국제기구: WCC. 가장 진보적인 쪽 = 자유주의</td></tr>
+      </tbody>
+    </table></div>
+    <p>2차 대전 후 "교회가 싸우지 말고 연합하자"며 WCC가 생겼고, 이에 반발해 빌리 그레이엄과 존 스토트 등이 로잔운동을 이끌었다고 설명했습니다. 교수 교단은 복음주의권입니다.</p>
+    <p class="sup"><span class="tag">보충</span> 교수는 "2010년에 한국에서 WCC도 모였고 WEA도 모였고 로잔도 모였어요"라고 했으나(녹취 약 6,380자), 3차 로잔대회는 2010년 케이프타운, WCC 제10차 총회는 2013년 부산이었고, WEA 2014 서울 총회는 연기되었습니다(<a href="https://lausanne.org/gatherings/congress/cape-town-2010-3" style="color:var(--accent2)">로잔</a>·<a href="https://www.oikoumene.org/events/10th-assembly-of-the-world-council-of-churches" style="color:var(--accent2)">WCC</a>·<a href="https://worldea.org/?p=15795" style="color:var(--accent2)">WEA</a>). 교수의 말은 그대로 두었습니다.</p>
+    <ul>
+      <li><b>예정</b>: 감격하라고 주신 교리이지 전도할 때 생각하라고 주신 교리가 아니다. 누가 택자인지는 아무도 모른다(이마에 666이 쓰여 있지 않다).</li>
+      <li><b>소명</b>: 전도자의 <b>외적 소명</b>과 성령님의 <b>내적 소명</b>. 전도자는 자기 전도가 내적 부르심과 일치하도록 기도한다.</li>
+      <li><b>중생</b>: 불신자는 병든 자가 아니라 <b>죽은 자</b>(엡 2:1·5, 요 3). 사람을 중생시킬 능력이 우리에게 없으므로 전도는 성령이 하시는 기적이고, 사람들이 전도를 어려워하는 이유는 <b>결과를 자기가 책임지려 하기 때문</b>이다. 하나님은 영혼을 중생시키라고 하신 적이 없고 복음을 전하라고 하셨다.</li>
+    </ul>
+    <p>복습한 스펙트럼: 고등칼빈주의 – 칼빈주의 – 수정칼빈주의 – 수정알미니안주의 – 알미니안주의 – 펠라기우스주의(이단). 고등칼빈주의는 "전도가 필요 없다"고 보는 쪽이라 전도학 교수의 주적이며, 예정론을 믿어도 얼마든지 전도할 수 있습니다. 침례교는 칼빈주의 계열(Particular)과 알미니안 계열(General)이 "전도와 선교를 위해" 한 교단으로 묶였고, 5대 교리 중 <b>성도의 견인만은 거의 대부분 믿습니다</b>.</p>
+  </div>
+</div>
+
+<div class="sec" id="conv">
+  <div class="sh"><span class="sb">2</span><span class="st">3단계 — 회심: 믿음과 회개 (PPT §25~29)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>회심(Conversion)</b> = 하나님의 부르심과 성령의 역사에 대한 <b>인간의 응답</b>. 죄에 대해 슬퍼하고 하나님께로 돌아서는 것이며, <b>지적 동의(믿음)</b>와 <b>의지적 방향 전환(회개)</b>을 포함한다. 전도는 교회에 데려오는 것이 아니라 죄를 회개하고 거듭난 삶, 곧 하나님과 생명의 교제 가운데 살도록 이끄는 것이다.</p>
+    <div class="tw"><table>
+      <caption>믿음(Faith) — 그리스도를 구주로 신뢰하고 의지하는 것 (PPT §26)</caption>
+      <thead><tr><th></th><th>칼빈주의</th><th>알미니안주의</th></tr></thead>
+      <tbody>
+        <tr><th>믿음</th><td><b>은사적 믿음</b> — 중생의 결과로 주어지는 하나님의 선물 (엡 2:8)</td><td><b>자유의지적 믿음</b> — 예비은혜의 도움으로 인간이 믿음을 선택 (요 1:12)</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>엡 2:8 <span class="vq">"너희는 그 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라"</span></li>
+      <li>요 1:12 <span class="vq">"영접하는 자 곧 그 이름을 믿는 자들에게는 하나님의 자녀가 되는 권세를 주셨으니"</span></li>
+      <li><b>전도할 때는 "예수님을 믿으라!"고 해야지 "믿는 것도 하나님의 선물이야"라고 할 필요가 없다.</b> 엡 2:8은 이미 믿은 사람이 구원의 은혜에 감격하도록 쓴 말씀이다. 불신자의 반응을 촉구할 때와 믿은 자를 가르칠 때는 다른 상황이다.</li>
+      <li>교수의 일화: 임종 직전 환자에게 복음을 전했다가 마지막 힘으로 "안 믿어" 하고 거절당한 일. 병원 복도에서 "누구는 예수 믿기가 이렇게 힘든데 나는 왜 이렇게 쉽게 믿게 되었는가" 하며 믿음이 선물임에 눈물이 났다.</li>
+    </ul>
+    <div class="tw"><table>
+      <caption>회개(Repentance) = 죄를 뉘우침 + 회개에 합당한 열매 (PPT §28) <span class="bdg b-exam">시험(연습문제 25번)</span></caption>
+      <thead><tr><th>본문</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><th>막 1:15</th><td class="vq">"이르시되 때가 찼고 하나님의 나라가 가까이 왔으니 회개하고 복음을 믿으라 하시더라"</td></tr>
+        <tr><th>행 3:19</th><td class="vq">"그러므로 너희가 회개하고 돌이켜 너희 죄 없이 함을 받으라 이같이 하면 새롭게 되는 날이 주 앞으로부터 이를 것이요"</td></tr>
+        <tr><th>요일 1:9</th><td class="vq">"만일 우리가 우리 죄를 자백하면 그는 미쁘시고 의로우사 우리 죄를 사하시며 우리를 모든 불의에서 깨끗하게 하실 것이요"</td></tr>
+        <tr><th>행 20:21</th><td class="vq">"유대인과 헬라인들에게 하나님께 대한 회개와 우리 주 예수 그리스도께 대한 믿음을 증언한 것이라"</td></tr>
+      </tbody>
+    </table></div>
+    <p>죄인의 영혼을 뒤흔들어 회개하게 하는 일은 성령만 하시지만, 성경은 <b>전도자가 반드시 불신자에게 회개를 촉구하라</b>고 가르친다(PPT §27). 교수는 슬라이드의 노란색 부분만 읽겠다며 요일 1:8은 건너뛰었다.</p>
+  </div>
+  <div class="emph">
+    <h3>🎯 교훈 (PPT §29, 자주색) — 회개가 먼저인가, 믿음이 먼저인가</h3>
+    <ul>
+      <li>신학적으로는 순서가 중요해 보이지만 전도 현장에서 회개와 믿음은 <b>동전의 양면</b>처럼 동시에 일어나는 하나님의 역사다. 교수는 로이 피쉬 박사에게 어느 쪽이 먼저냐고 물었던 일을 들며, 결국 동시에 일어나는 것 아니냐고 했다("저는 잘 모르겠어요, 알아서 결정하십시오").</li>
+      <li>전도할 때 정말 중요한 것은 <b>죄의 심각성</b>을 전하는 것이다. 죄의 무서움을 모르면 십자가의 피가 감격되지 않는다. 하나님을 잃은 인간은 우상·중독·터진 웅덩이로 간다(복음 메시지 2단계).</li>
+      <li><b>가장 지독한 개혁주의자라도 불신자에게는 회개를 촉구해야 한다.</b> 회개가 어떻게 하나님의 은혜와 주권으로 이뤄지는지는 나중에 생각할 문제이고, 전도할 때는 "당신이 의지를 가지고 돌이켜야 한다"고 목이 터져라 촉구한다.</li>
+      <li>전도 멘트 예시(교수): "회개하십시오. 지난날의 죄에서 돌이키셔야 합니다. 죄의 저주가 무섭습니다. 지옥이 정말로 있습니다. 예수님이 우리를 위해 십자가에서 피 흘려 죽으셨습니다. 누구든지 죄를 회개하고 예수님을 구주로 영접하고 믿으면 오늘 밤 죽어도 하나님의 자녀가 될 수 있습니다." 그리고 "믿음은 결정입니다. 이 예수를 믿기로 하시지 않겠습니까?"라고 촉구한다.</li>
+      <li>교수는 폴 워셔의 말을 인용해 "회개가 빠지고 '하나님은 사랑이시다'만 있는 복음은 값싼 반쪽짜리 복음"이라고 했다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="just">
+  <div class="sh"><span class="sb">3</span><span class="st">4단계 — 칭의: 의롭다 하심 (PPT §30~34)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>칭의(Justification)</b> = 하나님의 공의로운 판단으로 <b>그리스도의 의가 믿는 자에게 전가</b>되어, 죄인임에도 의롭다고 여겨지는 것. 공통 본문: 롬 3:24 <span class="vq">"그리스도 예수 안에 있는 속량으로 말미암아 하나님의 은혜로 값 없이 의롭다 하심을 얻은 자 되었느니라"</span></p>
+    <div class="tw"><table>
+      <thead><tr><th></th><th>칼빈주의</th><th>알미니안주의</th></tr></thead>
+      <tbody>
+        <tr><th>칭의와 성화</th><td><b>칭의 후 성화가 진행됨</b> — 롬 5:1 <span class="vq">"그러므로 우리가 믿음으로 의롭다 하심을 받았으니 우리 주 예수 그리스도로 말미암아 하나님과 화평을 누리자"</span></td><td><b>칭의와 성화가 동시에 시작됨</b> — 약 2:24 <span class="vq">"이로 보건대 사람이 행함으로 의롭다 하심을 받고 믿음으로만은 아니니라"</span></td></tr>
+      </tbody>
+    </table></div>
+    <p>교수 당부: 칭의라는 개념 자체는 부인하면 안 되고, 해석은 교단마다 다르다. 어느 쪽을 택할지는 "정해주지 않는다".</p>
+    <h3 style="margin-top:10px">칭의 논쟁 (PPT §32)</h3>
+    <ul>
+      <li><b>존 파이퍼</b>: 법정적 칭의 vs <b>새관점학파</b> — <b>톰(N.T.) 라이트</b>: 미래적 칭의, <b>김세윤</b>: 유보적 칭의(슬라이드 표기). 교수는 "신대원 나왔으면 칭의 논쟁은 알아야 한다"며 라이트가 기존의 법정적 칭의를 깼다고 소개했고, 신약학 시간에 배우라고 넘겼다. 김세윤 박사는 "한국 장로교인들은 칭의가 한순간에 되는 줄 알아서 삶이 이렇다"고 한다는 말을 전했다.</li>
+    </ul>
+    <h3 style="margin-top:10px">전통적(법정적) 이해 (PPT §33)</h3>
+    <ul>
+      <li>인간의 문제는 두 가지: <b>① 죄가 있음 ② 의가 없음</b>. 십자가의 <b>대속적 죽음</b>은 ①을 해결하지만, 천국은 죄가 없어진 것만으로 가는 곳이 아니라 <b>하나님 앞에 의인으로 발견되어야</b> 한다. 우리의 의는 걸레 같아 내세울 것이 없다(봉사·헌금·기도·전도 모두).</li>
+      <li>해법: 첫째 아담은 실패했으나 <b>둘째 아담 예수님이 율법의 요구를 완전히 이루신 삶</b>을 사셨고, 그 의를 우리에게 덧입혀 주신다 = 칭의. "구원은 대속이 한 축이고 칭의가 한 축"이다.</li>
+      <li>고후 5:21 <span class="vq">"하나님이 죄를 알지도 못하신 이를 우리를 대신하여 죄로 삼으신 것은 우리로 하여금 그 안에서 하나님의 의가 되게 하려 하심이라"</span></li>
+      <li>마 22:11-14의 <b>예복</b>을 칭의(의의 옷)로 보는 것이 전통적 해석이다. <span class="vq">"임금이 손님들을 보러 들어올새 거기서 예복을 입지 않은 한 사람을 보고 이르되 친구여 어찌하여 예복을 입지 않고 여기 들어왔느냐 하니 그가 아무 말도 못하거늘 … 청함을 받은 자는 많되 택함을 입은 자는 적으니라"</span></li>
+      <li>교수의 설명: 하나님은 우리의 어떠함을 보고 받으시는 것이 아니라, 우리가 뒤집어쓰고 나온 <b>아들 예수의 완전한 의가 눈부시기 때문에</b> 우리를 의롭다고 여겨주신다. 한글 성경 그대로 하면 "예수의 의를 나에게 덧입혀 주셨다"는 뜻이다.</li>
+      <li>따라 하기 <span class="bdg b-exam">교수 낭독</span>: "나는 예수님의 십자가의 피로 죄를 용서받았습니다. 나는 예수님의 십자가의 피로 의롭게 되었습니다."</li>
+    </ul>
+    <p class="sup"><span class="tag">보충</span> 예복 비유를 풀면서 교수가 초대받은 사람들이 "소 시험해야 된다, 장가가서 안 된다"고 거절했다고 말한 대목이 있는데(녹취 약 23,210자, ASR 혼선 [?]), 장가들었다는 변명은 눅 14:20에 나오고 마 22:5의 거절은 밭과 장사입니다. 교수의 말은 그대로 두었습니다.</p>
+  </div>
+  <div class="emph">
+    <h3>🎯 교훈 (PPT §34, 자주색) <span class="bdg b-exam">강조</span></h3>
+    <ul>
+      <li>칭의 논쟁은 양쪽에서 다 배울 점이 있으니, 입장을 정하기 전에 <b>전통적 구원의 서정이 말하는 법정적 차원을 먼저 배우라</b>.</li>
+      <li>개혁주의 전통대로 칭의를 법정적으로 정의하면 <b>칭의와 양자됨은 분리되지 않는 한 사건</b>이다. 핵심은 <b>죄의 저주의 심각성</b>을 아는 것이고, "내 안에 의가 없고 예수님만이 나의 의가 되신다"가 요점이다.</li>
+      <li><b>전도할 때 칭의를 어렵게 설명할 필요 없다.</b> 사도들도 칭의를 전도 설교가 아니라 이미 구원받은 교회에 보낸 서신에서 설명했다. 예정처럼 칭의도 구원 이후에 생각하게 한다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="adopt">
+  <div class="sh"><span class="sb">4</span><span class="st">5단계 — 양자됨: 하나님의 가족이 됨 (PPT §35~37)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>양자됨(Adoption)</b> = 하나님이 믿는 자들을 자기 자녀로 삼아, 하나님의 모든 것과 영광에 참여할 수 있는 신분을 주시는 은혜로운 행위. 단순한 지위가 아니라 실제 관계의 변화이며 기도의 특권·성령의 인도·보호가 따른다. 교수는 "고아원의 아이가 양자로 들어간 느낌"이라고 비유했다.</p>
+    <ul>
+      <li>롬 8:15-16 <span class="vq">"너희는 다시 무서워하는 종의 영을 받지 아니하고 양자의 영을 받았으므로 우리가 아빠 아버지라고 부르짖느니라 성령이 친히 우리의 영과 더불어 우리가 하나님의 자녀인 것을 증언하시나니"</span></li>
+      <li>엡 1:5 <span class="vq">"그 기쁘신 뜻대로 우리를 예정하사 예수 그리스도로 말미암아 자기의 아들들이 되게 하셨으니"</span> (PPT에는 갈 4:4-7도 있음)</li>
+      <li>칭의와 양자됨은 <b>동전의 양면</b>이다. "구원받았다·하나님의 자녀가 되었다·거듭났다"는 다 같은 표현이고, 신학적으로만 구분한다.</li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>🎯 교훈 (PPT §37, 자주색) — 전도에는 양자됨</h3>
+    <ul>
+      <li><b>전도할 때는 칭의 개념보다 양자됨의 개념을 전하는 것이 훨씬 효과적이다.</b> 다른 교리는 이미 믿은 사람이 감격하라고 주어진 것이다.</li>
+      <li>성경은 이야기 장르가 많고(슬라이드: 45% 이상), 복음은 관계의 이야기로 전하는 것이 가장 좋다. 복음 메시지 1단계: "온 우주를 만드신 하나님께서 우리를 만드시고 생명을 주셨습니다. 그리고 당신과 친밀한 사랑의 교제를 나눌 가족으로 불러주셨습니다."</li>
+      <li>교수가 즐겨 쓰는 이야기는 <b>탕자의 비유</b>: 눅 15:20 <span class="vq">"이에 일어나서 아버지께로 돌아가니라 아직도 거리가 먼데 아버지가 그를 보고 측은히 여겨 달려가 목을 안고 입을 맞추니"</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="sanct">
+  <div class="sh"><span class="sb">5</span><span class="st">6단계 — 성화: 그리스도를 닮아가는 과정 (PPT §38~42)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>성화(Sanctification)</b> = 성령의 능력으로 믿는 자가 점점 그리스도의 형상을 닮아가는 <b>지속적 과정</b>. 중생과 함께 시작되어(시작) 성령의 도우심으로 점진적으로 변하고(과정) 죄와 계속 싸우며(투쟁) 그리스도를 더 닮아간다(성장). 교수의 비유: 아이를 낳는 것(회심)보다 대학까지 키우는 것(성화)이 훨씬 길고, 결혼은 사랑의 완성이 아니라 시작이다.</p>
+    <div class="tw"><table>
+      <thead><tr><th></th><th>칼빈주의</th><th>알미니안주의</th></tr></thead>
+      <tbody>
+        <tr><th>성화</th><td><b>성령의 주도성</b> — 갈 5:16 <span class="vq">"내가 이르노니 너희는 성령을 따라 행하라 그리하면 육체의 욕심을 이루지 아니하리라"</span> (5:16-18). 성령 없이는 육체의 소욕을 이길 길이 없다</td><td><b>인간의 적극적 협력(의지적 순종)</b> — 빌 2:12 <span class="vq">"… 두렵고 떨림으로 너희 구원을 이루라"</span> 웨슬리안은 완전 성화도 가르친다</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>공통점</b>: 성화는 모든 그리스도인의 목표이며 점진적 과정이다(히 12:14 <span class="vq">"모든 사람과 더불어 화평함과 거룩함을 따르라 이것이 없이는 아무도 주를 보지 못하리라"</span>). 그 밖의 본문: 살전 4:3 <span class="vq">"하나님의 뜻은 이것이니 너희의 거룩함이라 곧 음란을 버리고"</span> · 벧후 3:18 <span class="vq">"오직 우리 주 곧 구주 예수 그리스도의 은혜와 그를 아는 지식에서 자라 가라 영광이 이제와 영원한 날까지 그에게 있을지어다"</span></p>
+    <p>수업 중 활동: 옆 사람을 보며 "예수님처럼 보이십니까?"라고 물었다(PPT §50의 질문을 앞당김). 성화를 0~100 직선(예수님 = 100)에 그리며 "일곱 걸음 나아갔다가 세 걸음 넘어지는" 과정이라고 설명했다.</p>
+  </div>
+  <div class="emph">
+    <h3>🎯 교훈 (PPT §42, 자주색) <span class="bdg b-exam">강조</span></h3>
+    <ul>
+      <li>성화에서 가장 중요한 것은 <b>자기부인과 성령께 순복하는 삶</b>이다. 마 16:24 <span class="vq">"이에 예수께서 제자들에게 이르시되 누구든지 나를 따라오려거든 자기를 부인하고 자기 십자가를 지고 나를 따를 것이니라"</span></li>
+      <li>한 번에 올곧게 성화되는 사람은 없다. 영접한 뒤에도 다시 넘어진다. 중요한 것은 <b>더 매 맞기 전에 빨리 깨닫고 돌이켜</b> 다시 주님께 온전히 순복하는 <b>3번째 단계의 삶</b>으로 전환하는 것이다.</li>
+      <li>교수는 구원이 취소되느냐고 묻고 "매를 맞습니다 → 더 매를 맞습니다 → 더 크게 맞습니다"를 따라 하게 했다. 하나님은 재정·질병·인간관계로 징계하실 수 있다. 다윗이 쓰임받은 것은 죄를 안 지어서가 아니라 <b>회개가 빨랐기(Quick to repent)</b> 때문이다.</li>
+      <li>마틴 로이드 존스의 『영적 침체』: 침체에서 <b>다시 일어서는 것</b>이 중요하다(어제 상담한 신학생 사례).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="persev">
+  <div class="sh"><span class="sb">6</span><span class="st">7단계 — 견인: 끝까지 붙드시는 은혜 (PPT §43~46)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>견인(Perseverance of the Saints)</b> = 하나님이 참된 믿음을 가진 자들을 끝까지 붙드시고 구원에 이르게 하신다는 교리. 성도의 구원은 인간의 노력이 아니라 <b>하나님의 신실하심</b>에 달려 있다. 교수는 "견인차가 끌고 가듯이 중간에 타락해도 천국까지 끌고 간다"고 비유했다. (한자 堅忍: 굳을 견, 참을 인 — PPT 노트)</p>
+    <div class="tw"><table>
+      <thead><tr><th></th><th>칼빈주의</th><th>알미니안주의</th></tr></thead>
+      <tbody>
+        <tr><th>견인</th><td><b>성도의 견인</b> — 하나님이 시작하신 일을 반드시 완성하심 (요 10:27-29, 롬 8:38-39)</td><td><b>구원 상실 가능</b> — 자유의지로 믿음을 버리면 잃을 수 있음 (히 6:4-6, 10:26-29 배교 가능성)</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>요 10:28-29 <span class="vq">"내가 그들에게 영생을 주노니 영원히 멸망하지 아니할 것이요 또 그들을 내 손에서 빼앗을 자가 없느니라 그들을 주신 내 아버지는 만물보다 크시매 아무도 아버지 손에서 빼앗을 수 없느니라"</span></li>
+      <li>롬 8:38-39 <span class="vq">"내가 확신하노니 사망이나 생명이나 천사들이나 권세자들이나 현재 일이나 장래 일이나 능력이나 높음이나 깊음이나 다른 어떤 피조물이라도 우리를 우리 주 그리스도 예수 안에 있는 하나님의 사랑에서 끊을 수 없으리라"</span></li>
+      <li>빌 1:6 <span class="vq">"너희 안에서 착한 일을 시작하신 이가 그리스도 예수의 날까지 이루실 줄을 우리는 확신하노라"</span></li>
+      <li>구원 상실 구절(히 6:4-6, 10:26-29, PPT §45)은 시간 때문에 건너뛰었다. 교수는 "다섯 가지 해석이 있는데 올려드리겠다"고 했다.</li>
+      <li>침례교인은 칼빈주의든 알미니안이든 <b>성도의 견인만은 거의 98~99%</b> 믿는다고 했다(교수의 어림).</li>
+    </ul>
+    <p>교수의 설명: 구원의 근거는 느낌(feel)이 아니다. 은혜받은 느낌이면 구원이고 남자친구와 싸우면 지옥 가는 것이 아니다. 시연으로 "내 손을 놓으십시오 — 내가 하나님 손을 놓아도 하나님은 선택하고 부르신 것을 후회하지 않으신다고 믿는 것이 <b>구원의 확신(Assurance of Salvation)</b>"이라고 했다. 죄를 지으면 하나님의 임재·보호·기도 응답·성령의 기름 부으심·물질의 복·치유가 거두어질 수 있으나 <b>하나님은 여전히 우리를 아들·딸로 여기신다</b>. "하나님이 우리를 매로 치실 수는 있어도 구원을 잃게 하시지는 않는다"가 침례교 대부분의 견인 교리다.</p>
+  </div>
+  <div class="emph">
+    <h3>🎯 교훈 (PPT §46, 자주색) <span class="bdg b-exam">강조</span></h3>
+    <ul>
+      <li>침례교인은 칼빈주의나 알미니안주의나 대부분 <b>성도의 견인</b> 교리만은 믿었다.</li>
+      <li>성도의 견인은 우리에게 <b>구원의 확신(Assurance of Salvation)</b>을 준다. 영원에 대한 확신의 근거는 우리의 어떠함이 아니라 <b>하나님의 어떠하심</b>에 있다.</li>
+      <li>슬라이드 끝의 물음 "Once saved, Always saved인가, 구원 상실 가능성을 믿을 것인가?"는 녹취에서 그 문구로는 확인되지 않는다 [?].</li>
+    </ul>
+  </div>
+  <p style="font-size:13px;color:var(--text2)">수업은 견인에서 끝났고 4분간 느낀 점을 나누었습니다. 47번 이후(영화, 전체 교훈, 구원의 확신 Q&amp;A)는 다루지 않았습니다.</p>
+</div>
+
+<div class="sec" id="purple">
+  <div class="sh"><span class="sb">🟣</span><span class="st">슬라이드 25~46번의 자주색(FF00FF) 글씨</span><div class="sl"></div></div>
+  <div class="card">
+    <div class="tw"><table>
+      <thead><tr><th>슬라이드</th><th>자주색 글씨</th></tr></thead>
+      <tbody>
+        <tr><th>25</th><td>3. 회심: 믿음과 회개</td></tr>
+        <tr><th>26</th><td>믿음(Faith)</td></tr>
+        <tr><th>28</th><td>회개(Repentance) = / 도표의 '회개·믿음' 글자</td></tr>
+        <tr><th>29</th><td>* 교훈 (회개·믿음)</td></tr>
+        <tr><th>30</th><td>4. 칭의: 의롭다 하심 / '의롭다 하심'(표 안 2곳)</td></tr>
+        <tr><th>31</th><td>being justified / having been justified by faith / become the righteousness of God</td></tr>
+        <tr><th>34</th><td>* 교훈 (칭의) — '하나님의 의', "내 안에 의가 없고, 예수님만이 나의 의가 되신다는 것이 핵심이다"</td></tr>
+        <tr><th>35</th><td>5. 양자됨: 하나님의 가족이 됨</td></tr>
+        <tr><th>37</th><td>* 교훈 (양자됨)</td></tr>
+        <tr><th>38</th><td>6. 성화: 그리스도를 닮아가는 과정</td></tr>
+        <tr><th>39</th><td>성화(Sanctification)</td></tr>
+        <tr><th>42</th><td>* 교훈 (성화)</td></tr>
+        <tr><th>43</th><td>7. 견인: 끝까지 붙드시는 은혜</td></tr>
+        <tr><th>46</th><td>* 교훈 (견인)</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12px">※ 파일에서 읽은 글자색 기준이며 화면 렌더링 색은 눈으로 확인하지 못했습니다. '교훈' 줄은 라벨만 자주색이고 내용은 다른 색인 경우가 있습니다. 오늘 다루지 않은 47(8. 영화)·49(로이드 존스 인용)·50(구원의 확신)번에도 자주색이 있습니다.</p>
+  </div>
+</div>
+
+<div class="verify" id="verify">
+  <h3>📋 출처 · 검증 요약</h3>
+  <div class="row">
+    <span class="stat" style="color:var(--teal)">녹취 35,144자 + PPT 25~46번 대조</span>
+    <span class="stat" style="color:var(--gold)">성경 본문은 대한성서공회 개역개정 대조</span>
+  </div>
+  <p>· <b>슬라이드 범위</b>: 신규 진도는 25번(회심)~46번(견인). 첫머리에 연습문제 복습과 예정·소명·중생 복습이 있었고, 47번 이후는 미진행. 교수는 슬라이드 7~11·13~15·17·20~21·45번을 건너뛰거나 구두로만 다뤘습니다.</p>
+  <p>· <b>ASR 교정</b>: '보건 메시지'→복음 메시지 / '야구부서 2장 24절'→야고보서 2:24 / '조파이포·족발 목사님'→존 파이퍼 / '통라이트'→톰(N.T.) 라이트 / '세간점 학파'→새관점학파 / '어목제'→화목제 [?] / '속번째'→속죄제 [?] / '로이피쉬'→로이 피쉬(Roy Fish) / '퀵트리팬트'→Quick to repent / '어션'→Adoption.</p>
+</div>
+
+<div class="foot">전도학개론 7주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

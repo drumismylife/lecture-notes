@@ -644,7 +644,9 @@ const SITE_DATA = {
             { week: 6, title: "구원의 서정 — 칼빈주의와 알미니안주의", date: "2026.10.08", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week06.html" }
           ] },
-            { week: 7, title: "", date: "", files: [] },
+            { week: 7, title: "구원의 서정 — 회심·칭의·양자됨·성화·견인", date: "2026.10.15", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week07.html" }
+          ] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
             { week: 10, title: "", date: "", files: [] },
