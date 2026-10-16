@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 7주차 강의노트 | 라인홀드 니버: 기독교 현실주의와 책임의 윤리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 44px 38px; margin-bottom: 32px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: #d6e8de; margin-bottom: 20px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 14.5px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 22px 26px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 16.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.toc-col h4 { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 7px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 5px; font-size: 13.5px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 42px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 16px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 11.5px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 3px 9px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; gap: 14px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 19.5px; font-weight: 700; color: var(--primary); margin-bottom: 5px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 13.5px; color: var(--text-muted); }
+p { margin-bottom: 14px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 10px 0 16px 20px; }
+li { margin-bottom: 6px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+.custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 32px 36px; margin-top: 44px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 13.5px; color: var(--primary-light); background: var(--primary-pale); padding: 7px 11px; border-radius: 4px; margin-top: 5px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-medium); font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 10px 16px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); font-size: 15px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 8px; letter-spacing: .04em; }
+.key { margin: 4px 0 6px 0; }
+.key ul { margin: 4px 0 6px 18px; }
+.key li { margin-bottom: 5px; font-size: 14.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+.sum-card h4 { font-size: 12.5px; color: var(--accent-terracotta); margin: 14px 0 5px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 4px 0 5px 18px; }
+.sum-card li { margin-bottom: 5px; font-size: 14px; }
+.sum-card p { margin-bottom: 5px; font-size: 14px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 22px 0; padding: 9px 13px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 12px 0 4px 0; }
+details > summary { cursor: pointer; padding: 9px 15px; font-size: 13.5px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 12px 16px 6px 16px; }
+details.apx { margin-top: 30px; }
+.tq { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.exam-note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+.exam-h { font-size: 17px; font-weight: 700; color: var(--primary); margin: 20px 0 10px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 14.5px; line-height: 1.6; }
+.quiz-ans ul { margin: 4px 0 2px 18px; }
+.quiz-ans li { margin-bottom: 3px; font-size: 13.5px; }
+.dbody h4 { font-size: 13.5px; color: var(--accent-terracotta); margin: 12px 0 5px 0; }
+.dbody li { font-size: 13.5px; }
+.cmp td { vertical-align: top; font-size: 13.5px; }
+@media (max-width: 720px) { .unit-card { padding: 18px 16px; } .exam-section { padding: 20px 16px; } .custom-table { font-size: 12.5px; } .header-card { padding: 26px 18px; } .header-title { font-size: 24px; } }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 7주차</span><span>라인홀드 니버: 기독교 현실주의와 책임의 윤리 (1강)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>7주차 강의노트</span>
+    </div>
+    <h1 class="header-title">라인홀드 니버: 기독교 현실주의와 책임의 윤리</h1>
+    <div class="header-subtitle">죄의 보편성과 상대적 정의 · 집단 이기심과 권력의 견제 · 통회하는 책임과 그 한계</div>
+    <div class="header-theses">
+      <strong>[학습목표]</strong> 1. 1932년 형제 논쟁과 <strong>기독교 현실주의</strong> 세 명제 설명. 2. 불안·교만 4층·죄책 불평등·집단 이기심·상대적 정의·강제력 개념 구분. 3. 비폭력 세 물음과 킹·콘·요더·침례교의 대화 정리.
+    </div>
+  </header>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 라인홀드 니버의 윤리</h2>
+    <ol>
+      <li><b>기독교 현실주의:</b> 1932년 리처드는 회개·응답을, 라인홀드는 결과 책임·강제력을 말했다. 죄의 보편성에서 출발해 이상주의(자기 절대화)·냉소주의를 거부하고 상대적 정의를 추구한다.</li>
+      <li><b>불안·교만·은혜·성품:</b> 유한성과 초월성의 불안은 죄가 아니나 불신으로 메울 때 교만(권력·지적·도덕·영적)과 육욕이 된다. 죄는 평등하나 죄책은 불평등하며, 능력·용서의 은혜는 겸손·통회·관용·분별(평온의 기도)을 낳는다.</li>
+      <li><b>집단 이기심과 강제력:</b> 개인 이타심이 집단 이기심으로 전환되므로(애국심 역설) 권력 균형·민주주의가 필요하다. 비폭력에 제3자·공모·피해자 물음을 던졌고, 킹·콘·요더는 비폭력 저항·피해자 자리·제자도 공동체로 응답했다.</li>
+    </ol>
+    <h4>꼭 기억할 것</h4>
+    <p>기독교 현실주의 · 불가능한 가능성 · 불안≠죄 · 교만 4층 · 죄 평등·죄책 불평등 · 능력·용서 은혜 · 평온의 기도 · 세이빙·플라스코 · 속이는 자 같으나 참된 상징 · 『도덕적 인간과 비도덕적 사회』 · 애국심 역설 · 상대적(근사치) 정의 · 민주주의 명제 · 강제력·권력·폭력·군사력 · 세 물음(제3자·공모·피해자) · 킹 · 콘 · 요더</p>
+  </div>
+
+  <div class="lite-note"><b>읽는 법</b> — <b>한 줄 결론 → 핵심 불릿</b>. <span class="bdg b-exam">⭐ 교수강조</span>(원문+[1강 줄]) · <span class="bdg b-add">📌 강의추가</span> · <span class="bdg b-sup">📖 교재참고</span>(PDF 쪽) 구분, [?]·[보충]은 부록 수록.</div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차</div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 현실주의·은혜·성품</h4>
+        <ul class="toc-list">
+          <li><a href="#s1">§1. 형제 논쟁과 현실주의</a></li>
+          <li><a href="#s2">§2. 불안·교만·죄책·은혜</a></li>
+          <li><a href="#s3">§3. 성품·평온의 기도</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 역사·집단·강제력</h4>
+        <ul class="toc-list">
+          <li><a href="#s4">§4. 서사와 아이러니</a></li>
+          <li><a href="#s5">§5. 집단 이기심·민주주의</a></li>
+          <li><a href="#s6">§6. 강제력·세 물음·킹</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 비판적 대화·비교</h4>
+        <ul class="toc-list">
+          <li><a href="#s7">§7. 콘·국제정치·요더</a></li>
+          <li><a href="#s8">§8. 결론 및 비교표</a></li>
+          <li><a href="#exam">§9. 예상 문항</a> · <a href="#apx">부록</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PART 1 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 기독교 현실주의와 은혜·성품 (1강 전반)</h2>
+      <span class="part-badge">교재 10장 도입 ~ 2절</span>
+    </div>
+
+    <article class="unit-card" id="s1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — 1932년 형제 논쟁과 기독교 현실주의</h3>
+          <div class="unit-desc">리처드 vs 라인홀드 니버 · 디트로이트 목회 · 인간론 출발 · 세 명제</div>
+        </div>
+      </div>
+      <div class="oneline">죄인 된 인간 현실에서 출발해 이상주의(자기 절대화)·냉소주의를 거부하고 상대적 정의를 추구한다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-add">📌 강의추가</span> <b>생애(1892–1971)와 형제 논쟁(1932):</b> 형 라인홀드(카터·오바마에 영향)와 동생 H. 리처드(예일대, 『그리스도와 문화』)는 친형제다 [1강 5–29]. 디트로이트 목회(1915–28) 중 포드 공장의 착취를 보며 “우리 모두가 책임이 있다”(1925)고 썼고 유니언 신학교(1928~)에서 자유주의 무력함과 마르크스주의 교만을 비판했다 [1강 56–66; <span class="bdg b-sup">📖 교재 p.1–2</span> 1939 기퍼드 강연 『인간의 본성과 운명』, 1952 뇌졸중, 말년 베트남전 비판]. 1931.9 만주 침공 때 『크리스천 센추리』에 리처드는 「아무것도 하지 않음의 은혜」(3.23, 회개와 하나님 행위에 대한 <b>응답</b>), 라인홀드는 「우리는 아무것도 하지 말아야 하는가?」(3.30, 실현 가능한 정의와 강제력으로 역사 결과를 <b>책임</b>짐)를 실었다 [1강 30–54; <span class="bdg b-sup">📖 교재 p.1</span>].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>기독교 현실주의:</b> 교수: <span class="tq">“이 페이지가 이후로 나올 니블에 대한 모든 생각들이 여기에 담겨 있다고 보시면 돼요”</span> [1강 91]. 계시·십자가·부활에서 시작해야 한다는 교수와 달리 니버는 <b>인간론(죄성)</b>에서 출발한다 [1강 69–78]. ① 죄는 개인·집단·교회에 보편적 ② 완전 사회를 세운다는 이상주의(자기 절대화) 거부 ③ 냉소주의도 거부하며 <b>상대적 정의</b> 추구 [1강 78–90; <span class="bdg b-sup">📖 교재 p.2</span>]. 산상수훈(사랑의 법)은 국가 간엔 <b>‘불가능한 가능성’(‘불가능한 이상’)</b>으로 삶을 고발한다 [1강 93–109; <span class="bdg b-sup">📖 교재 p.2</span>].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 은혜와 죄 — 불안·교만·죄책 불평등·두 은혜</h3>
+          <div class="unit-desc">유한성과 초월성 · 교만 4층 · 지배욕 · 죄책 불평등 · 능력과 용서</div>
+        </div>
+      </div>
+      <div class="oneline">유한성과 초월성의 불안은 죄가 아니나 불신으로 메울 때 교만과 육욕이 되며, 은혜는 능력과 용서다.</div>
+      <div class="key">
+        <ul>
+          <li><b>불안·교만 4층·죄책 불평등:</b> 유한성과 자기 초월의 이중성이 불안을 낳는다(키르케고르). <b>“불안은 죄가 아니다”</b>(『인간의 본성과 운명 1』, 290). 불신으로 메울 때 <b>교만</b>이나 <b>육욕</b>이 된다 [1강 112–129; <span class="bdg b-sup">📖 교재 p.2</span>]. 교만 4층: ① <b>권력</b>(타인 지배; 아우구스티누스 지배욕 <i>libido dominandi</i>) ② <b>지적</b>(유한 지식 궁극화; 창 3:6) ③ <b>도덕적</b>(상대 기준 절대화·정죄) ④ <b>영적</b>(하나님 인정 독점; 죄인 인식조차 죄의 도구화) [1강 130–145; <span class="bdg b-sup">📖 교재 p.2–3</span>]. 죄인임은 평등하나 악행 책임인 <b>죄책(guilt)은 불평등</b>하다(예언자들은 부자·권력자 먼저 고발; 강자 면책 방지) [1강 146–155; <span class="bdg b-sup">📖 교재 p.3</span>].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>두 은혜:</b> ① <b>능력으로서의 은혜</b>(자아 해방) ② <b>용서로서의 은혜</b>(루터 ‘의인이면서 죄인’) [1강 157–168; <span class="bdg b-sup">📖 교재 p.3</span>]. 교수: <span class="tq">“리브에게서 이 용서가 상당히 중요해요”</span> [1강 169]. 원수 악마화를 피하고 정치적 관용을 낳는다 [1강 170–179].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 성품과 분별 — 평온을 비는 기도와 여성신학 비판</h3>
+          <div class="unit-desc">겸손·통회·관용·분별 · 평온을 비는 기도 · 세이빙과 플라스코</div>
+        </div>
+      </div>
+      <div class="oneline">성품은 겸손·통회·관용·분별이며 ‘평온을 비는 기도’에 집약되나, 약자·여성의 자기 상실과 교회 조건은 약하다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>네 성품과 ‘평온을 비는 기도’:</b> ① 겸손(자기 상대화) ② 통회(강제력 미화 거부) ③ 관용 ④ 분별 [1강 174–188; <span class="bdg b-sup">📖 교재 p.4</span>]. 교수: <span class="tq">“분별이 너무너무 중요하기 때문에”</span> [1강 189], <span class="tq">“꼭 외워 보시면 좋겠습니다”</span> [1강 191] — “하나님, 바꿀 수 없는 것을 평온하게 받아들이는 은혜와, 바꾸어야 할 것을 바꾸는 용기와, 이 둘을 분별하는 지혜를 우리에게 주소서” [1강 182–183; <span class="bdg b-sup">📖 교재 p.4, 14</span>; 복지 공무원 사례 p.4].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>세이빙·플라스코 비판:</b> 밸러리 세이빙(1960)·주디스 플라스코(1980, 『성, 죄, 은혜』)는 교만 죄론이 WASP 남성 지배층 경험의 일반화이며, 여성·약자에겐 <b>자기를 잃어버리는(자기 상실) 죄</b>와 자기 긍정의 은혜가 먼저라 비판했다 [1강 195–207; <span class="bdg b-sup">📖 교재 p.4–5</span>]. 교수: <span class="tq">“약자에 대한 배려가 좀 부족한 거 아니냐 라는 것이 핵심 포인트입니다”</span> [1강 206] (단 남녀 구분은 유보, 자기 상실도 교만으로 봄 [1강 199, 204]). 예수의 이야기와 교회 조건도 약하다 [1강 209–210; <span class="bdg b-sup">📖 교재 p.5</span>].</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- PART 2 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 역사·집단·강제력과 정의 (1강 중반)</h2>
+      <span class="part-badge">교재 10장 3 ~ 5절</span>
+    </div>
+
+    <article class="unit-card" id="s4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 서사와 아이러니 — 상징으로 읽는 역사</h3>
+          <div class="unit-desc">‘속이는 자 같으나 참된’ 상징 · 종말과 목적 · 십자가 · 『미국 역사의 아이러니』</div>
+        </div>
+      </div>
+      <div class="oneline">성서를 보편 인간 조건의 상징과 아이러니로 읽어 자기기만을 폭로했으나 제자 공동체 서사로는 덜 읽었다.</div>
+      <div class="key">
+        <ul>
+          <li><b>상징·십자가·아이러니:</b> 성서를 <b>‘속이는 자 같으나 참된’ 상징</b>(고후 6:8, 『비극을 넘어』)으로 읽었다. 역사의 끝은 종말(<i>finis</i>)이자 목적(<i>telos</i>)이며 십자가는 정치 성취의 한계를 폭로하는 거울이다(교수는 지금 지고 따를 길로 보아야 한다고 비판) [1강 212–218; <span class="bdg b-sup">📖 교재 p.5</span>]. 『미국 역사의 아이러니』(1952)는 계급 구원론·미국 예외주의·교회 성장주의를 해체했으나, 제자·나그네 공동체(산상수훈·벧전) 서사보다 보편 죄성으로만 읽어 교회론이 약하다 [1강 219–224; <span class="bdg b-sup">📖 교재 p.5</span>].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 공동체와 정의 — 『도덕적 인간과 비도덕적 사회』와 민주주의</h3>
+          <div class="unit-desc">집단 이기심 · 애국심 역설 · 상대적(근사치) 정의 · 민주주의 · 약자와 셋째 자리</div>
+        </div>
+      </div>
+      <div class="oneline">개인 이타심이 집단 이기심으로 전환되므로 권력 균형·민주주의가 필요하나, 약자와 대안 공동체의 자리가 비어 있다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>『도덕적 인간과 비도덕적 사회』(1932)와 애국심 역설:</b> 교수: <span class="tq">“이 책 꼭 한번 읽어보시기 바랍니다”</span> [1강 227], <span class="tq">“이런 통찰이 아주 대단합니다”</span> [1강 243] (‘비도덕적 인간과 더 비도덕적 사회’ 일화 [1강 232]). 집단은 충성을 <b>집단 이기심</b>으로 바꾸며 애국심은 <b>“개인의 희생적인 이타심을 국가의 이기심으로 전환”</b>한다(정사와 권세, 엡 6:12) [1강 230–252; <span class="bdg b-sup">📖 교재 p.6</span>].</li>
+          <li><b>상대적(근사치) 정의와 약자 한계:</b> 힘의 균형으로 아가페의 <b>근사치(상대적 정의)</b>를 추구한다(부당해고 시 노조·제도 교정, 증오 배제) [1강 254–263, 272–277; <span class="bdg b-sup">📖 교재 p.6–7</span>]. 단 중증장애인·아동·독거노인·체류 이주민·<span class="bdg b-add">📌 강의추가</span> 탈북민·위기 청소년처럼 힘 없는 약자에겐 세력 균형이 비현실적이다 [1강 264–271; <span class="bdg b-sup">📖 교재 p.6</span>].</li>
+          <li><span class="bdg b-exam">⭐ 교수강조</span> <b>민주주의 명제와 교회 견제:</b> <b>“정의를 이룰 수 있는 인간의 능력이 민주주의를 가능하게 한다. 그러나 불의를 저지르려는 인간의 경향이 있기 때문에 민주주의는 필요하다”</b>(『빛의 자식들과 어둠의 자식들』, 14) — 교수: <span class="tq">“정말 유명한 문장입니다”</span> [1강 280], <span class="tq">“이거 한번 외워두면 좋겠습니다”</span> [1강 281]. 개인·국가 사이 제자 공동체(‘셋째 자리’)가 비어 있으며, 교수: <span class="tq">“우리 교회 역시도 이러한 모순에 빠질 수 있다라는 것을 우리가 기억해야만 된다”</span> [1강 287] — 권징·분별과 권력·재정 견제가 필요하다 [1강 286–290; <span class="bdg b-sup">📖 교재 p.7</span>].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s6">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 평화와 강제력 — 세 물음과 마틴 루터 킹</h3>
+          <div class="unit-desc">강제력·권력·폭력·군사력 · 비폭력적 강제 · 세 물음 · 마틴 루터 킹</div>
+        </div>
+      </div>
+      <div class="oneline">비폭력에 제3자·공모·피해자 세 물음을 던져 통회하는 책임을 택했고, 킹은 적극적 비폭력 저항으로 응답했다.</div>
+      <div class="key">
+        <ul>
+          <li><b>개념 구분과 세 물음:</b> 화해의 친교회(FOR) 탈퇴(1934)·참전 옹호(1940) 후 평화주의를 르네상스 낙관·분파적 완전주의라 비판 [1강 291–293; <span class="bdg b-sup">📖 교재 p.7–8</span>]. ① <b>강제력</b>(법 제재·파업·불매) ② <b>폭력</b>(신체·생명 침해) ③ <b>군사력</b>(조직 무력) [<span class="bdg b-sup">📖 교재 p.7–8</span>]; <span class="bdg b-add">📌 강의추가</span> 교수는 물리력을 <b>force</b>, 정당한 힘은 <b>권력(power)</b>, 부당한 침해는 <b>폭력(violence)</b>으로 구분(아렌트의 마오쩌둥 비판) [1강 294–318]. 간디식 <b>비폭력적 강제</b>와 흑인 비폭력 전략을 예견하면서도(1932) 세 물음을 던졌다 — ① <b>제3자</b>(내 비폭력으로 이웃이 죽는다면) ② <b>공모</b>(군·경 안전 속 순결) ③ <b>피해자</b>(압제 아래 약자 방치) [1강 319–335; <span class="bdg b-sup">📖 교재 p.8–9</span>] (단 폭력 불가피성 전제 시 대안 상상력 정지 [1강 337; p.9]).</li>
+          <li><b>마틴 루터 킹(침례교):</b> 집단 악 분석은 수용해 ‘현실주의적 평화주의’에 이르되, 은혜 약화와 수동적 무저항 오해를 비판하며 <b>“사랑의 힘으로 악에 용기 있게 맞서는” 적극적 비폭력 저항</b>을 실천했다 [1강 339–348; <span class="bdg b-sup">📖 교재 p.9–10</span>].</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- PART 3 -->
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 비판적 대화·비교 및 정리 (1강 후반)</h2>
+      <span class="part-badge">교재 10장 6절 ~ 결론</span>
+    </div>
+
+    <article class="unit-card" id="s7">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 비판적 대화 — 누구의 현실인가</h3>
+          <div class="unit-desc">제임스 콘 · 국제정치와 한반도 · 존 H. 요더 · H. 리처드 니버</div>
+        </div>
+      </div>
+      <div class="oneline">니버의 현실주의는 미국 주류·정책 결정자의 시야였으며, 피해자(콘)·제자도 공동체(요더)·응답 윤리(리처드 니버)의 비판을 함께 들어야 한다.</div>
+      <div class="key">
+        <ul>
+          <li><b>제임스 콘과 국제정치:</b> 콘(『십자가와 린치의 나무』)은 니버가 인종 분리에 점진적 변화를 권고하며 흑인 린치 피해의 긴급성과 십자가 연결을 놓쳤다고 비판했다 [1강 349–351; <span class="bdg b-sup">📖 교재 p.10</span>]. 국제정치에서도 태평양 ‘섬 연안 지대’, 프랑스 식민주의 동맹, 한국전쟁·한반도 등 ‘취약 지점’ 유지를 말했다(대만 장제스 개입 반대, 말년 베트남전 비판) [<span class="bdg b-sup">📖 교재 p.10–11</span>]. <span class="bdg b-add">📌 강의추가</span> 교수는 자국민 의사에 반해서도 미국 이익에 맞으면 개입하라는 글을 들어 상대적 정의가 WASP·미국 이익으로 국가주의화된다고 비판했다 [1강 352–365].</li>
+          <li><b>존 H. 요더와 H. 리처드 니버:</b> 요더(1955)는 니버에게 <b>거듭남·성령·교회</b>가 빠져 있고 책임을 결과 통제에 묶는 것은 사회 전체를 책임진다는 <b>콘스탄티누스주의</b>라 비판했다 [1강 366–370; <span class="bdg b-sup">📖 교재 p.11</span>]. 리처드 니버(『책임적 자아』, 1963)는 책임을 하나님 행위에 대한 <b>응답</b>으로 세웠다 [<span class="bdg b-sup">📖 교재 p.11</span>].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="s8">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 결론 및 종합 비교 — 책임과 응답 사이</h3>
+          <div class="unit-desc">니버의 세 유산 · 종합 비교표</div>
+        </div>
+      </div>
+      <div class="oneline">비폭력은 복음의 형식이나 칭의의 겸손과 교회 내 권력 견제를 함께 붙들어야 하며, 응답과 책임은 분리될 수 없다.</div>
+      <div class="key">
+        <ul>
+          <li><b>세 유산과 결론:</b> ① 칭의의 겸손 ② 집단 이기심 분석·교회 권력 견제 ③ 통회하는 책임. “응답에서 시작하지 않은 책임은 자기 의로 기울고, 책임으로 나아가지 않은 응답은 방관으로 닫힌다”(다음 강의: 하우어워스·요더·맥클렌던) [1강 372–380; <span class="bdg b-sup">📖 교재 p.12–13</span>].</li>
+        </ul>
+      </div>
+
+      <table class="custom-table cmp">
+        <thead>
+          <tr><th>영역</th><th>라인홀드 니버의 공헌</th><th>한계 및 비판적 대화</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="hl">출발점</td><td>역사 결과 책임·강제력(1932) [1강 38]</td><td>리처드 니버: 회개·응답 [1강 35]</td></tr>
+          <tr><td class="hl">은혜·죄</td><td>불안≠죄, 교만 4층, 죄책 불평등, 두 은혜 [1강 113–179]</td><td>죄론 치우침·은혜 약화(킹·요더·교수) [1강 69, 344]</td></tr>
+          <tr><td class="hl">성품·분별</td><td>겸손·통회·관용·분별, 평온의 기도 [1강 174–193]</td><td>세이빙·플라스코: 약자·여성 ‘자기 상실’ [1강 196]</td></tr>
+          <tr><td class="hl">서사·역사</td><td>참된 상징, 십자가 거울, 아이러니 [1강 212–217]</td><td>제자 공동체 서사보다 국가 중심 [1강 217–224]</td></tr>
+          <tr><td class="hl">공동체·정의</td><td>집단 이기심·애국심 역설, 상대적 정의, 민주주의 [1강 226–290]</td><td>약자 배제, ‘셋째 자리’(교회) 공백 [1강 264–285]</td></tr>
+          <tr><td class="hl">평화·강제력</td><td>강제력·폭력·군사력 구별, 세 물음 [1강 291–338]</td><td>킹: 비폭력 저항 / 콘: 린치 / WASP 시야 [1강 339–365]</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+
+  <!-- EXAM SECTION -->
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 §9. 예상 문항</div>
+    <p class="exam-note">(노트 정리용 예상 문항 — 교수 언급 아님) 본문 내용만으로 작성했고 끝에 근거 위치를 적었습니다.</p>
+
+    <h3 class="exam-h">[1강] 라인홀드 니버의 윤리 — O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 니버는 유한성과 초월성의 이중성에서 나오는 ‘불안’ 자체를 곧바로 죄라고 규정했다.</div>
+      <div class="quiz-ans"><strong>X</strong> — “불안은 죄가 아니다”. 불신으로 메울 때 교만·육욕이 된다. [§2, 1강 122–127]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 니버는 ‘죄의 평등성’과 함께 구체적 악행에 대한 ‘죄책의 불평등’을 강조했다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 강자 면책을 막기 위해 죄책의 불평등을 강조했다. [§2, 1강 146–155]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 니버는 애국심이 개인의 희생적 이타심을 국가의 이기심으로 전환한다고 분석했다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 『도덕적 인간과 비도덕적 사회』(1932)의 핵심 통찰이다. [§5, 1강 234–244]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 마틴 루터 킹은 참된 평화주의를 사랑의 힘으로 악에 맞서는 적극적 비폭력 저항으로 보았다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 집단 악 분석을 수용하되 적극적 비폭력 저항을 실천했다. [§6, 1강 339–347]</div>
+    </div>
+
+    <h3 class="exam-h">서술 예상 과제</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 1. 기독교 현실주의와 집단 이기심·상대적 정의론을 약자·교회(‘셋째 자리’) 관점에서 평가하라.</div>
+      <div class="quiz-ans"><strong>골자:</strong> ① 죄 보편성·상대적 정의 [§1] ② 애국심 역설·권력 균형·민주주의 [§5] ③ 약자 배제·‘셋째 자리’ 공백과 교회 권력 견제 [§5, §8].</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 2. 비폭력 세 물음과 킹·콘·요더·리처드 니버의 대화를 종합하라.</div>
+      <div class="quiz-ans"><strong>골자:</strong> ① 제3자·공모·피해자 [§6] ② 킹(비폭력 저항)·콘(린치 피해자)·미국 중심 시야 비판 [§6, §7] ③ 요더(제자도 공동체·콘스탄티누스주의 비판)·리처드 니버(책임과 응답) [§7, §8].</div>
+    </div>
+
+    <h3 class="exam-h">✍️ 내 생각 메모란</h3>
+    <textarea class="memo" rows="5" placeholder="이번 주 강의에서 인상적인 통찰과 질문을 기록해 두세요."></textarea>
+  </section>
+
+  <!-- APPENDIX -->
+  <details class="apx" id="apx">
+    <summary>부록 — 토론 질문 · 자막 교정[?]·보충[보충] 목록</summary>
+    <div class="dbody">
+      <h4>교재 토론 질문(발췌, 원문 — 교재 10장 p.14)</h4>
+      <ol>
+        <li>애국심이 개인의 이타심을 국가의 이기심으로 바꾼다는 니버의 명제를 내가 진심으로 헌신하는 집단(회사, 교회, 나라, 정치 진영)에 적용해 보라. 그 집단의 이기심 때문에 실제로 피해를 입는 사람은 누구인가. 나의 신앙적 겸손이 오히려 우리 집단의 자기 의를 가리는 경우는 없는가. (질문 2)</li>
+      </ol>
+
+      <h4>자막 오인식 교정 [?]</h4>
+      <ul>
+        <li>‘새벽길 학개론’→기독교윤리학 개론[1강 1] · ‘아본에’→앞번에[1강 2] · ‘김윤리’→책임 윤리[1강 17] · ‘니블·니브·리보·레너드·리위·리브·네이버·리버·레이놀즈 니브·레드 니버·이레도니아’→라인홀드 니버[1강 전반] · ‘리처드 2번’→H. 리처드 니버[1강 370] · ‘프리타센’→『크리스천 센추리』[1강 32] · ‘에 주찬투데이’→『크리스천 투데이』[1강 33] · ‘폴 틸리’→폴 틸리히[1강 58] · ‘노지대·절제’→절대화[1강 79, 86] · ‘상대’→상대화[1강 184] · ‘중간론·새로시작’→인간론(죄론)[1강 98, 233] · ‘자기 토오를’→자기 초월을[1강 132] · ‘모험직도’→먹음직도(창 3:6)[1강 139] · ‘고독’→도덕[1강 141] · ‘유교’→육욕[1강 127, 200] — 교재 p.1–4.</li>
+        <li>‘지배력 비례·아우구스투스’→아우구스티누스 지배욕(<i>libido dominandi</i>)[1강 142–143] · ‘시인과 티·지위 평등과 직책의 불평등’→죄(sin)·죄책(guilt) / 죄 평등·죄책 불평등[1강 149, 155] · ‘능력수 은혜·용서를 시은혜’→능력·용서 은혜[1강 159, 178] · ‘통해야·통일하고’→통회[1강 178, 186] · ‘갤러리 세이빙·세빈’→밸러리 세이빙[1강 196, 204] · ‘쥬디스라는 팀’→주디스 플라스코[1강 200] · ‘와스·와트’→WASP[1강 207, 362] · ‘교론·교회 이론이 낫겠다’→교회론이 약하다[1강 222, 374] · ‘병사 권세’→정사와 권세[1강 249] · ‘권사취정·긍정 가치 정의’→근사치 정의[1강 362] · ‘본 징’→권징[1강 288] · ‘화해, 친교’→화해의 친교회(FOR)[1강 291] · ‘펄스/폴/포스·하오’→force·power[1강 301–308] · ‘이웃이 웃는다’→이웃이 죽는다[1강 328] · ‘클레이본’→클레이본 카슨[1강 341] · ‘요 도나 하우스·존 요도·요동·맥클란 등·맥클랜드’→요더·하우어워스·맥클렌던[1강 227, 366, 369, 379] · ‘음악적으로도’→신학적으로도[1강 366] · ‘회장에 책임진다는 것은 콘스탄틴 주의’→사회 전체를 책임진다는 것은 콘스탄티누스주의[1강 368] — 교재 p.2–13.</li>
+      </ul>
+
+      <h4>[보충] 교수 발언과 교재의 차이</h4>
+      <ul>
+        <li><b>강제력·권력·폭력·군사력 [1강 294–318]:</b> 교재 p.7–8은 강제력·폭력·군사력을 구별하며, 교수는 물리력을 force, 정당한 힘은 권력(power), 부당한 침해는 폭력(violence)으로 구분한다.</li>
+        <li><b>극동·대만 발언 [1강 353–358]:</b> 교수는 니버가 한국·일본·필리핀·대만 자국민 의사에 반해서도 미국 이익에 맞으면 개입하라고 썼다고 인용하나, 교재 p.10–11(『미국 역사의 아이러니』 p.115, 127; Fox p.241, 283)은 태평양 ‘섬 연안 지대’ 방어·프랑스 식민주의 동맹·한국전쟁 ‘취약 지점’ 유지를 말한 반면 <b>대만 장제스 개입엔 반대하고 아시아 대륙 내전 군사 개입도 경계했다</b>고 서술한다(미국 중심 시야 비판은 동일).</li>
+        <li><b>은혜론·여성신학 유보 [1강 69–71, 199, 203–206]:</b> 교수는 은혜론이 약하다고 비판하나 교재 p.3은 능력·용서의 은혜를 함께 다루었다고 짚으며, 세이빙·플라스코 비판(p.4–5)에 대해서도 약자 배려 부족은 수용하되 남녀 구분은 유보하고 자기 상실도 교만으로 본다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 교재: 『기독교윤리학 개론』 10장(라인홀드 니버) 및 수업 자막 · 쪽수는 교재 PDF 쪽</p>
+  </footer>
+
+</div>
+
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>

@@ -682,7 +682,9 @@ const SITE_DATA = {
             { week: 6, title: "루터의 윤리와 칼뱅의 윤리", date: "2026.10.05", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week06.html" }
           ] },
-            { week: 7, title: "", date: "", files: [] },
+            { week: 7, title: "라인홀드 니버: 기독교 현실주의와 책임의 윤리", date: "2026.10.12", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week07.html" }
+          ] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
             { week: 10, title: "", date: "", files: [] },
