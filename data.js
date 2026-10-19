@@ -565,7 +565,9 @@ const SITE_DATA = {
             { week: 6, title: "갈라디아서와 바울 이해", date: "2026.10.12", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week06.html" }
           ] },
-            { week: 7, title: "", date: "", files: [] },
+            { week: 7, title: "에베소서 · 빌립보서", date: "2026.10.19", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week07.html" }
+          ] },
             { week: 8, title: "", date: "", files: [] },
             { week: 9, title: "", date: "", files: [] },
             { week: 10, title: "", date: "", files: [] },

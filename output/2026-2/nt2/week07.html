@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 7주차 에베소서와 빌립보서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 7주차 · 2026학년도 2학기 · 핵심 위주</div>
+  <h1>에베소서 · 빌립보서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.10.19 (대면 수업)</div>
+</div>
+<div class="intro">교수가 <b>중요·꼭·절대</b> 등으로 강조한 대목은 <b>★ 붉은 박스</b>로 표시했습니다. 배지: <span class="b-ppt bdg">엡 p.n</span>(06주차 01 에베소서 PDF 쪽수) <span class="b-ppt bdg">빌 p.n</span>(07주차 00 빌립보서 PDF 쪽수) <span class="b-add bdg">녹취 Ln</span>(녹취가 한 줄짜리 파일이라 문장 단위로 나눈 사본 <code>profiles/nt2/신약성서2_7주차_자막_문장분할.txt</code>의 줄 번호, 전체 1,036줄). 녹취 오인식 의심은 <b>[?]</b>. 성경 본문은 대한성서공회 개역개정과 대조했습니다. 쉬는 시간 뒤의 <b>중간고사 안내</b>(녹취 L432~738)는 본문에 넣지 않고 별도 파일로 정리했습니다 — 아래 '한눈에 보기' 마지막 줄.</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>에베소서 한 줄</th><td><b>"하나님의 계획과 교회 자신에 대해 바로 알아 맞서 싸우며 이기세요!"</b>(엡 p.21) — 화평을 얻은 자들이 영적 존재들과 <b>씨름(레슬링)</b>한다. 시선을 지상에서 <b>천상</b>으로 들어 올리는 <b>우주적</b> 서신.</td></tr>
+        <tr><th>에베소서 쟁점</th><td>친밀한 인사·문안이 거의 없음 → 가장 오래된 사본(P46, 01*)에 <b>"에베소에 있는"(1:1)이 없음</b> → <b>회람 서신</b> 견해. 그러나 수신지를 적은 사본은 <b>모두 에베소</b> → 초기부터 에베소 교회와 연관.</td></tr>
+        <tr><th>저작 문제</th><td>어휘·개념이 다른 바울 서신과 다름(긴 문장, "모든" 15회, 디아볼로스, 구원 "이미"). 교수: 대필자가 쓰고 <b>바울이 최종 확인(컨펌)</b>했다면 걸림돌이 아니다.</td></tr>
+        <tr><th>빌립보서 한 줄</th><td>바울 서신 중 <b>가장 낙관적</b> — "주 안에서 항상 기뻐하라"(4:4). <b>감옥에서</b> 쓴 기쁨. 초기 기독교 <b>찬송(2:6-11)</b> = 복음서 이전의 <b>성육신·선재</b> 증언.</td></tr>
+        <tr><th>빌립보 배경</th><td>로마 <b>식민지</b>, 퇴역 병사들의 거주지(시민권·세금 면제) → "우리의 <b>시민권은 하늘에</b>"(3:20). 유럽 최초의 교회. 바울과 <b>동역자(형제)</b> 관계.</td></tr>
+        <tr><th>시험 안내</th><td>이번 수업 중 교수가 한 중간고사 관련 발언은 별도 파일 <code>~/Desktop/대학원/2학기/신약성서2/과제/중간고사_준비/7주차_시험언급.md</code>(녹취 줄 번호 포함) — 이 노트 본문에는 넣지 않았습니다.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#sec1">1 에베소서: 이전과 현재·씨름</a>
+  <a href="#sec2">2 에베소 도시와 바울</a>
+  <a href="#sec3">3 수신자 문제와 사본</a>
+  <a href="#sec4">4 저작 문제</a>
+  <a href="#sec5">5 에베소서 신학·결론</a>
+  <a href="#sec6">6 빌립보서: 가장 낙관적인 서신</a>
+  <a href="#sec7">7 빌립보 배경</a>
+  <a href="#sec8">8 빌립보서 신학·결론</a>
+  <a href="#sec9">9 시험 포인트</a>
+  <a href="#sec10">10 출처·검증</a>
+</div>
+
+<!-- SEC 1 -->
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">에베소서: 이전과 현재, 화평을 얻은 자들의 씨름</span><div class="sl"></div></div>
+  <div class="oneline">에베소서는 그리스도인의 '이전'과 '이제'를 대조하고, 화평을 얻은 사람들이 영적 존재들과 씨름한다고 말한다.</div>
+
+  <div class="card">
+    <h3>이전(ποτε)과 이제(νυνὶ) <span class="b-ppt bdg">엡 p.2</span> <span class="b-add bdg">녹취 L15~28</span></h3>
+    <div class="bq"><span class="ref">엡 2:3</span>"전에는 우리도 다 그 가운데서 우리 육체의 욕심을 따라 지내며 육체와 마음의 원하는 것을 하여 다른 이들과 같이 본질상 진노의 자녀이었더니"</div>
+    <div class="bq"><span class="ref">엡 2:13-15</span>"이제는 전에 멀리 있던 너희가 그리스도 예수 안에서 그리스도의 피로 가까워졌느니라 그는 우리의 화평이신지라 둘로 하나를 만드사 원수 된 것 곧 중간에 막힌 담을 자기 육체로 허시고 법조문으로 된 계명의 율법을 폐하셨으니 이는 이 둘로 자기 안에서 한 새 사람을 지어 화평하게 하시고"</div>
+    <p>교수: 바울이 이전과 현재를 이렇게 대비시키는 데는 <b>이유가 있을 것</b> — 서두에서 이 대비를 염두에 두고 읽으라(이유는 뒤의 수신자·배경 설명과 이어진다고 반복해서 암시). <span class="b-add bdg">녹취 L27~28, L121, L133</span></p>
+  </div>
+
+  <div class="card">
+    <h3>화평을 얻은 자들이 싸운다 — ἡ πάλη = 레슬링 <span class="b-ppt bdg">엡 p.3</span> <span class="b-add bdg">녹취 L29~40</span></h3>
+    <div class="bq"><span class="ref">엡 6:12</span>"우리의 씨름은 혈과 육을 상대하는 것이 아니요 통치자들과 권세들과 이 어둠의 세상 주관자들과 하늘에 있는 악의 영들을 상대함이라"</div>
+    <ul>
+      <li>"화평을 얻은 사람들이 싸운다" — 말이 안 되는 것 같지만 <b>특별한 싸움</b>이다.</li>
+      <li>우리 성경은 "씨름/싸움"으로 번역했지만 헬라어 <b>ἡ πάλη</b>(녹취 "해 빨래" — 자료 p.3 표기로 교정)는 원래 <b>레슬링</b>을 뜻한다. 건장한 두 사람이 서서 밀리지 않고 쓰러지지 않으려는 모습을 <b>스케치해 보라</b> — 에베소 교회 신자들이 모두 그렇게 <b>든든히 서서</b> 버티는 그림.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>이 영적 존재들은 누구/무엇인가 <span class="b-ppt bdg">엡 p.3</span> <span class="b-add bdg">녹취 L41~45, L112~120</span></h3>
+    <p>자료·교수 낭독: <span class="say">"유대인과 그리스도인들은 종종 다른 종교의 신들 또한 강력한 영적 존재를 인정하곤 했는데, 그들의 존재를 부인하는 것이 아니라 오히려 유일하시고 참되신 하나님과 대적하는 열등한 존재들로 보았음"</span>. 교수 정리: 우리는 이런 주제로 대화를 잘 안 하지만, 그들에게는 영적 존재가 <b>삶 전체에 실재</b>했고, 유대인·그리스도인의 세계관에서는 <b>하나님을 대적하는 하등한 존재</b>였다 — <b>"정도만 인식하고 넘어가면 된다"</b>(L115).</p>
+    <div class="bq"><span class="ref">엡 1:20-21 — 그리스도가 영적 존재들에 대해 승리</span>"그의 능력이 그리스도 안에서 역사하사 죽은 자들 가운데서 다시 살리시고 하늘에서 자기의 오른편에 앉히사 모든 통치와 권세와 능력과 주권과 이 세상뿐 아니라 오는 세상에 일컫는 모든 이름 위에 뛰어나게 하시고"</div>
+  </div>
+
+  <div class="card">
+    <h3>다신 사회는 신들에게 "눌려서만" 살았나 — 교수의 연구 소개 <span class="b-add bdg">녹취 L46~111</span></h3>
+    <ul>
+      <li>그레코-로만 사회의 세계관에서 가장 중요한 가치는 <b>충성심(loyalty)·성실성</b>. 위가 아래에 요구할 뿐 아니라 <b>아래도 위에 성실을 요구</b>했다 — 예: 가뭄·기근 때 가진 자가 창고를 풀지 않으면 (시민권자들의) 반란이 일어났고, 지배층은 늘 이를 조심했다. <span class="b-add bdg">L53~82</span></li>
+      <li><b>후원자-피후원자(Patron and Client)</b>: 은혜를 입는 즉시 <b>갚을 의무</b>가 생긴다. 교수는 부모 세대가 경조사 부조를 "갚을 것"으로 여기는 한국 문화를 예로 듦. <span class="b-add bdg">L65~77</span></li>
+      <li>이 관계가 <b>신의 영역에도</b> 그대로 적용됐다: 사람들이 존경하던 지도자를 지켜 달라고 신들에게 부탁했는데 그가 죽자, 사람들이 집의 신상을 들고 나와 <b>땅에 내동댕이치고</b> 더러운 것을 뿌린 뒤 <b>다른 신을 선택</b>했다는 기록. 즉 신도 "한 만큼 보응하지 않으면" 다른 신을 고를 여지가 열려 있었다. <span class="b-add bdg">L86~107</span></li>
+      <li>교수: 예수께서 수많은 신들 가운데 유일한 신으로 받아들여진 뒤에는 <b>주님의 성실하심(Faith of Jesus)</b>이 실제 삶에서 증거로 나타났기 때문이 아닐까. <span class="b-add bdg">L108~111</span></li>
+    </ul>
+    <div class="sup"><span class="tag">교수 개인 연구</span> 교수는 이 점이 "약 3년 전쯤까지는 잘 부각되지 않았다", 자신의 글을 심사한 전문가가 "처음 본다"며 반겼다고 말함(L48, L85~86). 자료에는 없는 수업 발언이며 기록 출처(어느 지도자인지)는 수업에서 밝히지 않음.</div>
+  </div>
+
+  <div class="card">
+    <h3>초점을 현세에서 천상으로 — 우주적(universal) 의미 <span class="b-ppt bdg">엡 p.4</span> <span class="b-add bdg">녹취 L121~137</span></h3>
+    <ul>
+      <li>하나님이 예수 그리스도 안에서 행하신 일들의 <b>우주적 의미</b>를 서술 — 그리스도인과 전 인류만이 아니라 <b>하늘과 땅에 있는 모든 것</b>에 연관.</li>
+      <li>교수의 그림: "눈을 들어 저 하늘을 봅시다. 주께서 앉아 계시네요. 모든 것을 화평케 하신 주님이십니다. 함께 바라봅시다" — 이런 <b>초대</b>를 주는 서신. <span class="b-add bdg">L122~127</span></li>
+      <li>고린도서 등은 <b>그 지역·그 교회에 경계</b>를 두는 경향이 있었는데, 에베소서는 그렇지 않고 시야가 <b>광범위</b>하다. <b>골로새서도 비슷</b>하다(이유는 뒤에서 설명). <span class="b-add bdg">L128~135</span></li>
+    </ul>
+    <div class="bq"><span class="ref">엡 1:9-10</span>"그 뜻의 비밀을 우리에게 알리신 것이요 그의 기뻐하심을 따라 그리스도 안에서 때가 찬 경륜을 위하여 예정하신 것이니 하늘에 있는 것이나 땅에 있는 것이 다 그리스도 안에서 통일되게 하려 하심이라"</div>
+    <div class="bq"><span class="ref">엡 1:22-23 (자료 p.4는 1:20-23 인용)</span>"또 만물을 그의 발 아래에 복종하게 하시고 그를 만물 위에 교회의 머리로 삼으셨느니라 교회는 그의 몸이니 만물 안에서 만물을 충만하게 하시는 이의 충만함이니라"</div>
+  </div>
+</div>
+
+<!-- SEC 2 -->
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">역사적 배경: 에베소라는 도시와 바울</span><div class="sl"></div></div>
+  <div class="oneline">상업 중심지·거대한 신전의 도시에 복음이 들어가자 "적지 않은 소동"이 일어났다 — 그 안에서 그리스도인은 어떻게 살았을까.</div>
+
+  <div class="card">
+    <h3>에베소 <span class="b-ppt bdg">엡 p.5~6</span> <span class="b-add bdg">녹취 L138~170</span></h3>
+    <ul>
+      <li>로마 제국 <b>아시아주의 수도</b>이자 주요 <b>상업 중심지</b> — 사람들의 왕래·무역의 에너지가 느껴져야 한다. 요한계시록 일곱 교회 중 하나. (빌립보는 마게도냐로 들어가는 입구 쪽 — 뒤에서.)</li>
+      <li><b>원형극장</b>: 약 <b>25,000명</b> 수용(자료: 아마도 행 19:29-30의 그곳). 교수: 마이크·스피커가 없어도 계단식 구조라 아래에서 크게 소리 내지 않아도 전달되도록 설계됐다고 한다. <span class="b-add bdg">L149~159</span></li>
+      <li><b>아데미(Artemis) 신전</b>(행 19:27) — 고대 세계 <b>7대 불가사의</b> 중 하나. 교수: 유대인들이 명절에 예루살렘으로 몰려들 듯, 에베소가 이교도들에게 그와 <b>흡사한 구심점</b> 역할을 했다 — 특별한 시기에는 엄청난 사람이 모였다. <span class="b-add bdg">L161~170</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>영예로운 신전지기 νεωκόρος <span class="b-ppt bdg">엡 p.7</span> <span class="b-add bdg">녹취 L171~177</span></h3>
+    <div class="bq"><span class="ref">행 19:35</span>"서기장이 무리를 진정시키고 이르되 에베소 사람들아 에베소 시가 큰 아데미와 제우스에게서 내려온 우상의 신전지기가 된 줄을 누가 알지 못하겠느냐"</div>
+    <p>바울의 선교 때 아데미 신상으로 이익을 보던 사람들과 마찰이 생긴 장면. <b>νεωκόρος</b>(녹취 "네오꼬로스/네오포로스")는 아데미 신전을 둔 도시의 특화된 기능을 가리켰지만, 나중에 <b>로마 황제 숭배</b>가 시작되면서는 그 <b>공식 중심지</b>를 부르는 명칭으로 쓰였다.</p>
+  </div>
+
+  <div class="card">
+    <h3>교수의 스케치 질문 <span class="b-add bdg">녹취 L178~183</span></h3>
+    <ul>
+      <li>왕래가 잦고 예루살렘에 필적할 신전이 있는 도시에서 <b>그리스도인들은 어떻게 살아가야 했을까?</b></li>
+      <li>황제 숭배를 주관하는 도시가 되었을 때 <b>그리스도인들의 입지는 어떻게 변했을까?</b> — 에베소서 내용을 생각할 때 도움이 되는 스케치.</li>
+      <li>대부분의 도시에서 그리스도인 중 <b>부유한 사람의 비율은 높지 않았던</b> 것으로 보인다 — 권력 쪽도 마찬가지.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>에베소 교회와 바울의 체류 <span class="b-ppt bdg">엡 p.8~9</span> <span class="b-add bdg">녹취 L184~208</span></h3>
+    <ul>
+      <li>요한계시록의 에베소 교회: <b>이단을 거부한 신실한 그리스도인들</b>, 그러나 처음 사랑과 행위를 버린 공동체(계 2:1-7, 자료).</li>
+      <li>바울은 <b>2차 선교 여행</b> 중 잠깐 방문, <b>3차 선교 여행</b> 중 다시 방문해 <b>2~3년</b> 머묾(행 19:10; 20:31) — "필요가 있었으니까". <span class="b-add bdg">L190~193</span></li>
+      <li>[보충] 자료 p.8은 2차 선교 여행 중의 짧은 방문에 "(행 19:1-41; 참조 행 20:17-38)"을 붙였다. 개역개정에서 에베소에 잠깐 들렀다 떠나는 장면은 <b>행 18:19-21</b>이다(자료 표기 착오로 보임).</li>
+      <li>이교 배경이 강한 에베소에 복음이 들어가자 <b>"적지 않은 소동"</b>(행 19:23-41). 교수: 헬라어에서 "~하지 않다"는 반대 의미를 <b>강조</b>하는 표현 → <b>소동이 컸다</b>는 뜻. 바울 팀이 사명을 감당할 때 일어난 <b>힘과 힘의 대결</b>. <span class="b-add bdg">L198~204</span></li>
+      <li>에베소 활동 시기: <b>50년대 초~중반</b> 추정, 이곳에서 <b>고린도전서</b>가 기록된 것으로 보임.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>에베소 투옥 추정과 "맹수와 싸움" <span class="b-ppt bdg">엡 p.9</span> <span class="b-add bdg">녹취 L209~243</span></h3>
+    <div class="bq"><span class="ref">고전 15:32</span>"내가 사람의 방법으로 에베소에서 맹수와 더불어 싸웠다면 내게 무슨 유익이 있으리요"</div>
+    <div class="bq"><span class="ref">고후 1:8</span>"형제들아 우리가 아시아에서 당한 환난을 너희가 모르기를 원하지 아니하노니 힘에 겹도록 심한 고난을 당하여 살 소망까지 끊어지고"</div>
+    <ul>
+      <li>이 고난 언급 때문에 바울이 에베소에서 <b>감옥에 갇혔을 것으로 추정</b>. "맹수와 싸웠다"는 표현 때문에 학자들은 <b>원형 경기장</b> 안의 바울을 상상하기도 한다(로마에 위협이 되는 자를 군중 앞에서 처형해 본보기로 삼았으므로).</li>
+      <li><b>교수 견해</b>: 로마 시민권의 가장 큰 특혜 중 하나는 <b>생명 보장</b> — 웬만한 잘못은 태형으로 끝나고 <b>십자가형(사형)도 원칙상 면제</b>(황제·정치 상황에 따라 예외는 있었겠지만). 그래서 바울이 실제로 원형 경기장에 들어갔을 가능성은 <b>"있다고 해도 크지 않다"</b>. <span class="b-add bdg">L226~236</span></li>
+      <li>교수: "지금 제가 다른 두 견해를 어떻게 대하는지 경험하고 계시죠" — <b>꼭 선택하지 않아도 되지만</b> "꼭 그럴까" 하는 생각은 가질 수 있다. <span class="b-add bdg">L237~238</span></li>
+      <li>그러나 학자들이 동의하는 점: 짐승 언급 말고도 <b>극심한 고난</b>을 말하고, 아시아라면 <b>수도 에베소를 뺄 수 없으므로</b> 거기서 투옥됐을 가능성도 <b>배제할 수 없다</b>. "이 정도 하고 넘어가시면 돼요." <span class="b-add bdg">L239~242</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>동시에 "광대하고 유효한 문" <span class="b-ppt bdg">엡 p.9</span> <span class="b-add bdg">녹취 L244~251</span></h3>
+    <div class="bq"><span class="ref">고전 16:8-9</span>"내가 오순절까지 에베소에 머물려 함은 내게 광대하고 유효한 문이 열렸으나 대적하는 자가 많음이라"</div>
+    <p>다른 사람 눈에는 어땠을지 몰라도 바울과 팀의 눈에는 <b>복음을 나눌 문</b>이 열린 게 느껴졌고, 그래서 머물며 구체적으로 사역해야겠다고 인식했다. 긴장감과 열린 문을 <b>함께</b> 보면 상황을 스케치할 수 있다.</p>
+  </div>
+</div>
+
+<!-- SEC 3 -->
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">수신자 문제: 친밀함이 없는 편지와 사본학</span><div class="sl"></div></div>
+  <div class="oneline">2~3년을 머문 교회에 쓴 편지에 친밀한 언급이 없다 — 가장 오래된 사본에는 "에베소에 있는"이 없다.</div>
+
+  <div class="card">
+    <h3>"서프라이즈": 친밀함·문안이 없다 <span class="b-ppt bdg">엡 p.10~11</span> <span class="b-add bdg">녹취 L252~276</span></h3>
+    <ul>
+      <li>바울은 보통 지역 교회에 편지할 때 <b>친밀함</b>을 많이 표현하는데, 에베소서에는 바울과 에베소 신자들의 친밀한 관계, 교회의 특정 상황, 그들을 위한 바울의 사역에 대한 언급이 <b>거의 없다</b>.</li>
+      <li><b>개인적 문안 인사도 없다</b>. 로마서 16장의 수많은 이름(자료: <b>26명</b>, 16:3-15 — 바울이 한 번도 가 보지 않은 교회)과 대조가 너무 명확하다.</li>
+      <li>오히려 서로에 대해 <b>누군가로부터 전해 들은 것처럼</b> 서술된다.</li>
+    </ul>
+    <div class="bq"><span class="ref">엡 1:15</span>"이로 말미암아 주 예수 안에서 너희 믿음과 모든 성도를 향한 사랑을 나도 듣고"</div>
+    <div class="bq"><span class="ref">엡 3:2</span>"너희를 위하여 내게 주신 하나님의 그 은혜의 경륜을 너희가 들었을 터이라"</div>
+    <p>교수: 2~3년 머문 바울이 그곳 그리스도인들과 실제적 친밀함이 없었을까? <b>그렇지는 않을 것</b> — 이 물음표에 <b>사본학</b>이 도움을 준다("정답은 아니에요"). <span class="b-add bdg">L271~276</span></p>
+    <div class="sup"><span class="tag">지우라고 한 줄</span> 교수가 이 쪽에서 "요건 빼세요. 여러분들 자리에서 지우세요. 이건 해당 없는데 제가 잘못 넣은 것 같아요"라고 함(L258~260) — 교수는 자료 p.10(슬라이드 10)의 참조 구절 <b>고전 2:1</b>을 지우라고 했다(오너 확인 2026-10-19).</div>
+  </div>
+
+  <div class="card">
+    <h3>사본 증거: ἐν Ἐφέσῳ(1:1)가 없다 <span class="b-ppt bdg">엡 p.12~14</span> <span class="b-add bdg">녹취 L277~324</span></h3>
+    <ul>
+      <li>교수가 보여 준 자료는 교수가 근무했던 연구소에서 접근 가능한 모든 사본을 정리한 데이터베이스(자료 출처 표기: <b>CNTTS Critical Apparatus, NOBTS</b>).</li>
+      <li><b>P46</b>(파피루스 46, <b>ca. 200년</b>) — P가 붙으면 대단히 이른 시기의 파피루스 사본, 신약 사본 중 손꼽을 만큼 이르다.</li>
+      <li><b>01 사본</b>(녹취 "세나이테커스"; [보충] 01 = 시내산 사본 Codex Sinaiticus — 자료 p.14 표기는 "01, 4th c.") — <b>4세기</b>, 가죽에 쓰임. 교수가 자주 언급하는 사본.</li>
+      <li>표의 <b>OM</b> = omission(생략) → "에베소에"라는 문구가 <b>없다</b>. 별표(*)가 붙으면 <b>원래 필사본</b>이라는 뜻 — 원래 필사본에는 없고, <b>여백에 다른 필체·다른 색</b>으로 나중에 추가된 것이 보인다("그냥 막 집어넣지 않아요. 이유가 있는데요").</li>
+      <li>자료 p.12 표: <b>OM</b> — P46 01* 03* 424c 1739 / <b>lacunae</b>(그 부분이 남아 있지 않음) — P49 P92 P132 04. ἐν Ἐφέσῳ가 있는 쪽에는 01cmg 02 03c 06 등 다수.</li>
+      <li>P46 이미지: 그 자리에 문구가 없고 <b>지운 흔적도 없이</b> 그냥 이어 썼다(옛 사본은 띄어쓰기 없이 붙여 씀).</li>
+      <li>01 이미지(자료 p.14, 노란 화살표 2개): ① 본문 <b>3행 끝</b>("성도들에게" 뒤)에 다른 색·필체로 추가된 단어가 "모든"을 뜻하는 <b>πᾶσιν</b>(녹취 "빠시인", L317) ② <b>4행 앞 왼쪽 여백</b>에 다른 필체·색·크기로 추가된 단어가 <b>"엔 에페소"(ἐν Ἐφέσῳ)</b>다(L319~322). <span class="b-add bdg">L317~322</span></li>
+    </ul>
+    <p><b>[녹취 L302~303]</b> <span class="say">"현재 가지고 있는 가장 오래되고 신뢰받는 헬라어 사고리[사본]는 에외소에 있는 N에페소[ἐν Ἐφέσῳ]라는 표현이 없습니다. 1장 1절에."</span> → 이 사본이 옳다면 바울은 <b>"그리스도 예수 안에 있는 신실한 자들"(어디 있든지)</b>에게 이 서신을 보낸 것으로 이해할 수 있다.</p>
+  </div>
+
+  <div class="card">
+    <h3>학자들의 해석 <span class="b-ppt bdg">엡 p.15</span> <span class="b-add bdg">녹취 L325~375</span></h3>
+    <ul>
+      <li><b>회람 서신</b>: 많은 학자들은 한 지역으로 보낸 편지라기보다 <b>여러 지역에서 돌려 보도록</b> 의도된 서신으로 본다 → 본래 여러 교회에 보낸 회람 서신 중 <b>에베소에 보내진 필사본</b>이 남아 있는 것일 수 있다. 친밀함·문안이 없는 것과 연결된다.</li>
+      <li>교수 보충: 당시 서신은 처음부터 <b>원본이 둘 이상</b>이었다 — 내용을 다 작성하고 확인하면 바울 이름으로 쓴 것을 필요에 따라 한두 부 이상 복사해 보관했고, 회람 서신이라면 애초에 2개 이상 써서 보냈을 가능성이 크다. <span class="b-add bdg">L336~341</span></li>
+      <li><b>설교·신학적 글</b>: 하나의 서신으로 보지 않는 학자들도 있다 — 서두와 맺음말을 가진 설교 또는 신학적 글에 가깝다. 교수: 바울 서신은 보통 직접 갈 수 없을 때의 <b>먼 거리에서의 목회적 돌봄</b>인데, 이 서신은 그런 성향이 아니다. <span class="b-add bdg">L356~363</span></li>
+      <li><b>에베소와의 연관</b>: 놀랍게도 수신 교회를 표시한 사본은 <b>모두 에베소</b> — <b>"무시하고 그냥 넘어갈 수 없는"</b> 점. 이 서신은 초기부터 에베소 교회와 밀접했고, 그 정보를 가진 후대 서기관들이 넣은 것으로 이해한다. 에베소 교회가 소중히 간직해 우리 손에까지 왔지만, 내용은 에베소만이 아니라 <b>우주적 교회</b>가 읽고 도움받을 목회적 돌봄이다. <span class="b-add bdg">L343~350, L372~375</span></li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조] 학문의 겸손 — "100% 아니잖아요"</h3>
+    <p><b>[녹취 L330~332]</b> <span class="say">"이해합니다 이렇게 하면 조금 안 돼요. 100% 아니잖아요. 그렇죠 가능성이 엄청 높아도 확정해서 봐야긴 어려워요."</span></p>
+    <p><b>[녹취 L365~370]</b> "~했을 수 있습니다, 이런 가능성이 있습니다" — <span class="say">"이게 학문의 겸손함이에요. 학문을 계속하면 사람이 자연스럽게 겸손해져요."</span> (낯선 이야기에 한숨 쉬는 학생들에게: "이렇게 걸어가는 게 훨씬 더 발전해 나가는 거예요. 전과 같지 않을 거예요." L351~355)</p>
+  </div>
+</div>
+
+<!-- SEC 4 -->
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">저작 문제: 옥중 서신, 대필자, 독특한 어휘·개념</span><div class="sl"></div></div>
+  <div class="oneline">에베소서는 '논란 없는 바울 서신'과 차이가 크다 — 교수는 대필자와 바울의 최종 확인으로 이를 설명한다.</div>
+
+  <div class="card">
+    <h3>옥중의 바울 · 바울 저작을 의심하는 이유 <span class="b-ppt bdg">엡 p.16</span> <span class="b-add bdg">녹취 L376</span></h3>
+    <ul>
+      <li>이 서신은 <b>감옥에 갇힌 바울</b>의 상황을 알려 준다(3:1; 4:1; 6:20).</li>
+      <li>몇 가지 '복잡한' 이유로 어떤 학자들은 바울 서신이 아닐 수 있다고 본다. 자료: 에베소서 155구절 중 <b>33~50%</b>가 골로새서와 병행, 표현 순서까지 같은 경우도 흔함(엡 1:4/골 1:22; 엡 1:15/골 1:4; 엡 6:21-22/골 4:7-8). "논란이 되지 않는 바울 서신"(undisputed letters)과 상당한 차이. <span class="b-ppt bdg">자료에만 있음 — 수업에서 이 수치는 읽지 않음</span></li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조] 중요한 것은 최종 확인자가 바울이라는 점 (교수 견해)</h3>
+    <p><b>[녹취 L377~394]</b> 교수에게 이 문제는 <b>큰 걸림돌이 아니다</b>. 바울과 팀은 대필자를 <b>아무나 쓰지 않았다</b> — 함께하거나 상황을 잘 알고 가서 설명해 줄 수 있는 사람. 재량을 많이 준 경우에도 바울과 팀이 "이런 내용을 꼭 썼으면" 하고 설명하면 <b>실제 표현·신학적 견해(신학 용어까지)·어법·문법은 대필자가 쓸 수 있다</b>. <span class="say">"근데 맨 나중에 하는 그 컨펌 확인해주는 사람이 바울이라는 게 중요한 거예요."</span> 당시 편지를 주고받던 <b>사회적 통념</b>으로 보면 너무 자연스러운 일 — 사회·역사적(녹취 "사회유학적" [?]) 입장에서 걸림돌이 안 된다.</p>
+    <p><b>[녹취 L783~786]</b> 다시: <span class="say">"저한테는 크게 걸림돌이 안 되고 저한테는 메시지가 중요해요. … 바울이 궁극적으로는 컨펌을 한 거예요."</span></p>
+  </div>
+
+  <div class="card">
+    <h3>독특한 어휘 <span class="b-ppt bdg">엡 p.17</span> <span class="b-add bdg">녹취 L395~415</span></h3>
+    <ul>
+      <li><b>긴 문장</b>: 1:3-14, 1:15-23, 3:1-7이 모두 헬라어로 <b>한 문장</b> — 해석하려면 왔다 갔다 많이 해야 한다. (녹취 "1장 3절부터 44절" → 자료 기준 <b>1:3-14</b>로 교정)</li>
+      <li>"<b>모든</b>"(all)을 약 <b>15번</b> 사용 — 앞의 "만물" 개념과 연결.</li>
+      <li>"사탄"(σατανᾶς) 대신 "<b>악마</b>"(<b>διάβολος</b>, 4:27; 6:11). 이견 없는 대표적 바울 서신, 특히 갈라디아서를 빼면 가장 이른 <b>데살로니가전서</b>에서조차 "사탄"을 쓴다(교수).</li>
+      <li>바울은 자신을 "<b>성도 중에</b> 가장 작은 자"(3:8)라고 함 — 고린도전서 15:9에서는 "<b>사도 중에</b> 가장 작은 자".</li>
+    </ul>
+    <div class="bq"><span class="ref">엡 3:8 / 고전 15:9 (개역개정)</span>"모든 성도 중에 지극히 작은 자보다 더 작은 나에게…" / "나는 사도 중에 가장 작은 자라…"</div>
+  </div>
+
+  <div class="card">
+    <h3>독특한 개념 <span class="b-ppt bdg">엡 p.17</span> <span class="b-add bdg">녹취 L415~429</span></h3>
+    <ul>
+      <li>하늘의 능력과 영광이 <b>현재 경험</b>되고 있음(1:3; 2:4-7) — <b>구원도 이미!</b>(2:7-10, σεσῳσμένοι 완료형).</li>
+      <li>이스라엘은 나무, 이방인은 접붙여진 존재(롬 11:13-21)가 <b>아니라</b> 동등하게 결합되어 <b>"한 새 사람"</b>(2:14-16).</li>
+      <li><b>결혼</b>이 매우 높이 평가됨(자료: 5:21-23) — 고전 7:8-9에서는 결혼이 정욕을 통제하는 방법으로. 교수: 고린도전서는 그곳 상황이 그랬기 때문 — 여기서 쉬는 시간(L428~430).</li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조] "이미"와 "아직"이 바울 안에서 하나였다 (교수 견해)</h3>
+    <p><b>[녹취 L417~426]</b> 앞서 바울에게 구원은 <b>방향성</b>이라고 했다. 그런데 바울이 이 서신을 확인해 줬다면, <b>구원이 이미 이루어졌다</b>는 생각도 바울의 세계관 안에 <b>있었다</b>는 것. 갈라디아서·로마서에서는 그것을 분리해 볼 필요가 있지만, 에베소서를 바울이 컨펌했기 때문에 <span class="say">"이미와 낫 옛이 대조 대비되는 게 아니고 그게 하나가 돼서 있었다는 거예요."</span> 교수: "이 부분 우리가 할 때 좀 소화할 시간이 필요했던 걸로 기억이 나서" <b>꼭 말하고 싶었다</b>.</p>
+  </div>
+
+  <div class="card">
+    <h3>학생 질문: 진정 서신이란? <span class="b-add bdg">녹취 L789~797</span></h3>
+    <ul>
+      <li><b>진정 서신</b>이라는 말은 <b>학자들의 견해</b>다. 바울 서신은 총 <b>13개</b> — 그중 어떻게 봐도 바울이 쓴 것이 맞다고 견해가 달라지지 않는 것을 진정 서신이라 부른다.</li>
+      <li><b>위명 서신</b>(pseudonymous letters; 녹취 "미명서신" → 위명서신, 오너 확인 2026-10-20): 어떤 상황을 토대로 <b>이름을 빌려 쓰는</b> 것 — <b>"거짓된 게 아니고"</b>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 5 -->
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">에베소서 주요 신학 주제와 결론</span><div class="sl"></div></div>
+  <div class="oneline">하나님의 비밀(계획) · 높여진 우주적 교회 · 이상화된 성도 — 그리고 앉고, 걷고, 서는 성도.</div>
+
+  <div class="card">
+    <h3>⑴ 하나님의 비밀스러운 계획 — μυστήριον <span class="b-ppt bdg">엡 p.18</span> <span class="b-add bdg">녹취 L739~759</span></h3>
+    <ul>
+      <li>학자들이 많이 쓰는 사전 <b>BDAG</b>(녹취 "비덱" → BDAG, 오너 확인 2026-10-20 — 편집자 이름 앞 글자를 딴 약자, 광범위한 문헌 기반. 자료에는 사전 이름 없음) 기준 뜻: <b>'숨겨 있는 것으로, 내부 정보를 가진 누군가에 의해 계시될 때 알려질 수 있는 비밀'</b> — 드러내는 쪽의 <b>의도·의지</b>가 있다.</li>
+      <li>에베소서에서 μυστήριον은 <b>늘 하나님과 연관</b>(1:9; 3:3, 4, 9; 5:32; 6:19) — 하나님의 계획을 말할 때 함께 쓴다.</li>
+      <li>이 비밀은 <b>만물을 그리스도 안에서 통일시키시려는 하나님의 계획</b>과 연관(1:9-10)되고, 그 계획은 그리스도의 <b>십자가</b>(1:7; 2:4, 13, 16-18)와 <b>부활</b>(1:19-22)로 성취된다.</li>
+      <li>자료: 하나님에 의해서만 계시될 수 있는(3:5) 비밀을 "거룩한 사도들과 선지자들에게" 위임해 교회에 알리게 하셨고(3:1-5, 8-9; 6:19), 교회가 그 비밀을 세상과 우주적 세력들에게 알리도록 하심(3:9-11). <span class="b-ppt bdg">자료 — 교수는 "너무 디테일하게 안 들어갈게요"</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑵ 향상된 교회 위상(Elevation of the Church) <span class="b-ppt bdg">엡 p.19</span> <span class="b-add bdg">녹취 L760~773</span></h3>
+    <ul>
+      <li>ἐκκλησία는 지역 교회가 아닌 <b>'우주적 교회'</b>(1:22; 3:10, 21; 5:23, 24, 25, 27, 29, 32) — 예수 그리스도를 통해 하나님과 화해된 <b>모든 사람</b>. 교수: 처음 용어상 "카톨릭"(녹취 오인식 다수 → 카톨릭, 오너 확인 2026-10-20)은 지금의 천주교회가 아니라 <b>모두를 품는 교회</b>라는 뜻 — 에베소서는 거기서 더 나아가 <b>우주</b>라는 개념을 담을 정도의 전체를 말한다. "이 표현만 봐도 한 지역 교회에 쓴 것 같지는 않다."</li>
+      <li>그리스도의 교회를 위한 <b>서로 간의 헌신</b>(5:31-6:9).</li>
+      <li>교회는 <b>영적이면서(1:22-23; 4:12; 5:23) 동시에 지상적인(2:20; 3:5; 4:11)</b> 제도 — 교수: 지상적인 것을 무시하는 것은 <b>"바울의 세계관에 절대 존재하지 않아요"</b>. 지상에 서 있기 때문에 그것을 향해 살아가고, 그래서 시선을 올려 보게 하는 것. <span class="b-add bdg">L767~770</span></li>
+      <li>교회 안의 실제 섬김(사역)은 따로 세워진 이들이 아니라 <b>'성도들'</b>에게 맡겨짐. 교회 지도자의 임무는 <b>"성도들이 사역을 잘 감당하도록 준비시켜"</b> 모두가 하나님의 계획을 충만하게 경험하게 하는 일(4:12-13). 교수: "지금 우리가 하고 있는 거죠 … 여러분들이 해야 될 일." <span class="b-add bdg">L771~773</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑶ 이상화된(idealized) 성도의 직분 <span class="b-ppt bdg">엡 p.20</span> <span class="b-add bdg">녹취 L773~786</span></h3>
+    <ul>
+      <li>그리스도인의 현 지위를 <b>이상적인 영적 현실</b>의 관점에서 묘사 — <b>'흠이 없는 사람들'</b>(1:4; 5:27), 완전히 실현되지는 않았지만 어떤 의미에서는 <b>이루어진 것</b>으로 서술(1:19-20; 2:6).</li>
+      <li>자료: 믿는 자들이 상상해 온 것보다 훨씬 큰일을 할 수 있게 하심(3:20). 어떤 해석자들은 이 개념이 다른 서신의 바울 생각과 다르다고 본다(고전 4:8-13; 롬 6:3-5 등).</li>
+      <li>교수: 일반 바울 서신에 나오지 않는다고 해서 <b>바울이 그런 생각을 갖고 있지 않았던 것이 아니다</b> — 어려워할 필요 없다. 진정 서신으로 보는 학자들은 이를 <b>서신이 쓰인 상황</b>과 관련짓는다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>결론: 앉고, 걷고, 서는 성도 <span class="b-ppt bdg">엡 p.21</span> <span class="b-add bdg">녹취 L799~806</span></h3>
+    <p><b>"하나님의 계획과 교회 자신에 대해 바로 알아 맞서 싸우며 이기세요!"</b> — 교수: 에베소서를 <b>한 줄로</b> 표현한 문장. "레슬링 기억나세요?" 그리스도인의 위치(position)를 <b>몸의 자세</b>와 연관시키는 표현이 많다.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>관계</th><th>자세</th><th>본문·의미</th></tr></thead>
+        <tbody>
+          <tr><th>천상</th><td><b>앉아서</b></td><td>2:6(참조 1:20) — 구원 / 완전한 쉼 / 신분의 보장</td></tr>
+          <tr><th>이 세상</th><td><b>걷도록</b>(περιπατέω)</td><td>4:1, 17; 5:2, 8, 15(참조 2:2, 10) — 성결의 삶을 향해. 개역개정은 "행하다"로 번역. 교수: 당시 세계관에서 '걷다'는 날마다 계속 <b>행하며 살아가는 것</b></td></tr>
+          <tr><th>악마</th><td><b>서서</b></td><td>6:11, 14 — 하나님의 전신갑주로 옷 입고 굳게 맞서야 함(6:10-17)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SEC 6 -->
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">빌립보서: 바울 서신 중 가장 낙관적인 서신</span><div class="sl"></div></div>
+  <div class="oneline">감옥에서 쓴 기쁨의 편지 — 그 안에 복음서보다 이른 그리스도 찬송이 있다.</div>
+
+  <div class="card">
+    <h3>"주 안에서 항상 기뻐하라" <span class="b-ppt bdg">빌 p.2</span> <span class="b-add bdg">녹취 L810~814</span></h3>
+    <p><b>Χαίρετε ἐν κυρίῳ πάντοτε· πάλιν ἐρῶ, χαίρετε.</b>(4:4) — 교수가 헬라어로 함께 읽고, 서로 만날 때 이렇게 인사해 보라고 권함. 밝은 면이 있는 서신.</p>
+    <div class="bq"><span class="ref">빌 4:4</span>"주 안에서 항상 기뻐하라 내가 다시 말하노니 기뻐하라"</div>
+  </div>
+
+  <div class="card">
+    <h3>초기 기독교 찬송(2:6-11) <span class="b-ppt bdg">빌 p.2</span> <span class="b-add bdg">녹취 L814~815</span></h3>
+    <div class="bq"><span class="ref">빌 2:6-11</span>"그는 근본 하나님의 본체시나 하나님과 동등됨을 취할 것으로 여기지 아니하시고 오히려 자기를 비워 종의 형체를 가지사 사람들과 같이 되셨고 사람의 모양으로 나타나사 자기를 낮추시고 죽기까지 복종하셨으니 곧 십자가에 죽으심이라 이러므로 하나님이 그를 지극히 높여 모든 이름 위에 뛰어난 이름을 주사 하늘에 있는 자들과 땅에 있는 자들과 땅 아래에 있는 자들로 모든 무릎을 예수의 이름에 꿇게 하시고 모든 입으로 예수 그리스도를 주라 시인하여 하나님 아버지께 영광을 돌리게 하셨느니라"</div>
+    <p>교수: 선언하며 높이는(exaltation) 내용 — 한글 성경은 그렇지 않지만 헬라어 성경을 열면 이 부분은 <b>줄을 바꿔 시처럼</b> 배열되어 있다.</p>
+  </div>
+
+  <div class="card">
+    <h3>감옥에서 쓴 기쁨 — 죽음은? 삶은? <span class="b-ppt bdg">빌 p.3</span> <span class="b-add bdg">녹취 L816~830</span></h3>
+    <ul>
+      <li>기쁨과 확신에 찬 표현들이 <b>감옥에서</b> 기록되었다(1:7, 13-14, 17).</li>
+      <li>그리스도의 부활의 능력을 알고 부활에 이르려는 것이 목적인 사람에게 죽음은? 교수: "그의 죽으심을 본받아" = 그분의 <b>발자취를 따라가고 싶다</b>는 것 — 그 발자취는 죽음을 지나 새 생명으로 부활하는 것. 왜? <b>사랑하니까, 고마우니까</b>(나의 죄를 가져가 주셔서). '걸림'(녹취 그대로 [?])이 먼저 나오는 게 아니다 — 바울은 늘 <b>선택할 자유</b>를 생각하는 사람이라 <b>스스로 원해서</b> 이 길을 걷고, 그 안에 <b>기쁨</b>이 함께 들어 있다.</li>
+      <li>교수 요약: 바울은 "지금 당장 주님께 가고 싶지만, 내가 여기 머무는 게 여러분에게 좋은 걸 알기 때문에 더 산다"고 표현한다(빌 1:23-24 취지 — 개역개정: "…세상을 떠나서 그리스도와 함께 있는 것이 훨씬 더 좋은 일이라 … 내가 육신으로 있는 것이 너희를 위하여 더 유익하리라").</li>
+    </ul>
+    <div class="bq"><span class="ref">빌 3:10-12</span>"내가 그리스도와 그 부활의 권능과 그 고난에 참여함을 알고자 하여 그의 죽으심을 본받아 어떻게 해서든지 죽은 자 가운데서 부활에 이르려 하노니 내가 이미 얻었다 함도 아니요 온전히 이루었다 함도 아니라 오직 내가 그리스도 예수께 잡힌 바 된 그것을 잡으려고 달려가노라"</div>
+    <div class="bq"><span class="ref">빌 1:21</span>"이는 내게 사는 것이 그리스도니 죽는 것도 유익함이라" — 그러한 사람에게 삶은 그리스도를 섬기고 사랑하는 것, 죽는 것도 유익할 뿐.</div>
+  </div>
+</div>
+
+<!-- SEC 7 -->
+<div class="sec" id="sec7">
+  <div class="sh"><span class="sb">7</span><span class="st">빌립보서 역사적 배경</span><div class="sl"></div></div>
+  <div class="oneline">퇴역 병사들이 로마 시민권을 누리던 식민지 도시 — 특혜 없는 그리스도인들에게 "하늘 시민권"이 필요했다.</div>
+
+  <div class="card">
+    <h3>빌립보라는 도시 <span class="b-ppt bdg">빌 p.4~5</span> <span class="b-add bdg">녹취 L831~847</span></h3>
+    <ul>
+      <li>당시 <b>로마의 식민지(colony)</b>. 마게도냐로 들어가는 <b>첫 도시</b>(교수, L833).</li>
+      <li>마게도냐의 수도 <b>데살로니가</b>에서 동쪽으로 약 100마일(약 160km, 자료). 데살로니가처럼 로마 대로 <b>에그나티아 도로(Via Egnatia)</b>에 접함 — 교수: 대로가 있으면 사람들의 <b>왕성한 움직임</b>이 느껴져야 하고, 도시가 그 영향을 받는다.</li>
+      <li><b>중간 크기의 농업 공동체</b> — 작은 도시가 아니다.</li>
+      <li>알렉산더 대왕의 아버지 <b>필립 2세</b>가 정복하고 자기 이름을 따서 지음. 교수: 이런 경우가 흔하다 — 지중해 연안에 '알렉산드리아'라는 곳이 한두 곳이 아니다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>공화정에서 제국으로 — 퇴역 병사들의 도시 <span class="b-ppt bdg">빌 p.6</span> <span class="b-add bdg">녹취 L848~911</span></h3>
+    <ul>
+      <li>약 200년 후 로마인들이 차지. <b>주전 42년</b> 안토니우스·옥타비아누스가 브루투스·카시우스를 무찌른 곳(자료). 교수: 그때까지 로마는 황제 중심이 아닌 <b>공화정</b>(사람들이 모여 결정)이었는데, 리더십 분쟁에서 한쪽이 이기면서 <b>황제가 다스리는 제국</b>으로 바뀌기 시작했다.</li>
+      <li>이 전쟁에서 이긴 병사들이 퇴역해 정착 → 빌립보는 <b>퇴직 병사들의 거주지</b>. 이들은 <b>로마 시민권</b>을 얻고 <b>모든 세금을 면제</b>받는 큰 혜택(참조 행 16:37-38). 시민권의 가장 큰 의미는 <b>생명의 위협에서 멀어지는 것</b> — 십자가형이 공식적으로 면제.</li>
+      <li>교수의 비유: 미국에서 본 군인 예우(높은 급여, 직계 가족까지 미치는 혜택·교육비 지원, 식당에서 줄을 양보받는 모습, 군 복무로 시민권 보장) — 현대에도 이렇게 큰데 로마 시대에는 대단한 것이었다. <span class="b-add bdg">L863~899</span></li>
+      <li>그런데 그리스도인들은 대개 <b>특혜가 없는 사람들</b>이었다 → 시민권 가진 병사들이 부러울 수 있다. 그래서 <b>"우리의 시민권은 하늘에"</b>라는 표현 — 교수: 주석가들은 이런 소통, 곧 <b>눈을 들어 우리가 어디에 속해 있는지 확인시켜 주는 것</b>이 꼭 필요했을 것이라고 본다. <span class="b-add bdg">L900~911</span></li>
+    </ul>
+    <div class="bq"><span class="ref">빌 3:20</span>"그러나 우리의 시민권은 하늘에 있는지라 거기로부터 구원하는 자 곧 주 예수 그리스도를 기다리노니"</div>
+  </div>
+
+  <div class="card">
+    <h3>유럽 최초의 교회, 동역하는 교회 <span class="b-ppt bdg">빌 p.7~8</span> <span class="b-add bdg">녹취 L912~939</span></h3>
+    <ul>
+      <li>자료: 주후 약 <b>50-51년</b> 바울이 도착해 세움 → <b>유럽 땅에 세워진 최초의 교회</b>, "<b>서구 기독교의 탄생지</b>". 한 마게도냐 사람의 환상(행 16:6-10) 후 처음으로 유럽에 복음을 전함.</li>
+      <li>바울이 평탄하게 사역한 때가 아니라 <b>'고난과 능욕을 당한'</b> 시기(살전 2:2; 참조 행 16:16-40) — 그런데 놀랍게도 그 교회가 <b>동역자가 되는 교회</b>가 되었다. 교수: <b>빌립보 교회처럼 친밀하게 동역한 교회가 없다</b> — 바울에게 얼마나 귀했겠는가.</li>
+      <li>신실한 마음으로 바울 사역에 <b>재정 지원</b>(빌 4:10, 16; 고후 11:8-9). <b>예루살렘 구제금</b> 모금에도 모든 사람의 기대를 넘어설 정도로 기여(고후 8:1-4; 9:1-5) — 교수: 부유해서였을까? 아닌 것 같다(개역개정 고후 8:2 "극심한 가난이 그들의 풍성한 연보를 넘치도록").</li>
+      <li>바울이 <b>감옥에 갇혔을 때 지원</b> — 교수: 그 시대에는 감옥에서 먹을 것·입을 것을 <b>스스로 마련</b>해야 살아남았다. 로마에서 친구들과 왕래할 비교적 자유가 있었던 것도 이런 부분을 포함한다. 그런 사람들이 없었다면 처형이 아니라도 (죽을) 가능성이 높았을 것. → 이들에게 <b>감사</b>를 전하는 서신.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>어디서, 언제 썼나 — 세 옵션 <span class="b-ppt bdg">빌 p.9</span> <span class="b-add bdg">녹취 L940~965</span></h3>
+    <p>감옥에서 쓴 편지(1:7, 13-14, 17)지만 바울이 어디서 갇혔는지 <b>명시하지 않으므로</b> 정확히는 알 수 없다. 다른 옥중 서신 세 개도 대체로 <b>로마 감옥</b>에서 썼다는 공감대가 크지만 "절대적인 건 아닙니다".</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>장소</th><th>근거</th><th>이곳이라면</th></tr></thead>
+        <tbody>
+          <tr><th>에베소</th><td>고전 15:32; 고후 1:8-9 — 앞의 '맹수'·극심한 고난 → 투옥 가능성. 교수: 가능성이 낮아도 <b>옵션으로서는 기능</b>한다</td><td>초기 서신 중 하나(<b>54-56년</b>)</td></tr>
+          <tr><th>가이사랴</th><td>행 23:23-26:30 — 로마로 후송되기 전. 교수: 당대 두 권위자 앞 심문에서 "여러분이 저처럼 이렇게 메인[매인] 거 이외에는 꼭 저와 같이 되길 원합니다", 그러자 "너의 지나친 학문이 …"라는 말을 들은 "그 장면"(L949~954, 교수의 풀어 말하기). [보충] 개역개정 행 26:29 "결박된 것 외에는 나와 같이 되기를", 26:24 "네 많은 학문이 너를 미치게 한다"</td><td>—</td></tr>
+          <tr><th>로마</th><td>행 28:16-31 — 감옥 생활이 직설적으로 표현됨. <b>가장 큰 가능성</b>으로 제시</td><td>후기 서신 중 하나(<b>61-63년</b>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><b>에바브로디도는 언제 도착?</b> — 2:25-30에서는 한동안 함께 있은 듯, 4:18에서는 이제 막 온 듯 → 빌립보 교회에 보낸 <b>두세 개의 서신</b>(녹취 "조개의 서신" → 자료 p.9 기준)을 합쳐 놓은 것이냐는 견해. 교수: 헬라어 어법(단순 과거, 역사적 현재 등)을 조금 알면 <b>걸림돌이 될 만큼 크지 않다</b> — "저한테는 큰 문제는 안 돼요. 여러분들에게도 안 되길 바라서 드리는 말씀이에요."</li>
+      <li>자료: 3:1b-4:3 단락은 나머지와 현저히 다른 어조(적대자들에 대한 경고). <span class="b-ppt bdg">자료에만 있음</span></li>
+      <li>바울의 관심은 빌립보 그리스도인들에게 <b>칭찬과 감사</b>를 전하는 것.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 8 -->
+<div class="sec" id="sec8">
+  <div class="sh"><span class="sb">8</span><span class="st">빌립보서 주요 신학 주제와 결론</span><div class="sl"></div></div>
+  <div class="oneline">성육신과 선재 · 겸손 · 고난 · 교제(κοινωνία) · 감독과 집사.</div>
+
+  <div class="card">
+    <h3>⑴ 성육신(Incarnation) — 복음서보다 먼저 <span class="b-ppt bdg">빌 p.10</span> <span class="b-add bdg">녹취 L969~986</span></h3>
+    <ul>
+      <li>하나님이 인간으로 이 땅에(2:6-11; 참고 요 1:1-18). 교수: 바울 서신은 복음서 전에 쓰였는데 <b>성육신</b>(녹취 "성욕신" → 자료 p.10)이 여기 나온다 — 교수 자신과 많은 학자들에게 "서프라이즈".</li>
+      <li>교수: "아까 제가 복음서 기자들이 바울서신을 알고 있었을 가능성이 크다고 말씀드렸었죠." <span class="b-add bdg">L973</span> (그 '아까'의 설명은 쉬는 시간 뒤 시험 안내 구간 L562~569에 있어 <code>7주차_시험언급.md</code> 3절에 정리)</li>
+      <li>예수 그리스도의 생애: <b>하나님의 형체</b>(2:6) → <b>인간의 모양으로 태어나고 살고 죽으심</b>(2:7-8) → <b>만유의 주로 높여짐</b>(2:9-11). 이 "높이심(exaltation)"이 벌써 <b>복음서 이전</b>에 나온다.</li>
+      <li>교수: 우리에게는 놀랍지만, 초기 빌립보 교인들과 대화할 수 있다면 "그게 놀라워요? 몰랐어요?" 할 수도 있다 — 초기 교회는 주님에 대해 <b>우리보다 더 많이 알았을 것</b>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑵ 그리스도의 선재(preexistence) — 매우 초기의 증언 <span class="b-ppt bdg">빌 p.11</span> <span class="b-add bdg">녹취 L987~1004</span></h3>
+    <p>자료: <b>"왜 그리스도인들은 예수를 예배하고 주라고 고백하는가?"</b>에 대한 답을 <b>아주 이른 시기부터</b> 가지고 있었다는 의미.</p>
+    <div class="bq"><span class="ref">빌 2:10-11</span>"하늘에 있는 자들과 땅에 있는 자들과 땅 아래에 있는 자들로 모든 무릎을 예수의 이름에 꿇게 하시고 모든 입으로 예수 그리스도를 주라 시인하여 하나님 아버지께 영광을 돌리게 하셨느니라"</div>
+    <ul>
+      <li>교수: "그 어떤 설교자의 설교보다 강하죠" — 그것이 <b>복음서 전</b>의 빌립보서에 있다.</li>
+      <li>이 사상이 공식 교리로 일치를 이룬 것은 <b>325년 니케아</b>, <b>451년 칼케돈</b> 회의(자료; 교수는 "300년대, 400년대"). 그러나 그 이전에 초기 교회들은 이미 그리스도에 대한 이해가 있었다. <b>서신도 마찬가지</b> — 몇 백 년 뒤 정경 목록을 확정했지만, 그 전에 주님의 교회들은 이미 그렇게 인식했고, 나중에는 <b>골라내야만</b> 했다. 그것은 한 사람의 독단이 아니라 <b>교회의 일</b>이었다. <span class="b-add bdg">L996~1002</span></li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>★ [강조] 공동체 읽기 — "매우 중요해요"</h3>
+    <p><b>[녹취 L1003~1004]</b> <span class="say">"공동체 읽기 매우 중요해요. 제 견해예요."</span> (서신이 교회의 일로 성경으로 인식되어 간 과정의 맥락)</p>
+    <p>→ 이 말이 가리키는 앞선 문답(원청중의 '성경'=구약, 2세기 마르시온, 공동체 읽기와 정경화, L513~569)은 시험 안내 구간이라 <code>과제/중간고사_준비/7주차_시험언급.md</code> 3절에 정리했습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>⑶ 겸손 <span class="b-ppt bdg">빌 p.12</span> <span class="b-add bdg">녹취 L1005~1007</span></h3>
+    <ul>
+      <li>교수: <b>"겸손 매우 중요한데"</b> 바울은 겸손을 <b>사랑</b>으로도 표현하고(롬 12:10; 14:15; 고전 13:4-7; 갈 5:13; 참조 빌 1:9, 16; 2:1-2) <b>그리스도의 마음</b>(고전 2:16; 참조 롬 12:2; 빌 2:5)으로도 표현한다.</li>
+      <li>자료: 겸손은 <b>낮은 자존감</b>(자신을 열등하게 여기는 것)이 <b>아니라</b>, 다른 사람을 더 낫게 여기고 의식적으로 다른 사람의 유익을 추구하는 태도.</li>
+      <li>그리스도 찬가(2:6-11) = 시대를 초월한 겸손의 모본. <b>디모데</b>(2:19-24), <b>에바브로디도</b>(2:25-30), <b>바울 자신</b>(2:17; 3:4-8, 17; 4:9)도 겸손의 예. 겸손에 대한 권면 + 영광의 약속(3:10-11).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⑷ 고난 — 은혜로 주신 것 <span class="b-ppt bdg">빌 p.13</span> <span class="b-add bdg">녹취 L1008~1010</span></h3>
+    <ul>
+      <li>바울은 고난이 왜 선한 사람에게 오는지 설명하지 않지만, 믿음을 위해 고난받는 그리스도인은 <b>그리스도의 고난에 동참</b>한다고 생각(3:10) — 그의 죽으심을 본받고, 부활의 능력을 알게 됨(3:10-11).</li>
+      <li>그러므로 그리스도를 위해 고난받는 것을 <b>하나님의 은혜</b>로 인식(1:29). 교수: 왜? "사랑하니까, 고마우니까, <b>같이 있고 싶으니까</b>".</li>
+    </ul>
+    <p>자료의 헬라어: <b>ὑμῖν ἐχαρίσθη τὸ ὑπὲρ Χριστοῦ, οὐ μόνον τὸ εἰς αὐτὸν πιστεύειν ἀλλὰ καὶ τὸ ὑπὲρ αὐτοῦ πάσχειν</b></p>
+    <div class="bq"><span class="ref">빌 1:29</span>"그리스도를 위하여 너희에게 은혜를 주신 것은 다만 그를 믿을 뿐 아니라 또한 그를 위하여 고난도 받게 하려 하심이라"</div>
+  </div>
+
+  <div class="card">
+    <h3>⑸ 교제(κοινωνία) = 동참 <span class="b-ppt bdg">빌 p.14~15</span> <span class="b-add bdg">녹취 L1010~1024</span></h3>
+    <ul>
+      <li>바울은 자신과 빌립보 그리스도인의 교제, 그리고 그들이 다른 사람과 나누기를 바라는 교제를 중요하게 말한다.</li>
+      <li>교수: 갈라디아서 6:6("6장 4절인가 6절인가")에서 '가르친 사람들과 모든 좋은 것을 나누라'로 옮기는 것은 <b>오역에 가깝다</b>고 설명했었다 — 문맥에서 그것은 <b>동참</b>하는 것이고, 그 동사에서 나온 말이 <b>κοινωνία</b>. '교제'는 우리 식으로는 나누고 시간을 함께 보내는 것 같지만 그보다는 <b>동참(participation)</b>이다 — 바울과 빌립보 교회의 관계가 그렇다. <span class="b-add bdg">L1010~1014</span> (교수가 "설명을 드렸죠"라고 한 이전 설명은 이번 녹취에 없음. 오너 확인 2026-10-20: 그 설명은 갈라디아서의 이 구절을 <b>성만찬에 임하는 자세</b>와 관련해 원래 뜻으로 해석한 것. 개역개정 갈 6:6은 "모든 좋은 것을 <b>함께 하라</b>".)</li>
+      <li>바울은 <b>συν</b>(녹취 "씬" — 교수: 옛날에는 윕실론이 거의 이오타처럼 발음되어 "신")이라는 접두어를 자주 붙인다 = <b>'함께 ~하다'</b>. 자료의 4:3 헬라어에서 συν이 붙은 단어를 녹색으로 표시 — "한 절에 이렇게 [네] 번씩이나"(녹취에서 숫자 누락 → 자료 p.14의 4:3에서 녹색 표시된 σύζυγε·συλλαμβάνου·συνήθλησάν·συνεργῶν 4개 기준).</li>
+      <li>다른 서신에서 바울은 수신자와의 관계를 종종 <b>아버지-자녀</b>로(고전 4:14; 고후 6:13; 12:14; 갈 4:19; 살전 2:11, 참조 몬 1:10) 표현하지만, 빌립보 그리스도인들은 반복해서 <b>형제</b>라고 부르고(1:12, 14; 2:25; 3:1, 13, 17; 4:1, 8, 21) <b>동역자 관계(partnership, 1:5)</b>로 본다.</li>
+    </ul>
+    <div class="bq"><span class="ref">빌 4:3 (자료: 참조 1:27; 2:17, 18; 3:17)</span>"또 참으로 나와 멍에를 같이한 네게 구하노니 복음에 나와 함께 힘쓰던 저 여인들을 돕고 또한 글레멘드와 그 외에 나의 동역자들을 도우라 그 이름들이 생명책에 있느니라"</div>
+  </div>
+
+  <div class="card">
+    <h3>⑹ 감독들과 집사들 <span class="b-ppt bdg">빌 p.16</span> <span class="b-add bdg">녹취 L1025~1029</span></h3>
+    <ul>
+      <li>바울이 "교회의 감독들과 집사들"을 언급(1:1). 자격과 책임은 다른 서신에서 설명(딤전 3:1-13; 딛 1:7-9). 그러나 이 용어가 모든 지역 교회에서 같은 직분을 뜻했는지는 알지 못한다.</li>
+      <li><b>감독</b>(ἐπίσκοπος) = 말 그대로 감독자(overseer), <b>집사</b>(διάκονος) = '섬기는 사람'.</li>
+      <li>교수: 우리는 신학적으로 확립된 용어로만 생각하지만, 당시에는 <b>일반적으로 리더십을 가리키는</b> 용어였던 것으로 보인다 — "이게 확정된 거다, 이 두 개만 있었을 것이다"라고 하는 것은 <b>무리가 상당히 있다</b>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>결론: 빌립보서의 세 가지 가치 <span class="b-ppt bdg">빌 p.17</span> <span class="b-add bdg">녹취 L1030~1035</span></h3>
+    <div class="tw">
+      <table>
+        <tbody>
+          <tr><th>학자들에게</th><td>성육신 기독론, 고난의 의미 같은 주제를 다루는 <b>신학적 문서</b></td></tr>
+          <tr><th>설교자들에게</th><td><b>겸손과 조화</b>를 격려하는 동기 부여의 글</td></tr>
+          <tr><th>대중적으로</th><td>영감을 주는 <b>기독교 낙관론(optimism)</b>의 실례</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>교수 마무리: 이해를 좀 하시면 <b>메시지를 충분히 이해하는 도움</b>을 받는다.</p>
+  </div>
+</div>
+
+<!-- SEC 9 -->
+<div class="sec" id="sec9">
+  <div class="sh"><span class="sb">9</span><span class="st">시험 포인트 (압축)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>에베소서 한 줄</b>: "하나님의 계획과 교회 자신에 대해 바로 알아 맞서 싸우며 이기세요!" — 씨름 πάλη = 레슬링(6:12), 앉다(2:6)·걷다(4:1)·서다(6:11, 14).</li>
+      <li><b>우주적 관점</b>: 초점을 현세에서 천상으로, 만물을 그리스도 안에서 통일(1:9-10), 교회 = 우주적 교회.</li>
+      <li><b>에베소</b>: 아시아주 수도·상업 중심지, 원형극장 25,000명, 아데미 신전(7대 불가사의), νεωκόρος(→ 황제 숭배 중심지 명칭). 바울 2~3년 체류(3차 여행), 50년대 초~중반, 고린도전서 기록지.</li>
+      <li><b>수신자 문제</b>: 친밀함·문안 없음(롬 16장과 대조) → P46(ca. 200)·01*(4세기)에 "에베소에 있는"(1:1) 없음 → 회람 서신 / 설교·신학적 글 견해. 그래도 수신지 표기 사본은 모두 에베소.</li>
+      <li><b>저작 문제</b>: 긴 한 문장(1:3-14 등), "모든" 15회, 사탄 대신 διάβολος, "성도 중에" 가장 작은 자(3:8), 구원 "이미"(2:7-10, σεσῳσμένοι 완료형), 한 새 사람(2:14-16), 결혼 높이 평가. 교수: 대필자 + <b>바울의 최종 확인</b> → 걸림돌 아님, 이미와 아직이 바울 안에서 하나.</li>
+      <li><b>빌립보서</b>: 가장 낙관적(4:4), 감옥에서, 그리스도 찬송 2:6-11 = 복음서 이전의 <b>성육신·선재</b> 증언(니케아 325·칼케돈 451보다 훨씬 이전).</li>
+      <li><b>빌립보 배경</b>: 로마 식민지, 에그나티아 도로, 필립 2세, 주전 42년 전투 후 퇴역 병사 정착(시민권·세금 면제) → "시민권은 하늘에"(3:20). 유럽 최초 교회(50-51년), 재정 지원·구제금·옥중 지원.</li>
+      <li><b>기록 장소</b>: 에베소(54-56) / 가이사랴 / 로마(61-63, 가장 유력). 에바브로디도 도착 시점 → 편지 합본설(교수: 헬라어 어법으로 해소 가능).</li>
+      <li><b>주제</b>: 겸손(낮은 자존감 아님) · 고난도 은혜(1:29) · 교제 κοινωνία = 동참, συν-, 형제·동역자 · 감독/집사 = 당시 일반적 리더십 명칭.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 10 -->
+<div class="verify" id="sec10">
+  <h3>10. 출처·검증 요약</h3>
+  <div class="row">
+    <span class="stat"><b>녹취:</b> 녹취/신약성서 7주차  녹취 261019/ 안의 .md 1개(88,523바이트 · 한 줄, 파일명은 자동 생성 그대로) → 문장 분할 사본 1,036줄로 줄 번호 표기</span>
+    <span class="stat"><b>강의자료:</b> 06주차 01 에베소서.pdf (21쪽)</span>
+    <span class="stat"><b>강의자료:</b> 07주차 00 빌립보서.pdf (17쪽)</span>
+    <span class="stat"><b>성경:</b> 대한성서공회 개역개정 (엡 1·2·3·5·6, 빌 1~4, 행 16·18·19·26, 고전 15·16, 고후 1·8, 갈 6, 살전 2 장 대조)</span>
+  </div>
+
+  <h4>[제외한 녹취 구간]</h4>
+  <ul>
+    <li>수업 시작 잡담(L1~14) · 쉬는 시간 안내(L430~431) · 쉬는 시간 뒤 출석 호명(L432 앞부분, 이름 제외)</li>
+    <li><b>중간고사 안내·문답 구간(L432~738)과 L814의 시험 전 인사 당부</b> → 별도 파일 <code>과제/중간고사_준비/7주차_시험언급.md</code></li>
+    <li><code>07주차 01 골로새서.pdf</code>, 사이트 guide_*.html 참고서는 사용하지 않음(교수가 "골로새서도 비슷하다"고 말한 L128~129만 녹취대로 기록)</li>
+  </ul>
+
+  <h4>[녹취 오인식 교정·의심 목록]</h4>
+  <ul>
+    <li>"에베소설/앱에소서/에브에 소서" → 에베소서 · "브로 에페시우스" → Πρὸς Ἐφεσίους(자료 p.1) · "필리페시스" → Πρὸς Φιλιππησίους(빌 p.1) · "빌리포/빌립포" → 빌립보</li>
+    <li>"해 빨래" → <b>ἡ πάλη</b>(자료 p.3) [L32] · "펠라어" → 헬라어 · "네오꼬로스/네오포로스" → <b>νεωκόρος</b>(자료 p.7) [L173, L177]</li>
+    <li>"1장 3절부터 44절" → <b>1:3-14</b>(자료 p.17) [L398] · "디아블로스" → διάβολος [L411]</li>
+    <li>"시나이타크스/세나이테커스" → 01 사본(자료 p.14 "01, 4th c."; [보충] 01 = 시내산 사본 Codex Sinaiticus) · "OM" → omission [L287]</li>
+    <li>"비덱" → BDAG [L742] (자료에는 사전 이름 없음, 오너 확인 2026-10-20)</li>
+    <li>"끼리 끼리" → Χαίρετε(4:4, 자료 p.2) [L811] · "성욕신" → 성육신(자료 p.10) [L972] · "마귀의 주를 높여셨다" → 만유의 주로 높여짐(자료 p.10) [L974]</li>
+    <li>"조개의 서신" → 두세 개의 서신(자료 p.9) [L963] · "가이사량/가이사자" → 가이사랴 [L948, L955] · "에그나티아"는 자료 p.5 기준(녹취에는 이름 없음)</li>
+    <li>"미명서신" → 위명서신(pseudonymous letters) [L795~796] (오너 확인 2026-10-20) · "사회유학적" → 사회·역사적 [L390] [?] · "캐릭ich/캐ab릭c" → 카톨릭(보편) [L761~762] (오너 확인 2026-10-20)</li>
+    <li>"빠시인" → <b>πᾶσιν</b>("모든", 자료 p.14 이미지에서 3행 끝에 추가된 단어) [L317]</li>
+    <li>L1021 "한 절에 이렇게 번씩이나" — 숫자 누락 → [네](자료 p.14 녹색 표시 4개 기준)</li>
+  </ul>
+
+  <h4>[자료·발언 간 차이 및 확인 사항]</h4>
+  <ul>
+    <li>교수가 지우라고 한 자료 p.10의 한 줄(L258~260) — 교수는 자료 p.10(슬라이드 10)의 참조 구절 고전 2:1을 지우라고 했다(오너 확인 2026-10-19).</li>
+    <li>자료 p.17 "살전 12:18" — [보충] 데살로니가전서는 5장까지이고, 개역개정 <b>살전 2:18</b> "사탄이 우리를 막았도다"의 오기로 보임.</li>
+    <li>자료 p.8 2차 선교 여행 "(행 19:1-41)" — [보충] 에베소에 잠깐 들른 장면은 개역개정 행 18:19-21.</li>
+    <li>자료 p.17 "결혼 … (5:21-23)" — 개역개정 엡 5:21-23은 복종·머리 구절, 결혼 언급(5:31-32)은 그 뒤에 이어짐. 자료 표기 그대로.</li>
+    <li>자료 p.6 "아시아주(providence)" — province의 뜻으로 보임(표기 그대로).</li>
+    <li>니케아·칼케돈: 자료는 325년·451년, 교수 발언은 "300년대, 400년대"(L996) — 같은 내용.</li>
+    <li>갈 6:6: 교수는 '가르친 사람들과 모든 좋은 것을 나누라'는 번역이 오역에 가깝고 문맥상 "동참"이라고 이전에 설명했다고 회상함(L1010~1011). 이번 녹취에는 그 설명 내용이 없음 — 오너 확인 2026-10-20: 갈라디아서의 이 구절을 성만찬에 임하는 자세와 관련해 원래 뜻으로 해석한 설명. 개역개정은 "함께 하라".</li>
+    <li>빌 1:23-24는 자료에 없음 — 교수의 말(L826~827)을 개역개정으로 확인해 덧붙임.</li>
+  </ul>
+
+  <h4>[교수 개인 해석·외부 미확인 발언]</h4>
+  <ul>
+    <li>신들과의 후원자-피후원자 관계(신상 파괴 기록) · 원형 경기장 가능성이 낮다는 판단 · 대필자/컨펌 견해 · "이미와 아직이 하나" · 에바브로디도 문제를 어법으로 푸는 설명 · 미국 군인 예우 비유 — 수업에서의 교수 발언으로만 기록, 외부 자료로 확인하지 않음.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  작성일: 2026.10.19 (초안) · 신약성서 II 7주차 녹취와 강의자료(06주차 01 에베소서, 07주차 00 빌립보서) 기반
+</div>
+</div>
+</body>
+</html>
