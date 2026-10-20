@@ -65,7 +65,54 @@ input.blank:focus,textarea.blank:focus{outline:none;background:var(--card);box-s
 .model.show{display:block}
 .foot{margin:30px 0 0;color:var(--mut);font-size:.8rem;text-align:center}
 @media(max-width:520px){.hero{padding:26px 18px 20px}.hero h1{font-size:1.35rem}.barrow button{flex:1 1 28%;padding:8px 6px;font-size:.86rem}.stat{width:100%;text-align:left;margin:0}.card{padding:14px 12px}}
-</style></head><body><div class="wrap">
+</style>
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head><body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a><div class="wrap">
 <div class="hero"><h1>전도학개론 중간고사 연습 문제지</h1>
 <p>2026 시험문제(자주색 부분) 기반 · 문제는 슬라이드 순서, 최상위 변별력 문제는 맨 끝</p>
 <div class="rules">채점: <b>띄어쓰기와 따옴표 종류(“ ” ‘ ’ " ' )는 무시</b>, 그 외 글자·문장부호·숫자·괄호·영문 대소문자는 정확히 같아야 정답. 서술형(논문)은 자동 채점 없이 [모범답안 보기].</div></div>
