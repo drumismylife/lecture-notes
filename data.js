@@ -537,7 +537,7 @@ const SITE_DATA = {
             {
               name: "중간고사 대비 공부자료",
               icon: "📝",
-              desc: "1~6주차 강의 근거 정리 — 시험 항목별 원문 인용·실례·스스로 정리하기",
+              desc: "시험 준비 가이드 — 7주차 교수 설명 포함: 무엇을 쓰고 무엇을 복습할지, 항목별 방향·실례·근거 원문",
               href: "output/2026-2/nt2/midterm_study.html",
               isNew: true
             }
