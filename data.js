@@ -622,7 +622,7 @@ const SITE_DATA = {
             {
               name: "중간고사 연습 문제지",
               icon: "📝",
-              desc: "중간고사 자주색 문제 빈칸 채우기 — 입력 후 채점(띄어쓰기·따옴표 무시)",
+              desc: "중간고사 공란 기준 빈칸 184개 — 문제마다 채점 버튼으로 바로 정답 확인(48번 논문 문제 포함)",
               href: "output/2026-2/evan/midterm_quiz.html",
               isNew: true
             }
