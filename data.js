@@ -632,6 +632,13 @@ const SITE_DATA = {
               desc: "카드 45장을 무작위로 — 긴 답은 3지선다, 짧은 답은 직접 입력, 틀린 카드는 다시 나옴, 전반부(1~26)·후반부(27~48) 선택",
               href: "output/2026-2/evan/midterm_game.html",
               isNew: true
+            },
+            {
+              name: "중간고사 랜덤 문제 게임 (주관식)",
+              icon: "✍️",
+              desc: "모든 빈칸을 직접 입력 — 카드 45장 무작위, 틀린 카드는 다시 나옴, 전반부(1~26)·후반부(27~48) 선택",
+              href: "output/2026-2/evan/midterm_game_typed.html",
+              isNew: true
             }
           ],
           weeks: [
