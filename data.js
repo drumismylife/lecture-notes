@@ -625,6 +625,13 @@ const SITE_DATA = {
               desc: "중간고사 공란 기준 빈칸 184개 — 문제마다 채점 버튼으로 바로 정답 확인(48번 논문 문제 포함)",
               href: "output/2026-2/evan/midterm_quiz.html",
               isNew: true
+            },
+            {
+              name: "중간고사 랜덤 문제 게임",
+              icon: "🎲",
+              desc: "카드 45장을 무작위로 — 틀린 카드는 다시 나옴, 전반부(1~26)·후반부(27~49) 선택",
+              href: "output/2026-2/evan/midterm_game.html",
+              isNew: true
             }
           ],
           weeks: [
