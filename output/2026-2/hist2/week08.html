@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 8주차 웨슬리와 감리교, 미국의 독립전쟁과 개신교</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>웨슬리와 감리교, 미국의 독립전쟁과 개신교</h1>
+<p class="meta">교회사II · 8주차(LMS 7주차 온라인 3편) · 교재 p.164~172<br>
+자료: LMS 영상 자동자막 3편 + 교재 PDF(스캔, A3 한 장에 두 쪽씩) &nbsp;|&nbsp; 배지:
+<span class="bd v1">1회차 L줄</span><span class="bd v2">2회차 L줄</span><span class="bd v3">3회차 L줄</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br>
+<span style="color:var(--text2)">[자막 Ln] = 자막 파일의 n번째 줄. 자막은 오인식이 많아 인명·지명은 교재 표기로 맞추고 교정 내역은 맨 아래에 모았다. 1회차 앞부분(휫필드)은 7주차 노트 범위와 겹치는 복습이다.</span></p>
+
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <ul class="tight">
+    <li><strong>휫필드 vs 웨슬리</strong>: 휫필드 = 철저한 칼빈주의자·조직에 관심 없음·순회사역 / 웨슬리 = 알미니우스주의자·조직의 천재. 둘은 친했지만 신학은 극단적으로 반대. <span class="bd tb">p.168</span><span class="bd v1">1회차 L3~5, L164~165</span></li>
+    <li><strong>존 웨슬리(1703~1791)</strong>: 옥스퍼드 홀리 클럽 → 1735 조지아 사역 실패(1년 9개월) → 1738.5.24 구원의 확신 체험 → 프리스톨 부흥회로 감리교 시작. <span class="bd tb">p.167~168</span><span class="bd v1">1회차 L115~163</span></li>
+    <li><strong>감리교 조직·성장</strong>: 속회·연회 조직, 1773 최초 연회(필라델피아), <strong>1784 독립 교단(Methodist Episcopal Church)</strong>. 급성장 이유 = 순회제도·평신도 설교자·속회 지도자. <span class="bd tb">p.168</span><span class="bd v1">1회차 L166~170</span></li>
+    <li><strong>웨슬리 신학</strong>: 기독자의 완전(제한적·상대적 의미) = 하나님의 절대적 은혜 + 인간의 부분적 협력, 성령의 사역 주도, 개인의 성화와 사회 성화 동시 강조. <span class="bd tb">p.168</span><span class="bd v1">1회차 L182~187</span></li>
+    <li><strong>미국 독립전쟁기 교단 판도</strong>: 1776년 회중·성공회·장로교가 신자의 55% → 74년 후 19.1%. 침례교·감리교 급성장. 원인 = 종교 자유 사상 + 자유시장 종교경제. <span class="bd tb">p.169</span><span class="bd v2">2회차 L70~96</span></li>
+    <li><strong>천주교</strong>: 이민 + 평신도 주도(평의원)로 성장, 교구학교(수녀들의 역할), 1790~1850 이민 100만 이상. <span class="bd tb">p.170~171</span><span class="bd v3">3회차 L3~37</span></li>
+    <li><strong>교회와 국가의 분리 → 시민종교</strong>: 1776 버지니아 권리장전, 1791 수정헌법 제1조. 독립 후 "새로운 이스라엘" 사명 의식 = 미국 시민종교. <span class="bd tb">p.171~172</span><span class="bd v3">3회차 L45~90</span></li>
+  </ul>
+  <p><strong>⭐ 교수 강조</strong> <span style="color:var(--text2);font-size:0.9em">(강조어 '중요·핵심'이 실제로 나온 곳만. '시험'이라고 말한 곳은 3편 모두 없음)</span></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>웨슬리의 언급(감리교인에게 어떤 생각도 강요하지 않는다)</strong> — "이 웨슬리의 언급은 굉장히 중요한 건데요." <span class="bd v1">1회차 L171</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>웨슬리 완전론 전 과정의 핵심 = 성령의 사역</strong> — "이 모든 과정에서 중요한 것은 성령의 사역이다 라는 거예요." <span class="bd v1">1회차 L186</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>침례교 설교자의 성경 암송</strong> — "더 중요한 것은 자유자재로 수많은 성경의 본문들을 암송하고 있다는 거예요." <span class="bd v2">2회차 L132</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>교구학교의 수녀들</strong> — "특별히 중요한 역할을 하게 한 사람들이 바로 수녀님들이 수녀님들이 큰 역할을 하게 됩니다." <span class="bd v3">3회차 L31</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>교회와 국가의 분리 사상</strong> — "특별히 미국의 기독교의 가장 핵심적인 하나인 교회와 국가의 분리사상에 대해서 좀 살펴보겠습니다." <span class="bd v3">3회차 L45</span></div>
+</div>
+
+<div class="card">
+  <h2>1회차 — 휫필드 복습과 존 웨슬리·감리교 <span class="bd tb">p.164~169 상단</span></h2>
+  <p class="meta">1회차는 휫필드(p.164~167 g., 7주차 노트 범위)를 먼저 복습한 뒤 p.167 'D. 감리교와 대각성운동'으로 넘어간다.</p>
+
+  <h3>1-1. 휫필드 vs 웨슬리 <span class="bd v1">1회차 L2~9</span></h3>
+  <table>
+  <tr><th style="width:18%">구분</th><th>조지 휫필드</th><th>존 웨슬리</th></tr>
+  <tr><td>신학</td><td>철저한 칼빈주의자</td><td>알미니우스주의자(칼빈의 예정론 반대) <span class="bd tb">p.168</span></td></tr>
+  <tr><td>조직</td><td>조직·체제에 별로 관심 없음 <span class="bd tb">p.168</span></td><td>조직의 천재 → 속회, 연회 구성 <span class="bd tb">p.168</span></td></tr>
+  <tr><td>사역 방식</td><td>영국뿐 아니라 미국 전 도시 순회사역</td><td>영국 프리스톨 부흥회 인도 → 감리교 부흥 시작 <span class="bd tb">p.168</span></td></tr>
+  </table>
+  <p>교수: 두 사람은 굉장히 친한 관계였지만 신학적으로는 극단적으로 반대였다. <span class="bd v1">1회차 L164~165</span></p>
+
+  <h3>1-2. 휫필드 복습 (7주차 범위, 요점만) <span class="bd tb">p.164~167 g.</span></h3>
+  <ul class="tight">
+    <li>교구 교회 중심 시대에 순회사역 → 목회자들이 위협으로 인식 → <strong>신파(찬성)·구파(반대)</strong> 분열. 24세 필라델피아 도착, "메소포타미아"만 말해도 눈물, 1740~42 뉴잉글랜드 교인 2만 5천~5만 명 증가. 램버트 평: 2년 전부터 보도자료·팸플릿·신문광고. <span class="bd tb">p.164~165</span><span class="bd v1">1회차 L7~31</span></li>
+    <li><strong>비판</strong>: 테넌트의 설교 → 1741 필라델피아 총회가 부흥사 축출 → 뉴욕노회 / 찰스 촌시의 "열광주의" 비난 / 휫필드의 반격: 원고에 의존한 설교는 "생명의 종교가 부패했다는 가슴 아픈 증상". 1743 하버드 성명, 1742 커네티컷 세 법령. <span class="bd tb">p.165~166</span><span class="bd v1">1회차 L33~62</span></li>
+    <li><strong>결과·영향</strong>: 최소 19개 침례교회<span class="bd bo">보충</span>교수는 "15개, 19개"라 말함 [?] + 130여 개 침례교회(침례교의 어부지리), 남부 부흥, 1784 감리교회 형성, 민족의식·선교·평신도 역할 증대·대학 설립(1746 뉴저지 대학=프린스턴, 1764 로드아일랜드 대학=브라운, 1776 퀸즈 대학=러트거스·햄든-시드니 대학, 다트머스). <span class="bd tb">p.166</span><span class="bd v1">1회차 L63~76</span></li>
+    <li><strong>신학적 경향</strong>: 뉴잉글랜드 신학(에드워즈·벨라미·홉킨즈)이 복음주의자들에게 공격받고 예정론은 도덕적 노력을 파괴한다고 정죄. 웨슬리의 발코니 설교: 천국에는 장로교·감리교·침례교인이 있는 게 아니라 오로지 그리스도인만. <span class="bd tb">p.167</span><span class="bd v1">1회차 L77~90</span></li>
+  </ul>
+
+  <h3>1-3. 감리교주의의 정의 <span class="bd tb">p.167</span><span class="bd v1">1회차 L90~95</span></h3>
+  <ul class="tight">
+    <li>교재(McKim 인용): 존(1703~91)과 찰스(1707~88) 웨슬리의 사역에서 나온 <strong>가르침·조직·교회 규율</strong>. 역사적으로 신학적 지향은 <strong>알미니안</strong>, 교회 정치는 <strong>감독제(Episcopal)</strong>.</li>
+    <li>교수: 존 웨슬리와 찰스 웨슬리에게서 나온 가르침, 조직체계, 교회 운영 방식이 곧 감리교주의 [?].</li>
+  </ul>
+
+  <h3>1-4. 존 웨슬리의 생애 <span class="bd tb">p.167~168</span></h3>
+  <table>
+  <tr><th style="width:17%">시기</th><th>내용</th></tr>
+  <tr><td>가정</td><td>아버지 사무엘 웨슬리 = 경건한 국교회(성공회) 목사(교수: 의지가 약하고 비사교적, 완고해 목회가 썩 성공하지 못한 것 같다). 어머니 수잔나 = 진취적·조직적·의지력 강함·관용적(교재: 런던 비국교회 목사의 딸). 두 사람은 이혼할 지경이었지만 <strong>19명</strong> 자녀, 장성한 것은 10명(교재: 열아홉 형제자매 중 열다섯째). 목사관 불에서 극적 구출(교재: "불속에서 건져진 나무 토막"). <span class="bd tb">p.167</span><span class="bd v1">1회차 L96~114</span></td></tr>
+  <tr><td>17세~</td><td>옥스퍼드 입학, 초대교부 연구 → 신자의 목표는 "완전" 혹은 "규칙적인 사랑의 생활의 과정". 이신론에 반대하는 동생 찰스·학부생들과 <strong>홀리 클럽(개혁 클럽)</strong>: 기도·성경 읽기·성찬, 별명 "열광주의자들·성경벌레·메소디스트". 휫필드도 가입. 초대교회로 돌아가자 → 가난한 자 구제, 죄수 방문, 고아원 봉사. <span class="bd tb">p.167</span><span class="bd v1">1회차 L115~125</span></td></tr>
+  <tr><td>1735~36</td><td>존 버튼의 제안으로 식민지 사역, 1735.1.14 출항(교재). 항해 중 큰 파도에 모두 두려워하는데 조용히 찬양·기도하는 <strong>모라비안</strong>을 보고 "나의 신앙과 저들의 신앙은 왜 이렇게 다를까" 고민. 1736.1.25 조지아 도착, 찰스는 오글토프 장군의 비서·존은 식민지 담당 목사. <span class="bd tb">p.167</span><span class="bd v1">1회차 L126~133</span></td></tr>
+  <tr><td>조지아(1년 9개월)</td><td>비성공적 — 너무 엄격(예전 중시, 성공회 교인 아니면 장례 집전 거부, 귀부인 장식품 비판). 최고 행정관의 18세 조카딸 소피 홉키와 사랑에 빠졌으나 결혼 결정을 미뤄 삼각관계, 모라비안 풍습(막대기를 세워 예/아니오)을 썼고 소피는 다른 남자와 결혼 → 성찬 금지 → 남편이 명예훼손죄로 고소 → 쫓겨나게 되어 6개월 후 도주, 먼지를 털고 떠남. <span class="bd tb">p.167~168</span><span class="bd v1">1회차 L133~159</span></td></tr>
+  <tr><td>1738</td><td>영국 귀국 후 모라비안 방문(교재: 2.1 영국 도착, 피터 빌러를 만남). <strong>5.24 구원의 확신 체험</strong>. 런던 교회에서 설교하다 조나단 에드워즈의 노스햄프턴 부흥 기록을 읽고 초청받음(교재). 영국 프리스톨에서 부흥회 인도 → 감리교 부흥 시작. <span class="bd tb">p.168</span><span class="bd v1">1회차 L160~163</span></td></tr>
+  <tr><td>조직·독립</td><td>웨슬리: 행정에 천재적 재능 → <strong>속회(Class)</strong>·<strong>연회(Annual Conference)</strong>(휫필드는 관심 없었음). 동생 찰스는 7,000개 이상의 찬송가 작곡. 말년에 프란시스 에즈베리를 식민지로 보내 <strong>1773 최초 연회(필라델피아)</strong>, <strong>1784</strong> 새로운 독립 교단 탄생(교재: 볼티모어에서 코크 박사와 에즈베리를 감독으로 임명, 이전에는 성공회의 한 종교단체). <span class="bd tb">p.168</span><span class="bd v1">1회차 L166~168</span></td></tr>
+  <tr><td>성장</td><td>영국 감리교인도 국교회에서 독립, 침례교를 추월해 가장 큰 교단이 됨(교재: 1784 15,000명 → 1790 57,631명 → <strong>1820</strong> 침례교 추월). <span class="bd bo">보충</span>교수는 "18세기"라고 말함 [?]. <strong>급성장 이유</strong>: 순회제도, 평신도 설교자, 속회 지도자. <span class="bd tb">p.168</span><span class="bd v1">1회차 L169~170</span></td></tr>
+  </table>
+
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>웨슬리의 언급</strong> <span class="bd tb">p.168</span><span class="bd v1">1회차 L171~181</span>
+    <ul class="tight">
+      <li>교수: "이 웨슬리의 언급은 굉장히 중요한 건데요." — 감리교인들은 가입과 관련해 어떤 생각도 강요하지 않는다. 특별구원이든 일반구원이든, 절대적 선택이든 조건적 선택이든 그들의 뜻에 따라 선택할 수 있고, 성공회인도 분리파(장로교·독립교회) 신자도 될 수 있다.</li>
+      <li><strong>유일한 조건 = 영혼을 구원하고 싶은 진정한 바람</strong>. 오직 이렇게 질문한다: "당신의 마음도 저의 마음과 같습니까? 그렇다면 악수합시다."</li>
+      <li>교수: 예수 그리스도가 구주이심과 성경이 신앙의 핵심 기반임을 믿으면 칼빈주의든 아니든 상관없다는 것이 초기 정신.</li>
+    </ul>
+  </div>
+
+  <h3>1-5. 웨슬리의 신학 — 기독자의 완전 <span class="bd tb">p.168</span><span class="bd v1">1회차 L182~189</span></h3>
+  <ul class="tight">
+    <li>기독자의 완전(완전한 구원)의 가능성을 주장하되, <strong>인간의 무지와 육체적 연약함을 인정한 제한적·상대적 의미의 완전</strong>.</li>
+    <li>인간 자신의 고유한 능력에 의한 완전(펠라기우스)이 아니라 <strong>하나님의 절대적 은혜 + 인간의 부분적 협력</strong>(교재: 복음주의적 신인협동설)으로 가능.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> "이 모든 과정에서 중요한 것은 성령의 사역이다 라는 거예요." <span class="bd v1">1회차 L186</span> → 그래서 <strong>개인의 성화와 사회생활(사회의 성화)을 동시에 강조</strong>하는 것이 웨슬리의 사상. <span class="bd tb">p.168</span></div>
+  <p>교수의 종합: 칼빈은 인간의 전적 타락에 집중, 루터는 인간이 의인이면서 죄인임을 강조, 웨슬리는 하나님의 은혜와 인간의 협력의 종합을 강조. <span class="bd tb">p.169 상단</span><span class="bd v1">1회차 L188~189</span></p>
+  <details>
+    <summary>교재에만 있는 내용 — p.169 상단 (영상에서 언급 없음)</summary>
+    <div class="dbody">
+    <p>웨슬리의 은혜 5단계(교재): ①선행적 은혜(prevenient grace, 믿음으로 반응할 수 있게 함) ②깨닫게 하는 은혜(convicting) ③칭의의 은혜(justifying, 죄를 사함) ④중생케 하는 은혜(regenerating, 죄의 권세에서 해방되는 체험) ⑤성화의 은총(sanctifying, 온전한 구원). 성화 = 성결 혹은 그리스도인의 완전.</p>
+    </div>
+  </details>
+</div>
+
+<div class="card">
+  <h2>2회차 — 웨슬리의 애정 문제, 미국 독립전쟁기의 교단들 <span class="bd tb">p.169~170</span></h2>
+
+  <h3>2-1. 웨슬리의 애정 문제 (교재에 없음, 교수 설명) <span class="bd v2">2회차 L1~55</span></h3>
+  <p>교수: 웨슬리는 복음에 대한 열정이 뛰어난 목회자지만 결혼생활은 어려웠고 애정 문제가 일기에도 나온다. 대체로 네 사람이 등장.</p>
+  <table>
+  <tr><th style="width:24%">여인</th><th>내용</th></tr>
+  <tr><td>셸리 커크함 [?]</td><td>옥스퍼드 시절 4살 연상. "하나님과 여성 사이에서 하나만 선택해야 한다"는 생각으로 고민하다 놓침. <span class="bd v2">L9~13</span></td></tr>
+  <tr><td>소피 홉키</td><td>웨슬리 33세·소피 18세. 금욕주의로 망설이다 막대기 기도로 결정하려다 놓치고, 조지아에서 쫓겨남. <span class="bd v2">L14~17</span></td></tr>
+  <tr><td>그레이스 머리</td><td>영국 귀국 후, 13살 차이의 미망인(32세). 웨슬리를 병간호하며 서로 사랑, 베넷이 경쟁. 머리가 "사랑하는 사람은 웨슬리"라 고백해 청혼했으나 <strong>일주일 후 베넷과 결혼</strong>(훗날 "청혼할 줄 몰랐다"). 교수: 웨슬리가 주저하고 하나님과 여인 사이에서 갈등하지 않았나 <em>유추</em>. <span class="bd v2">L18~41</span></td></tr>
+  <tr><td>돈 많은 미망인(이름 불명확 [?])</td><td>사이가 나빠 일기에는 "매 맞는 남편". 웨슬리가 전도활동으로 가정을 돌보지 않았기 때문(딸이 죽을 때도). <span class="bd v2">L41~47</span></td></tr>
+  </table>
+  <p>교수의 소감: 어거스틴·루터·츠빙글리·칼빈·에드워즈·웨슬리는 소극적·비사교적인 사람이 상당히 많았지만 하나님이 대부분 돕는 배필을 허락하셨고, "완전한 사람은 없다", 단점에도 복음과 영혼 구원의 헌신을 귀중히 보셨다고 <em>생각한다</em>. <span class="bd v2">L47~55</span></p>
+
+  <h3>2-2. E. 미국의 독립전쟁 <span class="bd tb">p.169</span><span class="bd v2">2회차 L56~68</span></h3>
+  <ul class="tight">
+    <li>북아메리카 식민지 중 동부 해안의 <strong>13개 주</strong>가 영국의 조세정책 등에 반발해 독립을 위해 일으킨 전쟁 → 13주가 독립해 <strong>미합중국</strong> 건설.</li>
+    <li>교수: 교단별로 전쟁에 임하는 자세가 달랐고, <strong>침례교인은 적극 참여</strong>한 것으로 알려져 있다. 독립전쟁의 원인은 일반 세계사라 크게 다루지 않고 교단 상황을 본다.</li>
+    <li>교재의 원인: ①1763년의 결과 영국이 조세 정책 실시(관세·인지세) 큰 반발 ②중서부에 인디언 보호구역 설정, 식민지의 진출 → 충돌, 영국이 군대 파견 ③1770.3 보스턴에서 영국군과 충돌, 시민 5명 사망 → 1773 독립전쟁 시작(교재 표기).</li>
+  </ul>
+
+  <h3>2-3. 이 시기의 교단 상황 <span class="bd tb">p.169~170</span></h3>
+  <ul class="tight">
+    <li><strong>1776년</strong> 독립 선언 당시 회중교회·성공회·장로교(주요 교단)가 신자의 <strong>55%</strong>. <span class="bd tb">p.169</span><span class="bd v2">2회차 L69~72</span></li>
+    <li>에즈라 스틸즈(교재: 1761년): 100년 후 식민지 안에 7백만 명의 회중주의자가 있게 되거나 아니면 40만 명의 침례교인보다 적은 수로 전락할지도 모른다. 교수: 이 예언과 거의 비슷하게 → <strong>1860년 회중주의자 50만 미만, 침례교인 200만 가까이</strong>. <span class="bd tb">p.169</span><span class="bd v2">2회차 L73~77</span></li>
+    <li>74년 뒤 이 세 교단의 합계는 신자의 <strong>19.1%</strong>(교재: 교회에 다니는 사람의 비율 34%), 회중교회 <strong>20% → 4%</strong>, 성공회는 만년 2위에서 꼴찌. <span class="bd tb">p.169</span><span class="bd v2">2회차 L95~97</span></li>
+  </ul>
+  <table>
+  <caption>침례교·감리교 성장의 두 가지 원인 (교수 설명; 교재: 쇠퇴한 교단은 이 둘에 잘 대처하지 못함 p.169)</caption>
+  <tr><th style="width:20%">원인</th><th>교수 설명</th></tr>
+  <tr><td>종교의 자유 사상</td><td>국가 교회 체제를 거부하고 교회가 스스로 결정하는 자율적 체제. <span class="bd v2">L81~82</span></td></tr>
+  <tr><td>자유시장 종교경제</td><td>교단·교회를 부모나 조상과 관계없이 자유롭게 선택. 맛집을 후기를 보고 고르듯 영적·육적·교제·교육의 만족을 주는 교회가 선택받고, 아무리 훌륭한 건물·명성이 있어도 만족이 없으면 도태. <span class="bd v2">L83~92</span></td></tr>
+  </table>
+  <ul class="tight">
+    <li><strong>성공회</strong>: 영국 왕 권위를 인정하는 교회라 미국에서 목사 안수가 불가능했고, 영국에서 안수받으려면 영국 왕실에 충성 서약이 필요 → 어려움. 1789년 미국 성공회(교재: 1785년 헌법 제정, 1789년 총회). <span class="bd tb">p.170</span><span class="bd v2">2회차 L98~102</span></li>
+    <li><strong>장로교·회중교회</strong>: 감리교·침례교가 급성장하자 1801년부터 두 교회 연합 계획(연합교회). 교수: 미국에는 연합교회가 많고, 보통 2~3개 교회가 합쳐진 교회. <span class="bd tb">p.170</span><span class="bd v2">2회차 L103~109</span></li>
+    <li><strong>회중교회의 신학 분열</strong>: 하버드 진영(진보, 알미니우스 견해) / 에드워즈와 후예(정통 칼빈주의) / 중도적 전통주의자(차츰 친부흥) — 교재: 1808 앤도버 신학교 설립. 공식 종교 폐지(코네티컷 1818, 뉴햄프셔 1819, 매사추세츠 1833). 회중교회는 쇠퇴, 장로교는 인구 성장만큼 성장. <span class="bd tb">p.170</span><span class="bd v2">2회차 L110~118</span></li>
+  </ul>
+
+  <h3>2-4. 침례교의 성장 <span class="bd tb">p.170</span><span class="bd v2">2회차 L119~137</span></h3>
+  <ul class="tight">
+    <li>회심을 통해 괄목할 만한 성장. 회중교회 목사 노아 워체스터가 1794년에 『침례교단의 성장에 대한 공정한 탐구』를 씀: 침례교 교사들은 지식은 부족하지만 대단한 열정·매력적인 목소리·끊임없는 혀의 움직임으로 보충되거나 압도되는 것 같다.</li>
+    <li>교수: 다른 교단(회중·장로·천주교)은 차분한 원고 설교인데 침례교는 속사포처럼 쏟아내는 설교.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> "더 중요한 것은 자유자재로 수많은 성경의 본문들을 암송하고 있다는 거예요." <span class="bd v2">2회차 L132</span> — 교수: 청중에게는 그 말이 옳은지 판단할 시간을 안 주고 성경구절에 압도당한 것. <span class="bd v2">L133~136</span></div>
+
+  <h3>2-5. 감리교의 급성장 <span class="bd tb">p.170</span><span class="bd v2">2회차 L137~141</span></h3>
+  <ul class="tight">
+    <li>이 기간 미국 종교시장의 가장 중요한 변동 = 감리교주의의 급속한 부흥(교재).</li>
+    <li>1776년 식민지 전역에 교회 <strong>65개</strong>의 작은 집단 → 70년 이후 <strong>1850년 13,302개 교회·260만 명 이상</strong> = 미국 전역 교인 수의 <strong>3분의 1 넘는 수</strong>.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>3회차 — 천주교, 교회와 국가의 분리, 미국 시민종교 <span class="bd tb">p.170~172</span></h2>
+
+  <h3>3-1. 천주교 <span class="bd tb">p.170~171</span></h3>
+  <ul class="tight">
+    <li>독립전쟁 이후 꾸준히 증가. <strong>성장 원인</strong>: ①유럽 이민자(미시시피 지역 전도의 결과, 아일랜드·남부 독일 이민 급증) ②미국식 시민 의식 → 교황에 대한 절대 충성에서 <strong>평신도가 주도권</strong>을 가지려는 현상. <span class="bd tb">p.170</span><span class="bd v3">3회차 L1~7</span></li>
+    <li><strong>1784</strong> 찰스 캐롤의 조카 존 캐롤(1735~1815)이 미국 교회 업무 전권을 위임받은 "선교 책임자"로 임명, 6년 후 감독. <strong>1808</strong> 볼티모어 교구가 대주교좌, 캐롤이 대주교. <span class="bd tb">p.170</span><span class="bd v3">3회차 L5~6</span></li>
+    <li>교수: 남부는 지금도 천주교 신자가 많아 남침례교회가 남부 복음화를 위해 신학교를 세움(사우스웨스턴, 뉴올리언스 등) — 총회 차원의 첫 신학교는 뉴올리언스 신학교. <span class="bd v3">3회차 L8~14</span></li>
+    <li><strong>평신도 평의원(lay trustees)</strong>: 시민의 자유원칙에 따라 신부를 마음대로 뽑고 해고하겠다고 주장. 교수: 로마 가톨릭에서는 말도 안 되는 주장인데 상당히 일찍 나왔다. <strong>1786</strong> 초 뉴욕 성 베드로 성당 평의원 → 3년 후 필라델피아 성 삼위 성당이 따름. 단, 성당 재산 관리권은 주교에게 이전. 교재: 놀폭의 한 성당은 주교가 내적 일에 간섭할 권한이 없다고 주장. <span class="bd tb">p.170~171</span><span class="bd v3">3회차 L15~20</span></li>
+    <li><strong>1790~1850</strong> 천주교 신자 백만 명 이상이 유럽에서 도착. 그러나 19세기 미국의 신부 대부분은 유럽 파송. <span class="bd tb">p.171</span><span class="bd v3">3회차 L21~22</span></li>
+    <li><strong>교구학교</strong>: 1800~1840 200여 개 이상(교수: 학비가 높은데도 대기자가 많다고 기억).</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> "특별히 중요한 역할을 하게 한 사람들이 바로 수녀님들이 수녀님들이 큰 역할을 하게 됩니다." <span class="bd v3">3회차 L31</span> — 교수: 일반 교사보다 저임금으로 높은 교육을 시킬 수 있어 인기가 있었고, 당시 초등학생에게 가장 권위 있는 말은 "수녀님이 그렇게 말씀하셨어요". <span class="bd v3">L32~35</span> <span class="bd tb">p.171 '수녀들의 역할'</span></div>
+  <ul class="tight">
+    <li>제1차 미국 주교총회 → 미국에서 단일 규모로 가장 큰 교회 기구. <span class="bd tb">p.171: 1852</span><span class="bd bo">보충</span>교수는 "1850년"이라고 말함 [?]. <span class="bd v3">3회차 L36</span></li>
+    <li>교수: 지금도 미국에서 가장 큰 교단은 카톨릭, 개신교 중에서는 남침례교회, 두 번째 연합감리교회, 세 번째 몰몬교회. <span class="bd v3">3회차 L37~38</span></li>
+  </ul>
+
+  <h3>3-2. 자유시장 종교경제의 대두 <span class="bd tb">p.171</span><span class="bd v3">3회차 L39~44</span></h3>
+  <ul class="tight">
+    <li>독립전쟁 무렵 종교적 박해 시기는 끝나고 사실상 종교 관용이 지배적, 전쟁 이후 점차 <strong>종교의 자유</strong>로. 그러나 모든 주에서 시행된 것은 아님 — 회중주의는 뉴잉글랜드(세금에 의존)에, 성공회는 몇몇 중부·남부 식민지에 남았고 성공회 교회들은 영국이 패하자 곧 사라짐(교재).</li>
+    <li>회중교회 폐지 연도는 2-3 참조(매사추세츠는 1833 "교회세" 중단).</li>
+  </ul>
+
+  <h3>3-3. 교회와 국가의 분리 <span class="bd tb">p.171</span><span class="bd v3">3회차 L45~63</span></h3>
+  <div class="key"><span class="bd hi">⭐교수강조</span> "특별히 미국의 기독교의 가장 핵심적인 하나인 교회와 국가의 분리사상에 대해서 좀 살펴보겠습니다." <span class="bd v3">3회차 L45</span></div>
+  <table>
+  <tr><th style="width:24%">항목</th><th>내용</th></tr>
+  <tr><td>13개 주의 상황</td><td>교재: 최초 13개 주 가운데 <strong>4개 주 — 로드아일랜드·뉴저지·펜실베이니아·델라웨어</strong>는 종교 자유 시행(교수: 로드아일랜드는 침례교가, 펜실베이니아는 퀘이커가 핵심). 나머지 중 "다섯 개 주"(교재: 뉴욕·메릴랜드·노스캐롤라이나·조지아)는 성공회가 공식 종교. <span class="bd v3">L46~48</span></td></tr>
+  <tr><td>에스라 스타일즈(1760, 교재)</td><td>"양심과 개인적 판단의 권리는 양도할 수 없습니다 … 종교적 자유라는 것은 그 값을 측량할 수 없는 귀한 보물". <span class="bd tb">p.171</span> (영상 언급 없음)</td></tr>
+  <tr><td>권리장전(1776.6.12, 버지니아)</td><td>"모든 백성은 종교의 자유를 행사할 수 있는 동등한 권리를 지닌다." 교수: 국가적 교회 체제가 아니라 누구나 자유롭게 신앙을 가질 수 있다는 것. <span class="bd v3">L48~50</span></td></tr>
+  <tr><td>미국 제1차 수정헌법</td><td>교수: 1791년 12월 15일 채택, 미국 헌법의 근간. 교재: "국회는 특정 종교를 공식종교로 존중하거나 종교의 자유를 금지하는 법을 제정할 수 없다." 교수 해설: 국가가 특정 종교를 후원·도와줘도 안 되고, 종교가 행하는 어떤 것도 방해해서도 안 된다. <span class="bd v3">L51~62</span></td></tr>
+  </table>
+  <p>교수(의견): 이것이 오늘날 미국 사회의 근간이지만, 오늘날 교회와 국가가 엄밀한 의미에서 분리되어 있느냐는 또 다른 문제이며 비판할 점이 많다고 <em>생각한다</em>. <span class="bd v3">3회차 L63~64</span></p>
+
+  <h3>3-4. 미국 국가와 종교 — 시민종교의 등장 <span class="bd tb">p.171~172</span><span class="bd v3">3회차 L64~90</span></h3>
+  <ul class="tight">
+    <li>독립 후 <strong>미국 시민종교</strong>가 등장. 교수: 국가 교회는 아니지만 기독교가 국가 비슷한 시민종교의 형태를 띤다.</li>
+    <li>독립 직후 에스라 스타일즈의 설교 <strong>"영광과 영예의 전당에 오른 미합중국"</strong>(The United States Elevated to Glory and Honor): 이 나라는 거대한 나라가 될 것이고, 주께서 "자신의 미국적 이스라엘"을 수·명성·영예에서 자신이 세운 만국보다 높이실 것이다(신명기 26:19). <span class="bd tb">p.171~172</span><span class="bd v3">3회차 L67~72</span></li>
+    <li><strong>미국의 사명 의식</strong>: 하나님은 인류를 위한 자신의 목적에 영향을 미칠 <strong>새로운 도구로서 미국</strong>을 만드셨다 — "전 세계의 무지한 자들에게 빛을 비추고, 억압받는 이들에게 해방을 주기 위한". 교수: 구약에서 하나님의 도구가 이스라엘이었다면 이제는 미국. <span class="bd tb">p.172</span><span class="bd v3">3회차 L73~80</span></li>
+    <li>사명은 두 가지: <strong>만국의 빛</strong>(세계의 지도자 혹은 맏형) + <strong>억압당하는 이들의 해방자</strong>(세계의 경찰). 따라서 미국의 기독교는 모든 사람에게 공통적인 <strong>"공화국의 종교"·"시민종교"</strong>. <span class="bd tb">p.172</span><span class="bd v3">3회차 L82~86</span></li>
+    <li>교수: 청교도가 꿈꾼 것은 언덕 위에서 만국이 우러러보는 도시. 그래서 새해 첫 시작을 목회자의 기도로 하고 대통령은 성경 위에 손을 얹고 취임 선서를 한다. <span class="bd v3">3회차 L83~90</span></li>
+  </ul>
+
+  <h3>3-5. 교수의 종합 <span class="bd v3">3회차 L91~106</span></h3>
+  <ul class="tight">
+    <li>1776년 전후 50% 이상이던 성공회·회중·장로교 중 성공회는 상당히 줄고 회중교회도 줄었으며 장로교는 인구 성장만큼 성장, <strong>폭발적으로 성장한 것은 감리교와 침례교</strong>.</li>
+    <li>제1차 대각성운동의 부흥 요소를 받아들이느냐에 따라 <strong>구파(정통 칼빈주의 고수)·신파(부흥회, 회심 체험, 성령의 역사 강조)</strong>로 분열 → 교단의 성패가 갈림. 여기에 신앙 양심에 따라 고르는 <strong>자유 종교 시장</strong>과 국가 교회 체제 거부 → 정치와 종교의 분리. 교황에게 충성한 로마 가톨릭과 영국 국왕에게 충성한 성공회는 쇠퇴(가톨릭은 이민으로 성장 — 자막 불명확 [?]), 많은 사람이 친부흥적인 침례교·감리교로 이동.</li>
+    <li>다음 시간: 제8부 진보의 시대(1789~1914). <span class="bd tb">p.173</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>한눈에 보는 연표</h2>
+  <table>
+  <tr><th style="width:20%">연도</th><th>사건</th></tr>
+  <tr><td>1703~1791</td><td>존 웨슬리 (동생 찰스 1707~88)</td></tr>
+  <tr><td>1735.1.14</td><td>웨슬리 조지아로 출항(교재) → 1736.1.25 도착, 1년 9개월 사역</td></tr>
+  <tr><td>1738.5.24</td><td>웨슬리 구원의 확신 체험</td></tr>
+  <tr><td>1741 / 1742 / 1743</td><td>필라델피아 총회 / 커네티컷 세 법령 / 하버드 성명 (휫필드 비판)</td></tr>
+  <tr><td>1746 · 1764 · 1776</td><td>뉴저지 대학 · 로드아일랜드 대학 · 퀸즈 대학, 햄든-시드니 대학</td></tr>
+  <tr><td>1773</td><td>최초 감리회 연회(필라델피아) <small>(교재: 같은 해 미국 독립전쟁 시작이라고도 표기)</small></td></tr>
+  <tr><td>1776</td><td>독립 선언 · 교단 55% 통계 · 버지니아 권리장전(6.12) · 감리교회 65개</td></tr>
+  <tr><td>1784</td><td>감리교회(Methodist Episcopal Church) 독립 교단 · 존 캐롤 선교 책임자</td></tr>
+        <tr><td>1791.12.15</td><td>미국 제1차 수정헌법 채택(교수)</td></tr>
+      <tr><td>1808</td><td>볼티모어 대주교좌 · 앤도버 신학교</td></tr>
+  <tr><td>1818 · 1819 · 1833</td><td>코네티컷 · 뉴햄프셔 · 매사추세츠 회중교회 공식 종교 폐지</td></tr>
+  <tr><td>1850 · 1860</td><td>감리교 13,302개 교회·260만 명 · 회중 50만 미만 vs 침례교 200만 가까이</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span></h2>
+  <table>
+  <tr><th style="width:5%">#</th><th>문항</th><th style="width:36%">답 · 근거</th></tr>
+  <tr><td>1</td><td>(OX) 휫필드는 조직에 관심이 없었고, 웨슬리는 조직의 천재였다.</td><td>O — 1회차 L5, 교재 p.168</td></tr>
+  <tr><td>2</td><td>(단답) 감리교인의 가입 조건으로 웨슬리가 말한 유일한 조건은?</td><td>영혼을 구원하고 싶은 진정한 바람 — 교재 p.168, 1회차 L175</td></tr>
+  <tr><td>3</td><td>(단답) 침례교·감리교 성장의 두 원인은?</td><td>종교 자유 사상, 자유시장 종교경제 — 교재 p.169, 2회차 L80</td></tr>
+  <tr><td>4</td><td>(약술) 웨슬리의 기독자의 완전을 은혜와 협력, 성령의 사역을 중심으로 쓰시오.</td><td>1-5 — 교재 p.168</td></tr>
+  <tr><td>5</td><td>(약술) 독립 후 미국 천주교의 성장 원인과 평신도 평의원의 주장을 쓰시오.</td><td>3-1 — 교재 p.170~171</td></tr>
+  <tr><td>6</td><td>(약술) 교회와 국가의 분리 근거가 된 문서와 미국 시민종교의 내용을 쓰시오.</td><td>3-3·3-4 — 교재 p.171~172</td></tr>
+  </table>
+</div>
+
+<details class="apx">
+  <summary>부록 — 출처·자막 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 자막 오인식 교정 (교재 표기 기준)</caption>
+  <tr><th>자막 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>7천 평 이상의 찬송가 · 달라스운동·대각선운동 · 뉴욕 노예 · 찰스 촌 씨 · 평의위원회 · 성 3위 성당 · 노아, 워체스터, 로체스터 · 수산나</td><td>7,000개 이상의 찬송가 · 대각성운동 · 뉴욕노회 · 찰스 촌시 · 평신도 평의원(lay trustees) · 성 삼위 성당(Holy Trinity Church) · 노아 워체스터 · 수잔나</td><td>교재 p.165~171</td></tr>
+  <tr><td>휘필드·조직필드·조지 필드·헤이필드</td><td>휫필드</td><td>교재 p.164~168</td></tr>
+  <tr><td>길버트 토렌트</td><td>길버트 테넌트</td><td>교재 p.165</td></tr>
+  <tr><td>잉글랜드의 부흥운동(L64)</td><td>초기 뉴잉글랜드 부흥운동</td><td>교재 p.166</td></tr>
+  <tr><td>딘 워드 카운티</td><td>딘위디 카운티(Dineiddie County)</td><td>교재 p.166</td></tr>
+  <tr><td>1784년 연합감리교회</td><td>감리교회(Methodist Episcopal Church) — 교수는 '연합감리교회'라 말함</td><td>교재 p.166, 168</td></tr>
+  <tr><td>러츠가·러치고대학·햄튼 시드니 대학·하노버노</td><td>러트거스·햄든-시드니 대학·하노버노회</td><td>교재 p.166</td></tr>
+  <tr><td>조나단 에드워드·벨라미·새뮤얼 홉킨즈</td><td>조나단 에드워즈·조셉 벨라미·새뮤얼 홉킨즈</td><td>교재 p.167</td></tr>
+  <tr><td>웨슬리안 선조·전 웨슬리·전이슬리·헉슬리·잔 찰스 웨슬리</td><td>존 웨슬리·찰스 웨슬리</td><td>교재 p.167</td></tr>
+  <tr><td>알루미늄스 견해·아르메니아인·페스빈 아르미니언·알비누스</td><td>알미니우스 견해·알미니안</td><td>교재 p.167~168</td></tr>
+  <tr><td>이피스코팔 · 인 처치가 버몬트 교회</td><td>감독제(Episcopal) · 교회 정치(in church government) — 문장 일부 판독 불가, 교재 정의로 대체</td><td>교재 p.167</td></tr>
+  <tr><td>전버튼</td><td>존 버튼(John Burton)</td><td>교재 p.167</td></tr>
+  <tr><td>윤재도 로프·후파(L130~131)</td><td>친첸도르프로 추정되나 문구 불명확 — 본문에 쓰지 않음(교재 표기: 진젠도르프)</td><td>교재 p.168</td></tr>
+  <tr><td>소피 호키·소피 토끼·셀리 커크함</td><td>소피 홉키(Sophy Hopkey) · 셸리 커크함은 이름 불명확(교재에 없음)</td><td>교재 p.167</td></tr>
+  <tr><td>"라벤더"(L161)</td><td>모라비안 방문으로 읽으나 불명확 — 교재 p.168의 피터 빌러 기록으로 대체</td><td>교재 p.168</td></tr>
+  <tr><td>브리스톨</td><td>프리스톨(교재 표기를 따름)</td><td>교재 p.168</td></tr>
+  <tr><td>프란시스 에즈베리·"전 웨슬리 말년"</td><td>프란시스 에즈베리(Francis Asbury) · 존 웨슬리 말년</td><td>교재 p.168</td></tr>
+  <tr><td>복음주의적 신의 협력설 합동설</td><td>복음주의적 신인협동설</td><td>교재 p.168</td></tr>
+  <tr><td>"Panopto"(1회차 L181, 3회차 L54)</td><td>자막 시스템의 오삽입 — 본문에 쓰지 않음</td><td>1회차 L181, 3회차 L54</td></tr>
+  <tr><td>에즈라 스틸라·에즈라 스틸즈·이스라엘 스타일이라고 하는 목사</td><td>에즈라 스틸즈(p.169) / 에스라 스타일즈(p.171) / 이스라 스타일즈(p.171 d.) — 교재 안에서도 표기가 섞여 있어 쪽별 교재 표기를 따름</td><td>교재 p.169, 171</td></tr>
+  <tr><td>1716년 독립선언 · 독립선언 할 때인 1770년 · 1876년</td><td>1776년</td><td>교재 p.169, 2회차 L69</td></tr>
+  <tr><td>1898년(코네티컷) · 18108년·18109년 · 18001년 · 18008년 · 1990년</td><td>1818년 · 1819년 · 1801년 · 1808년 · 1790년</td><td>교재 p.170~171</td></tr>
+  <tr><td>전 원 캐롤·찰스 캐롤의 조카</td><td>존 캐롤(John Carroll)</td><td>교재 p.170</td></tr>
+  <tr><td>퀘이크 더 드리</td><td>퀘이커(문구 불명확)</td><td>3회차 L47</td></tr>
+  <tr><td>"마지막으로 … 바지의 일·바젤"(2회차 L41~44)</td><td>이름 불명확, 본문에 '이름 불명확 [?]'로 적음</td><td>2회차 L41</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(자막)</th><th>교재 · 노트 처리</th></tr>
+  <tr><td>침례교로 간 교회 수</td><td>"최소한도로, 15개 교회, 19개 교회가 침례교회가 됐고" (1회차 L64)</td><td>교재 p.166 "최소한도로 19개" — 교재 기준(19개)으로 적음</td></tr>
+  <tr><td>감리교가 침례교를 추월한 시기</td><td>"침례교를 추월하면서 가장 큰 교단이 18세기에 됩니다" (1회차 L169)</td><td>교재 p.168 "1820년에는 침례교 추월" — 교재는 1820년, 교수 발언은 '18세기'로 들림</td></tr>
+  <tr><td>제1차 미국 주교총회</td><td>"1850년에 제1차 미국 주교 총회" (3회차 L36)</td><td>교재 p.171 "1852년" — 두 연도 병기</td></tr>
+  <tr><td>성공회가 공식 종교였던 주</td><td>"나머지주들 중에 5주" (3회차 L48, 자막상 뉴욕·메릴랜드·노스캐롤라이나·조지아만 나열)</td><td>교재 p.171도 "다섯 개 주"라 쓰고 4곳만 적음 — 그대로 적음</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽) · 영상별 범위</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th><th>영상</th></tr>
+  <tr><td>p.164~167 g.</td><td>29~30</td><td>휫필드 · 비판 · 결과 · 대학 · 신학적 경향 (7주차 범위)</td><td>1회차 복습 구간</td></tr>
+  <tr><td>p.167 D.~p.169 상단</td><td>30(오른쪽)~31(왼쪽)</td><td>감리교주의 정의 · 웨슬리 생애 · 조직 · 완전론 · 종합</td><td>1회차</td></tr>
+  <tr><td>p.169~170 상단</td><td>31(오른쪽)~32(왼쪽)</td><td>E. 독립전쟁 · a. 교단 상황 · 성공회·회중·장로교 · 침례교 · 감리교</td><td>2회차</td></tr>
+  <tr><td>p.170~172</td><td>32~33(왼쪽)</td><td>천주교 · b. 자유시장 종교경제 · c. 교회와 국가의 분리 · d. 시민종교</td><td>3회차 (2회차 끝 부분과 p.170에서 겹침)</td></tr>
+  </table>
+  <p class="meta">교재 PDF는 텍스트 레이어가 없는 스캔본이라 PDF 30~33쪽 이미지(170dpi)를 직접 읽고 정리했다. 자막은 자동 자막이라 인명·연도 오인식이 많아 교재와 대조해 교정했다. 교재 p.173 이후(제8부)는 다루지 않았다.</p>
+  </div>
+</details>
+
+</body>
+</html>
