@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 9주차 — 구원의 서정 마무리와 전도의 3단계(전략적 중보기도)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">전도학개론 · 9주차(2026.10.29) · 2026학년도 2학기</div>
+  <h1>구원의 서정 마무리 — 영화·전체 교훈 / 전도의 3단계 ① 전략적 중보기도</h1>
+  <div class="prof">담당 김완 교수 · 5,6강 구원의 서정 슬라이드 45~49번 · 7강 전도의 3단계 슬라이드 1~15번(40번 연계)</div>
+</div>
+
+<div class="intro">
+  수업은 <b>기말고사 1번 안내 → 구원의 서정 마무리(성화·견인 복습, 영화, 전체 교훈) → 전도의 3단계 중 ① 전략적 중보기도(구체적 기도·합심기도)</b> 순이었습니다. 전도의 3단계 중 <b>② 사랑의 섬김, ③ 타이밍을 보아 권면</b>과 ① 중 <b>3. 영적전쟁</b>(슬라이드 16~39번)은 다루지 않았습니다. 교수가 시험과 연결한 대목은 <span class="b-exam bdg">시험</span>, 교수 발언의 사실관계 보완은 <span class="b-sup bdg">보충</span>, 음성인식 교정은 <span class="asr">[ASR 교정]</span>, 확신 없는 부분은 [?]로 표시했습니다.
+</div>
+
+<div class="toc">
+  <a href="#exam-box">📝 오늘 나온 시험 얘기</a>
+  <a href="#recap">1. 구원의 서정 마무리</a>
+  <a href="#rel">2. 관계중심전도</a>
+  <a href="#three">3. 전도의 3단계</a>
+  <a href="#specific">4. 구체적 기도</a>
+  <a href="#unity">5. 합심기도(삼겹줄)</a>
+  <a href="#purple">🟣 자주색 글씨</a>
+</div>
+
+<div class="sec" id="exam-box">
+  <div class="emph">
+    <h3>📝 오늘 교수가 시험·기말고사로 언급한 것</h3>
+    <ul>
+      <li><b>기말고사 1번 = 3명에게 복음 전하기.</b> 전도학을 배웠으니 전도를 해야 한다는 취지입니다. 영접 여부는 상관없이 복음을 전했는지가 기준이고, 배점이 가장 높습니다.<br>
+        <span class="tq">“기말고사 일권은 3명을 전도하는 것이 되겠습니다.”</span> <span class="asr">[일권=1번]</span><br>
+        <span class="tq">“복음을 전했느냐 안 했는가”</span> · <span class="tq">“이게 배점이 제일 높습니다.”</span></li>
+      <li><b>전도의 3단계</b>는 시험 문제입니다 (전략적 중보기도 · 사랑의 섬김 · 타이밍을 보아 권면).<br>
+        <span class="tq">“전도의 3단계 시험 문제입니다.”</span></li>
+      <li><b>오스카 탐슨의 7단계는 외우지 말고 3단계만</b> 기억하라고 했습니다.<br>
+        <span class="tq">“내년엔 다 까먹을 텐데 세 가지만 기어가십시오.”</span> <span class="asr">[기어가십시오=기억하십시오]</span></li>
+      <li><b>마틴 로이드 존스의 말</b>(“죽은 정통주의는 오류가 있는 불붙은 신학만 못하다”, 슬라이드 49번)이 기말고사에 나온다고 했습니다.<br>
+        <span class="tq">“이게 기말고 시험에 나올 건데”</span></li>
+      <li><b>전도서 4:11-12를 통째로 쓰는 문제</b>가 기말고사에 나옵니다 (본문은 §5).<br>
+        <span class="tq">“여러분 시험에 통째로 쓰는 것이 나옵니다.”</span></li>
+      <li>기말고사 때 <b>전도 대상자 명단(123번)</b>을 내게 된다는 말도 했습니다(§4).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="recap">
+  <div class="sh"><span class="sb">1</span><span class="st">구원의 서정 마무리 (PPT 5,6강 · 슬라이드 45~49)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>지난주 못 한 부분을 짧게 — 성화와 견인 복습</h3>
+    <p>교수는 서정 순서(예정·소명·중생·회심·칭의·양자·성화·견인·영화)를 칠판에서 다시 읽고 성화·견인으로 들어갔습니다.</p>
+    <ul>
+      <li><b>성화</b>: 누구도 한 번에 예수님까지 자라가지 못한다. 열 걸음 나아갔다 세 걸음 넘어지고, 일곱 걸음 나아갔다 여덟 걸음 넘어지는 과정이므로 핵심은 <span class="tq">“빨리 회개하고 돌이켜야 된다”</span>.</li>
+      <li><b>견인</b>: 넘어진 순간에 구원이 취소되지 않는다. 교수는 “구원은 우리의 어떠함에 달린 것이 아니”라고 했고, 오늘 기분이 좋아서 구원받고 내일 기분이 나빠서 구원이 취소되는 식이 아니라고 했습니다.<br>
+        <span class="tq">“내 감정에 따라서 나의 구원이 결정되는 것이 아니에요.”</span></li>
+      <li>근거로 하나님의 변하지 않는 은혜와 그분이 붙드신 손을 들었고, 자신은 믿음이 하나님의 선물이라고 믿는다고 했습니다. 성령이 중생시키지 않으셨다면 믿을 수 없다는 취지입니다.</li>
+      <li>침례교는 거의 절대 다수가 성도의 견인을 믿습니다. 구원 상실 가능성은 감리교 쪽 교리가 전제로 깔고 있다고 했습니다. 안 믿는 사람도 소수 있으나 그렇다고 침례교인이 아닌 것은 아니라고 했습니다.<br>
+        <span class="tq">“한 번 구원은 영원한 구원이다.”</span> (교수 낭독, 따라 하기)</li>
+    </ul>
+    <p>교수가 말한 교단 대비: 구원 상실을 전제하는 쪽 = 감리교, 견인을 믿는 쪽 = 침례교 다수. 교수가 침례교에서도 구원 상실을 믿는 사람의 비율을 말한 대목은 ASR이 깨져 “1%”인지 확인되지 않습니다 [?].</p>
+  </div>
+
+  <div class="card">
+    <h3>구원 상실 구절 — 히브리서 6:4-6 (슬라이드 45번)</h3>
+    <p class="vq">히 6:4 한 번 빛을 받고 하늘의 은사를 맛보고 성령에 참여한 바 되고 6:5 하나님의 선한 말씀과 내세의 능력을 맛보고도 6:6 타락한 자들은 다시 새롭게 하여 회개하게 할 수 없나니 이는 그들이 하나님의 아들을 다시 십자가에 못 박아 드러내 놓고 욕되게 함이라</p>
+    <ul>
+      <li>이 구절을 구원 상실의 근거로 읽는 사람이 많고(“구원은 두렵고 떨림으로 사는 것”이라는 식의 주장 포함), 칼빈주의와 알미니안주의가 각각 어떻게 해석하는지는 <b>AI(제미나이·챗GPT)에게 물어보고 본인 입장을 정하라</b>고 했습니다. 교수는 입장을 정해주지 않습니다.</li>
+      <li>교수 본인의 해석: 헬라어 원문 문법상 “타락한 자는 다시 새롭게 회개할 수 없다”를 구원 소실 가능성으로 이해하지 않는다. 여기의 타락한 자는 회개를 거부하고 예수가 필요 없다며 십자가에 못 박는 유대교 사람들이어서, 이미 믿은 사람이 타락할 가능성을 말하는 것이 아니다. 구절이 구원을 말하는 것 자체가 아니라고 본다는 말도 했으나 근거 설명(히브리서 앞부분과 같은 헬라 단어)은 ASR이 깨져 [?].</li>
+      <li>해석은 네 가지가 있고 이것은 그중 하나라고 했습니다(“4가지 해석 중에 하나예요” — 숫자는 ASR 상 4, 확인 [?]).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>8. 영화(Glorification) — 구원의 완성 (슬라이드 47번)</h3>
+    <ul>
+      <li>영화는 <b>천국에서 이루어지는 것</b>이고, 이 땅에서는 견인까지다.</li>
+      <li>교수의 설명 순서: 죽으면 육체는 흙으로 돌아가고 영은 떠올랐다가 <b>부활의 육체</b>를 입고 <b>백보좌 심판</b>을 받는다 → 양은 오른쪽, 염소는 왼쪽 → 천국 또는 불 심판. 천국에서는 예수님처럼 영화로운 부활의 몸을 입고 누리게 되며 그때는 더 이상 죄를 짓지 않는다.</li>
+      <li>이 상태를 <b>“행복자의 신학”</b>이라 부른다고 했고, “어버스틴은 행복자의 신앙”이라고 덧붙였다 <span class="asr">[어버스틴=어거스틴 추정, ‘행복자’ 표기도 ASR]</span> [?].</li>
+      <li>슬라이드 47번: 영화 = 영혼과 육체가 완전히 변화되어 죄와 사망에서 해방된 상태. 그리스도 재림 때 이루어지는 최종 변화. 성경 근거 롬 8:18, 고전 15:50-57, 계 21:3-4.</li>
+    </ul>
+    <p class="sup"><span class="tag">보충</span> 교수는 백보좌 심판과 양·염소의 좌우 구분을 한 흐름으로 말했습니다. 성경에서 양과 염소의 구분은 마태복음 25:31-46, 백보좌는 요한계시록 20:11 이하에 나오는 별개의 본문입니다. 교수의 말은 그대로 두었습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>구원의 서정 전체적 교훈 (슬라이드 48~49번)</h3>
+    <div class="tw"><table>
+      <thead><tr><th>번호</th><th>슬라이드 내용</th><th>교수의 설명</th></tr></thead>
+      <tbody>
+        <tr><th>1</th><td>[칼빈주의 5대교리], [하나님의 주권] 2권을 읽기 전에 칼빈주의를 비판하려 하지 말 것 (알미니안은 첨부자료 참고)</td><td>칼빈주의가 뭔지 알고 나서 비평하라. 두 권(<i>칼빈주의 5대교리</i>(교수 발음 ‘에드 파마’[?]), 아더 핑크의 <i>하나님의 주권</i>)을 읽고 판단하라. <i>하나님의 주권</i>은 “오직 하나님만 찬양하게 만드는 책”이라고 했다.</td></tr>
+        <tr><th>2</th><td>‘나’라는 인간의 전적인 타락을 뿌리깊게 이해하면 결국 하나님의 전적인 은혜를 의지할 수밖에 없지 않는가?</td><td>자신을 돌이켜 보면 구원받을 만한 선이 하나도 없었다. 죄와 사망으로 죽어 있었다면 내 의지가 서기 전에 하나님의 은혜로만 구원받았다고 고백할 수밖에 없다.</td></tr>
+        <tr><th>3</th><td>칼빈주의에 대한 가장 큰 오해는 하나님의 주권 100, 인간의 자유의지 100을 모두 강조한다는 것을 이해하지 못하는 것이다</td><td>많은 사람이 하나님의 주권은 100이고 인간의 자유의지는 0이라고 오해한다. 논리로는 안 맞아도 삼위일체(세 분인데 한 분)처럼 성경이 말하는 대로 받아들이기로 결정하는 것이 칼빈주의다. 은혜가 전부라고 하는 곳에서는 감격하고 감사하며, 복음을 전하고 회개하고 책임 있게 살라고 하는 곳에서는 그렇게 한다.</td></tr>
+        <tr><th>4</th><td>구원과 삶에서 나의 나된 것은 하나도 없고 오직 하나님께만 영광을 올려보내는 것이 입장을 정한 가장 중요한 원인이었다. 고전 15:10</td><td>교수가 개혁주의 쪽 입장을 택한 가장 중요한 이유. 내가 1%라도 구원에 관여했다면 <span class="tq">“그 1%만큼은 나의 영광이잖아요”</span>. 모든 것이 하나님께서 하신 것이면 영광이 모두 하나님께 돌아가는 것이 합당하다. 입장은 각자 정하면 된다고 했다.</td></tr>
+        <tr><th>5</th><td>구원의 서정에서 신학적 입장을 정하긴 해야 하지만, 전도에서 성령님께 쓰임받는 것이 훨씬 더 중요하다. “죽은 정통주의는 오류가 있는 불붙은 신학만 못하다.” — 마틴 로이드 존스</td><td>아래 박스 참조.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="vq">고전 15:10 그러나 내가 나 된 것은 하나님의 은혜로 된 것이니 내게 주신 그의 은혜가 헛되지 아니하여 내가 모든 사도보다 더 많이 수고하였으나 내가 한 것이 아니요 오직 나와 함께 하신 하나님의 은혜로라</p>
+  </div>
+
+  <div class="emph">
+    <h3>🎯 교훈 5번 — 교리보다 성령님과의 친밀함 <span class="bdg b-exam">시험</span></h3>
+    <ul>
+      <li>신학 입장은 정해야 하지만 교수에게 더 중요한 것은 칼빈주의냐 알미니안이냐보다 <b>성령 하나님께 사로잡혀 자아를 깨뜨리고 복종하여 주님과 친밀하게 사는 것</b>이다. 슬라이드 49번 인용문이 기말고사에 나온다.<br>
+        <span class="tq">“죽은 정통주의는 오류가 있는 불붙는 신앙만 못하다.”</span></li>
+      <li>신대원 시절 기숙사에서 칼빈주의·알미니안주의로 밤새 토론하던 일화: 교리는 날카롭게 세웠으나 삶에 하나님의 임재가 없으면 무슨 소용이냐고 했다. 교회를 고를 때도 칼빈주의냐보다 설교가 은혜가 되는 곳을 가게 된다고 했다.</li>
+      <li>학생들 나눔 시간 뒤 정리: 졸업하면 청년들에게 칼빈주의·알미니안주의를 가르칠 일은 거의 없다. 그러나 <b>목회자 본인은 입장을 정해야</b> 한다 — 칼빈주의든 수정 칼빈주의든 알미니안이든, 수정이라면 몇 포인트까지 인정할지 정해 두지 않으면 설교할 때마다 흔들려 성도들이 헷갈린다. 가능하면 <b>성도의 견인은 믿는 쪽으로</b> 하면 좋겠지만 강요는 아니다.</li>
+      <li>견인을 믿든 안 믿든 전도를 안 하면 소용이 없다는 취지로 말하며 전도 얘기로 넘어갔다. 수업 마지막의 슬라이드 50~55번(구원의 확신 Q&amp;A)은 오늘 다루지 않았다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="rel">
+  <div class="sh"><span class="sb">2</span><span class="st">관계중심전도 — 오스카 탐슨 (PPT 7강 · 슬라이드 2~6)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>슬라이드 2번: W. Oscar Thomson Jr., Southwestern 전도학 교수 — <b>관계중심전도</b>. 교수가 신대원에서 배운 책이며, 읽을 때마다 울고 회개하게 되는, 자기 인생과 운명을 바꾼 책이라며 꼭 읽어 보라고 했습니다. 지금 섬기는 교회 전도팀에서도 이 책으로 가르친다고 했습니다. 요지는 가족·친척·친한 친구·이웃·전혀 모르는 사람 순으로 관계의 원을 넓혀 가며 복음을 전한다는 것입니다(“컨센트릭 서클” — 표기 ASR [?]).</p>
+    <div class="tw"><table>
+      <caption>오스카 탐슨, 전도의 7단계 (슬라이드 3번) — 교수: 시험에는 3단계(§3)만 기억</caption>
+      <thead><tr><th>번호</th><th>단계</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><th>1</th><td>바로잡기</td><td>하나님과 자신, 자신과 타인과의 관계를 바로 잡으라</td></tr>
+        <tr><th>2</th><td>설문</td><td>관계를 설문 조사하라</td></tr>
+        <tr><th>3</th><td>기도</td><td>기도로 하나님과 동역하라</td></tr>
+        <tr><th>4</th><td>다리놓기</td><td>사람들에게로 가는 단계의 다리를 놓으라</td></tr>
+        <tr><th>5</th><td>사랑의 표현</td><td>필요를 채워줌으로써 하나님의 사랑을 보이라</td></tr>
+        <tr><th>6</th><td>제자삼기</td><td>제자삼고 성장을 도우라</td></tr>
+        <tr><th>7</th><td>다시 시작하기</td><td>새신자들이 제자 삼을 수 있도록 도우라</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tw"><table>
+      <caption>제1번 바로잡기: 3가지 관계 (슬라이드 4번, 교수의 설명 덧붙임)</caption>
+      <thead><tr><th>관계</th><th>슬라이드</th><th>교수</th></tr></thead>
+      <tbody>
+        <tr><th>① 하나님과의 관계</th><td>올바른 관계 회복이 출발점. 구원받았어도 올바로 서 있지 않으면 하나님께로 돌이켜야 함</td><td>이 관계가 제일 중요하고 먼저 바로잡혀야 한다</td></tr>
+        <tr><th>② 자신과의 관계</th><td>하나님 안에서 자신에 대한 올바른 관점. 이웃을 자신처럼 사랑해야 하므로 자신을 바로 보아야 함</td><td>하나님이 보시는 관점으로 나를 바라보아 세상의 거짓 메시지에 속지 않아야 한다</td></tr>
+        <tr><th>③ 다른 사람과의 관계</th><td>다른 사람과의 관계가 깨어져 있으면서 하나님과의 관계가 올바로 될 수 없다. 둘은 뗄 수 없음</td><td>(녹취에서 이 항목의 설명은 ASR이 깨져 확인되지 않음) [?]</td></tr>
+      </tbody>
+    </table></div>
+    <p>슬라이드 5번 (자주색): <b>“세상에서 고유명사를 제외하고 가장 중요한 단어는 ‘관계’라는 단어이다”</b> 하나님은 우리의 관계를 사용하셔서 복음이 확산되길 원하시고, 복음은 바로 세워진 관계를 통해 흘러간다. 관계는 사랑이 지나가는 철로와 같다.<br>
+      <span class="vq">“복음이라는 기차는 관계라는 철도를 따라 달린다”</span></p>
+    <p>교수는 “저는 관계 중심 전도를 믿습니다. 관계 중심 전도가 저희 학파가 미는 것”이라고 했습니다. 이 가르침이 신대원생들의 마음을 크게 흔든 이유가 슬라이드 6번입니다.</p>
+  </div>
+  <div class="emph">
+    <h3>🎯 영적 위선 (슬라이드 6번, 자주색 강조) — 가장 가까운 가족부터</h3>
+    <ul>
+      <li>가장 가까운 가족과의 관계가 깨져 있는 채로 전혀 모르는 타인에게 복음 전도에 힘쓴다면 그것은 <b>영적 위선</b>이다. 교수 전언: <span class="tq">“그게 영적인 위선이다”</span></li>
+      <li>딤전 5:8 <span class="vq">“누구든지 자기 친족 특히 자기 가족을 돌보지 아니하면 믿음을 배반한 자요 불신자보다 더 악한 자니라”</span></li>
+      <li>교수가 전한 신대원 수업 일화: 가정이 깨진 학생들이 가족을 찾아가 전도하라는 말은 하지 말고 차라리 먼 나라 선교를 가겠다고 할 만큼 힘들어했다고 교수가 극적으로 재현했다. 그래서 이 수업이 학생들을 많이 힘들게 했다고 했다. 반대로 사역은 탁월한데 가정 관계는 다 깨진 분들을 많이 만났다고도 했다.</li>
+      <li>결론: 하나님은 우리 관계를 아름답게 하시고, <b>깨어진 관계 가운데 빛이 비추기를</b> 원하신다. 복음은 관계를 회복시키면서 주변 사람에게 한 사람씩 흘러간다. 하나님이 우간다의 모르는 사람에게 왜 전도하지 않았느냐보다 <span class="tq">“왜 너는 너의 할아버지에게 너희 아버지에게 왜 너는 너의 친족들에게 예수교수의 복음을 증거하지 않았냐”</span> 물으실 것이라고 했다. <span class="asr">[예수교수=예수 그리스도 ASR 추정]</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="three">
+  <div class="sh"><span class="sb">3</span><span class="st">전도의 3단계 by 김완 (슬라이드 1·7번) <span class="bdg b-exam">시험</span></span><div class="sl"></div></div>
+  <div class="card">
+    <div class="tw"><table>
+      <thead><tr><th>단계</th><th>이름</th><th>오늘</th></tr></thead>
+      <tbody>
+        <tr><th>I</th><td>전략적 중보기도</td><td>구체적 기도 · 합심기도(삼겹줄기도) 진행 (영적전쟁은 미진행)</td></tr>
+        <tr><th>II</th><td>사랑의 섬김</td><td>미진행</td></tr>
+        <tr><th>III</th><td>타이밍을 보아 권면</td><td>미진행</td></tr>
+      </tbody>
+    </table></div>
+    <p>교수는 자기 교회 전도팀을 이끌며 탐슨의 7단계를 가르쳤으나 1학기에 배우고 2학기에 까먹기를 계속 반복해서 세 개로 추렸다고 했습니다. 3단계는 김완 교수의 정리이며 탐슨의 7단계를 외우지 않아도 이 3가지는 기억하라는 뜻입니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="prayer">
+  <div class="sh"><span class="sb">I</span><span class="st">전략적 중보기도 (슬라이드 8~15)</span><div class="sl"></div></div>
+  <div class="card">
+    <p><b>기도의 정의</b> (슬라이드 8번, 자주색): <span class="vq">“내 힘으로 할 수 없으니 하나님 개입하여 날 도와주소서”라고 외치는 것이다.</span> (교수가 정의를 말하는 대목은 ASR이 끊겨 문구는 슬라이드 기준)</p>
+    <ul>
+      <li>전도는 죽은 자가 살아나는 <b>기적 중의 기적</b>이므로 나 개인의 능력으로 될 턱이 없고, 전능자의 도움을 구하는 기도는 필수다. 자기 힘으로 할 수 있는 사람은 굳이 기도할 필요가 없다 — 교수는 “해보라”고 했다.</li>
+      <li>교수 예화: 24대 <span class="tq">“정선”</span> <span class="asr">[종손의 ASR로 추정, ?]</span>이라 <span class="tq">“나 죽거든 교회 다녀라”</span>며 제사를 안 드린다고 뺨을 때린 할아버지의 마음을 자기 힘으로 돌릴 수 없었다. <span class="tq">“하나님만이 사람의 마음을 바꾸십니다.”</span></li>
+      <li>전략적: 기도 없이 전도하면 안 된다는 것은 당연하지만, 기도를 <b>전략적으로</b> 해야 한다는 뜻으로 이름을 붙였다. 세 가지: 1. 구체적 기도 2. 합심기도 3. 영적전쟁(오늘 미진행).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="specific">
+  <div class="sh"><span class="sb">1</span><span class="st">구체적 기도 (슬라이드 9번)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>밀어도 밀리지 않는 <b>벽</b> 같은 전도의 문제(특히 가족 전도)는 <b>송곳처럼 예리한 기도</b>로 뚫어야 한다. 시멘트 벽을 몸으로 들이받아서는 깨지지 않고, 송곳(드릴)으로 구멍을 내야 한다는 비유를 썼다. 가족 전도는 20년·30년·40년씩 눈물 흘리는 분도 있다. 수백 명의 간증을 들었다고 했다.</li>
+      <li>자세히 알수록 기도가 예리해진다. 전도 대상자에 대해 <b>이름, 관계, 나이, 사는 곳, 하는 일, 현재 영적 상태, 사진</b>을 조사해 놓고 그 사진을 놓고 함께 기도한다.</li>
+    </ul>
+    <div class="tw"><table>
+      <thead><tr><th>두루뭉술한 기도</th><th>구체적 기도 (교수의 예)</th></tr></thead>
+      <tbody>
+        <tr><td>“하나님 우리 아버지 예수 믿게 해주세요.”</td><td>78세 되신 아버지가 어디에 살고 계시는지, 교장 선생님을 하다 은퇴하셨고 지금은 무엇을 하시는지, 46년 동안 단 한 번도 교회 갈 생각이 없으셨는데 이번 주 아침에 일어나자마자 교회에 가고 싶은 마음이 생기게 해달라는 식으로 기도한다.</td></tr>
+        <tr><td>“여동생 구원” (바빠서 몇 번 보지도 못함)</td><td>친구 이름·사는 곳·나이를 말하고, 직장에서 잘려 영적으로 힘든 상태라 “이때가 기회”라고 말한다. 구원·천국·지옥·죽은 후의 삶이 궁금해지게, 만났을 때 왠지 교회에 가고 싶어지게 해달라고 기도한다.</td></tr>
+      </tbody>
+    </table></div>
+    <p>삼촌·도련님 등 누구에 대해서든 훨씬 더 디테일하게 기도하라고 했습니다. <span class="tq">“두루뭉실하게 기도하지 말자”</span> 구체적으로 말할수록 기도가 힘 있어지고, 이것은 침례신학대학교에서 오래 이어진 전통이라고 했습니다.</p>
+    <p>교수는 이 대목에서 “기말고사 때 123번 내놓을 거잖아요”라며 전도 대상자를 가족·친구·이웃 중에서 정하는 문제를 언급했으나, 이어지는 문장은 ASR이 깨져 확인되지 않습니다 [?].</p>
+  </div>
+</div>
+
+<div class="sec" id="unity">
+  <div class="sh"><span class="sb">2</span><span class="st">합심기도(삼겹줄기도)의 능력 (슬라이드 10~15번)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>두 사람 이상의 합심(하나된 마음) 기도에는 엄청난 능력이 있고 사람들이 이를 잘 모른다. 교수의 별명은 <b>삼겹줄 기도</b>이며 교회 전도팀·부서에서 그대로 가르치면 된다고 했습니다.</p>
+    <p class="vq">마 18:18 진실로 너희에게 이르노니 무엇이든지 너희가 땅에서 매면 하늘에서도 매일 것이요 무엇이든지 땅에서 풀면 하늘에서도 풀리리라 18:19 진실로 다시 너희에게 이르노니 너희 중의 두 사람이 땅에서 합심하여 무엇이든지 구하면 하늘에 계신 내 아버지께서 그들을 위하여 이루게 하시리라 18:20 두세 사람이 내 이름으로 모인 곳에는 나도 그들 중에 있느니라</p>
+    <p>교수는 “합심”을 영어 agreement(마음과 마음이 합하여 서로 동의함)로 풀었고, 하나님이 이런 기도에 특별한 관심과 은혜를 약속하셨다고 했습니다. 30년·40년 기도해도 뚫리지 않던 가족 구원이 합심기도로 돌파되는 것을 너무 많이 보았다고 했습니다.</p>
+    <div class="tw"><table>
+      <caption>왜 합심기도에 능력이 있는가 — 3가지 (슬라이드 11~14번)</caption>
+      <thead><tr><th>#</th><th>이유</th><th>본문</th></tr></thead>
+      <tbody>
+        <tr><th>①</th><td>정욕적 기도가 아닐 가능성이 현저히 높기 때문</td><td>약 4:2-3</td></tr>
+        <tr><th>②</th><td>공동체의 ‘하나됨’을 귀하게 여기시고 기름 부으시는 하나님의 속성 때문</td><td>요 17:11, 21-23</td></tr>
+        <tr><th>③</th><td>의인이 있을 확률이 높기 때문</td><td>약 5:16</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>① 정욕적 기도가 아닐 가능성 (슬라이드 11번)</h3>
+    <p class="vq">약 4:2 너희는 욕심을 내어도 얻지 못하여 살인하며 시기하여도 능히 취하지 못하므로 다투고 싸우는도다 너희가 얻지 못함은 구하지 아니하기 때문이요 4:3 구하여도 받지 못함은 정욕으로 쓰려고 잘못 구하기 때문이라</p>
+    <ul>
+      <li>교수는 기도 응답이 안 되는 이유로 거의 80%는 회개하지 않고 기도해서(하나님과 나 사이의 죄 문제가 해결되지 않은 채)이고, 그다음이 정욕적 기도라고 했습니다. (교수가 성도들을 대상으로 사역하며 파악했다고 말한 근거 문장은 ASR이 깨져 정확한 내용 [?])</li>
+      <li>정욕적 기도의 기준은 흐릿하다: 어머니의 암, 딸의 백혈병, 무좀, 얼굴의 뾰루지 — 하나님 앞에서는 다 똑같은데 어느 것이 정욕적인지 우리는 잘 모른다. 남편 구원을 20~30년 기도했는데 속을 보면 남편이 예수를 믿으면 낚시를 그만 다니고 가정적인 남편이 되어 자기를 더 사랑해 주겠지 하는 자기 동기가 깔려 있기도 하다.</li>
+      <li><b>실습</b>: 조 안에서 서로의 전도 대상자 명단을 바꿔 2분씩 기도한다. <b>내 전도 대상자가 아니라 조원의 전도 대상자</b>를 위해 기도하면 나와 관계가 없는 사람이라 정욕적 기도일 가능성이 현저히 낮고 응답이 빠르다. 우리는 가까운 사람에 대한 마음의 동기가 늘 깨끗하다고 볼 수 없으니 하나님 앞에 달아 보아야 한다.</li>
+      <li>합심하면 <b>기도를 안 까먹는다</b>: <span class="tq">“혼자 하면 까먹거든.”</span> 교회 일·학업·가정 일로 눈 감았다 뜨면 1학기, 한 해, 10년이 훅 지나간다. 전도학 교수인 자신도 그렇다. 그래서 날짜를 정해 조별로 모이거나(예: 저녁예배 후 20분, 금요일 등), 요일별로 한 사람씩 기도하고 카톡에 “오케이”를 올리는 식으로 하고, 일주일에 한 번 전도 대상자를 위해 기도하는 전도팀 모임이 모든 교회·부서에 있길 바란다고 했다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>② 하나됨을 귀하게 여기시는 하나님 (슬라이드 12~13번)</h3>
+    <p class="vq">요 17:11 나는 세상에 더 있지 아니하오나 그들은 세상에 있사옵고 나는 아버지께로 가옵나니 거룩하신 아버지여 내게 주신 아버지의 이름으로 그들을 보전하사 우리와 같이 그들도 하나가 되게 하옵소서<br>17:21 아버지여, 아버지께서 내 안에, 내가 아버지 안에 있는 것 같이 그들도 다 하나가 되어 우리 안에 있게 하사 세상으로 아버지께서 나를 보내신 것을 믿게 하옵소서 17:22 내게 주신 영광을 내가 그들에게 주었사오니 이는 우리가 하나가 된 것 같이 그들도 하나가 되게 하려 함이니이다 17:23 곧 내가 그들 안에 있고 아버지께서 내 안에 계시어 그들로 온전함을 이루어 하나가 되게 하려 함은 아버지께서 나를 보내신 것과 또 나를 사랑하심 같이 그들도 사랑하신 것을 세상으로 알게 하려 함이로소이다</p>
+    <ul>
+      <li>요한복음 17장은 예수님이 십자가를 지시기 직전에 하신 대제사장 기도(슬라이드 12번은 “겟세마네에서의 대제사장 기도”로 표기). 교수는 노란색(슬라이드 12번의 “우리와 같이 그들도 하나가 되게 하옵소서” 부분)을 읽으며 설명했다.</li>
+      <li><span class="tq">“주님은 하나됨을 귀하게 여기세요.”</span> 삼위 하나님이 누리시는 하나됨의 속성을 공동체가 가질 때, 각자 기도하는 것보다 두세 사람이 모인 곳에 그리스도가 임재하신다. 마음과 마음이 하나 되어 기도하는 것에 능력을 주신다.</li>
+      <li>교수는 이 17장으로 유학 시절 논문을 쓰려 했다고 했다(“진짜 중요해요”).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>③ 의인이 있을 확률 (슬라이드 14번)</h3>
+    <p class="vq">약 5:16 그러므로 너희 죄를 서로 고백하며 병이 낫기를 위하여 서로 기도하라 의인의 간구는 역사하는 힘이 큼이니라</p>
+    <ul>
+      <li>기도하는 사람이 100명, 200명, 500명 … 더 많아질수록 응답이 빠른 것은 <b>사람이 많아 기도 줄기가 세져서가 아니라</b> 그중에 의인이 있을 확률이 높아서다. 요즘 나는 하나님과 껄끄러운데 옆의 거룩한 분은 하나님의 친구여서 그분의 기도를 들어주시는 경우가 많다. 아브라함 때문에 롯의 가정을 구원하신 것에 빗댔다.</li>
+      <li>꿀 tip(슬라이드): <b>기도 부탁을 많이 하라.</b></li>
+      <li>그러나 교수는 <b>평신도에게는 1번·2번만 가르치고 3번은 잘 안 가르친다</b>고 했다 — 자기가 기도하지 않고 목사님에게만 기도해 달라고 하게 되기 때문. <span class="tq">“여러분만 아십시오”</span></li>
+    </ul>
+  </div>
+
+  <div class="emph">
+    <h3>🎯 삼겹줄 기도로 돌파하라! (슬라이드 15번, 40번) <span class="bdg b-exam">시험: 통째로 쓰기</span></h3>
+    <p class="vq" style="margin:4px 0">전 4:11 또 두 사람이 함께 누우면 따뜻하거니와 한 사람이면 어찌 따뜻하랴<br>4:12 한 사람이면 패하겠거니와 두 사람이면 맞설 수 있나니 세 겹 줄은 쉽게 끊어지지 아니하느니라</p>
+    <ul>
+      <li><span class="tq">“저는 수백 명의 가족전도가 삼겹줄 기도로 돌파됨을 경험했습니다.”</span> 교수는 전도 대상자를 위해 조를 짜서 함께 기도하는 것을 이 본문에 근거해 삼겹줄 기도라고 불렀다.</li>
+      <li>한 사람이 기도하면 자꾸 쓰러지고 바빠서 까먹지만 세 겹 줄은 쉽게 끊어지지 않는다. 조에서 가족 구원이 일어나면 삼겹살을 선물로 준 적도 있다고 했다.</li>
+      <li>슬라이드 15번에는 삼겹줄 기도 간증 영상 링크가 있다.</li>
+    </ul>
+  </div>
+
+  <div class="story">
+    <h3>교수의 삼겹줄 기도 간증 (요약)</h3>
+    <p>전도팀 조에 있던 집사님의 시어머니(96세)는 며느리를 45년 동안 구박했지만 며느리가 끝까지 모셨다. 시어머니가 사지마비로 입원해 산소호흡기 <span class="asr">[녹취 ‘산소 5억기’]</span>를 달고 지내게 되자 조에서 몇 달을 기도했고, 조장이 교수에게 심방을 부탁했다. 교수가 경기도 광주까지 가서 천국과 지옥을 전하고 영접 기도를 하자 남편이 “기적이네요”를 반복했다[누가 1년 반 말이 없었는지는 ASR상 불확실 [?]]. 시어머니는 영접 후 돌아가셨고 교수가 기독교 장례(예배·하관·화장 예배)를 집례하며 매 순서에서 일가친척에게 복음을 전했다. 장례 뒤 남편이 주일에 교회에 왔다. 교수는 이런 간증을 수백 건 안다고 했습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>수업 중 활동</h3>
+    <p>교수는 조별로 카톡방에서 합심기도 대상(전도 대상자 3명)을 정하도록 지시하며 수업을 마쳤습니다(마지막 문장은 ASR이 깨져 [?]). 조별 합심기도 날짜·방식도 수업 말미에 정하게 했습니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="purple">
+  <div class="sh"><span class="sb">🟣</span><span class="st">오늘 다룬 슬라이드의 자주색(FF00FF) 글씨</span><div class="sl"></div></div>
+  <div class="card">
+    <div class="tw"><table>
+      <thead><tr><th>PPT</th><th>슬라이드</th><th>자주색 글씨</th></tr></thead>
+      <tbody>
+        <tr><th>5,6강</th><td>46</td><td>* 교훈 (라벨만)</td></tr>
+        <tr><th>5,6강</th><td>47</td><td>8. 영화: 구원의 완성</td></tr>
+        <tr><th>5,6강</th><td>49</td><td>“죽은 정통주의는 오류가 있는 불붙은 신학만 못하다.” - 마틴 로이드 존스</td></tr>
+        <tr><th>7강</th><td>4</td><td>① 하나님과의 관계 / ② 자신과의 관계 / ③ 다른 사람과의 관계</td></tr>
+        <tr><th>7강</th><td>5</td><td>‘관계’(4곳) / “복음이라는 기차는 관계라는 철도를 따라 달린다”</td></tr>
+        <tr><th>7강</th><td>6</td><td>자기 친족 특히 자기 가족을 돌보지 아니하면</td></tr>
+        <tr><th>7강</th><td>7</td><td>전도의 3단계 I. 전략적 중보기도 II. 사랑의 섬김 III. 타이밍을 보아 권면</td></tr>
+        <tr><th>7강</th><td>8</td><td>내 힘으로 할 수 없으니 하나님 개입하여 날 도와주소서</td></tr>
+        <tr><th>7강</th><td>9</td><td>1. 구체적 기도</td></tr>
+        <tr><th>7강</th><td>10</td><td>2. 합심기도(삼겹줄기도) / ‘합심’</td></tr>
+        <tr><th>7강</th><td>12</td><td>하나됨</td></tr>
+        <tr><th>7강</th><td>14</td><td>의인의 간구</td></tr>
+        <tr><th>7강</th><td>15</td><td>한 사람이면 패하겠거니와 두 사람이면 맞설 수 있나니 세 겹 줄은 쉽게 끊어지지 아니하느니라</td></tr>
+        <tr><th>7강</th><td>40</td><td>세 겹 줄</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12px">※ 파일에서 읽은 글자색 기준이며 화면 렌더링 색은 눈으로 확인하지 못했습니다. 5,6강 47번 이후의 다른 자주색(50번 등)과 7강 16~39번은 오늘 다루지 않았습니다.</p>
+  </div>
+</div>
+
+<div class="foot">전도학개론 9주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
