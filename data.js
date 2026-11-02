@@ -569,7 +569,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week07.html" }
           ] },
             { week: 8, title: "", date: "", files: [] },
-            { week: 9, title: "", date: "", files: [] },
+            { week: 9, title: "골로새서 · 빌레몬서", date: "2026.11.02", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/nt2/week09.html" }
+          ] },
             { week: 10, title: "", date: "", files: [] },
             { week: 11, title: "", date: "", files: [] },
             { week: 12, title: "", date: "", files: [] },

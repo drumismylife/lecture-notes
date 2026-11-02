@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 9주차 골로새서와 빌레몬서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 9주차 · 2026학년도 2학기 · 포괄 정리</div>
+  <h1>골로새서 · 빌레몬서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.11.02 수업 · 데살로니가전서는 이번 수업에서 다루지 않음</div>
+</div>
+<div class="intro">배지: <span class="b-ppt bdg">골 p.n</span>(09주차 01 골로새서 PDF 쪽수, 12쪽) <span class="b-ppt bdg">몬 p.n</span>(09주차 02 빌레몬서 PDF 쪽수, 13쪽) <span class="b-add bdg">녹취 c0~0</span>(녹취 원문이 한 줄짜리 파일이라 글자 위치로 표시, 0부터 세며 전체 34,804자). <b>"…"</b>로 따옴표 친 수업 발언은 녹취 원문 그대로이고, 성경 구절은 대한성서공회 개역개정과 대조했습니다. <span class="bdg b-sup">[보충]</span>은 교수 발언·슬라이드와 다른 부분을 바로잡거나 덧붙인 것, <span class="bdg b-exam">[?]</span>는 녹취가 깨져 확정하지 못한 부분입니다. 교수가 수업 중 읽은 슬라이드 문장은 슬라이드 PDF 기준으로 적었습니다. 수업 시작 부분의 잡담과 교회 행사 보고 등은 뺐습니다.</div>
+
+<div class="emph" id="examtop">
+  <h3>★ 시험 관련 교수 발언 (이번 수업에서 이 한 대목뿐) <span class="b-add bdg">녹취 c28,907~29,216</span></h3>
+  <ul>
+    <li><span class="say">후원자 피후원자 그 시스템 메모라도 좀 해놓으시면 좋을 것 같아요.</span></li>
+    <li><span class="say">왜냐하면 주말고사에 제가 꼭 듣고 싶은 말이 있어요.</span> — 녹취의 "주말고사"는 기말고사를 가리키는 것으로 보임 <span class="bdg b-exam">[?]</span></li>
+    <li><span class="say">이 시스템을 이해하지 못하면 많은 부분을 놓치고 넘어가게 돼요.</span></li>
+    <li>이어서 교수는 "수업 시작할 때 말씀드렸던 것"까지 두 가지를 기억하라고 했다. 이 녹취에는 수업 시작 전의 말이 없어 그것이 무엇인지 확정할 수 없고, 앞부분의 '우리와 우리가 아닌 사람들' 구분 설명을 가리킬 가능성이 있다 <span class="bdg b-exam">[?]</span></li>
+  </ul>
+</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>골로새서 한 줄</th><td><b>"세계적으로(globally) 생각하고 지역적으로(locally) 행동하라!"</b>(골 p.2) — 삶을 영원의 관점에서 보라고 권면하면서도, 서로·가족·'외인'을 대하는 일상의 삶에 토대를 둔 서신.</td></tr>
+        <tr><th>골로새와 교회</th><td>로마 아시아 주의 작은 도시, 직물 산업과 진홍색 양털, 헬라화된 유대인 공동체, 천체 신들을 섬기는 이국적 종교 → <b>"우주의 근간이 되는 영들"</b>(στοιχεῖον, 2:8·20). 주후 61년경 지진. '골로새'라는 이름은 신약에서 서두(1:2)에만 나오고 사도행전에도 없음. 복음은 <b>에바브라</b>에게서 배움.</td></tr>
+        <tr><th>교회의 상황</th><td><b>교묘한 말·철학과 헛된 속임수</b>(2:4, 8), 천사들과 관련된 예배(2:18), 금욕적 관습·제의 준수 → 주장의 핵심: 그리스도를 믿는 믿음 <b>외에</b> 다른 것을 가져야 초자연적 세력의 세계에서 살아남는다. 교수: 이런 말에 마음이 <b>사로잡힌다</b>(오늘의 말로 가스라이팅).</td></tr>
+        <tr><th>다른 바울 서신과의 차이</th><td>문체: 긴 문장(1:3-8, 2:8-15), 형용사형(1:22), 분사·관계사 많고 접속사 적음. 신학: <b>고등한 기독론 · 발전된 교회론 · 실현된 종말론</b>. 저작: 바울의 마지막 서신 중 하나 <b>또는</b> 위명 서신 중 최초(교수는 큰 걸림돌로 보지 않음). 에베소서가 골로새서를 모본으로 삼았을 가능성.</td></tr>
+        <tr><th>골로새서 신학</th><td><b>우주적 그리스도</b>(1:15-20) · <b>실현된 종말론</b>(1:13, 2:12, 3:1-3: 이미 완료된 구원이 현재 삶을 규정) · <b>지식과 성숙</b>(참된 성장은 하나님으로부터) · 결론: 땅의 것(3:2) vs 만물이 그리스도 안에 함께 섬(1:17) → 환경 논의.</td></tr>
+        <tr><th>빌레몬서 한 줄</th><td>바울 서신 중 가장 짧은(335 헬라어 단어) 서신. <b>빌레몬은 바울에게 신세를 졌고, 바울은 그의 호의를 요청</b>한다 — 자신이 아니라 <b>한 노예(오네시모)</b>를 위한 호의. 배경 문화 = <b>후원자-피후원자(Patron–Client)</b>.</td></tr>
+        <tr><th>빌레몬서 핵심 장면</th><td>도망 노예 오네시모(바울에게 "내 마음/심장") → 로마법상 반환 의무 → <b>주인의 친구에게 중재</b> 요청 → 바울은 <b>억지가 아닌 자발적</b> 선행을 요청, 설득력(공동체 앞 낭독·명성·빚·감옥·나이·숙소). 결론: 요청이 받아들여졌기에 서신이 보존됨 / 약 110년경 에베소 감독 "오네시모".</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#sec1">1 도입: 세계적·지역적, 우리와 외인</a>
+  <a href="#sec2">2 골로새라는 도시</a>
+  <a href="#sec3">3 에바브라와 소식이 오가는 방식</a>
+  <a href="#sec4">4 교회의 상황: 교묘한 말·철학</a>
+  <a href="#sec5">5 이미 '그리스도'가 있는 사람들</a>
+  <a href="#sec6">6 다른 바울 서신과 비교</a>
+  <a href="#sec7">7 골로새서 신학과 결론</a>
+  <a href="#sec8">8 질의응답: 골 1:15</a>
+  <a href="#sec9">9 빌레몬서 낭독·개요</a>
+  <a href="#sec10">10 후원자-피후원자 ★</a>
+  <a href="#sec11">11 빌레몬과 노예제도</a>
+  <a href="#sec12">12 오네시모</a>
+  <a href="#sec13">13 편지의 법적 배경</a>
+  <a href="#sec14">14 기록 장소와 설득력</a>
+  <a href="#sec15">15 바울과 노예제도</a>
+  <a href="#sec16">16 결론: 서신의 보존</a>
+  <a href="#sec17">17 오늘의 교회에 준 적용</a>
+  <a href="#sec18">18 시험 포인트</a>
+  <a href="#sec19">19 출처</a>
+</div>
+
+<!-- ================= 골로새서 ================= -->
+
+<!-- SEC 1 -->
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">골로새서 도입: 세계적으로 생각하고 지역적으로 행동하라</span><div class="sl"></div></div>
+  <div class="oneline">영원의 관점을 말하는 서신이 놀랍도록 일상(서로·가족·외인)에 뿌리박고 있다.</div>
+
+  <div class="card">
+    <h3>한 문장 요약과 슬라이드 <span class="b-ppt bdg">골 p.1~2</span> <span class="b-add bdg">녹취 c0~713</span></h3>
+    <ul>
+      <li>서신 표제: Προς Κολοσσαεις(골 p.1). 교수는 이 서신을 한 문장으로 나타내면 어떨까 하며 "메인 교재의 저자"가 쓴 표현을 소개한다 → <b>"세계적으로(globally) 생각하고 지역적으로(locally) 행동하라!"</b></li>
+      <li>교수 설명: 눈과 마음이 어디까지 얼마나 넓은가 — 꽤 넓다. 동시에 우리의 일상생활을 늘 염두에 두고 사는 내용이 담겨 있다.</li>
+      <li>슬라이드: ① 삶을 <b>영원의 관점</b>에서 바라보도록 권면한다. ② 그럼에도 이 서신은 놀랍도록 <b>일상의 삶에 토대</b>를 두고 있다(교수 낭독의 "초대를 두고"는 슬라이드 대조로 '토대'로 교정). ③ 한 지역 공동체가 어떻게 살아야 하는지, 곧 <b>서로에 대해(3:13), 가족에 대해(3:18-4:1), 그리고 "외인"에 대해(4:5-6)</b> 어떤 태도로 살아야 하는지에 대한 특정한 문제들과 연관된다. ④ <b>바울이 친필로 기록한 끝인사</b>로 마친다(4:18).</li>
+    </ul>
+    <div class="bq"><span class="ref">골 4:18</span>"나 바울은 친필로 문안하노니 내가 매인 것을 생각하라 은혜가 너희에게 있을지어다"</div>
+  </div>
+
+  <div class="card">
+    <h3>"서로·가족"은 괜찮지만 "외인"에서 멈춘다 <span class="b-ppt bdg">골 p.2</span> <span class="b-add bdg">녹취 c443~2,119</span></h3>
+    <ul>
+      <li>교수: 서로(그리스도 안에서 예수님을 아는 사람들끼리)는 어려움이 있어도 괜찮고, 가족도 괜찮다(수업 앞에서 가족을 위해서도 기도했다). <b>세 번째(외인)에서 조금 멈칫</b>한다 → "리마인드"가 필요하다.</li>
+      <li><b>당시의 세계관: 크게 두 그룹.</b> 개인(나·너)이 아니라 <b>'우리'와 '우리가 아닌 사람들'</b>로 나누어 보는 시각을 갖고 있었다. 영어 표현으로 '우리 그룹에 속한 사람'(in-group)과 '그 밖의 사람들'(out-group)로 완전히 나뉜다고 설명한다(영어 발음 표기가 깨져 in-group/out-group으로 교정 <span class="bdg b-exam">[?]</span>). 또 녹취의 "단수로 나 단수로 당신 주변에 이렇게 보는 개념을 넘어서"는 뜻이 불분명해 이렇게 정리함.</li>
+      <li>교수의 어린 시절 비유: 초등학교(당시 국민학교) 때 단체로 본 <b>반공영화</b>(제목 '또이 장군'·'오래매'로 들림 <span class="bdg b-exam">[?]</span>)에는 늘 '우리 편'이 있어서, 우리 편이 지면 아이들이 말을 못 하고 동동거리다가 힘을 내면 환호했다 — '우리와 너희'의 시각적 효과를 느낄 수 있는 한 단면.</li>
+      <li><b>환대 문화:</b> 모르는 사람이 다가오면 최선을 다해 돕는 것이 당시의 덕목이고, 그렇게 안 하면 오히려 미덕이 없는 사람으로 여겨졌다. 그런데 외부에서 와서 환대를 받고 <b>가까이서 관계를 맺고 살지만 아직 '우리'는 아닌</b> 사람들이 있다 — 완전히 낯선 외인도 아니고 아직 우리 편이 되기를 기다리는 <b>과도기</b>. 이 시기에 사람들이 대하기 어렵다.</li>
+      <li>'우리'였다가 나간 사람들도 있다(교수: 성경에 그런 예가 있다). 이렇게 <b>외인이 된 분들을 대하는 것은 쉽지 않다.</b> 우리는 '우리'와 '우리가 아닌 사람들'이 스칠 때 느끼는 거북함을 그분들이 느끼는 만큼 잘 못 느낀다. 그래서 교수가 이 대목에서 멈췄다고 설명한다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 4:5-6 (외인에 대해)</span>"외인에게 대해서는 지혜로 행하여 세월을 아끼라 너희 말을 항상 은혜 가운데서 소금으로 맛을 냄과 같이 하라 그리하면 각 사람에게 마땅히 대답할 것을 알리라"</div>
+  </div>
+
+  <div class="card">
+    <h3>끝인사와 "공동체 쓰기" <span class="b-ppt bdg">골 p.2</span> <span class="b-add bdg">녹취 c2,119~2,674</span></h3>
+    <ul>
+      <li>맨 끝에 바울이 친필로 쓴 끝인사로 마친다. 교수: 보통 이름에 대해 말할 때 <b>"공동체 읽기"</b>라는 말을 주로 썼는데, 이제는 <b>"공동체 쓰기"</b>라는 표현도 부담 없이 쓸 수 있는 정도가 된 것 같다.</li>
+      <li>바울이 친필로 끝에 기록했지만, 골로새서에는 다른 바울 서신과 다른 점이 있다(뒤 슬라이드 → 6절). 학자들은 바울이 더 적극적으로 개입했는지 직접 썼는지를 계속 따지는데, 교수는 <b>이해를 돕기 위한 선한 목적</b>이라고 말한다. <span class="say">대신에 뭐가 다르다 정도만 인식하고 넘어가도 돼요.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 2 -->
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">골로새라는 도시와 그 종교 환경</span><div class="sl"></div></div>
+  <div class="oneline">로마 아시아 주의 작은 직물 도시 — 유대인 공동체와 천체 숭배가 함께 있던 곳, 사도행전에도 이름이 없다.</div>
+
+  <div class="card">
+    <h3>지도와 도시의 성격 <span class="b-ppt bdg">골 p.3~4</span> <span class="b-add bdg">녹취 c2,674~3,425</span></h3>
+    <ul>
+      <li>p.3은 지중해 연안의 로마 제국 지도(왼쪽)와 확대 지도(오른쪽)이다. 교수: 신약의 일이 주로 일어난 지중해 연안 지역. 지도의 <b>아시아</b>에서 <b>에베소가 수도</b>이고 그 아래쪽에 <b>골로새</b>가 있다. 이 서신은 그곳으로 보낸 것이다.</li>
+      <li>수업 중 화면 제목이 '빌립보서'로 보인다는 말에 청중이 웃었다 — 파워포인트를 복사해 새로 만들며 교수가 고치지 못한 것. 현재 PDF 3쪽의 제목은 "골로새서_역사적 배경"이다. <span class="bdg b-sup">[보충]</span></li>
+      <li>슬라이드: 골로새는 <b>로마의 아시아 주</b>에 속한 <b>비교적 작은 도시</b>로, <b>직물 산업의 중심지</b>이며 <b>진홍색으로 염색된 양털</b>로 유명했다.</li>
+      <li>교수의 부연: 고대 사회에서 옷은 <b>사회계층을 바로 나눠 주는 장치</b>라서, 권력이나 왕권이 있는 사람은 옷 색이 달라 멀리서도 알아볼 수 있었다. 그 옷 색이 자주색인데 염색이 잘 되려면 꼭 들어가는 재료가 <b>오줌</b>이고, 이 사실을 기록한 분이 당시의 문필가(녹취 "대문학가" <span class="bdg b-exam">[?]</span>)여서 읽는 사람들도 알았을 가능성이 매우 높다고 본다. (슬라이드는 '진홍색', 교수 설명은 '자주색'으로 표현.)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>헬라화된 유대인 공동체와 이국적 종교 <span class="b-ppt bdg">골 p.4</span> <span class="b-add bdg">녹취 c3,425~4,145</span></h3>
+    <ul>
+      <li><b>상당한 규모의 헬라화된 유대인 공동체</b>가 있었다. 교수: 유대인들은 역사 속 사건들(포로로 잡혀가 머무는 경우 등)로 지중해 연안 곳곳에 퍼져 지역 공동체를 이루었고(로마 도시가 대표적, 디아스포라), 골로새에도 예외 없이 있었다.</li>
+      <li><b>이국적인 종교들의 안식처</b>였다. 특히 <b>천체의 신들(태양·달·별)에 대한 예배</b>는 골로새서에 언급된 <b>"우주의 근간이 되는 영들"</b>(the elemental spirits of the universe, στοιχεῖον, 2:8, 20)과 깊은 연관이 있어 보인다. 개역개정은 이를 <b>'세상의 초등학문'</b>으로 번역했다.</li>
+      <li>교수: 표현이 낯설고 익숙하지 않다. 우리말로 있는 그대로 풀면 "우주의 근간이 되는 영들" — 영적인 영역을 계속 인지하며 사는 세계(고대 사회 자체가 다신적이지만 조금 색깔이 다름, 태양교·천체 같은 것). 일단 스케치를 이 정도 해 두면 좋겠다고 했다. (녹취의 "스틱끼온"은 슬라이드 표기 στοιχεῖον으로 교정.)</li>
+    </ul>
+    <div class="bq"><span class="ref">골 2:8 (개역개정)</span>"누가 철학과 헛된 속임수로 너희를 사로잡을까 주의하라 이것은 사람의 전통과 세상의 초등학문을 따름이요 그리스도를 따름이 아니니라"</div>
+  </div>
+
+  <div class="card">
+    <h3>지진, 그리고 사도행전에 없는 이름 <span class="b-ppt bdg">골 p.5</span> <span class="b-add bdg">녹취 c4,145~4,659</span></h3>
+    <ul>
+      <li>주후 <b>61년경</b> 그 지역에 일어난 <b>지진</b>으로 큰 어려움을 겪었다.</li>
+      <li>'골로새'라는 명칭은 신약성경에서 <b>이 서신의 서두에만</b> 나온다(1:2). 바울의 선교여행을 서술한 <b>사도행전에서도 언급이 없다.</b></li>
+      <li>교수: 그래서 골로새서는 신약 안에서도 생소한 서신이다(성경을 읽으려고 펼 때 골로새서를 바로 여는 경우는 많지 않다). 바울의 서신을 쓸 때와 사도행전의 기록 목적이 다르더라도, 바울과 팀이 들러 일을 했다면 사도행전에 기록을 뺄 이유가 없는데 <span class="say">사도행전에서도 이 이 지역 이름 교회 이름이 나오지 않아요.</span> 놀랍다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 1:2 (개역개정)</span>"골로새에 있는 성도들 곧 그리스도 안에서 신실한 형제들에게 편지하노니 우리 아버지 하나님으로부터 은혜와 평강이 너희에게 있을지어다"</div>
+  </div>
+</div>
+
+<!-- SEC 3 -->
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">에바브라와, 소식이 오가는 방식(가십 컬처)</span><div class="sl"></div></div>
+  <div class="oneline">바울이 세우지 않은 교회이지만 늘 마음에 있었고, 말로 전해지는 소식 때문에 초기 교회는 폐쇄적일 수 없었다.</div>
+
+  <div class="card">
+    <h3>에바브라에게서 복음을 배운 교회 <span class="b-ppt bdg">골 p.5</span> <span class="b-add bdg">녹취 c4,659~5,140</span></h3>
+    <p>슬라이드: 골로새의 그리스도인들은 <b>에바브라</b>에게서 복음을 배운 것으로 보인다(1:7-9a). 교수: 바울이 세운 교회가 아니다(청중이 7절부터 함께 낭독).</p>
+    <div class="bq"><span class="ref">골 1:7-9a (개역개정)</span>"<sup>7</sup>이와 같이 우리와 함께 종 된 사랑하는 에바브라에게 너희가 배웠나니 그는 너희를 위한 그리스도의 신실한 일꾼이요 <sup>8</sup>성령 안에서 너희 사랑을 우리에게 알린 자니라 <sup>9</sup>이로써 우리도 듣던 날부터 너희를 위하여 기도하기를 그치지 아니하고 구하노니…"</div>
+    <ul>
+      <li>교수: 그렇다고 교제가 전혀 없었다는 뜻이 아니다. "우리도 듣던 날부터 … 기도하기를 그치지 아니하고"라는 표현에 주목하라 — 바울 팀의 마음에 <b>늘 있었다</b>는 뜻으로 들린다. 소식을 전해 듣는 것은 그리 어렵지 않다.</li>
+      <li>골로새 교회는 바울과 그 팀에게 결코 생소한 지역이 아니었고, 편지를 쓴 이유도 <b>먼 곳에서의 돌봄</b>이다 — 이것이 빠지면 편지를 이해하지 못한다. 자주 듣지 못했어도 바울과 팀은 이 교회를 늘 그치지 않고 생각했다고 우리 생각을 부드럽게 바꾸자고 한다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>초기 교회가 겪은 일들 — 수업 중 질문 <span class="b-ppt bdg">골 p.6</span> <span class="b-add bdg">녹취 c5,140~6,065</span></h3>
+    <ul>
+      <li>교수가 "초기 교회가 그 시대에 겪은 일의 대표적인 것"을 청중에게 물었다. 청중 응답을 정리하면: 갈라디아서의 표현대로 <b>다른 복음</b>이 전해지고 퍼짐, <b>탄압</b>, 외부와의 접촉(나를 누르는 접촉). 이것이 '특정한 환경'을 말할 때 추측할 수 있는 여러 색깔이다.</li>
+      <li>교수: 유대인들에게서 들어올 수 있는 다른 가르침은 '거짓 교훈'이라고까지 표현하지는 않는 것 같다(이견이 다름). 그러나 <b>거짓 교훈이 들어오는 경우</b>도 있고 이는 구분된다. 그러면 교회는 대응했다 — <b>초기 교회는 생각보다 폐쇄적이지 않았다</b>.</li>
+      <li>바울과 교회에 관심 있는 사람들이 전해 듣고 알고, 가만히 있지 않고 조언을 주고, 그 조언이 적힌 메시지를 누군가를 통해 보냈다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>가십 컬처 <span class="b-add bdg">녹취 c6,065~7,469</span></h3>
+    <ul>
+      <li>교회가 폐쇄적일 수 없었던 또 하나의 이유는 <b>정보를 습득하는 방식</b>이다. 교수는 청중에게 따라 말하게 했다: <b>가십 컬처</b>. 우리말로는 어감이 긍정적이지 않다 — 누군가에 대해 계속 얘기하는 것. 사람이 모이면 소식을 듣고 그런 얘기를 많이 한다.</li>
+      <li>사회학자들의 연구에 따르면 이것이 그분들이 <b>의사소통하고 정보를 주고받던 대표적인 방법</b>이었다. 어른만이 아니라 아이들이 주변에서 놀다 듣고 자기들끼리 말하고, 지나가던 여행자가 듣고 자기가 가는 곳에 그 말을 전한다. 정보 전달의 기본이 <b>음성</b>이면 폐쇄적이기 힘들다.</li>
+      <li><b>청중의 질문:</b> 왜 담임 목사님 같은 에바브라가 그 일을 바울에게 얘기했나, 우리끼리 해결하자는 마음이 들지 않았나? 교수: 예수를 따르는 사람들에게는 급격히 폐쇄적인 환경이 보이지 않는다. 그리스-로마 시대에 비밀 종교 집단도 있었고 지역 사람들이 전혀 모르게 활동하는 모임도 있었지만 <b>대다수라고 보기 어렵다.</b> 원했든 원치 않았든 소식이 전해지고 계속 교류되었다.</li>
+      <li>고린도전후서도 그냥 편지로만 불린 것이 아니라 누군가의 소식을 통해 계속 듣게 된 것이다(교수 질문 "기억나시죠?"). 말이라는 음성 의사소통 때문에 "우리끼리"라고 닫는 것은 환경적으로 가능해 보이지 않는다. <b>공동체 쓰기·공동체 읽기</b>가 여기에 포함되는 요소 중 하나다. 교수: 100%는 설명하기 어렵다고 했다(자신이 "그쪽 사람"이 아니라서 이 정도로 생각하면 된다는 취지 <span class="bdg b-exam">[?]</span>).</li>
+      <li>이 이야기를 하는 이유: 교회의 특정한 상황이라 해도 신약의 서신에서 보면 대부분 <b>결이 비슷하다</b> — 이해가 부족하거나 더 이해해야 하는 부분들이다. 골로새도 크게 예외적이지 않다.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 4 -->
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">골로새 교회가 처한 상황: 교묘한 말과 철학</span><div class="sl"></div></div>
+  <div class="oneline">"그리스도 믿음 + α"를 요구하는 권위 있는 음성이 사람들을 사로잡았다 — 바울은 이를 '교묘함'이라 부른다.</div>
+
+  <div class="card">
+    <h3>슬라이드: 특정한 상황 <span class="b-ppt bdg">골 p.6</span> <span class="b-add bdg">녹취 c7,469~8,364</span></h3>
+    <div class="bq"><span class="ref">골 2:4</span>"내가 이것을 말함은 아무도 교묘한 말로 너희를 속이지 못하게 하려 함이니"</div>
+    <div class="bq"><span class="ref">골 2:8 (슬라이드 인용은 앞부분)</span>"누가 철학과 헛된 속임수로 너희를 사로잡을까 주의하라…"</div>
+    <ul>
+      <li>'<b>천사들과 관련된 예배</b>'(2:18, θρησκείᾳ τῶν ἀγγέλων) → <b>금욕적 관습과 제의 준수</b>를 요구한 듯하다(2:11, 16, 18). 개역개정 2:18은 이를 "천사 숭배"로 옮겼고, 슬라이드는 '천사들과 관련된 예배'로 적었다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 2:20-22 (개역개정; 괄호 안 "우주의 근간이 되는 영들"은 슬라이드가 덧붙임)</span>"<sup>20</sup>너희가 세상의 초등학문에서 그리스도와 함께 죽었거든 어찌하여 세상에 사는 것과 같이 규례에 순종하느냐 <sup>21</sup>(곧 붙잡지도 말고 맛보지도 말고 만지지도 말라 하는 것이니 <sup>22</sup>이 모든 것은 한때 쓰이고는 없어지리라) 사람의 명령과 가르침을 따르느냐"</div>
+    <p>슬라이드는 헬라어 본문도 함께 싣는다: Εἰ ἀπεθάνετε σὺν Χριστῷ ἀπὸ τῶν στοιχείων τοῦ κόσμου, τί ὡς ζῶντες ἐν κόσμῳ δογματίζεσθε: μὴ ἅψῃ μηδὲ γεύσῃ μηδὲ θίγῃς … κατὰ τὰ ἐντάλματα καὶ διδασκαλίας τῶν ἀνθρώπων(2:20-22).</p>
+    <div class="emph">
+      <h3>슬라이드 결론 — 영향을 미친 이들의 주장</h3>
+      <p>그리스도를 믿는 믿음 <b>외에 다른 어떤 것을 가져야만</b> 초자연적 세력의 지배 아래 있는 세상에서 생존할 수 있다는 것. (교수: "교묘한 말·철학"을 이렇게 설명. 수업에서 "천사들과 관련된 예배 기억해 두세요"라고 짚음, c7,593 부근)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>왜 사람들이 흔들렸나: 권위와 음성 <span class="b-add bdg">녹취 c7,780~8,706</span></h3>
+    <ul>
+      <li>바울의 눈에는 그들이 전한 것이 합리적으로 들릴 수도 있지만, 그 거짓 교훈을 전하는 사람들은 일반인이 아닌 것으로 보인다 — 사람들 앞에서 말하려면 <b>권위</b>가 부여되어야 하고(자기 자신이든 다른 사람이든, 다른 사람에게서 권위가 나오는 사회), 그 공동체 안에서 "앞에서 얘기할 수 있는 사람"으로 여겨지는 이들이 말하면 <b>사람들의 마음이 흔들린다</b>.</li>
+      <li><b>갈라디아 교회</b>: 예수님의 복음을 듣고 믿고 성령님까지 임하셨는데도, 교수는 헬라어 시제가 <b>완료형</b>이라며 "다른 복음으로 돌아섰다"는 말은 <b>돌아선 상태가 되어 버린 것</b>이라고 설명한다. <span class="bdg b-sup">[보충]</span> 갈라디아서 1:6의 해당 동사(μετατίθεσθε)는 문법상 현재형이다 — 교수의 '완료형'은 '돌아선 상태가 되어 버렸다'는 의미 설명으로 읽을 것. 처음에는 거부해도 듣고 또 들으면 — 주된 의사소통 방법이 음성이므로 — 마음이 흔들린다. 갈라디아의 남쪽 넓은 지역이 그렇게 돌아설 수 있게 만들어졌다.</li>
+      <li>결과는 <b>사로잡힘</b>. 교수: 오늘날 상담가들이 쓰는 말로는 <b>가스라이팅</b>이라고 부르는 것 같고, 정말 현상적으로 그렇게 된다.</li>
+      <li>바울과 다른 사람들은 그냥 있지 않고 <b>꼭 얘기해 줘야 한다</b>고 생각했다 — 그것을 돌려놓고, 돌아온다. 바울은 별 소망이 없는 것 같으니 일단 접자고 한 적이 없다(교수의 말). 당시 주된 의사소통 방법인 <b>음성으로 계속 말해 줘야</b> 한다는 것을 알았다. 복음도 들을 때 믿음이 생긴다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>보는 것과 듣는 것 — 고대 사회의 정보 장치 <span class="b-add bdg">녹취 c8,706~10,003</span></h3>
+    <ul>
+      <li>고대 사회에서 <span class="say">하나는 보는 거 하나는 듣는 거 이거가 대단히 중요한 정보를 습득하는 큰 장치들이에요.</span> 요한복음에 이런 표현이 많고, 더 거슬러 올라가면 보고 듣는 것이 <b>살아 있는 신인지 아닌지를 분별하는 기준</b>으로도 쓰였다(사람이 만든 신상을 두고 "볼 수 있니, 들을 수 있니" 하고 구체적으로 묻는 식). 신이면 알아야 하는데 아는 방법이 보는 것과 듣는 것이었다.</li>
+      <li>'듣다'라는 신약의 단어(교수 발음 "아쿠호/아쿠오", 한글 표기만 확인 가능)는 세 단계를 포함한다: ① <b>소리를 듣는 것</b> ② 같은 단어를 이해한다는 뜻으로도 씀 → <b>이해</b> ③ 이해한 사람은 삶으로 표현하고 행동한다 → 믿음 안에서는 <b>순종</b>. 순종이라는 의미까지 같은 단어로 쓴다. 보는 것도 마찬가지(도마에게 하신 예수님의 "보지 않고 믿는 …", "보고 믿느냐" 말씀을 생각해 볼 수 있음).</li>
+      <li>교수가 이 설명을 하는 이유: 거짓 교사들의 영향이 그렇게 컸을까 싶지만, 듣는 것이 <b>그만큼 영향이 크기</b> 때문이다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>'교묘함'의 정체 — 공통점은 '더 나은 상태' <span class="b-add bdg">녹취 c10,003~11,311</span></h3>
+    <ul>
+      <li>바울의 눈에는 그 방법이 <b>순전하지 않고 교묘</b>하다(우리가 보통 살살 넘어갈 때처럼, 바울이 생각하고 보면 대단히 교묘하다). 무엇으로 속이는가 → <b>음성 전달</b>로 속이고, 속임수는 결과적으로 사로잡아 <b>한 방향으로 틀어 버리는</b> 역할을 한다.</li>
+      <li>요구하는 것들이 비슷한 특성을 갖는다: <b>절제·금욕</b>을 요구한다. 교수의 예: 요세푸스(녹취 "요셉프스" <span class="bdg b-exam">[?]</span>)가 만난 스승은 자주 <b>목욕</b>을 했다 — 자기가 부정하다고 느낄 때마다 목욕하는 나름의 <b>정결 의식</b>이고, 요세푸스도 그것을 배워 했다. 목욕 하나를 예로 들었지만, 사람의 경계·생활의 범위를 제한하고 얽매는 방식이라는 공통점이 있다.</li>
+      <li>그러면서 전하는 것은 <b>"더 나은 상태가 될 수 있다"</b>. 유대교 쪽은 <b>율법</b> 전체와 해야 할 일을 소개하고, 예수님을 믿어도 더 온전해지려면, 더 나은 그리스도인이 되려면 그것을 더 해야 한다고 자꾸 초대한다. 요구하는 항목이 다를 뿐 거짓 교사·철학으로 사람들을 가스라이팅하는 이들은 흡사한 조건을 내놓고 지키라고 한다. 바울의 눈에는 모두 <b>똑같이 교묘</b>하며 용납할 수 없다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>오늘의 교회에서 <span class="b-add bdg">녹취 c11,311~12,348</span></h3>
+    <ul>
+      <li>비슷한 일이 오늘 교회에서도 조금 일어난다 — <span class="say">이쯤은 해야 그리스도인</span>이라고 생각하게 만드는 것이 거짓 교훈이다. 바울이 듣는다면 용기 있게 말할 것이다: <b>우리 스스로 만들어 내는 일이 없어야 한다.</b></li>
+      <li>우리의 상태·존재로서의 '됨'이 <b>우리로부터 나오는가, 예수님으로부터 나오는가.</b> 바울에게는 너무 명확했고, 더 나아질 여지가 없을 정도로 명확했다. 더 나아질 수 있는 것처럼 말하기 시작하면 바울에게는 <b>교묘한 사람</b>이 되고 사람을 사로잡는 모습이 된다.</li>
+      <li>교수 자신의 경험: 오랫동안 에너지가 100이면 120쯤을 쓰며 살았다. 수련회에서 상담하던 중 울며 "힘들어요"라고 했을 때 강사가 건넨 한마디를 듣고 달라졌고, 지금은 한계를 보며 배우는 것이 즐겁다. 그 시기로 돌아가고 싶지 않다. 힘들어하는 사람들에게 바울의 표현이 힘이 될 수 있다 — 그것은 <b>속임수니까 속지 말라, 사로잡는 것이니 속지 말라, 교묘한 것이니 속지 말라, 이미 더 나아질 수 없는 상태로 예수님께서 이루어 주셨으니 고마워하며 살라</b>는 것.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 5 -->
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">이미 '그리스도'와 '하나님의 아들'이 있는 사람들에게</span><div class="sl"></div></div>
+  <div class="oneline">황제 등 이미 믿는 대상이 있던 사람들에게 "그리스도는 황제가 아니라 예수"라고 증거할 때, 하나님이 함께 증거하셨다.</div>
+
+  <div class="card">
+    <h3>수업 중 질문과 교수의 답 <span class="b-add bdg">녹취 c13,000~14,922</span></h3>
+    <ul>
+      <li>오전 수업에서 받은 질문: 이미 다른 것을 믿는 사람들에게 어떻게 그리스도를 전하는가? 교수는 각도를 바꿔 설명했다. 우리는 예수님을 처음 전할 때 어려움을 느끼지만, 그분들에게는 <b>이미 '그리스도'가 있었다</b>.</li>
+      <li>그 당시 사람의 눈으로 범접할 수 없는 일을 하는 사람들을 <b>그리스도</b>라고도, <b>하나님의 아들</b>이라고도 불렀고, 대표적인 사람이 <b>황제</b>다. 천체 등을 섬기는 그분들은 우리와 접근법이 다르다. 전하는 말은 이것이다: <b>당신들이 그리스도라고 하는, 하나님의 아들이라고 부르는 그 사람은 황제가 아니고 예수다.</b></li>
+      <li>우리는 '예수 그리스도'를 하나의 고유명사처럼 생각하지만, 바울과 청중에게는 <span class="say">예수는 이름이고 그리스도는 타이틀이에요.</span> 붙여서 생각하지 않는 것이 더 좋다(예수 / 하나님의 아들). 그리스-로마 사람들 입장에서는 그리스도가 황제가 아니라는 반응이 나오게 된다.</li>
+      <li>그러나 그것만으로 믿을 수 있을까? 복음을 전할 때 <b>함께 일하시는 분</b>이 계신다 — 사도행전에도 나오고 오늘날에도 복음을 나누는 곳에서 하나님이 자신을 증거하시는 일이 많다. 이미 믿는 대상이 있는 그들에게는 정말 예수가 그리스도인지, 정말 예수가 하나님의 아들인지를 <b>증거하고 증명해야</b> 한다.</li>
+    </ul>
+    <div class="sup"><span class="tag">행 1:8</span> 교수: 예수님은 사도행전 1장 8절에서 너희가 열심히 전하면 내 증인이 되라고 하시지 않고, <b>하나님의 영이 오시면 그때 여러분이 나를 증거할 수 있게 된다</b>고 말씀하신다. 항상 바울이 전하고 팀이 서신을 쓰는 것을 주로 봐 왔는데, 오늘 대목은 이 말씀을 함께 나누기 좋다. 천체의 존재들·우주의 근원적인 영들을 말하며 영적 존재를 실제로 생각하고 살던 사람들에게 그리스도가 황제가 아니고 나사렛 예수라고 말할 때, <b>바울과 함께 그 말씀을 증거해 주신 분</b>이 계셨다는 것을 생각하면 바울의 서신이 실제적으로 다가올 수 있다.</div>
+  </div>
+</div>
+
+<!-- SEC 6 -->
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">골로새서와 다른 바울 서신 비교: 문체·신학·저작</span><div class="sl"></div></div>
+  <div class="oneline">긴 문장과 높은 기독론이 두드러지지만, 교수는 "차이가 있다" 정도로 알고 서신이 말하는 바를 보자고 한다.</div>
+
+  <div class="card">
+    <h3>슬라이드: 문체와 신학의 차이 <span class="b-ppt bdg">골 p.7</span> <span class="b-add bdg">녹취 c14,922~17,596</span></h3>
+    <p>논란이 되지 않는 바울 서신들과 비교할 때 골로새서는:</p>
+    <ul>
+      <li><b>더 긴 문장</b>을 사용한다(1:3-8과 2:8-15가 헬라어 본문으로는 각각 한 문장).</li>
+      <li><b>형용사형</b>을 더 많이 쓴다. 예: 1:22의 "거룩하고, 흠 없고, 책망할 것이 없는".</li>
+      <li><b>분사와 관계사 절이 많고, 접속사는 현저하게 덜</b> 쓴다.</li>
+      <li>신학적으로는 <b>더 고등한 기독론, 발전된 교회론, 실현된 종말론</b>(곧 미래의 소망보다 현재의 유익에 강조점) — 슬라이드 7쪽에는 '신현된 종말론'으로 적혀 있으나 9~10쪽과 교수의 낭독은 '실현된 종말론'이다. <span class="bdg b-sup">[보충]</span></li>
+    </ul>
+    <div class="bq"><span class="ref">골 1:22 (개역개정)</span>"이제는 그의 육체의 죽음으로 말미암아 화목하게 하사 너희를 거룩하고 흠 없고 책망할 것이 없는 자로 그 앞에 세우고자 하셨으니"</div>
+  </div>
+
+  <div class="card">
+    <h3>교수의 설명 — 본문을 "정돈"하는 방법과 분사 <span class="b-add bdg">녹취 c15,022~16,545</span></h3>
+    <ul>
+      <li>요한복음·갈라디아서 등 이번 학기 과목에서 본문을 이해할 때 한 문장을 <b>정돈하는 방법</b>이 있다. 헬라어로 정돈하면 좋지만 헬라어를 아직 안 배운 사람은 한국어 문장 자체를 정돈할 수 있다: <b>주어와 주동사를 맨 앞으로</b> 꺼내면 "누가 무엇을 했다"만 튀어나오고, 나머지 상세한 것들은 주어·주동사에 가까운 것 위주로 층층이 정리한다. 상세 정보가 필요할 때만 눈을 살짝 보면 된다.</li>
+      <li>한국어가 오히려 더 어렵게 느껴지는 곳이 많다(주어 생략, 복수·단수가 불명확 → 문해력으로 해석해야 함). 교수 고백: 헬라어가 더 명확해서 쉽다.</li>
+      <li><b>분사</b> 예: 마태복음에서 예수님이 "너희가 이렇게 해라" 하신 것은 <b>"제자를 삼으라"</b> 하나만이 주동사이고, 그 앞뒤의 가서, 침례를 베풀고, 가르쳐 지키게 하라는 "~하면서" 식의 <b>분사 형태</b>다("가서"는 현재분사로 쓰임). 이런 것들을 분사라고 부른다.</li>
+      <li><b>접속사를 덜 쓴다</b>는 것은: 쉬운 문장은 "뭐 했어요? 그리고 뭐 했어요? 그런데 이랬어요. 그래서 이랬네요"처럼 접속사로 잇는데, 이렇게 안 쓰고 접속사를 빼고 마치 한국어를 어렵게 쓰듯 <b>수려하게</b> 썼다는 뜻이다(긍정적으로 말해 수려함).</li>
+      <li>이런 차이는 앞에서 본 대필·공동체 쓰기에서 <b>그분(대필자)의 표현력을 빌렸을 가능성</b> 때문일 수 있으니, "차이 있네" 하고 넘어가면 된다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>신학의 차이 — 교수의 풀이와 단서 <span class="b-add bdg">녹취 c16,545~17,596</span></h3>
+    <ul>
+      <li><b>고등한 기독론</b>: 그리스도를 훨씬 높여 만물과 비교하는 등 개념적으로 그리스도의 정체성을 높이는 표현법. 뒤의 1:15-20에서 볼 것이다.</li>
+      <li><b>발전된 교회론</b>, <b>실현된 종말론</b>(미래의 소망보다 현재의 유익에 강조점).</li>
+      <li><b>누구의 눈인가:</b> 이것은 <b>현대 신학자들의</b> 평가다. 나중에 3~4세기 공의회를 거쳐 확정되는 개념을 이미 초기 교회가 이른 시기에 말했다는 것인데, 골로새 교인에게 말한다면 여러분은 몇 년도에 사느냐, 예수님을 떠나보낸 지 몇천 년이 됐느냐, 우리는 그렇게 오래 안 됐다고 되물을 수도 있다. 즉 신학자들의 평가가 <b>절대적이지 않을 수 있다</b>는 것을 넌지시 비춰 드린 것이다(녹취 "런지시"는 '넌지시'로 교정).</li>
+      <li><span class="say">하지만 중요한 건 이러한 이러한 논의들이 이 서신에서 이루어지고 있다는 자체는 중요하다고 보여집니다.</span> 체계화된 신학적 관점으로 보려는 노력도 좋지만, 그것을 <b>고정된 관념으로 보지 않는 것</b>도 좋은 방법이며, 각 서신이 무엇을 말하는지를 볼 수 있도록 어떤 관점에서는 자유로울 필요가 있다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>저작: 바울의 마지막 서신인가, 최초의 위명 서신인가 <span class="b-ppt bdg">골 p.8</span> <span class="b-add bdg">녹취 c17,596~18,305</span></h3>
+    <ul>
+      <li>슬라이드: 많은 학자들은 이 서신이 <b>바울에 의해 기록된 마지막 서신들 중 하나</b>이거나 <b>그의 이름으로 기록된 위명 서신들 중 최초의 서신</b>에 속한다고 본다.</li>
+      <li>교수: <b>위명 서신은 '거짓 편지'와는 다르다.</b> 공동체 쓰기에서 내용의 권위가 낮지 않고 진실성이 있다는 것을 나타내기 위해 바울의 이름을 썼을 가능성이 있다는 것이며, 큰 걸림돌이 되지 않는다.</li>
+      <li><b>에베소서와의 관계</b>(슬라이드): 에베소서와 유사한 부분이 많다. 학자들은 <b>골로새서가 먼저 기록되고 에베소서가 이를 모본으로</b> 사용했을 가능성을 크게 본다.</li>
+      <li>앞의 문체 차이는 바울이 <b>대필자나 서기</b>를 썼다면 어느 정도 설명 가능하다 — 교수: <span class="say">저는 좀 퍼센테이지를 좀 더 높일게요. 많은 부분 설명이 가능합니다.</span> 그러나 골로새서에는 다른 곳보다 <b>더 향상되고 발전된 것으로 보이는 신학적 사상</b>이 포함되어 있다(교수: 굉장히 겸손한 표현).</li>
+      <li><b>연대 견해</b>(슬라이드): 바울이 기록했다면 골로새가 지진으로 파괴된 <b>61년 이전</b>. 바울의 제자 중 한 사람이 바울 사후에, 바울이 살아 있었다면 이렇게 권면했으리라는 판단 아래 <b>60년대 후반 또는 80년대</b>에 기록했을 수도 있다는 견해도 있다. 교수: <span class="say">그렇게 중요하게 생각 안 합니다. 저는요. 여러분도 그러시기를 바래요.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 7 -->
+<div class="sec" id="sec7">
+  <div class="sh"><span class="sb">7</span><span class="st">골로새서의 주요 신학 주제와 결론</span><div class="sl"></div></div>
+  <div class="oneline">우주적 그리스도 · 이미 이루어진 구원 · 하나님께로부터의 성숙 — 그리고 환경에 대한 질문.</div>
+
+  <div class="card">
+    <h3>우주적 그리스도 — 그리스도 찬송(1:15-20) <span class="b-ppt bdg">골 p.9</span> <span class="b-add bdg">녹취 c18,305~20,087</span></h3>
+    <p>슬라이드: 골로새서 안에서 예수 그리스도는 <b>높이 찬양받는 존재</b>로 묘사된다. 교수는 "예수 그리스도는 합쳐진 고유명사가 아니라 이름(예수)과 타이틀(그리스도)"이라고 다시 상기시킨 뒤 함께 낭독했다.</p>
+    <div class="bq"><span class="ref">골 1:15-20 (개역개정)</span>"<sup>15</sup>그는 보이지 아니하는 하나님의 형상이시요 모든 피조물보다 먼저 나신 이시니 <sup>16</sup>만물이 그에게서 창조되되 하늘과 땅에서 보이는 것들과 보이지 않는 것들과 혹은 왕권들이나 주권들이나 통치자들이나 권세들이나 만물이 다 그로 말미암고 그를 위하여 창조되었고 <sup>17</sup>또한 그가 만물보다 먼저 계시고 만물이 그 안에 함께 섰느니라 <sup>18</sup>그는 몸인 교회의 머리시라 그가 근본이시요 죽은 자들 가운데서 먼저 나신 이시니 이는 친히 만물의 으뜸이 되려 하심이요 <sup>19</sup>아버지께서는 모든 충만으로 예수 안에 거하게 하시고 <sup>20</sup>그의 십자가의 피로 화평을 이루사 만물 곧 땅에 있는 것들이나 하늘에 있는 것들이 그로 말미암아 자기와 화목하게 되기를 기뻐하심이라"</div>
+    <ul>
+      <li>교수: 반복되는 단어들에서 <b>원천적인 역할</b>을 하시는 분으로 나온다 — 슬라이드의 초록색 단어를 보라. 그는 하나님의 형상이시며, 만물이 그에게서·그로 말미암아·그를 위하여 창조되었다.</li>
+      <li><b>'만물'(모든 것)</b>: 교수는 헬라어에서 '모든'을 뜻하는 단어(녹취 "바스/빠스", 한글 발음 표기만 확인 가능)가 두 형태로 쓰일 수 있다고 설명한다. 복수와 함께 쓰이면 여럿을 하나의 그릇에 담아 <b>모두를 한꺼번에</b>, 단수 형태로 쓰이면 <b>한 분 한 분(하나하나)</b>을 가리킨다. 교수는 이 본문에서 어느 쪽인지 확인하지 못했다고 하면서, <b>둘 중 어느 쪽이든 모든 것을 담는다는 것은 피해 갈 수 없다</b>(everything / all things)고 했다.</li>
+      <li>이런 표현들로 <b>그리스도는 황제가 아니고 예수가 그리스도</b>라고 말하는 것이며, 그분께 초점을 맞추게 된다.</li>
+      <li>슬라이드 문장 "이 시기에 이미 그리스도는 우주를 통치하시는 인물로 <b>널리 이해됨</b>"에 대해 교수는, 예수님을 이해하는 데는 생각보다 시간이 많이 걸리고 여러 경험과 반복되는 배움으로 이해가 넓어진다고 하며 <b>"널리 이해되어 가고 있었음"</b> 정도가 더 맞다고 수정했다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>실현된 종말론 — 이미 완료된 구원 <span class="b-ppt bdg">골 p.10</span> <span class="b-add bdg">녹취 c20,087~22,136</span></h3>
+    <p>슬라이드: 하나님이 행하신 일은 <b>이미 완료되어 성도들에게 즉각적으로 영향을 끼치는 행위</b>로 서술된다(참조, 요한복음과 에베소서).</p>
+    <div class="bq"><span class="ref">골 1:13 (개역개정; 슬라이드에 헬라어 ἐρρύσατο … μετέστησεν … 병기)</span>"그가 우리를 흑암의 권세에서 건져내사 그의 사랑의 아들의 나라로 옮기셨으니"</div>
+    <div class="bq"><span class="ref">골 2:12 — 슬라이드 표기</span>"너희가 침례로 [그와] 함께 장사되고 그 안에서 함께 일으키심을 받았느니라"(συνταφέντες αὐτῷ ἐν τῷ βαπτισμῷ, ἐν ᾧ καὶ συνηγέρθητε) — 개역개정 본문은 다음과 같다: "너희가 세례로 그리스도와 함께 장사되고 또 죽은 자들 가운데서 그를 일으키신 하나님의 역사를 믿음으로 말미암아 그 안에서 함께 일으키심을 받았느니라"</div>
+    <ul>
+      <li><b>교수의 문법 설명(완료):</b> 한국어에는 이 개념이 뚜렷하게 없어 어렵다. 영어의 현재완료와 같이, 헬라어 <b>완료형</b>은 일이 이루어지고 그 <b>이루어진 결과가 현재의 상태</b>가 되는 것이다. 초점이 '한 번 옮겼다'가 아니라 <b>"옮겨져 있는 상태"</b>에 있다. 2:12의 "일으키심을 받았다"도 일으킴을 받은 상태가 되어 지금 그 상태로 있다는 뜻이다.</li>
+      <li class="x"><span class="bdg b-sup">[보충]</span> 슬라이드에 적힌 헬라어 동사 ἐρρύσατο·μετέστησεν(1:13)·συνηγέρθητε(2:12)는 문법 형태상 과거(단순과거) 형이라 교수가 말한 '완료형'과 형태가 맞지 않는다. 교수의 요지(하나님이 이미 이루신 일이 현재 성도의 상태가 됨)는 그대로 기록한다. 확인 필요.</li>
+      <li><b>바울의 구원관과 비교:</b> 교수가 앞서 소개한 로마서·갈라디아서의 구원관은 율법 밖에서 나타난 하나님의 의, 예수께서 가져오신 의로 의롭게 된다는 것이며, 소통하는 방향은 <b>앞으로 나아가는 방향성</b>(구원을 이루어 가는 것)을 제시한다. 그렇다고 바울에게 하나님이 이미 이루어 완성해 놓은 개념이 없는 것은 아니다. 그런데 골로새서는 "더 향해 간다"가 아니라 <b>"끝났다"</b>를 선명하게 소개한다 — 거짓 교사들이 교묘하게 말하니 선명하게 말할 필요가 있었기 때문.</li>
+      <li><b>요점</b>(슬라이드 3:1-3): 골로새 교인들이 <b>그리스도와 함께 부활한 신분</b>으로 자신들의 가치를 규정하고 현재의 삶을 결정해야 한다는 것 — 그것이 인간 역사의 관점에서는 아직 미래의 일일지라도! 교수: 이 대목에서도 살짝 방향성이 비친다. 진리를 알게 되는 순간 자유로운데(녹취의 "구속된 상태에서"는 뜻이 불분명 <span class="bdg b-exam">[?]</span>), 이 자유에는 <b>선택할 수 있는 자유</b>까지 포함되어 있어서 바울은 늘 <b>강제하지 않고 초대</b>한다 — 모든 좋은 선한 일에 참여하도록 선택해 나가라고. 완성된 상태를 말하는 이유도 <b>현재의 삶을 어떻게 살아갈지</b> 말해 주기 위해서다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 3:1-2 (개역개정)</span>"<sup>1</sup>그러므로 너희가 그리스도와 함께 다시 살리심을 받았으면 위의 것을 찾으라 거기는 그리스도께서 하나님 우편에 앉아 계시느니라 <sup>2</sup>위의 것을 생각하고 땅의 것을 생각하지 말라"</div>
+  </div>
+
+  <div class="card">
+    <h3>지식과 성숙 <span class="b-ppt bdg">골 p.11</span> <span class="b-add bdg">녹취 c22,136~22,808</span></h3>
+    <ul>
+      <li>슬라이드: 골로새서는 특별히 <b>지식의 성장과 영적 성숙</b>을 강조한다(1:9-10, 28; 2:2; 4:12). 이는 골로새 그리스도인들에게 영향을 주던 <b>거짓 선생들</b> 때문인 듯하다.</li>
+      <li>골로새 교인들이 알아야 할 내용은 <b>이미 다 배웠다</b>(2:6-7). 철학의 주창자들이 더 높은 수준의 영적 성장에 도달하는 방법을 제시했다고 주장했기 때문일 것으로 보인다(교수: 앞에서 소개한 부분과 중첩됨, 우리가 추론해 보는 것).</li>
+      <li>편지의 기록자는 다시 가르친다: <b>참된 성장은 하나님으로부터!</b>(2:19; 참조 1:6; 3:10) 그러한 성숙은 그 열매, 곧 선한 일로 요약되는 <b>주님께 합당한 삶</b>으로 분명해진다(1:10; 참조 사랑과 평화와 감사, 3:14-15).</li>
+    </ul>
+    <div class="bq"><span class="ref">골 2:19 (개역개정)</span>"머리를 붙들지 아니하는지라 온 몸이 머리로 말미암아 마디와 힘줄로 공급함을 받고 연합하여 하나님이 자라게 하시므로 자라느니라"</div>
+    <div class="bq"><span class="ref">골 1:10 (개역개정)</span>"주께 합당하게 행하여 범사에 기쁘시게 하고 모든 선한 일에 열매를 맺게 하시며 하나님을 아는 것에 자라게 하시고"</div>
+    <p>교수의 소감: 바울이 말한 "교묘하다"는 표현이 계속 마음에 남는다 — 왜 사람들을 그렇게 해야만 하는가, 또 거기에 넘어가지 않게 서야 하고 지켜 줘야 한다는 것도 생각하게 된다. 골로새서는 오늘날 일반 청중에게 많이 읽히지 않는 것 같지만 얻을 것이 많다.</p>
+  </div>
+
+  <div class="card">
+    <h3>결론: 기독론의 발전과 환경 <span class="b-ppt bdg">골 p.12</span> <span class="b-add bdg">녹취 c22,808~23,199</span></h3>
+    <ul>
+      <li>골로새서는 기독교 교리의 발전, 특히 <b>기독론 발전에 커다란 공헌</b>을 했다.</li>
+      <li>이 서신에는 그리스도인들이 <b>땅의 것을 추구해서는 안 된다</b>는 교훈이 나오지만(3:2), <b>자연환경을 포함한 만물이 그리스도 안에 "함께 서 있다"</b>는 놀라운 진술도 나온다(1:17).</li>
+      <li>신학자들의 논의(슬라이드): 그리스도가 자연환경을 지탱하시는 분이고 교회가 그리스도를 머리로 하는 몸이라면(1:16; 2:19), <b>교회가 자연세계(그분을 위해 창조된 만물)를 보호하고 보존하는 것은 땅의 일인가, 위의 것을 구하는 일이 되는가?</b> → "우리는 어떻게 생각하나요?"</li>
+      <li>교수: 그냥 환경운동가들의 선언 정도로 생각하고 지나가는 경우가 있지 않은가 — 우리 주변을 생각할 때 한 번쯤 논의해 볼 의미가 있다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 1:17 (개역개정)</span>"또한 그가 만물보다 먼저 계시고 만물이 그 안에 함께 섰느니라"</div>
+  </div>
+</div>
+
+<!-- SEC 8 -->
+<div class="sec" id="sec8">
+  <div class="sh"><span class="sb">8</span><span class="st">질의응답: "모든 피조물보다 먼저 나신 이"(골 1:15)</span><div class="sl"></div></div>
+  <div class="oneline">'모든 피조물'이 단수라면, 그리스도는 피조물 하나하나와 일대일로 비교되고 그 모두보다 앞서는 분이다.</div>
+
+  <div class="card">
+    <h3>수강생의 질문과 교수의 확인 <span class="b-ppt bdg">골 p.9</span> <span class="b-add bdg">녹취 c23,199~24,410</span></h3>
+    <ul>
+      <li>앞서 교수가 '모든'을 단수와 복수로 설명한 것과 관련해, 한 수강생이 이 구절에서 '피조물'이 단수로 되어 있는지 알려 달라고 했다. 교수는 그 자리에서 헬라어 본문을 확인했고, 한국어로 1:15를 읽게 했다. (확인 과정의 대화가 녹취에서 깨져 누가 무엇을 읽었는지는 확정하지 못함 <span class="bdg b-exam">[?]</span>)</li>
+      <li>교수: 한국어로 읽으면 통틀어 모든 피조물과 대화하는 것 같아 덜 세밀하게 느껴지지만, <b>비교</b>가 들어 있다. 헬라어를 확인한 결과 <b>'모든'(앞서 말한 단어의 변형)</b>을 쓰고 <b>'피조물'도 단수</b>로 썼다. 이럴 때는 예수님과 <b>하나씩 비교</b>하는 것이다. <span class="say">다 가져와 보세요</span> 하는 느낌 — 세상에 있는 것을 다 가져와 비교해도, 예수님과 저 나무의 아름다운 꽃을 비교해도 예수님이 먼저 계신 분이다.</li>
+      <li>그냥 강한 정도가 아니라 <span class="say">와볼 테면 와봐라는 정도로 강한 거예요.</span> 해와 달과 별을 섬기는 사람들에게 하는 말과 같은 강함이다. 뭉뚱그려 대략 비교하는 것과 달리 <b>완전히 세밀하게 비교</b>할 수 있도록 헬라어 사고방식을 사용한 것이다(우리말로는 어려울 수 있음).</li>
+      <li>수강생의 말(녹취가 깨져 정확하지 않음 <span class="bdg b-exam">[?]</span>): 어떤 이들이 이 구절을 두고 <b>예수님이 피조물 중 하나라는 식으로 주장</b>한다는 언급이 있었고, 단수로 하나하나를 비교하는 뉘앙스가 있다면 더 강한 의미가 된다는 취지의 대화가 이어졌다. 어떤 집단인지는 녹취에서 확인되지 않는다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 1:15 (개역개정)</span>"그는 보이지 아니하는 하나님의 형상이시요 모든 피조물보다 먼저 나신 이시니"</div>
+  </div>
+</div>
+
+<!-- ================= 빌레몬서 ================= -->
+
+<!-- SEC 9 -->
+<div class="sec" id="sec9">
+  <div class="sh"><span class="sb">9</span><span class="st">빌레몬서: 낭독과 개요</span><div class="sl"></div></div>
+  <div class="oneline">바울 서신 중 가장 짧은 편지 — 신세를 진 사람에게 호의를 요청하는데, 그 호의는 한 노예를 위한 것이다.</div>
+
+  <div class="card">
+    <h3>전체 낭독 <span class="b-ppt bdg">몬 p.1</span> <span class="b-add bdg">녹취 c24,410~25,639</span></h3>
+    <ul>
+      <li>서신 표제: Προς Φιλημονα(몬 p.1). 교수는 개역개정을 가진 사람이 목소리를 좀 더 크게 내라고 하며, 청중을 반으로 나누어 <b>5절씩(1~5절, 6~10절 …) 이어서 1절부터 25절까지 전체를 함께 소리 내어 읽었다.</b> 교수: <span class="say">이 성경은 꼭 한번 읽어보고 진행하려고 생각을 했어요.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>개요 슬라이드 <span class="b-ppt bdg">몬 p.2</span> <span class="b-add bdg">녹취 c25,639~26,209</span></h3>
+    <ul>
+      <li>슬라이드 제목: <b>바울 서신 중 가장 짧은 서신, 335 헬라어 단어.</b> 교수: 당시 일반적인 서신이 200몇십 단어로 제가 기억하는 것 같다 — 올바르게 기억한다면 바울 서신 중 가장 짧은데도 일반적인 서신보다는 좀 길다. <span class="bdg b-exam">[?]</span> (일반 서신의 단어 수는 슬라이드에 없고 교수의 기억에 기댄 수치)</li>
+      <li><b>빌레몬은 바울에게 신세를 졌고, 바울은 그의 호의를 요청</b>한다. 교수: 여기 <b>중요한 단어가 두 개</b> 나왔다 — '신세'와 '호의'. 호의는 기독교 용어로는 '은혜'와 이어진다고 하며 조금 뒤에 살펴본다고 했다. <span class="bdg b-exam">[?]</span> (두 단어의 연결 설명이 녹취에서 깨짐)</li>
+      <li>바울이 요청하는 호의는 <b>자신을 위한 것이 아니라 한 노예를 위한 것</b>. 노예는 어떤 것도 요청할 수 없는, 사회적으로 <b>가장 밑바닥에 있는 계층</b>이다.</li>
+      <li>이 사회는 <b>Patron–Client(후원자와 피후원자) 문화의 사회</b>다. 여러 사회적 관계들은 후원(patronage)의 관점에서 이해되었고, 사람들은 <b>누구에게 혜택을 받았는지 파악하는 능력이 놀랄 정도로 탁월</b>했다.</li>
+    </ul>
+    <div class="bq"><span class="ref">몬 1-2 (개역개정)</span>"<sup>1</sup>그리스도 예수를 위하여 갇힌 자 된 바울과 및 형제 디모데는 우리의 사랑을 받는 자요 동역자인 빌레몬과 <sup>2</sup>자매 압비아와 우리와 함께 병사 된 아킵보와 네 집에 있는 교회에 편지하노니"</div>
+  </div>
+</div>
+
+<!-- SEC 10 -->
+<div class="sec" id="sec10">
+  <div class="sh"><span class="sb">10</span><span class="st">후원자-피후원자(Patron–Client) 시스템 <span class="bdg b-exam">★ 시험 언급</span></span><div class="sl"></div></div>
+  <div class="oneline">은혜를 받는 순간 갚을 의무가 생기는 사회 — 은혜를 베푼 사람이 후원자, 받은 사람이 피후원자.</div>
+
+  <div class="card">
+    <h3>개념: 관계가 아니라 사회를 돌리는 시스템 <span class="b-ppt bdg">몬 p.2</span> <span class="b-add bdg">녹취 c26,209~28,907</span></h3>
+    <ul>
+      <li>교수: 후원자와 피후원자는 <b>관계라기보다 시스템</b>, 곧 사회가 돌아가는 방식이다. <b>은혜를 베푼 사람이 후원자, 은혜를 받은 사람이 피후원자</b>이며 어느 순간 그런 관계가 되면 즉시 발생하고, 당시 사람들은 그것을 늘 놀랄 만큼 알아챘다.</li>
+      <li><b>예 ① 사탕</b>: 사탕 하나를 받는 순간 갚을 의무가 생긴다. 우리는 무게를 못 느끼지만 그분들 사회에서는 무의식 속에 있는 일이다.</li>
+      <li><b>예 ② 아는 사람의 전화 한 통</b>: 교수는 청와대에서 일했던 지인 이야기를 예로 들며, 영향력 있는 쪽의 전화 한 통으로 어려움이 해결되면 그 즉시 무언가(빚)가 생긴다고 설명했다(내용이 일부 불분명 <span class="bdg b-exam">[?]</span>).</li>
+      <li><b>예 ③ 부모님 댁의 장부</b>: 부모님 집에는 경조사에 오신 분들의 성함과 금액이 적힌 장부가 있고, 어머니는 요즘 이제 거의 갚았다고 하신다. 어려운 시절 상부상조로 시작한 것이 사회가 변하며 의무가 되었고, 축의금·조의금이 오가는 것이 부모님 세대에는 <b>후원자-피후원자 관계의 대표적인 예</b>로 남아 있다 — 생전에 다 갚아야 한다는 생각이 있다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>고대 그리스-로마 사회에서의 작동 방식 <span class="b-add bdg">녹취 c27,300~28,907</span></h3>
+    <ul>
+      <li><b>사회계층이 높다고 항상 후원자인 것은 아니다.</b> 지도자가 되려면 지지자들의 힘이 필요한데 지지자들은 그 지도자보다 계층이 높지 않다. 그래서 때로는 <b>지지자들이 먼저 은혜를 베푼다</b>(오늘의 방식으로 투표권 행사). 결과가 나오자마자 지도자에게는 그것을 <b>갚아야 하는 의무</b>가 생기고, 갚아야만 온전할 수 있다(의무라는 말이 약하다).</li>
+      <li>사회적 계층이 높은 부유한 사람은 가뭄·어려움이 닥치면 <b>창고를 크게 부담 없이 열어</b> 나눠 주었다. 이런 나눔은 <b>시민권자에게 한정</b>되었고, 그 이유는 <b>때가 되면 받아야 하기 때문</b> — 받을 수 있다는 전제로 베푸는 것이다. 한쪽이 이 관계를 안 지키면 <b>사회적 계층이 높아도 처벌</b>받는다.</li>
+      <li>교수가 든 사례: 사람들이 너무너무 존경하는 지도자가 위험한 상황에서 살게 해 달라고 신들에게 부탁했는데 그 지도자가 죽자, 사람들이 자기 집에 있던 섬기던 신상들을 길거리에 가져와 <b>처벌</b>했다. (출처는 수업에서 밝히지 않음)</li>
+      <li>이것을 영어로 <b>로열티</b>라 하는데, 이 부분을 영어로 쓸 수밖에 없는 것은 우리나라에서 이루어진 연구가 아니라 영어 단어로 체계화되어 있기 때문이다. 우리말로는 <b>성실성</b>보다 <b>충성(충성심)</b>이 훨씬 낫다. 이것은 <b>사회적 계층과 연결된 것이 아니다.</b> 보통 사회 계층이 높은 사람이 늘 위에 있다고 실수하는데 아니다.</li>
+      <li><b>원 청중이 "은혜"를 읽었을 때</b> 가장 먼저 떠오른 생각은 <b>"갚아야 한다"</b>였다. 은혜를 받았다는 표현이 신약에 많은데(예수님에 대해 말할 때도), 갚아야 한다는 것이 너무 자연스러운 시스템이었다. 교수: 바울이 늘 그 은혜를 어떻게 갚는 것인지 소개한다고 말했으나 그 내용은 녹취에서 확정되지 않는다 <span class="bdg b-exam">[?]</span>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>빌레몬서에 적용 <span class="b-ppt bdg">몬 p.2, p.5</span> <span class="b-add bdg">녹취 c28,500~29,216</span></h3>
+    <ul>
+      <li>앞에서 말한 두 단어('신세'와 '호의')가 이제 달리 보인다. <b>빌레몬이 바울에게 신세를 졌고</b>, 그러므로 빌레몬이 갚아야 할 의무가 있다는 것이 이 편지 안에서는 너무 명확하다(교수: 뒤 슬라이드 하나에 딱 나온다 → 11절 몬 p.5).</li>
+      <li>그런데 바울은 <b>호의를 요청</b>한다. 여기서는 일반적인 후원자-피후원자 시스템으로 갚으라는 것이 아니라 <b>자원해서 해 달라</b>고 한다 — 교수: <span class="say">좀 바뀌죠. 조금 바뀌어요.</span></li>
+      <li>헬라어 표현에 '우리' 아니면 '너희'라는 표현이 신약에 정말 많이 나오고, 그것이 그분들이 사람을 나누는 방식이라고 덧붙였다(녹취가 깨져 문장을 확정하지 못함 <span class="bdg b-exam">[?]</span>).</li>
+    </ul>
+    <div class="emph">
+      <h3>★ 교수가 시험과 연결해 강조 (본문 최상단 시험 박스와 같은 대목)</h3>
+      <p><span class="say">이 부분을 한번 잘 기억해 두시면 좋을 것 같아요.</span> <span class="say">그만큼 중요해요.</span> 후원자-피후원자 시스템을 이해하지 못하면 이 서신의 많은 부분을 놓친다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SEC 11 -->
+<div class="sec" id="sec11">
+  <div class="sh"><span class="sb">11</span><span class="st">빌레몬은 누구이고, 노예제도는 어땠나</span><div class="sl"></div></div>
+  <div class="oneline">골로새 지역의 부유한 가정교회 후원자이자 노예 소유자였고, 바울에게는 '자신'을 빚진 사람이다.</div>
+
+  <div class="card">
+    <h3>빌레몬의 거주지 <span class="b-ppt bdg">몬 p.3~4</span> <span class="b-add bdg">녹취 c29,216~29,500</span></h3>
+    <ul>
+      <li>빌레몬서는 특정 지역을 명확히 밝히지 않지만, <b>빌레몬은 아마도 골로새 지역에 살았을 것</b>이다. 근거: 골로새서 4:9, 17에 언급된 <b>오네시모</b>(몬 1:10-16)와 <b>아킵보</b>(몬 1:2)가 <b>빌레몬 집의 두 멤버</b>로 나온다. 교수: 골로새서는 골로새에 보낸 편지이므로 적어도 골로새 지역 근처에 살았을 것이라고 추측한다. 직접적인 지명은 없다.</li>
+    </ul>
+    <div class="bq"><span class="ref">골 4:9</span>"신실하고 사랑을 받는 형제 오네시모를 함께 보내노니 그는 너희에게서 온 사람이라 그들이 여기 일을 다 너희에게 알려 주리라"</div>
+    <div class="bq"><span class="ref">골 4:17</span>"아킵보에게 이르기를 주 안에서 받은 직분을 삼가 이루라고 하라"</div>
+  </div>
+
+  <div class="card">
+    <h3>빌레몬의 신분과 바울과의 관계 <span class="b-ppt bdg">몬 p.5</span> <span class="b-add bdg">녹취 c29,500~29,970</span></h3>
+    <ul>
+      <li>빌레몬은 <b>노예를 소유</b>하고 있었고(15-16), <b>자기 집을 가정교회</b>로 삼았으며(2, τῇ κατ’ οἶκόν σου ἐκκλησίᾳ), <b>부유하고 영향력 있는 사람</b>이었던 것 같다.</li>
+      <li>바울은 빌레몬을 '<b>사랑을 받는 자요 동역자</b>'(1)로 부를 만큼 친밀하지만 <b>동등한 위치는 아니다</b> — 빌레몬은 바울에게 <b>'자신을' 빚진 자</b>(σεαυτόν μοι προσοφείλεις, 현재형 표기)이고, 바울에게는 어떤 임무를 줄 수 있는 <b>권위</b>가 있었다(8).</li>
+      <li>교수: 이 권위는 그냥 선생님이어서가 아니라 <b>이 호혜 관계 때문</b>이다(선생님은 항상 은혜를 베푸는 위치에 있다).</li>
+    </ul>
+    <div class="bq"><span class="ref">몬 8</span>"이러므로 내가 그리스도 안에서 아주 담대하게 네게 마땅한 일로 명할 수도 있으나"</div>
+    <div class="bq"><span class="ref">몬 19 (자신을 빚진 자와 관련)</span>"나 바울이 친필로 쓰노니 내가 갚으려니와 네가 이 외에 네 자신이 내게 빚진 것은 내가 말하지 아니하노라"</div>
+  </div>
+
+  <div class="card">
+    <h3>로마 사회의 노예제도 <span class="b-ppt bdg">몬 p.6</span> <span class="b-add bdg">녹취 c29,970~30,846</span></h3>
+    <ul>
+      <li>노예제도는 로마 사회에 널리 시행되었다. 발생 원인: <b>전쟁 포로</b>, <b>중한 죄에 대한 처벌</b>, <b>빚을 갚지 못해 온 가족이 노예</b>가 되는 경우, <b>노예의 자녀는 노예</b>(노예 수가 크게 증가).</li>
+      <li>바울이 살던 때 <b>로마 제국 전 주민의 1/3과 1/4 사이</b>가 노예로 추정되고, <b>로마는 약 100만 명의 인구 중 절반이 노예</b>로 가늠된다.</li>
+      <li>노예의 삶과 상황은 <b>다양</b>했다: 노예를 지나치게 학대하거나 죽이는 행위는 법으로 금지, 사회적으로 인격적 대우를 격려하지만 일반적으로 <b>주인의 처분에 따라 운명이 갈림</b>. 교육받을 기회를 제공받기도 하고, 비용을 지불하고 자유를 획득하기도 하며, 법정에 호소할 수도 있었다.</li>
+      <li>그러나 명예를 중요하게 여긴 사회에서 <b>가장 밑바닥을 차지한 수치스럽게 살던 사람들</b>이었다.</li>
+      <li>교수의 비유(계급사회 설명): 자신의 작고 노란 경차를 몰다가 큰 검은 차와 신호에서 맞닥뜨렸던 경험 — 그분이 <b>사람을 보는 것이 아니라 차(신분)를 본다</b>. 사회적 계층은 인격체를 보지 않고, 노예들도 인격은 보지 않는다.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 12 -->
+<div class="sec" id="sec12">
+  <div class="sh"><span class="sb">12</span><span class="st">바울에게 오네시모: 내 마음, 그리고 위기</span><div class="sl"></div></div>
+  <div class="oneline">무익했던 노예가 유익한 존재, 사랑받는 형제가 되었다 — 바울은 그의 빚을 자기가 갚겠다고 한다.</div>
+
+  <div class="card">
+    <h3>바울에게 소중한 존재 <span class="b-ppt bdg">몬 p.7</span> <span class="b-add bdg">녹취 c30,846~31,222</span></h3>
+    <ul>
+      <li>빌레몬의 종인 오네시모가 바울과 함께 있다. 그는 바울에게 매우 소중한 존재가 되었다 — <b>ἔστιν τὰ ἐμὰ σπλάγχνα, "내 마음/심장"</b>. 교수: 이 단어는 마음 또는 심장으로 번역될 수 있고, <b>고대 사회에서 마음/심장은 사람의 가장 중심되는 장소</b>로 여겨졌다.</li>
+      <li>슬라이드: 최근에 그리스도인이 된 듯하고, '<b>무익한</b>' 존재에서 '<b>유익한</b>' 존재로 변화되었다(11). 노예에서 '<b>사랑받는 형제</b>'로 바뀌었다(16).</li>
+      <li>한 가지 이슈: 빌레몬에게 오네시모는 <b>잘못을 저지른 사람</b>으로 인식되고 있었다(18). 바울은 빌레몬에게 <b>복음에 합당한 방식으로 환영</b>해 줄 것을 요청하고(16), <b>바울 자신을 맞이하듯</b> 오네시모를 맞아 주기를 요청하며(17), 오네시모가 진 <b>빚은 바울 자신이 갚겠다</b>고 한다(18).</li>
+      <li>교수 풀이: 오네시모의 빚을 바울이 갚겠다는 것은 <span class="say">후원자 후원자 관계를 바꿔줘 버리겠다는 거예요.</span> <span class="say">내가 받겠다는 거예요.</span> <span class="bdg b-exam">[?]</span> (앞 문장의 '후원자 후원자'는 후원자-피후원자의 뜻으로 보임)</li>
+    </ul>
+    <div class="bq"><span class="ref">몬 10-12 (개역개정; 12절은 '내 심복')</span>"<sup>10</sup>갇힌 중에서 낳은 아들 오네시모를 위하여 네게 간구하노라 <sup>11</sup>그가 전에는 네게 무익하였으나 이제는 나와 네게 유익하므로 <sup>12</sup>네게 그를 돌려 보내노니 그는 내 심복이라"</div>
+    <div class="bq"><span class="ref">몬 16-18 (개역개정)</span>"<sup>16</sup>이 후로는 종과 같이 대하지 아니하고 종 이상으로 곧 사랑 받는 형제로 둘 자라 내게 특별히 그러하거든 하물며 육신과 주 안에서 상관된 네게랴 <sup>17</sup>그러므로 네가 나를 동역자로 알진대 그를 영접하기를 내게 하듯 하고 <sup>18</sup>그가 만일 네게 불의를 하였거나 네게 빚진 것이 있으면 그것을 내 앞으로 계산하라"</div>
+  </div>
+
+  <div class="card">
+    <h3>오네시모의 위기와 바울의 해석 <span class="b-ppt bdg">몬 p.8</span> <span class="b-add bdg">녹취 c31,222~31,554</span></h3>
+    <ul>
+      <li>일반적인 견해로 본 오네시모의 상황: <b>큰 문제에 봉착</b> — 도망한 노예로서 <b>심각한 처벌</b>을 받거나 다른 노예들을 위한 <b>본보기로 처형</b>될 수도 있었다. 교수: 본보기로 <span class="say">십자가형을 받을 수도 있었어요.</span></li>
+      <li>여하튼 오네시모는 <b>주인을 떠나 있는 동안 그리스도인이 되었다.</b></li>
+      <li>바울은 오네시모의 과실로 일어난 이 상황을 다음과 같이 <b>해석</b>할 수도 있다고 빌레몬에게 말한다(15절). 교수: <span class="say">이거는 해석이 필요한 정도의 지혜인 것 같죠.</span></li>
+      <li>참고(슬라이드): 도망친 노예를 위해 <b>Pliny the Younger</b>가 1세기 후반에 쓴 편지(Powell, 463). 수업 중 교수는 이 편지를 따로 설명하지 않았다.</li>
+    </ul>
+    <div class="bq"><span class="ref">몬 15 (개역개정)</span>"아마 그가 잠시 떠나게 된 것은 너로 하여금 그를 영원히 두게 함이리니"</div>
+  </div>
+</div>
+
+<!-- SEC 13 -->
+<div class="sec" id="sec13">
+  <div class="sh"><span class="sb">13</span><span class="st">바울이 이런 편지를 쓸 수 있었던 배경: 로마법과 중재</span><div class="sl"></div></div>
+  <div class="oneline">반환이 원칙인 도망 노예도, 주인의 친구에게 중재를 청하면 '도망 노예'로 보지 않았다.</div>
+
+  <div class="card">
+    <h3>법적 의무와 중재 제도 <span class="b-ppt bdg">몬 p.9</span> <span class="b-add bdg">녹취 c31,554~32,064</span></h3>
+    <ul>
+      <li>로마법에 따르면 <b>도망 노예는 주인에게 되돌려 보내져야</b> 했다(교수: 노예는 주인의 소유이기 때문에 꼭 되돌려 보내야 했다). 그러므로 바울에게는 도망 중인 오네시모를 주인에게 돌려보내야 할 <b>법적 의무</b>가 있었다.</li>
+      <li>그러나 로마법에 따르면 <b>주인과 사이가 좋지 않은 노예는 그 주인의 동료나 친구에게 중재를 요청</b>할 수 있었다. 교수: <span class="say">법적인 요청이라기보다는 관계적 요청을 하는 거예요.</span> 이 경우 노예는 '도망 노예'로 간주되지 않고, 문제가 해결될 때까지 <b>중재자의 보호 아래</b> 있는 것으로 인정되었다.</li>
+      <li><b>바울의 편지는</b> ① 빌레몬의 <b>호의를 요청</b>하고(20) ② <b>억지로가 아닌 자발적인 선한 일</b>로 해 주기를 말하며(14) ③ 오네시모를 <b>자기에게 보내 줄 것</b>을 말한다(13).</li>
+      <li>슬라이드: 감옥에 갇혀 있는 동안 바울은 <b>자신의 필요를 채워 줄 외부 사람이 이미 있었으므로</b>, 아마도 바울은 (장기적으로) 오네시모가 <b>복음을 전하는 선교 사역에 동참</b>하는 것을 기대했을 수도 있다. 교수: 당시 감옥에 갇히면 먹을 것·입을 것을 본인이 감당해야 해서 친구들이 필요했는데도 오네시모를 보내 달라 한 것은 복음 사역에 동참하게 하려는 것으로 보인다.</li>
+    </ul>
+    <div class="bq"><span class="ref">몬 13-14 (개역개정)</span>"<sup>13</sup>그를 내게 머물러 있게 하여 내 복음을 위하여 갇힌 중에서 네 대신 나를 섬기게 하고자 하나 <sup>14</sup>다만 네 승낙이 없이는 내가 아무 것도 하기를 원하지 아니하노니 이는 너의 선한 일이 억지 같이 되지 아니하고 자의로 되게 하려 함이라"</div>
+    <div class="bq"><span class="ref">몬 20 (개역개정)</span>"오 형제여 나로 주 안에서 너로 말미암아 기쁨을 얻게 하고 내 마음이 그리스도 안에서 평안하게 하라"</div>
+  </div>
+</div>
+
+<!-- SEC 14 -->
+<div class="sec" id="sec14">
+  <div class="sh"><span class="sb">14</span><span class="st">기록 장소·시기, 그리고 바울의 설득력</span><div class="sl"></div></div>
+  <div class="oneline">기록지는 어느 쪽이든 메시지 이해에 큰 영향이 없고, 바울은 공동체 앞 낭독을 통해 설득력을 최대화했다.</div>
+
+  <div class="card">
+    <h3>이 편지를 어디에서 언제쯤? <span class="b-ppt bdg">몬 p.10</span> <span class="b-add bdg">녹취 c32,064~32,135</span></h3>
+    <ul>
+      <li>다음 세 견해가 논의된다: ① 아마도 <b>54-55년경, 에베소</b>에서(고전 15:32) ② 또는 <b>58-60년경, 가이사랴</b>에서 ③ 또는 <b>60-61년경, 로마</b>에서.</li>
+      <li>슬라이드: 어느 하나도 확실하게 배제할 수 없고, <b>어느 견해를 택하여도 이 서신의 메시지를 이해하는 데 큰 영향을 주지 않는다.</b> 교수: 빌레몬서는 옥중서신으로 분류되는데 그때는 항상 세 가지 옵션이니 그 정도로 넘어가면 된다.</li>
+      <li>슬라이드의 고전 15:32 인용은 "내가 에베소에서 맹수와 더불어 싸웠다면"으로, 개역개정 본문과 비교하면 '사람의 방법으로'가 생략되어 있다. <span class="bdg b-sup">[보충]</span></li>
+    </ul>
+    <div class="bq"><span class="ref">고전 15:32 (개역개정)</span>"내가 사람의 방법으로 에베소에서 맹수와 더불어 싸웠다면 내게 무슨 유익이 있으리요 죽은 자가 다시 살아나지 못한다면 내일 죽을 터이니 먹고 마시자 하리라"</div>
+  </div>
+
+  <div class="card">
+    <h3>설득력(power of persuasion) <span class="b-ppt bdg">몬 p.11</span> <span class="b-add bdg">녹취 c32,135~33,334</span></h3>
+    <ul>
+      <li>교수: 설득력이 굉장히 중요하다. 우리는 설득을 내 주장을 받아들이게 하는 소소한 일로 생각하지만 당시의 설득은 <b>한 사람이 듣고 마음의 변화·가치관의 변화를 받아 실제 삶으로 살아가게 하는 데까지</b> 보는 것이었다. 설득을 배우기 위한 도서 목록이 체계적으로 잡혀 있을 만큼 설득을 많이 배우던 시대였다. 바울이 설득을 잘 알고 있었을까 모르고 있었을까 하며 아래 항목을 보여 준다.</li>
+    </ul>
+    <div class="tw">
+      <table>
+        <caption>슬라이드 p.11 — 빌레몬서의 설득 장치</caption>
+        <thead><tr><th>장치</th><th>본문</th><th>교수의 설명</th></tr></thead>
+        <tbody>
+          <tr><th>① 공동체 앞에서 읽히게 함</th><td>개인 메시지를 공동체가 함께 읽도록 <b>교회 전체를 향한 인사말로 시작하고 끝맺음</b>(2, 25). καὶ τῇ κατ’ οἶκόν σου ἐκκλησίᾳ(2) / Η χάρις τοῦ κυρίου Ἰησοῦ Χριστοῦ μετὰ τοῦ πνεύματος ὑμῶν(25)</td><td>빌레몬이 가정교회에 앉아 있고 낭독자가 편지를 읽다가 부탁이 나오면 빌레몬을 돌아보며 읽으면 <b>모든 사람이 다 듣는다.</b></td></tr>
+          <tr><th>② 사랑의 명성</th><td>빌레몬이 사랑이 많은 사람이라는 명성을 말함(4-7)</td><td><span class="say">사랑이 참 많으신 빌레몬씨</span> 하고 부르면 모두가 듣는다.</td></tr>
+          <tr><th>③ 빚</th><td>빌레몬이 바울에게 빚을 지고 있음을 상기시킴(19)</td><td>나한테 사랑의 빚을 졌지만 억지로 하지 않기를 바란다는 취지(녹취가 일부 깨짐 <span class="bdg b-exam">[?]</span>).</td></tr>
+          <tr><th>④ 감옥</th><td>바울 자신이 감옥에 있음을 <b>세 번</b> 상기시킴(1, 9, 23)</td><td><span class="say">저 감옥에 있어요</span>를 세 번 말하는 셈.</td></tr>
+          <tr><th>⑤ 나이</th><td>빌레몬의 호의가 "나이가 많은" 자신에게 얼마나 좋은 일인지 알림(sympathy card를 사용?)</td><td>당시에는 회색 머리·나이가 <b>존중의 대상</b>이라 거역할 수 없고, 교회 앞에서 읽히는 것을 바울이 알았을까 몰랐을까.</td></tr>
+          <tr><th>⑥ 숙소</th><td>"빌레몬, 곧 만나~!" — 숙소를 마련하라(22)</td><td>할 말 다 하고 나서 할 말을 다 한 뒤 <b>그런데 나를 위해 숙소를 준비해 달라, 곧 가겠다</b>는 식으로 마무리 — 어른이 사회적인 수단을 선한 의도로 나쁘게 여기지 않도록 아주 잘 사용했다. 이것이 당시의 설득력이다(교수: 바울 좀 재미있는 면도 있다).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bq"><span class="ref">몬 22 (개역개정)</span>"오직 너는 나를 위하여 숙소를 마련하라 너희 기도로 내가 너희에게 나아갈 수 있기를 바라노라"</div>
+    <div class="bq"><span class="ref">몬 25 (개역개정)</span>"우리 주 예수 그리스도의 은혜가 너희 심령과 함께 있을지어다"</div>
+  </div>
+</div>
+
+<!-- SEC 15 -->
+<div class="sec" id="sec15">
+  <div class="sh"><span class="sb">15</span><span class="st">노예제도에 대한 바울의 견해와 서구 기독교</span><div class="sl"></div></div>
+  <div class="oneline">슬라이드는 물음을 던지고, 교수는 서구 기독교가 바울을 이용해 노예제도를 이어 온 역사를 소개했다.</div>
+
+  <div class="card">
+    <h3>슬라이드의 물음 <span class="b-ppt bdg">몬 p.12</span> <span class="b-add bdg">녹취 c33,334~34,125</span></h3>
+    <ul>
+      <li>노예제도에 대한 바울의 견해는? ① 바울은 노예제도를 <b>인정했나</b> ② 인정하지 않았으나 오네시모를 위해 <b>빌레몬이 고심하여 결정</b>할 수 있도록 했나 ③ <b>서구 기독교의 역사(특히 미국에서)</b>는 바울에 대한 그들의 이해를 바탕으로 노예제도를 이어 왔고 그에 따라 노예들에게 강요했다.</li>
+      <li>수업에서 교수는 ①②에 직접 답하지 않고 ③의 역사로 넘어갔다(녹취 기준).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>교수의 소개 — 서구 기독교와 노예제도 <span class="b-add bdg">녹취 c33,334~34,125</span></h3>
+    <ul>
+      <li>이 주제는 서구 기독교에 영향을 미친 것이다. 교수는 흑인 친구들이 많고, 목회학 석사 때 흑인 교회를 섬기고 흑인 예배 전통을 공부한 적이 있다고 했다.</li>
+      <li>그 당시 영어로 만들어진 표현이 전해진다 — 카펫을 "먹는다"는 표현: 얼굴을 바닥에 대고 카펫을 먹는 것처럼 주님께 울며 부르짖는 자세를 가리킨다. 교수 설명: 그때의 울부짖는 소리가 '컴바이아'이고, 표준 발음으로 하면 Lord가 빠진 comby here, 곧 '여기로 와 주세요'라는 뜻이다. 서구 기독교에서는 카펫을 먹는 심정으로 기도하고 예배드려야 했던 것이 <b>실제</b>였다.</li>
+      <li>교수가 공부한 곳의 바로 옆 주 <b>미시시피</b>(녹취 "미스시피")는 노예제도와 관련해 대단히 민감했던 지역이다. 법 규정 깊숙한 곳에 노예제도가 끝난 것으로 기록된 것이 <b>불과 얼마 안 된다</b>고 교수는 말했다(교수가 졸업하기 2년쯤 전에 그 지역에서 목회한 교수님에게 들었다는 이야기이며 수치는 녹취가 불분명함 <span class="bdg b-exam">[?]</span>).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 16 -->
+<div class="sec" id="sec16">
+  <div class="sh"><span class="sb">16</span><span class="st">결론: 바울의 요청은 받아들여졌을까</span><div class="sl"></div></div>
+  <div class="oneline">서신이 필사되어 남아 있다는 사실, 그리고 약 110년경 에베소 감독 "오네시모".</div>
+
+  <div class="card">
+    <h3>서신이 남아 있다는 것 <span class="b-ppt bdg">몬 p.13</span> <span class="b-add bdg">녹취 c34,125~34,471</span></h3>
+    <ul>
+      <li>슬라이드: 바울의 요청은 받아들여졌을까? <b>만일 그 요청이 호의적으로 받아들여지지 않았다면 이 서신이 필사되어 보존되었을 가능성은 낮아지지 않을까?</b></li>
+      <li>교수의 설명(청중의 "서신이 남아 있어요"라는 답 이후): 사본학적으로 서신이 우리 손에 있다는 것은 바울의 요청이 받아들여졌다는 말과 <b>굉장히 밀접하게 관련</b>이 있다. <span class="say">특별히 서신을 필사해서 전달하는 것은 중요하게 여겼을 때만 그렇게 해요.</span> 100%라고 말할 수는 없지만 당시 문화로 보면 그렇게 볼 수 있다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>이그나티우스의 증언 <span class="b-ppt bdg">몬 p.13</span> <span class="b-add bdg">녹취 c34,471~34,804</span></h3>
+    <ul>
+      <li>슬라이드: <b>약 50년 후</b> 안디옥의 교회 지도자 <b>이그나티우스</b>(Ignatius of Antioch)의 증언에 따르면, 당시(<b>약 110년경</b>) <b>에베소 교회의 감독</b>이 <b>"오네시모"</b>라는 사람이었다(이그나티우스, 『에베소인들에게 쓴 편지』 1:3).</li>
+      <li>오네시모의 경력에 대해서는 아무런 언급이 없고, 자신이 아는 오네시모가 바울과 잘 알던 사람인지도 밝히지 않는다. <b>오네시모라는 이름은 비교적 흔한 노예 이름</b>이다.</li>
+      <li>그렇다면 <b>"우리가 아는 그 오네시모 말고 이렇게 짧은 시간에 노예에서 감독이 될 또 다른 사람이 있었는가?"</b> 학자들은 이렇게 질문하고 끝낸다. 교수: <span class="say">만약에 그렇다면 놀라운 일이죠</span>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 17 -->
+<div class="sec" id="sec17">
+  <div class="sh"><span class="sb">17</span><span class="st">교수가 오늘의 교회에 적용한 것 (수업 중 발언 모음)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>'우리와 외인'</b>: 외인(과도기에 있는 사람, '우리'였다가 나간 사람)을 대하는 일은 쉽지 않고, 우리는 그분들이 느끼는 거북함을 잘 못 느낀다(→ 1절).</li>
+      <li><span class="say">이쯤은 해야 그리스도인</span>이라는 요구는 교회 안에서도 거짓 교훈이 될 수 있다. 우리의 '됨'은 우리에게서 나오지 않고 예수님께로부터 온다(→ 4절).</li>
+      <li><b>복음 증거는 하나님이 함께 증거하시는 일</b>이다(행 1:8)(→ 5절).</li>
+      <li><b>교회와 자연환경</b>: 만물이 그리스도 안에 함께 서 있다면 교회가 자연세계를 보호하는 것은 땅의 일인가 위의 것을 구하는 일인가(→ 7절).</li>
+      <li><b>서구 기독교의 노예제도 정당화</b>: 바울에 대한 편협한 이해로 노예제도를 이어 오고 노예들에게 강요한 역사(→ 15절).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 18 -->
+<div class="sec" id="sec18">
+  <div class="sh"><span class="sb">18</span><span class="st">시험 포인트 (압축)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>★ 후원자-피후원자 시스템</b>(교수가 직접 시험과 연결): 은혜를 베푼 이 = 후원자, 받은 이 = 피후원자, 받는 순간 <b>갚을 의무</b>; 계층이 높다고 항상 후원자는 아님(지지자가 먼저 은혜를 베풀기도 함); 핵심 가치 <b>로열티(충성)</b>; 원 청중에게 은혜 = "갚아야 한다"; 빌레몬서에서 빌레몬은 바울에게 신세를 졌지만 바울은 <b>자원함</b>을 요청.</li>
+      <li><b>골로새서 한 줄·구조</b>: "세계적으로 생각하고 지역적으로 행동하라" — 서로(3:13) · 가족(3:18-4:1) · 외인(4:5-6), 바울 친필 끝인사(4:18).</li>
+      <li><b>골로새 배경</b>: 로마 아시아 주, 직물·진홍색 양털, 헬라화된 유대인, 천체 신 숭배 ↔ "우주의 근간이 되는 영들"(στοιχεῖον 2:8·20, 개역개정 '세상의 초등학문'), 주후 61년경 지진, 서두(1:2) 외 이름 없음(사도행전에도), 에바브라(1:7-9a).</li>
+      <li><b>교회의 상황</b>: 교묘한 말(2:4)·철학과 헛된 속임수(2:8), 천사들과 관련된 예배(2:18), 금욕·제의 규례(2:20-22) → "그리스도 믿음 외에 다른 것이 있어야 한다"는 주장; 음성 중심 사회에서 사로잡힘(가스라이팅).</li>
+      <li><b>다른 바울 서신과의 차이</b>: 문체(긴 문장 1:3-8·2:8-15, 형용사형 1:22, 분사·관계사 많고 접속사 적음) / 신학(고등한 기독론·발전된 교회론·실현된 종말론) / 저작(바울의 마지막 서신 중 하나 vs 위명 서신 중 최초, 에베소서가 모본으로 삼았을 가능성, 61년 이전 vs 60년대 후반·80년대, 대필자 설명).</li>
+      <li><b>골로새서 신학</b>: 우주적 그리스도(1:15-20; 만물의 창조·으뜸, 황제가 아니라 예수) · 실현된 종말론(1:13, 2:12, 3:1-3; 이미 이루어진 구원이 현재 삶을 규정) · 지식과 성숙(참된 성장은 하나님으로부터 2:19, 주님께 합당한 삶 1:10) · 결론(3:2 vs 1:17, 환경 논의). 1:15 '모든 피조물보다 먼저 나신 이' = 피조물과의 비교에서 앞선 으뜸.</li>
+      <li><b>빌레몬서 개요·배경</b>: 바울 서신 중 가장 짧음(335 헬라어 단어); 빌레몬 = 골로새 지역, 노예 소유, 가정교회(2), 부유, 바울에게 '자신'을 빚짐; 노예 = 로마 제국 인구의 1/3~1/4(로마시 약 100만 중 절반), 명예 사회의 맨 밑.</li>
+      <li><b>오네시모</b>: "내 마음/심장"(σπλάγχνα), 무익 → 유익(11), 노예 → 사랑받는 형제(16), 빚은 바울이 갚음(18), 도망 노예의 위기(처벌·본보기 처형), 15절 "잠시 떠남 → 영원히 둠".</li>
+      <li><b>법적 배경·편지의 성격</b>: 도망 노예 반환 의무 vs 주인의 동료·친구에게 중재 요청(→ 보호 아래) / 호의 요청(20), 자발적 선행(14), 오네시모를 보내 줄 것(13), 장기적 선교 동참 기대 / 기록지 3설(에베소 54-55, 가이사랴 58-60, 로마 60-61).</li>
+      <li><b>설득력 6가지</b>: 교회 전체 앞 낭독(2, 25) · 사랑의 명성(4-7) · 빚(19) · 감옥 3회(1, 9, 23) · 나이(9) · 숙소(22). <b>결론</b>: 서신 보존 = 요청 수용의 증거, 이그나티우스(약 110년경 에베소 감독 오네시모).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SEC 19 -->
+<div class="verify" id="sec19">
+  <h3>19. 출처</h3>
+  <div class="row">
+    <span class="stat"><b>녹취:</b> 신약성서_261102_녹취_골로세서빌레몬서.txt (한 줄, 34,804자)</span>
+    <span class="stat"><b>강의자료:</b> 09주차 01 골로새서.pdf (12쪽)</span>
+    <span class="stat"><b>강의자료:</b> 09주차 02 빌레몬서.pdf (13쪽)</span>
+    <span class="stat"><b>성경:</b> 대한성서공회 개역개정 (골 1~4장, 몬 1장, 고전 15장)</span>
+  </div>
+  <h4>[자료·발언 간 차이]</h4>
+  <ul>
+    <li>골 p.7 '신현된 종말론' ↔ 골 p.9~10·교수 낭독 '실현된 종말론'(→ 6절).</li>
+    <li>골 p.10의 헬라어 동사형과 교수의 '완료형' 설명(→ 7절 <span class="bdg b-sup">[보충]</span>).</li>
+    <li>골 2:12: 슬라이드는 '침례', 개역개정은 '세례'(→ 7절).</li>
+    <li>고전 15:32: 슬라이드 인용에서 '사람의 방법으로' 생략(→ 14절).</li>
+    <li>수업 화면 제목 '빌립보서' ↔ 현재 PDF 골 p.3 '골로새서'(→ 2절).</li>
+    <li>"주말고사" ↔ 기말고사로 추정(→ 시험 박스) <span class="bdg b-exam">[?]</span>.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  작성일: 2026.11.03 (초안) · 신약성서 II 9주차 녹취와 강의자료(09주차 01 골로새서, 09주차 02 빌레몬서) 기반
+</div>
+</div>
+</body>
+</html>
