@@ -756,7 +756,9 @@ const SITE_DATA = {
             { week: 9, title: "제9강 나훔서의 구조, 신학, 메시지", date: "2026.11.03", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week09.html" }
           ] },
-            { week: 10, title: "", date: "", files: [] },
+            { week: 10, title: "제10강 하박국서의 구조, 신학, 메시지", date: "2026.11.03", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week10.html" }
+          ] },
             { week: 11, title: "", date: "", files: [] },
             { week: 12, title: "", date: "", files: [] },
             { week: 13, title: "", date: "", files: [] },
