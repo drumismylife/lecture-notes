@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 10주차 진보의 시대와 제2차 대각성운동</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+  .say { color: var(--text); font-style: normal; }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>진보의 시대와 제2차 대각성운동</h1>
+<p class="meta">교회사II · 10주차(2026.11.03 수업) · 교재 p.173~176 (제8부 진보의 시대 · 제2차 대각성운동 '2-B. 캠프집회에 대한 반발'까지) + 지난 시간 복습<br>
+자료: 수업 자막 1편(한 줄로 이어진 자동자막) + 교재 PDF(스캔, A3 한 장에 두 쪽씩) &nbsp;|&nbsp; 배지:
+<span class="bd v1">자막 n~m자</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br>
+<span style="color:var(--text2)">[자막 n자] = 녹취에서의 위치. 녹취 오인식은 교재 표기로 맞추었고, 확정할 수 없는 곳은 [?]로 표시했다(교정 내역은 맨 아래). 교재 p.176 하단 'C. 새로운 방법들(찰스 피니)'은 수업이 그 앞에서 끝나 다루지 않는다.</span></p>
+<div class="sum">
+  <h3>1쪽 요약</h3>
+  <ul class="tight">
+    <li><strong>지난 시간 복습</strong>: 웨슬리의 생애, 독립 후 교단 상황(성공회·회중·장로교의 정체, 감리교·침례교의 급성장), 종교를 시장으로 보는 합리적 선택이론(로드니 스타크의 책). 이어 오늘날 미국의 신자율 하락·보수 정치와 기독교의 결합. <span class="bd v1">자막 0~5084자</span></li>
+    <li><strong>제8부 진보의 시대(1789~1914)</strong>: 제1차 대각성은 휫필드·에드워즈·웨슬리가 핵심, 제2차는 다양한 인물·방법. 정치·과학·사회·종교 모든 영역의 진보 → 곧 천년왕국이 온다는 낙관 → 1914년 제1차 세계대전으로 깨짐. <span class="bd tb">교재 p.173</span><span class="bd v1">자막 5089~10528자</span></li>
+    <li><strong>배경 ① 구체제의 붕괴</strong>: 프랑스 혁명의 자유·평등·박애, 1789 바스티유 습격·인간과 시민의 권리 선언, 1795 종교 자유, 1801 종교협약, 1870 로마 항복으로 교황령 종말. <span class="bd tb">교재 p.173</span><span class="bd v1">자막 10530~12294자</span></li>
+    <li><strong>배경 ② 서부 개척</strong>: 1790년 이후 서부로 이주, 미시시피 강 유역에 주·도시가 생김. 정착 목회자(회중·장로·성공회)는 안 따라갔고 <strong>순회 목회제도</strong>를 가진 감리교·침례교가 따라가 급성장. <span class="bd tb">교재 p.173~174</span><span class="bd v1">자막 12313~15743자</span></li>
+    <li><strong>제2차 대각성의 배경</strong>: 완고한 청교도 정신 → 상류층의 <strong>이신론</strong>(광교회주의·합리주의), 독일의 '세미나 방법'(원자료 분석)이 만든 신학적 혼란 → 1900년대 <strong>근본주의 5가지</strong>. <span class="bd tb">교재 p.174</span><span class="bd v1">자막 15754~21375자</span></li>
+    <li><strong>대학과 선교</strong>: 드와이트(1795 예일 총장)의 각성 → 1806 윌리엄스 대학 건초더미 기도 = 현대 미국 선교운동의 시작. 통나무 대학(1726) → 프린스턴 대학교와 신학대학원, 장로교 신파·구파. 영국: 휴 번의 천막집회 → 1811 원시 감리교단, 스펄전. <span class="bd tb">교재 p.174</span><span class="bd v1">자막 21377~23832자</span></li>
+    <li><strong>예일의 부흥과 뉴헤이븐 신학</strong>: 1802 드와이트의 설교로 학생 1/3 회심 → 라이먼 비처·나다니엘 테일러. 테일러의 뉴헤이븐 신학 = ①선을 선택할 도덕적 능력 ②원죄론 수정 ③하나님의 보편적 사랑 → 정통 칼빈주의와 알미니우스 사이. <span class="bd tb">교재 p.175</span><span class="bd v1">자막 23834~31583자</span></li>
+    <li><strong>제2차 대각성의 특징 = 캠프집회</strong>: 맥그리디, 1800 레드 강 성찬예배, 가스퍼 강 천막, 1만~2만5천 명, 쓰러짐·비명 같은 신체 현상 → 장로교 반발·분열, 감리교 독보적 성장, 1830년대에는 휴가·영적 충전의 장소. <span class="bd tb">교재 p.175~176</span><span class="bd v1">자막 31615~33710자</span></li>
+  </ul>
+  <p><strong>⭐ 교수 강조</strong> <span style="color:var(--text2);font-size:0.9em">(강조어 '중요·핵심'이 실제로 나온 곳과 '혼동하면 안 된다'는 당부. '시험'·'기말'이라고 말한 곳은 없음)</span></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>종교시장 — 가성비</strong> — <span class="say">“가성비라는 게 가장 중요하단 말이에요”</span> <span class="bd v1">자막 1118자</span> (물건·식당을 고를 때 후기와 가성비를 보듯 종교도 시장이라는 비유)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>제1차 대각성의 핵심 인물</strong> — <span class="say">“이 사람들이 제1차 대화성 운동의 핵심이었어요”</span> <span class="bd v1">자막 5289자</span> (자막 '조지필드 에드워드 메슬리' = 휫필드·에드워즈·웨슬리)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>프랑스 혁명의 가치</strong> — <span class="say">“자유평등 박해 사상이 핵심 가치였는데”</span> <span class="bd v1">자막 10769자</span> (자막 '박해' = 박애 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>서부 개척</strong> — <span class="say">“중요한 건 뭐냐면 동부에서 서부로 서부로 사람들이 계속해서 개척해서 나가는 거예요”</span> <span class="bd v1">자막 13805자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>이신론</strong> — <span class="say">“이신론 이신론이 중요합니다”</span> <span class="bd v1">자막 16475자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>근본주의의 다섯 가지</strong> — <span class="say">“이 다섯 가지가 우리 신앙의 핵심이라고 주장하는 사람이 바로 근본지의 인 포죠”</span> <span class="bd v1">자막 20716자</span> (자막 '근본지의 인 포' = 근본주의의 포인트 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>프린스턴 대학교와 프린스턴 신학대학원</strong> — <span class="say">“이 프린스턴 대학교는 일반 대학이고 신학대학원은 신학교예요”</span> <span class="bd v1">자막 22047자</span> 그리고 <span class="say">“이거 혼동하면 아 됩니다”</span> <span class="bd v1">자막 22081자</span> (자막 '아 됩니다' = 안 됩니다 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>드와이트의 신학</strong> — <span class="say">“티모디 드화이트가 아주 중요한 게 이분의 신학이에요”</span> <span class="bd v1">자막 24283자</span> (곧바로 '잠깐만요'라며 라이먼 비처·나다니엘 테일러 설명 뒤로 미룸)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>비처와 테일러</strong> — <span class="say">“이 운동의 가장 중요한 사람이 라이먼 비치라는 사람하고 나다니엘 테일러라는 사람이에요”</span> <span class="bd v1">자막 24567자</span> / <span class="say">“나다니엘 테일러라는 사람이 있는데요. 이 사람도 아주 중요한 사람입니다”</span> <span class="bd v1">자막 25155자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>뉴헤이븐 신학</strong> — <span class="say">“중요한 건 뉴헤븐 신학위를 이사람이 완성한 거예요”</span> <span class="bd v1">자막 25384자</span> / <span class="say">“뉴헤이븐 신학 중요한 신앙입니다”</span> <span class="bd v1">자막 25465자</span> (자막 '신학위'·'신앙' = 신학 [?])</div>
+</div>
+<div class="card">
+  <h2>지난 시간 복습 <span class="bd v1">자막 0~5084자</span></h2>
+  <p class="meta">수업 앞부분은 지난 시간(동영상 수업)의 복습이다. 아래는 교수가 실제로 말한 것만 정리했다.</p>
+
+  <h3>1-1. 어디까지 했나 / 지난 시간 내용 확인 <span class="bd v1">자막 0~173자</span></h3>
+  <ul class="tight">
+    <li>교수: 지난번에는 동영상 수업으로 마쳤다고 말하며 '지난번에 동영상 어디까지 했죠?'라고 묻는다. 이어지는 자막은 <span class="asr-uncert">'장로 72초까지'</span>(지난 9주차 범위가 교재 p.172까지였으므로 'p.172까지'로 추정 [?]).</li>
+    <li>지난번에 <strong>웨슬리의 생애</strong>를 설명했고, 그다음 <strong>미국이 독립한 이후 각 교단의 상황</strong>을 설명했다.</li>
+  </ul>
+
+  <h3>1-2. 독립 후 교단의 상황 <span class="bd v1">자막 175~528자</span></h3>
+  <ul class="tight">
+    <li>미국이 독립하면서 주요 교단이던 <strong>성공회·회중교회</strong>(자막 '해중교회' [?])<strong>·장로교회</strong>는 성장하지 못했다. 장로교는 인구 성장에 맞춰 크긴 컸지만 감리교나 침례교(자막 '침략계' [?])에 비해 상당히 더뎠다.</li>
+    <li>부흥(자막 '이런 부흥에 제2차 대학성 부흥회를 두고' — 지난 시간 내용으로 보아 대각성 부흥 [?])을 <strong>찬성하는 축과 반대하는 축</strong>이 나뉘었다고 지난번에 말했다.</li>
+    <li>칼빈주의 안에서도 <strong>친부흥 성향</strong>을 받아들이면서 장로교회가 상당히 분열되었고, 그래서 약해지는 교단들이 서로 <strong>연합하는 연합교회들</strong>이 탄생했다고 설명했다.</li>
+  </ul>
+
+  <h3>1-3. 루이지애나·남부와 천주교 <span class="bd v1">자막 547~699자</span></h3>
+  <ul class="tight">
+    <li>루이지애나(자막 '루지에나') 지역은 <strong>로마 가톨릭이 가장 강했던 지역</strong>이고, 지금도 뉴올리언스(자막 '뉴 올랜드')는 가톨릭이 제일 강하다. 남부는 바이블벨트지만 여전히 가톨릭이 제일 강하다. 개신교 가운데는 <strong>남침례교</strong>(자막 '남침류교')가 제일 강하다.</li>
+    <li>미국의 가톨릭교회도 로마 가톨릭에 대한 <strong>절대적인 순종이 아니라 평신도가 주도권</strong>을 가지려고 해서, 사제와 주교(자막 '주교둔')를 자기들이 선출하려는 움직임이 있었다고 말했다.</li>
+  </ul>
+
+  <h3>1-4. 자유종교시장경제 — 종교를 시장으로 보는 관점 <span class="bd v1">자막 826~1475자</span></h3>
+  <ul class="tight">
+    <li>감리교·침례교가 주요 교단이 아니었는데 어떻게 주요 교단이 되었고, 기존 주요 교단은 왜 쇠퇴하게 되었는지를 설명하는 <strong>'종교시장'이라는 새로운 개념</strong>이 등장했다.</li>
+    <li>교수: 종교를 시장으로 보는 것을 싫어하는 사람도 있다(<span class="say">“어떻게 종교를 시장으로 보느냐”</span> <span class="bd v1">자막 996자</span>). 그러나 <span class="say">“종교는 분명히 시장 관리에 따라서 재편이 됩니다.”</span> <span class="bd v1">자막 1018자</span> (자막 '시장 관리' [?])</li>
+    <li>비유: 물건을 살 때 후기를 보고 사람들의 말을 들어 보고, 아무리 좋아도 비싸면 사지 않는다. 식당도 후기를 먼저 보고 가성비를 따진다. 종교·종교시장도 마찬가지.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>가성비</strong> — <span class="say">“가성비라는 게 가장 중요하단 말이에요”</span> <span class="bd v1">자막 1118자</span> 가성비 다음이 후기.</div>
+  <ul class="tight">
+    <li>종교를 하나의 시장으로 보면 <strong>투자 = 헌금, 시간, 기도</strong>이다. 아무리 시간을 투자해도 주어지는 게 없고 만족이 없으면 그 교회·교단을 선택할 이유가 없다. 투자한 만큼 거기서 뭔가 주어지고 만족스러우면 그 교회를 택한다. <span class="bd v1">자막 1237~1495자</span></li>
+    <li>이것이 <strong>종교경제·합리적 종교 선택이론</strong>(자막 '합리적 종교 선택이론')이고, <strong>로드니 스타크</strong>가 이론으로 발전시켰다. <span class="bd v1">자막 1497~1629자</span></li>
+  </ul>
+
+  <h3>1-5. 스타크의 책 『미국 종교시장에서의 승자와 패자』 <span class="bd v1">자막 1631~1939자</span></h3>
+  <ul class="tight">
+    <li>교수가 번역한 책이다: 미국에서 돌아와(귀국) <strong>2009년</strong>도에 첫 신대원에서 미국 교회사(자막 '미국 회사') 수업을 열면서 <strong>여름방학에 번역</strong>한 책. <span class="bd v1">자막 1685~1774자</span></li>
+    <li>내용: <strong>1776년에서 2005년까지</strong> 미국의 모든 교단의 흐름을 정리한 책. 원제는 자막이 깨져 확인되지 않는다(자막 '더 처치 오브 크라이스트' 등 [?]). 교수의 풀이: 미국의 교회가 어떻게 교회화됐는가(자막 '미국의 교회화 교회가 어떻게 교회화 됐는가') — 독립할 때는 신자율이 많지 않았는데 시간이 가면서 거의 많은 사람이 교회의 신자가 되었고, 그 과정을 분석한 책. <span class="bd v1">자막 2046~2161자</span></li>
+    <li>초창기에 어떤 교단이 주요 교단이었고, 침례교·감리교가 어떻게 성장했고, 오늘날 교단들의 현황이 어떤지 자세히 보여 준다. <span class="bd v1">자막 2163~2300자</span></li>
+    <li>교수: 2009년에 이 책을 소개한 뒤 여러 곳에서 미국 교단사 특강·세미나·방송 출연(자막 '출도 하고 연애도 하고' [?])을 했고, "굉장히 아주 센세셜한 책"이다. 우리나라에 처음 소개한 이후 여섯 번인가 더 번역되었다(자막 '이번의 책 6권 정도 번역이 됐고' [?]). <span class="bd v1">자막 2302~2527자</span></li>
+    <li>이번 <strong>11월 말</strong>에 교수가 번역한 새 책이 나온다. 제목은 아직 정하지 않았고 원제는 '실제로 미국인들은 무엇을 믿는가' 뜻(원어 자막 불명확 [?]). 크리스마스를 비롯한 신앙의 여러 주제에 대해 <strong>미국인들이 실제로 믿는 것을 데이터로 분석</strong>한 책. <span class="bd v1">자막 2528~2770자</span></li>
+  </ul>
+
+  <h3>1-6. 오늘날 미국의 상황 <span class="bd v1">자막 2772~4657자</span></h3>
+  <ul class="tight">
+    <li>교수가 지난주 한 모임에서 특강한 내용: 지금 미국은 <strong>신자율이 계속 떨어지고</strong> 있다. 2000년대 초반 약 <strong>76%</strong>였는데 2025년 기준 <strong>62~63%</strong> 정도. 교수 생각에는 실제로는 더 낮다(우리나라도 교회들이 보고할 때 부풀려 보고하므로 신자율 수치가 어림없다고 말함). <span class="bd v1">자막 2962~3217자</span></li>
+    <li>특히 <strong>20·30대</strong>가 크게 떨어지고 있다. 그런데 최근에는 <strong>젊은 남자들은 오히려 회복</strong>되고 <strong>여성들이 급격히 떨어졌다</strong>. 원래는 여성의 신자율이 훨씬 높고 남자들이 떨어졌는데 지금은 거꾸로다. 남녀 수치는 자막이 깨져 확인되지 않는다 [?]. <span class="bd v1">자막 3246~4508자</span></li>
+    <li>교수가 드는 이유: 최근 미국의 기독교가 <strong>극우화</strong>되고 있다. 트럼프 행정부를 위시해 이전에도 레이건 등이 있었고(자막 '롤라드 레이건', '제리 파리', '부시 행정부' — 인명 불명확 [?]), 동성애·성소수자·이민자에 대해 엄격하다. 이것이 미국주의이고 미국을 보호하려면 이민자·소수자에 엄격해야 한다는 보수 기독교가 트럼프 행정부와 손을 잡으면서 젊은 남자들이 교회로 가고 있다. 트럼프 주변의 목사들은 주로 남침례교나 카리스마틱(은사주의자, 자막 '남친대교나') 계열이고 굉장히 보수적·근본주의적이다. (불법체류자는 정식 이민자가 아니어서 엄격히 하는 것은 마땅하다고 교수가 덧붙임. 이 정부에서는 그전에 허용하던 것이 안 된다고 말함.)</li>
+    <li>여성들은 자신을 <strong>소수자</strong>로 여기고 반발해서 예배를 안 드리고 교회를 나간다. 교수: 트럼프 행정부는 낙태를 반대하는 사람들이어서(자막 '나태를 반대하는') 여성들이 자기 권리가 보호받지 못한다고 여기고, 교회를 나가는 데서 끝나지 않고 <strong>신앙을 버린다</strong>. 우리나라에서도 태극기 등으로 남성들이 모여들고 여성들은 서서히 빠져나가고 있다.</li>
+    <li>교수: 정치적으로 해석하는 것이 아니라 <strong>드러난 현상을 분석</strong>하면, 미국은 지금 <strong>트럼프 행정부와 근본주의적·극단적 기독교 세력이 연합</strong>(자막 '연합조선을 피고' [?])하고 있어서, 자유주의 교회나 소수자라고 생각하는 여성·이민자·백인이 아닌 인종들이 기독교에 대해 매우 불편한 입장이다. <span class="bd v1">자막 4543~4751자</span></li>
+    <li>교수: 이 이야기를 하는 이유는 미국 종교시장 이야기에서 이어졌기 때문이다. 이어 자막 <span class="asr-uncert">'미국 종교시장 신민 종교 그리고 미국의 사명 미국의 사명은 망국의 빛 해방자'</span>는 9주차 노트의 '시민종교(교재 p.171~172)'·'미국의 사명(만국의 빛, 억압당하는 이들의 해방자)'을 가리키는 말로 읽힌다 [?]. 영상을 들었느냐고 묻고 질문을 받음. <span class="bd v1">자막 4753~5084자</span></li>
+  </ul>
+
+  <h3>1-7. 학생 질문 — 루이지애나 <span class="bd v1">자막 4910~5084자</span></h3>
+  <ul class="tight">
+    <li>질의응답(발화자는 자막상 분명하지 않음): 남부 쪽에 가톨릭이 많은 이유로 프랑스가 그쪽에 살았기 때문이라는 말이 나오고, 이어 <strong>루이지애나는 원래 미국이 아니었고</strong>(자막 '남미 쪽이었어요' [?]) 미국에 <strong>편입</strong>한 것, <strong>사들인 것</strong>이라고 설명한다. 그래서 바이블벨트임에도 가톨릭이 가장 강하다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>제8부 진보의 시대(1789~1914) — 개괄 <span class="bd tb">p.173</span></h2>
+
+  <h3>2-1. 제1차와 제2차 대각성의 차이 <span class="bd v1">자막 5155~5392자</span></h3>
+  <ul class="tight">
+    <li>제8부 진보의 시대 <strong>1789~1914년</strong>. 교수가 제1차 대각성운동의 주요 인물을 묻는 듯하나 자막이 불명확하다 [?]. 이어서: <span class="say">“조지필드 에드워드 메슬리 이 사람들이 제1차 대화성 운동의 핵심이었어요”</span> <span class="bd v1">자막 5275자</span></li>
+    <li>교수: <span class="say">“제 2차는 제 2차는 다양합니다. 한두 명이 아니에요. 누구라고 할 수는 없어요.”</span> <span class="bd v1">자막 5316~5360자</span> 다양한 인물에 의해 다양한 방법으로 시작했다. (교재 p.174: 제2차 대각성운동은 여러 지역에서 동시다발로 발생해 시발점을 추적하기 쉽지 않다.)</li>
+  </ul>
+
+  <h3>2-2. 1800년의 꿈 — 자유·평등·평화 <span class="bd v1">자막 5393~5824자</span></h3>
+  <ul class="tight">
+    <li>1800년이 되면 모든 미국 사람들이 이 땅에 <strong>자유·평등·평화</strong>가 이루어질 줄 알았고, 유럽도 마찬가지였다. 교수: 1776년에 미국이 독립을 선언하고 나서 <span class="say">“10년 후에 프랑스 대응이 이루어지는 거예요”</span> <span class="bd v1">자막 5490자</span>(자막 '프랑스 대응' = 대혁명 [?]) <span class="bd bo">보충</span>(교재 p.173 연도 기준으로 1776→1789). 미국이 자유와 평등의 나라가 되니 유럽도 구체제를 무너뜨리고 모든 사람이 자유롭고 평등한 사회를 이룰 수 있다는 꿈을 꾼 것이 프랑스 대혁명이다.</li>
+    <li>신앙뿐 아니라 자연과학·사회·정치 모든 것이 성숙해졌고, 기존의 귀족 정치가 아닌 새 시대·새 정신으로 <strong>인류가 진보할 수 있다</strong>는 꿈을 갖게 되었다.</li>
+  </ul>
+
+  <h3>2-3. 교회의 반응 — 금주법과 도덕운동 <span class="bd v1">자막 5826~9429자</span></h3>
+  <ul class="tight">
+    <li>신앙인들도 같은 생각으로, 신앙생활을 방해하는 것이 무엇인지, 인류가 죄를 이렇게 많이 짓는 <strong>죄의 근원이 무엇인지</strong> 따져 보니 <strong>술</strong>이었다. 그래서 <strong>금주법</strong>을 시행했다 — 모든 악의 근원인 술을 금하면 사회가 나아지지 않겠느냐. 술을 만들지도, 팔지도, 마시지도 못하게 했다.</li>
+    <li>교수가 사는 루이지애나 같은 곳은 지금도 <strong>주일에는 술을 못 판다</strong>. 월마트에 가면 주일에는 주류 매대에 폴리스 라인을 쳐 놓고 'Do not sell alcohol on Sunday' 식으로 표시(자막 '두 not 세일 온 알코 온 썬데' [?]). 길거리에서 맥주를 마시면 경찰이 잡아가고, 술에 취해 누워 있으면 바로 데려간다.</li>
+    <li>흑인들은 길거리에서도 마시는데, 가게에서 술을 사면 <strong>종이봉투</strong>로 싸 주어 술인지 물인지 알 수 없게 한다(자막 '누르복두'). 그걸 마시다가 비틀거리고 누우면 바로 경찰이 온다. 백인들은 길거리에서 잘 안 마신다. <span class="say">“흑인 애들은 꼭 마셔요”</span> <span class="bd v1">자막 6402자</span></li>
+    <li>신학교(자막 '육기신학교' — 학교명 불명확 [?])는 알코올이 발견되면 <strong>무조건 퇴사</strong>. 한인 마트의 알코올이 든 미림(맛술)도 안 된다. 성찬 포도주도 안 쓰고 <strong>남부 지역은 웰치 주스</strong>(자막)로 한다. 대신 <strong>담배는 가능</strong>한데, 남부는 교인들이 담배 농사를 짓기 때문이다.</li>
+    <li>학생 질문(자막 '예수님도 코드 만들어가지고 먹으라고 나눠셨는데 안 먹으면 되는 건가요?' — '코드'는 불명확 [?]): 예수님도 (포도주를) 나눠 주셨는데 안 먹으면 되는 것이냐는 취지. 교수: 본인의 신념에 따라 다르다고 본다. 남부는 굉장히 엄격하다. 전통적으로 금주법이 남부에서 강했던 이유: <strong>덥고 습하고 노예가 많아</strong> 술을 먹으면 관리가 안 되기 때문(자막 '알코올이 굉장히 합니다' — 엄격하다는 뜻으로 읽힘 [?]).</li>
+    <li>이어 프랑스 개신교 목사들은 포도주를 거의 음료처럼 마시고 독일 교회도 크리스마스에 포도주를 끓여 먹는다는 말이 나오고(발화자 불명확 [?]), 미국과 완전히 다르지만 미국도 다 그런 것은 아니라는 답이 이어진다. <span class="bd v1">자막 9339~9429자</span></li>
+  </ul>
+
+  <h3>2-4. 한국 교회와의 연결 — 양반과 장로의 조건 <span class="bd v1">자막 7239~7737자</span></h3>
+  <ul class="tight">
+    <li>교수: 한국 교회에서 술을 안 먹는 것도 그런 영향이다. 1800년대 금주법이 강할 때 <strong>은혜를 받은 선교사들이 한국에 들어왔다</strong>. 와 보니 엉망이었고, 선교사 눈에 비친 양반의 특징은 <strong>술 먹고, 노름하고, 첩질하는 것</strong> 세 가지였다.</li>
+    <li>양반은 교회에 들어오면 어른이 되므로 조건을 걸었다. 장로·직분자가 되려면 ①술 먹지 마라 ②담배 피지 마라 ③노름하지 마라 ④첩질하지 마라. 앞의 셋은 남자들이 어느 정도 끊을 수 있었는데 마지막이 문제여서 수많은 양반이 힘들었다. 그 위에 십일조, 새벽예배, 금요 철야 등이 붙었다(자막 '금요철회' [?]). 그러니 20세기 초반에 장로가 됐다는 것은 대단한 것이다.</li>
+    <li>질문(자막 불명확 [?]): 이런 금지가 미국에도 있었느냐는 취지. 교수: 한국 상황에 특수한 것이고 미국은 그런 게 많지 않았다. 다만 <strong>몰몬교</strong>가 특수한 경우였다.</li>
+  </ul>
+
+  <h3>2-5. 몰몬교의 일부다처제 <span class="bd v1">자막 7986~8831자</span></h3>
+  <ul class="tight">
+    <li>몰몬교인은 <strong>일부다처제</strong>였다. 그래서 1800년대 중후반에 몰몬이 미국 전역에 <strong>정착을 못 했다</strong> — 사람들이 허락하지 않았기 때문. 일부다처는 모두 <strong>비밀 결혼</strong>으로 이루어졌다(드러내 놓고 아내가 여럿인 게 아니라 각자에게 '너하고만 결혼한다'고 하는 식으로, 자막 '너만 남 아는 거야 너만 하고 결혼하는 거야' [?]).</li>
+    <li>첫 지도자는 요셉 스미스(자막), 두 번째 지도자는 자막이 '범인은 영' [?]. 이 사람들은 아내가 2, 30명이 넘는다고 했고(자막 '2, 30, 30이 넘어요' [?]), 그중에 14·15·16살 미성년이 있었다. 그래서 미국에서 정착할 땅을 얻지 못하다가 <strong>1800년대 후반에 일부다처제를 포기</strong>하고 지금의 <strong>유타주</strong>에 머물게 되었다.</li>
+    <li>일부 근본주의자들은 지금도 일부다처제를 한다(10년 전쯤 문제가 됨). 교수가 학생들에게 법적으로 어긋나는지 묻고 직접 설명: 처벌은 없고 <strong>호적에만 올라가지 않는</strong> 정도다. 한국도 마찬가지(예로 든 인물 자막 불명확 [?]). 다만 <strong>미성년자</strong>가 걸린 사람은 지금 감옥에 있다. 미성년자가 아니면 법적으로 처벌할 수 없다.</li>
+    <li>질문(자막 불명확 — 구약 시대의 일부다처에 관한 질문으로 읽힘 [?]): 교수 — 그 당시에는 하나님이 다산을 복으로 여기게 하셨고, 아들을 통해·장자를 통해 번성했기 때문에 <strong>아들이 없을 경우 한시적으로 허용</strong>한 것이지 지금까지 그렇게 하는 것은 아니다. <span class="bd v1">자막 9121~9335자</span></li>
+  </ul>
+
+  <h3>2-6. 도덕운동·YMCA·선교 → 천년왕국과 1914 <span class="bd v1">자막 9457~10241자</span></h3>
+  <ul class="tight">
+    <li>18~19세기에 수많은 교회가 <strong>도덕운동</strong>을 했고, 이때 나온 유명한 소설이 있다고 말한다: 교수가 '예수님이라면 어떻게 하실 것인가?'라는 유명한 책을 언급(자막이 '예수님이라는 어떻게 할 것인가? 셀턴이죠?' 등으로 깨져 저자·원제 확정 불가 [?]). 기독교인은 실제로 <strong>이 땅을 개혁해 하나님 나라로 바꿔야</strong> 한다.</li>
+    <li><strong>YMCA·YWCA</strong>(자막 'YMC 와 WC', '와이MC와이 더블C' [?]): 시골 젊은이들이 도시로 갔을 때 사회·노동·주거 환경이 신앙생활을 허용하지 않아, 교회가 주거 문제를 해결해 주고 법률 문제와 건강을 지원한 것이다. <strong>사회운동이면서 교회 운동</strong>. 그 밖에 교도소 개선, 금주법, 금연 등을 교회가 했다.</li>
+    <li>마지막으로 은혜 받은 젊은이들이 <strong>땅끝까지 선교사로 파송</strong>되었다. 이 세대가 가기 전에 복음이 땅끝까지 전파되면 <strong>하나님의 나라, 천년왕국</strong>(자막 '천연왕국')이 이 땅에 온다고 믿었기 때문이다.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“이게 진보의 시대예요. 정치, 과학, 사회, 종교 모든 영역에서 진보가 이루어지고 있다고 요”</span> <span class="bd v1">자막 10044자</span> <br>→ 그래서 곧 하나님의 나라가 이 땅에 천년왕국으로 임할 거라는 낙관이 19세기. (자막 '천연왕국' = 천년왕국, '10789년'·'1924년' = 1789년·1914년 [?])</div>
+  <ul class="tight">
+    <li>이 진보의 시대가 <strong>1789년에서 1914년</strong>까지이고 <strong>제1차 세계대전</strong>으로 인류의 꿈이 완전히 깨진다. 기존의 전쟁은 국소적이었고 죽는 사람이 많지 않았는데, 제1차 세계대전은 <strong>나라끼리 연합해 싸우는 전쟁</strong>이었고 <strong>폭격기와 전차</strong>가 나와 엄청나게 많은 사람을 살상했다. 그러면서 이런 평화로운 진보의 시대는 끝났다고 생각하게 되었다. <span class="bd v1">자막 10380~10528자</span></li>
+    <li>교수의 설명: 제1차·2차 세계대전은 자막상 '<strong>범슬라브 민족 대 범 아리안 민족</strong>의 싸움'(자막 '범 슬라브 민족 범은 아리안 민족' [?]), 즉 <strong>인종과 인종의 싸움</strong>이다. 결국 진보의 시대가 막을 내린 것이 1914년.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>진보의 시대 배경 ① — 구체제의 붕괴와 프랑스 혁명 <span class="bd tb">p.173</span></h2>
+  <p class="meta">교재 p.173은 '배경'·'혁명에 대한 갈망'·'개신교의 확장'으로 나뉜다. 교수가 말한 것은 본문에, 교재에만 있는 것은 아래 접힌 칸에 둔다.</p>
+
+  <h3>3-1. 구체제와 새로운 세력 <span class="bd tb">p.173 '배경'</span><span class="bd v1">자막 10530~10744자</span></h3>
+  <ul class="tight">
+    <li><strong>구체제의 상징</strong>(자막 '부체제'): 왕실의 절대권력, 가톨릭 교회, 부유한 귀족, 무력한 일반인. 교수: 종교개혁까지는 왕실이 절대권력을 가졌고 가톨릭 교회가 권력을 가졌으며, 부유한 귀족이 있었고 일반인은 무력했다.</li>
+    <li><strong>새로운 세력</strong>: 평민들이 "<strong>인류는 개선되며 더 행복해지고 있다</strong>"는 확신을 갖게 되었다.</li>
+  </ul>
+
+  <h3>3-2. 프랑스 혁명의 세 가치 <span class="bd tb">p.173</span><span class="bd v1">자막 10746~11168자</span></h3>
+  <table>
+  <tr><th style="width:18%">가치</th><th>교수 설명</th></tr>
+  <tr><td>자유</td><td><strong>정치적으로는 투표권</strong>을 갖는 것. 교수: 우리나라도 여성이 투표권을 가진 지 얼마 되지 않았고, 미국도 마찬가지(자막 '백 100명밖에 안 됐어요' [?]), 흑인들은 말할 것도 없이 불과 얼마 안 된다. <strong>경제적으로는 정부의 간섭 없이 부를 축적</strong>하는 것(자막 '불을 추천'). 중세까지는 평민이 부를 축적할 수 없었고 부는 귀족의 것이었다.</td></tr>
+  <tr><td>평등</td><td><strong>가정적 배경이나 재산의 유무와 관계없는 인간의 권리</strong>.</td></tr>
+  <tr><td>박애</td><td>자막 '박해'(박애 [?]) = <strong>강한 동지애</strong>, 나중에 <strong>민족주의</strong>로 표현된다. 자막 '슬라운 민족 괴르한 민족 아리한 민족' = 슬라브 민족·게르만 민족·아리안 민족 식의 민족주의 등장 [?].</td></tr>
+  </table>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“프랑스 혁명에 보였던 자유평등 박해 사상이 핵심 가치였는데”</span> <span class="bd v1">자막 10757자</span> (교재 p.173: 자유·평등·박애 사상이 새 시대의 핵심 가치)</div>
+  <ul class="tight">
+    <li>교수: <strong>전통에 얽매인 가톨릭 교회는 현대에 직면해 무너진다</strong>. 19세기에 교황의 절대적 지존성을 따지고 교황이 …(자막 '교황이 무성 만들고' [?]) 별 얘기를 다 했지만 그것이 다 무너졌다. <span class="bd v1">자막 11192~11302자</span></li>
+  </ul>
+
+  <h3>3-3. 혁명에 대한 갈망 → 프랑스 혁명 <span class="bd tb">p.173</span><span class="bd v1">자막 11304~11698자</span></h3>
+  <ul class="tight">
+    <li>계몽주의 시대 이후 <strong>참정권·투표권·언론의 자유</strong> 요구가 증대했다. 교수: 1776년 미국이 독립전쟁에서 이기고 독립을 선언한 뒤 유럽 사람들도 미국이 가졌던 자유를 가져 보자고 요구했지만 황족이 들어줄 리 없었다. 그래서 <strong>1789년 바스티유 감옥(자막 '바스테이 성')을 습격</strong>하고, 귀족들의 권리를 박탈하고 <strong>"인간과 시민의 권리에 대한 선언"</strong>을 선언한다.</li>
+    <li>이 선언의 내용(교수가 읽음): <strong>인간의 자연적인 권리들인 자유·재산·안전, 억압에 대한 저항은 신성하다</strong>. 교수: 기존에는 저항이 죽음이었지만 이제는 <strong>인간의 권리</strong>이고 당연한 것이며 하나님이 부여하시고 허락하신 신성함이라는 것이다(자막 '하나님의 부여하심 허락하심'). <span class="say">“기존에는 저항은 죽음이었죠”</span> <span class="bd v1">자막 11619자</span></li>
+  </ul>
+
+  <h3>3-4. 혁명 이후 프랑스와 종교 <span class="bd tb">p.173</span><span class="bd v1">자막 11700~12030자</span></h3>
+  <ul class="tight">
+    <li>1800년까지 프랑스는 공화국을 건설하고 <strong>국왕을 처형</strong>하고 혁명 정부를 수립했지만 극심한 혼란을 겪은 뒤 <strong>나폴레옹에 의해 평정</strong>되었다.</li>
+    <li><strong>1795년</strong> 모든 종교에 대한 자유가 공표(자막 '홍보')되었다. 교수: 유럽은 나라마다 국교가 있었다 — 독일은 루터교(자막 '무토교'), 프랑스는 가톨릭(자막 '문화캐톨릭'), 영국은 성공회, 스위스는 개혁파(자막 '개업파') 식으로 분열되어 있었다. 그러다가 1795년에 모든 종교에 자유가 공표되었다.</li>
+    <li>나폴레옹은 <strong>1801년</strong> 가톨릭 교회와 <strong>종교협약</strong>을 맺어 프랑스 내 가톨릭의 특별한 위치를 인정, 가톨릭이 <strong>프랑스의 국교</strong>가 되는 식이 되었다.</li>
+  </ul>
+
+  <h3>3-5. 교황령의 종말 — 1870 <span class="bd tb">p.173</span><span class="bd v1">자막 12032~12294자</span></h3>
+  <ul class="tight">
+    <li>프랑스-프로시아 전쟁 후 프랑스군이 귀국하자 <strong>이탈리아 민족주의자들이 로마를 침공</strong>해 <strong>1870년 로마가 항복</strong>했다. 그래서 '10년 이상 역사를 가진 교황령이 막을 내린다'고 들리는데(자막 '10년 이상' — 교재 p.173은 '1000년 이상' [?]) 교황령이 끝났다.</li>
+    <li>교수: 이제는 <strong>라테란</strong>(자막 '라트란 지역')을 통해 <strong>바티칸 시국</strong>만 남았다. 이탈리아가 국가이고 로마는 이탈리아의 한 도시인데 그 안에 <strong>바티칸 궁</strong>(자막 '바티카 궁')이 따로 있어서 그 안에서만 <strong>완전한 주권을 보장</strong>받게 되었다.</li>
+    <li>교수가 "여러 가지 질문이 있으십니까?" 하고 질문을 받음.</li>
+  </ul>
+  <details>
+    <summary>교재에만 있는 내용 — p.173 (수업에서 언급 없는 부분)</summary>
+    <div class="dbody">
+    <ul class="tight">
+      <li>'혁명에 대한 갈망': 1770년대의 미국 독립전쟁은 유럽의 과격파들에게 계몽주의 사상이 실현되는 것으로 여기게 함. <strong>1789년 프랑스 국왕 루이 16세가 삼부회 소집</strong>(귀족·성직자·평민) ☞ 투표권을 두고 평민들이 삼부회를 탈퇴해 자기들만의 <strong>국회</strong> 조직. <strong>1789년 7월 14일</strong> 바스티유성 습격.</li>
+      <li>교황령: 1870년 로마 항복 ☞ <strong>1000년 이상</strong>의 역사를 가진 교황령이 막을 내림 ☞ 영향력이 바티칸 궁으로 제한. 이탈리아의 로마합병으로 국가와 교회의 대립 문제 해소가 목적. 결국 RC(로마 가톨릭)가 이탈리아의 국교가 됨. 교황청의 절대적 주권 인정, 즉 바티칸시의 완전한 독립 선언, 교황청에 예속된 부동산의 치외법권 인정, 교회의 최고지휘권 인정, 이탈리아가 막대한 재정 지원(바티칸 은행의 종자돈이 됨).</li>
+      <li>☞ <strong>1929년 2월 라테란 조약</strong>을 통해 교황은 교황령에 대한 일체의 권리를 포기하고 바티칸 교황국 내에서만 완전한 주권을 보장받게 됨(로마 교황청의 대표인 피에트로 카스피리 + 이탈리아 수상인 무솔리니(가톨릭교회를 중심으로 한 대중적 지지기반 확보)가 맺은 조약).</li>
+    </ul>
+    </div>
+  </details>
+</div>
+<div class="card">
+  <h2>진보의 시대 배경 ② — 개신교의 확장과 서부 개척 <span class="bd tb">p.173~174</span></h2>
+
+  <h3>4-1. 미시시피 강과 서부의 도시들 <span class="bd tb">p.173 '개신교의 확장 — 개요'</span><span class="bd v1">자막 12313~13804자</span></h3>
+  <ul class="tight">
+    <li>1790년 이후 <strong>서쪽으로 떠나는 이주 물결</strong>이 쇄도했다(자막 '1790년 이월에 이후로').</li>
+    <li>교수가 미국 지도를 설명: 플로리다, 뉴올리언스는 이쪽, <strong>미시시피 강</strong>(자막 '미시피')이 미국 중부로 흘러 맨 마지막에 내려간다. 초창기에는 이 강으로 물자를 싣고 날랐다. 미국은 도시를 주로 <strong>동부(대서양)</strong>에 세웠고 태평양은 서쪽이며 LA는 그쪽이다.</li>
+    <li>큰 강 주변에 <strong>둑(제방)</strong>을 쌓아 도시를 세웠고 주변은 <strong>늪지대</strong>, 그 주변에 <strong>대농장(플랜테이션)</strong>을 만들었다. 그래서 거의 모든 미국의 주요 도시가 미시시피 강 주변에 둑을 쌓아 세워졌다. 도시 주변 물길에도 둑을 쌓고, 동쪽·서쪽 둑 마을(이스트뱅크·웨스트뱅크 등, 자막)이 있다. 허리케인으로 비가 많이 오면 둑이 무너져 주변이 물바다가 된다.</li>
+    <li>미국 남부 여행: <strong>플랜테이션 투어</strong>(대농장 투어, 멋진 집들(자막 '바람과 함께 살아다 보면 멋진 집 있죠' [?])), <strong>스웜프(늪지대) 투어</strong>(악어 많은 원시림을 배로 다니며 악어·새·나무를 봄; 자막 '수완프트').</li>
+    <li><strong>뉴올리언스</strong>는 미시시피 강이 끝나는 도시이고, 아프리카에서 <strong>노예를 태워 처음 들어오는 장소</strong>가 이쪽이었다. 교수 일화: 유명한 카페(자막 '카페 두몽')에서 커피와 찹쌀 도넛(자막 '베니에이') 같은 음식을 먹고, 그 옆 관광 시장은 원래 <strong>노예를 판매하던 시장</strong>이었으며 지금도 그 형태가 있다. <span class="bd v1">자막 13461~13804자</span></li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“중요한 건 뭐냐면 동부에서 서부로 서부로 사람들이 계속해서 개척해서 나가는 거예요”</span> <span class="bd v1">자막 13805자</span></div>
+
+  <h3>4-2. 편입된 주와 새 도시들 <span class="bd tb">p.173</span><span class="bd v1">자막 13865~14198자</span></h3>
+  <ul class="tight">
+    <li>1790년 이후 서부로 떠나는 이주 물결이 거세지고 특히 <strong>미시시피 강 쪽으로 인구가 급증</strong>했다. 교수가 읽은 주: <strong>켄터키·테네시·오하이오·루이지애나·인디애나·앨라배마·일리노이·미시시피·미주리</strong>. 교수: 이 '주(state)'는 원래 '국가'이고, 국가들이 미국으로 편입되어 <strong>연합국·합중국</strong>이 되는 것이다. 교재 편입 연도: 켄터키 1792, 테네시 1796, 오하이오 1803, 루이지애나 1812, 인디애나 1816, 앨라배마 1817, 일리노이 1818, 미시시피 1819, 미주리 1821 <span class="bd tb">교재 p.173</span>.</li>
+    <li>미국의 주요 도시들이 생겨남(교수가 읽은 순서, 자막 표기 교정): <strong>신시내티, 뉴올리언스, 피츠버그, 로체스터, 버팔로, 루이빌, 세인트루이스, 클리블랜드, 디트로이트, 시카고</strong> 등이 미국의 주요 도시로 등장(자막 '유럽수' [?] 앞뒤). 교재: 신시내티·뉴올리언스(1820년대), 피츠버그·로체스터·버팔로·루이빌·세인트루이스(1830년대), 클리블랜드·디트로이트·시카고·밀워키(1840년대) <span class="bd tb">교재 p.173</span>.</li>
+  </ul>
+
+  <h3>4-3. 누가 따라갔나 — 순회 목회제도 <span class="bd tb">p.174 상단</span><span class="bd v1">자막 14200~15707자</span></h3>
+  <ul class="tight">
+    <li>사람들이 서쪽으로 이동·개척할 때 <strong>회중교회·장로교회·성공회 목회자</strong>는 모두 <strong>도시에 정착한 목사</strong>였다. 이 당시에도 목사가 되려면 거의 대학원(세미나리)까지 마쳐야 했고 큰 도시의 목사들은 박사도 많았다. 정착한 목회자라 서쪽으로 사람들이 개척할 때 따라가지 않았다.</li>
+    <li><strong>따라간 것은 감리교와 침례교 목회자</strong>다. 교수의 이유: 그들은 정착한 목회자가 아니라 여러 교회를 다니는 <strong>순회 목회 제도</strong>를 가졌기 때문에 가는 곳마다 감리교인·침례교 목회자가 있게 된다. <span class="say">“누가 따라갔을까요? 바로 감리견들과 침례교 목회자들 따라갑니다”</span> <span class="bd v1">자막 14472자</span></li>
+    <li>동서양 <strong>횡단철도</strong>가 놓이면서 수많은 사람이 서쪽으로 개척하러 나갈 때 침례교인·감리교인이 같이 가서 교회를 개척하고 전도했다. 교재 p.174 상단: <strong>서부의 인구는 보다 젊고 더 행동이 자유로움(모험심과 정신력이 강함)</strong>, <strong>가는 곳마다 감리교인들이 넘침</strong>. <span class="bd tb">교재 p.174</span></li>
+  </ul>
+
+  <h3>4-4. 교수 일화 — 채플카와 은퇴자 선교 <span class="bd v1">자막 14763~15661자</span></h3>
+  <ul class="tight">
+    <li>교수: 지난번에 말하지 않았느냐 — 미국의 은퇴한 목회자·선교사들이 가장 하고 싶어 하는 일이 <strong>RV 차를 구입해 미국 전역을 다니며</strong> 예배가 필요한 교회에서 예배를 드려 주는 것이다. 이것을 <strong>채플카</strong>(자막 '체플카')라고 한다. 차 문을 열면 강대상이 나오고 음향 시스템이 되어 있어 야외나 주차장에서 주일예배를 드려 준다. <strong>채플 기차(트레인)</strong>도 있어 기차가 서서 예배를 드려 준다.</li>
+    <li>자동차 정비사들은 은퇴 후 자기 차에 장비를 싣고 몇 월 며칠 어느 카운티에 갈 테니 부품만 사 오면 <strong>무료로 고쳐 주겠다</strong>고 알리고 다닌다(미국에는 돈이 없어 차를 못 고치는 사람이 정말 많다고 설명). 미용사는 무료로 머리를 깎아 주고 자기 차에서 먹고 자며, 배관공 등도 평생 돈 없는 사람들을 고쳐 준다. 고속버스를 개조해 전국을 다니며 예배를 드려 주는 사람도 있다. 이것이 미국 선교사·목회자들의 꿈이다.</li>
+    <li>그래서 가는 곳마다 감리교인·침례교인이 서부 개척자와 더불어 전도하고, 결국 <strong>감리교와 침례교가 급성장</strong>하게 된다. 질문을 받음.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>제2차 대각성운동 — 개요와 배경(이신론) <span class="bd tb">p.174 '1. 제2차 대각성운동 : 두 세대에 걸친 부흥운동'</span></h2>
+
+  <h3>5-1. 두 세대에 걸친 부흥운동 <span class="bd v1">자막 15754~16239자</span></h3>
+  <ul class="tight">
+    <li>교수: <strong>두 세대에 걸친 부흥운동</strong>이며 여러 지역에서 동시다발로 발생해 언제 시작했는지·누구인지 추적하기 쉽지 않다 <span class="bd tb">교재 p.174 ※</span>. 그러나 <strong>1800년대 말</strong>(자막 '180년도 말' [?])에 <strong>뉴잉글랜드를 중심으로 대규모 부흥운동</strong>이 일어나 수많은 신자가 교회로 몰려왔다. 교재: 이 부흥으로 19세기를 <strong>"대부흥의 해"</strong>(the year of the great revival)라고 부른다.</li>
+    <li>특히 <strong>젊은이들</strong>에게 하나님이 마음속에 불을 주셔서 미국과 유럽이 아닌 <strong>이방인·이교도</strong>에게로 나가게 하셨다. 그때의 이교도는 <strong>인도·중국·일본·서남아시아·버마</strong> 같은 곳으로, 수많은 젊은이가 은혜를 받고 <strong>해외 선교사로 자원</strong>하여 나갔다. 이것이 제2차 대각성운동의 한 모습이다.</li>
+    <li>교수: 예일대 선교학 교수였던 사람(자막 '라투렛', 연대는 자막 '190년도 초반 초반기에 초중반기에'로 불명확 [?])이 19세기를 <strong>"대부흥의 시대"</strong>라고 말했다.</li>
+  </ul>
+
+  <h3>5-2. 독립 전의 청교도 정신 <span class="bd tb">p.174</span><span class="bd v1">자막 16241~16458자</span></h3>
+  <ul class="tight">
+    <li>독립(1776) 전의 식민지 미국은 <strong>완고한 청교도 정신</strong>이 지배적이었다. 교수: 청교도는 특징이 굉장히 많아서 인터넷에서 19세기 청교도의 모습을 찾아보라고 하면 엄청나게 나온다. 완고하고 고집이 세고 웃을 수 없는, 삶이 너무 힘든 — 웃으면 안 되고 고집이 세고 신앙으로 살려고 했던 모습이 청교도 정신이었다.</li>
+  </ul>
+
+  <h3>5-3. 이신론(Deism) <span class="bd v1">자막 16460~17927자</span></h3>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“이신론 이신론이 중요합니다”</span> <span class="bd v1">자막 16475자</span></div>
+  <ul class="tight">
+    <li><strong>이신론</strong>: 교수 설명으로는 '인간의 이성이 신의 위치로 가는' 것(자막 '이 신론은 한자로는 이거예요. 인간이 이상할 때' — 한자 이(理)·이성을 가리키는 말로 읽힘 [?]). 시기는 <strong>17세기부터 18세기까지 유럽 계몽주의 시대</strong>의 철학·신학 사상 — 하나님 중심의 세계가 아니라 인간의 이성·존엄성이 강조되는 사상.</li>
+    <li><strong>왜 계몽주의가 시작됐나</strong> = 종교 분쟁 때문. 이전에는 로마 가톨릭 대 개신교의 싸움이었고, 개신교가 이긴 뒤에는 <strong>개신교끼리의 싸움</strong>(루터교·개혁주의 칼빈·성공회)이었으며, 종교전쟁이 곧 <strong>30년 전쟁</strong>이다. 종교가 인간에게 행복이 아니라 분쟁을 가져오는 것을 겪은 지식인들이 원인을 특정 교리·교단 간의 <strong>독선</strong>(루터교만 진리다, 칼빈주의만 진리다 하는 식)이라고 보고, 그에서 벗어나 <strong>모든 종교가 공통으로 수용할 수 있는 보편적이고 이상적인 종교</strong>를 찾자고 했다. 이것이 이신론이다.</li>
+    <li>이신론의 하나님: 이 땅에 <strong>간섭하지 않는</strong> 하나님, <strong>인격적인 분이 아닌</strong> 하나님. 기도한다고 응답하고 기적을 일으키는 하나님은 필요 없다는 것이다(그런 하나님·교리·독선 때문에 서로 자기가 하나님 편이라며 싸웠기 때문). 세상을 창조하신 뒤 <strong>자연법칙에 따라 스스로 운행하도록 내버려 두신 하나님</strong>.</li>
+    <li>교수의 예: "오늘날 유심적 진화론"(자막 '유심적 [?]'), 하나님이 세상을 창조하되 진화하도록 스스로 그 동력으로 움직이게 만드셨다 — 현재 세세하게 개입·간섭하시는 것이 아니라는 뉘앙스. 설명할 때는 <strong>시계 제작자</strong>가 시계를 스스로 움직이도록 만들고 그 시계를 떠난 분으로 비유한다 — 초월자·타자로 현실에서 비껴나 계신다. 그러므로 기도를 꼭 들어주시지 않고 기적도 행하지 않으며 인격적인 신이 아니다. <span class="bd v1">자막 17796~17986자</span></li>
+    <li>이 사상은 <strong>소수의 상류층</strong>에서 유행하기 시작해 <strong>조지 워싱턴·토머스 제퍼슨·벤저민 프랭클린·토머스 페인</strong>(자막 '배정 탱 클린'), 즉 <strong>미국의 건국 아버지들</strong>에게 퍼졌다. 교수: 볼테르·루소·아담 스미스 같은 사람들도 주로 이신론자였다. <span class="bd tb">교재 p.174</span></li>
+  </ul>
+
+  <h3>5-4. 이신론의 기초 — 광교회주의·합리주의·자연계시와 특별계시 <span class="bd tb">p.174</span><span class="bd v1">자막 18112~18837자</span></h3>
+  <ul class="tight">
+    <li><strong>17세기 영국의 광교회주의</strong>(자막 '광교의 주의'): 모든 기독교인이 동의할 수 있는 교리들만이 신앙의 근본이 된다는 것. 교단마다 틀린 교리가 아니라 서로 다툼이 있을 만한 것을 다 빼고 <strong>모든 사람이 동의할 수 있는 것만 믿는다</strong>는 것이어서, 기독교 간의 분열을 극복하려 했다. 교수: 넓히는 것이다.</li>
+    <li><strong>합리주의·계몽주의</strong> 등으로 성경적 계시에 대한 의존을 거부하고 성경의 <strong>초자연적 계시를 부정</strong>한다. 기적을 안 믿고 전통적인 것도 안 믿으며 <strong>오직 순수한 자연적 이성과 자연과학적 관찰</strong>에 의해 합리적인 것만 믿겠다는 것.</li>
+    <li>교수: 자막 '16세기에는 1640년에는' 영국 청교도들은 <strong>자연의 영역(자연계시)</strong>과 <strong>은총의 영역(특별계시)</strong>을 구분해 믿었다 <span class="bd bo">보충</span>(교재 p.174는 '1640년대의 영국 청교도'). 자연계시는 우리 주변의 자연, 특별계시는 성경이다. 성경의 기적·예언·동정녀 탄생을 다 믿었는데, 이신론은 이것을 믿지 않고 <strong>자연적 이성과 이성에 맞는 것, 자연과학으로 관찰되는 것</strong>만 믿겠다는 것이다.</li>
+    <li>교수가 학생들에게 질문하며 설명: 창세기의 6일 창조는? — 믿지 않는다. 동정녀 탄생은 과학적으로 관찰되는가? — 믿지 않는다. 홍해(자막 '홍의')의 기적은? — 그렇지 않다(믿지 않는다).</li>
+  </ul>
+
+  <h3>5-5. 독일의 '세미나 방법'과 자유주의 신학 <span class="bd v1">자막 18973~20337자</span></h3>
+  <ul class="tight">
+    <li>1800년대 중반 <strong>독일에서 유명한 학문적 방법</strong>이 개발되었는데 교수가 <strong>'세미나 방법'</strong>이라 부른다(자막 '세미나'). 그전의 신학교는 모두 <strong>성경 해석(주석)</strong>에 집중했다 — 문법적으로 해석하고 낱말 의미를 파악하는 것이 전통적인 주석 방법이고 모든 중세 신학교가 그렇게 공부했다.</li>
+    <li>세미나는 <strong>토론식</strong>이지만 그냥 토론이 아니라 <strong>원자료에 대한 분석</strong>이다. 교수: <span class="say">“성경의 주석이 중요한 게 아니라 성경의 본문에 대한 원자료 분석이에요”</span> <span class="bd v1">자막 19341자</span></li>
+    <li>성경 본문을 해석하는 방법(교수가 든 것): <strong>역사비평</strong>(어떤 상황에서 나왔는지), 문학 갈래에 따른 비평(자막 '문원비평', '창루 비평' — 역사서·시가서·산문을 구분해야 한다는 설명 [?]), <strong>저자 비평</strong>(시편의 저자가 누구이며 몇 명인지), <strong>자료 비평</strong>(본문이 몇 개 자료가 합쳐진 것인지). 이렇게 하다 보면 동정녀 탄생이 믿어질까 — 안 믿어진다. 열왕기상하와 역대상하는 같은 사건인데 다르니 자료를 비교하는 식으로 접근한다.</li>
+    <li>독일 대학이 <strong>미국 신문에 광고</strong>를 냈다. 당시 미국은 1800년대 중반까지도 <strong>미국 대학에서 박사학위를 주지 못했고</strong> 대부분 프랑스·영국 같은 유럽에서 받아 왔는데, 독일 대학이 유럽의 반도 안 되는 금액으로, 2~3년 안에 박사학위를 받을 수 있고, 최신 학문 방법으로 공부할 수 있다고 광고했다. 미국의 젊은이들이 엄청나게 갔고 2~3년 만에 박사학위를 받아 왔으며 <strong>미국의 우수한 대학에 모두 교수로</strong> 들어갔다.</li>
+    <li>그들이 강의하며 창세기는 신화·설화라 하고, 복음서는 마가 공동체의 문헌·누가 공동체의 문헌이라 하고, 구약은 문서설(자막 '사복음서는 JDP 문서설', '구약의 JD 비설 야외문서 여가문서' [?]) 등을 가르쳤다. 교수: 그러면 <strong>신학적으로 대혼란</strong>이 온다. 미국 신학계가 이에 휩쓸렸다는 뜻으로 읽힌다(자막 '엄청난 수능들이 빠집니다. 신학계가' [?]). </li>
+  </ul>
+
+  <h3>5-6. 근본주의의 등장 — 다섯 가지 <span class="bd v1">자막 20373~20790자</span></h3>
+  <ul class="tight">
+    <li>이것을 극복하기 위해 <strong>1900년 들어서면서</strong> 다시 근본주의 신앙을 되찾겠다는 근본주의가 나온다(자막 '1900년도 들어서면서'). 초창기 미국의 근본주의자들이 정통주의 근본 신앙을 지키겠다며 내세운 다섯 가지(교수가 하나씩 말함):</li>
+  </ul>
+  <ol class="tight">
+    <li><strong>성경의 무오류성</strong>(자막 '무효류성') — 성경은 오류가 없다.</li>
+    <li><strong>예수님의 대속적 죽음</strong> — 인간으로 실패하거나 혁명하다가 돌아가신 것이 아니라 우리 죄를 대속해 돌아가셨다.</li>
+    <li><strong>예수님의 동정녀 탄생</strong>(자막 '동전의 탄생') — 인간이 아니라 동정녀에게서 나셨다.</li>
+    <li><strong>임박한 종말</strong> — 지금은 임박한 종말이다.</li>
+    <li><strong>예수의 육체적 재림</strong>(자막 '재료').</li>
+  </ol>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“이 다섯 가지가 우리 신앙의 핵심이라고 주장하는 사람이 바로 근본지의 인 포죠”</span> <span class="bd v1">자막 20716자</span> <br>→ 근본주의는 <strong>자유주의 신학의 반발로 나온 것</strong>이다.</div>
+  <ul class="tight">
+    <li>교수: 자막 '45분 정도 우주를 탐구하면 하나님을 알 수 있다고 생각했어요'(앞부분 불명확 [?]) — 이것이 <strong>자연신교·자연신학</strong>이다. 그런데 자유주의 신학자들이 나서면서 성경은 자연과학 책이 아니고 역사적인 책도 아니며 인간의 신앙 고백, 하나님에 대한 경험으로 구성된 책이라는 식으로 <strong>성경의 권위를 무너뜨렸고</strong>, 이에 대항해 나온 것이 근본주의 신앙이다. 첫 번째 조건이 성경의 무오성(자막 '무엇일지').</li>
+    <li>정리: 인간은 이성을 가지고 있어 신의 존재나 우주의 법칙을 <strong>이성으로 알 수 있다</strong>는 것이 일종의 <strong>이신론적 신학</strong>이다. 그럼 무신론이냐는 비판을 받는다.</li>
+    <li>교수: <strong>미국 달러에 쓰인 문구</strong>(자막 '우리는 하나님 믿습니다')의 그 하나님은 우리가 믿는 그런 하나님이 아니라 <strong>이신론적인 하나님</strong>이라고 다들 말한다. 초창기 미국의 건국 아버지들이 대부분 이신론자였기 때문이다. <span class="bd v1">자막 21226~21375자</span></li>
+  </ul>
+  <details>
+    <summary>교재에만 있는 내용 — p.174 (수업에서 언급 없음)</summary>
+    <div class="dbody">
+      <p>이신론의 근간 설명 중 <strong>대표적인 학자는 뉴턴(Sir Isaac Newton, 1642-1727)</strong>으로, 천문학·광학·물리학·수학은 많은 중요한 문제를 해결해 줄 수 있다고 믿음 ☞ "우주는 인지 가능하며, 조화롭고, 철저히 합리적인 거대한 기계이며, 위대한 수학자인 하나님의 작품이다".</p>
+    </div>
+  </details>
+</div>
+<div class="card">
+  <h2>드와이트와 건초더미, 통나무 대학, 영국의 각성운동 <span class="bd tb">p.174~175</span></h2>
+
+  <h3>6-1. A. 개요 — 드와이트와 선교운동 <span class="bd tb">p.174 'A. 개요'</span><span class="bd v1">자막 21377~21814자</span></h3>
+  <ul class="tight">
+    <li><strong>에드워즈의 외손자</strong> 티모시 드와이트(자막 '티모디 드와이트'; 교재 p.174 '디모디 드와이트')가 <strong>1795년 예일대학 총장</strong>이 되면서 예일대 학생들 가운데 <strong>신앙의 각성운동</strong>이 일어난다. 교수: 드와이트가 누구인지는 뒷부분의 '예일대학의 부흥운동'에서 다루겠다고 함.</li>
+    <li>교수: 이 드와이트의 설교로 학생의 <strong>3분의 1이 회개</strong>했다(자막 '설교 가운데 3분의 1이 회개하며 신앙 교육' [?]; 교재: 1802년 설교에 학생 중 1/3이 대중 앞에서 회개하며 신앙 고백).</li>
+    <li><strong>1806년 윌리엄스 대학</strong>에서 각성운동이 일어났고 그중에서 <strong>선교운동</strong>이 일어났다. 기도하다가 갑자기 <strong>소나기</strong>가 와서 피하려고 <strong>건초더미(건초더미 밑)</strong>에 들어가 기도하던 중 <strong>다섯 명의 학생</strong>이 믿지 않는 이교 세계 선교·복음화를 위해 평생을 바치자고 결심했다(자막 '이교 세계선교 보금화').</li>
+    <li>이 선교운동이 여러 대학에 퍼지면서 <strong>현대 미국 선교운동의 시작</strong>이 된다. <span class="bd tb">교재 p.174 ☞ '현대 미국 선교운동의 시작'</span></li>
+  </ul>
+
+  <h3>6-2. B. 통나무 대학(Log College) <span class="bd tb">p.174 'B. 통나무 대학'</span><span class="bd v1">자막 21816~22647자</span></h3>
+  <ul class="tight">
+    <li>이 당시 대표적인 대학이 <strong>통나무 대학</strong>이다. 필라델피아의 작은 카운티 타운(교재: 벅스 카운티의 작은 타운)에 <strong>1726년</strong> 아주 작은 대학이 설립되었다. <strong>윌리엄 테넌트</strong>(자막 '윌리엄 테넨트')가 자신의 아들들(자막 '내 아들'; 교재: 네 아들 [?])을 포함해 <strong>목회자를 기르기 위해</strong> 세웠고, 후에 <strong>프린스턴 대학교와 신학대학원</strong>(자막 '프린턴')으로 발전했다.</li>
+    <li>교수: 이 당시 미국에는 하버드·예일·윌리엄 앤 메리 대학(자막 '일리엔 메리 대학')만 있었다.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“이 프린스턴 대학교는 일반 대학이고 신학대학원은 신학교예요”</span> <span class="bd v1">자막 22047자</span> <span class="say">“이거 혼동하면 아 됩니다”</span> <span class="bd v1">자막 22081자</span></div>
+  <ul class="tight">
+    <li>교수가 든 예: 전에 '김대진 정부'(자막, 정부명 불명확 [?]) 시절에 <strong>장상</strong> 이대 총장이 국무총리로 지명되었다. 청문회에서 문제가 된 것은 책에 쓴 박사학위가 '프린스턴 대학교 PhD'로 되어 있는데 따져 보니 <strong>프린스턴 신학대학원</strong>이었다는 것. 본인은 자신이 아니라 비서가 실수했다고 했지만 자기 이력서를 고치지 않은 사람은 본인이다. 서울대와 서울신학대가 다르듯 다르며, 그래서 국무총리가 되지 못했다. <span class="bd v1">자막 22096~22519자</span></li>
+    <li>이 학교의 졸업생들이 <strong>뉴저지 일대 교회들에 큰 부흥의 바람</strong>을 일으켰다. 그리고 <strong>장로교는 신파와 구파로 분열</strong>(자막 '신파 후파')되었고, <strong>길버트 테넌트</strong>(자막 '테렌트')는 <strong>대각성운동 시대의 부흥 설교자</strong>가 되었다.</li>
+  </ul>
+
+  <h3>6-3. C. 영국의 각성운동 — 휴 번과 원시 감리교 <span class="bd tb">p.174~175 'C. 영국의 각성운동'</span><span class="bd v1">자막 22649~23832자</span></h3>
+  <ul class="tight">
+    <li>영국의 <strong>젊은 감리교인 휴 번</strong>(자막 '휴번')이 <strong>미국에서 일어난 부흥운동 소식</strong>을 듣고 감동을 받았고, <strong>1805년</strong>부터 대규모 <strong>야외 부흥집회</strong>를 시작했다.</li>
+    <li>교수: 국가교회 체제에서는 예배를 인도하려면 <strong>교구교회 목사의 허락</strong>을 받아야 했는데, 이 사람은 허락을 받지 않고 대규모 야외 집회, 곧 <strong>캠프 미팅(천막 집회)</strong>을 했다. 그래서 영국의 <strong>감독 총회</strong>(자막 '감독기 총회')가 천막집회를 금지했다. 그런데 계속하자 <strong>출교</strong>(자막 '출구당해서')당해 <strong>원시 감리교단</strong>이라는 교단을 만들었고, 교수가 <strong>1811년</strong>이라 말했다.</li>
+    <li><strong>영국 감리교와 원시 감리교단의 차이</strong>(교수): 이 당시 감리교는 성공회에 속해 있어 주로 <strong>귀족층·지식인</strong>을 대상으로 했는데, 원시 감리교단은 <strong>노동자 계급</strong>을 대상으로 했다. 웨슬리가 처음에 가졌던 <strong>열정적인 전도 방식과 영성</strong>(자막 '존 애슬리의 영성')을 강조하고, <strong>성직자 중심주의를 벗어나 평신도의 참여와 평신도의 설교</strong>를 강력히 장려했다. 특히 노동자 계층에 파고들었고, 교수: 나중에 이런 운동이 <strong>세계 노동운동의 모태</strong>가 되었다.</li>
+    <li><strong>찰스 스펄전</strong>(자막 '찰스 스펀드'): 젊은 시절 이 원시 감리교회에 가서 <strong>15살</strong>에 설교를 들었는데, 목사가 못 와서 <strong>집사님이 설교</strong>했고 그걸 듣고 은혜를 받았다. 그래서 침례교(자막 '침례교육' — 침례교인·목사의 뜻으로 읽힘 [?])가 되었다. 교재: 침례교 목사로서 <strong>평생 칼빈주의 신학을 고수</strong>하고 영국 교회에 큰 부흥을 일으켰다. <span class="bd tb">교재 p.175</span></li>
+    <li>교수: 이 원시 감리교회는 <strong>1829년</strong>(자막 '182년에 829년에') 미국에도 형성되었고, <strong>1840년</strong>에 영국교회에서 독립을 하며(자막, 무엇에서 독립했는지 불명확 [?]), <strong>1932년</strong>에 다른 교단과 통합되어 현재는 <strong>영국 감리교회</strong>에 통합되었다. 영국에는 영국 감리교회가, 미국에는 미국 연합감리교회가 있다.</li>
+  </ul>
+  <details>
+    <summary>교재에만 있는 내용 — p.174~175 (수업에서 언급 없음)</summary>
+    <div class="dbody">
+      <ul class="tight">
+        <li>A. 개요: 이 건초더미에서의 기도와 선교운동이 뉴잉글랜드의 여러 대학교인 <strong>Andover, Princeton, Washington, Amherst</strong> 대학교 안에서 복음의 각성과 선교운동을 불러일으킴 ☞ 현대 미국 선교운동의 시작.</li>
+        <li>C. 영국의 각성운동: <strong>1807년 감리교 총회가 옥외 천막집회 금지</strong>. 계속 집회를 열어 결국 감리교에서 출교당해 원시 감리교단(Society of Primitive Methodists) 창설. 스펄전은 <strong>19세기 중엽</strong> 원시 감리교회에서 개종하여 위대한 설교자가 된 것으로 소개(교수는 '15살'이라 말함).</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="card">
+  <h2>예일대학의 부흥운동과 뉴헤이븐 신학 <span class="bd tb">p.175 'D. 예일대학의 부흥운동'</span></h2>
+
+  <h3>7-1. 티모시 드와이트 <span class="bd v1">자막 23834~24221자</span></h3>
+  <ul class="tight">
+    <li>1802년 예일대에서 드와이트(자막 '티모비드와'·'트머리드 와이트')의 부흥. 교수가 말한 인물 소개: <strong>1752년에 태어나 1817년</strong>까지(교수: 65살 살았네요). 그가 유명한 이유는 <strong>어머니가 에드워즈의 세 번째 딸</strong>이었기 때문 — 에드워즈의 세 번째 딸의 자녀. <strong>예일대학교를 졸업</strong>하고 강사 생활도 했으며, <strong>1795년부터 1817년 죽을 때까지 예일대 총장</strong>을 맡았다(자막 '유임').</li>
+    <li>드와이트는 이 당시 유행한 <strong>계몽주의를 비판</strong>했고, 자연을 통해 하나님을 알 수 있다는 <strong>자연주의 신학</strong>을 비판하면서 새 신학교를 세우려고 했다. 그런데 갑자기(자막 '추우면서' [?]) 총장은 바로 밑에 있던 나다니엘 테일러라고 하는 사람이 하게 된다고 교수가 말했다 — 교재에는 이 내용이 없고 자막이 불명확하다 [?].</li>
+    <li>교수가 드와이트의 신학을 설명하려다 중단: <span class="say">“티모티 드와이트가 몇 가지 중요한 신학을 발표하는데 첫 번째가 뭐냐면 이것입니다”</span> <span class="bd v1">자막 24322자</span> <span class="say">“잠깐만요. 잠깐만요. 제가 라이먼 비치하고 나다엘 테일러 할 자세히 설명할게요”</span> <span class="bd v1">자막 24376자</span></li>
+    <li><strong>설교와 결과</strong>: 드와이트가 설교하며 <strong>학생들의 자유주의적 사고를 비판</strong>했고, 그 결과로 <strong>학생의 3분의 1이 회심</strong>(자막 '회식')했다. 예일대 부흥운동으로 드와이트는 <strong>폭넓은 존경</strong>을 받게 되었고, 그의 후예·제자들이 부흥운동 진영으로 넘어왔다(자막 '두운동 신형'). 이 운동에서 가장 중요한 사람이 <strong>라이먼 비처</strong>(자막 '라이먼 비치')와 <strong>나다니엘 테일러</strong>이다. <span class="bd v1">자막 24421~24646자</span></li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“이 운동의 가장 중요한 사람이 라이먼 비치라는 사람하고 나다니엘 테일러라는 사람이에요”</span> <span class="bd v1">자막 24567자</span></div>
+
+  <h3>7-2. 라이먼 비처(1775~1863) <span class="bd v1">자막 24647~25113자</span></h3>
+  <ul class="tight">
+    <li><strong>1775년에 태어나 1863년</strong>에 돌아간 사람. <strong>미국의 장로교 목사</strong>이자 <strong>제2차 대각성운동의 지도자</strong>. 예일대학을 졸업했다.</li>
+    <li><strong>금주운동</strong>이라는 강력한 사회개혁운동에 앞장섰다.</li>
+    <li><strong>유니테리언주의를 반대</strong>했다 — 교수: 유니테리언주의는 삼위일체를 거부(자막 '3일 치료')하고 예수님은 인간이며 훌륭한 스승에 불과하다고 하여 <strong>예수님의 신성을 거부</strong>했다. 또 <strong>반 가톨릭 운동</strong>도 했다.</li>
+    <li>나중에 <strong>레인 신학교 총장</strong>(1832~1850)이 되었다. 세 번 결혼해 <strong>13명의 자녀</strong>를 두었고 다수가 작가와 유명한 목사로 이름을 날렸다. 교수 정리: 유니테리언주의를 반대한 사람, 곧 자유주의 신학을 반대한 사람이다.</li>
+  </ul>
+
+  <h3>7-3. 나다니엘 테일러(1786~1858)와 뉴헤이븐 신학 <span class="bd v1">자막 25151~26605자</span></h3>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“나다니엘 테일러라는 사람이 있는데요. 이 사람도 아주 중요한 사람입니다”</span> <span class="bd v1">자막 25155자</span></div>
+  <ul class="tight">
+    <li><strong>1786년에 태어나 1858년</strong>에 죽었다(교수가 같은 연도를 반복해 말함). 예일대학에 입학했고, 뉴헤이븐 교회의 부흥을 이끌었으며 예일대 교수를 지냈다.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“중요한 건 뉴헤븐 신학위를 이사람이 완성한 거예요”</span> <span class="bd v1">자막 25384자</span> <span class="say">“뉴헤이븐 신학 중요한 신앙입니다”</span> <span class="bd v1">자막 25465자</span> (자막 '신학위'·'신앙' = 신학 [?]; 교수가 '헤븐 헤븐이 아니에요 뉴헤븐이에요'라며 발음을 정정함)</div>
+  <ul class="tight">
+    <li><strong>뉴헤이븐 신학</strong>은 <strong>전통 칼빈주의를 그 시대의 정신에 맞게 고친 것</strong>이다. 교수: 전통적인 칼빈주의는 <strong>하나님의 주권</strong>을 강조하는데, 거기에 <strong>인간의 자유의지와의 조화</strong>, 그리고 그에 의한 <strong>인간의 도덕적 책임</strong>을 강조한다. 지금까지의 정통 칼빈주의는 하나님의 주권이 주로 강조되고 구원에 있어 절대 주도권이 하나님께 있어서 인간의 도덕적 책임이 좀 약화되는 감이 있었다.</li>
+  </ul>
+  <table>
+  <caption>뉴헤이븐 신학의 세 가지 (교수 설명)</caption>
+  <tr><th style="width:5%">#</th><th style="width:25%">내용</th><th>교수 설명</th></tr>
+  <tr><td>①</td><td>도덕적 능력</td><td>인간에게는 하나님이 주신 <strong>도덕적으로 선을 행할 수 있는 능력</strong>이 있다. 다시 말해 인간은 <strong>하나님이 부여한 능력에 의해 선을 선택</strong>할 수 있다. 이는 기존 칼빈주의의 <strong>엄격한 결정론을 완화</strong>시킨 것이다. 전통 칼빈주의는 인간에게 도덕적 능력이 없고 하나님이 강권적으로 역사해서 선을 행하게 하는 것이어서, 하나님이 능력을 주셨다는 것을 덜 강조했다.</td></tr>
+  <tr><td>②</td><td>원죄론의 수정</td><td>설명이 좀 애매하다면서: 인간이 물려받은 원죄에 의해서라기보다 <strong>죄는 인간의 (실제) 결과</strong>에 불과하다(자막 '실질적인 결과'). 즉 인간이 죄를 지은 결과가 죄이지 그것이 반드시 원죄론에 따른 것은 아니다(자막 '언죄론').</td></tr>
+  <tr><td>③</td><td>하나님의 보편적 사랑</td><td>하나님이 모든 사람이 구원받기를 원하시는가, 일부만 받기로 하셨는가 — <strong>하나님은 모두의 구원을 원하시지만 그렇다고 모든 사람이 구원받는 것은 아니다</strong>. 교수: 칼빈주의에서 벗어난 것이다. 어떻게 보면 칼빈주의 같지만 약간 벗어난, <strong>정통 칼빈주의를 시대에 맞게 해석</strong>한 것.</td></tr>
+  </table>
+  <ul class="tight">
+    <li>교수: 이 때문에 뉴헤이븐 신학이 <strong>미국 자유주의 신학으로 가는 길을 열었다</strong>는 비평을 받는다. 웨슬리 신학은 인간이 죄를 지어 원죄로 자유의지가 죽었는데 하나님이 <strong>선행은총</strong>으로 예수 그리스도를 통해 은혜를 주셔서 자유의지의 일부가 회복되고, 복음을 듣고 반응하며, <strong>하나님의 은혜와 인간의 자유의지가 결합</strong>되어 구원에 이른다는 것이고 <strong>알미니우스 신학</strong>이다 — 뉴헤이븐 신학이 그쪽으로 가고 있다는 설명이다. 또 죄가 원죄 때문에 주어진 결과라는 것은 칼빈주의가 강조하는 것인데(원래 죄성을 타고나서 죄를 짓는다), 인간에게 자유의지가 있으면 당연히 선택할 수 있다는 식으로 <strong>수정</strong>한 것이다.</li>
+    <li>교수: 하나님이 모든 사람의 구원을 원하신다면 모든 사람을 위해 돌아가셔야 하는데 택자를 위해 돌아가셨다는 것과 논리적으로 맞지 않는다는 점에서도 <strong>자유주의로 가는 것</strong>이다. 그래서 정통 칼빈주의에서는 뉴헤이븐 신학을 <strong>자유주의 신학의 시작, 변질된 신앙(변질된 칼빈주의)</strong>이라고 비판한다. 이 사람들은 <strong>수정된 칼빈주의 → 알미니우스주의 → 웨슬리안 쪽</strong>으로 가는 것이다.</li>
+    <li>교수의 판단: 뉴헤이븐 신학은 <strong>정통 칼빈주의와 알미니우스 사이</strong>에 있고, 복음을 강조하며 인간의 자율성과 도덕적 책임을 강조한다. 그런데 이 흔적은 <strong>조너선 에드워즈</strong>(자막 '조나단 에드워드')부터 있었다 — 하나님이 자유의지를 살려 주셔서 이 땅에서 선한 열매를 맺어야 한다는 사상이 사실은 에드워즈의 사상에 뿌리를 두고 있다. <span class="bd v1">자막 27855~28106자</span></li>
+  </ul>
+
+  <h3>7-4. 학생 질문과 토론 — 자유의지와 예정 <span class="bd v1">자막 28109~30333자</span></h3>
+  <ul class="tight">
+    <li><strong>학생 질문</strong>: 에덴동산에서 아담과 이브에게 선악과를 먹지 말라고 했을 때 많은 사람이 애당초 만들지 말지 왜 만들었느냐고 묻는다. 알미니우스 쪽 견해는 하나님이 인간에게 자유의지를 주어 순종할지 불순종할지 선택을 준 것이고, 처음부터 못 먹게 했다면 인간은 하나님의 <strong>로봇</strong>에 불과했을 것이며 자유의지를 주었기 때문에 그 행동의 결과로 죄를 짓게 되었다고 본다. 반대로 칼빈주의의 논리대로면 처음부터 <strong>이중 예정</strong>이라 천지 창조 전부터 계획에 있었다고 본다. 알미니우스·웨슬리 쪽은 이중 예정론을 받아들이지 않는다.</li>
+    <li><strong>교수</strong>: 개혁주의를 비판하는 쪽의 논리를 정리한다 — 자유의지를 줬는데 예정되어 있다는 것은 말이 안 된다, 아무 능력 없는 자유의지, 선택할 수 없는 자유의지는 아니지 않느냐. 그리고 성경에는 하나님이 어느 민족을 멸하겠다고 작정하셨다가도 <strong>회개하면 돌이키겠다</strong>고 말씀하신 경우가 있다 — 그렇다면 우리가 왜 기도하느냐, 하나님이 죽이겠다고 작정했는데도 성경은 하나님이 기도에 마음을 바꾸신다고 하지 않느냐, 그걸 어떻게 설명하느냐고 개혁주의 비판자들이 묻는다.</li>
+    <li>이에 대한 설명: <strong>인간의 차원에서의 자유의지</strong>와 <strong>하나님의 광대한 차원에서의 예정론</strong>은 인간에게 주어진 자유의지의 결말까지도 포용하는 예정론일 수 있다 — 인간은 그것을 알 수 없다. 우리는 주어진 환경에서 성경에 나와 있는 구절들을 다 하나로 <strong>체계화</strong>해야 하는데, 이 시스템이 개혁주의로 해석하는 것이 맞는지 알미니우스·웨슬리처럼 해석하는 것이 맞는지가 중요하다. <span class="say">“해석하는 게 맞는 건지가 이제 중요하지”</span> <span class="bd v1">자막 29560자</span> <span class="say">“설명할 수 있는 건지가 중요하지”</span> <span class="bd v1">자막 29729자</span> 개혁주의는 칼빈주의가 성경의 모든 것을 더 맞게 해석하고 끌고 갔다고 생각하고, 웨슬리·알미니우스 쪽은 아니고 자기네가 더 맞게 해석한다고 생각한다. (자막 '우리 총장님 관련 있어요?' 하는 질문에 교수가 '물론 그러시죠' 하고 사람·신학자·신자마다 다르다고 답함.)</li>
+    <li>교수: <strong>어떤 해석이 더 성경을 전체적으로 보게 하는가</strong>가 신학과 교단이 달라지는 이유이다. 학생들이 배우고 성경을 읽으며 고민하다가 어떤 신학이 자신에게 성경 전체를 아우르는 데 더 적합하겠다는 확신이 들 때 신학을 갖는 것이 좋다. 100% 한쪽만 설교하면 반대하는 사람은 나간다 — 칼빈주의만 계속 말하면 자신이 택함을 받았는지 아닌지 왔다 갔다 하는 사람이 못 있을 수도 있어서, 가끔 다른 설교를 10~20% 하면 그래도 그들은 하나님이 택하신 분들이라고 농담함(자막 '그래도 여러분들 하나님이 택하신 분들이에요').</li>
+    <li>교수의 현황 언급(자막이 많이 깨져 [?]): 뉴잉글랜드 지역(자막 '뉴뉴질랜드 지역')의 신학교들, 하버드 같은 곳이 지금은 다 <strong>완전 자유주의의 온상</strong>이 되었다. 하버드 신학대학원은 더 이상 신학대학원이 아니라 불교·이슬람까지 함께 공부하는 종교 대학원 식으로 가고 있다. 예일대도 에드워즈를 연구하는 쪽을 빼놓고는 많이 힘들다. (교수의 의견이다.)</li>
+  </ul>
+
+  <h3>7-5. 한국 교회사 일화 — 한경직·박형룡과 주석 논쟁 <span class="bd v1">자막 30587~31583자</span></h3>
+  <ul class="tight">
+    <li><strong>학생 질문</strong>: 한경직 목사는 결국 프린스턴 신학교를 나온 것이 아니냐(자막 '프리스타 신학원', 박사학위는 받지 않았는지 묻는 듯 [?]). 교수: 그 당시 <strong>프린스턴 신학교가 굉장히 자유주의화</strong>되어 있었다. 똑같이 프린스턴 신학교를 나왔지만 너무 자유주의화됐다고 해서 박사학위를 다른 신학교로 간 사람이 있는데, <strong>총신의 아버지 박형룡 박사</strong>다 — 프린스턴 신학교가 너무 자유주의화되었다고 해서 박사 과정을 다른 신학교(자막 '남친의 신학교', '서든 측는 신학교' [?])로 가서 <strong>조직신학·변증학</strong>으로 박사학위를 받았다. 굉장히 근본주의 신앙을 가진 사람으로, 평양신학교 교수가 되었고, 한경직 목사도 그곳에서 교수를 했다.</li>
+    <li>이 당시 <strong>'어빙던 주석'</strong>(자막 '어빙던 성경 주석')이라는 성경 주석이 있었는데, 독일에서 들어온 <strong>고등비평 학문을 수용한 주석</strong>이었다. 한국에서 내한 선교 50주년쯤(자막 '내한선교 그러니까 한국에 와서 선교했던 50주년인가 했을 거예요' [?]) <strong>감리교 신학자와 장로교 신학자</strong>들이 연합해 번역·출판했는데, 평양신학교 주변 장로교 목사들이 난리를 쳤다 — 장로교 목사들은 다 사직하라, 자유주의 신학이다, 문서설이 나온다는 식으로 반발하며 장로교가 받아들일 수 없었다.</li>
+    <li>그때 <strong>표적</strong>이 된 사람이 한경직 목사였고, 가장 공격한 사람이 <strong>박형룡 박사</strong>였다. 그래서 한경직 목사가 <strong>사과·회개</strong>(자막 '회계를 했어요' — 이어지는 말이 '사실 나는 하고 싶은 일이 없는데 이래저래 하다 보니까 했다' 등으로 불명확 [?])했고, 그 감정이 <strong>1950~60년대</strong>까지 갔다. 그러면서 <strong>총신과 장신이 갈라진다</strong> — 총신은 박형룡 박사, 장신은 한경직 목사. 교수: 그 역사가 깊다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>제2차 대각성운동의 특징 — 캠프집회 <span class="bd tb">p.175~176 '2. 제2차 대각성운동의 특징'</span></h2>
+
+  <h3>8-1. A. 캠프집회(변경 지역) — 맥그리디와 레드 강 <span class="bd tb">p.175 'A. 캠프집회'</span><span class="bd v1">자막 31615~31936자</span></h3>
+  <ul class="tight">
+    <li>제2차 대각성운동의 특징: <strong>캠프집회는 변경(변두리) 지역</strong>에서 열렸는데, <strong>장로교 목사 제임스 맥그리디</strong>(자막 '제임스 백그레디')가 이 기술을 발전시켰다. 교재: <strong>1796년</strong> 맥그리디는 테네시 경계선에 있는 <strong>로건 카운티</strong>(자막 '로간 카운티')의 작은 세 교회의 목사가 되었다.</li>
+    <li>그 지역은 <strong>오지</strong>여서 신문도 방앗간도 학교도 없고 <strong>커피도 10년 동안 먹을 수 없는</strong> 지역이었다. 그런데 맥그리디가 열정적으로 설교하자 사람들의 반응이 일어나기 시작했다.</li>
+    <li><strong>1800년</strong> <strong>4일간의 성찬예배</strong>가 <strong>레드 강</strong>에서 <strong>6월</strong>에 열렸다(자막 '1800년에 4월 4일간'). <strong>두 명의 장로교 목사</strong>(자막 '장우기 목사')도 와서 같이 예배에 참석했다. 첫 3일 동안 설교하자 회중이 <strong>눈물바다</strong>가 되었고, 순식간에 성령을 체험하면서 회중들이 <strong>쓰러졌다</strong>. <span class="bd tb">교재 p.175</span></li>
+  </ul>
+
+  <h3>8-2. 가스퍼 강 천막 집회와 규모 <span class="bd tb">p.175</span><span class="bd v1">자막 31966~32322자</span></h3>
+  <ul class="tight">
+    <li>주변에 소문이 퍼져 사람들이 듣고 찾아왔고(교재: 50~100마일 떨어진 곳에서), 이 사람들을 수용하기 위해 <strong>가스퍼 강</strong>(자막 '캐스퍼 강')가에 <strong>임시 천막</strong>을 설치했다.</li>
+    <li>집회가 얼마나 성공적이었느냐면 사람들이 <strong>쓰러지고, 뛰고, 달리고, 몸을 떠는</strong> 일이 엄청나게 일어났고, 소문이 계속 퍼지면서 참석자 수가 <strong>1만 명에서 2만 5천 명</strong>이었다. 교수: 그 주변에서 가장 큰 도시가 <strong>렉싱턴</strong>(자막 '렉시턴')이었는데 인구가 <strong>1,750명</strong>이었다. 그런데 이 집회에 2만 5천 명까지 모였다. 이 당시에는 <strong>앰프가 없는데</strong> 2만 5천 명에게 설교를 한 것이다. <span class="bd v1">자막 32124~32322자</span></li>
+  </ul>
+
+  <h3>8-3. 증언 두 가지 — 백스터와 한 장로교 목사 <span class="bd tb">p.175~176</span><span class="bd v1">자막 32324~33004자</span></h3>
+  <ul class="tight">
+    <li><strong>1801년 버지니아 워싱턴 대학 총장 조지 벡스터</strong>(교재 표기 백스터)의 말을 교수가 읽음: <span class="say">“나는 지금까지 내가 본 것 중에서 켄터키가 가장 도덕적인 곳이라고 생각한다”</span> <span class="bd v1">자막 32372자</span> <span class="say">“대체로 나는 켄터키의 부흥이 지금까지 크리스도의 교회에 임했던 부흥 가운데 가장 놀라운 것이라고 생각한다”</span> <span class="bd v1">자막 32415자</span> <span class="say">“이 부흥은 불신자들을 경악하게 했고 악이 침묵하도록 했으며”</span> <span class="bd v1">자막 32475자</span> <span class="say">“실 수 없이 많은 사람들에게 깊은 인상을 남겼다”</span> <span class="bd v1">자막 32508자</span> (자막 '실 수 없이' = 셀 수 없이 [?])</li>
+    <li><strong>한 장로교 목사의 참관기</strong>(교수가 <span class="say">“한 장로 목사가 궁금해가지고 갔어요”</span> <span class="bd v1">자막 32536자</span>라며 읽음, 자막 '참가기'는 참관기로 읽힘 [?]; 교재는 '바튼 스톤'(p.176 표기, p.175는 '발톤 W. 스톤')의 초기 천막집회 참관기로 소개 <span class="bd tb">교재 p.175~176</span>): <span class="say">“켄터키 남부에서 아주 놀랄만한 종교적인 흥분에 대해 들은”</span> <span class="bd v1">자막 32580자</span> <span class="say">“그 광경은 나에게 새롭고 낯선 것이었다. 그것은 설명하기 어렵다”</span> <span class="bd v1">자막 32758자</span> <span class="say">“전쟁에서 남자들이 학살당하듯 많은 사람들이 쓰러지고”</span> <span class="bd v1">자막 32795자</span> <span class="say">“그 웃음 속에 희망이 기쁨으로 밝아지고 있었다”</span> <span class="bd v1">자막 32907자</span> <span class="say">“그들은 일어나 구원을 치려 하였고”</span> <span class="bd v1">자막 32934자</span> (교수 낭독 중 자막 '구원을 치려' = 구원을 외치려 [?]; 교재는 '1801년 봄 일찍', 자막은 '1801년 도움 일찍' [?]).</li>
+    <li>교수: 이 내용은 <strong>"이 책"</strong>에 자세히 언급되어 있다고 말함(자막 '바로 이 책의 자세하게 언급되어 있어요' — 앞서 소개한 『미국 종교시장…』을 가리키는 것으로 읽힘, 교재 p.176 인용 출처 표기에 '미국종교시장, 147-8 참조'가 있음 [?]).</li>
+  </ul>
+
+  <h3>8-4. 켄터키 부흥의 확산 <span class="bd tb">p.176</span><span class="bd v1">자막 33017~33145자</span></h3>
+  <ul class="tight">
+    <li>켄터키 부흥운동은 <strong>테네시주·서부 캐롤라이나주·조지아주·오하이오주</strong>(자막 '보아이주')까지 계속되어 <strong>서부 교회들이 크게 성장</strong>했다. 켄터키에서만 <strong>1800년에서 3년 사이에 침례교인의 수가 10,000명 이상</strong> 증가했다(자막 '100명 이상' [?]; 교재는 10,000명 이상)고 하며, <strong>감리교도 같은 수</strong>가 증가했다.</li>
+  </ul>
+
+  <h3>8-5. B. 캠프집회에 대한 반발 <span class="bd tb">p.176 'B. 캠프집회에 대한 반발'</span><span class="bd v1">자막 33147~33391자</span></h3>
+  <ul class="tight">
+    <li><strong>장로교 총회가 반발</strong>했다: <span class="say">“하나님 수의 질서의 하나님이다. 혼란의 하나님이 아니라 그리고 그분의 질서적인 예배를 방해하는 어떤 것도 그분과 상관이 없다”</span> <span class="bd v1">자막 33170자</span> (자막 '하나님 수의' = 하나님은 [?]; 교재: 1805년 장로교 총회 선언 <span class="bd tb">교재 p.176</span>)</li>
+    <li>문제는 <strong>장로교 캠프집회를 인도한 부흥사들</strong>이 장로교의 예전(자막 '하이빈의 연남' — 장로교의 교리·전통을 가리키는 말로 읽힘 [?])을 버리고 <strong>감리교의 은총 교리(자막 '인천교류')를 수용</strong>한 것이다. 난리가 났고 <strong>장로교가 분열</strong>한다. 교수가 이것을 짚는다(교재: 구원은 모든 사람에게 열려 있다고 공개적으로 강조). 이것이 장로교인들 사이에 엄청난 문제를 일으켰다. <span class="say">“구원은 모든 사람에게 열려집니다”</span> <span class="bd v1">자막 33374자</span></li>
+    <li>곧 수년 내에 <strong>캠프집회는 감리교가 독보적</strong>이었고 감리교가 엄청나게 성장했다. <span class="say">“수년 내에 캠프 집회는 감리교가 독보적이었고 감리교가 엄청나게 성장합니다”</span> <span class="bd v1">자막 33424자</span></li>
+    <li>하지만 시간이 지나면서 <strong>집회 장소에 경찰이 배치</strong>되었다. 교수: 당시 신문을 보면 사람들이 많이 모이다 보니 서로 싸우고 <strong>집단 싸움</strong>이 벌어졌고 <strong>성추행</strong>과 <strong>사생활 문제</strong>가 많이 나왔다. 몇 달·몇 주 동안 야외생활을 하니 사회 문제가 벌어졌고, 그래서 경찰이 배치되고 <strong>참석이 제한</strong>되고 <strong>군중이 통제</strong>되었다.</li>
+  </ul>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <span class="say">“1830년대에 이르러서 감리교회 캠프 집회는 휴가 그리고 영적인 충전을 통시에 얻는 그런 장소가  되게 됩니다”</span> <span class="bd v1">자막 33664자</span> (자막 '통시에' = 동시에 [?]. 교재 p.176 '1830년대에 이르러 감리교의 캠프집회는 휴가와 영적인 충전을 동시에 얻는 장소가 됨')</div>
+  <details>
+    <summary>교재에만 있는 내용 — p.175~176 (수업에서 언급 없음)</summary>
+    <div class="dbody">
+      <ul class="tight">
+        <li>1800년 레드 강: 두 명의 장로교 목사인 <strong>윌리엄 하지스(William Hodges)와 존 랜킨(John Rankin)</strong>이 맥그리디를 돕기 위해 왔고 <strong>맥기 형제들(McGee)</strong>도 예배에 참석. 가장 유명한 집회는 그 해 여름 <strong>버본 카운티의 캐인리지(Cane Ridge of Bourbon County)</strong> 집회 ☞ 참석자 10,000~25,000명.</li>
+        <li>캠프집회에 대한 반발(교재): 장로교 캠프집회 부흥사들이 감리교의 은총의 교리를 수용하고 <strong>장로교의 목사안수를 위한 교육수준의 강화를 기피</strong>하자 장로교는 분열되기 시작. <strong>1803년 신광파(the New Light)의 분열</strong>: 바튼 스톤(Barton W. Stone)의 주도하에 그리스도인 운동(the Christian movement)의 켄터키 파로 넘어감. <strong>1805년 쿰버랜드 당회(the Cumberland presbytery)</strong>가 무식한 설교자에게 안수를 베풀었다는 이유로 켄터키 노회에 의해 해산되자 그 당회 소속 부흥사들이 <strong>쿰버랜드 장로교회(the Cumberland Presbyterian Church)</strong>를 조직. 구원은 모든 사람에게 열려 있다고 공개적으로 강조했던 캠프집회 설교자들의 신학은 장로교인들 사이에 대단히 심각한 문제 초래.</li>
+        <li>곧 수년 내 캠프집회는 감리교가 독보적. <strong>1811년 감리교의 캠프집회는 미국 전역에 약 400여 개 이상</strong>. 시간이 지나자 집회 장소에 경찰 배치·참석 제한·군중 통제 → 집회는 질서와 품위, 안정을 되찾음.</li>
+        <li>p.176 하단 'C. 새로운 방법들 / a. 찰스 피니(Charels G. Finney, 1792-1875)'는 수업이 그 앞에서 끝나 다루지 않았다.</li>
+      </ul>
+    </div>
+  </details>
+</div>
+<div class="card">
+  <h2>한눈에 보는 연표</h2>
+  <table>
+  <tr><th style="width:20%">연도</th><th>사건</th></tr>
+  <tr><td>1726</td><td>통나무 대학 설립(윌리엄 테넌트) → 후에 프린스턴 대학교와 신학대학원 <small>(교재 p.174)</small></td></tr>
+  <tr><td>1776</td><td>미국 독립 선언 <small>(교수: 이 뒤 프랑스 대혁명이 '10년 후'라고 말함 [보충], 교재 1789)</small></td></tr>
+  <tr><td>1789</td><td>프랑스 혁명 — 바스티유 습격 · 인간과 시민의 권리 선언 <small>(교재: 7월 14일)</small></td></tr>
+  <tr><td>1790~</td><td>서부로 이주 물결, 미시시피 강 쪽 인구 급증 <small>(주 편입 1792~1821, 교재 p.173)</small></td></tr>
+  <tr><td>1795</td><td>프랑스 모든 종교에 자유 공표 · 드와이트 예일대 총장 취임(~1817)</td></tr>
+  <tr><td>1796</td><td>맥그리디, 로건 카운티 세 교회 목사 <small>(교재 p.175)</small></td></tr>
+  <tr><td>1800</td><td>레드 강 4일간 성찬예배(6월) · 프랑스, 나폴레옹에 의해 평정(교재: 1800년까지)</td></tr>
+  <tr><td>1801</td><td>나폴레옹의 가톨릭 종교협약 · 조지 벡스터의 켄터키 부흥 평가</td></tr>
+  <tr><td>1802</td><td>예일대 드와이트의 설교로 학생 1/3 회심 <small>(교재 p.174·175)</small></td></tr>
+  <tr><td>1805</td><td>휴 번, 대규모 야외 부흥집회 시작 <small>(교수·교재 p.175)</small></td></tr>
+  <tr><td>1806</td><td>윌리엄스 대학 건초더미 기도 — 현대 미국 선교운동의 시작 <small>(교재 p.174)</small></td></tr>
+  <tr><td>1811</td><td>원시 감리교단 설립 <small>(교수; 교재에는 연도 없음)</small></td></tr>
+  <tr><td>1829 · 1840 · 1932</td><td>미국 원시 감리교회 형성 · 독립 · 다른 교단과 통합(교수 설명, 자막 불명확 부분 있음)</td></tr>
+  <tr><td>1832~1850</td><td>라이먼 비처, 레인 신학교 총장</td></tr>
+  <tr><td>1830년대</td><td>감리교 캠프집회가 휴가와 영적 충전의 장소가 됨 <small>(수업 마지막)</small></td></tr>
+  <tr><td>1870</td><td>로마 항복, 교황령 종말</td></tr>
+  <tr><td>1914</td><td>제1차 세계대전 — 진보의 시대가 끝남</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h2>예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span></h2>
+  <table>
+  <tr><th style="width:5%">#</th><th>문항</th><th style="width:38%">답 · 근거</th></tr>
+  <tr><td>1</td><td>(단답) 프랑스 혁명의 세 가지 핵심 가치와 각각의 뜻을 쓰시오.</td><td>자유(정치적 투표권·경제적 부의 축적), 평등(배경·재산과 무관한 인간의 권리), 박애(강한 동지애→민족주의) — 교재 p.173, 3-2</td></tr>
+  <tr><td>2</td><td>(단답) 정착 목회자가 많은 교단 대신 서부 개척민을 따라간 교단과 그 이유는?</td><td>감리교·침례교, 순회 목회 제도 — 교재 p.174, 4-3</td></tr>
+  <tr><td>3</td><td>(약술) 이신론이 무엇이며 어떻게 생겼는지, 대표적 인물을 쓰시오.</td><td>5-3·5-4 — 교재 p.174 (워싱턴·제퍼슨·프랭클린·페인)</td></tr>
+  <tr><td>4</td><td>(약술) 독일의 세미나 방법이 미국 신학계에 일으킨 혼란과 근본주의의 다섯 가지를 쓰시오.</td><td>5-5·5-6 — 교수 설명(교재 p.174~176에는 없음)</td></tr>
+  <tr><td>5</td><td>(단답) 1806년 건초더미 기도운동의 장소·인원·결과는?</td><td>윌리엄스 대학, 5명의 학생, 이교 세계선교 헌신 → 현대 미국 선교운동의 시작 — 교재 p.174, 6-1</td></tr>
+  <tr><td>6</td><td>(OX) 프린스턴 대학교와 프린스턴 신학대학원은 같은 학교다.</td><td>X — 교수가 '혼동하면 안 된다'고 당부, 6-2</td></tr>
+  <tr><td>7</td><td>(단답) 휴 번이 세운 교단과 그 특징은?</td><td>원시 감리교단 — 노동자 계급 대상, 평신도 참여·설교 장려 — 6-3, 교재 p.174~175</td></tr>
+  <tr><td>8</td><td>(약술) 나다니엘 테일러의 뉴헤이븐 신학의 세 가지와 그에 대한 정통 칼빈주의의 평가를 쓰시오.</td><td>7-3 — 교수 설명(교재 p.175는 인물 소개까지만)</td></tr>
+  <tr><td>9</td><td>(약술) 캠프집회의 시작과 특징, 이에 대한 장로교의 반응과 결과를 쓰시오.</td><td>8-1~8-5 — 교재 p.175~176</td></tr>
+  </table>
+</div>
+<details class="apx">
+  <summary>부록 — 출처·자막 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 자막 오인식 교정 (교재 표기가 있는 것만 교정, 나머지는 자막 표기 그대로)</caption>
+  <tr><th>자막 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>해중교회 · 침략계 · 남침류교</td><td>회중교회 · 침례교 · 남침례교</td><td>교재 p.169~170(지난 시간 범위)</td></tr>
+  <tr><td>제 8부 진보시대 · 10789년 · 1924년</td><td>제8부 진보의 시대 · 1789년 · 1914년</td><td>교재 p.173, 같은 구간 자막 '1914년입니다'</td></tr>
+  <tr><td>조지필드·에드워드·메슬리</td><td>휫필드·에드워즈·웨슬리</td><td>교재 p.164~168(지난 시간 범위)</td></tr>
+  <tr><td>부체제 · 박해 사상 · 천연왕국</td><td>구체제 · 박애 사상 · 천년왕국</td><td>교재 p.173(구체제·박애); 천년왕국은 문맥 [?]</td></tr>
+  <tr><td>바스테이 성 · 라트란 · 바티카 궁 · 홍보(1795)</td><td>바스티유성 · 라테란 · 바티칸 궁 · 공표</td><td>교재 p.173</td></tr>
+  <tr><td>10년 이상 역사를 가진 교황령</td><td>1000년 이상 — 교재 표기</td><td>교재 p.173 [?]</td></tr>
+  <tr><td>미시피 · 켄토키·테니시·루지애나·엘라버만·미시피주·미주리</td><td>미시시피 · 켄터키·테네시·루이지애나·앨라배마·미시시피주·미주리</td><td>교재 p.173</td></tr>
+  <tr><td>이신론 '한자 이(理)' 구절 · 유심적 진화론 · 45분 정도</td><td>교정하지 않음 — 자막 불명확</td><td>[?]</td></tr>
+  <tr><td>광교의 주의 · 합리질성 · 동전의 탄생 · 무효류성</td><td>광교회주의 · 합리주의 · 동정녀 탄생 · 무오류성</td><td>교재 p.174(광교회주의·합리주의); 나머지는 문맥</td></tr>
+  <tr><td>배정 탱 클린 · 근본지의 인 포</td><td>벤저민 프랭클린 · 근본주의의 포인트</td><td>교재 p.174(프랭클린); 근본주의 구절은 문맥 [?]</td></tr>
+  <tr><td>티모디 드와이트 · 티모비드와 · 트머리드 와이트</td><td>티모시 드와이트(교재 p.174는 '디모디', p.175는 '티모시')</td><td>교재 p.174~175 — 쪽별 교재 표기가 다름</td></tr>
+  <tr><td>건조도미 · 말복 · 건초도미</td><td>건초더미</td><td>교재 p.174</td></tr>
+  <tr><td>윌리엄 테넨트 · 프린턴 · 일리엔 메리 대학 · 페라델피아</td><td>윌리엄 테넌트 · 프린스턴 · 윌리엄 앤 메리 대학 · 필라델피아</td><td>교재 p.174</td></tr>
+  <tr><td>길버트 테렌트 · 신파 후파</td><td>길버트 테넌트 · 신파 구파</td><td>교재 p.174</td></tr>
+  <tr><td>김대진 정부 · 장상</td><td>정부명 불명확 [?] · 장상(자막 '장상입니다')</td><td>자막 그대로</td></tr>
+  <tr><td>휴번 · 감독기 총회 · 출구당해서 · 원시감대교</td><td>휴 번 · 감독 총회 · 출교당해서 · 원시 감리교단</td><td>교재 p.174~175</td></tr>
+  <tr><td>찰스 스펀드 · 존 애슬리 · 182년에 829년에</td><td>찰스 스펄전 · 존 웨슬리 · 1829년</td><td>교재 p.175(스펄전); 연도는 문맥 [?]</td></tr>
+  <tr><td>라이먼 비치 · 나다니엘/나다넬 테일러 · 레인신학교 · 3일 치료</td><td>라이먼 비처 · 나다니엘 테일러 · 레인 신학교 · 삼위일체</td><td>교재 p.175(비처·테일러); 나머지는 문맥</td></tr>
+  <tr><td>뉴헤븐 신학위 · 뉴eheve 신앙 · 언죄론 · 알밀로스</td><td>뉴헤이븐 신학 · 원죄론 · 알미니우스</td><td>문맥 [?]; 교재 p.175는 인물까지만</td></tr>
+  <tr><td>제임스 백그레디 · 로간 카운티 · 캐스퍼 강 · 렉시턴</td><td>제임스 맥그리디 · 로건 카운티 · 가스퍼 강 · 렉싱턴</td><td>교재 p.175</td></tr>
+  <tr><td>조지 벡스터</td><td>조지 백스터</td><td>교재 p.175</td></tr>
+  <tr><td>1800년에 4월 4일간 · 100명 이상 증가 · 도움 일찍</td><td>1800년에 4일간(6월) · 10,000명 이상 · 봄 일찍</td><td>교재 p.175~176 [?]</td></tr>
+  <tr><td>구원을 치려 · 실 수 없이</td><td>구원을 외치려 · 셀 수 없이</td><td>교재 p.175~176 인용문</td></tr>
+  <tr><td>하이빈의 연남 · 인천교류 · 통시에</td><td>교정하지 않음 · 동시에</td><td>[?]; 교재 p.176('동시에')</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(자막)</th><th>교재 · 노트 처리</th></tr>
+  <tr><td>독립 선언과 프랑스 혁명의 간격</td><td>"1776년에 미국이 독을 선언하고 나서 10년 후에 프랑스 대응이 이루어지는 거예요" (자막 그대로)</td><td>교재 p.173 1789년 — 1776과 13년 차. 두 연도 병기</td></tr>
+  <tr><td>영국 청교도가 자연계시와 특별계시를 구분한 시기</td><td>"16세기에는 1640년에는 영국 천교자인들은" (자막 그대로)</td><td>교재 p.174 "1640년대의 영국 청교도들" — 교재 기준으로 적음</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽) · 수업 범위</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th><th>수업</th></tr>
+  <tr><td>p.173</td><td>33(오른쪽)</td><td>제8부 진보의 시대 · 배경 · 혁명에 대한 갈망 · 개신교의 확장(개요)</td><td>진보의 시대 개괄 · 배경</td></tr>
+  <tr><td>p.174</td><td>34(왼쪽)</td><td>서부 인구 · 1. 제2차 대각성운동(이신론) · A. 개요 · B. 통나무 대학 · C. 영국의 각성운동(시작)</td><td>서부 개척 · 이신론 · 드와이트 · 통나무 대학 · 휴 번</td></tr>
+  <tr><td>p.175</td><td>34(오른쪽)</td><td>C 영국(이어짐) · D. 예일대학의 부흥운동 · 2. 특징 A. 캠프집회(참관기 시작)</td><td>휴 번 · 스펄전 · 예일 · 캠프집회</td></tr>
+  <tr><td>p.176</td><td>35(왼쪽)</td><td>참관기(이어짐) · B. 캠프집회에 대한 반발 · C. 새로운 방법들(찰스 피니)</td><td>캠프집회 · 반발까지 (C. 새로운 방법들은 수업 안 함)</td></tr>
+  </table>
+  <p class="meta">수업 중 교수가 낭독한 교재 인용문(백스터·참관기·장로교 총회 선언)은 자막 기준 문장을 따옴표로 적었다.</p>
+  </div>
+</details>
+
+</body>
+</html>

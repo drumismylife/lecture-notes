@@ -604,11 +604,13 @@ const SITE_DATA = {
             { week: 7, title: "대각성운동과 감리교 운동 — 알미니우스주의, 에드워즈, 휫필드", date: "2026.10.13", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week07.html" }
           ] },
-            { week: 8, title: "웨슬리와 감리교, 미국의 독립전쟁과 개신교", date: "2026.10.20", files: [
-            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week08.html" }
+            { week: 8, title: "중간고사", date: "2026.10.20", files: [] },
+            { week: 9, title: "웨슬리와 감리교, 미국의 독립전쟁과 개신교", date: "2026.10.27", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week09.html" }
           ] },
-            { week: 9, title: "", date: "", files: [] },
-            { week: 10, title: "", date: "", files: [] },
+            { week: 10, title: "진보의 시대와 제2차 대각성운동", date: "2026.11.03", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week10.html" }
+          ] },
             { week: 11, title: "", date: "", files: [] },
             { week: 12, title: "", date: "", files: [] },
             { week: 13, title: "", date: "", files: [] },
