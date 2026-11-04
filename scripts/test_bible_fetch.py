@@ -40,6 +40,15 @@ class T(unittest.TestCase):
         with self.assertRaises(bf.BibleFetchError): bf.parse_chapter_html("<html>403 Forbidden</html>", "hab", 2)
     def test_reject_empty_verse_text(self):
         with self.assertRaises(bf.BibleFetchError): bf.parse_chapter_html(page(verses={1: "a", 2: " "}), "hab", 2)
+    def test_merged_marker_ok_and_reported(self):
+        pg = page(verses={1: "a", 2: "b", 3: "c"}).replace(">3&nbsp;", ">3-4&nbsp;")
+        m = []; v = bf.parse_chapter_html(pg, "hab", 2, m)
+        self.assertEqual(sorted(v), [1, 2, 3, 4]); self.assertEqual(v[3], v[4]); self.assertEqual(m, [(3, 4)])
+    def test_reject_merged_gap_or_reversed(self):
+        for pg in (page(verses={1: "a", 2: "b", 3: "c"}).replace(">2&nbsp;", ">2-3&nbsp;"),   # 2-3 then 3 => duplicate
+                   page(verses={1: "a", 2: "b"}).replace(">2&nbsp;", ">4-3&nbsp;"),             # reversed
+                   page(verses={1: "a", 2: "b", 3: "c"}).replace(">3&nbsp;", ">5-6&nbsp;")):   # gap (1,2,5,6)
+            with self.assertRaises(bf.BibleFetchError): bf.parse_chapter_html(pg, "hab", 2)
     def test_unknown_book(self):
         for bad in ("jon", "xyz", "요나서", "", "요나나"):
             with self.assertRaises(bf.BibleFetchError, msg=bad): bf.resolve_book(bad)

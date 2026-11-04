@@ -97,11 +97,13 @@ def _http_get(url: str) -> str:
 
 
 _NUM_SPAN = re.compile(
-    r'<span class="number">(?:<a name=focus></a>)?\s*([0-9]+(?:[-,~][0-9]+)?)(?:&nbsp;|\s)*</span>')
+    r'<span class="number">(?:<a name=focus></a>)?\s*([0-9]+(?:[-,~][0-9]+)?)(?:&nbsp;|\s)*</span>')  # 합본 표기 'a-b' 포함
 
 
-def parse_chapter_html(page: str, book: str, chap: int) -> dict[int, str]:
-    """bskorea 페이지 HTML -> {절번호: 본문}. 계약 위반이면 BibleFetchError. (네트워크 없음 — 단위 테스트 가능)"""
+def parse_chapter_html(page: str, book: str, chap: int, merged_out: list | None = None) -> dict[int, str]:
+    """bskorea 페이지 HTML -> {절번호: 본문}. 계약 위반이면 BibleFetchError. (네트워크 없음 — 단위 테스트 가능)
+    사이트가 합본 표기 'a-b'(예: 행 15:25-26, 신 30:9-10)로 인쇄한 절은 a..b 모든 번호에 같은 합본 본문을 넣고,
+    merged_out 리스트가 주어지면 (a, b) 를 append 한다. 합본이 펼쳐진 뒤에도 번호는 1..N 연속이어야 한다."""
     if not page or not page.strip():
         raise BibleFetchError(f"빈 페이지: {book} {chap}")
     # 요청한 책/장과 응답이 일치하는지(차단·리다이렉트·잘못된 코드 방어)
@@ -129,9 +131,13 @@ def parse_chapter_html(page: str, book: str, chap: int) -> dict[int, str]:
     order: list[int] = []
     for i in range(1, len(parts), 2):
         raw_num, seg = parts[i], parts[i + 1]
-        if not raw_num.isdigit():
-            raise BibleFetchError(f"합쳐진/범위 절 번호 {raw_num!r}: 자동 처리 불가 — 수동 확인 ({book} {chap})")
-        n = int(raw_num)
+        if raw_num.isdigit():
+            lo = hi = int(raw_num)
+        elif re.fullmatch(r"\d+-\d+", raw_num) and int(raw_num.split("-")[0]) < int(raw_num.split("-")[1]):
+            lo, hi = (int(x) for x in raw_num.split("-"))
+        else:
+            raise BibleFetchError(f"해석 불가 절 번호 {raw_num!r}: 수동 확인 ({book} {chap})")
+        n = lo
         # 절 본문은 이 절의 </span>(절 래퍼 종료) 또는 <br 에서 끝난다. 그 뒤(소제목·</div>·<script>=JS 꼬리)는 버린다.
         cut = len(seg)
         for marker in ("</span>", "<br"):
@@ -146,10 +152,13 @@ def parse_chapter_html(page: str, book: str, chap: int) -> dict[int, str]:
             raise BibleFetchError(f"{book} {chap}:{n} 본문이 비어 있음")
         if re.search(r"function\s*\(|\$\(|document\.|<script|</div>|&nbsp;|initBook", text):
             raise BibleFetchError(f"{book} {chap}:{n} 에 사이트 JS/HTML 꼬리 흔적: {text[-80:]!r}")
-        if n in verses:
-            raise BibleFetchError(f"{book} {chap}: 절 {n} 중복")
-        verses[n] = text
-        order.append(n)
+        for v in range(lo, hi + 1):
+            if v in verses:
+                raise BibleFetchError(f"{book} {chap}: 절 {v} 중복")
+            verses[v] = text
+            order.append(v)
+        if hi > lo and merged_out is not None:
+            merged_out.append((lo, hi))
 
     expected = list(range(1, len(order) + 1))
     if order != expected:
