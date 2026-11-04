@@ -129,7 +129,7 @@ def update(course_name, week_str, semester_id=None):
     pattern = r'(week:\s*' + str(week_int) + r'\b(?:(?!week:\s*\d).)*?files:\s*)\[\]'
     m = re.search(pattern, section, re.DOTALL)
     if not m:
-        print(f"⚠️  [{sem_id}] week {week_int} 항목 없음 또는 이미 파일 등록됨"); sys.exit(0)
+        print(f"❌ [{sem_id}] week {week_int} 항목 없음 또는 다른 파일이 이미 등록됨 — 등록 건너뜀(배포 중단): {href}"); sys.exit(3)
 
     new_section = section[:m.start()] + m.group(1) + f'[\n            {new_entry}\n          ]' + section[m.end():]
     new_region = region[:course_start] + new_section + region[course_end:]
