@@ -715,7 +715,9 @@ const SITE_DATA = {
             { week: 9, title: "창조의 윤리와 타락의 윤리", date: "2026.10.30", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week09.html" }
           ] },
-            { week: 10, title: "", date: "", files: [] },
+            { week: 10, title: "구속의 윤리와 완성의 윤리", date: "2026.11.06", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week10.html" }
+          ] },
             { week: 11, title: "", date: "", files: [] },
             { week: 12, title: "", date: "", files: [] },
             { week: 13, title: "", date: "", files: [] },
