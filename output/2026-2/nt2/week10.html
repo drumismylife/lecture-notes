@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신약성서II — 10주차 데살로니가전후서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f1e; --card:#161628; --subcard:#1e1e34; --accent:#7f93e0; --accent2:#a3b3e8;
+  --bible:#8ea8f0; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c9a84c;
+  --teal:#6ab8c8; --text:#e8eaf5; --text2:#9498aa; --border:#2d2d4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#0a0a16,#12121f 60%,#1a1a30)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#0f0f1e;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#171730;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(127,147,224,.06)}
+td{color:var(--text2)}
+td b{color:var(--text)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(127,147,224,.15);color:var(--accent2);border:1px solid rgba(127,147,224,.4)}
+.b-ppt{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.bq{background:rgba(142,168,240,.06);border:1px solid rgba(142,168,240,.25);border-left:3px solid var(--bible);border-radius:9px;padding:10px 14px;margin:9px 0;font-size:13px;color:var(--text2)}
+.bq .ref{color:var(--bible);font-weight:700;font-size:12px;display:block;margin-bottom:3px}
+.vq{color:var(--bible);font-style:italic}
+.say{color:var(--text);font-style:normal}
+.ref{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,.35);border-radius:4px;padding:0 6px;margin-left:3px;white-space:nowrap}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify h4{color:var(--accent2);font-size:13px;margin:16px 0 6px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+
+.oneline{background:linear-gradient(90deg,rgba(127,147,224,.14),transparent);border-left:3px solid var(--accent);border-radius:6px;padding:9px 14px;margin:0 0 10px;font-size:14px;color:var(--text);font-weight:500}
+.oneline:before{content:"한 줄 결론 ";font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;margin-right:6px}
+.sum{background:linear-gradient(160deg,#161628,#1a1a30);border:1px solid var(--accent);border-radius:14px;padding:18px 20px;margin:18px 0 8px}
+.sum h2{font-family:'Noto Serif KR',serif;font-size:1.05rem;color:var(--accent2);margin-bottom:8px}
+details{border:1px solid var(--border);border-radius:10px;background:rgba(30,30,52,.55);margin:10px 0}
+details>summary{cursor:pointer;padding:9px 14px;font-size:13px;color:var(--accent2);font-weight:500;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary:before{content:"▸ ";color:var(--accent)}
+details[open]>summary:before{content:"▾ "}
+details[open]>summary{border-bottom:1px solid var(--border)}
+details>.dbody{padding:4px 12px 10px}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">신약성서 II · 10주차 · 2026학년도 2학기 · 포괄 정리</div>
+  <h1>데살로니가전서 · 데살로니가후서</h1>
+  <div class="prof">담당 이영민 교수 (Abraham Y. Lee, PhD) · 2026.11.09 수업 · 디모데전후서·디도서는 이번 수업에서 다루지 않음</div>
+</div>
+<div class="intro">배지: <span class="b-ppt bdg">전 p.n</span>(10주차 자료1 데살로니가전서 PDF 쪽수, 18쪽) <span class="b-ppt bdg">후 p.n</span>(10주차 자료2 데살로니가후서 PDF 쪽수, 14쪽) <span class="b-add bdg">녹취 c0~0</span>(녹취 원문 글자 위치, 0부터 세며 전체 33,884자). <b>"…"</b>로 따옴표 친 수업 발언은 녹취 원문 그대로이고(받아쓰기 오류도 그대로 둠, 교정은 괄호로 표시), 성경 구절은 대한성서공회 개역개정입니다. <span class="bdg b-sup">[보충]</span>은 교수 발언·슬라이드와 다른 부분을 바로잡거나 덧붙인 것, <span class="bdg b-exam">[?]</span>는 녹취가 깨져 확정하지 못한 부분입니다. 슬라이드 문장은 PDF 기준, 교수 설명은 녹취 기준으로 구분해 적었습니다. 수업 중 잡담·휴식 안내는 뺐고, 교수의 개인 일화는 수업 요지와 관련된 것만 요지로 적었습니다.</div>
+
+<div class="emph" id="examtop">
+  <h3>★ 시험 관련 교수 발언 — 이번 수업에서 직접 언급 없음</h3>
+  <ul>
+    <li>녹취 전체에서 "시험"이라는 말은 쉬는 시간 직후 한 번 나오지만(<span class="say">아직 중간 시험 정도를 읽고 있었어요</span>) 내용이 깨져 수업 범위 안내인지 확인할 수 없습니다 <span class="bdg b-exam">[?]</span>. 기말·시험 범위를 말한 대목은 없습니다.</li>
+    <li>교수가 <b>"핵심"</b>이라고 직접 말한 것: <span class="say">어쨌든 바울이 썼다고 하든 그렇지 않다고 하든 이거가 핵심이에요. 주의 날이 아직 이르지 않았다.</span> (후서, 14·15절) / <b>"꼭 전해야 된다"</b>: 복음을 전할 때 <b>서로 사랑하며 살아야 한다</b>는 것(4절).</li>
+    <li>9주차에서 시험과 연결한 <b>후원자-피후원자 시스템</b>이 이번에도 우상을 버리는 설명(1:9)의 배경으로 다시 쓰였습니다(4절).</li>
+  </ul>
+</div>
+
+<div class="sum">
+  <h2>한눈에 보기</h2>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><th>전서 한 줄</th><td><b>"가장 초기에 이방 그리스도인들은 어떤 모습이었을까?"</b>(전 p.2) — 십자가 후 15~20년, 49-51년경 고린도에서 실라·디모데와 함께 기록한 바울 서신 중 가장 이른 서신(갈라디아서 남쪽 수신설을 내려놓으면).</td></tr>
+        <tr><th>도시와 시작</th><td>마게도냐 주의 수도, 약 10만 명, 네 주요 도로·천연 항구, 오시리스·세라피스·카비루스 신전. 48-51년 도착, 회당(행 17:2-4)에서 시작했으나 <b>평일 일터·장터</b>가 주된 배경, 가죽·천막 일(행 18:3).</td></tr>
+        <tr><th>우상을 버림 (1:9)</th><td>교수: 고대인이 신을 바꾸는 일은 충성(후원) 관계의 파탄이나 전쟁 패배 때뿐. 바울은 능력이 없어 <b>말로 증언</b>하고 <b>증거하시는 분은 하나님</b>. 복음에는 서로 사랑하라가 들어 있다.</td></tr>
+        <tr><th>전서 신학 주제</th><td>① 가족(유모·아버지·고아 같은 고통, 형제 15번) ② 명예와 수치 ③ 성 도덕(4:3-8) ④ 생계를 위한 노동(4:11-12) ⑤ <b>파루시아 전에 죽은 성도들</b>(4:13-18).</td></tr>
+        <tr><th>파루시아와 죽은 자</th><td>견해 1: 바울은 생전 재림을 기대(4:17 "우리") — 교수: '우리'는 그때까지 모두 살아 있다는 뜻이 아닐 수 있음. 견해 2(다수): 죽은 자들이 <b>파루시아에 참여 못 할까</b> 걱정 → 죽은 자가 <b>먼저 부활</b>하고 파루시아를 경험. 교수는 교재의 "놀랍다"에 완전히 동의하지 않고, 우리가 재림을 고대하는 마음이 약해졌다고 반문.</td></tr>
+        <tr><th>후서 한 줄</th><td>전서의 <b>"리메이크"</b>(부드러운 내용을 더 거칠게) · 약 50-53년 고린도 · 핵심 2:1-12: <b>주의 날은 아직 이르지 않았다</b>. 바울 저작 여부는 논쟁이나 교수는 어느 쪽이든 핵심 메시지는 같다고 본다.</td></tr>
+        <tr><th>후서 주제</th><td>심판의 확실성(1:6-7, 위로) · <b>불법의 사람</b>과 억제하는 자(2:1-12; 어거스틴도 "도무지 모르겠다") · 게으름(3:6-9, 11; 공동 식사 배제) · 디다케 11:3-6 · Powell: 재림은 가깝지만 즉각적이지 않으니 <b>선을 행해야 할 시기</b>(3:13).</td></tr>
+        <tr><th>자료3</th><td>디모데전후서·디도서 PDF는 이번 수업에서 설명되지 않아 정리하지 않음(16절).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toc">
+<a href="#sec1">1 도입: 가장 초기의 이방 그리스도인들</a>
+<a href="#sec2">2 데살로니가라는 도시</a>
+<a href="#sec3">3 바울의 도착과 사도행전 17장</a>
+<a href="#sec4">4 우상을 버리다</a>
+<a href="#sec5">5 일터와 장터의 복음</a>
+<a href="#sec6">6 재림: 다시 오심</a>
+<a href="#sec7">7 1년도 안 돼 세워진 지도자</a>
+<a href="#sec8">8 박해와 염려, 디모데의 소식</a>
+<a href="#sec9">9 신학 주제 ① 가족과 같이 대함</a>
+<a href="#sec10">10 신학 주제 ② 명예와 수치</a>
+<a href="#sec11">11 신학 주제 ③ 성 도덕</a>
+<a href="#sec12">12 신학 주제 ④ 생계를 위한 노동</a>
+<a href="#sec13">13 신학 주제 ⑤ 파루시아 전에 죽은 성도들</a>
+<a href="#sec14">14 데살로니가후서: 전서의 "리메이크"</a>
+<a href="#sec15">15 후서의 주제: 심판·불법의 사람·게으름·디다케</a>
+<a href="#sec16">16 오늘 수업 범위 확인: 디모데전후서·디도서</a>
+<a href="#sec17">17 시험 포인트</a>
+<a href="#src">출처</a>
+</div>
+
+<!-- SEC 1 -->
+<div class="sec" id="sec1">
+  <div class="sh"><span class="sb">1</span><span class="st">도입: 가장 초기의 이방 그리스도인들</span><div class="sl"></div></div>
+  <div class="oneline">가장 이른 시기의 이방인 교회를 보여 주는 서신 — 그러나 교수는 "놀랍다"는 교재 평가를 그대로 받지 않는다.</div>
+
+<div class="card">
+<h3>서신 표제와 한 문장 질문 <span class="b-ppt bdg">전 p.1</span> <span class="b-ppt bdg">전 p.2</span> <span class="b-add bdg">녹취 c262~1,068</span></h3>
+<ul>
+<li>표제: Προς Θεσσαλονικεις Α´(전서), 후서는 Β´(자료2 p.1). 교수: 헬라어는 알파벳 자체에 숫자 개념이 있어 알파(Α)는 전서, 베타(Β)는 후서가 된다. <span class="say">히브리어도 알바벳 자체에 숫자 개념이 있거든요.</span> (녹취 '알바벳'은 알파벳)</li>
+<li>한 마디로: <b>"가장 초기에 이방 그리스도인들은 어떤 모습이었을까?"</b>(슬라이드 p.2) — 교수는 질문에 <b>'가장 초기'</b>와 <b>'이방 그리스도인'</b> 두 요소가 있다고 짚는다. 녹취: <span class="say">가장 초기에 이반 그리스도인들은 어떤 모습이었을까?</span> ('이반'은 이방으로 교정, 슬라이드 확인)</li>
+<li>갈라디아서 언급: 갈라디아서도 매우 일찍 쓰였다고 소개했는데, 북쪽 갈라디아 수신설은 후대, 남쪽 수신설은 매우 이른 시기다. 북쪽설이 오래 주류였으나 남쪽을 가능성 높게 보는 연구가 늘었고 <span class="say">여전히 2가지 옵션이 생존한다.</span> 그래서 <b>갈라디아서를 잠깐 내려놓으면 데살로니가전서가 바울 서신 중 가장 먼저 쓰인 서신</b>이라고 한다.</li>
+<li>슬라이드 p.2: ① 예수님의 십자가 처형 이후 <b>15년에서 20년 사이</b>에 기록된 것으로 추정 ② 갈릴리 농촌의 작은 유대인 그룹으로 시작된 운동이 이렇게 짧은 기간 안에 로마 제국 주요 도시에 이방인 신자를 갖게 됨 ③ 데살로니가에 교회가 존재했다는 사실 자체가 놀랄 만하고, 이 교회가 이미 다음 2000년 동안 지성들 사이에서 논의될 핵심 주제들을 자각하고 있다는 점도 놀랍다.</li>
+<li>교수의 시간 감각(개인 일화 요지): 15~20년 전이라면 교수 자신은 미국에서 정착도 못 하고 1년에 세 번 이사하던 때다. 그 정도면 아직 생생하게 기억나는 시간이고, 그 시대 사람들은 예수님 일을 "거의 다 기억한다"고 말할 수도 있다.</li>
+<li>교수는 ③의 <b>"2000년 동안 논의될 주제"</b>라는 표현을 "왜 썼는지 모르겠고 잘 이해가 안 간다"고 하면서 관점을 바꾼다: 데살로니가 교인들은 오히려 서구 신학자들에게 <b>"예수님이 오시는 영광스러운 때(파루시아)를 너희는 아직도 기대하지 않고 있느냐"</b>고 되물을 수 있다 → 결론(14절)에서 다시 나온다. 녹취의 '파르세아'는 파루시아(슬라이드 p.16)로 교정.</li>
+</ul></div>
+</div>
+
+<!-- SEC 2 -->
+<div class="sec" id="sec2">
+  <div class="sh"><span class="sb">2</span><span class="st">데살로니가라는 도시</span><div class="sl"></div></div>
+  <div class="oneline">마게도냐의 수도, 10만 명의 대도시, 육로 4개와 항구 — 사람이 모이는 곳이라 신전도 많았다.</div>
+
+<div class="card">
+<h3>지중해 문화대륙과 도시의 성격 <span class="b-ppt bdg">전 p.4</span> <span class="b-add bdg">녹취 c2,272~3,691</span></h3>
+<ul>
+<li>지도: 왼쪽이 지중해. 교수: 사회·문화인류학자들은 지중해 연안을 하나의 <b>"문화대륙"</b>이라 부르는데, 독특한 문화가 있을 뿐 아니라 <b>변화의 속도가 매우 느리다</b>. <span class="say">이 지역의 그 문화의 변화의 속도가 그래서 지중해 문화대륙 이렇게 부르게도 해요.</span> (이 설명은 교수가 "이 말씀은 제가 처음 드리는 것 같다"고 했다)</li>
+<li>슬라이드 p.4: 오늘날의 그리스는 북쪽의 <b>마게도냐</b>와 남쪽의 <b>아가야</b> 두 지방(province). 데살로니가는 마게도냐 주의 수도 — <span class="say">수도 마게도니아 주의 수도였어요.</span></li>
+<li><b>약 10만 명</b>이 거주한 대도시(교수는 로마가 100만 명이었다고 상기시킴). <b>네 개의 주요 도로가 만나는 지점</b>(로마 시대 도로는 무역할 수 있도록 설계됨 → 육로 확보) + <b>최상의 천연 항구</b>(바다를 끼고 있음 → 해상로까지).</li>
+<li>고고학적 발굴: <b>오시리스(Osiris), 세라피스(Serapis), 카비루스(Cabirus)</b> 등의 사당과 신전. (녹취 '5시리스 세라피스 가비로스'는 슬라이드로 교정) 교수: 모든 생활이 신과 연결된 세계이니 무역·여행으로 오가는 사람이 자기 신께 종교 행위를 할 수 있도록 <b>시설을 마련</b>해 주는 것이 자연스럽다 — 오늘 말로 하면 왕래하는 사람들을 위한 일종의 서비스.</li>
+<li>이 설명을 하는 이유: 거기에 교회가 생겼을 때 <b>사람들과의 상호작용이 어땠을지</b> 생각해 보게 하려는 것.</li>
+</ul></div>
+</div>
+
+<!-- SEC 3 -->
+<div class="sec" id="sec3">
+  <div class="sh"><span class="sb">3</span><span class="st">바울의 도착과 사도행전 17장</span><div class="sl"></div></div>
+  <div class="oneline">주로 회당에서 시작 → 헬라인은 따르고 유대인은 시기해 소동.</div>
+
+<div class="card">
+<h3>슬라이드와 사도행전 낭독 <span class="b-ppt bdg">전 p.5</span> <span class="b-add bdg">녹취 c3,916~4,436</span></h3>
+<ul>
+<li>슬라이드 p.5: 바울은 두 번째 선교 여행 중 <b>약 48-51년 어간</b>에 데살로니가에 도착. 사도행전에 간략히 서술되어 있고 초점은 주로 <b>유대인 회당</b>(행 17:2-4).</li>
+<div class="bq"><span class="ref">행 17:2-4</span><sup>2</sup>바울이 자기의 관례대로 그들에게로 들어가서 세 안식일에 성경을 가지고 강론하며 <sup>3</sup>뜻을 풀어 그리스도가 해를 받고 죽은 자 가운데서 다시 살아나야 할 것을 증언하고 이르되 내가 너희에게 전하는 이 예수가 곧 그리스도라 하니 <sup>4</sup>그 중의 어떤 사람 곧 경건한 헬라인의 큰 무리와 적지 않은 귀부인도 권함을 받고 바울과 실라를 따르나</div>
+<li>교수: 아이러니하다 — <b>헬라인들은 따르는데 유대인들은 반발</b>한다. 유대인들은 시기하여(행 17:5) 소동을 일으킨다.</li>
+<div class="bq"><span class="ref">행 17:5</span>그러나 유대인들은 시기하여 저자의 어떤 불량한 사람들을 데리고 떼를 지어 성을 소동하게 하여 야손의 집에 침입하여 그들을 백성에게 끌어내려고 찾았으나</div>
+<li>교수: 군중 사회에서 소동은 큰 이목을 끈다. 처음엔 왜 그러나 했던 사람들도 자세히 듣기 시작했을 것이고, 이렇게 해서 <b>변화가 일어나기 시작했다.</b></li>
+</ul></div>
+</div>
+
+<!-- SEC 4 -->
+<div class="sec" id="sec4">
+  <div class="sh"><span class="sb">4</span><span class="st">우상을 버리다 (1:9) — 충성과 신들의 후원</span><div class="sl"></div></div>
+  <div class="oneline">교수의 핵심 설명: 고대인이 신을 바꾸는 일은 드물고, 그래서 "누가 증거하셨는가"가 중요하다.</div>
+
+<div class="card">
+<h3>1:9의 변화와 "충성심" <span class="b-ppt bdg">전 p.6</span> <span class="b-add bdg">녹취 c4,437~5,650</span></h3>
+<div class="bq"><span class="ref">살전 1:9</span>그들이 우리에 대하여 스스로 말하기를 우리가 어떻게 너희 가운데에 들어갔는지와 너희가 어떻게 우상을 버리고 하나님께로 돌아와서 살아 계시고 참되신 하나님을 섬기는지와</div>
+<ul>
+<li>슬라이드 p.6은 1:9와 2:9(밤낮으로 일하며 전함)를 인용하고, 이전에 이방 우상 숭배자였던 사람들이 복음을 받아들인 과정을 묘사한다고 정리한다.</li>
+<li>교수: 섬기던 우상을 버리는 일은 <b>충성심(녹취: 영어 '로열티'로 표현)</b> 개념으로 설명된다 — 사회적 가치를 연구한 학자가 영어 사용자라서 번역하면 오히려 어색해 영어를 그대로 소개한다고 했다(학자 이름은 녹취·슬라이드에 없음 <span class="bdg b-exam">[?]</span>).</li>
+<li><b>후원자-피후원자 관계</b>(지난주): 사회적 계층이 낮은 사람도 높은 사람의 후원자가 될 수 있고, 이 관계는 <b>사람 사이에서만이 아니라 신들과도</b> 있었다. 예배라는 행위로 신들에게 충성을 표했는데 신들이 사람에게 충성(후원)을 보이지 않으면, 집에서 <b>신상을 가지고 나와 거리에 던져 부수는 것이 일종의 처벌</b>이고, 그 다음 단계는 <b>다른 신을 선택</b>하는 것이다.</li>
+<li>교수: 이 일이 일어나지 않으면 바꿀 일이 없다. 성경이 이렇게 구체적으로 쓰지는 않았지만 행 1:8 등을 근거로 <span class="say">자신사회 고대사회에서의 자신의 민족의 신을 내려놓는다는 일은 전쟁에서 졌을 때 빼고는 극히 드물어요.</span> (녹취 첫머리 '자신사회'는 '고대사회' 앞의 군말로 보임 <span class="bdg b-exam">[?]</span>) 전쟁에서 진다는 것은 <b>신과 신의 싸움</b>으로 보았기 때문에 패하면 이긴 민족의 신을 섬기는 것이 당연했다.</li>
+<li>따라서 "우상을 버렸다"고 쓴 일이 일어나려면 <b>이 사람들의 눈에 무엇인가가 드러나야 한다.</b> 이미 그들에게는 '그리스도'라는 호칭으로 불린 존재가 있었다 — 위인이 신에게서 태어났다고 믿었고 호칭이 크리스토스(녹취 '크리스토스')였다. 황제가 그리스도이고 하나님의 아들이었다. 이런 사람들에게 <b>"살아 계시고 참되신 하나님"</b>을 섬긴다는 말은, 그동안 섬기던 것이 <b>살아 있지도 참되지도 않다는 것이 발견되었다</b>는 뜻이다.</li>
+<li>교수의 방법론 코멘트: 헬라어 원문을 읽는 것이 매우 중요하지만 문법·의미만 읽고 넘어가면 <b>왜 이런 일이 일어났는지</b> 보기에 한계가 있다. 사회·문화적 배경을 더하면 표현 뒤에서 일어났을 법한 일을 <b>가능성이 높은 것으로</b> 생각해 볼 수 있다.</li>
+</ul></div>
+
+<div class="card">
+<h3>학생 질문: "신들의 대결을 보여 준 것인가?" — 교수의 수정 <span class="b-add bdg">녹취 c6,736~8,760</span></h3>
+<ul>
+<li>학생(요지): 바울이 신들의 대결을 보여 줬다는 뜻이냐 — 증명해야 하지 않느냐. 교수는 "조금 수정"한다: <span class="say">바울은 그것을 할 수 있는 능력이 없어요.</span> <span class="say">바울과 팀은 말로 증언해요.</span></li>
+<li>사도행전 초반(행 1:6-8): 부활을 경험한 제자들이 "이스라엘을 회복하실 때입니까" 하고 묻는다. 교수: 여전히 메시아에 대한 기대가 담긴 질문. 예수님의 대답은 놀랍다 — "너희가 생각하지 않아도 되는 문제, 아버지께서 정하신 것"이라 하시고 <b>관점을 돌리신다</b>("오직"으로 번역된 헬라어 단어가 그 전환을 한다 — 교수 설명, 단어는 녹취 불명 <span class="bdg b-exam">[?]</span>).</li>
+<div class="bq"><span class="ref">행 1:6-8</span><sup>6</sup>그들이 모였을 때에 예수께 여쭈어 이르되 주께서 이스라엘 나라를 회복하심이 이 때니이까 하니 <sup>7</sup>이르시되 때와 시기는 아버지께서 자기의 권한에 두셨으니 너희가 알 바 아니요 <sup>8</sup>오직 성령이 너희에게 임하시면 너희가 권능을 받고 예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러 내 증인이 되리라 하시니라</div>
+<li>교수: 사도행전에 나타난 많은 일은 <b>하나님이 어떻게 증거되고 있는지</b>를 보여 준다. 바울 서신은 교회에서 일어난 일에, 사도행전은 <b>그 일이 누구로부터 말미암는지</b>에 초점을 둔다.</li>
+<li>교수 강조: <span class="say">절대 하나님이 하세요 하나님만 하세요.</span> <span class="say">사람이 하는 거 아니에요.</span> 바울도 자신의 사도됨과 전하는 말이 사람으로부터가 아니라 하나님으로부터라고 계속 말한다(교수 요약, 구절 번호는 말하지 않음).</li>
+<li>교수가 든 사례(요지): ① 시골 성황당 등에서 전도를 시작할 때 "죽을 거다"라는 말을 들었지만 결과는 반대였다. ② 교수가 2004년 이곳에서 다닐 때 전도학을 가르친 침례교단 목사님이 무당집에 전도하러 갔다가 쥐약을 탄 커피를 받고 기도한 일 — 녹취가 끊겨 결말은 확정하지 못함 <span class="bdg b-exam">[?]</span>.</li>
+<li>학생 의견(말로 하는 전도가 어렵다)에 대한 교수의 답: 매번 그런 일이 일어났던 것은 아닐 수도 있다. 구원이 꼭 필요한 인생의 시기에는 "예수님이 당신을 사랑하세요"만으로 돌아오는 경우도 있고, 복음을 진지하게 나누는 곳에서는 오늘날도 많이 일어난다고 들었다. <span class="say">우리가 말을 전해도 그 듣는 사람의 마음속에 떨림을 주고 두려움을 주고 하는 분은 하나님밖에 못해요.</span> 그래서 우리는 <b>담대함</b>을 가질 수 있다.</li>
+</ul></div>
+
+<div class="card">
+<h3>실습: 복음에는 무엇이 들어가는가 (수업 중 나눔) <span class="b-add bdg">녹취 c9,525~13,741</span></h3>
+<ul>
+<li>교수가 "바울은 복음을 일부만 전하지 않았을 것"이라며 학생들에게 복음의 요소를 말해 보게 한다(맞고 틀림을 따지는 것이 아니라 <b>복음 전할 때 어떤 요소가 있는지</b> 생각하는 활동).</li>
+<li>학생들이 말한 것(요지): 모두가 죄인 / 죄 문제 해결을 위해 예수님이 오셔서 대신 죽으심 / 믿으면 구원·영생·천국 / 하나님의 자녀 됨 / 성령님이 함께하심 / 몸의 부활 / 하나님과 항상 함께함 / 예수님이 기다리던 메시아·하나님 / 값없이 받는 선물 / 심판 / 자유와 평안 / 새 가족·거듭남 / 죄 사함.</li>
+<li>교수: 이렇게 5분도 안 되어 풍성한 요소가 나오는데 실제 전도에서는 비교적 적은 부분만 나눈다. 예수님의 입장에서 가장 중요한 것은 요한복음의 <b>"서로 사랑하라"</b>일 것이고, 보통 복음 전할 때 "서로 사랑하며 살아야 한다"는 말은 잘 안 한다고 짚는다.</li>
+<li>교수가 든 두 사례(요지): 뉴올리언스 학교 주변에서 2년 사이 일어난 총격 사건들(신학교 인근이 갱단 활동 지역; 학생들이 가는 상점 앞, 버스 정류장, 월마트 직원) — 교수는 "거기 삶은 안 무서웠다, 일상이니까"라고 말한다. 선교학 교수이자 담임목사가 무슬림 지역에서 짧은 시간 복음을 전했더니 한 여인이 <b>떨었다</b> → 복음이 <b>제대로 들렸기 때문</b>이고, 결단하라 하자 결정을 못 했다. <span class="say">복음이 제대로 들리게 전해지는 곳에서는 그와 같은 일들이 일어나는 것이 당연한 것 같아요.</span></li>
+<li>교수 정리: 이 학기를 함께하지 않은 사람은 "우상을 버렸다"는 대목을 그냥 지나가지만, 얼마나 중요하고 <b>얼마나 불가능한 일인지</b>가 와닿지 않는다. 성령님이 일하신다는 것을 놓치기 쉽고, 예수님이 복음 전할 때 <b>꼭 전하라</b> 하신 것 중 하나가 <b>서로 사랑하라</b>이다. 그 뒤 10분 쉬었다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 5 -->
+<div class="sec" id="sec5">
+  <div class="sh"><span class="sb">5</span><span class="st">일터와 장터의 복음 (슬라이드 p.7)</span><div class="sl"></div></div>
+  <div class="oneline">회당 밖 평일의 일터·장터가 교회가 세워진 주된 자리 — 이방인에게 익숙한 말로 시작해 참 하나님·예수·죽음·부활을 가르쳤다.</div>
+
+<div class="card">
+<h3>가죽·천막 일과 장터 선포 <span class="b-ppt bdg">전 p.7</span> <span class="b-add bdg">녹취 c13,966~15,708</span></h3>
+<ul>
+<li>슬라이드 p.7: 많은 학자들은 바울·디모데·실라가 데살로니가에서 <b>가죽 노동자나 천막 제조업자</b>로 일했다고 본다(행 18:3). 안식일에는 회당, 평일에는 <b>일터를 복음 증거의 장소</b>로 삼아 상당한 효과를 거둔 것으로 보인다. 이 서신에 따르면 데살로니가 교회 설립의 주된 배경은 <b>회당 선포보다 장터에서의 복음 선포</b>다.</li>
+<div class="bq"><span class="ref">행 18:3</span>생업이 같으므로 함께 살며 일을 하니 그 생업은 천막을 만드는 것이더라</div>
+<li>교수: 안식일 회당의 유대인들은 복음을 거부했고, 나아가 일을 방해하는 데까지 나갔다. 평일에는 사람이 가장 많이 모이는 시장(마켓플레이스)의 한 곳에 자리를 마련해 천막·가죽 기술로 일하며 복음을 나눴을 것이다. "밤낮으로 일했다"는 표현은 한 순간도 안 쉬었다는 뜻이 아니라 <span class="say">누가 봐도 굉장히 많았었던 상황인 것 같아요.</span>를 일의 시간이 많았다는 정도로 읽으면 된다(녹취 문장이 깨져 의미 위주로 정리 <span class="bdg b-exam">[?]</span>).</li>
+<li>슬라이드: 바울은 데살로니가 사람들에게 다가갈 때 <b>그레코-로만 세계에서 인기 있던 철학과 유사한 가르침</b>으로 시작한 듯하다 — '조용하게 살기를 힘쓰고, 자기 일에 전념하며, 자기 손으로 일을 하라'(4:11)는 에피쿠로스 학파의 교훈과 비슷. 교수: 직접 확인한 것은 아니고 연구한 분들의 결과다. 이방 배경 사람들과 만날 때는 <b>그들에게 익숙한 것을 대화의 소재</b>로 삼는 바울의 모습이 여기서 보인다.</li>
+<div class="bq"><span class="ref">살전 4:11-12</span><sup>11</sup>또 너희에게 명한 것 같이 조용히 자기 일을 하고 너희 손으로 일하기를 힘쓰라 <sup>12</sup>이는 외인에 대하여 단정히 행하고 또한 아무 궁핍함이 없게 하려 함이라</div>
+<li>동시에 기독교 믿음의 주제를 분명히 가르쳤다(슬라이드): <b>참되신 유일하신 하나님</b>(1:9), <b>하나님의 아들 예수</b>(1:10)와 그분의 <b>죽으심</b>(4:10, 14)과 <b>부활</b>(1:10; 4:14).</li>
+<li>교수: 거짓된 여러 신을 내려놓고 진짜 유일하신 하나님을 발견하게 하는 것이 전한 내용. '하나님의 아들 예수'도 바울이 <b>'나사렛 예수가 하나님의 아들'</b>이라고 말했을 가능성을 생각해 볼 수 있다(강조점이 다름). 서신에는 죽음과 부활만 스치듯 나오지만, 배움을 바탕으로 한 상상력을 쓰면 <b>왜 죽으셨는지, 누구로 말미암아 살아났는지</b>도 말하지 않았을 수 없다.</li>
+<li>교수가 소개한 책: 교수가 화이트보드에 이름을 쓴 학자(녹취 '크레이 에스키너' <span class="bdg b-exam">[?]</span> — 철자 확정 못 함)는 고대 사회의 책을 주로 보고, 아내가 흑인인 다문화 가정이며 처음부터 예수를 따르던 사람이 아니라 계기가 있었다고 한다. 최근 낸 두 권짜리 책의 제목이 '미라클(기적들)'이고, 현재도 놀라운 일이 일어나고 있음을 학자로서 고대 문헌부터 현대 인터뷰까지 보여 준다. 관심 있으면 읽어 보라고 권한다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 6 -->
+<div class="sec" id="sec6">
+  <div class="sh"><span class="sb">6</span><span class="st">재림: 다시 오심 (슬라이드 p.8)</span><div class="sl"></div></div>
+  <div class="oneline">바울이 가르친 가장 중요한 점 — 예수님이 진노에서 구원하러 다시 오신다. 교수는 용어를 바꿔 "다시 오신다"로 말한다.</div>
+
+<div class="card">
+<h3>재림 주제와 교수의 용어 선택 <span class="b-ppt bdg">전 p.8</span> <span class="b-add bdg">녹취 c16,776~18,725</span></h3>
+<ul>
+<li>슬라이드 p.8: 다른 무엇보다 중요한 점은 예수께서 <b>하나님의 진노로부터 사람들을 구원하기 위해 다시 오신다</b>는 것을 가르쳤다(1:10; 2:19; 3:13; 4:15-17; 5:2-5, 23). 이 재림 주제는 데살로니가 교인들이 <b>특히 관심을 가진 문제</b>, 믿음에 지대한 영향을 준 관심사였던 것으로 보인다.</li>
+<div class="bq"><span class="ref">살전 1:10</span>또 죽은 자들 가운데서 다시 살리신 그의 아들이 하늘로부터 강림하실 것을 너희가 어떻게 기다리는지를 말하니 이는 장래의 노하심에서 우리를 건지시는 예수시니라</div>
+<li>교수: 이 주제가 우리나라(와 미국)에서 잘못 소개되어 <b>자살까지 있었던 아픈 기억</b>이 있어 조심하게 되지만, 그렇다고 전하지 않을 수는 없다. 교수는 용어를 자꾸 바꾸려 한다 — 은사를 '선물'로, 방언을 '말'로. 굳어진 이미지 때문에 조심하다 안전해질까 봐서다. <span class="say">재림이라는 말보다도 예수님이 다시 오신다고 했어요.</span> 꼭 얘기해야 할 부분이고, 우리가 스스로 시리어스하게 받아들이지 않으면 전할 수 없다.</li>
+<li>교수의 기도 습관(요지): 교회에서 설교할 때 "주여"보다 <b>"예수님 보고 싶어요"</b>처럼 이름을 부른다. 아이들이 특별한 기도였다고 고백한 적도 있다. 교수: 우리가 쓰는 기독교 용어 상당수는 <b>바깥 사회에서 쓰던 말을 가져와 익숙해진 것</b>이다. '주여'도 자기보다 높은 사람에게 쓰던 호칭(녹취 '끼리에/끼리오스' = 주님)이어서, 예수를 부를 때도 무게가 다르며 선생님을 부를 때도 쓰였다(교수 설명, 헬라어 표기는 슬라이드에 없어 한글 표기만). <span class="say">언어가 바뀌면 생각이 바뀌어요.</span> 익숙한 말을 잠시 내려놓으면 스쳐 가려던 것을 멈추고 그분을 생각하게 된다.</li>
+<li>교수의 예고: 데살로니가에서 재림에 관심이 컸던 이유가 뒤(14절)에 나온다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 7 -->
+<div class="sec" id="sec7">
+  <div class="sh"><span class="sb">7</span><span class="st">1년도 안 돼 세워진 지도자 (5:12)</span><div class="sl"></div></div>
+  <div class="oneline">교수 적용: 지도자는 1년 안에도 세워질 수 있다 — 작은 교회와 이중직 이야기.</div>
+
+<div class="card">
+<h3>슬라이드와 교수의 적용 <span class="b-ppt bdg">전 p.8</span> <span class="b-add bdg">녹취 c18,903~20,185</span></h3>
+<div class="bq"><span class="ref">살전 5:12</span>형제들아 우리가 너희에게 구하노니 너희 가운데서 수고하고 주 안에서 너희를 다스리며 권하는 자들을 너희가 알고</div>
+<ul>
+<li>슬라이드 p.8: 바울은 이 도시에서 채 1년도 활동하지 않았는데 떠날 즈음에는 다른 사람을 주 안에서 훈계할 책임을 가진 <b>교회 지도자</b>들이 세워질 수 있었다(5:12, προϊσταμένους).</li>
+<li>교수: <span class="say">지도자가 세워질 수 있어요.</span> 신학대학원 3년을 해야 한다는 개념과는 다르다. 교수 자신은 순복음 배경 교회에서 출발했고 신학 없이도 일할 수 있게 하고 신학을 할 수 있게 해 준 사례라고 한다(단점도 있다고 덧붙임). 교수 본인도 예수 믿은 지 1년 조금 넘어 전도사가 되었다. <span class="say">우리의 생각을 조금 바꿀 필요가 있어요.</span> 예수님 사랑이 큰 부분이고 나머지는 섬기려는 마음에서 나오니, 배워 가며 섬기면 된다.</li>
+<li>교수 개인 견해(교회 개척): 이번 학기에 개척을 여러 번 권했지만 최근에는 <b>작은 교회를 많이 세웠으면</b> 한다 — 가장 큰 장점은 <b>비용이 적게 든다</b>는 것(아내와의 대화에서 떠오름). 개척 목회자의 부담이 큰 것 중 하나가 일이 많은 것인데, 필요할 때 바울처럼 <b>생계를 위해 밖에서 일하는 것</b>이 좋고, 교회 안에서도 꼭 해야 할 일과 안 해도 되는 일이 있다. 교수는 "많이 해 본 사람"이라고 말한다. 작은 교회는 <b>가정교회(빌레몬서에서 같이 본 것)</b>처럼 마음 맞는 사람들이 시작하는 모습이다. (녹취가 끊겨 일부 문장은 의미 위주 <span class="bdg b-exam">[?]</span>)</li>
+</ul></div>
+</div>
+
+<!-- SEC 8 -->
+<div class="sec" id="sec8">
+  <div class="sh"><span class="sb">8</span><span class="st">박해와 염려, 디모데의 소식 (슬라이드 p.9~11)</span><div class="sl"></div></div>
+  <div class="oneline">데살로니가 교인들은 기쁘게만 산 것이 아니라 환난을 겪으며 교회가 섰다 — 바울은 디모데의 좋은 소식을 듣고 서신을 썼다.</div>
+
+<div class="card">
+<h3>박해의 현장 <span class="b-ppt bdg">전 p.9</span> <span class="b-add bdg">녹취 c20,179~22,000</span></h3>
+<div class="bq"><span class="ref">살전 2:14</span>형제들아 너희가 그리스도 예수 안에서 유대에 있는 하나님의 교회들을 본받은 자 되었으니 그들이 유대인들에게 고난을 받음과 같이 너희도 너희 동족에게서 동일한 고난을 받았느니라</div>
+<div class="bq"><span class="ref">살전 3:3-4</span><sup>3</sup>아무도 이 여러 환난 중에 흔들리지 않게 하려 함이라 우리가 이것을 위하여 세움 받은 줄을 너희가 친히 알리라 <sup>4</sup>우리가 너희와 함께 있을 때에 장차 받을 환난을 너희에게 미리 말하였는데 과연 그렇게 된 것을 너희가 아느니라</div>
+<ul>
+<li>슬라이드 p.9: 교인들을 떠나온 바울은 갓 믿음을 가진 그들을 박해의 현장에 두고 온 것을 매우 염려하고 근심했던 것 같다(2:14; 3:3-4).</li>
+<li>교수: 2:14의 "유대에 있는 하나님의 교회들이 유대인들에게 받은 고난"은 바울과 동료들의 경험이며, 데살로니가 사람들도 <b>동족에게서 비슷한 고난</b>을 받았다. 이들은 가족·사회 친구·지금까지 이어 온 관계들로부터 <b>거부당하기 시작했을</b> 가능성이 매우 높고, 그쪽 입장에서는 이 사람들이 먼저 자기들을 떠났다고 느껴 "돌아오기 전까지 못 받아 준다"고 할 수 있다.</li>
+<li>"환난을 미리 말하였다"(3:4)에 대해 교수: 바울이 "성령이 말씀하십니다, 데살로니가에 곧 박해가 일어납니다" 하는 <b>예언이 아니라</b>(바울은 그런 계시가 필요 없고, 가는 곳마다 어떤 일이 일어나는지 경험으로 안다) <b>"예수님을 믿으면 어려움을 당하게 된다"</b>는 것을 전했다는 뜻이다. 우리가 복음 전할 때 잘 안 하는 것 중 하나.</li>
+<li>교수 자신의 경험(요지): 교수와 아내 모두 신앙 1세대이고, 부모님으로부터 듣고 싶지 않은 말(호적에서 파겠다, 교회를 불태우겠다 등)을 듣는 시기가 있었다. 예수님도 제자들에게 이름 때문에 부모·형제에게 거부당하고 형제가 죽는 데 넘겨질 것이라 하셨다(교수 요약, 구절 번호 말하지 않음). 당시 죽음은 돌에 맞아 죽는 것처럼 점잖지 않았고, <b>지중해 연안은 변화가 느려 명예살인이 여전히 있다</b> — 가문에 큰 수치를 끼쳤을 때 오빠가 동생을 죽이면 오히려 영예를 얻는다.</li>
+<li>교수: 노란색으로 표시한 슬라이드 부분이 바로 그 의미다. <span class="say">그냥 데살로니가 교인들이 기쁘게만 살아서 지도자가 서고 그런 거 아니에요.</span> <span class="say">그런 가운데 교회가 서가는 거예요.</span></li>
+</ul></div>
+
+<div class="card">
+<h3>디모데와 좋은 소식, 기록 시기 <span class="b-ppt bdg">전 p.10</span> <span class="b-add bdg">녹취 c22,001~22,301</span></h3>
+<ul>
+<li>슬라이드 p.10: 바울은 교회가 시련을 이겨낼 수 있을지 궁금해 본인이 가려 했으나 <b>사탄이 막았음</b>(2:18). 그래서 <b>디모데를 보냈고</b>(3:2-3), 디모데가 <b>좋은 소식</b>을 가지고 돌아왔다(3:8). 이 소식을 듣고 <b>실라와 디모데와 함께 기록</b>한 서신이 데살로니가전서.</li>
+<li>기록 시기: <b>49-51년</b>으로 추정, 당시 바울은 고린도에서 아굴라·브리스길라 부부와 장터에서 복음을 전하고 있었을 것(행 18:1-4). 교수: 좋은 소식이란 <b>시련을 이겨 내고 있다는 소식</b>이겠다.</li>
+</ul></div>
+
+<div class="card">
+<h3>서신의 목적과 문체 <span class="b-ppt bdg">전 p.11</span> <span class="b-add bdg">녹취 c22,303~22,571</span></h3>
+<ul>
+<li>슬라이드 p.11: 주된 목적은 바울이 데살로니가 성도들과 맺은 <b>좋은 관계를 되새기고 더 견고히</b> 하는 것. 문체는 일반적으로 <b>'회상'의 문체</b> — 이미 알고 있는 진리를 상기시켜 그 위에 굳게 서게 한다.</li>
+<li>교수: 이 주제를 연구한 분들에 따르면 회상체로 계속 쓰여 있고(직접 확인한 것은 아님), 집단 사회에서 <b>무언가를 함께 회상하는 것은 하나됨을 든든히 하는 기능</b>을 한다 — 추억을 같이 되새기는 것처럼.</li>
+</ul></div>
+</div>
+
+<!-- SEC 9 -->
+<div class="sec" id="sec9">
+  <div class="sh"><span class="sb">9</span><span class="st">신학 주제 ① 가족과 같이 대함 (p.12)</span><div class="sl"></div></div>
+  <div class="oneline">유모와 아버지, 고아 같은 고통, 형제 15번 — 짧은 서신에 가족 언어가 가득하다.</div>
+
+<div class="card">
+<h3>부모의 역할과 "형제" <span class="b-ppt bdg">전 p.12</span> <span class="b-add bdg">녹취 c22,573~23,277</span></h3>
+<div class="bq"><span class="ref">살전 2:7</span>우리는 그리스도의 사도로서 마땅히 권위를 주장할 수 있으나 도리어 너희 가운데서 유순한 자가 되어 유모가 자기 자녀를 기름과 같이 하였으니</div>
+<div class="bq"><span class="ref">살전 2:11</span>너희도 아는 바와 같이 우리가 너희 각 사람에게 아버지가 자기 자녀에게 하듯 권면하고 위로하고 경계하노니</div>
+<div class="bq"><span class="ref">살전 2:17</span>형제들아 우리가 잠시 너희를 떠난 것은 얼굴이요 마음은 아니니 너희 얼굴 보기를 열정으로 더욱 힘썼노라</div>
+<ul>
+<li>슬라이드 p.12: 바울과 동료들은 데살로니가 교인들과 있을 때 <b>부모의 역할</b>을 했다 — 유모가 자기 자녀를 대하듯 부드럽고 유순하게(2:7), 아버지가 자녀에게 하듯 권면하고 위로(2:11). 어쩔 수 없이 결별하게 되자 교인들을 자녀처럼 여긴 나머지 <b>'고아와 같이 내버려 둔 고통'</b>을 느꼈다(2:17). 서신 기록 당시에는 교인들을 <b>"형제"</b>로 여겨 이 짧은 서신에 <b>15번</b> 나온다(1:4; 2:1, 9, 14, 17; 3:2, 7; 4:1, 6, 9, 10, 13; 5:1, 12, 26).</li>
+<li>교수: 한글 성경으로는 누가 고아가 된 느낌인가(바울과 팀인가 데살로니가 사람들인가)를 묻는다. 슬라이드 녹색 부분의 헬라어는 문법상 <b>'고아를 만들다/고아처럼 되다'</b> 두 방향이 모두 가능해 번역에서 하나를 택한 것 같다고 한다(헬라어 단어 철자는 녹취·슬라이드에 없어 적지 않음, 수동태 설명은 녹취 불명확 <span class="bdg b-exam">[?]</span>). 요점: <b>그만큼 마음이 컸다</b>.</li>
+<li><span class="bdg b-sup">[보충]</span> 개역개정 2:17에는 '고아' 표현이 없다("얼굴이요 마음은 아니니"). 슬라이드의 '고아와 같이 내버려 둔 고통'은 다른 번역·원어 풀이에 따른 표현이므로 시험 답안에는 슬라이드 표현을 쓰되 성경 본문과 다름을 알아 둘 것.</li>
+</ul></div>
+</div>
+
+<!-- SEC 10 -->
+<div class="sec" id="sec10">
+  <div class="sh"><span class="sb">10</span><span class="st">신학 주제 ② 명예와 수치 (p.13)</span><div class="sl"></div></div>
+  <div class="oneline">그리스도인이 되는 것은 사회적 명망을 잃는 일 — 바울은 하나님의 눈과 새 가족 안에서의 명예를 알려 준다.</div>
+
+<div class="card">
+<h3>수치와 확장된 가족 <span class="b-ppt bdg">전 p.13</span> <span class="b-add bdg">녹취 c23,279~24,342</span></h3>
+<div class="bq"><span class="ref">살전 1:7-9</span><sup>7</sup>그러므로 너희가 마게도냐와 아가야에 있는 모든 믿는 자의 본이 되었느니라 <sup>8</sup>주의 말씀이 너희에게로부터 마게도냐와 아가야에만 들릴 뿐 아니라 하나님을 향하는 너희 믿음의 소문이 각처에 퍼졌으므로 우리는 아무 말도 할 것이 없노라 <sup>9</sup>그들이 우리에 대하여 스스로 말하기를 우리가 어떻게 너희 가운데에 들어갔는지와 너희가 어떻게 우상을 버리고 하나님께로 돌아와서 살아 계시고 참되신 하나님을 섬기는지와</div>
+<ul>
+<li>슬라이드 p.13: 동족에게 수치를 당했지만 바울의 생각은 달랐다. 1세기 중반 데살로니가에서 그리스도인이 되는 것은 <b>존경과 사회적 명망을 잃는 것</b>(유대인들의 이단 정죄, 도시 신들의 축제에 불참, 황제에게 영광을 돌리지 않음). 바울은 사회적 시선과 하나님의 눈이 다르다고 말한다(1:7-9).</li>
+<li>교수: 집단 사회에서 수치를 당하는 것은 전 재산을 잃는 것보다 견디기 힘들 수 있다 — 돈으로 살 수 있지만 <b>명예를 잃는 파급 효과가 훨씬 크고</b>, 사회적으로 생명을 잃는 것과 같다. <span class="say">사람들 눈에는 그렇게 수치를 없는 것 같지만 하나님 눈에는 다르다는 걸 얘기해줘요.</span> (녹취 '수치를 없는'은 '수치 없는'의 뜻으로 보임 <span class="bdg b-exam">[?]</span>)</li>
+<li>'마게도냐와 아가야'는 지도로 보면 그리스 전체(위쪽 마게도냐, 아래쪽 아가야)이고 '각처'로 소문이 퍼졌다. 새로 형성된 <b>확장된 가족</b>으로부터 영예가 계속 온다 — 그리스도 밖에서는 인식할 수 없는 것을 바울이 설명해 주니 큰 위로.</li>
+<li>바울의 두 가지 실제적 권면(슬라이드): ① <b>서로 격려하고 세워 주기</b> — 주변 세계에서 누리지 못하는 명예를 공동체 안에서 확인(4:18; 5:11, 14) ② <b>불신자들에게 사랑을 풍성히 베풀고 선을 행하기</b>(5:15).</li>
+<div class="bq"><span class="ref">살전 5:14-15</span><sup>14</sup>또 형제들아 너희를 권면하노니 게으른 자들을 권계하며 마음이 약한 자들을 격려하고 힘이 없는 자들을 붙들어 주며 모든 사람에게 오래 참으라 <sup>15</sup>삼가 누가 누구에게든지 악으로 악을 갚지 말게 하고 서로 대하든지 모든 사람을 대하든지 항상 선을 따르라</div>
+<li>교수: 바울 신학에서 늘 끝에 나오는 것 — 어찌할 수 없는 상태에서 진리를 발견하고 자유를 찾았는데, 그 자유에는 <b>선택할 자유</b>가 포함되어 있고 그것을 <b>선한 일에 동참하는 쪽으로 선택해서 살라</b>는 강한 초대다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 11 -->
+<div class="sec" id="sec11">
+  <div class="sh"><span class="sb">11</span><span class="st">신학 주제 ③ 성 도덕 (p.14)</span><div class="sl"></div></div>
+  <div class="oneline">일반 윤리의 문제가 아니라 다신교 종교 문화 속에서 온 새로운 가르침 — 4:3-8.</div>
+
+<div class="card">
+<h3>슬라이드와 교수 설명 <span class="b-ppt bdg">전 p.14</span> <span class="b-add bdg">녹취 c24,343~26,009</span></h3>
+<div class="bq"><span class="ref">살전 4:3-8</span><sup>3</sup>하나님의 뜻은 이것이니 너희의 거룩함이라 곧 음란을 버리고 <sup>4</sup>각각 거룩함과 존귀함으로 자기의 아내 대할 줄을 알고 <sup>5</sup>하나님을 모르는 이방인과 같이 색욕을 따르지 말고 <sup>6</sup>이 일에 분수를 넘어서 형제를 해하지 말라 이는 우리가 너희에게 미리 말하고 증언한 것과 같이 이 모든 일에 주께서 신원하여 주심이라 <sup>7</sup>하나님이 우리를 부르심은 부정하게 하심이 아니요 거룩하게 하심이니 <sup>8</sup>그러므로 저버리는 자는 사람을 저버림이 아니요 너희에게 그의 성령을 주신 하나님을 저버림이니라</div>
+<ul>
+<li>슬라이드 p.14: 바울은 특별히 <b>성적인 문제에서 거룩하고 존귀하게</b> 행하라고 강조한다 — 결혼 이외의 성적 관계나 지나친 색욕에 빠지지 말라(4:3-7). 교인들이 대체로 유대교 배경이었다면 이렇게까지 강조할 필요가 없었을 것이고, 얼마 전까지 하나님을 몰랐던 <b>이방인 출신에게 순결과 일부일처제는 새로운 사상</b>처럼 보였을 수 있다. 바울은 이 가르침이 <b>하나님으로부터의 가르침</b>임을 표한다(4:8).</li>
+<li>교수: 이것은 일반 윤리적 성도덕 이야기가 아니다. 다신교 사회에서는 신들이 <b>부부(남편·아내)로 짝지어진 경우</b>가 많았다. 예: 가나안의 신 <b>바알</b>(녹취 '발') — 바알이 다른 신에게 죽임당해 지하에 매장되자 아내 신이 그 신을 찾아가 죽이고 남편을 부활시킨다. 교수 해석: 바알은 <b>풍요·생명력을 상징</b>하고(녹취 <span class="say">발은 생명력을 상징하는 신이에요.</span>), 죽음은 가뭄·기근, 부활은 풍요의 회복 — 자연 현상을 신화에 담은 것. 모세와 여호수아가 가나안에서 바알을 섬기지 말라고 한 것도 섬길 가능성이 컸기 때문이라고 한다(구절 번호는 말하지 않음).</li>
+<li>교수: 사람들은 이 신들이 <b>항상 사랑을 나눌 수 있도록 자신들이 도와야 한다</b>고 느껴, 신전에서 종교의식으로 성관계를 하는 남녀가 임명되어 있었다고 한다. 그런 영향 아래 살던 사람들은 결혼 밖의 성관계를 윤리에 어긋난다고 느끼지 않았는데 <b>예수 그리스도 안에서는 받아들일 수 없다.</b></li>
+<li>예루살렘 공회(교수 설명): 이방 교회들이 방해와 거짓 가르침으로 힘들어하자 바울이 예루살렘 교회의 기둥 같은 지도자들과 회의했다(49년). 큰 결정은 <b>율법의 짐을 내려놓자</b>는 것이고, 몇 가지를 덧붙였는데 <b>목매어 죽인 것을 먹지 않는 것과 음행</b>이다. 교수: 일반적인 음행이 아니라 사회에 워낙 만연해 있어서 처음 믿는 시기에도 명확한 가르침이 필요했던 것. 서신을 받은 교회들이 기뻐했고 날마다 구원받는 자가 늘었다(교수 요약, 구절 번호 말하지 않음).</li>
+<li>교수: 로마 사회에는 동성애도 널리 퍼져 있었고 특히 남자 청소년을 취하는 일이 많았으며 성전환 수술을 한 기록도 남아 있다고 설명한다 — "지금 갑자기 일어난 일이 아니다."(녹취 일부 불명확 <span class="bdg b-exam">[?]</span>)</li>
+</ul></div>
+</div>
+
+<!-- SEC 12 -->
+<div class="sec" id="sec12">
+  <div class="sh"><span class="sb">12</span><span class="st">신학 주제 ④ 생계를 위한 노동 (p.15)</span><div class="sl"></div></div>
+  <div class="oneline">재림 기대가 일을 포기하는 구실이 되었을 수 있다 — 공동 만찬을 생계 수단으로 삼은 사람들.</div>
+
+<div class="card">
+<h3>자기 손으로 일하라 <span class="b-ppt bdg">전 p.15</span> <span class="b-add bdg">녹취 c26,296~26,532</span></h3>
+<ul>
+<li>슬라이드 p.15: 바울은 자기 손으로 일하고 남에게 신세 지지 않도록 하라고 한다(4:11-12, 위 5절 인용). 교회에는 생계를 위해 일하라는 권면을 들어야 했던 <b>'개으름뱅이들'</b>이 있었던 것으로 보인다(5:14). 일부 학자는 이 게으름이 <b>임박한 재림 기대</b>와 관련이 있을 수 있다고 본다 — '예수의 재림만을 기다리며 일하기를 포기하는 사람들'?</li>
+<li>교수: 예수님이 오시기를 기다리는 마음이, 일을 하지 않고 기다리는 것이 최선의 삶이라는 생각으로 이어진 사람들이 있었던 것 같다. 그리고 <b>공동 만찬</b>이 자주 있었고 주로 기부로 이루어졌는데, 그것을 <b>자기 생계 수단으로 삼으려는 사람들</b>이 있었던 것으로 추정된다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 13 -->
+<div class="sec" id="sec13">
+  <div class="sh"><span class="sb">13</span><span class="st">신학 주제 ⑤ 파루시아 전에 죽은 성도들 (p.16~18)</span><div class="sl"></div></div>
+  <div class="oneline">핵심 질문: 파루시아 전에 죽은 사람은 어떻게 되는가 — 교수는 "우리 살아남은 자"의 "우리" 해석으로 서양 학자와 다른 시각을 소개한다.</div>
+
+<div class="card">
+<h3>용어와 본문 낭독 <span class="b-ppt bdg">전 p.16</span> <span class="b-add bdg">녹취 c26,561~29,025</span></h3>
+<ul>
+<li>교수: 파루시아는 데살로니가전·후서 <b>공통의 매우 핵심적인 주제</b>다. 부활은 익숙하지만(전인격적으로 다시 사는 것) 파루시아는 낯선 단어일 수 있다. 부활을 부인한 것이 아니라 그것은 다 믿는데 <span class="say">그건 다 믿는데 예수님이 오시는 그 장면을 파르시아라 그래요.</span> 하늘이 열리고 나팔 소리가 울려 퍼지는 웅대한 장면을 '예수님의 현현/임재'라는 뜻의 파루시아라 불렀다(녹취 '파르시아/파로시아/하루시아'는 슬라이드 '파루시아'로 교정).</li>
+<li>슬라이드 p.16: 서신의 마지막 부분에서 바울은 공동체를 괴롭히던 한 문제를 다룬다 — 교인 몇이 죽었고, 슬픔에 잠긴 이들이 <b>죽은 자들과 앞으로 일어날 일</b>에 대해 어떻게 생각해야 할지를 가르친다(4:13-18). 교수: 이 서신을 쓴 날짜를 기준으로 아직 주님이 오시지 않았다 — 여전히 오지 않으셨다.</li>
+<div class="bq"><span class="ref">살전 4:13-18</span><sup>13</sup>형제들아 자는 자들에 관하여는 너희가 알지 못함을 우리가 원하지 아니하노니 이는 소망 없는 다른 이와 같이 슬퍼하지 않게 하려 함이라 <sup>14</sup>우리가 예수께서 죽으셨다가 다시 살아나심을 믿을진대 이와 같이 예수 안에서 자는 자들도 하나님이 그와 함께 데리고 오시리라 <sup>15</sup>우리가 주의 말씀으로 너희에게 이것을 말하노니 주께서 강림하실 때까지 우리 살아 남아 있는 자도 자는 자보다 결코 앞서지 못하리라 <sup>16</sup>주께서 호령과 천사장의 소리와 하나님의 나팔 소리로 친히 하늘로부터 강림하시리니 그리스도 안에서 죽은 자들이 먼저 일어나고 <sup>17</sup>그 후에 우리 살아 남은 자들도 그들과 함께 구름 속으로 끌어 올려 공중에서 주를 영접하게 하시리니 그리하여 우리가 항상 주와 함께 있으리라 <sup>18</sup>그러므로 이러한 말로 서로 위로하라</div>
+<li>교수는 13절은 학생이, 14절은 교수가 번갈아 읽었고 낭독 중 "위로가 필요했던 모양이에요"라고 덧붙였다.</li>
+</ul></div>
+
+<div class="card">
+<h3>학자들의 견해 두 가지 <span class="b-ppt bdg">전 p.17</span> <span class="b-add bdg">녹취 c27,478~29,025</span></h3>
+<ul>
+<li><b>견해 1</b>(슬라이드 p.17): 바울은 <b>자신의 생전에 그리스도가 재림하실 것</b>이라고 생각했다 — 근거는 4:17 <b>"우리 살아남은 자들도"</b>. 교수: 이것은 '우리'라는 말을 잘 안 써 본 서양 신학자들의 시각일 수 있다. <span class="say">오리라는 말로 담을 수 있는 범위가 다양해요.</span> (녹취 '오리'는 '우리') 예를 들어 교수가 지금 청중과 얘기하며 "우리 대학교 학생들"이라 하면 그 대학교 학생 전체를 포함하듯, 바울의 '우리 살아남은 자들'도 <b>그때까지 살아 있는 사람들 중 일부는 죽을 수도 있다는 가정까지 포함</b>하는 표현일 수 있다. 교수는 이 해석을 자신이 만든 것이 아니라 가르쳐 주신 교수님이 "서양 학자들은 그걸 잘 이해 못 한다"고 하신 말씀을 듣고 이해한 것이라고 밝힌다. <span class="say">바울이 꼭 그때까지 살아있을 거다라는 말로 하지 않았을 가능성이 크다.</span></li>
+<li><b>견해 2</b>(조금 더 다수의 학자들, 슬라이드 p.17): 교인들이 염려한 것은 죽은 사람들이 <b>부활에 참여하지 못하는 것</b>이 아니라 <b>파루시아에 참여하지 못하는 것</b>이다. 죽은 사람들은 매일 예수가 오시기를 고대하다가 죽었고, 새로운 생명으로 다시 일어날 것이지만 부활이 파루시아 이후에 온다면 매우 실망할 것이다 — 그토록 보기를 갈망한 위대한 사건을 놓치기 때문이다. 그래서 바울은 <b>그리스도 안에서 죽은 자들이 예수가 오시기 전에 부활할 것이고 파루시아를 경험하게 될 것</b>이라고 확언하고 "이런 말로 서로 위로하라"고 한다. 교수는 이 견해를 따르는 학자가 늘고 있다고 한다(왜 더 다수인지는 "표현들의 다른 의미들이 보여서"라고 답함, 녹취 불명확 <span class="bdg b-exam">[?]</span>).</li>
+<li>교수 메모: 헬라어 문법도 지금까지는 서양 신학자들의 시각으로 많이 보았지만, 앞으로 공부하면 새로운 아이디어를 내놓을 수 있을 것이라고 격려한다.</li>
+</ul></div>
+
+<div class="card">
+<h3>결론 슬라이드와 교수의 이견 <span class="b-ppt bdg">전 p.18</span> <span class="b-add bdg">녹취 c29,062~29,431</span></h3>
+<ul>
+<li>슬라이드 p.18: 데살로니가전서는 예수의 십자가와 부활 이후 <b>15-20년쯤</b>에 기록된 것으로 추정(교수는 '승천' 이후라고 말함 — 녹취 불명확 <span class="bdg b-exam">[?]</span>). 교회가 존재했다는 사실 자체가 놀랍고, 이 교회가 이미 <b>종말, 선택, 예정, 거룩함, 하나님의 말씀, 복음</b>과 같은 2000년 동안 논의될 주제들을 자각하고 있었다는 점도 놀랍다.</li>
+<li>교수: <span class="say">저는 여기에 풀릿 완전히 동의하진 않아요.</span> (녹취 '풀릿'은 불명, 문맥상 '전적으로'의 뜻으로 보임 <span class="bdg b-exam">[?]</span>) <span class="say">오히려 반문할 수도 있다고 저는 생각해요.</span> — "파루시아 생각 안 해 봤어?" 우리는 <span class="say">부활만 보통 생각하잖아요.</span> <span class="say">그만큼 예수님이 오시는 것에 대한 고대함이 우리에게 조금 많이 약화되어 있는 것처럼 보여요.</span></li>
+</ul></div>
+</div>
+
+<!-- SEC 14 -->
+<div class="sec" id="sec14">
+  <div class="sh"><span class="sb">14</span><span class="st">데살로니가후서: 전서의 "리메이크" (자료2 p.1~8)</span><div class="sl"></div></div>
+  <div class="oneline">후서는 전서의 부드러운 표현을 거칠게 바꾼 인상 — 바울 저작 여부는 논쟁, 핵심 메시지는 2:1-12.</div>
+
+<div class="card">
+<h3>도입과 배경 <span class="b-ppt bdg">후 p.2</span> <span class="b-ppt bdg">후 p.4</span> <span class="b-ppt bdg">후 p.5</span> <span class="b-add bdg">녹취 c29,441~30,564</span></h3>
+<ul>
+<li>슬라이드 p.2: <b>데살로니가후서는 데살로니가전서의 "리메이크"로 여겨질 수 있다</b> — 많은 부분이 전서의 부드러운 내용을 조금 더 거칠게 표현하는 인상. <span class="say">대살로니가 후설 이해하는 것은 데살로니가 전서의 리메이크 정도로 볼 수 있는 요소들이 있어요.</span> (교수: 많은 부분이지 전체는 아니다)</li>
+<li>슬라이드 p.4(전서와 동일): 마게도냐의 수도, 네 도로·항구, 10만여 명, 오시리스·세라피스·카비루스. 교수: 여기도 다시 한번 스케치하는 것(4개 도로, 수도, 10만, 신들을 섬기는 곳이 많음).</li>
+<li>슬라이드 p.5: 바울은 두 번째 선교 여행 중 약 48-51년 어간에 데살로니가에 와서 주로 이방인으로 구성된 교회를 세웠고, 박해가 심해지자 도시를 떠나 남겨진 교회에 편지(전서)를 보냈다. 얼마 후 <b>새로운 위기</b>가 생긴 것을 안 바울이 또 하나의 서신으로 해결하려 했다 — 약 <b>50-53년 고린도</b>에서 기록, 주된 논점은 <b>2:1-12</b>(주의 날이 이르기 전에 어떤 일이 일어나야 하는지).</li>
+</ul></div>
+
+<div class="card">
+<h3>저작 논쟁 <span class="b-ppt bdg">후 p.8</span></h3>
+<ul>
+<li>교수 예고: 후서는 <b>바울이 썼지 않았을 것이라고 하는 분이 꽤 있다</b>. 이유: 2:1-12의 표현 중 <b>요한계시록과 매우 비슷한 표현</b>이 있고 전개 순서도 비슷하다. 교수는 요한계시록이 학자들 다수에게 로마 당국에게 어려움을 당하는 상황을 그린 것으로 이해된다고 설명한다(교수 발언, 근거 문헌은 말하지 않음).</li>
+<li>바울 저작이 아니라고 보는 사람들의 설명(교수·슬라이드 p.8): 바울이 죽은 뒤 수년(교수: 십수 년 또는 조금 더 후) 그리스도인들이 계속 재림을 생각했고, <b>전서의 필사본을 가진 어떤 사람</b>이 그것을 모델로 삼아 "바울이라면 이렇게 편지를 써서 위로했을 것"이라고 후서를 구성했다는 것. 표면적으로는 데살로니가 교회에 보낸 것이지만 실제로는 로마 제국 도처의 그리스도인들이 돌려 읽도록 의도했을 것이라고도 한다. <span class="say">그것은 하나의 가설입니다.</span></li>
+<li>교수: 바울이 바로 보냈다고 보든 나중에 다른 사람이 썼다고 보든 <span class="say">어떤 것을 취해도 핵심 메시지는 어디에 남아 있냐면 우리가 지금 읽을 곳에 남아 있어요.</span> 슬라이드도 이 서신의 주요 요점은 <b>2:1-12의 종말 가르침</b>이라고 정리한다.</li>
+</ul></div>
+
+<div class="card">
+<h3>2:1-12 낭독과 상황 설명 <span class="b-ppt bdg">후 p.5</span> <span class="b-ppt bdg">후 p.6</span> <span class="b-add bdg">녹취 c30,739~31,844</span></h3>
+<div class="bq"><span class="ref">살후 2:1-12</span><sup>1</sup>형제들아 우리가 너희에게 구하는 것은 우리 주 예수 그리스도의 강림하심과 우리가 그 앞에 모임에 관하여 <sup>2</sup>영으로나 또는 말로나 또는 우리에게서 받았다 하는 편지로나 주의 날이 이르렀다고 해서 쉽게 마음이 흔들리거나 두려워하거나 하지 말아야 한다는 것이라 <sup>3</sup>누가 어떻게 하여도 너희가 미혹되지 말라 먼저 배교하는 일이 있고 저 불법의 사람 곧 멸망의 아들이 나타나기 전에는 그 날이 이르지 아니하리니 <sup>4</sup>그는 대적하는 자라 신이라고 불리는 모든 것과 숭배함을 받는 것에 대항하여 그 위에 자기를 높이고 하나님의 성전에 앉아 자기를 하나님이라고 내세우느니라 <sup>5</sup>내가 너희와 함께 있을 때에 이 일을 너희에게 말한 것을 기억하지 못하느냐 <sup>6</sup>너희는 지금 그로 하여금 그의 때에 나타나게 하려 하여 막는 것이 있는 것을 아나니 <sup>7</sup>불법의 비밀이 이미 활동하였으나 지금은 그것을 막는 자가 있어 그 중에서 옮겨질 때까지 하리라 <sup>8</sup>그 때에 불법한 자가 나타나리니 주 예수께서 그 입의 기운으로 그를 죽이시고 강림하여 나타나심으로 폐하시리라 <sup>9</sup>악한 자의 나타남은 사탄의 활동을 따라 모든 능력과 표적과 거짓 기적과 <sup>10</sup>불의의 모든 속임으로 멸망하는 자들에게 있으리니 이는 그들이 진리의 사랑을 받지 아니하여 구원함을 받지 못함이라 <sup>11</sup>이러므로 하나님이 미혹의 역사를 그들에게 보내사 거짓 것을 믿게 하심은 <sup>12</sup>진리를 믿지 않고 불의를 좋아하는 모든 자들로 하여금 심판을 받게 하려 하심이라</div>
+<ul>
+<li>교수가 짚은 상황: 어떤 사람이 "바울이 쓴 편지가 왔다"(바울이 보내지 않았는데), "내가 계시를 받았다", "내가 가르칠 만한 지식이 있다"며 등장했고 <b>"주의 날이 이미 왔다"</b>고 하니 사람들의 마음이 흔들렸다. 바울과 팀이 편지를 써야겠다고 느낀 것. 교수가 말한 메시지는 <b>"아직 주의 날이 오지 않았다"</b>를 확인해 주는 것이다(녹취 "아직 주의 날이 아는 거예요"는 불명 <span class="bdg b-exam">[?]</span> — 뒤에서 교수가 같은 취지를 "주의 날이 아직 이르지 않았다"로 말함). 염려하지 말고, 주님의 날이 올 때 이런 일들이 <b>먼저 일어나야 한다</b>고 연대기를 구성해 소개한 것.</li>
+<li>교수: 이런 사람들의 말에 영향을 받을 만큼 데살로니가 교인들의 <b>재림에 대한 갈망이 컸다.</b></li>
+</ul></div>
+
+<div class="card">
+<h3>2:6-7 "막는 것": 어거스틴과 Powell <span class="b-ppt bdg">후 p.7</span> <span class="b-add bdg">녹취 c31,963~32,410</span></h3>
+<div class="bq"><span class="ref">살후 2:6-7</span><sup>6</sup>너희는 지금 그로 하여금 그의 때에 나타나게 하려 하여 막는 것이 있는 것을 아나니 <sup>7</sup>불법의 비밀이 이미 활동하였으나 지금은 그것을 막는 자가 있어 그 중에서 옮겨질 때까지 하리라</div>
+<ul>
+<li>슬라이드 p.7: 5세기 <b>어거스틴</b>은 2:6-7 주석에서 <b>"이 말의 의미가 무엇인지 도무지 모르겠다는 점을 인정해야만 한다"</b>(City of God 20.19)고 했고, <b>Powell</b>은 <b>"현대의 학자들은 이 수수께끼를 분석하는 데 있어서 어거스틴보다 더 나은 자리에 있지 않다"</b>고 말한다.</li>
+<li>교수: 노란색으로 표시한 부분인데 <b>우리는 몰라요</b> — 어거스틴도 그렇게 표현했다(교수는 Powell을 '우리 교재의 저자'로 소개하고 "돌려서 말했다"고 했다). <span class="say">여러분 성경 읽을 때 다 알 수 있을까요? 괜찮아요.</span> 여기에 아주 좋은 선례가 있다.</li>
+</ul></div>
+</div>
+
+<!-- SEC 15 -->
+<div class="sec" id="sec15">
+  <div class="sh"><span class="sb">15</span><span class="st">후서의 주제: 심판·불법의 사람·게으름·디다케 (p.9~13)</span><div class="sl"></div></div>
+  <div class="oneline">심판은 박해받는 이들에게 위로 — "불법의 사람"과 막는 자는 모른다 — 게으른 이들은 공동 식사에서 배제.</div>
+
+<div class="card">
+<h3>심판의 확실성 <span class="b-ppt bdg">후 p.9</span> <span class="b-add bdg">녹취 c32,424~32,617</span></h3>
+<div class="bq"><span class="ref">살후 1:6-7</span><sup>6</sup>너희로 환난을 받게 하는 자들에게는 환난으로 갚으시고 <sup>7</sup>환난을 받는 너희에게는 우리와 함께 안식으로 갚으시는 것이 하나님의 공의시니 주 예수께서 자기의 능력의 천사들과 함께 하늘로부터 불꽃 가운데에 나타나실 때에</div>
+<ul>
+<li>슬라이드 p.9: 저자는 하나님이 박해하는 자들의 악행을 심판하실 것을 확언한다(1:6). 1:5-12의 강조점은 심판의 부정적 측면이 아니라 <b>고통받는 이들의 구원</b>(1:6-7)과 <b>예수의 정당성 입증</b>과 영광(1:10, 12)이다.</li>
+<li>교수: 심판의 부정적 측면을 부각하기보다 환난을 받는 사람들에게 <b>위로가 되는 쪽으로</b> 쓴다 — 환난을 주는 자에게는 환난으로 갚으시는 것이 하나님의 공의라는 위로.</li>
+</ul></div>
+
+<div class="card">
+<h3>"불법의 사람"의 등장 <span class="b-ppt bdg">후 p.10</span> <span class="b-ppt bdg">후 p.11</span> <span class="b-add bdg">녹취 c32,619~32,905</span></h3>
+<ul>
+<li>슬라이드 p.10: 후서에서 가장 중요해 보이는 새 내용은 <b>주의 날(2:2), 즉 예수의 재림(2:1)이 "배교하는 일이 있고" "불법의 사람이 나타나기 전에는"(2:3) 오지 않는다</b>는 가르침. 불법의 사람은 이미 존재할 수도 있다("불법의 비밀"이 이미 활동 2:7). 지금은 어떤 사람 또는 어떤 것에 의해 <b>억제</b>되고 있다(2:7-8). 바울 저작으로 보는 학자들은 우리가 모르는 특정한 내용을 전하고 있다고 추정한다(2:5-6). 해석자들은 이 단락이 로마 제국의 최근 사건을 반영한다고 주장했으나 <b>어떤 사건인지는 논란</b>이 많다. 요점은 <b>주의 날이 이미 왔다는 주장의 잘못을 지적</b>하기 위해 사건들의 연대기를 제시하는 것 — 원 청중이 서신을 읽는 시점에서 주의 날은 아직 오지 않았다.</li>
+<li>슬라이드 p.11: 이 "불법의 사람"은 아마 요한 문서의 <b>적그리스도</b>(요일 2:18)와 요한계시록의 <b>짐승</b>(계 11:7; 13:1-18)과 같은 존재일 것이다. 후서만의 독특한 점은 <b>지정된 시간까지 불법의 사람을 억제하는 어떤 사람 또는 힘</b>이 있다는 진술(2:7-8)로, 다른 곳에서는 언급되지 않는다.</li>
+<li>교수: 이 부분을 요한계시록과 연결해 로마 제국 내 최근 사건들을 반영한다고 주장했지만 구체적 논의나 설명이 없어 <b>확정할 수 없다</b> — 그러나 큰 가능성이 있다. <span class="say">어쨌든 바울이 썼다고 하든 그렇지 않다고 하든 이거가 핵심이에요.</span> <span class="say">주의 날이 아직 이르지 않았다.</span></li>
+</ul></div>
+
+<div class="card">
+<h3>게으름의 문제와 디다케 <span class="b-ppt bdg">후 p.12</span> <span class="b-ppt bdg">후 p.13</span> <span class="b-add bdg">녹취 c32,919~33,650</span></h3>
+<div class="bq"><span class="ref">살후 3:6-9</span><sup>6</sup>형제들아 우리 주 예수 그리스도의 이름으로 너희를 명하노니 게으르게 행하고 우리에게서 받은 전통대로 행하지 아니하는 모든 형제에게서 떠나라 <sup>7</sup>어떻게 우리를 본받아야 할지를 너희가 스스로 아나니 우리가 너희 가운데서 무질서하게 행하지 아니하며 <sup>8</sup>누구에게서든지 음식을 값없이 먹지 않고 오직 수고하고 애써 주야로 일함은 너희 아무에게도 폐를 끼치지 아니하려 함이니 <sup>9</sup>우리에게 권리가 없는 것이 아니요 오직 스스로 너희에게 본을 보여 우리를 본받게 하려 함이니라</div>
+<ul>
+<li>슬라이드 p.12: 당시 그리스도인들의 <b>공동 식사</b>는 흔한 일이었다(행 2:42, 46; 고전 11:33; 갈 2:12 참조). 게으른 이들 중에는 <b>공동체 기부로 제공된 무료 급식을 생계 수단</b>으로 여긴 사람이 있었을 수 있다. 또 일자리를 갖지 않는 것을 <b>영적으로 합리화</b>(기도에 몰두하거나 '주님의 오심을 기다리는데' 전념)하려는 사람, 또는 <b>"일은 하지 않고 일을 만들기만 하는"(3:11)</b> 부유한 사람에게 주어진 책망일 가능성도 있다. 요점은 <b>일을 할 수 없는 사람(또는 일자리를 찾을 수 없는 사람)을 비난하려는 것이 아니라 일을 하려 하지 않는 사람을 공동 식사에서 배제하라</b>는 것 — 바울과 디모데와 실라는 수고하고 애써 주야로 일하며 본을 보였다(3:6-9).</li>
+<li>슬라이드 p.13: <b>주후 약 100년경의 기독교 문서</b>가 순회 전도자들에 대해 기록했다 — "복음서가 명령한 대로 사도들과 선지자들을 대하라 … 사흘을 묵는다면 그는 거짓 선지자이다 … 돈을 요청한다면 그는 거짓 선지자이다.(Didache 11:3-6)" (전문은 슬라이드 p.13 참조)</li>
+<li>교수: 이 문서는 <span class="say">뒤닫케라고 해서 제자들의 가르침이라는 책이에요.</span> (녹취 '뒤닫케'는 슬라이드 'Didache'로 교정, 한글 '디다케'). 직장을 얻을 수 없는 사람이 아니라 <span class="say">자신들의 생계의 수단으로 활용하려고 했던 사람들이 있어 보여요.</span> — 공동체가 써야 할 것을 자기 생계 수단으로 쓴 사람들에게 "게으르게 하지 말고 자기 손으로 일하라"는 말과 연결된다. 여기서 <b>'빵'은 끼니 정도, 생계에 꼭 필요한 음식</b>으로 받아들일 수 있다. 약 100년경 문서치고 꽤 예민한 느낌이지 않느냐고 묻고, 다른 클래스에서는 시간을 더 쓴 부분이라 이 정도로 넘어간다고 했다.</li>
+</ul></div>
+
+<div class="card">
+<h3>Powell의 맺음말 <span class="b-ppt bdg">후 p.14</span> <span class="b-add bdg">녹취 c33,652~33,883</span></h3>
+<ul>
+<li>슬라이드 p.14: <b>"그리스도의 오심은 가깝지만 즉각적으로 일어나지는 않는다. 그러므로 남아 있는 시간을 열광적인 추측이나 게으른 기대로 낭비해서는 안 된다. 데살로니가 교인들은 임박한 구원을 고대해야 하지만 기다리는 기간을 기독교의 성장과 선교를 위해 생산적으로 사용해야 할 시기, 즉 '선을 행해야 할'(3:13) 시기로 여겨야 한다."</b></li>
+<li>교수는 이 문장을 낭독하며 수업을 마쳤다. 맺음 이후 다른 말은 없음.</li>
+</ul></div>
+</div>
+
+<!-- SEC 16 -->
+<div class="sec" id="sec16">
+  <div class="sh"><span class="sb">16</span><span class="st">오늘 수업 범위 확인: 디모데전후서·디도서</span><div class="sl"></div></div>
+  <div class="oneline">자료3(디모데전후서 디도서)은 오늘 수업에서 다루지 않았다 — 노트에 넣지 않음.</div>
+
+<div class="card">
+<ul>
+<li>이번 주 강의자료는 3개(데살로니가전서, 데살로니가후서, 디모데전후서·디도서)이지만, 녹취는 데살로니가후서 마지막 슬라이드(Powell 맺음말)를 읽고 "수고 많이 하셨습니다"로 끝난다. 녹취 전체에서 디모데전후서·디도서·목회 서신을 다룬 대목이 없고(디모데는 데살로니가전서 3:2-3 이야기에서만 등장), 자료3의 내용은 수업에서 설명되지 않았다.</li>
+<li>따라서 자료3(<code>10주차_11월9일_자료3_디모데전후서 디도서.pdf</code>)은 이 노트에 정리하지 않는다. 다음 수업에서 다룰 때 따로 정리한다. (참고로 PDF 텍스트는 <code>10주차_자료3_텍스트.txt</code>로 추출만 해 두었다.)</li>
+</ul></div>
+</div>
+
+<!-- SEC 17 -->
+<div class="sec" id="sec17">
+  <div class="sh"><span class="sb">17</span><span class="st">시험 포인트 (압축)</span><div class="sl"></div></div>
+  <div class="oneline">교수가 이번 수업에서 시험을 직접 언급한 대목은 없다 — 아래는 교수가 "핵심"·"꼭"이라고 한 대목과 슬라이드 결론을 기준으로 한 압축.</div>
+
+<div class="card">
+<ul>
+<li><b>전서 한 줄</b>: "가장 초기에 이방 그리스도인들은 어떤 모습이었을까?" — 십자가 후 15~20년, 49-51년경 고린도에서 기록, 바울 서신 중 가장 이른 서신(갈라디아서 남쪽 수신설을 내려놓으면).</li>
+<li><b>배경</b>: 마게도냐 주의 수도, 약 10만 명, 네 주요 도로·천연 항구, 오시리스·세라피스·카비루스 신전. 바울 도착 48-51년, 행 17:2-4 회당 → 헬라인 따름·유대인 시기(17:5). 가죽·천막 일(행 18:3), <b>회당보다 장터 선포</b>.</li>
+<li><b>우상을 버림(1:9)</b>: 교수 설명 — 충성·후원 관점, 고대인이 신을 바꾸는 것은 전쟁 패배나 충성 확인 실패 때뿐 → <b>바울은 능력이 없고 말로 증언, 증거하시는 분은 하나님</b>.</li>
+<li><b>전도 내용</b>(슬라이드): 참되신 유일하신 하나님(1:9), 하나님의 아들 예수(1:10), 죽으심(4:10, 14)·부활(1:10; 4:14), <b>재림 — 진노에서의 구원</b>(1:10; 2:19; 3:13; 4:15-17; 5:2-5, 23). 4:11 '조용히·자기 일·자기 손' = 에피쿠로스 학파 교훈과 유사.</li>
+<li><b>지도자</b>: 1년도 안 돼 세워짐(5:12). <b>박해</b>: 2:14, 3:3-4; 사탄이 막음(2:18) → 디모데 파송(3:2-3), 좋은 소식(3:8) → 전서.</li>
+<li><b>전서 목적·문체</b>: 좋은 관계를 되새기고 견고히, <b>회상체</b>.</li>
+<li><b>신학 주제 5가지(슬라이드 p.12~17)</b>: ① 가족(유모 2:7, 아버지 2:11, 고아 같은 고통 2:17, 형제 15번) ② 명예와 수치(1:7-9; 서로 격려 4:18, 5:11, 14; 불신자에게 선 5:15) ③ 성 도덕(4:3-8; 이방 출신에게는 순결·일부일처제가 새로운 사상) ④ 생계를 위한 노동(4:11-12; 개으름뱅이 5:14; 재림 기대와 관련 가능) ⑤ <b>파루시아 전에 죽은 성도들</b>(4:13-18).</li>
+<li><b>⑤의 두 견해</b>: 바울이 자기 생전 재림을 기대(4:17 "우리") vs 다수 견해 — 죽은 사람들이 <b>파루시아에 참여하지 못함</b>을 걱정, 바울은 죽은 자들이 <b>먼저 부활</b>하고 파루시아를 경험한다고 확언. 교수: '우리'는 모두 살아 있다는 뜻이 아닐 수 있다.</li>
+<li><b>후서</b>: 전서의 "리메이크"(더 거칠게); 50-53년 고린도; 핵심 2:1-12(<b>주의 날이 아직 이르지 않았다</b>); 바울 저작 논쟁(후대의 모방설 vs 바울 저작 — 교수: 어느 쪽이든 핵심 메시지 같음); 어거스틴 "도무지 모르겠다"(City of God 20.19), Powell "더 나은 자리에 있지 않다".</li>
+<li><b>후서 주제</b>: 심판의 확실성(1:6-7; 위로) · 불법의 사람(배교 후 등장, 이미 불법의 비밀 활동, 억제자 2:6-8, 적그리스도·짐승과 같은 존재) · 게으름(공동 식사 배제, 바울 본 3:6-9, 3:11) · 디다케 11:3-6(약 100년경, 순회 전도자 사흘 = 거짓 선지자) · Powell 맺음말: 재림은 가깝지만 즉각적이지 않고 <b>선을 행해야 할 시기</b>(3:13).</li>
+</ul></div>
+</div>
+
+<!-- SRC -->
+<div class="verify" id="src">
+  <h3>출처와 확인</h3>
+  <div class="row">
+    <span class="stat"><b>녹취:</b> 신약성서_261109_녹취_데살로니가전후서.txt (33,884자)</span>
+    <span class="stat"><b>강의자료:</b> 10주차_11월9일_자료1_데살로니가전서.pdf (18쪽)</span>
+    <span class="stat"><b>강의자료:</b> 10주차_11월9일_자료2_데살로니가후서.pdf (14쪽)</span>
+    <span class="stat"><b>성경:</b> 대한성서공회 개역개정 (bible_fetch: 살전 1~5장, 살후 1~3장, 행 1·17·18장)</span>
+  </div>
+  <h4>[자료·발언 간 차이]</h4>
+  <ul>
+    <li>살전 2:17: 슬라이드 '고아와 같이 내버려 둔 고통' ↔ 개역개정에는 '고아' 표현 없음(→ 9절 <span class="bdg b-sup">[보충]</span>).</li>
+    <li>성경 대조: 슬라이드가 전체를 인용한 구절(살전 4:11-18, 살후 1:6-7, 살후 2:1-12, 행 17:2-4)은 개역개정과 글자까지 일치. 살전 1:7-9, 2:9, 3:3, 5:12, 행 17:5는 슬라이드가 일부만 인용하거나 괄호·원어(προϊσταμένους)를 끼워 넣어 전체 일치는 아니며 본 노트에는 개역개정 전문을 실었음.</li>
+    <li>교수의 '승천 이후 15~20년'(녹취) ↔ 슬라이드 p.18 '십자가와 부활 이후 15-20년'(→ 13절 <span class="bdg b-exam">[?]</span>).</li>
+    <li>데살로니가전서 2:17 이하 '고아' 풀이의 헬라어 단어, 화이트보드에 쓴 학자 이름('크레이 에스키너'), 사회적 가치 연구자 이름은 녹취·슬라이드에 철자가 없어 적지 않음 <span class="bdg b-exam">[?]</span>.</li>
+    <li>수업 중 교수가 든 외부 사례(쥐약 일화, 뉴올리언스 사건, 무슬림 여인, 명예살인, 바알 신화, 로마 사회의 성 풍속, 요한계시록의 배경 설명)는 교수 발언으로만 기록했고 별도 출처를 확인하지 않음.</li>
+  </ul>
+  <h4>[확인 방법]</h4>
+  <ul>
+    <li>따옴표로 친 교수 발언 36건 전부 녹취 원문과 글자 그대로 일치하는지 스크립트로 대조(불일치 0). 녹취 위치 배지(c)도 스크립트가 원문 검색으로 계산.</li>
+    <li>이 노트는 Gemini 청킹 단계 없이 녹취 전체와 슬라이드 두 개를 직접 읽고 작성(오너 지시: Gemini 한도 도달).</li>
+  </ul>
+</div>
+
+<div class="foot">
+  작성일: 2026.11.09 (초안) · 신약성서 II 10주차 녹취와 강의자료(10주차 자료1 데살로니가전서, 자료2 데살로니가후서) 기반
+</div>
+</div>
+</body>
+</html>
