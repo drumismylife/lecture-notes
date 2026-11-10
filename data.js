@@ -613,7 +613,9 @@ const SITE_DATA = {
             { week: 10, title: "진보의 시대와 제2차 대각성운동", date: "2026.11.03", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week10.html" }
           ] },
-            { week: 11, title: "", date: "", files: [] },
+            { week: 11, title: "찰스 피니·성결운동·선교·분열", date: "2026.11.10", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week11.html" }
+          ] },
             { week: 12, title: "", date: "", files: [] },
             { week: 13, title: "", date: "", files: [] },
             { week: 14, title: "", date: "", files: [] },

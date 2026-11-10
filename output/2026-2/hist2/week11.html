@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 11주차 찰스 피니·성결운동·선교·분열</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+  .say { color: var(--text); font-style: normal; }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>찰스 피니·성결운동·선교·분열 — 제2차 대각성운동(이어서)</h1>
+<p class="meta">교회사II · 11주차(2026.11.10 수업) · 교재 p.176 'C. 새로운 방법들' ~ p.181 (g. 분열 '1836년 유니온 신학교'까지) + 지난 시간 복습<br>배지: <span class="bd v1">자막 n~m자</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br><span style="color:var(--text2)">[자막 n자] = 녹취에서의 위치. [?] = 확정할 수 없는 표기. 녹취 오인식의 교정 내역은 맨 아래.</span></p>
+<div class="sum">
+  <h3>1쪽 요약</h3>
+<ul class="tight">
+    <li><strong>지난 시간 복습</strong>: 캠프 집회의 영적 각성·교파 초월 연합, 장로교 분열 위기, 캠프 집회 센터(수양관)의 발전과 낡음. <span class="bd v1">자막 1~612자</span></li>
+    <li><strong>찰스 피니(1792~1875)</strong>: 변호사 → 장로교 목사와 논쟁 → 회중교회 → 완전교리를 믿는 웨슬리안. 출근길에 <strong>결단</strong> “오늘 받아들이거나 죽을 것이다” → 그날 밤 중생 체험 → 소송 사임 → 복음의 변호인. 교수는 곁길로 회중교회·침례교(1609)의 기원을 설명. <span class="bd tb">교재 p.176~177</span><span class="bd v1">자막 612~6577자</span></li>
+    <li><strong>피니의 사역</strong>: 1824년(29세)부터 능력 설교(휫필드·스펄전과 비교), 1830년 체스터 집회(1000여 명 회개·1200명 새신자), 1831년 십만여 명 결심, 오벌린 대학(미국에서 가장 오래된 남녀공학). <span class="bd tb">교재 p.177</span><span class="bd v1">자막 6577~7216자</span></li>
+    <li><strong>새로운 방법</strong>: 자의적 회개·헌신 강조, 분위기 조성, <strong>구도자 석</strong>, <strong>초청(인비테이션) 논쟁</strong> — 장로교는 누가 택자인지 모르므로 할 수 없다. 현대 사례: 휴스턴 서울교회 셀처치와 당회 문제, 고신 측 결정. <span class="bd tb">교재 p.177</span><span class="bd v1">자막 7216~9292자</span></li>
+    <li><strong>성결·완전교리와 성령운동</strong>: 원죄 부인(자범죄만), 칭의와 성화 구분·성화를 성령세례와 연결·현세에서 성취 가능, 케직 사경회, 신유·세대주의 전천년설·무디 → 선교운동·근본주의, 급진적 성결론(한국성결교회의 뿌리), 오순절(방언), 찰스 파함·윌리엄 덜함(1910, 하나님의 성회=순복음), 신오순절·은사주의·제3의 물결. <span class="bd tb">교재 p.177~178</span><span class="bd v1">자막 9292~16092자</span></li>
+    <li><strong>설교·흑인 교회·여성</strong>: 설교의 중요성, 흑인 교회의 설교와 흑인 여성 설교자, 여성들의 역할 증대, 생활·사회구조 개혁(구세군·YMCA), 천년왕국 논의. <span class="bd tb">교재 p.178</span><span class="bd v1">자막 16092~18126자</span></li>
+    <li><strong>선교 및 교육</strong>: 개요(1790 서부개척), 초기 선교단체(1798~1821), 감리교 순회설교자(까마귀와 감리교 목사·카트라이트), 자원단체(성서공회 1816~노예반대협회 1833), 금주운동과 한국 선교사, 교육·신학교 설립(516개 대학, 오벌린). <span class="bd tb">교재 p.178~180</span><span class="bd v1">자막 18126~25170자</span></li>
+    <li><strong>해외선교</strong>: 윌리엄 캐리(1761~1834, 현대 선교의 아버지, 1792 침례교 선교회), 앤드류 풀러의 복음적 칼빈주의 vs 하이퍼 칼빈주의, 런던 선교협회, 1810 미국해외선교회와 5명의 학생(저드슨·라이스의 침례교 개종), 1850년까지 연 65만 불. <span class="bd tb">교재 p.180~181</span><span class="bd v1">자막 25170~30186자</span></li>
+    <li><strong>분열과 반발</strong>: 유니테리언주의(채닝스·1819), 앤도버 신학교(1808)·하트포드(1834), 프린스턴 신학교(1812, 구파) 대 <strong>1836 유니온 신학교(신파)</strong>. <span class="bd tb">교재 p.181</span><span class="bd v1">자막 30186~31916자</span></li>
+  </ul>
+  <p><strong>⭐ 교수 강조</strong> <span style="color:var(--text2);font-size:0.9em">(강조어 '중요·핵심·반드시'가 실제로 나온 곳. '시험'이라고 말한 곳은 없고, 수업 마지막에 '기말고사' 날짜만 말했다)</span></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>결단 — 복음주의의 핵심</strong> — <span class="say">“보험주의의 가장 핵심사상이 바로 결단과 도 어게인 그의 차이거예요”</span> <span class="bd v1">자막 4397자</span> (자막 '보험주의'=복음주의, '도 어게인 그'=본 어게인 크리스천으로 읽음 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>영국을 다녀온 미국인의 두 질문(일화)</strong> — <span class="say">“영국을 갔다 오면 반드시 두 가지를 거예요”</span> <span class="bd v1">자막 5830자</span> (스펄전 설교 일화 — 3-1)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>오벌린 대학</strong> — <span class="say">“오림대학이 중요한 이유는 미국에서 가장 오래된 남녀공학대학입니다”</span> <span class="bd v1">자막 6839자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>분위기 — 셀처치 사례</strong> — <span class="say">“이 시기에 따라서 분위기라는 게 굉장히 중요한 게”</span> <span class="bd v1">자막 8036자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>장로교의 핵심은 당회</strong> — <span class="say">“장로교의 핵심은 당회 아 해요”</span> <span class="bd v1">자막 8538자</span> (자막 '아 해요'는 '아닙니까' 정도로 읽힘 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>오순절의 방언</strong> — <span class="say">“지금까지 기존의 오순절은 방언이 중요했어요”</span> <span class="bd v1">자막 14399자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>신오순절의 '웃음'</strong> — <span class="say">“그래서 중요한 건 뭐냐면 또 이 사람들 웃어요”</span> <span class="bd v1">자막 15342자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>설교의 중요성</strong> — <span class="say">“설교의 중요성을 하도 강조했습니다”</span> <span class="bd v1">자막 16092자</span> (오순절 계통 — 6-1)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>프런티어 정신</strong> — <span class="say">“이거를 미국 교회사나 역사에는 굉장히 중요해요”</span> <span class="bd v1">자막 18957자</span></div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>실천이 중요</strong> — <span class="say">“실천하는 게 중요하지 믿음이 중요하지 않다는 거예요”</span> <span class="bd v1">자막 24646자</span> (사회복음 설명 중 — 8-1)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>오벌린의 노예제 반대 학생 수용</strong> — <span class="say">“중요한 건 아까 오벌린 대학교 얘기했죠”</span> <span class="bd v1">자막 25025자</span> (이어서 레인 신학교 퇴학생 수용, 여성·흑인 최초 입학 — 8-3)</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>캐리 — 모든 사람에게</strong> — <span class="say">“그 다음에 중요한 게 뭐냐면 모든 사람들을 위해”</span> <span class="bd v1">자막 25861자</span> (복음을 세상 끝까지 — 9-1)</div>
+</div>
+<div class="card">
+  <h2>지난 시간 복습 <span class="bd v1">자막 1~612자</span></h2>
+  <p class="meta">수업 앞부분은 지난 시간 내용의 짧은 복습이다. 교수가 말한 것만 정리했다.</p>
+<ul class="tight">
+    <li>지난 시간에 <strong>캠프 집회에 대한 반발</strong>까지 했다고 말한다. 캠프 집회에서 놀라운 영적 각성과 성령의 역사가 일어나 <strong>교파를 초월한 그리스도인의 연합</strong>이 시작되었고, 장로교 목회자들까지 <strong>“구원은 모든 사람에게 열려 있다”</strong>고 하게 되었다. <span class="bd v1">자막 23~160자</span></li>
+    <li>이런 웨슬리안적인(자막 '레슬리안적인') 신앙이 장로교회에 퍼지면서 <strong>장로교회가 분열 위기</strong>에 처했다는 것까지 말했다. <span class="bd v1">자막 160~224자</span></li>
+    <li>감리교회 캠프 집회는 여러 지역에 <strong>캠프 집회 센터</strong>가 생기게 했다. 자막은 <span class="asr-uncert">'미치리 센터'라고 해서 '수영관'이 많이 생겼다 [?]</span>(문맥상 리트릿 센터·수양관). 지금도 미국 도처에 수양관이 있지만 <strong>다 낡았고</strong>, 지금은 미국 사람들도 잘 가지 않는다. <span class="bd v1">자막 224~612자</span></li>
+    <li>예전 50년·60년·70년대에는 미국 도처에 이런 수양관이 있었고 교수 쪽 교인들도 가서 수련회를 했는데 지금은 건물이 낡고 풀이 자라고 연못 같은 저수지도 관리가 안 되는 곳이 있다. 어쨌든 이런 것들이 <strong>19세기에 미국에서 많이 발전했다</strong>는 것까지 들었다고 정리한다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>C. 새로운 방법들 — a. 찰스 피니(1792~1875)의 생애와 회심 <span class="bd tb">교재 p.176~177</span><span class="bd v1">자막 612~5397자</span></h2>
+  <h3>2-1. 출생·직업·교회 이력 <span class="bd tb">교재 p.176 하단 'a. 찰스 피니'</span><span class="bd v1">자막 612~1149자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“이번에는 176페이지의 새로운 방법들인데”</span> — 이 장은 <strong>C. 새로운 방법들</strong>이고 첫 인물이 찰스 피니(자막 '찰스 핀'·'찰스 페인이'; 교재 표기 Charles G. Finney)다.</li>
+    <li><strong>1792년 코네티컷 주 출생</strong> → 뉴욕 서부로 이사해 법률 공부 → 변호사(교재: 뉴욕 아담스, 29세). 청년 시절에는 <span class="say">“제일 많이 지은 세속적인 사람”</span>으로 소개되어 있다(교재: 죄 많고 세속적인 사람).</li>
+    <li><strong>장로교회</strong>에서 신앙생활을 했고 성가대도 지도했다. 신학적 문제에 관심이 많아 <strong>목사와 논쟁</strong>을 하게 되었다. 교수는 논쟁 주제를 <span class="say">“아마도 칼빈이 예정론 가지고 논쟁이 됐겠죠”</span>라고 <u>추측</u>으로 말하고, 예정론과 알미니안(자막 '알미SD')이 다 나와 있는 성경을 어떻게 읽을 것인가를 두고 다툰 것 같다고 한다.</li>
+    <li>그래서 후에 <strong>장로교를 나와 회중교회로 옮겼다</strong>(자막 '회전교회'). 교수는 <span class="say">“여전히 장로교의 교리를 나름대로”</span> 따랐기 때문이라고 설명한다(자막 '쫓았기').</li>
+  </ul>
+  <h3>2-2. 곁길: 회중교회와 침례교는 어디서 나왔나 <span class="bd v1">자막 1149~2725자</span></h3>
+  <p class="meta">교수가 회중교회를 설명하며 한 영국 교회사 정리다(교재에는 없음).</p>
+<ul class="tight">
+    <li>회중교회는 <strong>청교도(퓨리탄)</strong>가 세운 교회다. 영국 성공회가 부패했다고 생각한 사람들이 프랑스·스위스·독일 등으로 피난해 <strong>루터·칼빈·츠빙글리의 개혁주의 신학</strong>을 배워 와서 성공회를 개혁하려 했는데, 이들이 청교도다.</li>
+    <li>영국 성공회는 영국식 가톨릭이라 교회 정치가 <strong>감독제</strong>였다(교수: 교황부터 추기경회로 내려오는 구조, 자막 '교양부터 해서 축기원회서'). 개혁주의를 배운 사람들은 <strong>장로정치</strong>(칼빈이 대표), 그리고 침례교 원리인 <strong>회중정치</strong>(자막 '해중정책')를 배워 와 “감독제 말고 장로정치·회중정치를 하자”고 요구했으나 성공회는 들어주지 않고 <strong>핍박</strong>했다.</li>
+    <li>그래서 <strong>분리주의자</strong>(독립교회)가 나왔다. 성공회 안에 머물며 개혁하려던 사람도 있었고 아예 떠나 분리된 교회를 하자는 사람도 있었다. 분리주의자들은 같이 모이면 위험해 <strong>두 그룹</strong>으로 나뉘었다(자막 '라이든·레이든'은 네덜란드 쪽).</li>
+    <li><strong>네덜란드로 간 그룹</strong>: 성경 공부를 통해 유아세례가 아니라 스스로 신앙고백한 사람이 침례를 받는다는 <strong>신자침례</strong>를 발견 → <strong>침례교가 1609년</strong>에 시작(자막 '유화사례'=유아세례, '시명고백'=신앙고백 [?]). 유아세례를 거부하고 회중정치를 하게 된다. 교수는 “나중에 침례교회 역사를 더 자세히 해보시라”고 한다(자막 '침대교회 사식').</li>
+    <li><strong>다른 지역으로 갔다가 미국으로 간 그룹</strong>: 자막 <span class="asr-uncert">'레이플로워' [?]</span>를 타고 미국으로 가서 감독·장로가 아닌 <strong>회중정치</strong>로 회중교회를 세웠다. 목회자 양성 기관으로 <strong>하버드와 예일</strong>을 세워 정착했다. 청교도이므로 <strong>신학은 칼빈주의</strong>, 교회 정치는 회중정치였다.</li>
+  </ul>
+  <h3>2-3. 회중교인이 된 피니 — 완전교리를 믿는 웨슬리안 <span class="bd tb">교재 p.176 하단</span><span class="bd v1">자막 2725~3240자</span></h3>
+<ul class="tight">
+    <li>피니는 회중교인이 되었지만 <strong>아직 장로교를 떠난 것은 아니라고</strong> 교수는 말한다. 신학적으로는 <strong>완전교리</strong>(자막 '완전교류')를 믿는 <strong>웨슬리안</strong>이 되었다(교재: “회중교인이 되고 신학적으로는 완전교리를 믿는 웨슬리안이 됨”).</li>
+    <li>교수의 풀이: 완전교리란 <strong>우리가 거듭난 순간 죄성(자막 '내 재성')이 다 사라지고 새로운 피조물이 된다</strong>는 것이다. 그래서 <strong>완전으로 갈 수 있고 하나님의 성품에 참여하는 자가 될 수 있다</strong>고 믿는 웨슬리안이 되었다.</li>
+    <li>곁들인 일화: 교수가 읽은 자료(자막 '이 패닉의 동아기독교 달편지')에서 '새로운 피조물'을 <span class="say">“새로운 동물로 표시했어요”</span>(그때는 피조물이라는 단어가 없었던 것 같다고 추측). <span class="asr-uncert">자료 이름·맥락이 불명확해 풀지 않음 [?]</span></li>
+  </ul>
+  <h3>2-4. 구원은 생각보다 간단하다 — 결단 <span class="bd tb">교재 p.176 하단~177 상단</span><span class="bd v1">자막 3240~5021자</span></h3>
+<ul class="tight">
+    <li>어느 날 아침 사무실로 출근하다가 피니는 <strong>“구원은 생각보다 훨씬 간단하다”</strong>고 깨닫는다(교재 같음). 교수가 이 대목 앞에 장로교(칼빈주의) 쪽 사정을 설명한다: 장로교는 <strong>내가 구원받은 사람인지 아닌지 이 땅에서는 알 수 없다</strong>. 모든 것이 <strong>하나님께만 달려 있어</strong> 내가 할 수 있는 것은 없고, 택한 자녀일 것이라는 확신 있는 믿음을 가져도 언제 구원받게 될지는 모른다.</li>
+    <li>피니는 <strong>“내가 하나님이 택한 자녀인가? 구원받았나? 이 믿음이 나의 믿음인가 하나님이 주신 믿음인가?”</strong>를 고민했을 것이라고 교수는 말한다(추측 표현). 그러다 구원은 복잡하지 않다는 깨달음을 얻는다 → <strong>오직 필요한 것은 모든 죄를 중단하고 그리스도를 받아들이겠다는 자신의 결단</strong>.</li>
+    <li>교수는 이것을 <strong>빌리 그래함</strong>(자막 '빌리그램')의 가장 유명한 책 중 하나인 <span class="say">“책 제목이 디시즌이에요”</span>와 연결한다 — “오늘 결단하십시오, 지금 예수 그리스도께서 마음의 문을 두드리고 계십니다, 마음의 문을 열고 예수 그리스도를 구주로 영접하라”. 교수: <span class="say">“사용리가 바로 그거잖아요”</span>(자막 '사용리'=사영리) — <strong>사영리는 결단을 촉구하는 것</strong>이다: 죄로 하나님과 떨어져 멸망의 길로 갈 수밖에 없는데 예수 그리스도의 십자가가 다리를 놓아주셨고, 문을 열고 구주로 영접하기로 결단하면 <strong>본 어게인 크리스천(거듭난 그리스도인)</strong>이 된다.</li>
+    <li>거듭난 그리스도인이 되면 <strong>오늘 죽어도 천국에 갈 수 있다는 확신</strong>이 생긴다 — 이 사상이 20세기 중·후반을 휩쓸었다고 한다. 교수의 강조: <span class="say">“보험주의의 가장 핵심사상이 바로 결단과 도 어게인 그의 차이거예요”</span> <span class="asr-uncert">자막 '보험주의'=복음주의, '도 어게인 그'=본 어게인 크리스천으로 추정 [?]</span> <span class="bd v1">자막 4397자</span></li>
+    <li>빌리 그래함 집회 등 많은 복음주의 지지자들이 <strong>복음을 선포하고 “오늘 결단하라, 본 어게인 크리스천이 되라”</strong>고 한다(자막 '재원계북상이라든가 베니나'는 단체·인물 열거로 보이나 확정 불가 <span class="asr-uncert">교정하지 않음 [?]</span>). 칼빈주의에서는 <strong>이것을 받아들일 수 없다</strong>.</li>
+    <li>복음주의자들이 칼빈주의자를 비판하는 말: <strong>“당신들은 길거리에서 하나님이 여러분을 사랑하십니다라고 외치지 못하는 사람들이다”</strong> — 누가 택한 자인지 택함받지 못한 자인지 모르기 때문에 말하지 못한다는 것.</li>
+  </ul>
+  <h3>2-5. 길 한복판의 결심과 중생 체험 <span class="bd tb">교재 p.177 상단</span><span class="bd v1">자막 5021~5397자</span></h3>
+<ul class="tight">
+    <li>피니는 <strong>길 한복판에서</strong> “나는 그것을 오늘 받아들이거나 아니면 그렇게 노력하다 죽을 것이다”라고 결심한다(교재 p.177). 교수의 풀이: 설령 하나님의 예정론이 맞다고 하더라도 <strong>오늘 그렇게 결심하고 믿다가 죽겠다</strong>는 뜻이다.</li>
+    <li>교수가 낭독한 말씀: <span class="say">“너는 내게 불을 주며 와서 내게 기도하면 내가 너희를 들을 것이라고 분명히 말씀하셨다”</span> — 자막 '불을 주며'는 <strong>'부르짖으며'</strong>(교재 p.177: 예레미야 29:12)이다.</li>
+    <li>그날 밤 기도하던 중 <strong>중생을 체험</strong>했다(자막 '충성체험'). 교수 낭독: <span class="say">“성령께서 나의 몸과 영혼을 관통한 것처럼 나에게 임하셨다”</span> ... <span class="say">“나는 기쁨과 사랑에 충만하여 울부짖었다”</span> ... <span class="say">“나는 알지 못했지만 아무튼 말해야만 했다”</span>.</li>
+    <li><strong>다음 날 아침</strong> 출근하는데 10시에 재판이 예정되어 있었다(교재: 교회 집사가 알려줌). 피니는 <span class="say">“집사님 저는 주님께서 부탁하신 소송을 맞게 되었기 때문에 집사님의 소송을 도울 수 없습니다”</span> 하고 말했다(교재: “…라고 말했다고 전해짐”). 교수: <strong>직업을 다 내려놓고 복음을 변호하는 변호인</strong>이 되었다.</li>
+    <li><table><caption>성경 구절 — 예레미야 29:12 (개역개정, bskorea 조회)</caption><tr><td>“너희가 내게 부르짖으며 내게 와서 기도하면 내가 너희들의 기도를 들을 것이요”</td></tr></table></li>
+    <li><small>교재 p.177은 이 구절을 '너는 내게 부르짖으며 와서 내게 기도하면 내가 너희를 들을 것이요'로 줄여 인용했고, 교수 낭독도 그 형태다. 개역개정 본문은 위 표와 같다.</small></li>
+  </ul>
+</div>
+<div class="card">
+  <h2>피니의 전도집회와 오벌린 대학 <span class="bd tb">교재 p.177</span><span class="bd v1">자막 5397~7216자</span></h2>
+  <h3>3-1. 능력 설교 <span class="bd tb">교재 p.177 '1824년(29세)부터 전도집회인도'</span><span class="bd v1">자막 5397~6577자</span></h3>
+<ul class="tight">
+    <li>교수: 피니는 29살 때부터 이미 전도집회에서 <strong>능력이 나타났다</strong>(교재: 1824년(29세)부터 전도집회 인도 ☞ 능력 설교). 교회사에서 전도할 때 능력이 나타난 사람으로 <strong>조지 휫필드</strong>(자막 '조지 필더·필드'), 그다음 자막 '찰스 필' <span class="asr-uncert">누구인지 불명확 [?]</span>, <strong>스펄전</strong>(자막 '스펠전·스포일전')을 든다.</li>
+    <li>스펄전: 말 한마디 단어 한마디가 몇만 명이 모인 사람들에게 다 들릴 정도였고(자막 '다 틀릴 정도로' <span class="asr-uncert">들릴 정도로 읽음 [?]</span>), 제스처·음성 등이 거의 만족할 정도로 완전해 <strong>배우들이 연구할 정도</strong>였다고 한다.</li>
+    <li>일화: 그 당시 미국 사람이 영국을 다녀오면 <strong>반드시 두 가지</strong>를 물었다 — 교수: <span class="say">“영국을 갔다 오면 반드시 두 가지를 거예요”</span> <span class="bd v1">자막 5830자</span> / <span class="say">“두 가지 중에서 한 가지도 안 하면 영국을 안 갔다 온 거예요”</span>. 첫째 '<strong>엘리자베스 여왕</strong>을 봤습니까', 둘째 '<strong>스펄전 목사님을 만났거나 그분의 교회에서 설교를 들었습니까</strong>'. <span class="bd bo">보충</span> 교수는 '엘리자베스 여왕'이라고 말했다. 스펄전이 활동한 19세기 영국의 군주는 빅토리아 여왕이므로 교수의 착오로 보인다(교재에는 이 일화가 없음). 교수는 뉴올리언스(자막 '뉴올랜드')를 가면 노예 판매 시장 옆 카페와 라이브 재즈를 꼭 들르는 것과 같은 비유로 설명하고, 그만큼 스펄전이 <strong>우상</strong>이었다고 한다(곁들인 한국·오순절·신학교 이야기는 자막이 불명확해 생략 <span class="asr-uncert">자막 불명확 [?]</span>).</li>
+  </ul>
+  <h3>3-2. 체스터 집회와 십만 명 <span class="bd tb">교재 p.177</span><span class="bd v1">자막 6577~6730자</span></h3>
+<ul class="tight">
+    <li><strong>1830년 뉴욕 주 체스터</strong>(교재 표기)에서 전도집회 → <strong>시민 1000여 명이 회개, 1200명이 새신자로 등록</strong>(교수 발언 '천여 명…1200명'이 교재와 같음).</li>
+    <li>뉴욕 서부에서 <strong>보스턴·뉴욕 시·필라델피아</strong> 등 주요 대도시까지 퍼졌고, <strong>1831년 한 해 동안 십만여 명</strong>의 새신자가 결심했다.</li>
+  </ul>
+  <h3>3-3. 오벌린 대학과 신학 <span class="bd tb">교재 p.177 중단</span><span class="bd v1">자막 6730~7216자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“1836년에 오버린 대학이 게 원래는 오버린 대학은 1833년에 설립됐어요”</span> — 교재 p.177은 <strong>1836년 오벌린 대학의 신학교수가 되고 1851년 학장이 됨</strong>이다. <span class="bd bo">보충</span> 교재 p.180은 '1833년 설립, 1835년 재정적 어려움을 도와준 찰스 피니를 조직신학 교수로 채용'이라 적어 p.177의 1836년과 한 해 차이가 난다. 노트는 두 쪽의 연도를 모두 적는다.</li>
+    <li>오벌린은 <strong>명문 사립 인문대학</strong>이고 지금은 <strong>세계적인 음악원</strong>이 있다. 교수: <span class="say">“오림대학이 중요한 이유는 미국에서 가장 오래된 남녀공학대학입니다”</span> <span class="bd v1">자막 6839자</span> — 세계에서는 두 번째로 오래된 남녀공학이라고도 말한다(교수 발언 그대로).</li>
+    <li>피니의 신학: 에드워즈의 신학을 진보적으로 개선한 <strong>뉴헤이븐 신학</strong> + <strong>웨슬리의 성화론</strong>을 독창적으로 결합(교재 p.177). 교수는 뉴헤이븐 신학을 <span class="say">“정통 칼균주의를 그 시대 사주에 맞게 고”</span>친 것(자막 그대로), 원죄가 아니라 <strong>죄의 결과로</strong>(자막 '원자로도 약간 원자론의 원인이 아니라 죄의 결과로' <span class="asr-uncert">원죄론 수정을 말한 것으로 보이나 자막 불명확 [?]</span>), 인간의 의지와 도덕적 책임을 강조하는 신학이라고 정리한다(지난주 내용).</li>
+    <li>조직신학 책을 저술하고 학장이 되었다(자막 '저주신학'=조직신학). 그의 탁월한 능력은 <strong>복잡한 교리를 분명하고 이해할 수 있게 만드는 것</strong>이었고, 설교와 교수 사역을 평생 했다(교재 p.177).</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>b. 영향 ① — 새로운 방법: 구도자 석과 초청(인비테이션) <span class="bd tb">교재 p.177 'b. 영향'</span><span class="bd v1">자막 7216~9292자</span></h2>
+  <h3>4-1. 피니의 방식 — 분위기 조성과 구도자 석 <span class="bd tb">교재 p.177</span><span class="bd v1">자막 7216~7620자</span></h3>
+<ul class="tight">
+    <li>교수: 문제는 피니가 행했던 방식 — <strong>회개와 헌신을 자의적으로 강조</strong>하는 것(교재: 자의적 회개와 헌신을 강조하며 전도를 위한 여러 수단을 최대한 이용), 곧 <strong>분위기를 조성</strong>하는 것이다.</li>
+    <li>비유(교수): 교회에서 <strong>새신자 초청 잔치</strong>를 하면 전도 대상자를 정해 초청하고, 아무 데나 앉히지 않고 <strong>앞자리에 앉혀</strong> 집중적으로 설교하고 집중적으로 기도해 “예수 그리스도를 안 받아들이면 못 견딜 정도의 분위기”를 만든다. 성령집회에서 머리에 손을 대면 넘어져야 하는데 안 넘어지면 <strong>확 미는</strong> 식이라는 비유도 든다.</li>
+    <li>이렇게 만든 것이 <strong>구도자 석</strong>(교재: 인위적인 새로운 방법인 '구도자 석' anxious bench, 자막 '구조좌석'·'구두자 석')이다. 교수: 이분들이 예수를 영접할 수 있도록 집중적으로 하는 것, <strong>인위적인 방법</strong>(자막 '이민적인 방복' <span class="asr-uncert">불명확 [?]</span>)이다.</li>
+    <li>교재: 이 방법을 <strong>장로교회·회중교회·침례교회·감리교·루터교회·퀘이커·화란 개혁파까지도 널리 모방</strong>했다. 교수도 자막상 '루터교 감리교, 페이커, 화란 교육 다 이런 것들을 모방했어요'라고 말한다.</li>
+  </ul>
+  <h3>4-2. 초청(인비테이션) 논쟁 <span class="bd v1">자막 7620~8033자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“19세기에 교회사 논쟁의 가장 큰 논쟁 중에 하나가 인비테이션 논쟁이에요”</span> — <strong>인비테이션 = 초청</strong>: 설교를 하고 초청하는 것. “이 시간 다 눈을 감으세요 … 예수님께서 우리의 죄를 위해 돌아가셨고 이 시간에 당신의 마음의 문을 두드리고 계십니다 결단하십시오 … 따라 하십시오 나는 죄인입니다 영접합니다”가 이것이다.</li>
+    <li>그런데 <strong>장로교는 이것을 할 수가 없다</strong>: 누가 택함받은 자인지 어떻게 아는가, 인간이 임의로 기도하라·따라 하라·결단하라고 할 수 없다. 이런 것들이 <strong>장로교에 영향을 준다</strong>(장로교회도 회중교회도 마찬가지).</li>
+  </ul>
+  <h3>4-3. 현대 사례 — 셀처치와 당회, 애완견 장례 <span class="bd v1">자막 8033~9235자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“이 시기에 따라서 분위기라는 게 굉장히 중요한 게”</span> — 20~30년 전 미국에 장로교 유학생이 많았는데, 휴스턴 서울교회(자막 '힐스턴에 서울침교회')의 목사님(자막 '최현주' <span class="asr-uncert">이름 불명확 [?]</span>)이 한인들에게 폭발적으로 어필해 유학 나온 장로교 목회자들이 거기 가서 <strong>셀처치</strong>를 배웠다. 이들이 미국 한인교회와 한국에도 들여왔다.</li>
+    <li>문제: 자막 '침대를 주네. 해리를 추 침대를 주는' <span class="asr-uncert">침례를 주고(?) 불명확 [?]</span> 그리고 <strong>당회를 없애 버린다</strong>. 그래서 고신 측(자막 '고심 측')에서 이단 대책 위원회를 만들어 조사했다. 결론: <strong>“셀처치는 성서적으로는 이단성이 없다. 단 고신 교회에 그대로 적용되면 당회, 장로교의 가장 기본이 당회가 무너진다”</strong>. 교수: <span class="say">“장로교의 핵심은 당회 아 해요”</span> <span class="bd v1">자막 8538자</span> — 당회가 최종 결정권이다. 당회가 무력화되므로 <strong>참석 금지·교류 금지</strong>를 내렸고 이것이 고신의 현재 입장이다.</li>
+    <li>최근 고신 측의 결정(교수가 지난주에도 말했다고 함): 강아지가 죽었을 때 <strong>애완견 장례를 치러 주거나 위로예배를 드리는 것은 목회 사역(목양)이 아니다</strong>. 교수는 “그것을 두고 고민하는 글이 많은 것 같다”고 한다.</li>
+    <li>일화: 교수의 딸이 호주의 성공회 예배에 갔더니 그날이 <strong>펫 축복의 날</strong>(자막 '해축복국의 달' <span class="asr-uncert">불명확 [?]</span>)이어서 강아지를 다 데리고 와 줄 서서 축복받았다고 한다. 사람이 많으면 못 하지만 외국은 사람이 많지 않아 가능하다는 농담도 한다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>b. 영향 ② — 성결운동과 완전교리, 케직 사경회 <span class="bd tb">교재 p.177~178</span><span class="bd v1">자막 9292~16092자</span></h2>
+  <h3>5-1. 피니의 교리 — 완전·원죄·칭의와 성화 <span class="bd tb">교재 p.177 'b. 영향'</span><span class="bd v1">자막 9292~10191자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“기독교인의 성결과 완전거리를 강조했습니다”</span> — “100% 완전할 수 있느냐 그건 아니다. 근데 <strong>피니는 100%도 가능하다고 봤어요</strong>”. <span class="bd v1">자막 9292자</span></li>
+    <li><strong>인간의 원죄를 인정하지 않았다</strong>. 오직 <strong>자발적 의지로 지은 죄만 죄로 인정</strong>(교재 p.177). 교수: 교회사에서 <strong>법학을 공부한 사람들</strong>이 원죄를 인정하지 않는 경우가 많다 — 죄인은 <strong>자기가 지은 죄가 있는 사람</strong>인데 왜 조상의 죄가 나에게 오느냐는 것. 자막 '펠라 교수'(<span class="asr-uncert">펠라기우스로 추정 [?]</span>)도 그렇다고 한다.</li>
+    <li><strong>목회적으로 어려운 문제</strong>: 아이가 갓 태어나 죽었을 때 “목사님, 이 아이가 지옥에 갑니까 천국에 갑니까” 하고 물을 수 있다. 교수: 어거스틴(자막 '버거슨' <span class="asr-uncert">어거스틴으로 추정 [?]</span>) 같은 경우도 질문을 받았고(자막 '그렇게침을 받은 거예요' <span class="asr-uncert">불명확 [?]</span>) <strong>“누가 택자인지 아닌지는 알 수 없으나, 자범죄가 없으므로 아마도 하나님의 품에 안겼을 것이다”</strong>라고 <u>목회적으로</u> 대답했다고 한다 — “정답은 아니지만 목회적으로 대답할 수밖에 없었습니다”.</li>
+    <li><strong>칭의와 성화를 구분하고 성화를 성령세례와 연결</strong>했다(교재). 교수: 거듭난 순간 성령이 내주하며 성화가 <strong>동시에 시작</strong>하느냐, 거듭난 뒤 따로 시작하느냐를 두고 성화론자들과 싸운다 — “닭이 먼저냐 계란이 먼저냐 같은 싸움”(자막 '닭이 모드나 계란은 물이 닭' <span class="asr-uncert">불명확 [?]</span>). 피니는 <strong>이 성화를 현세에서 성취할 수 있다</strong>고 주장했다.</li>
+  </ul>
+  <h3>5-2. 케직 사경회와 성령운동 <span class="bd tb">교재 p.177</span><span class="bd v1">자막 10191~10945자</span></h3>
+<ul class="tight">
+    <li>교재: 피니는 <strong>1870년대 영국에 영향</strong>을 주어 <strong>케직 사경회</strong>(영국 성공회 내 개혁주의 성향 그룹이 시작한 성령운동)의 탄생에 기여했다.</li>
+    <li>곁들인 일화: 교수가 읽은 자료(자막 '달편지')에 나온 '케직(자막 '계직·개직')'이라는 단어를 풀지 못해 한 시간 넘게 고민했는데 결국 <strong>케직</strong>(교재 표기)임을 알았다고 한다. 이 사경회의 성격(교수): 어떤 사람은 <strong>진리(성경 말씀)는 강한데 성령의 열매가 없고</strong>, 어떤 사람은 <strong>성령의 열매는 강한데 지식이 약한</strong> 경우가 있어서, <strong>성경 말씀의 권위를 인정하며 성령운동을 잇는 것</strong>이 케직이다.</li>
+    <li><strong>케직 사경회의 주요 주장</strong>(교재 p.177): 성화는 <strong>회심의 순간에 시작되어 일생 동안 지속</strong>된다. 교수 풀이: 성화는 <strong>죄의 뿌리인 악의 경향성에 대한 반작용</strong>으로, 성화가 이루어지면 악을 향하는 작용이 멈추고 성화 쪽으로 간다. 그리고 성화와 <strong>성령세례(세계의 신속한 복음화를 위한 권능의 부여)는 구분이 필요</strong>하다(교재).</li>
+  </ul>
+  <h3>5-3. 신유운동·세대주의·선교·근본주의로 이어짐 <span class="bd tb">교재 p.177 하단</span><span class="bd v1">자막 10945~12190자</span></h3>
+<ul class="tight">
+    <li><strong>세대주의 전천년설 & 신유운동</strong> ☞ <strong>디엘 무디</strong>(자막 그대로)를 통해 미국에 <strong>역수입</strong>되어 <strong>선교운동과 근본주의 탄생</strong>에 결정적 역할을 했다(교재). 교수: 성령이 말세에 임하면 이 땅의 종말이 가까우므로 <strong>빨리 복음을 땅끝까지 증거해야 하나님 나라가 임한다</strong>는 생각 때문에 선교운동이 일어난다.</li>
+    <li><strong>근본주의 탄생</strong>의 배경(교수): 이 당시 <strong>독일의 자유주의 신학·성서 비평</strong>이 휩쓸어 미국의 신학교·대학들이 자유주의 신학을 갖게 되었다. 이에 맞서 <strong>성령이 임해 능력을 받고 성경 말씀은 오류가 없는 말씀</strong>이라는 <strong>사경회</strong>가 나왔다(자막 '1.1에도 오류가 없는 무모한 말씀' <span class="asr-uncert">무오한 말씀으로 읽음; '1.1'은 불명확 [?]</span>).</li>
+    <li><strong>사경회란</strong> 성경을 그대로 조사하며 공부하는 것(자막 '강예술 대수록 한 사경해가지 로마서 강의' <span class="asr-uncert">불명확 [?]</span>). 1900년대 초 한국 침례교회도 사경회를 많이 했다. 사람들이 걸어서 며칠을 가며 <strong>자기가 먹을 쌀을 지고</strong> 그 교회에 가서 일주일~2주일 <strong>성경 공부</strong>(요한계시록 특강·로마서 특강 등)를 했고, 주로 농사철에는 못 하고 한가할 때 했다(자막 '논번기를 못하죠 노한기에 하는 동안' <span class="asr-uncert">농번기·농한기로 읽음 [?]</span>).</li>
+    <li><strong>세대주의</strong>(교수): 역사를 <strong>일곱 세대</strong>로 나눴다 — 창세기의 첫 세대(자막 '아우라 세대' <span class="asr-uncert">불명확 [?]</span>)부터 마지막까지 나눠 <strong>지금은 종말의 시대, 마지막 시대</strong>라는 것이다. 성령이 말세에 임해 사람들에게 능력을 준다.</li>
+    <li><strong>급진적 성결론</strong>(교재: 이것이 <strong>한국성결교회의 뿌리</strong>): <strong>묵시적 종말론·신유(기도로 병 고침)·재림 강조</strong>. 교수의 설명대로 자막은 '묵시적 종말의식 종말이에요 종말 신유 기도로서 병고치는 법. 재림 재림을 강조합니다'.</li>
+    <li><strong>오순절</strong>은 <strong>방언 현상을 성령세례의 일차적인 증거</strong>로 보았다(교재). 교재: <strong>중생 / 성결(=성령세례)</strong>을 통해 <strong>죄의 뿌리인 죄성을 완전히 제거</strong>한다고 본다.</li>
+  </ul>
+  <h3>5-4. 웨슬리안과 루터·칼빈주의의 차이(비유) <span class="bd v1">자막 12190~12787자</span></h3>
+<ul class="tight">
+    <li>교수: 중생·성결로 <strong>죄성이 완전히 제거</strong>된다고 보는 것이 감리교·웨슬리의 입장이다 — 거듭난 순간 죄성이 사라진다. 비유: <strong>죽게 생긴 사람이 의사에게 고침을 받았을 때 “나는 완전히 건강한 사람이 되었다”고 생각하고 사는 사람이 웨슬리안</strong>이다. 반면 “나는 환자인 것 같기도 하고 나은 것 같기도 하다”는 쪽이 <strong>루터교</strong>이고, “나는 여전히 환자”라고 보는 것이 <strong>칼빈주의</strong> — 거듭났음에도 죄성이 계속 나를 끌고 가려 한다. 웨슬리는 아니다: <strong>하나님의 자녀가 되어 이 땅에서 건강하게 잔치·파티처럼</strong> 산다.</li>
+    <li>인용(교수): 어떤 사람이 신학을 이렇게 표현했다는 말 — <strong>“당신은 장례식 분위기에서 살 것이냐 파티 분위기에서 살 것이냐, 신학에 따라 결정하라”</strong>(자막 '권자레스라는 사람' <span class="asr-uncert">인물 불명확, 이름 확정 불가 [?]</span>). 계속 죄인이라며 사는 것과 하나님이 오늘도 사랑하셔서 거룩하게 살게 하신다며 사는 것의 대비다.</li>
+  </ul>
+  <h3>5-5. 찰스 파함과 윌리엄 덜함 — 오순절의 형성 <span class="bd tb">교재 p.177 하단~178</span><span class="bd v1">자막 12787~13619자</span><span class="bd v1">자막 13778~14173자</span></h3>
+<ul class="tight">
+    <li><strong>찰스 파함</strong>(교재: Charles F. Parham, 1901년, 자막 '찰스 바음·파함'): <strong>중생과 성화를 구분하는 전통적 성결론은 수용</strong>하되 <strong>성령 = 성령세례로 동일시하는 입장은 거부</strong>. 성령세례를 죄성의 제거가 아니라 <strong>복음전파를 위한 능력의 부여</strong>로 해석하고, 성령세례를 <strong>성화 이후에 발생하는 제3의 은총</strong>으로 이해했다. 교수: <strong>성령세례의 유일한 증거는 방언</strong>이라고 보았다(교재는 '일차적 증거'로 적은 오순절 일반론). 결국 <strong>웨슬리안 성결운동 + 케직 사경회가 결합해 생긴 결과가 오순절</strong>(교재 p.178).</li>
+    <li>교수의 비유: <strong>성령은 생명수를 마셔서 살아 있는 사람이 된 것</strong>, <strong>성령세례는 생명수에 푹 잠겨 몸과 마음과 모든 것이 사로잡히는 것</strong>이다. 성령은 죄를 깨닫게 하고 구원하게 하며 신자를 거룩하게 변화시키지만, <strong>성령세례는 성령의 능력에 완전히 사로잡히고 압도당하는 영적 체험</strong>이다. 성령세례는 <strong>구원 이후에 주어지는 체험적 사건</strong>이다.</li>
+    <li>웨슬리안은 <strong>거듭나는 순간 성령이 내주</strong>한다고 보는 반면, 순복음 같은 경우는 <strong>거듭난 이후에 어떤 능력이 오고 그 증거가 방언</strong>이라는 점을 떼어 보려 한다고 교수는 정리한다.</li>
+    <li><strong>윌리엄 덜함</strong>(교재: William Durham, 원래 침례교 목사; 자막 '1년 덜 함'): <strong>1910년</strong>을 기점으로 <strong>예수 그리스도가 십자가의 죽음에서 중생과 성화를 모두 완성</strong>하셨으므로 신자들도 회심하는 순간 <strong>중생과 성화가 동시에 완전히 이루어진다</strong>고 주장했다 — 즉 파함의 이론을 거절하고 <strong>중생과 성화를 동시적 사건</strong>으로 이해. <strong>성령세례는 제2의 은총</strong>으로 이해했다.</li>
+    <li><strong>오순절 내의 웨슬리안 그룹과 결별</strong>하여 <strong>하나님의 성회(Assemblies of God) 교단 설립</strong> — 교수: <strong>우리나라의 순복음교회</strong>(교재: 우리나라의 순복음).</li>
+  </ul>
+  <h3>5-6. 신오순절·은사주의와 제3의 물결 <span class="bd tb">교재 p.178 상단</span><span class="bd v1">자막 14173~16092자</span></h3>
+<ul class="tight">
+    <li><strong>1960년대</strong> 오순절 운동의 영향을 <strong>감리교·장로교·천주교</strong>가 받았다. 이들을 <strong>신오순절·은사주의 운동</strong>이라 부른다(교수: '신 오순절은 순복음이 아니라 신 오순절 운동'). 성령의 다양한 <strong>은사 체험</strong>은 받아들이지만 <strong>방언이 곧 성령세례의 일차적 증거는 아니다</strong>라고 본다(교재).</li>
+    <li>교수: <span class="say">“지금까지 기존의 오순절은 방언이 중요했어요”</span> — <strong>1990년대</strong>에 등장한 신오순절주의자들은 능력의 표징이 달랐다: 기도하면 <strong>금가루가 떨어지고</strong>, 금이빨로 바뀌고, 성령의 바람이 불면 <strong>쓰러지고</strong>, 웃고(<strong>거룩한 웃음</strong>), 기절하고, 거룩한 춤을 추고, 입신한다(교재: 1990년대 거룩한 웃음 등 신비현상 강력하게 출현). 교수: <span class="say">“그래서 중요한 건 뭐냐면 또 이 사람들 웃어요”</span> <span class="bd v1">자막 15342자</span></li>
+    <li><strong>피터 와그너</strong>(교재 표기 Peter Wager)에 의해 <strong>“제3의 물결”</strong>로 명명 — 오순절 운동·은사주의로 규정되기를 거부하며, 방언보다 <strong>영적 싸움을 위한 영적 능력</strong>에 더 관심(교재). 교수: 이것이 <strong>신사도 운동</strong>이며 <strong>오늘날 장로교에서 가장 이단시</strong>하고 있다. “과거 사도에게 임했던 능력이 오늘날 우리에게도 동일하게 임한다, 땅끝까지 복음을 전하기 위해 새로운 사도의 능력을 주셨다”는 것. 방패기도·방패전도·능력전도·능력기도 같은 용어와 책이 많이 나왔다(자막 '방패기도 방패전도 능력전도 능력기도').</li>
+    <li>곁들인 일화(교수의 기억): 1995~96년경 어느 목사(자막 '김윤아 박윤호' <span class="asr-uncert">이름 불명확 [?]</span>)가 신학교 강사로 와서 집회를 하면 <strong>금가루가 떨어지고 치아가 금이빨로 바뀌어</strong> 난리가 나 신학교에서 쫓겨났고 지금도 계속 은사 운동을 한다. 교수가 '서울의 한빛감리교회'(자막 '개정동의 한빛감리기' <span class="asr-uncert">교회 이름 불명확 [?]</span>)의 대규모 집회에 직접 가 보니 쓰러지고 거룩한 웃음 같은 신비 현상이 강력했다. 교수는 '금이빨'은 인터넷에서 찾아보라고도 하고, 일시적일 수 있다는 등 여러 이야기가 있다고 한다. 출판사(자막 '서로 사랑')가 신사도 운동 서적을 많이 냈다는 이야기와 그 사장님의 간이식 이야기도 곁들인다(자막 '이상준' <span class="asr-uncert">인명 불명확 [?]</span>).</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>b. 영향 ③ — 설교의 중요성, 흑인 교회, c. 여성들의 역할 증대 <span class="bd tb">교재 p.178</span><span class="bd v1">자막 16092~18126자</span></h2>
+  <h3>6-1. 설교의 중요성 <span class="bd tb">교재 p.178 상단</span><span class="bd v1">자막 16092~16364자</span></h3>
+<ul class="tight">
+    <li>교수: <span class="say">“설교의 중요성을 하도 강조했습니다”</span>(자막 '설교의 중요성만도 특별히 오순절 계통은') — 오순절 계통의 설교 강조로 많은 교단들이 설교를 중요시하게 되었다. 교재: <strong>유대교</strong>에도 영향을 미쳐 랍비의 능력이 설교의 능력으로 평가되고 <strong>설교가 유대교 예배의 정식 특징</strong>이 되었다. 교수는 <strong>천주교도 설교에 관심</strong>을 갖게 되었고 흑인 교회들도 마찬가지라고 한다.</li>
+    <li><strong>흑인 교회</strong>(교재): 설교가 중요시되고 <strong>목회자는 영적 안내자·권면자·대변자</strong>이며, 백인들이 유일하게 관용을 베푼 대상(지도자·정치가·연설가·두목·이상주의자)이다. 교수: 미국 남부는 지금도 <strong>목사들이 정치가</strong>가 되는 경우가 많고, 최근 하원 선거에도 목사들이 많았다고 한다(교수 발언 그대로).</li>
+    <li>흑인 설교가들은 <strong>부흥운동의 영향(감리교와 침례교)</strong>으로 <strong>감정적·즉흥적·소리 높이는 설교 스타일</strong>을 썼다(교재). 교수의 현장 묘사: 흑인 교회 예배는 <strong>엄청나게 시끄럽고 오래</strong>(두세 시간), 언제 끝날지 예측이 안 되며, 설교 중간에 할렐루야·아멘을 10분씩 하고, 뜨거우면 앞에 나와 빙빙 돌며 춤추고 기도한다(백인 교회는 한 시간이면 끝나고 늦으면 나가 버린다고 비교).</li>
+    <li>교수: “설교는 <strong>19세기 흑인 공동체의 실망이자 희망이자 정치사회적인 의견을 표출한 출구</strong>였다”(교재 p.178 같음).</li>
+    <li><strong>19세기 흑인 여성 설교자</strong>: 교재 p.178은 Nancy Towle, Susan Humes를 든다. 교수는 <strong>낸시 토웨이(자막)</strong>를 '1796년에 태어나서 1876년'(교수 발언)이라고 한다. 그 이전에는 흑인, 특히 여성은 대중 앞에서 말도 기도도 할 수 없었고 설교는 더구나 말도 못 했는데, <strong>감리교와 오순절을 통해 여성들이 전면에 등장</strong>했다. 교수: 한국도 감리교에서 여성이 가장 먼저 사회에 등장했다.</li>
+    <li>교재: <strong>19세기 중반(1861~5년의 남북전쟁 전)까지 설교는 미국문화의 대표적인 상징</strong>이었고 설교를 통해 온갖 주장이 출현했다. 교수는 “설교로 미국의 미래를 천명했다”는 취지로 말한다(자막 '모든 사람마다 설교할 때 다 미국의 미래 다격을 천명하고' <span class="asr-uncert">불명확 [?]</span>).</li>
+  </ul>
+  <h3>6-2. c. 여성들의 역할 증대 <span class="bd tb">교재 p.178 'c. 여성들의 역할 증대'</span><span class="bd v1">자막 16364~18126자</span></h3>
+<ul class="tight">
+    <li><strong>회심자들 중 여성의 수가 압도적</strong>이었다. 여자들은 모임 참석은 허락되었지만 말을 하는 경우는 드물었다. <strong>피니는 부흥회를 조직할 때 여자들에게 자원단체를 돕는 역할</strong>을 맡겨 참여시켰고, <strong>여자들도 공적으로 간증하고 기도하는 것</strong>이 허락되었다(교재).</li>
+    <li><strong>천년왕국 도래</strong> 주장: 교재 “3년 안에 이 나라에 천년시기가 도래할 것이다”(교수도 같은 말을 한다). 이에 <strong>생활개혁(건강개혁·자선활동) + 사회구조개혁(빈곤퇴치·노예해방·여성의 권리 인정·평화운동)</strong>을 통한 <strong>이상사회 건설</strong>(후천년설로 새로운 언약, 새 이스라엘)을 한다(교재).</li>
+    <li>교수: 이 때문에 <strong>구세군</strong>이 나온다 — 사회 자선활동. <strong>구세군은 감리교회에서 나왔다</strong>. 그래서 <strong>감리교·구세군·성결교회·순복음교회는 다 같은 웨슬리안, 같은 패밀리</strong>(교수: '같은 패밀리예요')라고 한다. 시골에서 도시로 온 젊은이들을 돌본 <strong>와이씨 운동</strong>도 이 흐름에서 나왔다고 설명한다(자막 '와이씨의 의료로 YWC의 운동' <span class="asr-uncert">YMCA·YWCA 계열로 짐작되나 자막만으로는 불명확 [?]</span>).</li>
+    <li>교수의 <strong>천년왕국 논의</strong>: 이런 노력 뒤에 천년왕국이 이루어지고 예수님을 모신다면 그것이 후천년설(자막 '부천연설')이다 — 그러나 <strong>부패한 인간이 노력한다고 무슨 이상사회를 이루겠는가, 천년왕국보다 예수님이 오시는 것</strong>이라는 반론이 있다. 한편 <strong>무천년설</strong>은 천년왕국은 상징적 의미이고 <strong>지금은 교회 시대이며 교회 시대 마지막에 심판이 온다</strong>는 것이다(자막이 불명확해 요지만 적음 <span class="asr-uncert">후천년·무천년 용어 자막 불명확 [?]</span>). 이 절 끝에서 교수가 질문을 받고 10분 쉬었다 한다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>D. 선교 및 교육활동 — a. 개요, b. 초기의 선교단체 <span class="bd tb">교재 p.178~179</span><span class="bd v1">자막 18126~22069자</span></h2>
+  <h3>7-1. a. 개요 <span class="bd tb">교재 p.178 하단~179 상단</span><span class="bd v1">자막 18126~18717자</span></h3>
+<ul class="tight">
+    <li>교수: <strong>개신교의 확장은 부흥회보다는 선교사업의 결과</strong>다. 특히 부흥에 의해 젊은 사람들이 선교에 대한 열정을 갖는다 — 1800년대 중반 이후 전 세계로 선교사들이 유럽과 특별히 미국에서 파송된 과정이다. 영국은 <strong>런던 선교협회</strong>를 통해 수많은 선교사를 파송했고, 미국은 부흥운동에 의해 선교사로 파송되었다(교재: 부흥회들에 의해 분출된 열기가 새로운 선교의 열정으로 이어짐).</li>
+    <li><strong>제2차 대각성 운동 이전</strong>의 선교는 정착 목회자가 당회·연합회·노회의 허락을 받아 <strong>잠시 동안 일상적 목회의 책임을 내려놓고 새 정착지로 선교여행</strong>을 떠나는 것이었다(교재). 교수: 요즘 말로 <strong>단기 선교</strong> 중심이었다.</li>
+    <li><strong>1790년에 시작된 서부개척</strong>과 함께 선교 대상 지역이 엄청나게 확장되어 <strong>보다 체계적인 접근</strong>이 요청되었다(교재). 교수: 미시시피 강 주변에서 서부로 확장되며 많은 젊은 사람들이 서부 변경 지역으로, 좋은 목초지를 찾아 서쪽으로 갔고 동서 횡단철도가 놓이며 더 갔다(자막 '금강을 찾아서' <span class="asr-uncert">불명확 [?]</span>).</li>
+  </ul>
+  <h3>7-2. b. 초기의 선교단체 <span class="bd tb">교재 p.179 'b. 초기의 선교단체'</span><span class="bd v1">자막 18717~19257자</span></h3>
+<table><caption>초기 선교단체 (교재 p.179; 교수 낭독과 대조)</caption><tr><th style="width:14%">연도</th><th>단체</th><th style="width:36%">비고</th></tr><tr><td>1798</td><td>뉴욕선교회(the New York Missionary society) — 장로교·침례교·화란 개혁파가 모여 구성</td><td>일차 목적: <strong>인디언 선교</strong>(교수: 국내 선교)</td></tr><tr><td>1798</td><td>코네티컷 선교협회(the Missionary Society of Connecticut) — 회중교인들</td><td><strong>변경지역에 교회를 설립</strong>하기 위해</td></tr><tr><td>1800</td><td>장로교 서부선교회(the Western Missionary Society)</td><td></td></tr><tr><td>1802</td><td>매사추세츠 침례교 국내선교회(the Messachusetts Baptist Domestic Missionary Society)</td><td>침례교인</td></tr><tr><td>1819</td><td>감리교인들도 선교회 조직</td><td>그러나 <strong>감리교는 모든 연회가 일종의 선교회, 모든 순회설교자가 선교사</strong>였다</td></tr><tr><td>1821</td><td>성공회 국내 및 해외선교회(the Domestic and Foreign Missionary Society)</td><td>교수는 자막 '18121년'</td></tr></table>
+<ul class="tight">
+    <li>교수: 프런티어(변경)는 미국 사람들이 지금도 가장 좋아하는 개척 단어이고 <span class="say">“이거를 미국 교회사나 역사에는 굉장히 중요해요”</span>(<strong>프런티어 스피릿, 개척 정신</strong>). <span class="bd v1">자막 18957자</span></li>
+    <li><strong>감리교는 연회 자체가 선교회</strong>였다 — 순회사역이 곧 선교이기 때문(교수). 어디나 사람들이 모이면 가서 예배드리고 전도했다.</li>
+  </ul>
+  <h3>7-3. 감리교 순회설교자 — “까마귀와 감리교 목사” <span class="bd tb">교재 p.179</span><span class="bd v1">자막 19257~22069자</span></h3>
+<ul class="tight">
+    <li>켄터키의 한 장로교 선교사가 감리교에 감탄한 말(교재): “저는 마침내 감리교 설교자가 들어가지 않은 마을을 찾고 말겠다는 야망을 갖게 되었습니다 … 제가 찾아간 곳마다, 저보다 앞서서 감리교 선교사들이 그곳에 도착했음을 알게 되었습니다.” 교수: 가는 곳마다 다 있었다. 심한 폭풍우·폭설을 묘사할 때 사람들은 <strong>“까마귀와 감리교 목사들 외에는 바깥에는 아무도 없다”</strong>라고 했다(교수 낭독에서는 '까마귀와 감내기 목사들'). 교수: 사람이 나갈 수 없는 폭풍에도 까마귀와 감리교 선교사는 있더라는 말이다.</li>
+    <li>(교수가 미국의 허리케인·정전·토네이도·폭설 휴교를 길게 설명한 대목은 수업 본론이 아니어서 생략.)</li>
+    <li><strong>감리교 순회설교자 피터 카트라이트</strong>: “낡은 설교 원고를 더 이상 읽지 않고 즉석에서 설교하는 법을 배워야 한다. 그렇지 않으면 그가 성냥에 불을 붙이기도 전에 감리교인들이 서부 전체에 불을 놓을 것이다”(교재 p.179; 교수 낭독 자막 '성당에 불을'은 '성냥').</li>
+    <li>교수의 풀이: 장로교·회중교회·성공회 같은 <strong>정착 목회자</strong>는 매주 설교를 바꿔야 하고, 교인 중에 설교를 다 적어 둔 <strong>충실한 설교 기록자</strong>가 있어 같은 설교를 되풀이하면 걸린다. 미국은 설교를 다시 반복하면 그냥 넘어가지 않아 <strong>미국에서 목회하다 설교 중복으로 쫓겨난 한국 사람도 있다</strong>(교수 증언). 반면 <strong>감리교·침례교는 순회사역</strong>이라 몇 편만 가지고도 여러 곳을 다니며 설교할 수 있다.</li>
+    <li>그래서 19~20세기에 설교를 가장 잘하는 목사들이 <strong>감리교와 침례교 목사</strong>였다(교수). 성경 구절을 끊임없이 암송하며 설교하면 논리와 상관없이 <strong>저절로 은혜가 된다</strong>고도 말한다(한국 침례교 목사님 두 분과 한 장로님의 설교 일화는 생략 <span class="asr-uncert">인명 불명확 [?]</span>). 교수: 여러분이 설교를 잘하려면 <strong>똑같은 설교를 여러 번</strong> 하면 된다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>c. 각종 자원단체의 조직 · d. 교육에 끼친 영향 · e. 신학교와 대학교 설립 <span class="bd tb">교재 p.179~180</span><span class="bd v1">자막 22069~25170자</span></h2>
+  <h3>8-1. c. 자원단체 <span class="bd tb">교재 p.179 'c. 각종 자원단체의 조직'</span><span class="bd v1">자막 22069~22370자</span></h3>
+<table><caption>자원단체 (교재 p.179의 연도 / 교수 발언)</caption><tr><th>단체</th><th style="width:16%">교재 연도</th><th style="width:30%">교수 발언·메모</th></tr><tr><td>미국성서공회(the American Bible Society) — 필요한 문서 발간</td><td>1816</td><td>교수: 1816년</td></tr><tr><td>미국교육협회 — 대학과 신학교 설립, 선교활동에 필요한 목사·일꾼 양성</td><td>1816</td><td></td></tr><tr><td>미국식민지협회(the American Colonization Society)</td><td>1817</td><td>교수 언급 없음</td></tr><tr><td>미국주일학교연맹(the American Sunday School Union) — 어린이 신앙교육 제공</td><td>1824</td><td></td></tr><tr><td>미국문서선교회(the American Tract Society)</td><td>1825</td><td></td></tr><tr><td>미국금주협회(the American Temperance Society)</td><td>1826</td><td>교수: '모든 악의 뿌리는 술' 그래서 금주운동</td></tr><tr><td>미국평화협회(the American Peace Society)</td><td>1828</td><td>교수: 1828년</td></tr><tr><td>미국노예반대협회(the American Antislavery Society)</td><td>1833</td><td>교수: 1834년 <span class="bd bo">보충</span> 교재는 1833년, 교수는 1834년. 노트는 교재 연도를 표에 쓰고 교수 발언을 병기.</td></tr></table>
+<ul class="tight">
+    <li><strong>자원단체들의 특성</strong>(교재): <strong>교파를 초월하여 연합 사업</strong>, <strong>사심 없는 자선</strong> 강조, <strong>교리와 의무(청교도 신학의 강조점) + 감정의 종교(웨슬리안의 감정주의)의 결합</strong>, <strong>개인 전도뿐 아니라 사회를 재구성</strong>하려는 목적. 교수: 사회를 완전히 기독교적으로 개조해 이 땅에 하나님 나라가 오게 하자는 것이며, 이것이 <strong>사회복음 운동</strong>이다(자막 '월트라우시 무시의 사회개혁운동 사회보금화 운동' <span class="asr-uncert">인명 자막 불명확 — 교정하지 않음 [?]</span>). 이를 실천하려 구세군도 나왔고 '예수님이라면 어떻게 하실까'를 다룬 소설(자막 '쉘튼' <span class="asr-uncert">작가·제목 불명확 [?]</span>)이 나왔다. 교수: <span class="say">“실천하는 게 중요하지 믿음이 중요하지 않다는 거예요”</span> <span class="bd v1">자막 24646자</span></li>
+  </ul>
+  <h3>8-2. 금주운동과 한국 선교사 (교수의 연결) <span class="bd v1">자막 22370~24263자</span></h3>
+<ul class="tight">
+    <li>금주협회에서 보듯 이 당시 <strong>젊은이들이 영향을 받아 1880년대 후·중반에 한국에 들어온다</strong>. 장로교 선교사들이 한국에 와 보니 특히 양반들이 술·담배·노름·첩질을 해, 이를 못 하게 했다. 양반들이 교회를 다니며 <strong>장로가 되고 싶어 하자</strong> 선교사들이 조건을 걸었다: <strong>금주, 담배 안 피움, 노름 안 함, 주일 성수, 새벽기도 참석, 마지막으로 첩 정리</strong>. 마지막이 가장 힘들었고 결국 다 정리했다. 교수: 한국 초기 선교사들은 <strong>19세기 미국의 금주·금연 운동 분위기</strong> 속에서 온 사람들이다.</li>
+    <li>커피 이야기(교수): 커피는 원래 이슬람권에서 마시던 것이고 유럽에서 금하려 했으나 교황이 한번 마셔 보고 '신세계'라 해 <strong>커피에 세례를 주어</strong> 유럽에 보급되었다는 일화. 오늘도 일부 신학교는 외부에서 <strong>중독성 있는 것이 거룩한 성전에 들어오면 안 된다</strong>는 이유로 커피를 막는다고 말한다(교수 설명 그대로, 출처 미확인). <span class="asr-uncert">자막 불명확한 부분 다수 — 요지만 적음 [?]</span> 남부 신학교는 술은 엄격히 금해 요리용 미림에도 퇴사할 정도이고, 남부 주들은 지금도 일요일에 술을 팔지 못하는 곳이 있다고 한다.</li>
+  </ul>
+  <h3>8-3. d. 교육에 끼친 영향 · e. 신학교와 대학교 설립 <span class="bd tb">교재 p.179 하단~180 중단</span><span class="bd v1">자막 24263~25170자</span></h3>
+<ul class="tight">
+    <li><strong>교회는 중·고등학교 교육에 가장 크게 기여</strong>했다. <strong>장로교와 회중교회</strong>가 가장 적극적으로 전문학교와 대학을 설립했고 이어서 <strong>침례교와 감리교</strong>가 뒤를 따랐다. <strong>19세기 동안 대부분의 학교는 교단의 후원 하에 설립</strong>되었다(교재).</li>
+    <li><strong>남북전쟁</strong> 이전에 설립된 <strong>516개의 대학</strong>은 대부분 교단 후원 하에 설립되었다(교재 p.180; 교수도 같은 숫자). 교수는 노예제도 찬반으로 전쟁을 했다고 말하고, 이 당시 침례교는 전쟁에 참여했다고 한다(자막 '침례교는 전쟁에 착성했어요' <span class="asr-uncert">불명확 [?]</span>).</li>
+    <li>교재 p.180 <strong>신학교·대학교 설립</strong>: 1784 뉴욕시 뉴브룬스윅 신학교 / 1808 앤도버 신학교 / 1821 트로이 여자 신학교(여성들과 흑인(?)들을 위해) / 1843 침례교인들이 세운 뉴욕중앙대학 / 1854 펜실베니아 링컨대학교 / 1856 오하이오 윌버포스대학(자유를 얻은 흑인들을 위한 교육). 교수는 이 중 <strong>뉴욕 중앙대학이 침례교인들에 의해 세워졌다</strong>는 점을 말한다(자막 '뉴욕 중앙대학교').</li>
+    <li><strong>복음주의 신앙의 핵심 역할은 오하이오 주의 오벌린 대학</strong>(1833년): <strong>1835년 재정적 어려움을 도와준 찰스 피니를 조직신학 교수로 채용</strong>하고, <strong>노예제도 반대 운동으로 레인 신학교(1829년 오하이오 주 장로교 신학교)에서 퇴학당한 학생들을 받아들였으며 여성들과 흑인들을 최초로 받아들였다</strong>(교재). 교수: <span class="say">“중요한 건 아까 오벌린 대학교 얘기했죠”</span> <span class="bd v1">자막 25025자</span></li>
+  </ul>
+</div>
+<div class="card">
+  <h2>f. 해외선교 — 윌리엄 캐리와 미국의 해외선교 <span class="bd tb">교재 p.180~181 상단</span><span class="bd v1">자막 25170~30186자</span></h2>
+  <h3>9-1. 윌리엄 캐리(1761~1834) — “현대 선교의 아버지” <span class="bd tb">교재 p.180 'f. 해외선교'</span><span class="bd v1">자막 25170~25913자</span></h3>
+<ul class="tight">
+    <li>교재: 윌리엄 케리(William Carey, 1761-1834, <strong>영국 특수침례교 선교사</strong>) — <strong>“현대 선교의 아버지”</strong>. 교수는 <strong>영국에서 태어났지만 인도에서 죽었다</strong>고 한다(출생지·사망지 지명은 자막이 불명확 <span class="asr-uncert">지명 불명확 [?]</span>).</li>
+    <li>교수: <strong>19살 때(1779년) 예수 그리스도를 영접</strong>했고 <strong>4년 후인 1784년</strong>에 침례교 목사(자막 '존 라이얼랜드')에게 <strong>침례</strong>를 받았다. 캐리는 <strong>번역가·사회 개혁가·문화 인류학자</strong>였다 — 인도의 낙후된 문명·문화를 개혁했고, 힌두어와 그 지역 방언을 공부해 성경 번역을 엄청나게 했다.</li>
+    <li><strong>1792년 개신교 역사 최초의 해외선교회인 침례교 선교회(BMS, Baptist Missionary Society)</strong> 조직에 앞장섰다. 교재: <strong>1792년 10월 앤드류 풀러(Andrew Fuller)가 다른 열한 명의 침례교 신자들과 함께</strong> 조직.</li>
+    <li>캐리의 선교 방식(교재 p.180): <strong>국가 전체(국민 전체)의 개종 목표</strong> · <strong>현지인 사역자를 훈련시켜 사역</strong> · <strong>모든 사람들을 위해 복음을 세상 끝까지 전해야 한다</strong>고 주장. 교수: 이 당시 유럽 사회는 이민족을 선교 대상으로 보지도 않았는데 캐리는 앤드류 풀러(자막 '앤니류 훌로')의 영향을 받았다. <span class="say">“그 다음에 중요한 게 뭐냐면 모든 사람들을 위해”</span> 복음을 세상 끝까지 전해야 한다. <span class="bd v1">자막 25861자</span></li>
+  </ul>
+  <h3>9-2. 복음적 칼빈주의와 하이퍼 칼빈주의 — 앤드류 풀러 <span class="bd v1">자막 25913~28216자</span></h3>
+<ul class="tight">
+    <li>교수: 이 사상은 <strong>복음적 칼빈주의</strong>(자막 '보금적 칼빈주의')다. 예정론(절대 예정)을 그대로 따르면 복음을 전할 필요가 없다 — 하나님이 하신 일이므로. 그런데 복음적 칼빈주의는 <strong>누가 택한 자녀인지 모른다</strong>. 그렇다고 전도하지 않으면 그 사람이 복음을 들을 기회가 없다 — 하나님이 아무리 택한 자라도 구원하려면 복음을 듣게 해야 하는데 사람이 안 전하면 하나님이 직접 말씀하실 수도 없으니, <strong>대상자가 누군지 모르기 때문에 모든 사람에게 복음을 전해야 한다</strong>는 것이다.</li>
+    <li><strong>앤드류 풀러</strong>: 1754년 출생 ~ 1815년 사망(교수 발언; 캐리보다 7살 위), <strong>영국의 대표적 침례교 목사</strong>, <strong>BMS의 설립자이자 초대 사무총장</strong>(자막 '사무총리'). 교수는 '지금 우리가 아는 풀러 신학교와는 다른 사람'이라고 짚는다.</li>
+    <li>당시 영국 침례교 신학은 <strong>하이퍼 칼빈주의</strong> — <strong>이중예정</strong>(하나님이 창세전부터 택자와 불택자를 선택하셨다)이므로 인간이 복음을 전할 필요가 없고, 전하는 것은 <strong>하나님의 일에 개입·간섭</strong>이라고 했다. 풀러는 이를 반대해 복음은 <strong>땅끝까지 전해야 하고 죄인이 믿음으로 예수를 영접해야 한다</strong>고 주장했다. 그 책(교수 발언: <span class="say">“더 가스펠 워디 올 어setanc라고 하죠 1786년”</span> <span class="asr-uncert">책 제목·철자는 자막 그대로, 연도는 '17886년'으로도 말함 — 확정 불가 [?]</span>)은 <strong>모든 사람이 받을 만한 가치가 있는 복음</strong>이라는 뜻이라고 교수가 풀이한다. 그래서 다른 11명의 침례교 신자들과 침례교 선교협회를 1792년에 조직했다.</li>
+  </ul>
+  <h3>9-3. 캐리의 업적 — 책, 번역, 세람포어 칼리지 <span class="bd tb">교재 p.180</span><span class="bd v1">자막 28216~28274자</span></h3>
+<ul class="tight">
+    <li>교수: <strong>1791년</strong>에 캐리는 '이교도들을 개종하기 위한 방법을 모색하는 그리스도인의 책임에 관한 연구'(교수가 풀어 말한 제목)라는 책을 썼다. <strong>힌두어를 공부해 힌두어 성경</strong>을 만들었고, <strong>산스크리트</strong>를 공부해 산스크리트 고전을 영어로 번역했다. 인도 내 <strong>6개 방언 사전과 문법책</strong>도 만들었다(자막 '불법 소도' <span class="asr-uncert">문법책으로 읽음 [?]</span>).</li>
+    <li>교재: <strong>인도의 덴마크령 세람포어(Serampore)</strong>에서 힌두교 언어를 공부하여 <strong>1824년 케리는 성경 전체를 6개 언어로, 성경 일부를 24개의 언어로 번역</strong> ☞ <strong>이교도들에게 복음을 전파하려는 노력은 새로운 것</strong>.</li>
+    <li>캐리의 인도 선교활동 보고서가 출판되자 후원을 위해 <strong>미국의 여러 지역(교재: 필라델피아를 비롯한)에서 모금활동</strong>이 벌어졌다. 그리고 <strong>자발적 선교단체</strong>가 결성되는데 <strong>초교파적이고 평신도가 주축</strong>이었다(교재). 대표적으로 <strong>런던 선교협회</strong> — 교수: 중국·인도에 많은 선교사를 파송했고 한국에 처음 온 여러 선교사(특히 여자 간호사들)도 영국 런던 선교협회에서 많이 파송을 받았다고 한다(자막 '귀출 나쁜 여러 사람들' <span class="asr-uncert">불명확 [?]</span>).</li>
+    <li>곁들인 안내(교수): 초기 내한 선교사를 다룬 다큐 시리즈(자막 '한국 내한선교사 3천'·'300명 다큐' <span class="asr-uncert">규모 불명확 [?]</span>) 첫 편이 나왔고 교수가 링크를 공유하겠다고 한다. 선교사 한 분의 다큐가 12월 초에 올라온다고 한다(수업 본론 아님).</li>
+  </ul>
+  <h3>9-4. 미국해외선교회와 아도니람 저드슨 <span class="bd tb">교재 p.180</span><span class="bd v1">자막 28274~30176자</span></h3>
+<ul class="tight">
+    <li>교수: 캐리는 <strong>1810년에 세람포(세람포어) 칼리지</strong>를 세웠다고 한다(자막 '180년에 대학… 1810년에 더 세람포 칼리지'; 교재 p.180에는 없음). 교재: <strong>미국 최초의 해외선교 단체인 미국해외선교회</strong>(the American Board of Commissioners for Foreign Missions)가 <strong>1810년 앤도버 신학생들을 중심으로</strong> 조직되었다.</li>
+    <li><strong>2년 후</strong> 미국해외선교회 출신 <strong>5명의 학생</strong> — 새뮤얼 뉴엘, <strong>아도니람 저드슨</strong>, <strong>루터 라이스</strong>, 새뮤얼 노트 2세, 고든 홀(교재 표기; 교수 발언도 같은 순서) — 이 <strong>인도를 향해 출발</strong>했다. 교수: 이 사람들은 <strong>회중교회 신학대학 학생들</strong>이었고 회중교회 선교사로 인도에 파송되었는데, <strong>배 위에서 침례를 알게 되고 유아세례가 성경적이지 않다는 것을 깨달아 침례를 받아 침례교인이 되었다</strong>. 교재: <strong>선상에서 저드슨과 라이스는 침례교인이 됨</strong>.</li>
+    <li><strong>아도니람 저드슨</strong>: 미국 최초 해외 파송 침례교 선교사. 교수: <strong>1788년 출생 ~ 1850년 사망</strong>. 교수는 브라운 대학(옛 침례교 계열 로드아일랜드 대학)을 나왔고 <strong>1794년 졸업</strong>이라고 말한다 — <span class="bd bo">보충</span> 저드슨의 출생(1788)과 졸업(1794)이 교수 발언 안에서 맞지 않는다(6세 졸업이 됨). 교수 발언 그대로 적고 확정하지 않는다. 그다음 앤도버 신학교에서 친구들과 선교사가 되기로 결심, <strong>1810년 신학교를 졸업</strong>하고 <strong>미얀마(교재: 버마)</strong> 선교사로 갔다. 미얀마어를 익혀 <strong>문법책·미얀마-영어 사전·미얀마어 성서</strong>를 만들었다.</li>
+    <li>저드슨의 <strong>고난</strong>(교수): 환경이 너무 비참해, 젊은 아내가 아이를 낳으며 아이가 죽고 아내는 정신적으로 힘들어하다 죽었다. 재혼했지만 또 아내가 죽고 자녀도 죽어 <strong>평생 세 번 결혼</strong>했다. 세 번째 아내가 저드슨의 일기 등을 정리해 나중에 미국에서 전기(자서전)를 썼다는 취지로 말한다(자막 '아드리나 저저슨의 일기를 쓰는 여자' <span class="asr-uncert">이름·내용 불명확 [?]</span>).</li>
+    <li><strong>루터 라이스</strong>: 교수: 1783~1836, 인도 파송 항해 중 침례교로 개종. <strong>저드슨이 버마에 갔을 때 라이스는 저드슨의 선교활동을 위한 침례교의 지원을 얻어내기 위해 미국으로 돌아와</strong>(교재) 조직했다 — <strong>미국 침례교 최초의 선교 조직</strong>. 교수: 3년에 한 번 모여 <strong>'3년차 총회'</strong>라 부른다(자막 '3년차 총' <span class="asr-uncert">불명확 [?]</span>). <strong>미국 침례교는 교단이 먼저 생긴 것이 아니라 선교 조직으로 생겼다</strong>. 남침례교는 <strong>1845년</strong>에 미국 침례교에서 분리되었고, 지금도 남침례교는 <strong>예산의 약 85%</strong>를 선교에 쓴다(교수 설명: 100만 원이면 75~80만 원이 선교비라고도 말함 — 숫자가 오락가락해 '약 85%'는 교수 첫 발언).</li>
+    <li><strong>1850년까지 모든 교단들은 해외 선교활동을 위해 연간 650,000불을 지출</strong>했다 — 교재: 라투렛 박사는 19세기를 <strong>“위대한 세기”(the great century)</strong>라 불렀다(교수 자막 '나트릭 박사'). 교수: 모든 교단이 선교를 했는데 그 이유는 <strong>땅끝까지 복음이 전파되면 하나님의 나라가 이 땅에 임할 것이라는 희망</strong> 때문이었다.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>g. 분열 — 유니테리언주의와 이에 대한 반발 <span class="bd tb">교재 p.181</span><span class="bd v1">자막 30186~31916자</span></h2>
+  <h3>10-1. 유니테리언주의 <span class="bd tb">교재 p.181 'g. 분열'</span><span class="bd v1">자막 30186~30790자</span></h3>
+<ul class="tight">
+    <li>교재: <strong>제2차 대각성운동(부흥운동)은 성장과 동시에 분열</strong>을 초래했다. <strong>보스턴(뉴잉글랜드)</strong>을 중심으로 <strong>유니테리언주의(반삼위일체론)</strong>가 영향을 끼쳐 <strong>구원에 있어서의 인간의 역할을 점점 더 강조</strong>했다. 교수: 부흥운동이 너무 지나치니 이번에는 <strong>인간의 자유의지를 강조</strong>하게 되었다. 유니테리언은 '삼위일체'를 반대하고(자막 '사반 삼일치') <strong>예수님은 하나님이 아니다, 인류의 스승일 뿐 구세주가 아니다, 하나님은 한 분</strong>이라고 한다.</li>
+    <li><strong>대표 학자 윌리엄 엘러리 채닝스</strong>(교재 표기; 자막 '윌리엄 채닝스'): <strong>1819년 한 안수식에서</strong> 성경의 의미는 <strong>다른 책들과 동일한 방식으로 탐구</strong>되어야 하며, 비록 예수는 하나님은 아니었지만 <strong>인류의 도덕적·영적 구원을 위해 성부로부터 파송</strong>받았고 <strong>하나님과 인간 사이에는 본질이 동일하다</strong>고 설교했다. 또 <strong>저 높은 곳을 향한 인류의 영원한 지속적 발전</strong>을 강조했다.</li>
+    <li>교재: <strong>1825년 미국유니테리언협회 설립</strong> — 교회 수 125개, 그중 100개가 매사추세츠, 대부분 보스턴에서 40마일 내. <strong>후에 1882년 찰스 촌시(Charles Chauncy)의 보편구원론</strong>과 비슷(교재 표기 그대로). 교수: 찰스 천씨(자막)의 <strong>보편구원론(보편구원)</strong> = 결국 모든 인간은 구원될 것이며 <strong>지옥은 텅 비게 된다</strong>, 오리겐이 주장한 것(교수: '예전에 다뤘던 오리겐')이라고 한다. <span class="bd bo">보충</span> 교재는 '후에 1882년 찰스 촌시'라고 적는데 1825년 협회보다 뒤라는 뜻으로 읽힌다. 교수는 연도 없이 '찰스 천씨'만 말한다.</li>
+    <li><strong>제임스 프리만 클락</strong>(교재 표기 'William James Clarke'와 한글 표기가 다르다): <strong>“신앙선언”</strong>에서 <strong>하나님의 부성, 인간의 형제애, 예수님의 지도력, 성품에 의한 구원</strong>을 강조(교재). 교수는 자막 '제임스 클락'이 '하나님의 부성, 인간의 형제, 예수의 진도 성품이라는 구원'을 강조했다고 말한다.</li>
+  </ul>
+  <h3>10-2. 반발 ① — 앤도버 신학교와 하트포드 신학교 <span class="bd tb">교재 p.181</span><span class="bd v1">자막 30790~31108자</span></h3>
+<ul class="tight">
+    <li>교수: 이런 신학사상에 <strong>반발이 일어난다</strong>. 교재: 잘 알려진 자유주의자 <strong>헨리 웨어(Henry Ware)가 1805년 하버드 대학 교수로 선출</strong>되자 결국 <strong>1808년 앤도버 신학교를 설립</strong>했다(교수: 하버드에서 이들이 더 이상 함께하지 못하겠다고 해서 앤도버 쪽으로 빠져나갔다는 취지, 자막이 뒤섞여 있음 <span class="asr-uncert">순서 불명확 [?]</span>).</li>
+    <li><strong>앤도버 신학교</strong>를 중심으로 <strong>부흥회들이 하나님의 역사라기보다는 부흥 제작자들의 작품이 되어 가고 있다</strong>고 비판했고, <strong>인간의 전적 부패성을 부정하고 있는 예일대학교의 신학 사조</strong>를 비판했다(교재; 교수: 예일대학도 신학이 자유주의화, <strong>원죄론을 부정</strong>). 이에 대항하기 위해 <strong>1834년 칼빈주의 신학에 근거한 하트포드 신학교</strong>(Hartford Seminary)가 이스트 윈저(East Windsor)에 설립되었다(교수: '예일대학에 반대해서 하드포드 신학교가 설립됩니다').</li>
+  </ul>
+  <h3>10-3. 반발 ② — 프린스턴 신학교(구파)와 유니온 신학교(신파) <span class="bd tb">교재 p.181 하단</span><span class="bd v1">자막 31108~31916자</span></h3>
+<ul class="tight">
+    <li>교수: 그다음 <strong>보수적인 프린스턴 신학교</strong>가 설립되었고 이 프린스턴이 <strong>구파</strong>다. 교재: 당시 버지니아 햄든-시드니 대학 총장이던 아키발드 알렉산더(Archibald Alexander)가 이런 신학적 경향을 비판했고, <strong>장로교가 1812년 뉴저지(프린스턴 대학이 있는)에 프린스턴 신학대학원(Princeton Theological Seminary)을 설립</strong> — <strong>알렉산더 박사와 세 명의 학생으로 시작</strong>.</li>
+    <li>교재: <strong>구파(프린스턴 신학교)는 1837년까지 총회의 주도권을 장악</strong>했고, <strong>1818년에 설립된 어번 신학교(Auburn seminary)와 1829년에 설립된 레인 신학교에 대해 불편해했다</strong>.</li>
+    <li><strong>1836년 뉴욕에 신파에 의해 유니온 신학교(Union Theological Seminary) 설립 ☞ 구파인 프린스턴 신학교와 대척</strong>(교재 p.181 맨 아래). 교수: 이 구파에 반대하는 <strong>신파</strong>가 나왔고 유니온 신학교는 <strong>장로교 신파</strong>다.</li>
+    <li>교수의 설명: 유니온 신학교는 어느 대학에 속해 있나 하는 질문을 던지고 답을 말한다 — 자막상 <strong>콜롬비아 대학</strong> 관련으로 <strong>뉴욕 맨해튼</strong>에 있다고 한다 <span class="asr-uncert">대학과의 관계는 자막이 불명확해 교수 발언 그대로 적음 [?]</span>. 미국에는 유니온 신학교가 <strong>둘</strong> 있다 — <strong>뉴욕</strong>의 것과 <strong>버지니아</strong>의 것. 버지니아 쪽은 이름을 바꿔 <strong>유니온 장로교신학교</strong>라 부른다(자막 '유년 장로교신학교').</li>
+    <li>교수: 뉴욕 유니온 신학교가 유명한 이유로 자막은 '완전히 여성 신화 여성신화' <span class="asr-uncert">여성 신학으로 읽음, 불명확 [?]</span>라고 하고, 유명한 학자들이 많았다고 한다. 자막에 나온 이름: '폴리 폴틀리'·'라인홀트 리버, 리처드 리버 형제'·'볼래퍼'·'제임스 폰'·'칼 로저스' <span class="asr-uncert">인명 모두 자막 불명확 — 확정하지 않고 자막 그대로 [?]</span>. 교수: 유니온 신학교는 <strong>신파 장로교 신학교</strong>이며, <strong>장신대 교수 중 많은 경우가 유니온 신학교나 프린스턴, 또는 버지니아의 장로신학교를 나왔다</strong>.</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>수업 안내 (수업 마지막) <span class="bd v1">자막 31916~32061자</span></h2>
+<ul class="tight">
+    <li>수업 마지막에 교수가 한 말(자막이 뒤엉켜 있어 원문 그대로 인용): <span class="say">“일단 욕까지만 하고 다음 시간에 교수를 진행습니다”</span> / <span class="say">“말고사라는 리허설 다음 주 정도 제가 말씀하세요”</span> / <span class="say">“12월 8일날이 12월 8일이 마지막 수업이 여 개말고사가 12월 8일이다”</span> / <span class="say">“8일이 시작되고 일 1일이 마지막 수업이에요. 8일이 기말고사”</span></li>
+    <li>정리: <strong>마지막 수업은 12월 1일, 기말고사는 12월 8일</strong>로 읽힌다 <span class="asr-uncert">자막 '일 1일이 마지막 수업'을 12월 1일로, '8일이 기말고사'를 12월 8일로 읽음 [?]</span>. 기말고사에 대한 설명은 <strong>다음 주에 하겠다</strong>는 취지로 말했다 <span class="asr-uncert">'리허설 다음 주 정도 제가 말씀하세요'는 불명확 [?]</span>. 다음 시간은 이어서 진행한다(p.182 'D. 이외의 반발'은 이번 수업에서 다루지 않았다).</li>
+  </ul>
+</div>
+<div class="card">
+  <h2>한눈에 보는 연표 </h2>
+<table><tr><th style="width:20%">연도</th><th>사건</th></tr><tr><td>1609</td><td>침례교 시작(교수; 네덜란드로 간 분리주의자들)</td></tr><tr><td>1784</td><td>캐리, 침례교 목사에게 침례(교수) · 교재 p.180 뉴욕시 뉴브룬스윅 신학교</td></tr><tr><td>1786</td><td>풀러의 책(교수 발언)</td></tr><tr><td>1790</td><td>서부개척 시작(교재 p.179)</td></tr><tr><td>1792</td><td>피니 출생(코네티컷) · 침례교 선교회(BMS) 조직 — 앤드류 풀러와 11명(교재 p.180, 10월)</td></tr><tr><td>1798</td><td>뉴욕선교회 · 코네티컷 선교협회(교재 p.179)</td></tr><tr><td>1800 · 1802 · 1819 · 1821</td><td>장로교 서부선교회 · 매사추세츠 침례교 국내선교회 · 감리교 선교회 · 성공회 국내 및 해외선교회(교재 p.179)</td></tr><tr><td>1805 · 1808</td><td>헨리 웨어 하버드 교수 선출 · 앤도버 신학교 설립(교재 p.181)</td></tr><tr><td>1810</td><td>미국해외선교회 조직(교재 p.180) · 저드슨 신학교 졸업(교수)</td></tr><tr><td>1812</td><td>프린스턴 신학대학원 설립(교재 p.181)</td></tr><tr><td>1816</td><td>미국성서공회 · 미국교육협회(교재 p.179)</td></tr><tr><td>1819</td><td>채닝스의 안수식 설교(교재 p.181)</td></tr><tr><td>1824</td><td>피니 29세, 전도집회 시작 · 캐리 성경 전체 6개 언어 번역(교재 p.177·180)</td></tr><tr><td>1830 · 1831</td><td>체스터 집회(1000여 명 회개, 1200명 새신자 등록) · 한 해 십만여 명 결심(교재 p.177)</td></tr><tr><td>1833 · 1835 · 1836</td><td>오벌린 대학 설립 · 피니 조직신학 교수 채용(p.180) · 신학교수(p.177)</td></tr><tr><td>1834</td><td>하트포드 신학교 설립(교재 p.181)</td></tr><tr><td>1836</td><td>뉴욕에 신파가 유니온 신학교 설립(교재 p.181)</td></tr><tr><td>1845</td><td>남침례교 분리(교수)</td></tr><tr><td>1850</td><td>모든 교단 해외선교 연 650,000불 — 1850년까지(교재 p.181)</td></tr><tr><td>1851</td><td>피니 오벌린 학장(교재 p.177)</td></tr><tr><td>1861~1865</td><td>남북전쟁(교재 p.178·180)</td></tr><tr><td>1870년대 · 1901 · 1910 · 1960년대 · 1990년대</td><td>케직 사경회 · 찰스 파함 · 윌리엄 덜함 · 신오순절·은사주의 · 거룩한 웃음 등(교재 p.177~178)</td></tr></table>
+</div>
+<div class="card">
+  <h2>예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span> </h2>
+<table><tr><th style="width:5%">#</th><th>문항</th><th style="width:38%">답 · 근거</th></tr><tr><td>1</td><td>(단답) 찰스 피니가 구원에 대해 깨달은 것과 그에 따른 행동은?</td><td>구원은 복잡하지 않다 — 죄를 중단하고 그리스도를 받아들이겠다는 결단 · 소송 사임 — 2-4, 2-5, 교재 p.176~177</td></tr><tr><td>2</td><td>(단답) 피니의 '새로운 방법'으로 널리 모방된 것은?</td><td>구도자 석(anxious bench) — 4-1, 교재 p.177</td></tr><tr><td>3</td><td>(약술) 초청(인비테이션) 논쟁에서 장로교가 곤란해한 이유를 쓰시오.</td><td>누가 택한 자인지 알 수 없으므로 임의로 결단·기도를 촉구할 수 없다 — 4-2</td></tr><tr><td>4</td><td>(단답) 피니의 신학 세 가지(원죄·성화·성령세례)를 쓰시오.</td><td>원죄 불인정(자발적 죄만), 칭의와 성화 구분·성화를 성령세례와 연결, 현세에서 성화 성취 가능 — 5-1, 교재 p.177</td></tr><tr><td>5</td><td>(약술) 케직 사경회의 주요 주장을 쓰시오.</td><td>성화는 회심 순간 시작·일생 지속, 성화와 성령세례(복음화를 위한 권능) 구분 — 5-2, 교재 p.177</td></tr><tr><td>6</td><td>(OX) 윌리엄 덜함은 중생과 성화를 동시적 사건으로 이해했다.</td><td>O — 1910년, 성령세례는 제2의 은총, 하나님의 성회 설립 — 5-5, 교재 p.178</td></tr><tr><td>7</td><td>(단답) 교재가 '현대 선교의 아버지'라 부른 인물과 1792년에 조직한 단체는?</td><td>윌리엄 케리(캐리) · 침례교 선교협회(BMS) — 9-1, 교재 p.180</td></tr><tr><td>8</td><td>(약술) 앤드류 풀러가 하이퍼 칼빈주의에 반대한 이유와 그 영향을 쓰시오.</td><td>9-2 — 교수 설명(교재 p.180은 풀러가 선교협회를 조직했다는 데까지)</td></tr><tr><td>9</td><td>(단답) 1810년 앤도버 신학생을 중심으로 조직된 단체와 인도로 출발한 5명 중 선상에서 침례교인이 된 두 사람은?</td><td>미국해외선교회 · 저드슨과 라이스 — 9-4, 교재 p.180</td></tr><tr><td>10</td><td>(약술) 유니테리언주의에 대한 반발로 세워진 신학교를 연도와 함께 쓰시오.</td><td>앤도버(1808), 하트포드(1834), 프린스턴(1812, 구파) / 유니온(1836, 신파) — 10-2·10-3, 교재 p.181</td></tr></table>
+</div>
+<div class="card">
+  <h2>교재에만 있는 내용 — p.180 (수업에서 언급 없음) </h2>
+<ul class="tight">
+    <li><strong>남북전쟁</strong> 설명(교재 p.180): 1861년 4월 12일~1865년 4월 9일까지의 전쟁. 노예제도를 지지하는 남부들이 모여 남부연합을 형성하고 미합중국으로부터 분리 선언, 남군이 사우스 캐롤라이나 주 찰스턴항의 섬의 요새를 폭격함으로써 전쟁 시작, 전쟁 후 노예제도 전역에서 폐지.</li>
+    <li><strong>신학교·대학교 설립</strong> 중 교수가 언급하지 않은 것(교재 p.180): 1784 뉴브룬스윅 신학교, 1808 앤도버 신학교(연도), 1821 트로이 여자 신학교(여성들과 흑인(?)들을 위해), 1854 링컨대학교(펜실베니아), 1856 윌버포스대학(오하이오 · 자유를 얻은 흑인들을 위한 교육).</li>
+    <li><strong>자원단체</strong>(교재 p.179) 중 교수가 언급하지 않은 것: 미국식민지협회(1817), 미국주일학교연맹(1824), 미국문서선교회(1825).</li>
+    <li><strong>프린스턴 신학교</strong>(교재 p.181): 아키발드 알렉산더(햄든-시드니대학 총장), 1812년 알렉산더 박사와 세 명의 학생으로 시작, 구파는 1837년까지 총회의 주도권을 장악, 1818년 어번 신학교와 1829년 레인 신학교에 대해 불편해함 — 교수는 '프린스턴 = 구파'라고만 말했다.</li>
+  </ul>
+</div>
+<details class="apx">
+  <summary>부록 — 출처·자막 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 자막 오인식 교정 (교재 표기가 있는 것만 교정, 나머지는 자막 표기 그대로)</caption>
+  <tr><th>자막 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>찰스 핀 · 찰스 페인이 · 피이니</td><td>찰스 피니</td><td>교재 p.176</td></tr>
+  <tr><td>회전교회 · 해중정책 · 해준 정치</td><td>회중교회 · 회중정치</td><td>교재 p.176 '회중교인'; 정치 용어는 문맥 [?]</td></tr>
+  <tr><td>레슬리안 · 메슬리안 · 외슬리아</td><td>웨슬리안</td><td>교재 p.176~177</td></tr>
+  <tr><td>완전교류 · 완전거리</td><td>완전교리</td><td>교재 p.176~177</td></tr>
+  <tr><td>불을 주며 · 충성체험</td><td>부르짖으며 · 중생 체험</td><td>교재 p.177 (예레미야 29:12 · 중생 체험)</td></tr>
+  <tr><td>구조좌석 · 구두자 석</td><td>구도자 석</td><td>교재 p.177</td></tr>
+  <tr><td>체스터 · 오버린 · 오림대학</td><td>체스터(교재 표기) · 오벌린</td><td>교재 p.177</td></tr>
+  <tr><td>캐직 사경회 · 계직 · 개직</td><td>케직 사경회</td><td>교재 p.177</td></tr>
+  <tr><td>찰스 바음 · 파함 · 1년 덜 함</td><td>찰스 파함 · 윌리엄 덜함</td><td>교재 p.177~178</td></tr>
+  <tr><td>피터 와그너</td><td>(교재 표기: Peter Wager)</td><td>교재 p.178 — 노트는 교수 발언대로 '피터 와그너'</td></tr>
+  <tr><td>낸시 토웨이</td><td>(교재 표기: Nancy Towle)</td><td>교재 p.178</td></tr>
+  <tr><td>윌리엄 캐리 · 일 캐리 · 앤드류 훌로 · 세람포</td><td>윌리엄 케리(교재 표기) · 앤드류 풀러 · 세람포어</td><td>교재 p.180</td></tr>
+  <tr><td>저조슨 · 자젓은 · 루트라이스</td><td>아도니람 저드슨 · 루터 라이스</td><td>교재 p.180</td></tr>
+  <tr><td>사무엘 누엘 · 세미엘 로트 2 · 고든홀</td><td>새뮤얼 뉴엘 · 새뮤얼 노트 2세 · 고든 홀</td><td>교재 p.180</td></tr>
+  <tr><td>채닝스 · 찰스 천씨 · 제임스 클락 · 헨리 웨어</td><td>채닝스 · 찰스 촌시 · 제임스 프리만 클락 · 헨리 웨어(교재 표기)</td><td>교재 p.181</td></tr>
+  <tr><td>앤드버신학교 · 하드포드 · 프린스 신학교 · 유년·윤현신학교</td><td>앤도버 · 하트포드 · 프린스턴 신학교 · 유니온 신학교</td><td>교재 p.181</td></tr>
+  <tr><td>뉴헤븐 · 뉴에이브 · 저주신학</td><td>뉴헤이븐 · 조직신학</td><td>교재 p.177; 나머지 문맥 [?]</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(자막)</th><th>교재 · 노트 처리</th></tr>
+  <tr><td>오벌린 설립·피니 취임 연도</td><td>'1836년에 오버린 대학이 … 원래는 1833년에 설립'</td><td>교재 p.177 1836(신학교수)·1851(학장), p.180 1833 설립·1835 채용 — 두 쪽 연도 병기</td></tr>
+  <tr><td>노예반대협회 연도</td><td>1834년('1834년 1800년대 초창기예요')</td><td>교재 p.179 1833년 — 표에 교재 연도 + 교수 발언 병기</td></tr>
+  <tr><td>저드슨 출생·졸업</td><td>1788년 출생, '1794년에 브라운대학을 졸업'</td><td>교수 발언 그대로 (두 연도가 맞지 않음)</td></tr>
+  <tr><td>스펄전 일화의 여왕</td><td>'엘리자베스 여왕'</td><td>스펄전 활동기 영국 군주는 빅토리아 여왕 — 교수 발언 그대로 적고 3-1에 [보충] 표시</td></tr>
+  <tr><td>찰스 촌시 보편구원론의 연도</td><td>연도 없음</td><td>교재 p.181 '후에 1882년'(1825년 협회보다 뒤) — 교재대로 적음</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽) · 수업 범위</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th><th>수업</th></tr>
+  <tr><td>p.176</td><td>35(왼쪽)</td><td>캠프집회 반발(상단, 복습) · C. 새로운 방법들 · a. 찰스 피니(시작)</td><td>복습 · 피니 생애</td></tr>
+  <tr><td>p.177</td><td>35(오른쪽)</td><td>피니(이어짐) · b. 영향 · 케직·오순절(시작) · 찰스 파함</td><td>피니 · 새로운 방법 · 성결운동</td></tr>
+  <tr><td>p.178</td><td>36(왼쪽)</td><td>윌리엄 덜함 · 설교 · 흑인 교회 · c. 여성 · D. 선교 및 교육 a. 개요(시작)</td><td>오순절·설교·여성·선교 개요</td></tr>
+  <tr><td>p.179</td><td>36(오른쪽)</td><td>개요(이어짐) · b. 초기 선교단체 · c. 자원단체 · d. 교육(시작)</td><td>선교단체 · 자원단체</td></tr>
+  <tr><td>p.180</td><td>37(왼쪽)</td><td>d. 교육(이어짐) · e. 신학교·대학교 · f. 해외선교(케리)</td><td>교육 · 오벌린 · 캐리</td></tr>
+  <tr><td>p.181</td><td>37(오른쪽)</td><td>해외선교(마무리) · g. 분열 · 유니테리언 · 앤도버 · 프린스턴 · 유니온(1836)</td><td>분열과 반발</td></tr>
+  </table>
+  <p class="meta">p.182 'D. 이외의 반발'은 이번 수업에서 다루지 않았다.</p>
+  </div>
+</details>
+
+</body>
+</html>
