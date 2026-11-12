@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학 · 11주차 (온라인 13강)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.tq{color:var(--accent2)}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">전도학 · 11주차 (온라인 13강) · 2026학년도 2학기</div>
+  <h1>기독교 변증학 (Christian Apologetics)</h1>
+  <div class="prof">담당 김완 교수 · 13강 슬라이드 1~34번 (21·22·26~28·35~37번은 글자 없는 이미지 슬라이드)</div>
+</div>
+
+<div class="intro">
+  온라인 강의(약 48분)는 <b>변증학이란 → 복음의 준비(Praeparatio Evangelica) → 신학적 토대(일반계시) → 변증학의 역사 → 5대 주제 → 창조론 논쟁 → 변증서 소개 → 교훈 7가지</b> 순이었습니다. 교수는 “저는 전도학 교수라서 변증학에 대한 세부적인 내용은 좀 살펴보지 않고 아주 몇 가지만” 보겠다고 했습니다. 사실관계 보완은 <span class="b-sup bdg">보충</span>, 음성인식 교정은 <span class="asr">[ASR 교정]</span>, 확신 없는 부분은 [?]로 표시했습니다. 성경 본문은 개역개정 원문입니다.
+</div>
+
+<div class="toc">
+  <a href="#exam-box">📝 시험 얘기</a>
+  <a href="#what">1. 변증학이란</a>
+  <a href="#prep">2. 복음의 준비</a>
+  <a href="#found">3. 신학적 토대</a>
+  <a href="#hist">4. 변증학의 역사</a>
+  <a href="#five">5. 5대 주제</a>
+  <a href="#create">6. 창조론 논쟁</a>
+  <a href="#books">7. 변증서·자료</a>
+  <a href="#lesson">8. 교훈 7가지</a>
+</div>
+
+<div class="sec" id="exam-box">
+  <div class="emph">
+    <h3>📝 이 강의에서 교수가 시험을 언급한 곳</h3>
+    <ul>
+      <li><b>기독교 변증학의 5대 주제</b> (신 존재 증명 · 악과 고통의 문제 · 과학과 신앙 · 성경의 권위와 신뢰성 · 예수 그리스도의 역사성 — 본문 §5). 변증학 역사를 “그냥 날리고” 이것을 말하겠다며 이어 말했습니다.<br>
+        <span class="tq">“만약에 여러분들이 시험 본다면 이거 시험 문제입니다.”</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="what">
+  <div class="sh"><span class="sb">1</span><span class="st">변증학이란 (슬라이드 2)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>변증학(Apologetics)은 고대 그리스어 <b>아폴로기아(ἀπολογία, apologia)</b>에서 나왔으며 뜻은 ‘변호’, ‘변론’, ‘방어하는 말’, ‘정당화’입니다. 교수의 정리: <span class="tq">“기독교 변증화학이라는 것은 기독교 신앙을 변호하고 방어하는 것”</span> <span class="asr">[변증화학=변증학]</span></p>
+    <p class="vq">벧전 3:15 너희 마음에 그리스도를 주로 삼아 거룩하게 하고 너희 속에 있는 소망에 관한 이유를 묻는 자에게는 대답할 것을 항상 준비하되 온유와 두려움으로 하고</p>
+    <p>‘대답할 것’이 헬라어 <b>아폴로기아</b>입니다. 즉 예수님의 신앙을 변호하는 것입니다.</p>
+    <div class="sup"><span class="tag">보충</span> 슬라이드 2번은 이 구절을 “너희 속에 소망에 관한 이유를 묻는 자에게는 누구에게든지 항상 대답할 것을 준비하되 온유와 두려움으로 하고”로 줄여 적었습니다(‘누구에게든지’는 개역개정 본문에 없음). 노트에는 개역개정 원문(슬라이드 32번과 같음)을 적었습니다.</div>
+  </div>
+</div>
+
+<div class="sec" id="prep">
+  <div class="sh"><span class="sb">2</span><span class="st">복음의 준비 — Praeparatio Evangelica (슬라이드 3~7)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>유세비우스와 ‘복음의 준비’ (슬라이드 3)</h3>
+    <p>라틴어로 praeparatio = 준비(preparation), evangelica = 복음. 4세기 초대교회 역사가 <b>유세비우스(Eusebius of Caesarea)</b>가 쓴 <b>15권의 변증서 제목</b>입니다 <span class="asr">[교수의 “한 15번”은 ‘15권’의 ASR]</span>. 핵심 주장: <b>“복음이 전달되기 전, 복음을 위한 준비가 언제나 먼저 있었다.”</b> 헬라 철학·구약의 역사·이방 문화는 기독교와 단절된 ‘악’이 아니라 하나님이 ‘완전한 진리’를 보내시기 전에 역사와 사상 속에 미리 준비해 두신 과정이므로 무조건 배척할 필요가 없다는 것입니다.</p>
+  </div>
+  <div class="card">
+    <h3>① 구약과 신약의 준비 (슬라이드 4~5)</h3>
+    <p class="vq">창 3:15 내가 너로 여자와 원수가 되게 하고 네 후손도 여자의 후손과 원수가 되게 하리니 여자의 후손은 네 머리를 상하게 할 것이요 너는 그의 발꿈치를 상하게 할 것이니라 하시고</p>
+    <p>→ <b>Protoevangelium(원복음, 최초의 복음)</b>: 아담과 하와가 타락한 직후 하나님이 인류에게 최초로 주신 메시아 약속입니다.</p>
+    <p class="vq">갈 4:4 때가 차매 하나님이 그 아들을 보내사 여자에게서 나게 하시고 율법 아래에 나게 하신 것은</p>
+    <p>→ 교수: <span class="tq">“기독교 역사관의 한 특징은 때를 강조하는 것입니다.”</span> 아무 때나 오신 것이 아니라 <b>때가 찼을 때</b>, 준비됨의 절정에 아들이 오셨다는 것입니다(영어: when the time had fully come).</p>
+    <div class="tw"><table>
+      <caption>예수님 오실 때의 세 가지 역사적 준비 (슬라이드 5)</caption>
+      <thead><tr><th>준비</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><th>정치적</th><td>로마 제국의 통일, Roman roads — 안전하고 신속한 교통·통신.</td></tr>
+        <tr><th>문화적</th><td>헬레니즘 문화의 통일, Koine Greek(전 세계 공용어).</td></tr>
+        <tr><th>종교적</th><td>유대교와 희랍·로마 종교. 디아스포라 유대인의 회당은 복음 증거의 전초기지가 되었고, 희랍의 신화와 신비적 민속신앙은 영원과 구원을 갈망하는 ‘복음의 준비’ 역할을 했다 → “너희는 범사에 종교성이 많도다”.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>② 침례 요한의 준비 (슬라이드 6)</h3>
+    <p class="vq">막 1:1 하나님의 아들 예수 그리스도의 복음의 시작이라 1:2 선지자 이사야의 글에 보라 내가 내 사자를 네 앞에 보내노니 그가 네 길을 준비하리라 1:3 광야에 외치는 자의 소리가 있어 이르되 너희는 주의 길을 준비하라 그의 오실 길을 곧게 하라 기록된 것과 같이 1:4 세례 요한이 광야에 이르러 죄 사함을 받게 하는 회개의 세례를 전파하니</p>
+    <p>→ <b>복음은 그냥 전해지지 않는다.</b> 거의 모든 역사에서 복음이 오는 길이 먼저 준비되고 그 길을 따라 복음이 전해집니다. 침례 요한이 먼저, 그 후에 예수님의 복음입니다. (슬라이드는 ‘침례 요한’, 개역개정은 ‘세례 요한’)</p>
+  </div>
+  <div class="card">
+    <h3>③ 관계중심전도와 복음의 준비 (슬라이드 7)</h3>
+    <ul>
+      <li>관계가 형성되지 않았는데 복음부터 들이미는 것은 <b>강도짓</b>이나 다름없을 수 있다(슬라이드).</li>
+      <li><b>미국 복음주의 vs 대륙 복음주의</b>: 대륙의 복음주의 학자 데이비드 보쉬(David Bosch)는 사영리를 읽고 영접기도를 시킨 뒤 “영접하셨습니다, 끝”으로 넘어가는 미국식 전도에 경악해 격렬히 비판했다고 합니다 <span class="asr">[교수가 쓴 표현 ‘영접적인 강도지시’는 ‘영적인 강도질’ 정도의 ASR [?]]</span>.</li>
+      <li><b>예외</b>: 하나님의 강권적 권고(성령의 특별한 강권하심)가 있을 때를 제외하고 대부분의 전도는 관계를 타고 흘러야 합니다.</li>
+    </ul>
+    <p><b>Q. 교회 전도지를 주는 건 교회 홍보지, 십자가의 도를 전하는 ‘전도’는 아니지 않냐?</b> — A. <b>복음의 준비됨도 중요한 전도의 단계</b>입니다. 침례 요한의 사역이 복음과 무관하지 않듯 교회 홍보도 중요한 준비입니다. 다만 홍보로만 끝나고 복음 자체를 전하지 않으면 잘못입니다.</p>
+    <p class="vq">고전 3:6 나는 심었고 아볼로는 물을 주었으되 오직 하나님께서 자라나게 하셨나니</p>
+    <p>→ 누구는 심고 누구는 물을 주며 그 가운데 하나님의 역사가 일어납니다. <span class="tq">“보금전도는 여러 사역들이 같이 씨줄과 날줄로 연결되어서 함께 역사하는 것입니다”</span> <span class="asr">[보금전도=복음전도]</span></p>
+  </div>
+</div>
+
+<div class="sec" id="found">
+  <div class="sh"><span class="sb">3</span><span class="st">변증학의 신학적 토대 — 일반계시 (슬라이드 8)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>특별계시</b>: 성경을 통해 예수 그리스도를 알려 주는 것. <b>일반계시(General Revelation)</b>: 하나님은 성경뿐 아니라 <b>자연·양심·역사·문화</b> 속에도 당신의 흔적을 남겨 두셨다(슬라이드 8).</li>
+      <li>교수는 예수와 성경이 전혀 없는 곳(아마존 밀림, 유교 사상에 꽉 찼던 조선시대)에서도 사람들의 마음에 도덕률과 양심, 만물 가운데 어떤 절대적 존재가 있다는 희미한 앎을 하나님이 계시해 주신 것이 일반계시라고 했습니다.</li>
+      <li>모든 문화권에는 <b>구원자에 대한 갈망, 절대자에 대한 두려움, 도덕적 기준</b>이 있고, 이것이 복음이 들어갈 <b>접촉점(Point of Contact)</b>입니다. 이런 일반계시를 사용하는 것이 변증학의 중요한 토대입니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="hist">
+  <div class="sh"><span class="sb">4</span><span class="st">기독교 변증학의 역사 (슬라이드 9~17)</span><div class="sl"></div></div>
+  <div class="card">
+    <p>교수는 슬라이드의 인물들을 한두 문장씩 짚고 <span class="tq">“자, 뭐 역사는 그냥 날리고”</span> 5대 주제로 넘어갔습니다. 슬라이드의 목록만 정리합니다.</p>
+    <div class="tw"><table>
+      <thead><tr><th>시대</th><th>인물 · 슬라이드 요점</th></tr></thead>
+      <tbody>
+        <tr><th>초대교회</th><td>사도 바울의 아레오바고 설교(행 17) — 청중의 세계관 안에서 ‘알지 못하는 신’으로 시작해 예수의 부활로 천하를 심판할 퀴리오스를 논증(슬라이드 10). 교수는 이 부분을 논문(김완, 『선교신학』 제79집, 2025)에 맡기고 넘어감.</td></tr>
+        <tr><th>초기 교부</th><td>순교자 유스티누스(로고스 신학: 완전한 로고스는 오직 그리스도) · 터툴리아누스(로마법 원칙으로 박해의 불법성을 비판) · 오리겐(켈수스에 반대하며 (Contra Celsum)) · 디그네투스 서신(기독교는 세상의 ‘영혼’)</td></tr>
+        <tr><th>중세</th><td>아우구스티누스(악의 변증, 『하나님의 도성』) · 안셀무스(‘이해를 추구하는 신앙’, 존재론적 증명) · 토마스 아퀴나스(『신학대전』, 존재 증명 다섯 가지 길: 운동·원인·우연성·정도·목적과 질서)</td></tr>
+        <tr><th>종교개혁·근세</th><td>칼빈(『기독교 강요』, sensus divinitatis = 하나님을 알게 하는 감각) · 파스칼(『팡세』, 파스칼의 내기)</td></tr>
+        <tr><th>근대·20세기</th><td>윌리엄 페일리(시계 제작자 비유) · C. S. 루이스(도덕률 논증, 삼중 선택지: 거짓말쟁이 Liar / 미치광이 Lunatic / 주님 Lord, 상상력과 욕망 논증)</td></tr>
+        <tr><th>현대</th><td>프란시스 쉐퍼 · 윌리엄 레인 크레이그(칼람 우주론적 논증) · 알리스터 맥그래스 · 라비 재커리아스 (유튜브 링크는 슬라이드 17)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="vq">행 17:22 바울이 아레오바고 가운데 서서 말하되 아덴 사람들아 너희를 보니 범사에 종교심이 많도다 17:23 내가 두루 다니며 너희가 위하는 것들을 보다가 알지 못하는 신에게라고 새긴 단도 보았으니 그런즉 너희가 알지 못하고 위하는 그것을 내가 너희에게 알게 하리라</p>
+    <p><b>파스칼의 내기</b>(교수가 따로 설명): 하나님을 믿는다고 가정하면 하나님이 계실 때 무한한 유익(영원한 생명), 안 계실 때 유한한 손실(삶의 제약·헌신)이고, 믿지 않는다고 가정하면 하나님이 계실 때 무한한 손실(영원한 상실), 안 계실 때 유한한 이득(일시적 자유)이다 → 믿는 쪽이 이득(슬라이드 14 표).</p>
+    <div class="sup"><span class="tag">보충</span> 교수는 내기를 설명하며 “하나님을 믿지 않는다고 가정했는데 만약에 하나님이 없다. 그러면 영원한 지옥이 떨어지는 것인데”라고 말해, 슬라이드 표와 달리 ‘계시다/안 계시다’가 뒤바뀌었습니다. 표 기준으로 적었습니다.</div>
+    <div class="sup"><span class="tag">[?]</span> 교수는 맥그래스를 “옥스퍼드의 유명한 신학자이자 과학자”이며 대표적인 유신진화론자로 소개했습니다. 슬라이드는 ‘과학과 신앙의 통합적 접근 모색’까지만 적었으므로 ‘유신진화론자’ 분류는 교수 발언 그대로 둡니다.</div>
+  </div>
+</div>
+
+<div class="sec" id="five">
+  <div class="sh"><span class="sb">5</span><span class="st">기독교 변증의 5대 주제 <span class="b-exam bdg">시험</span> (슬라이드 18)</span><div class="sl"></div></div>
+  <div class="card">
+    <div class="tw"><table>
+      <thead><tr><th>#</th><th>주제</th><th>핵심 물음 · 교수의 부연</th></tr></thead>
+      <tbody>
+        <tr><th>1</th><td><b>신 존재 증명</b></td><td>신(하나님)은 정말로 존재하는가? 무신론과의 싸움.</td></tr>
+        <tr><th>2</th><td><b>악과 고통의 문제</b> (The Problem of Evil and Suffering)</td><td>전능하고 선하신 하나님이 계신다면 왜 세상에 악과 고통이 존재하는가? <b>신정론(Theodicy)</b>.</td></tr>
+        <tr><th>3</th><td><b>과학과 신앙의 관계</b> (Science and Faith)</td><td>충돌 모델·독립 모델·대화 모델·통합 모델 등. 창조론과 진화론 논쟁의 다양한 입장.</td></tr>
+        <tr><th>4</th><td><b>성경의 권위와 신뢰성</b></td><td>성경이 정말 하나님의 말씀이며 오류가 없는가, 역사 기록으로 신뢰할 만한가.</td></tr>
+        <tr><th>5</th><td><b>예수 그리스도의 역사성</b></td><td>예수님의 역사성·신성·부활의 증거.</td></tr>
+      </tbody>
+    </table></div>
+    <p>교수는 “이런 게 있다는 것은 여러분이 알고 계셔야 되겠습니다”라 하고, 이 중 <b>창조론·진화론 논쟁</b>만 따로 다루겠다고 했습니다.</p>
+  </div>
+</div>
+
+<div class="sec" id="create">
+  <div class="sh"><span class="sb">6</span><span class="st">창조론 논쟁 — 5가지 견해 (슬라이드 19~20)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>창조의 6일 구조 (슬라이드 19)</h3>
+    <p class="vq">창 1:1 태초에 하나님이 천지를 창조하시니라 1:5 하나님이 빛을 낮이라 부르시고 어둠을 밤이라 부르시니라 저녁이 되고 아침이 되니 이는 첫째 날이니라</p>
+    <div class="tw"><table>
+      <thead><tr><th>짝</th><th>앞의 날(구분)</th><th>뒤의 날(채움)</th></tr></thead>
+      <tbody>
+        <tr><th>1 ↔ 4</th><td>첫째 날: 빛(낮) / 어둠(밤)</td><td>넷째 날: 큰 광명체, 작은 광명체, 별들</td></tr>
+        <tr><th>2 ↔ 5</th><td>둘째 날: 물 / 궁창(하늘) / 물</td><td>다섯째 날: 물 생명, 하늘 새들</td></tr>
+        <tr><th>3 ↔ 6</th><td>셋째 날: 물(바다) / 뭍(땅), 땅의 식물들</td><td>여섯째 날: 땅 생명, 사람</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>다섯 가지 견해 (슬라이드 20)</h3>
+    <p>교수는 이 다섯 가지를 “반드시” 배워야 한다고 강조했습니다. <span class="tq">“창조론에 다섯 가지의 견해가 있다는 것을 여러분이 배우셔야 합니다”</span> 크게 젊은지구론(Young Earth)과 늙은지구론(Old Earth)으로 나뉩니다.</p>
+    <div class="tw"><table>
+      <thead><tr><th>구분</th><th>견해</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><th>젊은지구론<br>(Young Earth)</th><td></td><td>지구 나이는 <b>6,000년</b>, 창세기 1장의 날(day)은 <b>24시간</b>. 교수: 족보를 합산해 나온 수치로, 보수적인 사람들이 믿는다.</td></tr>
+        <tr><th rowspan="3">늙은지구론<br>(Old Earth)</th><td>간격창조론<br>(Gap Creationism)</td><td>창 1:1과 2절 사이에 <b>수십억~수백억 년의 간격</b>이 있고 그 이후에 지구 환경이 조성되었다.</td></tr>
+        <tr><td>점진적창조론<br>(Progressive Creationism)</td><td>창세기 1장의 날(day)은 <b>수십억 년</b>을 의미한다. 교수: 해·달·별이 넷째 날에 만들어졌는데 첫째 날을 24시간으로 볼 수 있느냐고 묻고, “하루가 천년 같고 천년이 하루 같다”를 근거로 들었습니다 <span class="asr">[구절 출처는 말하지 않음 [?]]</span>.</td></tr>
+        <tr><td>유신진화론<br>(Theistic Evolution)</td><td>하나님이 <b>진화의 방법을 사용해서</b> 세상을 창조하셨다.</td></tr>
+        <tr><th>지적설계론<br>(Intelligent Design)</th><td></td><td>젊은지구론이든 늙은지구론이든 <b>어느 쪽도 지지할 수 있다</b>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="sup"><span class="tag">보충</span> 교수가 말한 과학자들의 지구 나이 “60억·70억·50억 년, 얼추 맞다”는 근거가 강의·슬라이드에 없어 확정하지 않고 발언 그대로만 적었습니다.</div>
+    <div class="story">
+      <h3>지적설계론 — 시계 비유</h3>
+      <p>사막에서 정교한 시계를 발견했다면 우연으로 보기보다 <b>지성을 가진 디자이너가 만들었다고 보는 것이 더 합리적</b>입니다(슬라이드 15 페일리 비유와 같은 줄기). 교수는 대표 학자 <b>윌리엄 램스키</b>(ASR 표기, 철자 미확인 [?])가 우주의 정교함을 수학적으로 나타내 설계자를 증명했다고 본다고 했습니다.</p>
+    </div>
+    <div class="story">
+      <h3>교수의 요점 — 한 가지 입장만 신앙인 것처럼 몰지 말라</h3>
+      <ul>
+        <li>한국에서 <b>젊은지구론만 믿어야 신앙이 있는 것처럼</b> 몰고 가고 다른 견해를 이단시하는 분위기에 깜짝 놀랐다고 했습니다.</li>
+        <li>매우 보수적인 <b>남침례교단</b>에서는 한 세미나에서 총장이 젊은지구론을, 구약학자 교수가 늙은지구론을 변호하며 웃으며 토의했다고 합니다. <span class="tq">“그냥 자기가 믿고 싶은 대로 믿을 수 있는 자유가 있어요”</span> 교수는 남침례교단의 이런 분위기를 두고 “칼빈주의 아미니뉴즈보다 훨씬 자유롭습니다”라고 했으니, 칼빈주의·알미니안주의 논쟁(ASR ‘아미니뉴즈’)보다 창조론 견해 차이에는 훨씬 자유롭다는 뜻입니다.</li>
+        <li>교수는 어느 쪽을 믿는지는 알리지 않겠다고 했고, <span class="tq">“올드어쓰든 영어쓰든 어느 쪽이든 구원 받는 데는 지장이 없다”</span> <span class="asr">[올드어쓰=Old Earth, 영어쓰=Young Earth]</span>고 했습니다. 보수적인 침례교 신학자로서 <span class="tq">“유신진하론은 좀 아니지 않나”</span> <span class="asr">[진하론=진화론]</span> 생각한다고 했습니다.</li>
+        <li>젊은지구론을 “바보들”로 비판하는 것도 맞지 않다(그쪽에도 치열한 연구가 있음)고 했습니다. 결론: <b>양쪽 논문을 읽고 “제로 베이스에서 전제를 내려놓고” 깊이 생각해 입장을 정하라.</b> 어디서 주워들은 대로 이단이라 말해서는 안 됩니다.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="books">
+  <div class="sh"><span class="sb">7</span><span class="st">변증서·자료 소개 (슬라이드 23~25, 29~30)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>『하베프』</b> (교수가 “하나님 저랑 베프 하실래요”라고 풀어 말함 [?]) — 청소년을 위한 기독교 신앙 변증서(슬라이드 23 “강추!!”). 6부 구성(성경적 교리, 세상과 교회, 기독교인의 삶, 생명과 죽음, 예배, 영적 훈련). 교수: 청소년 변증서 중 가장 좋은 책.</li>
+      <li><b>박영덕 목사, 『차마 신이 없다고 말하기 전에』</b> (슬라이드 24) — 만화판·텍스트판. 5장 구성(차마 신이 없다고 말하기 전에 · 기독교를 멀리하는 16가지 이유 · 기독교의 참 모습 · 신이 있다는 2가지 증거 · 구원을 향한 첫걸음). 슬라이드 평: 설명이 부족한 부분이 있으나 가볍게 읽기 좋다.</li>
+      <li><b>리 스트로벨, 『특종! 믿음 사건』</b> (슬라이드 25, ECPA 골드 메달리언 수상작) — 반론 8가지(악과 고난, 기적, 생명 기원, 살인을 명하는 하나님, 예수만이 유일한 길인가, 영원한 지옥, 교회의 압제와 폭력의 역사, 회의가 드는데 그리스도인이 될 수 있는가). 교수: 불신자였던 저자가 예수의 부활이 가짜임을 입증하려 파다가 뒤집어 쓴 책. 슬라이드 평: 변증의 체계를 쌓으려면 이 정도는 읽어야 한다.</li>
+      <li>그 밖에 교수가 구두로 소개(ASR 표기 그대로, 불확실 [?]): 알파코스의 “니키 건물”이 쓴 『인생의 이문점들』(불신자들이 묻는 질문만 모은 책), J. I. 패커의 『기독교 된 도전에 답하다』, 차준희 교수(한세대학교 ‘구양학자’)의 『성도가 묻고 성경에 답하다』, 박만(교수가 “누군지 잘 모르겠어요”라고 함)의 “인생의 질문 신앙의 답변”·“하나님에 관한 질문들”·“기독교 신앙에 대한 난감한 질문 명쾌한 대답”(제목 구분 불확실), 갓피플의 김재욱 『1318 신앙질문 A to Z』(창조과학 쪽 설명).</li>
+      <li>슬라이드 29(참고 도서·단체, 교수는 낭독하지 않음): 크레이그 『합리적인 신앙』, 루이스 『순전한 기독교』, 팀 켈러 『왜 하나님을 믿어야 하는가』, 가이슬러·맥도웰의 변증학 개론서 등. 슬라이드 30(전도 자료): knockmovement.com(전도·새신자 관리 플랫폼), CCC 전도자료·코저너 전도양육 프로그램 링크.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="lesson">
+  <div class="sh"><span class="sb">8</span><span class="st">변증학 교훈 7가지 (슬라이드 31~34)</span><div class="sl"></div></div>
+  <div class="card">
+    <ol>
+      <li><b>이성적 변증도 신앙의 계기가 된다.</b> 중생은 성령의 감화이지 변증으로는 논쟁만 있을 뿐이라는 의견이 있으나, 불신자·청년의 풀리지 않는 의문이 이성적으로 설명될 때 <b>신앙의 점핑</b>이 나타날 수 있다. 교수는 군목 시절 <span class="tq">“갑자기 그것이 펑 하고 해결되면서 예수 앞에 돌아온 걸 저는 너무 많이 봤어요”</span>라고 했습니다.</li>
+      <li><b>아무리 위대한 변증도 성령님께서 사용하시지 않으면 아무 능력도 변화도 없다.</b> 성령님께 붙들려 쓰임 받는 것보다 중요한 것은 없다(슬라이드: 온유한 말 vs 논쟁의 승리). 교수: <span class="tq">“네 말이 옳지만 내가 기분 나빠서 안 믿겠다”</span>는 경우를 많이 봤으며, 목적은 논쟁에서 이기는 것이 아니라 사람을 얻는 것.</li>
+      <li><b>사랑의 섬김·기도의 능력·이성적 변증 중 하나님이 무엇을 사용하실지 어떻게 아는가?</b> 전도는 ‘인격 대 인격의 만남’이므로 잘 공부하고 준비하는 것도 필요하다.
+        <p class="vq">벧전 3:15 너희 마음에 그리스도를 주로 삼아 거룩하게 하고 너희 속에 있는 소망에 관한 이유를 묻는 자에게는 대답할 것을 항상 준비하되 온유와 두려움으로 하고</p>
+        교수: <span class="tq">“주여 사용하소서라고 대답할 말을 준비는 하는 것은 우리 전도자들이 마땅한 자세인 것입니다”</span></li>
+      <li><b>불신자들은 늘 묻는 것만 묻는다.</b> 30개 정도의 질문에 대한 답을 숙지해 자유자재로 설명할 수 있어야 하고, <b>새가족반·초신자 성경공부 때 Q&amp;A 시간을 꼭 가져라.</b> 교수의 사례: 교회에 불만이 가득한 남성이 “일단 믿어야지”라는 말만 들어 의문이 쌓여 있었는데, 두 시간 반 동안 질문에 차근차근 답하자 마음이 풀렸다고 합니다. 자주 나오는 질문: 선악과를 왜 막지 않으셨나, 예수 이름도 못 들은 원주민도 지옥에 가나 등.</li>
+      <li><b>기독교 서적들(갓피플·두란노)을 늘 주목하라.</b> 아이들·청소년·청장년에게 맞는 변증 서적으로 교회 도서관을 만들고 각 부서와 성도들에게 안내하라. <span class="tq">“그건 신학생의 의무”</span></li>
+      <li><b>창조론의 5가지 개념은 숙지하고 입장을 정할 필요가 있다.</b> 올드어스든 영어스든 구원받는 데는 지장이 없다.</li>
+      <li><b>변증학 중 신정론은 제발 따로 깊이 공부하라.</b> 예수님을 믿은 뒤 그리스도인의 삶에 너무나 중요한 문제이고 많은 성도가 은혜를 받는다. 교수: <span class="tq">“신정론은 이거는 정말 여러분들이 꼭 공부를 하고”</span> 사역·목회에서 반드시 맞닥뜨리고 설교해야 할 주제이며 자기 책장에 신정론 책이 가득하다고 했습니다. 『내가 고통당할 때 하나님 어디 계셨습니까』를 <span class="tq">“아주 유명한 기스토 베스트셀러지”</span> <span class="asr">[기스토=기독교?]</span>라며 <span class="tq">“우리 피리미안씨가 이런 책을 썼죠”</span>라고 했습니다 <span class="asr">[저자 이름은 ASR(‘피리미안씨’)이라 확정하지 않음 [?]]</span>.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="foot">전도학 · 11주차 (온라인 13강) · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>

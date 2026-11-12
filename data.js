@@ -680,7 +680,10 @@ const SITE_DATA = {
             { week: 10, title: "전도의 3단계 (2) — Ⅰ. 전략적 중보기도 ② 삼겹줄 기도 · ③ 영적 전쟁 / Ⅱ. 사랑의 섬김", date: "2026.11.05", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week10.html" }
           ] },
-            { week: 11, title: "", date: "", files: [] },
+            { week: 11, title: "온라인 강의 — 8강 영유아의 구원가능성 · 13강 기독교 변증학", date: "2026.11.12", files: [
+            { type: "notes", label: "강의노트 (8강)", href: "output/2026-2/evan/week11_lec8.html" },
+            { type: "notes", label: "강의노트 (13강)", href: "output/2026-2/evan/week11_lec13.html" }
+          ] },
             { week: 12, title: "", date: "", files: [] },
             { week: 13, title: "", date: "", files: [] },
             { week: 14, title: "", date: "", files: [] },
