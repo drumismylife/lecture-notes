@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교회사II — 12주차 이외의 반발·성결운동·유토피아 공동체·몰몬교</title>
+<style>
+  :root {
+    --bg: #170e0c; --card: #221512; --card2: #2c1a16; --card3: #361f1a;
+    --rust: #c06a4e; --rust2: #d38665; --rust-dim: #8a4a35;
+    --text: #f0e5e0; --text2: #a08070; --text3: #6b5045;
+    --ox-green: #7ab87a; --sq-blue: #7aaad4; --terra: #c96b5a; --essay-amb: #c49a3c;
+  }
+  body { background-color: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; padding: 20px; }
+  .sum { background-color: var(--card2); padding: 20px; border-radius: 8px; border-left: 5px solid var(--rust2); margin-bottom: 30px; }
+  .card { background-color: var(--card); padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--card3); }
+  .oneline { font-weight: bold; color: var(--rust2); margin-bottom: 10px; font-size: 1.1em; }
+  .oneline::before { content: "한 줄 결론: "; color: var(--text2); }
+  .key { background-color: var(--card2); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; margin-right: 5px; }
+  .exam { background-color: var(--terra); color: #fff; }
+  .add { background-color: var(--sq-blue); color: #fff; }
+  .sup { background-color: var(--ox-green); color: #fff; }
+  .asr-uncert { color: var(--text2); text-decoration: underline dashed; font-style: italic; }
+  details > summary { cursor: pointer; color: var(--text2); font-weight: bold; margin-bottom: 10px; }
+  details > .dbody { padding-left: 15px; border-left: 2px solid var(--card3); margin-top: 10px; color: var(--text); }
+  details.apx { margin-top: 40px; padding: 20px; background-color: var(--card3); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+  caption { text-align: left; color: var(--rust2); font-weight: bold; margin-bottom: 6px; }
+  th, td { border: 1px solid var(--card3); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background-color: var(--card2); color: var(--rust2); }
+  tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<style id="week05-extra">
+  body { padding-top: 60px; }
+  h1 { color: var(--rust2); font-size: 1.5em; margin: 10px 0 6px; }
+  h2 { color: var(--rust2); margin-top: 0; }
+  h3 { color: var(--rust2); margin: 22px 0 8px; }
+  p.meta { color: var(--text2); font-size: 0.92em; margin: 0 0 16px; }
+  ul.tight, ol.tight { margin: 6px 0 10px 0; padding-left: 20px; }
+  ul.tight li, ol.tight li { margin: 3px 0; }
+  .bd { display: inline-block; padding: 1px 6px; margin: 0 2px; border-radius: 4px; font-size: 0.78em; font-weight: bold; color: #fff; vertical-align: baseline; white-space: nowrap; }
+  .bd.v1 { background: #8a4a35; } .bd.v2 { background: #4a6f94; } .bd.v3 { background: #4f8a4f; }
+  .bd.tb { background: #8a6d1f; } .bd.bo { background: #6a5a9a; } .bd.hi { background: var(--terra); }
+  .badge.era { background: var(--rust-dim); color: #fff; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow .fb { background: var(--card2); border: 1px solid var(--rust-dim); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 0.92em; }
+  .flow .fb small { color: var(--text2); }
+  .flow .fa { color: var(--rust2); font-weight: bold; }
+  td small { color: var(--text2); }
+  .say { color: var(--text); font-style: normal; }
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<h1>이외의 반발·초월주의·성결운동·유토피아 공동체·몰몬교 — 제2차 대각성운동 이후의 19세기 미국(이어서)</h1>
+<p class="meta">교회사II · 12주차(2026.11.17 수업) · 교재 p.182 상단(찰스 하지) ~ p.187 'f. 몰몬교' + 지난 시간 복습 + 수업 끝 질문(신앙공동체·재세례파)<br>배지: <span class="bd v1">자막 n~m자</span><span class="bd tb">교재 p.xx</span><span class="bd bo">보충</span><span class="bd hi">⭐교수강조</span><br><span style="color:var(--text2)">[자막 n자] = 녹취에서의 위치. [?] = 확정할 수 없는 표기. 녹취 오인식의 교정 내역은 맨 아래.</span></p>
+<div class="sum">
+  <h3>1쪽 요약</h3>
+<ul class="tight">
+  <li><strong>지난 시간 복습</strong>: 프린스턴(구신학교)·유니온(뉴욕·버지니아, 장로교에서 가장 리버럴) 신학교, 장로교 신학교의 스펙트럼과 분열. <span class="bd v1">자막 13~1536자</span></li>
+  <li><strong>구파의 대표 찰스 하지</strong>: 1812 입학·1816 신학대학원·1851~78 총장, 스위스 정통주의와 강력한 고백주의(성경의 권위·무오), 예정론+스코틀랜드 상식학파. <span class="bd tb">교재 p.182</span><span class="bd v1">자막 1572~3831자</span></li>
+  <li><strong>h. 이외의 반발</strong>: 1847 루터교 미주리 총회(시카고), 1857 기독교개혁교회(네덜란드 이민자), 부흥운동이 지운 성례전·교회의 거룩성을 회복하려는 <strong>고교회 운동</strong> = 머서스버그 신학·복음주의 천주교. <span class="bd tb">교재 p.182</span><span class="bd v1">자막 3908~5186자</span></li>
+  <li><strong>존 네빈</strong>(1840 머서스버그, 1846 『신비적 현존』, 교회는 복음의 핵심, 교회일치운동, 필립 샤프) · <strong>호발트</strong>(성찬은 은총의 수단, 감독의 직분·전승) · <strong>침례교 랜드마크주의</strong>(팬들톤·그레이브즈). <span class="bd tb">교재 p.182</span><span class="bd tb">교재 p.183</span><span class="bd v1">자막 5278~8531자</span></li>
+  <li><strong>질의응답·곁길</strong>: 배타적 '우리만 참 교회', 고등비평과 저등비평, catholic(보편)의 뜻과 서방(로마)·동방(정교회). <span class="bd v1">자막 8634~10479자</span></li>
+  <li><strong>j. 초월주의</strong>(직관, 외적 권위 거부, 성직자·평신도 구별 없음) · 천년왕국→사회개혁 · <strong>후천년설</strong> · 생활개혁 · <strong>도덕적 자기개혁</strong> · 금주 문화(남부). <span class="bd tb">교재 p.183</span><span class="bd tb">교재 p.184</span><span class="bd v1">자막 10596~16073자</span></li>
+  <li><strong>19세기 성결운동</strong>: 오벌린 완전주의 vs 케직 사경회(→나이아가라 사경회, 내한 선교사); 웨슬리안 계열과 성령세례 논쟁. <span class="bd tb">교재 p.184</span><span class="bd v1">자막 16183~18729자</span></li>
+  <li><strong>k. 대각성주의자들의 주장</strong>(내적 확신·자원주의·아이작 베커스의 정교분리) · <strong>l. 로마 가톨릭의 대응</strong>(1854 무염시태, 1864 회칙, 1869 제1차 바티칸·교황 무오설). <span class="bd tb">교재 p.184</span><span class="bd v1">자막 18962~20704자</span></li>
+  <li><strong>3. 영국 복음주의</strong>(클라팜 파·윌버포스, 1789·1807·1833) → 교수의 보충: <strong>미국 노예제 논쟁과 교단 남북 분열</strong>(남침례교 1845.5.8). <span class="bd tb">교재 p.184</span><span class="bd tb">교재 p.185</span><span class="bd v1">자막 20755~23633자</span></li>
+  <li><strong>B. 옥스퍼드 운동</strong>(앵글로 가톨릭) · <strong>4. 기독교 국가인 미국 건설</strong>(교인 비율 5~10%, 자발적 집단과 부흥, 종교의 합리적 선택 이론). <span class="bd tb">교재 p.185</span><span class="bd v1">자막 23935~26384자</span></li>
+  <li><strong>A. 유토피아 공동체</strong>: 퀘이커(the Shakers)(앤 리·독신, 1770) <span class="bd bo">보충</span> 교재 영문 the Shakers는 보통 '셰이커'로 표기한다 — 교재·교수 표기는 '퀘이커'. · 오네이다(복합결혼, 1840 푸트니→1842 오네이다) · 프루트랜드·브룩 농장·홉데일. <span class="bd tb">교재 p.185</span><span class="bd tb">교재 p.186</span><span class="bd v1">자막 26556~30279자</span></li>
+  <li><strong>f. 몰몬교</strong>: 조셉 스미스(1805-44), 천사 모로니·황금판·우림과 둠밈, 몰몬경, 일부다처제·비밀결혼, 브라이엄 영의 유타 이주·1890 포기. <span class="bd tb">교재 p.186</span><span class="bd tb">교재 p.187</span><span class="bd v1">자막 30347~34300자</span></li>
+  <li><strong>질문과 정리</strong>: 신앙공동체와 사이비 — 19세기는 하나님 나라를 우리가 직접 이루려 한 시대 · 재세례파 3파와 아미시. <span class="bd v1">자막 34393~36038자</span></li>
+</ul>
+  <p><strong>⭐ 교수 강조</strong> <span style="color:var(--text2);font-size:0.9em">(교수 자신이 '중요'·'핵심'이라고 강조한 곳만 표시한다. 교재 문장을 읽거나 어느 집단의 믿음을 설명할 때 나온 말은 제외했다. '시험'·'기말'이라고 말한 곳은 없다. 쪽수 안내는 수업 첫머리에 '지금 182 페이지 하는 거예요'가 있고, 끝은 출석 확인 뒤 '다음 주에 뵙겠습니다'뿐이다)</span></p>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>하지 — 성경의 권위·무오성</strong> — <span class="say">“중요한 것은 첫 사진은 구파 장로교 구파의 대표자로서 성서의 무호성 성경의 권위를 강력히 강조했다 것입니다”</span> <span class="bd v1">자막 3831자</span> (자막 '첫 사진은'=찰스 하지는으로 읽힘 [?])</div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>정통주의·고백주의의 핵심</strong> — <span class="say">“스위스 정통주의와 강력한 고백주의 핵심이 뭐냐? 그것은 바로 하나님 말씀.”</span> <span class="bd v1">자막 2896자</span> </div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>오벌린 완전주의 vs 케직 사경회</strong> — <span class="say">“이게 중요한 게 오벌린 완전주의는 뭐냐면 이 땅에서 우리가 완전한 삶을 살 수 있다는 경건한 삶을 살 수 있다는 거예요”</span> <span class="bd v1">자막 16183자</span> </div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>대각성주의자 — 내적 확신</strong> — <span class="say">“개인 구원의 필요성 내적 확신 이게 이제 중요한 거죠”</span> <span class="bd v1">자막 18962자</span> </div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>합리적 선택 이론의 핵심</strong> — <span class="say">“종교에 있어서 합리적으로 선택이 핵심은 뭐예요?”</span> <span class="bd v1">자막 25264자</span> </div>
+  <div class="key"><span class="bd hi">⭐교수강조</span> <strong>몰몬교</strong> — <span class="say">“그 다음에 이 중요한 사람이 몰몬교입니다”</span> <span class="bd v1">자막 30347자</span> </div>
+</div>
+<div class="card">
+  <h2>지난 시간 복습 <span class="bd v1">자막 13~1536자</span></h2>
+  <p class="meta">수업 앞부분은 지난 시간(교재 p.181 끝, 프린스턴·유니온) 내용의 복습이다. 교수가 말한 것만 정리했다.</p>
+<ul class="tight">
+  <li>지난 시간에 <span class="say">“프린스 신학교가 지난번에 유니온 신학교 그것까지 했죠?”</span> 하고 확인한다(자막 '프린스'는 프린스턴 신학교로 읽힘). <span class="bd v1">자막 13자</span></li>
+  <li><strong>유니온 신학교는 두 곳</strong>이다 — 하나는 뉴욕, 하나는 버지니아에 있다(자막 '유리 장로교 신학교'는 <span class="asr-uncert">버지니아의 유니온 장로교 신학교 [?]</span>로 읽힘). 유니온은 <strong>장로교 중에서 가장 리버럴한 자유주의 신학을 표방</strong>하는 신학교이고, 교수는 <span class="say">“자유주의 신학이 나쁜 건 아닙니다”</span>라고 덧붙인다. <span class="bd v1">자막 239자</span></li>
+  <li>장로교 신학교의 스펙트럼: 유니온 → <span class="asr-uncert">GTU(연합신학교) [?]</span> → 프린스턴 → 더 보수적인 정통 칼빈주의 쪽으로 가면 웨스트민스터·칼빈·그레이스 신학교(자막 '웨스비드 … 중간입니다'는 <span class="asr-uncert">웨스트민스터 칼빈 그레이스 [?]</span>로 읽힘)가 있어 <span class="say">“장로좀 쭉 퍼져 있습니다”</span>. <span class="bd v1">자막 432자</span></li>
+  <li>그래서 한국의 총신·장신·<span class="asr-uncert">보신(합신?) [?]</span> 출신은 <span class="say">“자기들이 가는 데로 가야지”</span> 한다 — 칼빈·그레이스 신학교 졸업생이 장신으로 갈 일은 없다. <span class="say">“똑같은 정통 칼빈주의라고 말하지만 색채가 완전히 다르다”</span>고 정리한다. <span class="bd v1">자막 598자</span></li>
+  <li><strong>미국 유학과 신학교</strong>(곁길): 한국 장로교 출신이 미국에서 박사학위를 받으려 할 때 장로교 신학교에는 다양한 전공(교육학·심리학·사회복지·설교학·실천신학·전도학·상담학)이 거의 없고, 그런 과목은 침례교 계열 신학교가 발전해 있다. 그래서 <span class="asr-uncert">남침례교 계열 6개 신학교 [?]</span>에 침례교 사람보다 장로교 출신 유학생이 더 많은 경우도 꽤 있다고 한다(교수가 말한 '사우스 웨스트'(자막)도 침례교 출신보다 장로교 출신이 훨씬 많다고 함). <span class="bd v1">자막 963자</span></li>
+  <li><strong>구(舊)신학교 = 프린스턴</strong>: 1800년대 중후반 독일 신학이 확산되며 자유주의가 유럽과 미국에 퍼졌다. 교수는 자유주의를 <span class="asr-uncert">성경의 무오성(자막 '모호성')을 인정하지 않고 고등비평을 받아들이는 [?]</span> 신학으로 설명한다. 프린스턴조차 자유주의화되었다 하여 웨스트민스터 신학교가 나가고, 웨스트민스터도 자유주의화되었다 하여 칼빈 신학교가 나가고, 칼빈에서 그레이스 신학교가, 또 커버넌트 신학교(자막 '카비란트')가 나가는 식으로 <span class="say">“장동교가 19세기에는 분류됩니다. 20세기까지 분열돼요”</span>(자막 '장동교'·'분류'는 장로교·분열로 읽힘 [?]). <span class="bd v1">자막 1536자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>구파의 대표 찰스 하지 (교재 p.182 상단 — g. 분열, 프린스턴 신학교 설립의 이어짐) <span class="bd tb">교재 p.182</span><span class="bd v1">자막 1572~3831자</span></h2>
+  <p class="meta">교재 p.182 상단은 앞 쪽 'g. 분열'(프린스턴 신학교 설립)의 이어짐이다. 수업은 <span class="say">“지금 182 페이지 하는 거예요.”</span> <span class="bd v1">자막 1680자</span> 로 시작한다.</p>
+<h3>1-1. 생애 — 구파의 대표적인 신학자</h3>
+<ul class="tight">
+  <li>지난 시간 구파·신파 이야기에 이어 <span class="say">“이 당시에 구파의 대표적인 신학자가 찰스 하지라는 사람이에요”</span>. 신파는 유니온 신학교로 나가고 구파는 하지가 대표한다. <span class="bd v1">자막 1572자</span> <small>(교재 p.182: 찰스 하지 Charles Hodge, 1797-1878)</small></li>
+  <li><strong>1812년</strong> 프린스턴 대학교 입학(자막 '프리슨 대학교'), <strong>1816년</strong> 프린스턴 신학대학원 입학, <strong>1851~78년</strong> 신학교 총장 역임. <span class="bd v1">자막 1699자</span> <span class="bd tb">교재 p.182</span></li>
+</ul>
+<details><summary>곁길 — 미국 대학의 총장(교수 경험담)</summary><div class="dbody"><ul class="tight">
+  <li>교수는 <span class="say">“미국은 총장을 끝까지 해요”</span>라며 한국과 비교한다. 미국에는 총장 정년이 없고 <span class="say">“이사회에서 허락하는 한 할 수 있습니다”</span>. <span class="bd v1">자막 1760자</span></li>
+  <li>외국 대학은 총장과 교수가 엄격히 분리되어 있다 — <span class="say">“총장은 행정하는 사람이고 돈 끌어오는 사람이고 교수는 연구하고 가르치는 사람이에요”</span>. <span class="bd v1">자막 2182자</span> 교수 본인이 다니던 학교의 총장은 <span class="say">“한 20년 이상은 총장했어요”</span>라고 한다. 한국 국립대 총장 선거 제도 등 비교 설명은 자막이 흐려 옮기지 않았다 <span class="asr-uncert">한국 대학 비교 [?]</span>.</li>
+</ul></div></details>
+<h3>1-2. 스위스 정통주의와 강력한 고백주의</h3>
+<ul class="tight">
+  <li><strong>스위스 정통주의</strong> = 칼빈이 스위스에서 종교교육을 했으니 <span class="say">“정통 칼빈주의 이를 표방하는 게 스위스 정통주의입니다”</span>. <span class="bd v1">자막 2383자</span> <small>(교재 p.182 '스위스 정통주의와 강력한 고백주의(confessionalism, 웨스트민스트 신앙고백과 다른 개혁교회 신앙고백에 철저) 성향')</small></li>
+  <li><strong>고백주의</strong> = 정통신학은 고백신앙이다. 웨스트민스터(자막 '웨스민스'·'웨스트미스')·<span class="asr-uncert">'베이직' 신앙고백(벨직 신앙고백으로 읽힘) [?]</span>·뉴햄프셔 신앙고백 같은 것을 강조하고, <span class="say">“반드시 거기에 따른 웨스트미스 신앙 고백이라든가 베이직 신앙 고백이라든가 뉴햄프셔 신앙 고백 이런 것들을 반드시 따라야 됩니다”</span>. <span class="bd v1">자막 2592자</span> 그 신앙고백을 따르지 않으면 건드릴 수 없고, 고백을 벗어나면 안 된다.</li>
+  <li>비유: 지난번에 본 <strong>루터 영화</strong> — 군주들이 <span class="say">“우리는 이 신앙 고백을 따르겠다”</span>고 하고, 이 신앙고백을 따르지 않는 사람은 비국교도가 되어 벗어나야 했다. <span class="bd v1">자막 2758자</span></li>
+  <li><span class="bd hi">⭐교수강조</span> <strong>핵심은 하나님 말씀 — 성경의 권위</strong>: <span class="say">“스위스 정통주의와 강력한 고백주의 핵심이 뭐냐? 그것은 바로 하나님 말씀.”</span> <span class="bd v1">자막 2896자</span> 당시 유럽을 휩쓸던 성서비평학이 아니라, 하나님 말씀은 성령의 영감으로 기록되었다고 주장한다. 이것을 성서의 <span class="asr-uncert">무오성·영감성(자막 '구호성 영상성') [?]</span>이라 부른다. <span class="say">“20세기의 성경의 무호성을 가장 강력하게 주장한 사람이 누구냐 바로 하찌예요”</span>(자막 '무호성'은 무오성으로 읽힘 [?]). <span class="bd v1">자막 3095자</span> <span class="bd bo">보충</span> 교재 p.182는 찰스 하지를 1797-1878(Charles Hodge, 1797-1878)로 적는다 — 하지의 생애는 19세기에 걸쳐 있다(교수의 '20세기' 표현은 그대로 둠).</li>
+</ul>
+<h3>1-3. 예정론 + 스코틀랜드 상식학파</h3>
+<ul class="tight">
+  <li>하지는 예정론을 주장하면서 약간 다른 점이 있다. 당시 스코틀랜드의 <strong>상식학파</strong>는 <span class="say">“모든 인간에게는 도덕적인 감각이 살아 있다”</span>고 보았다. <span class="bd v1">자막 3288자</span></li>
+  <li>예정론·칼빈의 사상에서는 인간의 자유의지나 도덕적 감각이 사실상 무용한 것이다. 하지는 이 둘을 결합했다 — <span class="say">“타락한 인간에게도 도덕적인 감각은 지는다”</span>(자막 '지는다'는 '남는다' 정도로 읽힘 [?]). <span class="bd v1">자막 3454자</span> 우리의 의지로 구원을 이룰 수는 없지만 모든 인간에게 선악을 판단하는 도덕적 감각은 있다는 것이니, 교수는 이를 <strong>정통 칼빈주의보다 약간 수정된</strong> 주장(특히 인간의 의지·도덕적 감각을 인정)이라고 평한다.</li>
+  <li><strong>세 권의 조직신학 책</strong>(자막 '조지신학')을 써서 모든 교리적 일탈을 비판하고 성서의 무오성을 강조했다. <span class="bd v1">자막 3643자</span> <span class="bd tb">교재 p.182</span></li>
+  <li>교수는 이어 <span class="say">“그 다음에 그의 아들도 아티볼트 알렉산더가 있었어요”</span> <span class="say">“아티볼트 혹은 아키볼트라고 하는데 여기도 조직신학 교수가 되었고 나중에 학장이 프린스 신학교 학장이 되었어요”</span> <span class="say">“그러니까 아들 아들도 역시 학장이 되었습니다”</span>라고 말한다. <span class="bd v1">자막 3698자</span> <span class="bd bo">보충</span> 교재 p.181은 '당시 버지니아의 햄든-시드니대학 총장이었던 아키발드 알렉산더(Archibald Alexander)는 이러한 신학적인 경향 비판'이라 적고, 1812년 프린스턴 신학대학원이 'Archibald Alexander 박사와 세 명의 학생으로 시작'했다고 적는다. 교수의 '아들' 표현이 누구를 가리키는지는 정하지 않는다.</li>
+  <li><span class="bd hi">⭐교수강조</span> <strong>정리</strong>: <span class="say">“중요한 것은 첫 사진은 구파 장로교 구파의 대표자로서 성서의 무호성 성경의 권위를 강력히 강조했다 것입니다”</span>(자막 '첫 사진은'은 <span class="asr-uncert">찰스 하지는 [?]</span>으로 읽힘). <span class="bd v1">자막 3831자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>h. 이외의 반발 ① 루터교·개혁교회의 분립 <span class="bd tb">교재 p.182</span><span class="bd v1">자막 3908~4190자</span></h2>
+  <p class="meta">교재 p.182의 소제목은 'h. 이외의 반발'이다(교재 표기).</p>
+<ul class="tight">
+  <li><span class="say">“루트교에서도 이제 구파 심파 비슷하게 나눠지는데”</span>(자막 '루트교'=루터교, '심파'=신파) <strong>1847년 시카고에서 복음주의 루터교회 미주리 총회</strong>가 결성된다(자막 '보금주의 루터교의 미주리 총회가 결선됩니다'; 교재 p.182 '복음주의 루터교회 미주리 총회(the Evangelical Lutheran Synod of Missouri) 결성'). <span class="bd v1">자막 3908자</span> <span class="bd tb">교재 p.182</span></li>
+  <li><span class="say">“장로교나 루터교나 할 것 없이 이제 그 쿠파와 심파로 나눠지는 거예요”</span>. <span class="bd v1">자막 3980자</span> 주로 <strong>신파는 복음주의(부흥)를 강조</strong>한다 — 철저한 예정론보다는 알미니안적인 <strong>인간의 자유의지</strong>를 강조하는 쪽이다(자막 '알미니스적').</li>
+  <li><strong>부흥주의 = 인간의 자유의지를 존중</strong>한다는 뜻이라고 풀이하고, <span class="say">“철저히 예정 논이면 부흥회 같은 것들이 먹혀들 리가 없죠”</span>(자막 '예정 논이면'은 예정론이면으로 읽힘). <span class="bd v1">자막 4157자</span></li>
+  <li><strong>1857년</strong> 강력한 고백주의 전통 위에 네덜란드 이민자들을 중심으로 <strong>기독교개혁교회</strong>(Christian Reformed Church)가 설립된다. <span class="bd v1">자막 4190자</span> <span class="bd tb">교재 p.182</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>h. 이외의 반발 ② 고교회 운동·머서스버그 신학 <span class="bd tb">교재 p.182</span><span class="bd v1">자막 4324~5186자</span></h2>
+<ul class="tight">
+  <li><strong>배경</strong>: 지나친 부흥운동으로 사람들이 체험을 강조하고 성령의 역사를 강조하다 보니 <span class="say">“원래부터 있었던 이 성내전 중심은 교회 거로성”</span>(자막 — <span class="asr-uncert">성례전 중심의 교회의 거룩성 [?]</span>으로 읽힘)이 사라졌다. <span class="bd v1">자막 4324자</span> 부흥회를 하면 교회가 <strong>예수 그리스도를 믿는 사람들의 모임(신자들의 모임)</strong>만으로 이해되고, 예수님이 사도 베드로를 통해 세우신 교회, 교회 일치가 모두 약화된다는 것이다.</li>
+  <li>그래서 <span class="say">“지나친 부흥운동에 의해서 자초된 교회의 성매적적인 삶을 회복하기 위해서”</span> <strong>존 네빈과 존 호발트</strong>(자막 '전 레변'·'존 허발트')에 의해 <strong>고교회 운동</strong>이 일어난다. <span class="bd v1">자막 4912자</span> <span class="bd tb">교재 p.182</span></li>
+  <li><strong>고교회</strong>란: <span class="say">“원래 초대 예수님께 세우신 원래 교회 전통적인 교회 즉 카톨릭적인 교회 보편교회 여기로 돌아가려고 하는 운동입니다”</span>. <span class="bd v1">자막 5019자</span></li>
+  <li>교수는 가톨릭(catholic)의 뜻을 풀이한다: 교회는 그리스도의 몸이고 지체이며, <span class="say">“전 세계 어디든지 간에 그 교회는 보편교회고 하나의 교회였어요”</span>. <span class="bd v1">자막 4661자</span> <span class="say">“원래 캐토릭이라는 말의 보편적인 단 하나의 유일한 예수님이 세우신”</span>(자막) 교회라는 뜻이다. 부흥주의에 따르면 교회가 성례전 중심이 아니라 신자들의 모임이 되므로 <span class="say">“다시 이제 원래대로 돌아가자”</span>는 것이 이 운동이다. <span class="bd v1">자막 4891자</span></li>
+  <li>이 운동은 나중에 머서스버그(자막 '멋서버그')라는 지역에 대학교·신학교를 세웠고(교수: 독일 개혁교회 계통의 신학교 <span class="asr-uncert">자막 '독일 계획계 통에 개우주의교회입니다' [?]</span>), 그래서 <strong>머서스버그 신학</strong> 혹은 <strong>복음주의 천주교</strong>(evangelical catholicism)라 부른다. 교수는 <span class="say">“개신교는 계신교인데 다시 천주교 식으로 돌아가자는 거예요”</span>(자막 '계신교'=개신교)라고 풀이한다. <span class="bd v1">자막 5186자</span> <span class="bd tb">교재 p.182</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>존 네빈(John W. Nevin)과 머서스버그 신학 <span class="bd tb">교재 p.182</span><span class="bd tb">교재 p.183</span><span class="bd v1">자막 5278~7380자</span></h2>
+<h3>3-1. 생애</h3>
+<ul class="tight">
+  <li><span class="say">“스코틀랜드계 아일랜드 부모 밑에서 태어났습니다”</span>. 유니온 대학을 나오고 프린스턴 신학교에서 공부했으며 웨스턴 신학교의 교수가 되었다. <span class="bd v1">자막 5278자</span> <small>(교재 p.182: 1803년 출생 · 유니온 대학(Union University) · 1829년 펜실베이니아 알러게니의 웨스턴 신학교 교수)</small></li>
+  <li>신학교에서 <strong>노예제도를 반대</strong>하고 <strong>신파 축출은 헌법에 위배된다</strong>고 주장하다 반대에 직면했고, <span class="say">“그래서 다른 학교로 쫓겨나는 거죠”</span>. <span class="bd v1">자막 5412자</span></li>
+  <li><strong>1840년</strong> 머서스버그의 아주 작은 독일 개혁파 신학교 교수로 가며 <strong>프린스턴 정통주의와 결별</strong>한다. <span class="bd v1">자막 5432자</span> <span class="bd tb">교재 p.182</span></li>
+</ul>
+<h3>3-2. 정통주의 비판</h3>
+<ul class="tight">
+  <li>비판의 세 가지: ① <span class="say">“정통주의는 역사 발전에 대한 의식이 부족하다”</span>, ② 교회를 각 개교회에 모인 신자들의 교회로 강조하는 <strong>개교회주의</strong> 비판(자막 '개교주의'), ③ 성례전에서 <strong>쯔빙글리식 기념설·상징설</strong> 비판 — 교수는 쯔빙글리가 '이것은 내 몸이요 이것은 내 살이요 기념하는 것으로' 보았다고 풀이한다. <span class="bd v1">자막 5504자</span> <span class="bd tb">교재 p.182</span></li>
+  <li>네빈은 <span class="say">“카톨릭적으로 실제로 예수 그리스의 피와 살로 보는 거예요”</span>. <span class="bd v1">자막 5705자</span> 교수는 이어 <span class="say">“화체를 믿는 거죠”</span>(자막)라고도 말하지만, 같은 쪽 교재는 이 책을 <strong>'성찬식에 대한 개혁파 혹은 칼빈주의의 변호'</strong>로 적는다(3-3). <span class="asr-uncert">화체설과 교재 서술의 관계는 자막만으로 확정할 수 없음 [?]</span></li>
+  <li>이 사상은 독일 교회사가 <strong>니안더</strong>(J. A. Neander; 자막 '리안더')의 영향이다 — <span class="say">“기독교는 하나의 교리체계가 아니라 삶이요”</span>, 경험이요 보이지 않는 실재와의 사귐(교재: '실제와의 사귐'). <span class="bd v1">자막 5946자</span> 교리 체계는 정통주의가 만들고 있다는 것이고, 네빈은 <span class="say">“성리전을 통해서 사귀어야 되는 거죠”</span>(자막 '성리전'=성례전) — 교회에서 성례전을 통해 예수 그리스도를 만나고 교제한다고 주장했다. <span class="bd v1">자막 6105자</span> <span class="bd tb">교재 p.182</span></li>
+  <li><span class="say">“개인들이 모여서 교회를 구성하는 것이 아니다”</span>(교재 p.182) — 부흥주의, 특히 침례교는 신자들의 모임이므로 눈에 보이는 가시적인 교회를 강조한다. 그러나 네빈은 <span class="say">“교회는 복음에 덧붙여진 것이 아니라 복음의 핵심이라는 거예요”</span>. <span class="bd v1">자막 6436자</span></li>
+</ul>
+<h3>3-3. 주요 주장 — 『신비적 현존』(1846)</h3>
+<ul class="tight">
+  <li><strong>1846년</strong> 『신비적 현존』(자막 '심비적 현존') — 교재 부제: <em>성찬식에 대한 개혁파 혹은 칼빈주의의 변호</em>(교재 영문 The Mystical Present). <span class="bd v1">자막 6220자</span> <span class="bd tb">교재 p.182</span></li>
+  <li>교회론: <span class="say">“교회는 단순히 과거 현재 그리고 미래에 예정된 신자들의 총집합이 아니라 그리스도와의 교제를 통해서 이미 온전히 하나로 구성되었고”</span>, 보편교회로 계속 구성되고 있다. <span class="bd v1">자막 6537자</span> 교수는 이것이 <strong>교회의 통일성</strong>을 강조하는 것이라 한다.</li>
+  <li>논리적 귀결: <span class="say">“모든 교파는 무의미하다”</span> — 교회는 하나인 보편교회이므로 모든 교파를 초월해 단 하나의 교회가 되어야 한다는 <strong>교회 일치 운동(유니버설 처치)</strong>이 나온다. <span class="bd v1">자막 6690자</span></li>
+  <li>모든 신자는 <strong>주의 성만찬을 통해 그리스도의 삶에 신비적으로 참여</strong>함으로써 교회가 진정한 교회가 된다고 주장했다 — <span class="say">“주의 만찬에 임하는 신비에 집중한 거예요”</span>. <span class="bd v1">자막 6912자</span> <span class="bd tb">교재 p.182</span></li>
+</ul>
+<h3>3-4. 필립 샤프와 반대, 분열</h3>
+<ul class="tight">
+  <li>독일에서 온 <strong>필립 샤프</strong>(Philip Schaff)와 함께 활동했다. 교수는 샤프를 <span class="say">“유명한 교회 사가”</span>로 소개하며 <span class="say">“필립 샤프 전지이 교회사 전집이 다 번역이 됐어요”</span>(자막 '전지이'는 <span class="asr-uncert">표기 불명 [?]</span>), <span class="say">“19세기의 대표적인 교회 사랍니다”</span>라고 한다. <span class="bd v1">자막 6959자</span> <small>(교재 p.183: 1844년 독일에서 온 필립 샤프(1819-1893)와 함께 활동 — 교회일치운동에 힘씀)</small></li>
+  <li>둘은 교회 일치 운동에 앞장섰다 — 교파를 초월한 모든 교단·교회가 연합하는 <strong>단 하나의 교회</strong>, 그 교회는 그리스도의 몸 자체이고, 성만찬을 통해 신비롭게 그리스도를 만나고 교제하고 내주하신다는 <span class="say">“약간 좀 이상한 그런 신비주의자 신비주의 경향”</span>을 띠었다. <span class="bd v1">자막 7232자</span></li>
+  <li>그 결과 신파의 교리·관행을 옹호하는 사람들로부터 심한 반대를 받았다 — <span class="say">“쟤들 기독교인이야 이거 로마 카트릭이야”</span>. <span class="bd v1">자막 7313자</span> 그래서 '복음주의 천주교'라는 별명이 붙었다.</li>
+  <li><span class="say">“남북전쟁 이후에 독일 개혁교회는 내빔파와 반 내빔파로 남분되다가 결국에는 교단이 분열되게 됩니다”</span>(자막 '내빔파'=네빈파, '남분'=양분). <span class="bd v1">자막 7380자</span> <span class="bd tb">교재 p.183</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>존 호발트(호팔트) — 성공회 고교회 <span class="bd tb">교재 p.183</span><span class="bd v1">자막 7463~7898자</span></h2>
+<ul class="tight">
+  <li>교재는 '호발트'(p.182 영문 John H. Hobart)와 '호팔트'(p.183 소제목)를 모두 쓴다. 교수: <span class="say">“이 사람은 성공의 부활을 꿈꾸는 사람이었어요”</span>(자막 '성공'은 성공회로 읽힘 [?]). <span class="bd v1">자막 7463자</span></li>
+  <li><span class="say">“성찬식은 신자들에게 은총의 수단으로 이를 거절하거나 무시하면 구원을 위태롭게 할 수 있다고 주장했습니다”</span>. <span class="bd v1">자막 7489자</span> <span class="bd tb">교재 p.183</span></li>
+  <li><span class="say">“감독에 의해서 안수받지 않은 사람은 적법한 감독”</span>, 사제 혹은 부제가 될 수 없다(자막 '사죄 혹은 부재'는 교재 p.183의 '사제 혹은 부제'로 읽힘). <span class="bd v1">자막 7554자</span> 교수: <span class="say">“이게 이제 거의 카톨릭이 강조하는 거예요”</span>. 가톨릭은 성례전을 통해 하나님의 은총을 받고, 사제 없이는 어떤 의식도 할 수 없다.</li>
+  <li><span class="say">“감독의 직분이 가장 핵심이며 목회, 성찬 가시적인 교회를 가능케 하는 것으로 결코 변동될 수 없다”</span>. <span class="bd v1">자막 7722자</span> 교수의 설명: 이것은 감독이 감독에게 권한을 부여하는 <strong>전승(사도적 계승)</strong>이고, 개신교도 마찬가지다 — <span class="say">“목사한수 누가 주세요?”</span> 목사가 주는 것이니 <span class="say">“일종의 천승설 전승설 목사가 목사에게”</span> 권세를 물려주는 것이다(자막 '천승설'은 전승설로 읽힘). <span class="bd v1">자막 7898자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>i. 침례교의 고교회주의(Landmarkism) <span class="bd tb">교재 p.183</span><span class="bd v1">자막 7988~8531자</span></h2>
+<ul class="tight">
+  <li>침례교에도 고교회주의가 있었다: <span class="say">“침례받은 사람만 성찬식에 참여할 수가 있고”</span> 침례교 목사만 강단에 설 수 있다. 다른 교단은 <span class="say">“교회는 그냥 자기들끼리 사교 모임에 불과하다”</span>. <span class="bd v1">자막 7988자</span></li>
+  <li><span class="say">“오직 성수적인 교단은 침례교회다 라고 주장하는 게 바로 침례교 고교의 운동입니다”</span>(자막 '성수적인'은 교재의 '성서적인'으로 읽힘). 이것을 <strong>랜드마크주의(Landmarkism)</strong>라 한다. <span class="bd v1">자막 8099자</span> <span class="bd tb">교재 p.183</span></li>
+  <li><strong>랜드마크</strong>의 뜻: <span class="say">“랜드마크가 뭘까요? 이정표”</span>. 교수는 '경계를 정하는 것' 정도로 풀이한다 — <span class="say">“여기까지가 성수적인 교회고 여기는 아닌 거예요”</span>. <span class="bd v1">자막 8163자</span> 그래서 침례를 받지 않은 사람은 성찬에 참여시키지 않고, 다른 교단 목사는 침례교 강단에 세우지 않는다(자막의 우리말 번역 부분 '직에서 뭐래요? 말투에요'는 <span class="asr-uncert">뜻이 불명확 [?]</span>).</li>
+  <li><strong>팬들톤(James M. Pendleton)·그레이브즈(James R. Graves)</strong>(자막 '제임스 팬들톤 제임스 그레이브즈')가 <span class="say">“다른 구단들은 사교협회에 불과하다. 강단교를 거부하고 오직 침례교회만 성서적인 참교회다”</span>(자막)라고 주장했다. <span class="bd v1">자막 8435자</span> 교수는 <span class="say">“남부에서 19세의 말까지 성행했습니다”</span>라고 말한다(앞에서는 '20세기 초반기에 이게 있었어요'라고도 말함 <span class="asr-uncert">연대 표현이 흔들림 [?]</span>). <span class="bd v1">자막 8509자</span> <span class="bd tb">교재 p.183</span> 교수는 <span class="say">“나중에 여러분들이 침례교회사 시간을 자세하게 배우실 거예요”</span>라고 덧붙인다. <span class="bd v1">자막 8531자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>질의응답과 곁길 — 배타적 교회관, 고등비평과 저등비평, '가톨릭'의 뜻 <span class="bd tb">교재 p.183</span><span class="bd v1">자막 8634~10479자</span></h2>
+  <p class="meta">교재 밖 이야기. 한 수강생이 '호발트의 고교회주의와 침례교의 고교회주의는 다른 개념 같다'고 묻는다.</p>
+<ul class="tight">
+  <li>교수의 답: <span class="say">“약간 다르지만 거의 비슷하죠”</span> — <span class="say">“우리 침례교회만 성수적인 교회고 다른 교회는 아닌 거예요”</span>. <span class="bd v1">자막 8634자</span> 성공회의 고교회도 <span class="say">“원래의 카톨릭적인 교회 예수님이 세우신 교회가 우리만 교회고 나머지는 아니고”</span>라는 점에서 같다. <span class="bd v1">자막 8827자</span></li>
+  <li><strong>지금도 남은 분파</strong>: <span class="say">“아직도 그런 근본주의적인 이런 우리 교단만 참 교회고 다른 교단은 아니다 라고 하는 사람들이 있어요”</span>(교수는 어느 교단이라고 말하지는 않겠다고 함). <span class="bd v1">자막 8964자</span> 성경도 그렇다 — <span class="say">“이 성경만 봐야 온전한 구원이 있을 수가 있고 다른 성경은 다 사탄이 장난쳐가지고 잘못 믿게 하고 있다”</span>고 하는 사람들이 있다. <span class="bd v1">자막 9076자</span> (이어서 자막은 '장 고 쓰는데. 이게 아마 높을 꽃자일 거예요'로 뒤틀려 있어 옮기지 않음 <span class="asr-uncert">성경 번역본 관련 언급으로 추정 [?]</span>)</li>
+</ul>
+<h3>고등비평과 저등비평 — high와 low의 구분</h3>
+<ul class="tight">
+  <li>교수는 '하이(high)'와 '로(low)'가 따로 있다며 설명을 시작한다: <span class="say">“하이 로가 있어요. 저교의 운동이 따로 있어요”</span>(자막)·<span class="say">“고등비평 저등비평”</span>. <span class="bd v1">자막 9191자</span> 교회 쪽 '고교회'와 구별하려는 설명이다.</li>
+  <li><strong>저등비평</strong> = <span class="say">“원래 텍스트 텍스트 원본을 복원하려고 하는 운동이에요”</span>. 성경의 원본은 없고 <span class="say">“남아있는 건 뭐예요? 사본만 있습니다”</span>. 사본들을 연구해 <span class="say">“가장 원본에 가까운 성경의 텍스트를 복원하려고 하는 거예요”</span>. <span class="bd v1">자막 9263자</span></li>
+  <li><strong>고등비평</strong> = 원본이 아니라 <strong>원본의 자료</strong>를 비판하고 연구한다. 그러려면 ① 누가 썼는지(저작 비평), ② 역사서인지 시편인지 예언서인지(양식 비평), ③ 어느 시대에 쓰였는지(역사 비평), ④ 문학적으로 어떤 형태인지(문학 비평)를 따진다 — <span class="say">“이거는 뭐냐면 원본을 원본의 재료를 연구하는 게 고등기평이요”</span>(자막 '고등기평'). <span class="bd v1">자막 9756자</span> 교수는 <span class="say">“지금 JDP 설이니”</span>(자막 'JDP 설' <span class="asr-uncert">뜻 불명확 [?]</span>) 하는 것도 양식·역사비평으로서 모두 고등비평이라고 말하고, <span class="say">“저등은 원본을 사본들을 다 모아가지고 연구해서 원래 원본을 찾고자 하는”</span> 운동이라고 다시 정리한다. <span class="bd v1">자막 9844자</span></li>
+</ul>
+<h3>고교회 = 원래 교회의 모습 — 가톨릭(보편)의 뜻</h3>
+<ul class="tight">
+  <li><span class="say">“고교의 주인은 바로 원래 교회의 모습을 회복하자”</span>(자막). 원래 모습은 사실 가톨릭적인 것이고, <span class="say">“교회가 예수 그리스의 몸이라고 하는 교회는 보편적인 교회라고 카톨릭 교회라고”</span> 한다. <span class="bd v1">자막 9899자</span></li>
+  <li>1학기에 배웠듯 <strong>예수님이 사도들에게 전해준 복음은 유일하고 단 하나</strong>였다(교수: '유일한 단 하나'). 이것이 catholic(universal)이다. <span class="bd v1">자막 10016자</span> 초창기에 가톨릭 교회가 <span class="say">“우리는 바로 캐토릭 교회야. 이것은 예수님께서 우리에게 전해주신 유일한 보편적인 단 하나의 교회다”</span>라고 주장했다. <span class="bd v1">자막 10145자</span></li>
+  <li>그래서 <strong>로마 가톨릭(서방)</strong>은 <span class="say">“우리가 예수님이 세우신 교회의 적자야”</span>라 하고, <strong>동방</strong>은 <span class="say">“뭔 소리야 우리가 정통교회지”</span>라며 <strong>동방 정교회(정통교회)</strong>라 한다. <span class="bd v1">자막 10479자</span> 지금도 '로마 가톨릭 / 동방 정통교회'로 명칭이 나뉜다고 정리한다. (자막 '우리가 캡쳐해 교회야'는 <span class="asr-uncert">우리가 가톨릭 교회야 [?]</span>로 읽힘)</li>
+</ul>
+</div>
+<div class="card">
+  <h2>j. 초월주의(Transcentalism — 교재 표기) <span class="bd tb">교재 p.183</span><span class="bd v1">자막 10596~12948자</span></h2>
+<h3>주요 주장자와 성격</h3>
+<ul class="tight">
+  <li><span class="say">“초월주의는 우리가 아는 이름이 나오네요”</span>. 교수가 읽은 이름: 에머슨(자막 '라이프 에머슨' — 교재 랄프 왈도 에머슨), 시어도어 파커, 제임스 프리맨 클락, 윌리엄 헨리 채닝(자막 '윌리엄 해리 체닝'). <span class="bd v1">자막 10596자</span> <small>(교재 p.183 주요 주장자: 조지 리플리·랄프 왈도 에머슨·시어도어 파커·제임스 프리맨 클락·프레드릭 헨리 헷지·윌리엄 헨리 채닝·오르테스 브라운스)</small></li>
+  <li>교수: <span class="say">“요 사람들은 약간 자유주의 신학 적인 경향을 띈 사람들입니다”</span>. 당시 <strong>낭만주의</strong>를 가르쳤고 약간 실존주의적인 경향도 가미했다. <span class="bd v1">자막 10677자</span></li>
+  <li><strong>유니테리언주의자들의 냉철한 논리를 반박</strong>하면서 유니테리언주의에 <strong>신비주의를 결합</strong>했고, 자신들의 합리주의에 당시 시대사조였던 낭만주의를 결합했다. <span class="bd v1">자막 10767자</span> <span class="bd tb">교재 p.183</span></li>
+</ul>
+<h3>주요 주장</h3>
+<ul class="tight">
+  <li><strong>모든 사물</strong>(세계·돌·식물 등)에 하나님이 현존하신다 — 그렇다면 어떻게 진리를 아는가? <span class="say">“집관 집관. 그럼 직관이라는 게 뭐예요? 이게 신비예요”</span>(자막 '집관'은 직관으로 읽힘). <span class="bd v1">자막 10962자</span> 영성·영혼의 소리를 듣는 낭만주의적 경향이며 촛불을 켜놓고 기도하며 진리를 직관으로 파악할 수 있다고 한다. <span class="bd tb">교재 p.183</span></li>
+  <li><strong>모든 외적 권위를 거부</strong>: <span class="say">“종교의 진리는 전통이나 역사적 사실에 의존하는 것이 아니라”</span> 그 사람 영혼 안에 확실한 증거를 갖고 있다 — 교수는 이를 인간의 심성·감성·영혼 안에 주어지는 신비로운 무엇을 찾는 것이라 풀이하고, <span class="say">“자신들을 넘어서는 어떤 권위도 거부해요”</span>라고 한다. <span class="bd v1">자막 11102자</span> <span class="bd tb">교재 p.183</span></li>
+  <li><strong>직관의 은사</strong>: 인간의 각 영혼은 하나님과 연결되어 있고, 본능·상상력·통찰력의 직관의 은사를 통해 삶의 외피를 벗어나 신적인 삶에 참여하며 하나님과 연합하는 경지에 이를 수 있다고 주장했다. <span class="bd v1">자막 11257자</span> 교수의 쉬운 풀이: 에머슨은 청중들이 하나님과 자연의 아름다움을 감상하도록 설교했으니, <span class="say">“쉽게 말하면 눈을 감고 참 아름다워라 주님의 세계를 하면서 느끼는 거”</span>. <span class="bd v1">자막 11437자</span> <span class="bd tb">교재 p.183</span></li>
+  <li>교회 안에서 <strong>성직자와 평신도의 구별이 사라지고</strong> 예배를 사람들이 돌아가면서 인도한다. <span class="bd v1">자막 11509자</span> <span class="bd tb">교재 p.183</span></li>
+</ul>
+<details><summary>곁길 ① — 재세례파 아미시의 목회: 신학을 하지 않고 삶으로 전도</summary><div class="dbody"><ul class="tight">
+  <li>교수는 이런 자유로운 모습의 대표로 <span class="say">“재침대파에 보면 아미씨라든가 이런 파를 보면”</span>(자막 '재침대파'=재세례파) <span class="say">“이 사람들은 신학을 하지 않습니다”</span>. <span class="bd v1">자막 11615자</span> 목사를 세울 때도 신학을 하지 않는다.</li>
+  <li>설교는 돌아가며 한다 — <span class="say">“설교를 어떻게 하느냐 미리 준비하면 안 됩니다”</span>. 하나님이 그때그때 영감을 주셔서 말씀을 받은 사람이 일어나 전한다. <span class="bd v1">자막 11673자</span> 성경과 상관없이 사는 것은 아니고, 성경을 읽는 데서 멈추지 않고 성령이 주시는 감동을 삶을 통해 나눈다.</li>
+  <li><strong>전도</strong>: <span class="say">“이 암씨 같은 경우는 전도를 못하게 합니다”</span>(자막 '암씨'=아미시 [?]). 말로 하지 못하게 하고 삶으로 전도한다 — <span class="say">“성경 말씀을 산상속은 그대로 실천하는 통해서 전도를 하지 말로 전도하는 못해요”</span>(자막 '산상속은'은 산상수훈으로 읽힘 [?]). <span class="bd v1">자막 12055자</span></li>
+  <li>교수: 신앙공동체를 하는 많은 교단은 신학을 하지 않았다. <span class="say">“순수하게 말씀을 보고 깨달음을 주시는 대로 이 땅에 삶을 실천하는 게 중요하지 배우는 거는 오히려 그게 영성을 방해한다고 저도 믿고 있어요”</span>(자막; '저도'가 교수 본인의 견해인지 그들의 믿음을 말하는 것인지는 <span class="asr-uncert">불분명 [?]</span>). <span class="bd v1">자막 12384자</span></li>
+  <li>아미시는 신학교·대학교를 조금 세웠다가 없어졌고 신학교육을 시키지 않았으며, 목회자는 <span class="say">“재위를 뽑아서 재 뽑아요”</span>(자막 — <span class="asr-uncert">제비뽑기로 뽑는다는 취지로 읽힘 [?]</span>). <span class="bd v1">자막 12542자</span></li>
+</ul></div></details>
+<details><summary>곁길 ② — 관상기도와 촛불·향(교수의 예)</summary><div class="dbody"><ul class="tight">
+  <li>초월주의자는 인간의 영혼·본성·상상력·통찰력을 통해 하나님을 만난다 — 교수는 오늘날에도 그런 모습이 있다며 <span class="say">“향표로 촛불 켜놓고 거기서 못 상기도 하고”</span>(자막 <span class="asr-uncert">향을 피우고 촛불을 켜고 관상기도 [?]</span>) 하나님께 말씀을 달라고 하는 기도를 예로 든다. <span class="bd v1">자막 12623자</span></li>
+  <li>수강생들에게 주변에 그렇게 하는 교회가 있느냐고 묻고, 자신이 아는 한 가정의 이야기를 한다 — 향·촛불을 켜놓고 아침마다 한두 시간씩 기도하며 <span class="say">“하나님 음성을 듣는다고”</span> 하는 아내를 보며 남편이 심각해한다. <span class="bd v1">자막 12948자</span></li>
+</ul></div></details>
+</div>
+<div class="card">
+  <h2>천년왕국·사회개혁·후천년설·도덕적 자기개혁 <span class="bd tb">교재 p.183</span><span class="bd tb">교재 p.184</span><span class="bd v1">자막 13045~16073자</span></h2>
+<ul class="tight">
+  <li><strong>천년왕국 도래 주장</strong>(교재 p.183): <span class="say">“천연왕국이 도래하기 전에 우리는 사회구조를 개혁해야 된다”</span>(자막 '천연왕국'=천년왕국). 개혁 항목: 인권·빈곤퇴치(자막 '인권퇴취')·노예해방·교육개혁·인종평등·여성의 참정권 증진·평화운동. <span class="bd v1">자막 13045자</span> <span class="bd tb">교재 p.183</span></li>
+  <li><strong>희망의 근거</strong>: 독립전쟁 이후 자유와 정의가 실현되고 잭슨식 민주주의가 확장되며, 서부 확장에 따른 부의 축적과 물질적 풍요를 경험하는 등 정치적인 증거가 있었다. 또 종교적 대각성 운동으로 회개와 개혁의 물결이 미국 사회를 지배하면서 <span class="say">“이제 곧 미국 사회가 하나님 나라가 곧 다가오겠다 하는 거죠”</span>. <span class="bd v1">자막 13167자</span> <span class="bd tb">교재 p.183</span></li>
+  <li><strong>세속적 진보주의 + 종교적 후천년설</strong>: <span class="say">“19세기 미국 사회는 세속적 진보주의와 세상이 자꾸 진보하는 거예요”</span>. 자연과학·사회·모든 것이 진보한다고 믿었고, <span class="say">“종교적 후천연주의 후천연은 이 땅에 우리가 노력해서 천연학국이 이루어지고 그 다음에 예수님이 재림하는 게 후천연설이었어요”</span>(자막 '후천연'=후천년). <span class="bd v1">자막 13341자</span> 그 결과 <strong>낙관적 이상사회 건설·위대한 미국 건설</strong>이 목표가 되고, 사회개혁이 선결 요건이 되었다 — <span class="say">“이 땅의 천연왕국이 이루어지려면 우리가 먼저 사회개혁을 해야 된다는 거예요”</span>. <span class="bd v1">자막 13549자</span> <span class="bd tb">교재 p.184</span></li>
+  <li><strong>생활개혁</strong>: 건강개혁·자선활동·절제운동·채식주의 운동·의복개혁 운동을 통해 새로운 사회를 건설한다. 교수: <span class="say">“미국 땅이 새로운 언약이다. 새로운 이스라엘 미국이에요”</span>(자막 '미국된 거냐 미국 땅이 새로운 언약이다'). <span class="bd v1">자막 13612자</span> 그래서 <span class="say">“후천연설을 주장하는 것입니다. 미국이 신천지가 된다는 거예요”</span>. <span class="bd tb">교재 p.184</span></li>
+  <li><strong>도덕적 자기개혁(self-reform)</strong>: 사회개혁·생활개혁을 하기 전에 먼저 필요한 것 — <span class="say">“우리 사회개혁이 이루어져도 개인의 도덕이 개혁되지 않으면 아무런 소용이 없다”</span>. <span class="bd v1">자막 13803자</span> 이에 따라 <strong>미국 여성 도덕개혁협회</strong>(교재 p.184 The American Female Moral Society)가 생기고 <strong>미국 금주동맹</strong>(American Temperance Union, 1837)이 결성되었다. <span class="bd tb">교재 p.184</span></li>
+  <li>결론: <span class="say">“개인의 도덕적 개혁 플러스 신앙의 개혁이 이루어져야만 진정한 사회개혁이 이루어진다고 주장했습니다”</span>. <span class="bd v1">자막 16073자</span> <span class="bd tb">교재 p.184</span></li>
+</ul>
+<details><summary>곁길 — 미국 남부의 금주 문화와 독일 여행 일화(교수 경험담)</summary><div class="dbody"><ul class="tight">
+  <li>지금도 미국 남부에서는 주일에 술을 팔지 못한다 — 교수가 살던 곳(자막 '루지나 주'는 <span class="asr-uncert">루이지애나 주 [?]</span>로 읽힘)에서는 <span class="say">“주일날에는 모든 상점이 다 월마트도 술 파는 섹션은 폴리스라에 쳐져 있어요”</span>(자막; 경찰 폴리스라인 같은 노란 줄이 쳐져 있다는 뜻). <span class="bd v1">자막 13981자</span> <span class="say">“이때 벌써이런 금주운동이 벌어졌습니다”</span>. <span class="bd v1">자막 14136자</span></li>
+  <li>남부에서는 술에 취해 쓰러진 사람이 없다 — 누워 있으면 경찰이 와서 잡아가고, 길에서 술을 마시는 것도 안 되어 <span class="say">“리코스 투어 가서 가서 맥주라든가 술을 사면 누른 봉투에 넣어줘요”</span>(자막; 누런 종이봉투로 가려 마신다는 뜻). <span class="bd v1">자막 14319자</span> 리버티 대학이 있는 린치버그(자막 '린치버거')는 법률로 술집을 열지 못하게 막아 놓았고(자막 '제리파렌 목사님' <span class="asr-uncert">제리 팔웰 목사로 읽힘 [?]</span>), 교수가 다닌 남부 신학교는 기숙사·아파트에서 알코올이 발견되면 퇴학이었다 — 요리용 미림도 마찬가지. <span class="bd v1">자막 14437자</span> 반면 <span class="say">“담배는 오히려 더 허용할 해요”</span>(자막), 교인들이 담배 농사를 많이 하는 지역이라고 한다.</li>
+  <li><strong>독일 여행 일화</strong>(2005년경, 자막 '2005년도'): 미국 각 교단 목사들과 교수 두 분·학생 둘이 독일 루터 고향 종교개혁지를 투어했다(자막 '메로나이트 계통의 여행사' <span class="asr-uncert">메노나이트 계통 여행사로 읽힘 [?]</span>가 종교개혁지 투어 상품을 만들려고 비행기 값 700불만 받고 초청). 식사 때마다 맥주·와인이 무료로 나오는데 <span class="say">“교수님이 다 워터 스프라이드 꼭 하는 거예요”</span>(자막; 신학교 교수들은 물이나 스프라이트만 시킴). <span class="bd v1">자막 15719자</span> 10일 동안 한 번도 마시지 않아 미국 친구에게 물으니 <span class="say">“우리도 두 명 이상 있으면 안 마시고”</span>(자막, <span class="asr-uncert">뜻 불명확 [?]</span>)라고 했다. 교수의 정리: <span class="say">“남부는 지금도 술에 대해서는 굉장히 엄격갑니다”</span>. <span class="bd v1">자막 15952자</span></li>
+</ul></div></details>
+</div>
+<div class="card">
+  <h2>19세기 성결운동 — 오벌린 완전주의와 케직 사경회 <span class="bd tb">교재 p.184</span><span class="bd v1">자막 16183~17449자</span></h2>
+  <p class="meta">교재 p.184의 '※19세기 성결운동' 항목이다. 교재: 개혁파 성결운동 그룹 = 오벌린 완전주의와 케직 사경회로 나뉨 / 웨슬리안 성결운동 그룹 = 뵈비 팔머, 전국성결연합회, 급진적 성결운동으로 나뉨.</p>
+<ul class="tight">
+  <li><span class="say">“19세기 성결운동이 벌어지는데 개혁파 선결운동”</span>(자막 '선결운동'=성결운동) — <span class="say">“오벌린 완전주의와 캐릭 사교회”</span>(자막 '캐릭 사교회'=케직 사경회). <span class="bd hi">⭐교수강조</span> <span class="say">“이게 중요한 게 오벌린 완전주의는 뭐냐면 이 땅에서 우리가 완전한 삶을 살 수 있다는 경건한 삶을 살 수 있다는 거예요”</span>. <span class="bd v1">자막 16183자</span></li>
+  <li><strong>오벌린 완전주의</strong>: <span class="say">“우리가 거듭나는 순간에 죄성이 사라지고”</span> 성화의 길을 완전히 갈 수 있다는 것. 교수는 뒤에서 다시 <span class="say">“이 땅의 성화의 삶을 100%까지라도 완벽하게 살 수 있다는 거예요”</span>라고 정리한다. <span class="bd v1">자막 16625자</span></li>
+  <li><strong>케직 사경회</strong>: <span class="say">“성경의 권위 말씀의 권위를 강조하는 그래서 우리가 말씀을 공부해야 된다. 그리고 성령의 역사를 강조하는 거예요”</span>. <span class="bd v1">자막 16693자</span> <strong>1875년 정도 영국</strong>에서 시작되어 미국·캐나다로 건너와 <strong>나이아가라 사경회</strong>(자막 '나이가르 상경에')에 영향을 주었다. <span class="bd v1">자막 16768자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>나이아가라 사경회도 성경의 권위와 성령의 역사를 강조하며, 여기서 영향을 받은 젊은 사람들이 <strong>해외 선교사</strong>로 나갔다. 교수: <span class="say">“우리나라의 언더우드 아펜젤러라든가 나중에 우리 페닉 선교사 이분들이 다 누구의 영향을 받았느냐”</span>(자막 '페닉'은 <span class="asr-uncert">선교사 이름 표기 불명 [?]</span>) 이 사경회의 영향이다. <span class="bd v1">자막 16528자</span> 그들은 <span class="say">“땅끝까지 이르러서 봄을 전해야 된다고 하나 그래야 하나님 나라가 이루어진다”</span>(자막 '봄을 전해야'는 복음을 전해야로 읽힘 [?]) 하는 열정으로 한국에 왔다. <span class="bd v1">자막 17003자</span></li>
+  <li>그래서 초창기 내한 선교사들은 <strong>금주운동</strong>을 했다 — 당대 미국·유럽의 금주운동 사회의 영향이다. 교수의 설명: 양반들이 먼저 교회에 오니 장로를 하고 싶어 하는데, 선교사들이 조건을 걸었다 — <span class="say">“장로 되려면 품주 술 먹지 말고 담배 피우지 말고 노름하지 말고”</span>(자막 '품주'=음주 [?]) 첩 정리(자막 '척 정리')하라는 식으로 요구했고, 그래서 장로 되기가 어려워졌다. <span class="bd v1">자막 17449자</span></li>
+</ul>
+<details><summary>곁길 — 내한선교사 다큐 프로젝트 소개(교수 소개, 간략)</summary><div class="dbody"><p>교수는 '내한선교사 3천 명' 프로젝트의 다큐 제작이 진행 중임을 소개한다(첫 번째·두 번째 다큐가 이미 공개, 한 선교사 편은 12월 첫 주 공개 예정이라고 말함).</p></div></details>
+</div>
+<div class="card">
+  <h2>웨슬리안 성결운동과 성령세례 논쟁 <span class="bd tb">교재 p.184</span><span class="bd v1">자막 18658~18729자</span></h2>
+  <p class="meta">쉬는 시간과 출석 뒤(수업 중간)에 이어진 부분이다.</p>
+<ul class="tight">
+  <li><span class="say">“웨슬리안 성교 운동도 사람들 나름입니다”</span>(자막 '성교'=성결). 교수가 든 갈래: <span class="asr-uncert">뵈비 팔머(자막 '베베 탈모', 교재 '뵈비 팔머') [?]</span>, <span class="say">“전국선결연합회 급진적 성결운동으로 나뉩니다”</span>. <span class="bd v1">자막 18658자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>쟁점은 <strong>성령 세례</strong>다: <span class="say">“성령 세례가 도대체 뭐냐 그래서 성년 세례의 증거가 뭐냐”</span>(자막 '성년 세례'=성령세례). ① 성령세례는 권능 — 복음을 전하기 위해 권능을 받는 것인가, ② 방언·예언·신유인가, ③ 구원받는 순간에 내재하는가 아니면 구원받고 난 이후 실천적 결과로 주어지는가 — <span class="say">“여러 가지 논란이  벌어지게 되는 거죠”</span>. <span class="bd v1">자막 18729자</span> 교수는 이어 순복음 계통(자막 '순복교회에서 오순절개통이고')을 언급한다 <span class="asr-uncert">오순절 계통 설명으로 읽힘 [?]</span>.</li>
+</ul>
+</div>
+<div class="card">
+  <h2>k. 대각성주의자들의 주요 주장 <span class="bd tb">교재 p.184</span><span class="bd v1">자막 18962~19181자</span></h2>
+<ul class="tight">
+  <li><span class="bd hi">⭐교수강조</span> <span class="say">“개인 구원의 필요성 내적 확신 이게 이제 중요한 거죠. 내적 확신.”</span> <span class="bd v1">자막 18962자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>복음의 정치적·사회적 영향보다 <strong>개인들의 자유</strong>를 추구한다. 그러나 <span class="say">“일부의 사람들은 개인의 자유도 중요하지만 정치사회적인 개혁이 먼저 또 선행돼야 된다고 주장하는 사람들이 있습니다”</span>. <span class="bd v1">자막 19041자</span> <small>(교재 p.184: 미합중국 헌법 제1조 수정안 인용 — 수업에서 읽지 않음)</small></li>
+  <li><strong>자원주의(Voluntarism)</strong> 추구: <span class="say">“교회는 국가의 지원이나 보호 없이 신앙이 없는 사람들을 개동시키고 신자들을 양케해야 된다”</span>(자막 '개동'=개종, '양케'=양육). <span class="bd v1">자막 19114자</span> <span class="bd tb">교재 p.184</span></li>
+  <li><strong>아이작 베커스(Isaac Backus)</strong>(자막 '아이작 베커스'·'아이작 바쿠스')는 침례교 목사로, <span class="say">“종 국가 종교의 분리사상 이것을 미국에서 가장 앞장섰던 사람이 정치와 종교 분리를 가장 앞장섰던 사람이 침례교육 목회자들입니다”</span>(자막). <span class="bd v1">자막 19181자</span> 교수는 <span class="say">“다 여러분들이 침매회사 시간에 배울 것입니다”</span>라고 덧붙인다. <span class="bd tb">교재 p.184</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>l. 로마 가톨릭의 대응(제1차 바티칸 공의회) <span class="bd tb">교재 p.184</span><span class="bd v1">자막 19359~20704자</span></h2>
+<ul class="tight">
+  <li>교수: <span class="say">“시대는 변하고 있는데 전혀 거꾸로 가는 사람들이 있어요. 그게 바로 로마 캐토릭입니다”</span>. <span class="bd v1">자막 19359자</span> 처음에는 <span class="say">“제1차 바티칸 공예가 1854년에 시작하는데”</span>(자막 '공예'=공의회)라고 하고 제2차는 1962년에 시작했다고 말하지만, 곧이어 <span class="say">“1869년에 로마에서 제1차 바티칸 공회를 시작했는데”</span>라고 다시 말한다. <span class="bd v1">자막 19408자</span> <span class="bd bo">보충</span> 교재 p.184: <strong>1854년 12월 8일은 피우스 9세의 '마리아 무염시태' 선언</strong>, <strong>1869년 12월 8일이 제1차 바티칸 공의회 시작</strong>이다. 노트는 교재 연도를 쓴다.</li>
+  <li><strong>1854년 — 마리아 무원죄 잉태 선언</strong>: 교황 피우스 9세(자막 '피우스 구세')가 <span class="say">“마리아가 언죄없이 잉태되었다”</span>고 선언했다. <span class="bd v1">자막 19487자</span> 교수의 논리: 마리아에게 원죄가 있으면 예수님에게도 문제가 있게 되므로 마리아가 원죄 없이 잉태되었다고 한 것인데, 그렇다면 마리아를 낳은 부모도 원죄가 없어야 한다는 <span class="say">“엉뚱한 소리가 나옵니다”</span>. <span class="bd v1">자막 19651자</span> 또한 <span class="say">“이건 교회 회의 결과가 아니라 교황이 독자적으로 결정한 거예요”</span>. <span class="bd v1">자막 19668자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>교수는 가톨릭이 <span class="say">“작년에”</span> <span class="say">“마리아는 공동 구원자가 아니다”</span>라고 선언했다고 말하며(링크는 나중에 올려 주겠다고 함) 지금까지 로마 가톨릭이 마리아를 예수님과 함께 공동 구원자라고 주장해 왔다고 설명한다. <span class="bd v1">자막 19725자</span> <span class="asr-uncert">교수가 언급한 최근 선언의 근거는 수업에서 제시되지 않음 [?]</span></li>
+  <li><strong>1864년 회칙(encyclical)</strong>: 피우스 9세가 모든 주교에게 회칙을 발송하여 사회주의·이성주의·언론의 자유·종교의 자유·공립학교(교수: '국립학교')·성서공회(자막 '송서봉'은 <span class="asr-uncert">성서공회로 읽힘 [?]</span>)·교회와 국가의 분리 및 기타 진보 시대에 <strong>선전포고</strong>를 했다. <span class="bd v1">자막 19880자</span> 교수: <span class="say">“거꾸로 가는 거예요. 완전히.”</span> <span class="bd v1">자막 19998자</span> <span class="bd tb">교재 p.184</span></li>
+  <li><strong>1869년 제1차 바티칸 공의회</strong>: 전체 교회(로마 가톨릭 전체)가 모여 <span class="say">“로마 주교의 지준의 권한”</span>(자막 '지준'=지존)과 <strong>교황의 무오성</strong>을 선포했다. 교수는 로마의 주교가 곧 교황임을 설명하며 비유를 든다 — <span class="say">“우리나라 추기경은 어디 추교예요? 서울 서울 명동성당이에요”</span>(자막). <span class="bd v1">자막 20019자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>교황 무오성의 범위 — 교수는 <span class="say">“교황이 하는 모든 것이 무호하다는 게 아닙니다”</span>라고 정정해 설명한다. <span class="bd v1">자막 20246자</span> 또 <span class="say">“각 주교들은 신앙과 도덕 분야뿐만 아니라 교회 직제와 행정에까지 교황에게 순종해야 한다”</span>. <span class="bd v1">자막 20339자</span> 교황이 사적으로 결정하는 것이 아니라 <span class="say">“교황이 공적인 직분에 의거하여 신앙과 도덕에 관련된 문제로 전체 교회를 위한 최종 결정을 내리면”</span> 그 결정은 그 자체로 무오하고 불변하며, 사전에 교회의 동의나 사후의 승인이 필요 없다는 것이다. <span class="bd v1">자막 20430자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>교수의 덧붙임: 로마 가톨릭은 종교회의를 하면 한두 번 만나는 것이 아니라 <span class="say">“10년에 걸쳐”</span>(자막) 하고, 한번 결정한 것은 <span class="say">“웬만하면 바꾸기가 쉽지 않습니다”</span>. <span class="bd v1">자막 20704자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>3. 19세기 영국의 복음주의 운동 — 클라팜 파와 노예제 폐지 <span class="bd tb">교재 p.184</span><span class="bd tb">교재 p.185</span><span class="bd v1">자막 20755~21369자</span></h2>
+  <p class="meta">교재의 질문: "기독교 신자들은 어떠한 위치에서 세속사회를 바라보아야 할 것인가?"(교재 p.184)</p>
+<ul class="tight">
+  <li>교수: 이제 관심은 <span class="say">“기독교 신자들은 세속사회 이 땅 이 땅을 어떻게 바라봐야 되느냐”</span>이다. <span class="bd v1">자막 20755자</span> 이 땅·이 사회도 천년왕국이 이루어질 수 있도록 개혁해야 한다는 것이다.</li>
+  <li><strong>클라팜 파(Clapham Sects)</strong> — 기독교적 사회운동의 모범(교재): <span class="say">“일상생활에서의 성결”</span>을 추구하고 <span class="say">“영혼을 의식하는 삶을 살아야 된다”</span>(자막 — 교재 표기는 '영원을 의식하는 삶'). <span class="bd v1">자막 20856자</span> <span class="bd tb">교재 p.184</span></li>
+  <li>이 교구의 목사 <strong>존 벤(John Venn)</strong>과 의회정치가 <strong>윌리엄 윌버포스</strong>(교재 '월버포스, 1759-1833')가 영국의 불의와 잘못된 것들을 비판하고 공의를 수립하기 위해 노력했다. <span class="bd v1">자막 20957자</span> <span class="bd tb">교재 p.185</span></li>
+  <li>이들로부터 사회 문제를 위한 일련의 <strong>복음주의 운동·사회개혁운동</strong>이 시작된다: 교회선교협의회 <strong>1799년</strong>, 영국 및 해외 성경 협회 <strong>1804년</strong>(자막 '성경보고협회'), 빈민층 개선협회, 감옥개혁 협회. 교수: <span class="say">“그러니까 얼마나 이게 앞선 거예요. 1800년대에 성경협회가 생겨서”</span>. <span class="bd v1">자막 21075자</span> <span class="bd tb">교재 p.185</span></li>
+  <li><strong>노예제도 폐지</strong>: <strong>1789년</strong> 윌버포스가 하원에서 최초로 노예매매 문제를 거론, <strong>1807년</strong> 노예매매 중단, <strong>1833년</strong> 대영제국 전체 노예들을 해방시키는 해방법 통과(교재: 1807년 2월 23일·1833년 7월 25일). 교수: <span class="say">“미국의 남북전쟁은 1865년에 종식됐습니다. 그러니까 벌써 유럽이 먼저 유럽이 먼저 노예법이 해방됐어요”</span>. <span class="bd v1">자막 21369자</span> <span class="bd tb">교재 p.185</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>교수의 보충 — 미국 노예제 논쟁과 교단의 남북 분열 <span class="bd tb">교재 p.185</span><span class="bd v1">자막 21420~23633자</span></h2>
+  <p class="meta">교재 p.185의 윌버포스 부분(1865년 남북전쟁 종식)에서 이어진 교수의 설명이다. 교재에서 이 주제는 p.189 'n. 노예제도에 따른 교회'(장로교 구파·신파, 감리교, 침례교, 루터교)에 나오지만, 수업에서는 교재 p.188~189의 세부 항목(웰드·태픈의 편지, 토마스 듀, 벤저민 팔머, 1836년 감리교 중앙연회 등)을 읽지 않았다 — 아래는 교수가 자기 말로 한 설명뿐이다.</p>
+<ul class="tight">
+  <li>영국이 미국 사람들, 특히 미국 기독교인들에게 <span class="say">“계속 압력을 넣는 거예요”</span> — 신자들이 이렇게 해서야 되겠느냐고. <span class="bd v1">자막 21420자</span> 그래서 <strong>북부 기독교인들이 노예 해방을 주장</strong>했고, <span class="say">“남부는 안 된다고 하는 거예요”</span>. <span class="bd v1">자막 21584자</span> 이유: 남부는 농사(자막 '농사가 아줌마다')라 노동력이 필요하므로 <span class="say">“남부 사람들은 노예 해방이 안 되는 거예요. 반대하는 것입니다”</span>. <span class="bd v1">자막 21639자</span></li>
+  <li>북부는 계속 남쪽 사람들에게 압력을 넣었고, 결국 <strong>장로교와 침례교와 감리교가 분열</strong>되었다 — <span class="say">“감리교 침례교 장로교가 너의 제도 때문에 남북이 갈리는”</span>(자막 '너의 제도'=노예제도). <span class="bd v1">자막 21755자</span></li>
+  <li><strong>침례교</strong>: 원래 아메리칸 백티스트(자막)만 있었는데 남부 사람들이 빠져나가 서든 백티스트(자막; 남침례교)가 생겼다. <strong>장로교</strong>: 남쪽의 장로교들이 따로 나와 '서든 크리스베터링 남 장로교'(자막)가 생겼다. <strong>감리교</strong>: 남부 사람들이 빠져나가 남감리교가 생겼다. <span class="bd v1">자막 21793자</span></li>
+  <li><strong>남침례교 설립일</strong>: <span class="say">“남춘명의 설립일이 언제냐 1845년 5월 8일입니다”</span>(자막 '남춘명'=남침례교). <span class="bd v1">자막 22082자</span> 교수는 이 날이 어버이날이라 잊지 않는다고 덧붙인다. 그날 <span class="say">“남부의 침례견들이 독립을 한 겁니다. 아메리칸 아티스트에서”</span>(자막 '침례견들'=침례교인들). <span class="bd v1">자막 22188자</span> 미국의 남북전쟁은 1865년에 북부가 이겼다(자막 '북부가 이해된 거죠' <span class="asr-uncert">이긴 것으로 읽힘 [?]</span>). 남침례교인들은 그 이전 1845년에 이미 분리했다는 순서다.</li>
+</ul>
+<details><summary>곁길 — 남침례교의 인종·성(性) 문제와 공개 회개(교수의 경험과 설명)</summary><div class="dbody"><ul class="tight">
+  <li>교수가 다닌 남침례교 신학교(1917년 설립): 흑인 교수가 한 분(교육학과) 있었으나 나갔고 이후 없다. 1980~90년대부터 <span class="say">“모든 여성은 신학을 못 가르키게 막았어요”</span> — 신학을 가르치는 여성 교수가 없다. <span class="bd v1">자막 22469자</span> 흑인 학생은 학부생으로 다니기도 했지만(교수가 다닐 때 7가정 정도) <span class="say">“지금까지 흑인이 한 명도”</span>(자막 'PCP'는 <span class="asr-uncert">박사학위로 읽힘 [?]</span>) 박사학위를 받은 적이 없다고 한다. <span class="bd v1">자막 22578자</span></li>
+  <li>그러나 <strong>한 10년 전쯤</strong> 남침례교회가 공개적으로 회개하고 남부의 흑인들에게 인종 문제에서 큰 잘못을 했다고 용서를 빌었고, 처음으로 <strong>흑인이 총회장</strong>이 되었다 — <span class="say">“남친이 역사상 처음으로 흑인이 총회장이 됐습니다”</span>(자막). <span class="bd v1">자막 23153자</span> 이름 부분은 자막이 <span class="asr-uncert">'마틴 마틴 루트 주니어. 킹 주니어'로 뒤틀려 인물을 확정할 수 없음 [?]</span>. 뉴올리언스 출신 목사로 여러 도시에 교회를 둔 유명한 목사라는 설명이 이어진다.</li>
+  <li>교수는 이어 한 인물이 북침례교 목사였고 보스턴 대학 출신이라고 언급한다(자막 '마 단 이요 마침 조치는 북침대교 목사였어요' — 인물 확정 불가 <span class="asr-uncert">불명확 [?]</span>). 인종 문제에서 남부는 지금도 보수적이지만 북부도 그런 면이 있다며, 유학 때의 경험(박사 과정에 들어온 여성에게 <span class="say">“왜 여자가 신학을 하려고 하느냐”</span>고 묻던 일 등)을 소개한다. <span class="bd v1">자막 23633자</span> 신학 박사 과정은 미국인 다음으로 한국 사람이 제일 많다고도 말한다.</li>
+</ul></div></details>
+</div>
+<div class="card">
+  <h2>B. 옥스퍼드 운동(Oxford Movement) — 성공회의 고교회파 운동 <span class="bd tb">교재 p.185</span><span class="bd v1">자막 23935~24225자</span></h2>
+<ul class="tight">
+  <li><span class="say">“옥스파드 운동인데 이게 바로 성국의 고교파 운동이”</span>(자막 '성국의 고교파'=성공회의 고교회파). <span class="bd v1">자막 23935자</span> 교회에 침투한 세속화를 제거하려는 것이 목표였고, 주요 인물은 <strong>존 케블(John Keble)</strong>(교재 표기, 자막 '존 케이블') 등이다. <span class="bd tb">교재 p.185</span> <small>(교재: 존 헨리 뉴먼(1801-1891)·에드워드 퓨지도 주요 인물 — 수업에서 이름을 말하지 않음)</small></li>
+  <li>교수: <span class="say">“교회 권위는 영국 국가가 아니라 하나님으로부터 왔다는 거예요”</span>. <span class="bd v1">자막 24024자</span> 하나님이 세우신 교회라는 것이다.</li>
+  <li><strong>고교회파의 강조점</strong>: 주교들의 사도적 전승(자막 '사도적 전선'), 교회 권위, 성례전 강조, 공동예배, 상징적 행위(예복 입기·향불·음악 강조) — <span class="say">“진정한 카톨릭이 되고자 했습니다”</span>. <span class="bd v1">자막 24153자</span> <span class="bd tb">교재 p.185</span></li>
+  <li><strong>앵글로 가톨릭</strong>: <span class="say">“건강정교회나 로마 캐톨릭의 교회 전통을 인정하되 교황의 권위를 인정하지 않는 앵글로스 카톨릭”</span>(자막 '건강정교회'=동방정교회로 읽힘 [?]). <span class="bd v1">자막 24172자</span> 교수: <span class="say">“성공회가 영국식 카톨릭교예요”</span> — 교황만 인정하지 않고 영국 국왕이 리더십을 가지며(자막 '강이 영국 부강이 리더십을 갖고' <span class="asr-uncert">영국 국왕으로 읽힘 [?]</span>) 예전은 모두 가톨릭이고, 그래서 <strong>감독제</strong>를 하고 사제가 있다. 로마 가톨릭에 대항해서 나왔기 때문이다. <span class="bd v1">자막 24225자</span> <span class="bd tb">교재 p.185</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>4. 기독교 국가인 미국 건설 — 자발적 집단과 종교의 합리적 선택 이론 <span class="bd tb">교재 p.185</span><span class="bd v1">자막 24369~26384자</span></h2>
+<ul class="tight">
+  <li><span class="say">“19세기에 미국의 전반적인 상황은 강렬한 기대감, 무한한 열정, 통제할 수 없는 열기”</span>였다. <span class="bd v1">자막 24369자</span> 교수는 <span class="say">“글을 읽을 수 있는 사람은 누구나 양복 조끼 주머니에 새로운 공동체에 대한 설계도를 갖고 다닌다”</span>는 편지글을 소개한다(자막 '에머틴이라는 사람이 칼라일에게' — 교재: 에머슨이 1840년 칼라일에게 쓴 편지). <span class="bd v1">자막 24450자</span> <span class="bd tb">교재 p.185</span></li>
+  <li>미국 기독교인들의 목표는 <strong>기독교 국가로서의 미국 건설 = 천년왕국설</strong>이다. 당시 교인 비율은 <span class="say">“미 합중국 건국시 교육 비율은 5에서 10%에 불과했습니다”</span>(자막 '교육 비율'은 교인 비율로 읽힘 — 교재 '미합중국 건국시에 교인 비율은 5-10 퍼센트'). <span class="bd v1">자막 24596자</span> <span class="bd tb">교재 p.185</span></li>
+  <li><strong>복음주의자들이 미국을 교회화하는 데 가장 중요한 두 가지 동력</strong>: <span class="say">“자발적 집단 부흥”</span>(자막). <span class="bd v1">자막 24653자</span> <strong>자발적</strong>이란 부모가 아니라 자기가 교단을 선택한다는 것이다 — 교수: <span class="say">“자기가 자발적으로 종교 시장에 따라서”</span>(자막 '멀리에 따라서'가 이어짐 <span class="asr-uncert">시장 원리에 따라서 정도로 읽힘 [?]</span>) <span class="say">“이게 종교의 합리적 선택이론이에요”</span>. <span class="bd v1">자막 24755자</span> <span class="bd tb">교재 p.185</span></li>
+</ul>
+<h3>종교의 합리적 선택 이론 (교수의 설명 — 교재 밖)</h3>
+<ul class="tight">
+  <li>식당을 고르거나 물건을 살 때 후기를 먼저 보고 가성비를 보듯, <span class="say">“내가 투자한 만큼  거기서 이득이 주어질 때 이익이 주어질 때 우리는 그 선택을 해요”</span>. <span class="bd v1">자막 25195자</span> 좋은 곳이면 다른 사람에게도 알린다는 것이 시장 원리이다.</li>
+  <li><span class="bd hi">⭐교수강조</span> <span class="say">“종교에 있어서 합리적으로 선택이 핵심은 뭐예요? 내가 투자 대비 투자하면 거기에 따라서 반드시 이익이 주어져야 문에요”</span>. <span class="bd v1">자막 25264자</span></li>
+  <li>종교에서 투자하는 것: <strong>시간</strong>(예배 시간) · <strong>헌금(물질)</strong> · <strong>정성</strong> · 봉사·희생. 이에 따라 주어져야 하는 이익은 두 가지 — <strong>현세(이 땅)에서의 이익</strong>과 <strong>내세</strong>에서의 이익. 교수: 그래서 교단이든 교회든 <span class="say">“다 합리적으로 우리는 선택하는 거예요”</span>. <span class="bd v1">자막 25592자</span> 지금 수강생들도 시간과 돈을 내고 공부하는데 효과가 없으면 낭비라 억울하지 않느냐는 예를 든다.</li>
+  <li>이 이론의 대표 학자는 <span class="say">“로드리 스타크라고 하는 사람이 대표적인 이론입니다”</span>(자막 '로드리 스타크' <span class="asr-uncert">이름 표기 불확실 [?]</span>). <span class="bd v1">자막 25732자</span> 교수가 번역한 책이 <strong>다음 주에 나온다</strong>(원문: <span class="say">“지금 다음 주에 책이 나와요. 제가 번역한 책이 오늘 출판사 인쇄로 넘어갑니다”</span>). <span class="bd v1">자막 25764자</span> 제목 <strong>『미국인들은 실제로 무엇을 믿는가』</strong>, 22가지 주제(내세, 동전의 탄생 — 자막 '동전의 탄생'은 <span class="asr-uncert">표기 불확실 [?]</span>, 산타클로스를 몇 살까지 믿었는지 등)를 설문조사해 분석한 책이다. <span class="bd v1">자막 26016자</span></li>
+  <li>교수는 이 원리가 강하다며 질문한다 — 작은 교회가 친밀감이 있을까 메가처치가 있을까, 전도는 어느 쪽이 열심일까. <span class="say">“우리의 통념이 막 바뀌는 그런 내용들이 많이 들어가 있는”</span> 책이라고 소개한다(데이터상으로는 <span class="asr-uncert">자막 '내가 처치. 밀란드요? 밀감도 그렇고 효과도 모든 면에 있어서 메가 처치라는 게 드러나는 거예요' — 메가처치 쪽이라는 취지로 읽힘 [?]</span>). <span class="bd v1">자막 26261자</span></li>
+  <li>결론: 자발적 집단·종교 선택이론에 따라 사람들이 교회·교단을 선택하고, <span class="say">“부흥에 의해서 미국이 교회화된다”</span>. <span class="bd v1">자막 26384자</span> 그래서 19세기 사람들은 곧 이 땅에 천년왕국·신천지가 오는 것 같았고, 여러 종교 그룹·공동체가 생겼다.</li>
+</ul>
+</div>
+<div class="card">
+  <h2>A. 유토피아 공동체 — 개관 <span class="bd tb">교재 p.185</span><span class="bd v1">자막 26556~27639자</span></h2>
+<ul class="tight">
+  <li>교재 p.185: 미국의 유토피아 공동체는 <strong>부흥운동의 하나님과의 즉각적인 대면, 완전한 성화의 가능성, 도래할 황금시대(천년왕국)에 대한 기대감</strong> 강조로 생겼다. 교수도 <span class="say">“유토피아 공동체입니다”</span> 하고 같은 취지로 읽는다. <span class="bd v1">자막 27639자</span> <span class="bd tb">교재 p.185</span></li>
+  <li>교수의 구분: 공동체는 <strong>두 갈래</strong>로 나뉜다. <span class="say">“첫 번째 완전히 급욕주의로”</span>(자막 '급욕주의'=금욕주의) — <span class="say">“모든 사회나 성의 악의 핵심은 술이든 담배든 그 다음에 섹스 급욕주의로 가는 거예요”</span>. <span class="bd v1">자막 26556자</span> <span class="say">“반면에 또 한 그룹은 완전히 자유방향으로 가는 거야”</span>(자막 '자유방향'=자유방임으로 읽힘). <span class="bd v1">자막 26608자</span></li>
+</ul>
+<details><summary>곁길 — 한국의 비슷한 사례를 든 교수의 일화(금욕주의적 신앙공동체)</summary><div class="dbody"><ul class="tight">
+  <li>교수는 주변의 사례로 <strong>금강대도</strong>를 든다 — <span class="say">“이거는 우리나라 유불선의 혼합교입니다”</span>(자막 '금강대도'). <span class="bd v1">자막 26840자</span> 산자락의 집성촌 같은 <strong>신앙촌</strong>으로, 육식을 하지 않고 여성들은 파마를 하지 않는다고 한다. 미륵이 재림한다는 <strong>신천지</strong>적 생각이 있으며, 교수가 들은 이야기로는 자녀들은 학교 급식 때문에 고기를 먹는다는 등 <span class="asr-uncert">자막이 흐린 부분 다수 [?]</span>.</li>
+  <li>교수의 정리: 이것은 <strong>금욕주의적인 공동체</strong>의 예이고, 반대쪽은 <span class="say">“완전 방탄으로 가 무질서 그쪽으로 가는 거예요”</span>(자막 '방탄' <span class="asr-uncert">방탕으로 읽힘 [?]</span>). <span class="bd v1">자막 27585자</span> <span class="say">“이게 미국이 똑같았어요”</span>. <span class="bd v1">자막 27616자</span></li>
+</ul></div></details>
+</div>
+<div class="card">
+  <h2>a. 퀘이커(the Shakers) — 완전주의와 독신 <span class="bd tb">교재 p.185</span><span class="bd v1">자막 27732~28634자</span></h2>
+  <p class="meta">교재는 '퀘이커(the Shakers)'로 적고 교수도 '퀘이커'라고 말한다(교재 p.185 표기 그대로). 이어지는 오네이다 공동체와 대비된다.</p>
+<ul class="tight">
+  <li><span class="say">“퀘이커예요. 이 사람들은 완전주의를 추구하기 위해서 내가 이 땅에서 완전한 성결한 삶을 살기 위해서 금욕주의로 가는 거예요”</span>. <span class="bd v1">자막 27732자</span> <span class="bd tb">교재 p.185</span></li>
+  <li><strong>앤 리(Ann Lee, 1736-84)</strong>의 추종자들 — 교재: 영국 맨체스터의 한 대장장이의 아내로 네 명의 자녀가 모두 유아기에 사망했다. 교수: <span class="say">“앤 리라는 사람 이 여자가 대장장의 아내였는데 네 명의 자녀들이 유학에 죽었어요”</span>(자막 '유학'=유아기, 교재 확인). <span class="bd v1">자막 27875자</span> <span class="bd tb">교재 p.185</span></li>
+  <li><span class="say">“새로운 개시 완전주의 천연왕국적인 이념으로 구성된 공동체입니다”</span>(자막 '개시'=계시). <span class="bd v1">자막 27922자</span> <strong>1770년</strong>: <span class="say">“1770년에 인간 타락의 뿌리와 근본 인간에게 해를 끼치는 모든 악의 원천은 섹스다”</span>. 그래서 <strong>독신생활</strong>이다. <span class="bd v1">자막 27963자</span> 교수의 반응: <span class="say">“한 세대 지나면 다 망하는 거 아니에요? 말종되는 거죠”</span>. <span class="bd v1">자막 28052자</span> <span class="bd tb">교재 p.185</span></li>
+  <li>앤 리는 <span class="say">“생애 마지막 4년 동안에 여러 차례의 기적을 행했습니다”</span>. <span class="bd v1">자막 28084자</span> <strong>1825년까지 최소 20여 개의 공동체</strong>를 형성했다. <span class="bd v1">자막 28130자</span> <span class="bd tb">교재 p.185</span> <small>(교재: 뉴잉글랜드·뉴욕·오하이오·인디애나·켄터키, 약 6천여 명, 농장 경영·상업·공예산업으로 번창 — 수업에서 말하지 않음)</small></li>
+  <li><strong>쇠퇴</strong>: <strong>1837년 이후</strong> '영광주의'에 대한 두려움(교재: 영광주의에 대한 두려움, 농촌지역의 부흥의 쇠퇴로 1850년 회원수 급격히 감소). 교수는 <span class="say">“영광주의는 반대말이 뭐냐 십자가 신앙이예요”</span>(자막)라고 풀이한다. <span class="bd v1">자막 28235자</span> <strong>십자가 신앙</strong>은 우리의 노력과 자격이 아니라 <span class="say">“예수 그리스도의 보혈의 피로”</span> 구원받는다는 것, 예수 그리스도의 십자가를 강조하는 것이다. 반면 <strong>영광주의</strong>는 <span class="say">“인간의 이성과 인간의 선행과 인간의 노력으로 인간의 업적과 권능을 통해서 하나님과 하나님을 직접 파악할 수 있고 구원에 이를 수 있다”</span>고 보는 것이다. <span class="bd v1">자막 28382자</span> 이 땅에서 성결한 삶을 살고 노력해서 완전한 신앙 공동체를 만들려는 데 문제가 있다는 것을 깨닫게 되었다고 한다. <span class="bd tb">교재 p.185</span></li>
+  <li><span class="say">“그리고 농촌 지역이 채퇴하면서 서서히 사라지게 된다”</span>(자막 '채퇴'=쇠퇴). <span class="bd v1">자막 28634자</span></li>
+</ul>
+</div>
+<div class="card">
+  <h2>b. 오네이다 공동체(the Oneida community)와 c. 프루트랜드 · d. 브룩 농장 · e. 홉데일 <span class="bd tb">교재 p.186</span><span class="bd v1">자막 28664~30279자</span></h2>
+<h3>오네이다 공동체</h3>
+<ul class="tight">
+  <li>퀘이커(교수 표기, 자막 '페이커')와 정반대 — <span class="say">“어레이다 국문제는 완전히 거꾸로 갔어요”</span>(자막 '어레이다 국문제'=오네이다 공동체). <span class="bd v1">자막 28664자</span> <span class="say">“성결을 주장하면서 동시에 성적 문란에 빠짐 도덕 폐기론적”</span>(자막 '경영진의 공동체'는 교재의 '경향을 지닌 공동체'로 읽힘) 공동체. <span class="bd v1">자막 28720자</span> <span class="bd tb">교재 p.186</span></li>
+  <li>지도자: <span class="say">“이 사람은 원래 찰스 휘니의 부흥에서 영향을 받고”</span>(자막 '찰스 휘니'=찰스 피니) 앤도버 신학교(자막 '앤더버')도 예일 신학교도 다니다 말았다. <span class="bd v1">자막 28761자</span> <small>(교재 p.186: 존 험프리 노이에스 John Humphrey Noyes — 교재 한글 표기 '좀 험프리 노이에스'; 앤도버 1년·예일 2년, 버몬트의 성공한 사업가 — 수업에서 이름을 말하지 않음)</small></li>
+  <li>목사 안수를 받기 전 <span class="say">“회심하면 죄로부터 완전한 자유를 준다”</span>(<span class="say">“우리가 거듭나면 완전히 죄로부터 자유한다”</span>)고 주장해서 <span class="say">“결국에 목사 안수 거절당했습니다”</span>. <span class="bd v1">자막 28844자</span> 그래서 완전을 실천할 수 있는 공동체, 즉 <span class="say">“깨끗한 중생한 사회를 만들겠다”</span>고 하여 <strong>1840년</strong> 버몬트의 푸트니(자막 '푸투니')에 재산을 공유하는 일종의 공산주의 공동체를 만들었다. <span class="bd v1">자막 28989자</span> <span class="bd tb">교재 p.186</span></li>
+  <li><strong>복합결혼(complex marriage)</strong>: <span class="say">“모든 여성은 모든 남성의 아내 모든 남성은 모든 여성의 남편 참된 성적 친교는 참된 상호성에 긍정적으로 기여한다”</span> 하여 <span class="say">“지역 주민과 마찰을 벌였습니다”</span>. <span class="bd v1">자막 29081자</span> <span class="bd tb">교재 p.186</span></li>
+  <li><strong>1842년</strong> 뉴욕의 오네이다 공동체로 이전했다. 교수가 읽은 선언 — <span class="say">“우리는 인권을 위해 싸운다”</span>: ① 하나님에 의해 통치되고 천국과 같은 사회적 상태에서 사는 <strong>남자의 권리</strong>, ② 법이나 통념이 아닌 매력에 의해 성적 본성을 다루고 자신이 선택할 때만 아이를 가질 수 있는 <strong>여성의 권리</strong>, ③ 연합을 통해 노동을 축소하고 삶의 이점을 증대하는 <strong>모든 사람의 권리</strong>. <span class="bd v1">자막 29209자</span> 교수의 설명: <span class="say">“밥하는 것도 공동체가 하는 거 육아도 공동체가 하고 가르치는 것도 공동체가 하고”</span> 모두 공동체가 했다. <span class="bd v1">자막 29447자</span> <span class="bd tb">교재 p.186</span></li>
+  <li><span class="say">“이거 완전히 복합결혼이니까 외부의 압력에 의해서 포기합니다”</span>. <span class="bd v1">자막 29526자</span> <strong>1880년</strong>에는 재산에 대한 공동소유를 포기하고 나중에 회원들에게 분배했다(교수: <span class="say">“1880년에 재산에 대해서 공공소유죄를 포기하고”</span>). <span class="bd v1">자막 30179자</span> <small>(교재 p.186: 1879년 복합결혼 제도 포기, 1880년 공동소유제 포기, 공동주식회사 설립·배당금 분배; 오네이다 산업 = 동물을 잡는 덫 제작과 은쟁반 등 은제 식기류 — 수업에서 말하지 않음)</small></li>
+</ul>
+<details><summary>곁길 — 복합결혼은 실정법에 어긋나는가? (수강생과의 문답)</summary><div class="dbody"><ul class="tight">
+  <li>교수가 수강생에게 묻는다: 복합결혼이 지금 미국 실정법에 어긋나는가, 우리나라 실정법에는 어긋나는가. 교수의 설명: 한국에서도 이중혼은 안 되지만 호적에 오르지 못할 뿐이라는 취지로, <span class="say">“법적으로 보호를 못 받을 뿐이지 결혼한 첩으로 있다고 해서 제재 받는 건 아니에요”</span> 결혼한 첩으로 있다고 해서 제재받는 것은 아니라는 취지다. <span class="bd v1">자막 29961자</span> 교수는 이어 <span class="say">“몰몬교가 그랬어요”</span> — 몰몬교가 문제였다고 하며 몰몬교로 넘어간다. <span class="bd v1">자막 30100자</span> <span class="asr-uncert">법 설명의 정확한 취지는 자막이 흐려 확정하기 어려움 [?]</span></li>
+</ul></div></details>
+<h3>c. 프루트랜드 · d. 브룩 농장 · e. 홉데일</h3>
+<ul class="tight">
+  <li><span class="say">“프로토렌즈”</span>(자막 — 교재 '프루트랜드'): <span class="say">“미국의 제2의 에덴 동산 세우려고 했어요”</span>. <span class="bd v1">자막 30230자</span> 브룩 농장(자막 '브름 농장')은 <span class="asr-uncert">비경쟁적 사회를 추구(자막 '비경쟁적 사회관선') [?]</span>, 홉데일(자막 '혹대일')도 마찬가지로 <span class="say">“하나님 나라를 이 땅에 세우려고 했어요”</span>. 그리고 <span class="say">“나중에 물론 파산했어요”</span>. <span class="bd v1">자막 30279자</span> <span class="bd tb">교재 p.186</span></li>
+</ul>
+<p class="meta">교재 p.186에만 있는 것: 프루트랜드는 루이사 메이 앨콧이 1843년 봄 설립(교재 표기) · 브룩 농장은 유니테리언 목사요 초월주의자 조지 리플리가 1840년대 설립, 1846년 화재로 파산 · 홉데일은 1841년 매사추세츠 밀포드에서 목사 애딘 벌루가 설립, 공공기금을 개인 사업에 투자하는 문제로 15년 후 파산.</p>
+</div>
+<div class="card">
+  <h2>f. 몰몬교(말일성도 예수 그리스도 교회) — 조셉 스미스(1805-44) <span class="bd tb">교재 p.186</span><span class="bd tb">교재 p.187</span><span class="bd v1">자막 30347~34300자</span></h2>
+<h3>이름과 창시자</h3>
+<ul class="tight">
+  <li><span class="bd hi">⭐교수강조</span> <span class="say">“그 다음에 이 중요한 사람이 몰몬교입니다”</span>. <span class="bd v1">자막 30347자</span> 정식 명칭: <span class="say">“몰몬교는 일반적인 말이고 마 정력한 명칭은 마빌 성도 예수 그리스도 교회입니다”</span>(자막 '마빌 성도'=말일성도 — 교재 '말일성도예수그리스도 교회'). <span class="bd v1">자막 30375자</span> 교수는 수업 장소 주변에도 큰 몰몬교회 건물이 있다고 소개한다(위치 설명은 자막이 흐림 <span class="asr-uncert">위치 불명확 [?]</span>). <span class="bd tb">교재 p.186</span></li>
+  <li><strong>조셉 스미스</strong>(자막 '요새 스미스'): <strong>1805년</strong> 출생, <strong>44년</strong>에 일찍 죽음 — <span class="say">“살해당했습니다”</span>. <span class="bd v1">자막 30511자</span> 교수: <span class="say">“아주 조숙했던 것 같아요”</span>. 10살 때 뉴욕 팔미라(자막 '팔미아') 근처로 이사해 <span class="say">“내가 어떤 교회로 갈 거냐 고민했어요”</span>. <span class="bd v1">자막 30555자</span> <span class="bd tb">교재 p.186</span></li>
+</ul>
+<h3>계시와 황금판</h3>
+<ul class="tight">
+  <li>하나님의 지혜를 얻기 위해 <strong>숲으로 들어가 기도</strong>하던 중 두 명의 천사(나중에 성부와 성자라고 함)가 나타나 <span class="say">“다투는 교단 버리고”</span>(자막) 하라는 이야기를 들었다(교재: 서로 다투던 교단들과 관계를 끊으라). <span class="bd v1">자막 30653자</span> <span class="bd tb">교재 p.186</span></li>
+  <li>계속 계시를 받다가 <strong>천사 모로니</strong>가 말한다 — <span class="say">“하나님께서 내게 시킬 일이 있다”</span>. 이 대륙(신대륙) 옛 주민에 관한 이야기가 실려 있는 <strong>황금판</strong>이 오랫동안 묻혀 있으니 발견하라는 것이다. <span class="bd v1">자막 30771자</span> 스미스가 언덕에 올라가 황금판을 발견한다. <span class="bd tb">교재 p.186</span></li>
+  <li>황금판의 내용: 구약에서 갑자기 사라지는 어떤 종족·부족 이야기라는 교수의 설명 — <strong>네피트족과 라마이트족</strong>(교재 '라마니트족')의 이야기로, 둘이 전쟁을 벌이고, <span class="say">“원래 인디언들의 조상이라는 거예요”</span>. <span class="bd v1">자막 30985자</span> <span class="bd tb">교재 p.186</span><span class="bd tb">교재 p.187</span> <small>(교재 p.187: 몰몬과 그의 아들 모로니를 제외한 모든 네피트 족이 살해당했고, 기록이 쿠모라 언덕에 묻혀 있다가 스미스에게 발견됨)</small></li>
+</ul>
+<h3>슬라이드 설명(교수가 화면을 보여 주며 한 말)</h3>
+<ul class="tight">
+  <li>교수는 슬라이드를 보여 주며 <span class="say">“이게 이제 요새 스미스가 예수님에게 사도로 임명받는 사도로 임명받는 장면이고요”</span>, 오른쪽은 <span class="say">“황금판 발견하는 언덕입니다”</span>라고 설명한다. <span class="bd v1">자막 31131자</span> 그림에는 십자가가 없고 <span class="say">“약간 오블리스크 같은 십자가”</span>(자막 '오블리스크' <span class="asr-uncert">오벨리스크로 읽힘 [?]</span>)가 있다고 하며, 황금판은 <span class="say">“실물이 아닙니다”</span> — <span class="say">“당대 페르시아에서 페르시아에서 발견된 요런 황금판인 거예요”</span>(자막, <span class="asr-uncert">슬라이드의 황금판 사진이 실제 몰몬 황금판이 아니라는 취지로 읽히나 확정 불가 [?]</span>). <span class="bd v1">자막 31245자</span></li>
+  <li>황금판의 글씨는 <span class="say">“이집트어”</span>로 되어 있다(자막 '이집트어 코드 이집트어'; 교재는 '개정된 애굽어'). <span class="bd v1">자막 31366자</span> 스미스가 이집트어를 배운 적이 없어 번역이 안 되는데, 판과 함께 발견된 <strong>활 모양의 은테</strong>(자막 '활 모양의 은퇴')와 <strong>하얀 맑은 투명한 돌 두 개</strong> <span class="bd v1">자막 31510자</span> — 이것을 <span class="say">“우림과 둘림이라고 했어요”</span>(자막 '둘림'=둠밈; 교재 '번역안경… 우림과 둠밈 혹은 선견자의 돌'). <span class="bd v1">자막 31578자</span> 교수: <span class="say">“구역에 보시면 있잖아요. 아주 맑은 투명한 돌이에요”</span>(자막). 이것을 대는 순간 번역이 되었다는 것이다 — <span class="say">“믿거나봐”</span>(자막; 믿거나 말거나 식의 말투 <span class="asr-uncert">뜻 추정 [?]</span>). <span class="bd v1">자막 31593~31675자</span> <span class="bd tb">교재 p.187</span></li>
+  <li>번역된 내용의 첫머리 예: 교수가 화면의 <span class="say">“제1장 사절에 보면 유대왕 시드기아 치세 첫 해부터”</span>(자막 '유대왕 시드기아'=유다 왕 시드기야로 읽힘 [?])를 읽고 '히드기야 왕이 나와요'라고 하며, 몰몬교의 성경이어서 암몬·아브라함도 나온다고 한다. <span class="bd v1">자막 31725자</span> 수강생이 <strong>구약의 일부가 들어 있는가</strong> 묻자 교수는 <span class="say">“아니요. 구약에 부족이 나오다가 갑자기 사라져 없어져요”</span>, 그 후손의 이야기라고 답한다. <span class="bd v1">자막 31921자</span></li>
+  <li><strong>몰몬경</strong>(교재: 1830년 출판). 스미스의 평가를 교수가 읽는다 — <span class="say">“가장 정확한 책이며”</span>… 교재 p.187의 원문: "지상의 어떠한 책보다도 가장 정확한 책이며 우리 종교의 종석이고 다른 어떤 책보다도 이 책의 교훈대로 생활한다면 하나님께 더욱 가까이 갈 수 있을 것이다". <span class="bd v1">자막 32065자</span> <span class="bd tb">교재 p.187</span></li>
+</ul>
+<h3>교회의 설립과 주요 주장</h3>
+<ul class="tight">
+  <li>스미스는 <strong>다섯 명의 친구들과 이 말세에 그리스도의 교회를 설립</strong>했다 — <span class="say">“이게 초대교회 원형으로 합니다”</span>(초대교회를 원형으로 삼음). <strong>4년 후</strong> '말일성도교회'로 이름을 바꿨다. <span class="bd v1">자막 32161자</span> <span class="bd tb">교재 p.187</span> <small>(교재: 1830년 10월 30일 창설, 1839년 현재 명칭으로 변경)</small></li>
+  <li><strong>주요 주장</strong>: <span class="say">“미국은 약속의 땅으로 성서에 약속된 구원의 드라마가 이루어지는 것”</span>. <span class="bd v1">자막 32226자</span> 스미스는 침례 요한(자막 '침대요원')으로부터 <strong>아론의 제사장직에 임명</strong>된 계시를 받았고, 이때 천사들의 사역·회개의 복음·사죄를 위한 침례의 열쇠를 받았다고 한다. 예수 그리스도의 사도로 안수받은 후 스미스를 이 교회 <strong>첫 번째 장로</strong>로, 코더리(교재 올리버 코더리)를 <strong>두 번째 장로</strong>로 임명하고 교회를 설립했다. <span class="bd v1">자막 32270자</span> <span class="bd tb">교재 p.187</span></li>
+  <li><strong>신의 복수성</strong>(자막 '신의 복투성'): <span class="say">“예수님도 인간이었다는 거예요. 그리고 하나님이 됐다는 거죠”</span>, <span class="say">“우리 인간도 나중에 신이 될 수 있다고 주장했어요”</span>. <span class="bd v1">자막 32760자</span> 또 <strong>영원한 결혼</strong>(사후에도 부부로 삶), <strong>죽은 자를 위한 침례</strong>를 도입했다. <span class="bd tb">교재 p.187</span></li>
+</ul>
+<h3>일부다처제(비밀결혼)와 브라이엄 영</h3>
+<ul class="tight">
+  <li><strong>일부다처제</strong>: 교수는 스미스의 아내가 학자들에 따르면 <span class="say">“최소 최소 30명에서 최대 49명”</span>(자막)이라 하고, 이어 <span class="say">“2014년에 자기네 교단이 공식적으로 밝혔어요”</span> — 교단 입장은 30명에서 40명가량이라고 한다(자막 '2014년'). <span class="bd v1">자막 32488자</span> 모두와 실제로 산 것이 아니라 <strong>비밀 결혼</strong>이었다 — <span class="say">“너만 나하고 너만 아는 거야 비밀 혼이라고”</span>. <span class="bd v1">자막 32568자</span> 이유: 죽은 뒤 <span class="say">“영원한 결혼 우리는 둘 다 영원히 사후에도 부부로서 살 거야”</span>. 실제로 부부로 산 사람도 있었다. <span class="bd tb">교재 p.187</span></li>
+  <li><span class="say">“그 중에서 아내가 14살짜리 있었어요”</span>. <span class="bd v1">자막 33921자</span> (교수: '미쳤어' — 자막)</li>
+  <li>후계자 <strong>브라이엄 영</strong>(자막 '불안 영'·'브라인 명'은 교재 표기 '브라이엄 영'을 ASR로 읽은 것)은 <span class="say">“55명에서 56명 사이로”</span> 밝혀져 있으나 실제로 같이 산 것은 <strong>16명</strong>이고 자녀는 <strong>57명</strong>이다. <span class="bd v1">자막 33102자</span> 교수의 설명: 생계가 곤란한 여성들을 지원해 주면서 비밀 결혼을 했다(<span class="say">“생계를 지원해주고”</span>…<span class="say">“나중에 천국에서  남편과 아내로 살 거다라고 약속하면서 비밀 결혼했어”</span>). <span class="bd v1">자막 33411자</span></li>
+  <li><strong>유타 이주와 포기</strong>: <span class="say">“결국에는 유타주에 가서 나중에 이주를 하게 되고 거기에서 이제 포기합니다. 일부 다체제를 포기하는 거예요. 1890년에”</span>. <span class="bd v1">자막 33480자</span> <span class="bd tb">교재 p.187</span> <small>(교재 p.187에만 있는 세부: 1844년 '한 폭도에 의해' 살해(교수는 '살해당했습니다'까지) · 브라이엄 영(1801-77) · '광야 속의 시온' · 대 솔트 레이크 분지(유타 주) · 1870년까지 이주한 수가 140,000명을 넘음)</small></li>
+</ul>
+<h3>질문 — 아내가 그렇게 많으면 서로 모르나?</h3>
+<ul class="tight">
+  <li>한 수강생이 아내가 많으면 서로 모르느냐고 묻자 교수는 남녀 인구가 비슷하므로 중첩이 생기지만 <span class="say">“이 당시에는 여성들이 생계가 곤란한 사람들 있잖아요. 그 사람들을 지원해주면서 비밀적으로”</span>(자막)라고 답하고, <span class="say">“그래서 비밀교호로 간 거야”</span>(자막 '비밀교호'=비밀결혼)라고 설명한다. <span class="bd v1">자막 33745자</span></li>
+  <li><strong>지금의 몰몬교</strong>: 지금 몰몬교는 일부다처제를 포기했지만(교수: <span class="say">“최근에 한 10년 전에”</span>…) <span class="say">“항상 문제 문제 일으키는 사람이 있어. 근본주의자”</span>가 안에 있어 지금도 일부다처제를 하는 사람들이 있다. <span class="bd v1">자막 33994자</span> 미국 실정법으로는 할 수 있는 것이 없고, <span class="say">“미성년자일 경우에만 그 사람들을 잡아받았고”</span>(자막) — 미성년자와 관련해 한 사람이 감옥에 있다고 한다(자막 '미성년자 가늠죄'). <span class="bd v1">자막 34300자</span> 교수: 종교도 양심도 다른데 어떻게 막겠느냐(자막 '우리나라도 못망인데' <span class="asr-uncert">우리나라도 못 막는다는 취지로 읽힘 [?]</span>). 교수는 이어 현대 사이비 집단의 사례를 들었으나 자막이 불명확해 옮기지 않았다 <span class="asr-uncert">불명확 [?]</span>.</li>
+</ul>
+</div>
+<div class="card">
+  <h2>질문과 정리 — 신앙공동체와 사이비의 경계, 재세례파(아미시·메노나이트·후터파) <span class="bd v1">자막 34393~36038자</span></h2>
+  <p class="meta">교재 밖 이야기. 교재는 p.187 '몰몬교'까지 진행했고(그 아래 'g. 밀러파(안식일교)'부터는 수업에서 다루지 않음), 수강생의 질문으로 이어졌다.</p>
+<h3>수강생의 질문과 교수의 답</h3>
+<ul class="tight">
+  <li>질문: 지금까지 내용이 사이비까지 간 것 같은데, 교회사에서 말하는 것과 사이비를 구분하기가 이상하고, 이것이 그때부터 지금까지 이어져 왔다는 것 아니냐는 취지. <span class="bd v1">자막 34393자</span></li>
+  <li>교수의 답: <span class="say">“19세기는 우리가 이 땅에 하나님 나라를 우리가 직접 이루어져야 하는 거예요. 우리가 직접 이루는 거잖아. 그래서 신앙 공동체가 생기는 거예요”</span>. <span class="bd v1">자막 34576자</span></li>
+  <li>이유: <span class="say">“모든 사회를 다 개혁하고 다 하려면 힘드니까 우리라도 우리라도”</span> 신앙 공동체를 만들어 하나님 나라가 임하게 하자는 것이 신앙공동체다. <span class="bd v1">자막 34597자</span> 한국에도 <strong>신앙촌</strong>이 있었고 금강대도가 있다.</li>
+  <li><span class="say">“이게 이제 오래 못 가는 거지 왜냐하면 탈선하고 횡령하고”</span>. <span class="bd v1">자막 34723자</span> 요즘도 신도를 이끌고 다른 나라로 가서 농장을 만든 일이 있었다고 하며(자막 '아가 동생 구타' <span class="asr-uncert">불명확 — 구체 집단 확정 불가 [?]</span>), 그것도 <span class="say">“이 땅에 만들려고 하는 그런 노력들입니다”</span>. <span class="bd v1">자막 34890자</span> 교수: 그런 분위기 속에서 이런 운동이 벌어졌다 — 19세기 기록은 <span class="asr-uncert">금욕 쪽으로 간 곳과 완전 방탕으로 간 곳이 있었고 [?]</span>(자막 '금융 쪽으로 가고 이쪽은 완전 방탄'), 아미시는 비교적 성경 그대로 살려고 한다.</li>
+</ul>
+<h3>재세례파와 아미시</h3>
+<ul class="tight">
+  <li><span class="say">“아미씨 같은 경우는 이게 재칭리파 중에 하나예요”</span>(자막 '아미씨'=아미시, '재칭리파'=재세례파). <span class="bd v1">자막 35028자</span> 재세례파는 <strong>세 파</strong>가 있다 — <span class="say">“매너나이트파 메노파”</span>(메노나이트), <span class="say">“후트라이트 후토파”</span>(후터라이트·후터파), <span class="say">“아미쉬 아미슈파”</span>(아미시). <span class="bd v1">자막 35056자</span></li>
+  <li><strong>아미시는 현대문명을 거부</strong>한다 — 현대문명이 들어오면 신앙이 훼손될 수 있다고 생각해서 인터넷을 사용하지 않고, 차를 타지 않고 마차를 탄다. <span class="bd v1">자막 35103자</span> 옷에는 단추가 없다 — <span class="say">“단추를 달면 누구 단추가 더 이쁜지 비교하겠”</span>(자막 중도 끊김 <span class="asr-uncert">비교하게 된다는 취지로 읽힘 [?]</span>). <span class="bd v1">자막 35260자</span> 이들이 생산하는 우유 등은 <span class="say">“최고의 최고 유기농이에요”</span>(자막). <span class="bd v1">자막 35318자</span></li>
+  <li><strong>아미시 인형</strong>(관광 상품): 교수가 수강생에게 찾아보라고 하며 특색을 묻는다 — <span class="say">“얼굴에 얼굴은 있지 뭐가 없어요 눈코 입이 없어요”</span>. <span class="bd v1">자막 35477자</span> 이유: <span class="say">“성경에 아무 형상이라도 만들지 마라”</span>. <span class="bd v1">자막 35506자</span> 그래서 <strong>사진도 안 찍고</strong>, 교회에 십자가도 없다 — <span class="say">“어떤 형상도 만들지 않기 때문에 이게 암미실에요”</span>(자막 '암미실'=아미시 [?]). <span class="bd v1">자막 35622자</span></li>
+  <li><strong>메노나이트파</strong>는 <span class="say">“메로나이트파는 좀도 자유주의적이에요”</span>(자막 '메로나이트파') — 전기도 사용하려 한다. <span class="bd v1">자막 35722자</span> 아미시는 지금도 <strong>전기를 쓰지 않고 마차</strong>를 타고 다니며 공동 육아(자막 '공동 유가' <span class="asr-uncert">공동 육아로 읽힘 [?]</span>)를 한다. <span class="bd v1">자막 35761자</span></li>
+  <li>가족 규칙(교수): <span class="say">“절대로 피 못합니다. 무조건 낳아야 돼”</span>(자막 '피'는 <span class="asr-uncert">피임으로 읽힘 [?]</span>), <span class="say">“이혼은 죽어도 못해요”</span>. <span class="bd v1">자막 35810자</span> 한 수강생이 '저렇게 철저히 살면 남자들도 웬만하면 행복하겠네요'라고 하자 교수는 <span class="say">“철저하게 가부장적이었어요”</span>(자막)라고 답하며 <span class="say">“죽어도 이혼은 안 됩니다”</span>라고 다시 말한다. <span class="bd v1">자막 35940자</span></li>
+</ul>
+<p class="meta">수업은 출석 확인 후 <span class="say">“다음 주에 뵙겠습니다”</span>라는 인사로 끝났다. <span class="bd v1">자막 36038자</span></p>
+</div>
+<div class="card">
+  <h2>연표 — 이번 수업에 나온 연도</h2>
+<table><tr><th style="width:18%">연도</th><th>사건</th></tr>
+<tr><td>1770 · 1825 · 1837 이후</td><td>앤 리 공동체: 독신생활 강조(1770, 교수·교재 p.185) · 1825년까지 20여 개 공동체 · 1837년 이후 영광주의에 대한 두려움</td></tr>
+<tr><td>1789 · 1799 · 1804</td><td>윌버포스가 하원에서 처음 노예매매 문제 거론(교재 p.185) · 교회선교협의회(1799) · 영국 및 해외 성경 협회(1804)</td></tr>
+<tr><td>1807 · 1833</td><td>노예매매 중단 · 대영제국 노예해방법 통과(교재 p.185)</td></tr>
+<tr><td>1812 · 1816 · 1851~78</td><td>찰스 하지: 프린스턴 대학 입학 · 신학대학원 입학 · 신학교 총장(교재 p.182)</td></tr>
+<tr><td>1840 · 1846</td><td>네빈의 머서스버그 신학교행·프린스턴 정통주의와 결별 · 『신비적 현존』 출판(교재 p.182)</td></tr>
+<tr><td>1840 · 1842 · 1880</td><td>푸트니 공동체(교수·교재 p.186) · 오네이다로 이전(교수·교재) · 재산 공동소유 포기(교수 1880, 교재 p.186은 복합결혼 포기 1879와 공동소유 포기 1880)</td></tr>
+<tr><td>1847 · 1857</td><td>루터교 미주리 총회(시카고) · 기독교개혁교회(교재 p.182)</td></tr>
+<tr><td>1854 · 1864 · 1869</td><td>마리아 무원죄 잉태 선언(피우스 9세) · 회칙 발송 · 제1차 바티칸 공의회와 교황 무오설(교재 p.184)</td></tr>
+<tr><td>1845.5.8 · 1865</td><td>남침례교 설립(교수) · 남북전쟁 종식(교수·교재 p.185)</td></tr>
+<tr><td>1875경</td><td>케직 사경회(영국, 교수)</td></tr>
+<tr><td>1805~44 · 1830 · 1890</td><td>조셉 스미스 생몰(교수·교재 p.186) · 몰몬경 출판(교재 p.187) · 몰몬교 일부다처제 포기(교수)</td></tr>
+<tr><td>1962</td><td>제2차 바티칸 회의 시작(교수 언급, 교재 없음)</td></tr>
+</table>
+</div>
+<div class="card">
+  <h2>예상 문항 <span style="font-size:0.7em;color:var(--text2)">(노트 정리용 예상 문항 — 교수 언급 아님)</span></h2>
+<table><tr><th style="width:5%">#</th><th>문항</th><th style="width:38%">답 · 근거</th></tr>
+<tr><td>1</td><td>(단답) 구파의 대표적 신학자와 그의 신학적 특징 두 가지는?</td><td>찰스 하지 — 스위스 정통주의와 강력한 고백주의(성경의 권위·무오), 예정론+스코틀랜드 상식학파 — 구파 카드, 교재 p.182</td></tr>
+<tr><td>2</td><td>(OX) 하지는 타락한 인간에게는 도덕적 감각이 남지 않는다고 보았다.</td><td>X — 타락한 인간에게도 도덕적 감각은 남는다(교수 설명) — 구파 카드</td></tr>
+<tr><td>3</td><td>(단답) 1847년과 1857년에 세워진 교단은?</td><td>복음주의 루터교회 미주리 총회(시카고) · 기독교개혁교회(네덜란드 이민자) — 루터교·개혁교회 카드, 교재 p.182</td></tr>
+<tr><td>4</td><td>(약술) 존 네빈의 교회론과 그 귀결을 쓰시오.</td><td>교회는 복음에 덧붙여진 것이 아니라 복음의 핵심, 그리스도와의 교제로 이미 온전히 하나 → 교회일치운동, 성만찬의 신비 — 네빈 카드, 교재 p.182</td></tr>
+<tr><td>5</td><td>(단답) 머서스버그 신학의 다른 이름은? 고교회 운동을 일으킨 두 사람은?</td><td>복음주의 천주교 · 존 네빈과 존 호발트 — 고교회 카드, 교재 p.182</td></tr>
+<tr><td>6</td><td>(약술) 호발트가 성찬과 감독 직분에 대해 주장한 것은?</td><td>성찬은 은총의 수단(거절·무시하면 구원 위태), 감독이 안수하지 않은 사람은 적법한 감독·사제·부제가 될 수 없고 감독 직분은 변경될 수 없다 — 호발트 카드, 교재 p.183</td></tr>
+<tr><td>7</td><td>(단답) 침례교 랜드마크주의의 인물과 주장은?</td><td>제임스 팬들톤·제임스 그레이브즈 — 다른 교단은 사교 협회, 강단교류 거부, 오직 침례교만 참 교회 — 랜드마크 카드, 교재 p.183</td></tr>
+<tr><td>8</td><td>(약술) 초월주의의 주요 주장 세 가지를 쓰시오.</td><td>하나님이 모든 사물에 현존·진리는 직관으로, 모든 외적 권위 거부(영혼 안의 증거), 성직자·평신도 구별 사라짐 — 초월주의 카드, 교재 p.183</td></tr>
+<tr><td>9</td><td>(약술) 19세기 미국의 '도덕적 자기개혁'이란?</td><td>사회개혁이 이루어져도 개인의 도덕이 개혁되지 않으면 소용없다 — 미국 여성 도덕개혁협회·미국 금주동맹(1837) — 사회개혁 카드, 교재 p.184</td></tr>
+<tr><td>10</td><td>(단답) 오벌린 완전주의와 케직 사경회의 차이는?</td><td>전자: 이 땅에서 완전한 삶 가능(거듭날 때 죄성이 사라짐) / 후자: 성경의 권위·성경공부·성령의 역사 강조(1875년경 영국) — 성결운동 카드, 교재 p.184</td></tr>
+<tr><td>11</td><td>(OX) 제1차 바티칸 공의회는 1869년에 시작되었고 교황 무오설을 선포했다.</td><td>O — 교재 p.184(교수는 처음 1854년이라 했다가 1869년으로 말함) — 로마 가톨릭의 대응 카드</td></tr>
+<tr><td>12</td><td>(약술) 클라팜 파와 윌버포스의 활동, 영국 노예제 폐지의 연도를 쓰시오.</td><td>1789 하원 거론 · 1807 노예매매 중단 · 1833 해방법; 교회선교협의회(1799)·성경협회(1804) — 영국 복음주의 카드, 교재 p.185</td></tr>
+<tr><td>13</td><td>(단답) 남침례교의 설립일은?</td><td>1845년 5월 8일(교수) — 노예제 카드</td></tr>
+<tr><td>14</td><td>(약술) 종교의 합리적 선택 이론의 핵심은?</td><td>투자(시간·헌금·정성·봉사) 대비 이익(현세·내세)이 주어질 때 선택 — 미국 건설 카드(교수 설명, 교재 밖)</td></tr>
+<tr><td>15</td><td>(단답) 퀘이커(the Shakers)와 오네이다 공동체를 성(性)에 대한 태도로 대비하시오.</td><td>퀘이커: 악의 원천은 섹스라 보아 독신(1770) / 오네이다: 복합결혼 — 유토피아 카드, 교재 p.185~186</td></tr>
+<tr><td>16</td><td>(단답) 몰몬교의 황금판 번역 도구와 몰몬경 출판 연도는?</td><td>우림과 둠밈 · 1830년 — 몰몬교 카드, 교재 p.187</td></tr>
+</table>
+</div>
+<div class="card">
+  <h2>교재에만 있는 내용 — 수업에서 언급 없음 (p.182~189)</h2>
+<ul class="tight">
+  <li><strong>p.182</strong> 첫머리: 1837년 총회를 앞두고 구파가 철저히 준비해 회중교회와의 연합을 철회하고, 미국 국내선교협회·미국교육협회와의 관계를 단절하고, 뉴욕의 노회 세 곳과 오하이오의 노회 한 곳을 축출 · 그 다음해에 신파 장로교인들이 재입교를 위해 노력했으나 실패로 돌아가자 분리된 기구 구성.</li>
+  <li><strong>p.183</strong> 호팔트(호발트): 1811년 뉴욕의 성공회 감독으로 임명되어 19년을 죽어가던 성공회의 부활을 위해 활동 · 교리·목회·성찬·예배의 모든 핵심적 요소는 교회의 존재에 필수적이라 주장 · 현존하는 성공회 예배를 방어. 초월주의 주요 주장자 중 조지 리플리·프레드릭 헨리 헷지·오르테스 브라운스. 천년왕국 도래 ①사회구조개혁(여성의 참정권 증진 1848 등).</li>
+  <li><strong>p.184</strong> k. 대각성주의자들: 미합중국 헌법 제1조 수정안 인용("의회는 국교를 수립하는 법률이나 혹은 종교의 자유스런 행사를 금하는 법률을 입법할 수 없다…") · 클라팜 파의 '영원을 의식하는 삶'(교수는 '영혼을 의식하는 삶'이라 말함).</li>
+  <li><strong>p.185</strong> 존 헨리 뉴먼(1801-1891)과 에드워드 퓨지(옥스퍼드 운동 주요 인물) · 앤 리 이후 지도자 조셉 미챔·리처드 맥니머·존 던래비 · 퀘이커 약 6천여 명, 농장 경영·상업·공예산업으로 번창.</li>
+  <li><strong>p.186</strong> 오네이다: 지도자 존 험프리 노이에스(버몬트의 성공한 사업가, 피니의 부흥회에 영향, 앤도버 1년·예일 2년) · 1879년 복합결혼 제도 포기 · 공동주식회사 설립, 배당금 분배 · 주로 동물을 잡는 덫과 은쟁반 등 은제 식기류 생산 · 프루트랜드(루이사 메이 앨콧, 1843년 봄) · 브룩 농장(조지 리플리, 1846년 화재로 파산) · 홉데일(1841년 매사추세츠 밀포드, 애딘 벌루, 15년 후 파산). · f. 몰몬교 시작부: 10살 때인 1816년 버몬트에서 뉴욕의 팔미라 근교로 이사(교수는 '10살 때 뉴욕에 팔미아 근처로 이사'라고만 말함).</li>
+  <li><strong>p.187</strong> 몰몬교: 1830년 10월 30일 교회 창설, 1839년 현재 명칭(교수는 '4년 후'라고만 말함) · 올리버 코더리(교수는 '코더리'만 말함) · 1844년 한 폭도에 의해 살해 · 브라이엄 영(1801-77)의 지도로 '광야 속의 시온'을 찾아 대 솔트 레이크 분지(유타 주)로 이주, 1870년까지 140,000명 넘게 이주 · <strong>g. 밀러파(안식일교)</strong> 시작 — 수업은 여기까지 가지 않았다.</li>
+  <li><strong>p.188</strong>(수업 범위 밖): 밀러파 계속(윌리엄 밀러 1782-49, 1836년 책 『그리스도의 재림이 1843년에 일어날 것에 대한 성서적, 역사적 증거』, 1839년 요셉 하임즈와 협력, 재림 날짜 1843년 3월 21일→1844년 3월 21일→1844년 10월 22일, 1845년 얼바니 총회로 재림기독교회와 제7일 안식교회로 분열) · h. 심령주의자(스웨덴보그 1688-1772, 1848년 팍스 자매) · i. 박애주의(1835년 시어도어 드와이트 웰드가 루이스 태픈에게 보낸 편지).</li>
+  <li><strong>p.189</strong>(수업 범위 밖, 주제만 교수가 앞서 설명): j. 사회복음에 대한 관심 · k. 금주운동 · l. 노예제도 반대(1845년 뉴욕 해밀턴 결의문, 윌리엄 앤 메리 대학 교수 토마스 듀의 1832년 이론, 뉴올리언스 제일 장로교회 목사 벤저민 모건 팔머의 "우리는 하나님의 말씀을 수호한다" 선언) · m. 금연운동 · n. 노예제도에 따른 교회(장로교 구파·신파·감리교·침례교·루터교; 1835년경 뉴욕 북부 결의, 1836년 감리교 중앙연회, 1839~42년 웨슬리안 감리교회 창립, 1843년 침례교 자유선교 협회…).</li>
+</ul>
+</div>
+<details class="apx">
+  <summary>부록 — 출처·자막 교정·교재 쪽 대응</summary>
+  <div class="dbody">
+  <table>
+  <caption>[?] 자막 오인식 교정 (교재 표기가 있는 것은 교정, 없는 것은 자막 표기 그대로 두고 [?])</caption>
+  <tr><th>자막 표기</th><th>교정</th><th>근거</th></tr>
+  <tr><td>프린스 신학교 · 프리스 신학대학원 · 프리슨 대학교</td><td>프린스턴 신학교 · 신학대학원 · 대학</td><td>교재 p.181·182</td></tr>
+  <tr><td>유년·윤희현 신학교 · 유리 장로교 신학교</td><td>유니온 신학교(뉴욕·버지니아)</td><td>교재 p.181; 버지니아 부분은 문맥 [?]</td></tr>
+  <tr><td>찰스할지 · 하찌</td><td>찰스 하지</td><td>교재 p.182</td></tr>
+  <tr><td>웨스민스 · 웨스트미스 신앙 고백</td><td>웨스트민스터 신앙고백</td><td>교재 p.182; '베이직·뉴햄프셔'는 교재에 없어 자막 표기 유지 [?]</td></tr>
+  <tr><td>보금주의 · 쿠파 · 심파 · 루트교</td><td>복음주의 · 구파 · 신파 · 루터교</td><td>교재 p.182</td></tr>
+  <tr><td>전 레변 · 존 예배 · 내빔 · 네비</td><td>존 네빈</td><td>교재 p.182</td></tr>
+  <tr><td>존 허발트 · 호팔트</td><td>존 호발트(교재 p.182) · 호팔트(교재 p.183)</td><td>교재 두 표기 병기</td></tr>
+  <tr><td>멋서버그 · 심비적 현존</td><td>머서스버그 · 신비적 현존</td><td>교재 p.182</td></tr>
+  <tr><td>리안더</td><td>니안더(J. A. Neander)</td><td>교재 p.182</td></tr>
+  <tr><td>랜드마키즘 · 직외석주의</td><td>랜드마크주의(Landmarkism)</td><td>교재 p.183; '직의석주의'는 뜻 불명 [?]</td></tr>
+  <tr><td>라이프 에머슨 · 시어도 파커 · 제임스 프리맨 클락 · 윌리엄 해리 체닝</td><td>랄프 왈도 에머슨 · 시어도어 파커 · 제임스 프리맨 클락 · 윌리엄 헨리 채닝</td><td>교재 p.183</td></tr>
+  <tr><td>후천연 · 천연왕국</td><td>후천년 · 천년왕국</td><td>문맥·교재 p.183~184</td></tr>
+  <tr><td>캐릭 사교회 · 선결운동 · 베베 탈모</td><td>케직 사경회 · 성결운동 · 뵈비 팔머</td><td>교재 p.184</td></tr>
+  <tr><td>아이작 베커스 · 바쿠스</td><td>Isaac Backus(교재 영문)</td><td>교재 p.184 — 한글 표기는 자막대로 베커스</td></tr>
+  <tr><td>피우스 구세 · 공예 · 지준</td><td>피우스 9세 · 공의회 · 지존</td><td>교재 p.184</td></tr>
+  <tr><td>클라라팜 · 윌리엄 불법보스 · 월버포스</td><td>클라팜 파 · 윌리엄 윌버포스(교재 '월버포스')</td><td>교재 p.184~185</td></tr>
+  <tr><td>성국 · 옥스파드 · 존 케이블</td><td>성공회 · 옥스퍼드 · 존 케블(Keble)</td><td>교재 p.185</td></tr>
+  <tr><td>로드리 스타크 · 에머틴</td><td>(교재에 없음) · 교재의 에머슨</td><td>로드리 스타크는 자막 표기 유지 [?]; 에머슨은 교재 p.185</td></tr>
+  <tr><td>퀘이커 · 페이커</td><td>퀘이커(the Shakers)</td><td>교재 p.185 표기 그대로</td></tr>
+  <tr><td>어레이다 · 오웨이다 · 푸투니</td><td>오네이다 · 푸트니(Putney)</td><td>교재 p.186</td></tr>
+  <tr><td>프로토렌즈 · 브름 농장 · 혹대일</td><td>프루트랜드 · 브룩 농장 · 홉데일</td><td>교재 p.186</td></tr>
+  <tr><td>요새·조세 스미스 · 마빌 성도 · 팔미아</td><td>조셉 스미스 · 말일성도 · 팔미라</td><td>교재 p.186</td></tr>
+  <tr><td>우림과 둘림 · 활 모양의 은퇴</td><td>우림과 둠밈 · (활 모양의 은테 [?])</td><td>우림과 둠밈 교재 p.187; 은테는 교재에 없음 [?]</td></tr>
+  <tr><td>불안 영 · 브라인 명</td><td>브라이엄 영</td><td>교재 p.187(자막은 ASR 표기)</td></tr>
+  <tr><td>아미씨 · 암씨 · 재칭리파 · 매너·메로나이트 · 후트라이트</td><td>아미시 · 재세례파 · 메노나이트 · 후터라이트</td><td>교재에 없음 — 자막과 문맥으로 읽음 [?]</td></tr>
+  </table>
+  <table>
+  <caption>[보충] 교수 발언과 교재의 차이</caption>
+  <tr><th>항목</th><th>교수(자막)</th><th>교재 · 노트 처리</th></tr>
+  <tr><td>제1차 바티칸 공의회 연도</td><td>처음 '1854년에 시작', 곧이어 '1869년에 시작'</td><td>교재 p.184: 1854년 12월 8일 무염시태 선언, 1869년 12월 8일 제1차 바티칸 공의회 시작 — 교재 연도로 적고 교수 발언 병기</td></tr>
+  <tr><td>클라팜 파의 지향</td><td>'영혼을 의식하는 삶'</td><td>교재 p.184 '영원을 의식하는 삶' — 두 표기 병기</td></tr>
+  <tr><td>랜드마크주의 시기</td><td>'20세기 초반기에 이게 있었어요' / '남부에서 19세의 말까지 성행'</td><td>교재 p.183 '남부에서 19세기 말까지 성행' — 교수 발언의 연대 표현은 흔들려 두 가지 모두 적고 [?]</td></tr>
+  <tr><td>오네이다 복합결혼 포기·공동소유 포기</td><td>'외부의 압력에 의해 포기' · '1880년에 재산에 대해 공동소유를 포기'</td><td>교재 p.186: 복합결혼 포기 1879년, 공동소유 포기 1880년</td></tr>
+  <tr><td>호발트·호팔트</td><td>'존 허발트'·'호팔트'</td><td>교재 p.182는 호발트(John H. Hobart), p.183 소제목은 호팔트 — 교재 두 표기 병기</td></tr>
+  <tr><td>앤 리의 공동체 이름</td><td>'퀘이커'</td><td>교재 p.185도 '퀘이커(the Shakers)'로 적음 — 교재 표기를 그대로 따름</td></tr>
+  <tr><td>소제목 기호</td><td>—</td><td>교재 p.182 원본: 'h. 이외의 반발'</td></tr>
+  </table>
+  <table>
+  <caption>교재 쪽 대응 (인쇄 쪽 → PDF 쪽) · 수업 범위</caption>
+  <tr><th>인쇄 쪽</th><th>PDF 쪽</th><th>내용</th><th>수업</th></tr>
+  <tr><td>p.181</td><td>37(오른쪽)</td><td>분열(g)의 끝 — 유니온 신학교</td><td>복습</td></tr>
+  <tr><td>p.182</td><td>38(왼쪽)</td><td>1837년 총회·찰스 하지(g. 분열의 이어짐) · h. 이외의 반발(루터교·기독교개혁교회(the Christian Reformed Church)·고교회) · 존 네빈</td><td>수업</td></tr>
+  <tr><td>p.183</td><td>38(오른쪽)</td><td>네빈(이어짐) · 호팔트 · i. 침례교의 고교회주의 · j. 초월주의</td><td>수업</td></tr>
+  <tr><td>p.184</td><td>39(왼쪽)</td><td>사회개혁·자기개혁 · ※성결운동 · k. 대각성주의자들 · l. 로마 가톨릭의 대응 · 3. 영국 복음주의(클라팜)</td><td>수업</td></tr>
+  <tr><td>p.185</td><td>39(오른쪽)</td><td>클라팜(이어짐)·노예제 폐지 · B. 옥스퍼드 운동 · 4. 기독교 국가인 미국 건설 · A. 유토피아 공동체 a. 퀘이커(the Shakers)</td><td>수업</td></tr>
+  <tr><td>p.186</td><td>40(왼쪽)</td><td>b. 오네이다 · c. 프루트랜드 · d. 브룩 농장 · e. 홉데일 · f. 몰몬교(시작)</td><td>수업</td></tr>
+  <tr><td>p.187</td><td>40(오른쪽)</td><td>몰몬교(이어짐) · g. 밀러파(시작)</td><td>몰몬교까지</td></tr>
+  <tr><td>p.188~189</td><td>41</td><td>밀러파 · 심령주의 · 박애주의 · 사회복음 · 금주운동 · 노예제도 반대 · 금연운동 · 노예제도에 따른 교회</td><td>언급 없음(노예제·교단 분열 주제만 교수가 앞서 설명)</td></tr>
+  </table>
+  </div>
+</details>
+
+</body>
+</html>
