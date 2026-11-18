@@ -618,7 +618,7 @@ const SITE_DATA = {
             { week: 11, title: "찰스 피니·성결운동·선교·분열", date: "2026.11.10", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week11.html" }
           ] },
-            { week: 12, title: "이외의 반발·초월주의·성결운동·유토피아 공동체·몰몬교 — 제2차 대각성운동 이후의 19세기 미국(이어서)", date: "2026.11.17", files: [
+            { week: 12, title: "초월주의·성결운동·유토피아 공동체·몰몬교", date: "2026.11.17", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week12.html" }
           ] },
             { week: 13, title: "", date: "", files: [] },
