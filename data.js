@@ -816,7 +816,7 @@ const SITE_DATA = {
       label: "성경 & 신학",
       items: [
         {
-          icon: "🎯", name: "성경 문제은행 (입학 성경시험)",
+          icon: "🎯", name: "성경고사 문제은행",
           desc: "성경 문제집 3,107문항 — 권별 랜덤(창세기~계시록), 구약·신약 100문제 랜덤 시험",
           href: "output/bible-exam/index.html",
           tag: "bible", tagLabel: "성경"
