@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제12강 학개서의 구조, 신학, 메시지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(155,90,138,.18);color:var(--crimson2);border:1px solid rgba(155,90,138,.45)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq,.say{color:var(--crimson2);font-style:italic}
+.bq{color:var(--crimson2);font-size:13px;margin:6px 0 6px 6px;padding-left:10px;border-left:2px solid var(--border)}
+.emph ol{margin:6px 0 4px 20px}
+.asr{color:var(--muted);border-bottom:1px dotted var(--muted);font-size:12.5px}
+
+.sum{background:linear-gradient(180deg,rgba(201,168,76,.08),transparent);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:10px;padding:14px 17px;margin:16px 0 8px;font-size:13.5px}
+.sum h3{color:var(--gold);font-size:14px;margin-bottom:6px}
+.sum p{color:var(--text);margin:5px 0}
+.sum .mini{color:var(--muted);font-size:12.5px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 12주차 · 2026학년도 2학기</div>
+  <h1>제12강 학개서의 구조, 신학, 메시지</h1>
+  <div class="prof">담당 오성호 교수 · 100% 영상강의(Panopto) · 학개(LMS 표기 제11과) 1of2 · 2of2</div>
+</div>
+
+<div class="intro">
+  12주차 두 영상(<b>1of2·2of2</b>)의 자막으로 정리했습니다. 이번 주차에는 공식 강의안이 없습니다. 1of2는 첫째 신탁(1:1-15) 설명이 끝나는 데서 끝나고, 2of2는 둘째 신탁(2:1-9)의 시작부터 이어집니다. 성경 구절 블록은 개역개정 본문이며, 큰따옴표(“ ”)는 교수님 말씀(자막)을 옮긴 것입니다. 교수님이 <b>‘중요·핵심·기억·묵상’ 등의 말로 직접 짚은 곳</b>을 <span class="b-exam bdg">⭐ 교수 강조</span> 상자에 넣었으며 ‘시험’이라는 말은 이번 강의에 나오지 않았습니다. 자막 오인식은 <span class="asr">[?]</span>, 교수 발언과 성경 본문·앞뒤 발언이 다른 곳은 <span class="b-sup bdg">보충</span>으로 표시했고 목록은 맨 아래에 있습니다. 학자 이름은 자막에 들린 대로 적었고 자막의 ‘학계/학예서’는 ‘학개(서)’의 오인식입니다.
+</div>
+
+<div class="emph">
+  <h3>⭐ 교수 강조 — 교수님이 직접 짚은 말</h3>
+  <ol>
+    <li><span class="say">“학계서가 중요한 전환점이 되고 있는 것을 볼 수가 있겠는데요”</span> [1of2 37] — 심판의 예언에서 회복을 실현하는 전환점이 학개서</li>
+    <li><span class="say">“핵심적인 질문이 이 귀환한 백성들이 그러면 무엇을 먼저 회복을 해야 될 것인가 하는 것을 묻고 있는 것이 이 학예서다”</span> [1of2 50]</li>
+    <li><span class="say">“핵심적인 역사적인 배경이 되는 그 시기”</span> [1of2 96] — 주전 520년, 다리오 왕 2년</li>
+    <li><span class="say">“가장 본질적이고 핵심적인 문제는”</span> [1of2 127] → <span class="say">“성전재건이 지체되고 있는 것이에요”</span> [1of2 128]</li>
+    <li><span class="say">“하나님과의 언약적인 관계 그리고 신앙, 하나님을 경외하는 것, 이것이 근본적인 것이고 이것을 먼저 회복해야 되는 것이 하나님의 뜻이다”</span> [1of2 209] — 개인의 경제 활동·회복이 <span class="say">“중요한 것이 아니라”</span> 그보다 언약 관계가 근본이라는 말 [1of2 209]</li>
+    <li><span class="say">“이 세 명의 지도자, 이 세 명, 세 가지의 직분이 굉장히 중요한 신학적인 소재가 된다”</span> [1of2 151] — 스가랴 3–6장 (선지자·왕·제사장 = 메시야의 삼중직)</li>
+    <li><span class="say">“이 두 번째 신탁 의 핵심적인 교훈이 뭐냐”</span> [2of2 52] — 가시적 성과가 아니라 함께 하시는 하나님과 장차의 더 큰 영광의 약속 [2of2 54]</li>
+    <li><span class="say">“여기에서 핵심 메시지는 요 성전을 건축하거나 제사를 드리는 어떤 외적인 종교 행위 때문에 그 공동체가 자동적으로 거룩하게 되는 것은 아니다라는 거죠”</span> [2of2 70]</li>
+    <li><span class="say">“약속 회복을 약속하시는 그 자체가 축복이다 라는 것을 우리는 기억할 필요가 있다는 거죠”</span> [2of2 116]</li>
+    <li><span class="say">“어쨌거나 이 본문에서 말하고자 하는 핵심은 이 스루바벨이 군사력을 통해서”</span> [2of2 256] … 하나님의 주권의 표현 [2of2 256–257]</li>
+    <li><span class="say">“학계에서 가 가르치고 있는 세 가지 핵심적인 교훈, 첫 번째는 우선순위를 회복하라”</span> [2of2 288]</li>
+    <li>묵상 질문 세 가지: <span class="say">“한번 묵상을 해 보시기 바랍니다”</span> [2of2 296] [2of2 297–300]</li>
+  </ol>
+  <p style="margin-top:8px">‘시험’이라고 말한 곳은 1of2·2of2 모두 없습니다.</p>
+</div>
+
+<div class="sum">
+  <h3>1쪽 요약 — 학개서의 구조, 신학, 메시지 <span style="font-size:11px;color:var(--muted)">(노트 정리용 압축 — 교수님이 ‘시험’을 언급한 것이 아님)</span></h3>
+  <p><b>1. 위치·주제:</b> 12선지서의 열 번째 책이자 포로 후 선지서의 첫 책. 주제는 성전 재건을 통한 언약 공동체의 회복. 심판 예언에서 회복 실현으로 넘어가는 <b>전환점</b>이며 ‘이미–아직’의 긴장 속에 있습니다.</p>
+  <p><b>2. 시대·상황:</b> 주전 520년(다리오 왕 2년), 귀환했으나 페르시아 치하·경제적 궁핍·성전 지체. 핵심 질문은 “무엇을 먼저 회복을 해야 될 것인가”.</p>
+  <p><b>3. 세 지도자:</b> 스룹바벨(총독·다윗 후손·왕 상징), 여호수아(대제사장), 학개(선지자) = 메시야의 삼중직.</p>
+  <p><b>4. 구조(네 신탁, 날짜 명시):</b> ① 1:1–11 성전 재건 명령(순종·성령의 감동 1:12–15) ② 2:1–9 나중 영광이 더 크리라, 임재 약속 ③ 2:10–19 거룩은 전달 안 되고 부정은 전달됨, ‘오늘부터는 복을 주리라’ ④ 2:20–23 스룹바벨을 인장으로.</p>
+  <p><b>5. 논쟁점 5:</b> 만국의 보배(메시아 / 재물 / 열국이 성전으로 — 교수님은 ②③) · 나중 영광의 성취(역사–그리스도–종말의 다층) · 성전 재건과 경제적 축복(자동 아님) · 순종한 공동체가 왜 부정한가 · 스룹바벨은 다윗 왕인가 상징인가.</p>
+  <p><b>6. 신학 메시지 5:</b> 성전·언약 / 성령 / 거룩 / 다윗 언약과 하나님 나라 소망 / 포로 후 선지서 연결(학개=성전을 건축하라, 스가랴=내게로 돌아오라, 말라기=돌아오라).</p>
+  <p><b>7. 세 가지 교훈:</b> 우선순위 회복 · 임재와 정결 회복 · 종말론적 소망.</p>
+  <p class="mini"><b>⭐ 교수 강조 핵심</b> · 학개서는 중요한 전환점 · 핵심 질문: 무엇을 먼저 회복할 것인가 · 외적 종교 행위가 공동체를 자동으로 거룩하게 하지 않는다 · 약속 자체가 축복이다</p>
+</div>
+
+<div class="toc">
+  <a href="#intro">I-1. 학개서란</a>
+  <a href="#canon">I-2. 정경적 위치</a>
+  <a href="#situation">I-3. 포로 이후 상황</a>
+  <a href="#author">I-4. 선지자·저작</a>
+  <a href="#history">I-5. 역사적 배경</a>
+  <a href="#leaders">I-6. 세 지도자</a>
+  <a href="#structure">II. 구조·네 신탁</a>
+  <a href="#o1">III-1. 첫째 신탁</a>
+  <a href="#o2">III-2. 둘째 신탁</a>
+  <a href="#o3">III-3. 셋째 신탁</a>
+  <a href="#o4">III-4. 넷째 신탁</a>
+  <a href="#debate">IV. 논쟁점</a>
+  <a href="#theo">V. 신학 메시지</a>
+  <a href="#check">자막 교정·보충</a>
+</div>
+
+<!-- PART 1 -->
+<div class="part-div" id="part1"><span>1of2 · 주제, 정경적 위치, 배경, 구조, 첫째 신탁</span></div>
+
+<div class="sec" id="intro">
+  <div class="sh"><span class="sb">학 I-1</span><span class="st">학개서란? — 성전 재건과 언약 공동체의 회복</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>교수님이 제시한 주제와 강의 순서</h3>
+    <ul>
+      <li>학개서 하면 가장 먼저 떠오르는 것은 성전 재건입니다. <span class="say">“학계에서는 성전을 건축하는 그런 이야기라고 이야기를 할 수가 있습니다”</span> [1of2 3] <span class="asr">[?]</span> (자막의 ‘학계’는 ‘학개’의 오인식입니다) 이 책의 주제는 <span class="say">“성전 재건을 통해서 언약공동체를 회복하는 것”</span> [1of2 4]입니다.</li>
+      <li>그러나 <span class="say">“단순히 성전건축을 독려하는 그러한 예언서는 아닙니다”</span> [1of2 5]. 바벨론 포로에서 돌아온 공동체가 성전 재건을 통해 <b>하나님과의 언약 관계를 회복</b>하고 <b>하나님의 임재를 새롭게 경험</b>하며, 그것을 통해 장차 이루어질 <b>하나님 나라와 다윗 왕조의 회복</b>을 바라보는 예언서입니다. [1of2 6]</li>
+      <li>강의는 세 부분입니다: ① 저자와 역사적 배경, ② 문학적 구조·특징과 단락별 주요 내용, ③ 주요 신학적 논쟁·해석 문제, 신학적 메시지, 정경적 의의를 종합. [1of2 7–10]</li>
+      <li>이 책에는 <b>네 번의 신탁</b>이 있고, 그 흐름을 따라가면 성전 재건이 어떻게 언약의 회복과 연결되는지 이해할 수 있다고 합니다. [1of2 12–13] 2장의 ‘나중 영광이 이전 영광보다 크리라’는 말씀, 세 번째 신탁의 정결과 거룩 명령, 스룹바벨과 관련된 네 번째 신탁은 <span class="say">“신학적으로 조금 어려운 부분들이”</span> [1of2 16] 있고 학자들에 따라 해석이 차이가 날 수 있다고 미리 알립니다. [1of2 14–17]</li>
+      <li>마지막으로 학개·스가랴·말라기, 이 세 포로 후기 선지서 가운데 학개서가 어떤 위치이고 나머지에 어떻게 영향을 미치고 연결되는지 이해하게 될 것이라고 합니다. [1of2 17–18]</li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">학 I-2</span><span class="st">정경적 위치: 12선지서의 열 번째 책, 포로 후 선지서의 첫 책</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>학개서는 히브리 성경에서 12선지서에 들어 있고 <span class="say">“그 중에 열 번째 책입니다”</span> [1of2 20]. 12권은 앞의 6권과 뒤의 6권이고, 뒤의 6권을 다시 앞의 3권·뒤의 3권으로 나누어 <b>6·3·3</b>으로 구분할 수 있다고 이전에 말했다고 합니다: <span class="say">“그래서 6 3이 지나고 나서 마지막 3”</span> [1of2 20–21] <span class="asr">[?]</span> 자막 20행의 책 이름 나열(‘호 열라면 미’, ‘열 아홉 윤리나 학습, 학습, 학습, 말’)은 뭉개져 있어 확정하지 않습니다.</li>
+      <li>학개·스가랴·말라기는 포로 이후 시대를 배경으로 하는 선지서이고, 학개서는 그 가운데 <b>맨 첫 번째</b>입니다. [1of2 22] <span class="asr">[?]</span> (자막의 ‘합계’는 학개)</li>
+      <li><b>12선지서 전체 구조</b> [1of2 23–36]: <div class="tw"><table><thead><tr><th>묶음</th><th>배경 시대</th><th>교수님 설명</th></tr></thead><tbody>
+<tr><th>호세아~미가</th><td>주로 주전 8세기 [1of2 24]</td><td>이사야 1–39장처럼 <span class="say">“언약 기소를 통해서”</span> [1of2 28] 유다 백성이 하나님을 떠난 모습을 지적하며 심판을 전하고, 회복의 약속도 준다 [1of2 27–29]. <span class="asr">[?]</span> 29행 ‘언약 기술’은 ‘언약 기소’로 읽힘</td></tr>
+<tr><th>나훔·하박국·스바냐</th><td>주로 주전 7세기 [1of2 25]</td><td><span class="say">“한마디로 말해서 여호와의 날을 말하고 있다”</span> [1of2 30]. 여호와의 날은 하나님이 오셔서 원수들을 심판하고 하나님을 경외하는 남은 자들을 구원하시는 것 [1of2 31]이며, 이 세 책은 <span class="say">“여호와의 날 열방 심판과 유다에 대한 심판, 그리고 남은 자들에 대한 구원”</span> [1of2 32]을 말한다고 정리합니다. 유다가 포로로 잡혀갈 것을 말함 [1of2 33–34]</td></tr>
+<tr><th>학개·스가랴·말라기</th><td>포로 이후 [1of2 26]</td><td>귀환 공동체가 성전을 짓고 언약을 맺고 성벽을 쌓으며 어떻게 언약을 회복하고, 메시야에 대한 미래 소망을 가질 수 있는가를 말함 [1of2 34–35]</td></tr>
+</tbody></table></div></li>
+      <li>교수님은 이런 흐름이 <span class="say">“열두 선지서를 그 정경적으로 이해하는 방식”</span> [1of2 36]이라고 합니다. 그 안에서 학개서는 <span class="say">“중요한 전환점”</span> [1of2 37]입니다: 포로 전과 포로기의 <b>심판의 예언</b>(멸망과 포로 예언)에서 <b>회복을 실현하는 전환점</b>이 학개서입니다. [1of2 38–39]</li>
+      <li>이전 선지자들이 예언한 유다의 멸망·포로 생활·장차의 회복 가운데 이미 포로에서 돌아온 모습이 학개서에서 성취되고 있지만, <span class="say">“성취되었지만 아직도 완전히 성취되지 않은”</span> [1of2 41] 가운데 궁극적 회복이 어떻게 실현될 것인가를 바라보는 책입니다. [1of2 39–41] 학개·스가랴·말라기는 돌아왔지만 여전히 문제가 있는 모습 가운데 어떻게 소망을 가지는가를 보여줍니다. [1of2 42]</li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="sec" id="situation">
+  <div class="sh"><span class="sb">학 I-3</span><span class="st">포로 이후 공동체가 처한 상황과 핵심 질문</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>70년 포로생활 동안 사람들은 하나님이 포로에서 돌아오게 하시기를 <span class="say">“고대하고 고대했겠어요”</span> [1of2 43]라고 교수님은 묻습니다. 돌아오기만 하면 메시아와 다윗 왕가가 회복되고 열방을 통치하는 나라가 이루어질 것이라고 기대했을 것입니다. [1of2 43–45]</li>
+      <li>그러나 실제로는 <span class="say">“이루어진 것이 없었어요”</span> [1of2 46]. 성전을 건축하고 성벽을 재건하며 예언이 부분적으로 성취되고는 있었지만 궁극적 회복, 다윗의 영광, 회복된 공동체의 영광은 나타나지 않았습니다. [1of2 46–47]</li>
+      <li>상태: 성전은 황폐하고, 다윗 왕권은 회복되기 요원하고, 궁핍과 불안이 계속됨. 페르시아의 통치 아래 있었고, 조상들의 땅을 다시 얻었지만 경제적 궁핍이 계속되었습니다. [1of2 48–50]</li>
+      <li>그래서 이 책이 묻는 <span class="say">“핵심적인 질문”</span> [1of2 50]은 <b>귀환한 백성이 무엇을 먼저 회복해야 하는가</b>입니다. [1of2 50]</li>
+      <li>학개서의 대답은 <b>세 가지</b>입니다. [1of2 51–56] ① 1장: 자신의 삶과 우선순위를 돌아보고 <b>성전을 재건</b>하라. ② 하나님이 <b>너희와 함께 하시며</b> 더 큰 영광을 장래에 가져오실 것이다. ③ 이 공동체를 거룩하게 하고 <b>다윗 왕조를 회복</b>함으로써 하나님이 미래의 구원을 이루실 것이다. 1장과 2장(상·하반부)의 짧은 책이지만 세 가지 메시지로 구성되어 있다고 합니다.</li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="sec" id="author">
+  <div class="sh"><span class="sb">학 I-4</span><span class="st">선지자 학개와 저작 문제</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>이름:</b> <span class="say">“학이라는 것은 절기 축제라는 의미입니다”</span> [1of2 58]. 히브리 발음은 ‘하가이’이며 <span class="asr">[?]</span> 축제와 관련이 있다는 것은 알 수 있지만 <span class="say">“그 이름이 정확하게 무엇인지는 확정하기가 어렵습니다”</span> [1of2 60]. 포로에서 돌아오게 하신 사실 자체의 축제 같은 기쁨일 수도 있고, 미래에 대한 소망이 축제와 같은 기쁨이라는 뜻일 수도 있습니다. 교수님은 <span class="say">“여러분들이 좋은 대로 해석을 하시면 되겠는데”</span> [1of2 64]라고 말합니다. [1of2 58–64]</li>
+      <li><b>호칭·사역:</b> 학개서에서 반복적으로 ‘선지자’라 불립니다. 에스라 5장, 6장 14절에 스가랴와 함께 사역했다는 말씀이 나옵니다. [1of2 64–65] 출신·가계·이전 활동은 나오지 않습니다. [1of2 66]</li>
+      <li><b>제사장 출신?</b> 성전·제사 규정에 대한 관심이 많아 제사장일 것이라고 제시하지만 <span class="say">“직접적인 자료는 나타나고 있지 않습니다”</span> [1of2 68]. [1of2 66–68]</li>
+      <li><b>저자 문제:</b> 전통적 견해는 학개가 이 책을 기록했다는 것입니다. 역사비평적 관점은 학개가 말한 신탁 자체와 서술적 편집층을 구분하며, 학개를 3인칭으로 묘사하므로 3인칭 부분은 나중 편집이라고 주장합니다. [1of2 69–73] 교수님은 히브리 예언서·시가서에서 하나님이나 저자를 3인칭으로 표시하는 것이 희귀한 일이 아니어서 <span class="say">“후기의 편집 증거라고 볼 수 있는 결정적인 증거는 아니다”</span> [1of2 75]라고 이해합니다. [1of2 74–75]</li>
+      <li><b>케슬러(자막 표기)의 견해:</b> 이 책은 신탁을 받은 시점을 ‘다리오 왕 2년’(주전 520년경)으로 기록하는데, 그는 학개서의 상황이 주전 520년의 역사적 배경과 부합하며 그 배경에 기초해 전체가 최종 형태로 자리 잡았다고 해석합니다. 교수님은 <span class="say">“이것이 제 자신이 보고 있는”</span> [1of2 81] 관점이라고 합니다. [1of2 76–82] <span class="asr">[?]</span> ‘케슬러’(학자 이름 철자 미확인), ‘달이 오왕 2년’(→다리오 왕 2년)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="history">
+  <div class="sh"><span class="sb">학 I-5</span><span class="st">역사적 배경: 586년에서 520년, 그리고 제2 성전</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>586년:</b> 예루살렘 성전이 멸망, 솔로몬 성전이 파괴되고 예루살렘이 파괴되며 3차 포로가 있었습니다. 바벨론의 침공으로 유다 왕국이 멸망하는 순간이며 열왕기하 25장, 예레미야 39장·52장에 기록된 사건입니다. [1of2 83–87]</li>
+      <li><b>539년:</b> 페르시아 왕 고레스에 의해 바벨론이 멸망하고, 고레스가 유다인들에게 고토로 돌아가라는 조서를 내려 성전 재건을 허용합니다(에스라 1장). [1of2 88–90]</li>
+      <li><b>기초 놓기와 중단:</b> 2–3년 뒤(자막 ‘5306년경’ <span class="asr">[?]</span>) 포로민들이 돌아와 성전의 기초를 놓고 예배를 재개하지만 어려움으로 공사가 중단·지연됩니다(에스라 3·4장). [1of2 91–93]</li>
+      <li><b>주전 520년(다리오 왕 2년):</b> 그 뒤 십수 년이 지나 학개와 스가랴가 예언하면서 성전 재건이 본격 재개됩니다. 교수님은 이 때가 <span class="say">“학계서의 핵심적인 역사적인 배경이 되는 그 시기”</span> [1of2 96]라고 합니다. [1of2 94–96] <span class="asr">[?]</span> 자막 95행 ‘주전 5020년’은 79·96행의 ‘주전 520년’으로 읽힘</li>
+      <li><b>제2 성전 완공:</b> 백성들이 감동받아 순종하여 재건이 시작되고, 약 5년 뒤 제2 성전이 완공됩니다(다리오 왕 6년). 솔로몬 성전 파괴에서 스룹바벨 성전 완공까지 <span class="say">“70년의 시간이 필요했다”</span> [1of2 101]고 합니다. [1of2 97–101] <span class="asr">[?]</span> 자막 98–99행의 연도 숫자(‘5406년 혹은 15년’, ‘530 586년’, ‘5105년’)는 불명</li>
+      <li><b>예후드 공동체:</b> 귀환 공동체를 ‘예후드 공동체’라 부릅니다. 유다는 독립국이 아니라 페르시아 제국의 한 지방행정구역일 뿐이고 페르시아가 임명한 총독이 통치했습니다. 이름이 ‘예후’이기 때문에 예후드 공동체라고 합니다. [1of2 102–106] <span class="asr">[?]</span> (‘예후’, ‘예후도’ 표기는 자막 그대로)</li>
+    </ul>
+    <h3 style="margin-top:12px">귀환 공동체가 겪은 세 가지 어려움 [1of2 107–136]</h3>
+    <div class="tw"><table><thead><tr><th>관점</th><th>내용</th></tr></thead><tbody>
+    <tr><th>정치적</th><td>독립적인 나라가 되지 않았고 다윗 왕조의 회복이 이루어지지 않았음. 여전히 페르시아 제국의 통치 아래 <span class="say">“정치적으로 속박상태”</span> [1of2 111] [1of2 108–111]</td></tr>
+    <tr><th>경제적</th><td>오랜 전쟁, 인구이동, 농경지의 황폐화, 건축자원의 부족. 가뭄·기근·흉작으로 더 어려움을 겪음. [1of2 112–116] 교수님은 큰 비전을 품고 돌아왔는데 여전히 흉년과 어려움이 있었던 그들의 심정이 어땠겠느냐고 묻습니다. [1of2 115]</td></tr>
+    <tr><th>성전 재건 지체</th><td>귀환 공동체가 당면한 <span class="say">“가장 본질적이고 핵심적인 문제”</span> [1of2 127] <span class="asr">[?]</span> (자막 127행은 ‘귀한 공동체가’)로 눈에 보이는 모습에서는 성전 재건이 지체되고 있는 것. [1of2 127–129]</td></tr>
+    </tbody></table></div>
+    <ul>
+      <li>학개서에는 이런 말씀이 반복됩니다: 씨를 많이 뿌렸지만 수확이 적고, 먹고 마시지만 충분하지 않고, 품삯을 받아도 생활이 안정되지 않고, 가뭄으로 농작물과 가축이 피해를 입는다. [1of2 117–121]</li>
+      <li>선지자는 가뭄·흉작을 <span class="say">“단순한 자연 현상”</span> [1of2 123]이라고 하지 않고 하나님과의 관계에서 <b>언약적 관점</b>으로 해석합니다: 너희가 하나님 앞에서 지킬 것을 지키지 못하고 헌신하지 못하기 때문에 이런 결과가 일어난다는 것입니다. [1of2 123–126]</li>
+      <li>성전 지연의 이유: 1장에서 유다 백성은 살기가 어려워 자기 집을 짓고 농경지를 개간하는 일에 급했고, ‘금방 돌아와서 먹고 살 일이 없는데 어떻게 성전을 짓겠느냐’는 식이었습니다. [1of2 130–132] 에스라 3·4장에는 성전 기초를 놓은 뒤 주변 민족의 반대와 방해가 있었다고 하지만, <span class="say">“학계에서 1장은 그런 어떤 외부적인 방해보다도 이 백성들의 마음속에 우선순위가 잘못됐다”</span> [1of2 134]고 합니다. [1of2 133–135] 정리: <span class="say">“외부의 방해와 내부의 불순종으로 인해서 회복이 지연되고 있는 상태”</span> [1of2 136]가 예후드 공동체의 모습입니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="leaders">
+  <div class="sh"><span class="sb">학 I-6</span><span class="st">학개 시대의 세 지도자와 메시야의 삼중직</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>스룹바벨</b> — 정치 지도자. 페르시아가 임명한 총독으로 돌아왔고, 왕이라는 칭호는 없지만 다윗 왕실의 후손이기 때문에 <b>유다의 왕을 상징하는 인물</b>, 다윗 왕조를 회복할 것이라는 소망을 상징하는 인물입니다. [1of2 137–143] <span class="asr">[?]</span> (‘수료 바벨’·‘스루바벨’은 스룹바벨)</li>
+      <li><b>여호수아</b> — 여호사닥의 아들 <b>대제사장</b>, 종교 지도자. 성전 예배와 제사장직의 회복을 대표합니다. [1of2 144–147]</li>
+      <li><b>학개</b> — 말씀 그대로 선지자. 하나님의 말씀을 전하고 공동체와 백성, 지도자(스룹바벨과 여호수아)를 격려하고 일깨우는 역할. [1of2 147–148]</li>
+      <li>교수님은 이 세 지도자를 <span class="say">“결국에 메시야의 삼중직”</span> [1of2 149]이라고 합니다: 선지자직·왕직·제사장직이 말씀의 선포, 정치적 지도력, 예배의 회복을 통해 하나님의 뜻을 이루고 공동체를 회복하는 역할을 맡았다는 것입니다. [1of2 149–150] 스가랴 3–6장에서 이 세 직분이 <span class="say">“굉장히 중요한 신학적인 소재”</span> [1of2 151]가 된다고 말합니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="structure">
+  <div class="sh"><span class="sb">학 II</span><span class="st">문학적 특징과 구조: 네 번의 신탁</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>문학적 특징 [1of2 152–170]</h3>
+    <ul>
+      <li><b>네 번의 신탁</b>이 있고 <span class="say">“역사적인 이 날짜 날짜가 정확하게 명시되어 있습니다”</span> [1of2 154] — 이것이 특징입니다. ‘다리오 왕 2년’이 반복됩니다. [1of2 154–155] <span class="asr">[?]</span></li>
+      <li>날짜: 교수님이 말한 대로 6월 1일(·24일), 7월 21일, 9월 24일이고, 세 번째와 네 번째는 같은 날 다른 시점에 주어진 말씀 같다고 합니다. 3–4개월 동안 주신 말씀입니다. [1of2 155–157] <span class="asr">[?]</span> 자막 155–156행의 날짜 나열이 흐트러져 있어 아래 본문 대조를 병기합니다.</li>
+      <li><b>신탁과 역사 서술의 결합:</b> 말씀이 주어진 뒤 공동체가 어떻게 반응했는지도 기록되어 있습니다. 1장 12–15절은 첫 말씀에 유다 백성이 순종하여 성전 재건을 시작했다는 기록입니다. 예언의 선포뿐 아니라 그 <b>효과와 결과</b>도 서술합니다. [1of2 158–163]</li>
+      <li><b>반복과 대조:</b> ① ‘만군의 여호와’ — 하나님의 보편적 주권 [1of2 165] ② 1장 5·7절 ‘너희의 행위를 살필지니라’ — 삶의 동기와 목적을 성찰하고 회개하라 [1of2 166–167] ③ 1장 13절·2장 4절 ‘내가 너희와 함께 하노라’ — 임재의 약속 [1of2 168] ④ ‘굳세게 할지어다’ — 스룹바벨·여호수아·백성에게 반복 [1of2 169–170] ⑤ 회복의 전환점 2장 19절 ‘오늘부터는 내가 너희에게 복을 주리라’ [1of2 170–171]</li>
+    </ul>
+<div class="sup"><span class="tag">[보충]</span> 교수님은 1of2 169에서 ‘굳세게 할지어다’가 “세 번째 신탁에 나타나는데 2장 4절 이죠”라고 하지만, 2장 4절은 2장 1–9절(두 번째 신탁)에 속하고 교수님도 2of2 1·18에서 같은 말씀을 두 번째 신탁으로 다룹니다.</div>
+    <h3 style="margin-top:12px">날짜와 신탁 대조(성경 본문)</h3>
+    <div class="tw"><table><thead><tr><th>신탁</th><th>본문</th><th>날짜(본문 표기)</th><th>핵심 (교수님 설명)</th></tr></thead><tbody>
+    <tr><th>1</th><td>1:1–11</td><td>다리오 왕 제이년 여섯째 달 초하루 (1:1)</td><td>언약 백성의 불순종을 지적하고 성전 재건을 명령 [1of2 181]. 곧 이어 순종·공사 재개(1:12–15) [1of2 171–172]</td></tr>
+    <tr><th>2</th><td>2:1–9</td><td>일곱째 달 이십일일 (2:1)</td><td>하나님의 임재 약속, 성전의 미래에 더 큰 영광 [1of2 174–175, 184]</td></tr>
+    <tr><th>3</th><td>2:10–19</td><td>아홉째 달 이십사일 (2:10)</td><td>‘너희가 부정하다’는 책망. 정결을 깨닫고 축복을 회복 [1of2 176–177, 185–187]</td></tr>
+    <tr><th>4</th><td>2:20–23</td><td>그 달(아홉째 달) 이십사일 (2:20)</td><td>스룹바벨을 향한 말씀. 인장 반지, 다윗 왕조 회복의 암시·상징 [1of2 178–179, 188–189]</td></tr>
+    </tbody></table></div>
+    <p style="font-size:12.5px;color:var(--muted)">날짜 열은 개역개정 본문(학 1:1, 2:1, 2:10, 2:20)에서 가져온 것이고, 교수님이 직접 말한 것은 ‘6월 1일부터 24일, 7월 21일’ 등 자막 155–156행입니다. (1:15는 ‘여섯째 달 이십사일’)</p>
+    <h3 style="margin-top:12px">성전 건축의 의미 [1of2 190–192]</h3>    <ul>
+      <li>이 성전 건축은 <span class="say">“단순한 눈에 보이는 건축이 아니라”</span> [1of2 190] 성전을 통해 미래에 하나님이 어떻게 구원을 이루시고 하나님 나라를 이루실지 바라보는 <b>예표(지표)</b>입니다. 성전 재건이 <span class="say">“회복의 끝이 아니고”</span> [1of2 192] 하나님의 구원 목적의 끝이 아니며, 하나님의 임재를 이루고 미래의 통치가 나타날 것을 예고하는 <b>표지, 예표</b>라는 것이 이 책의 목적입니다.</li>
+    </ul>
+  </div>
+</div>
+<div class="sec" id="o1">
+  <div class="sh"><span class="sb">학 III-1</span><span class="st">첫 번째 신탁(1:1–15): 성전을 재건하라</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>① 1:1–4 — 성전 재건을 미루는 백성 [1of2 195–209]</h3>
+    <ul>
+      <li>백성들은 <span class="say">“여호와의 전을 건축할 시기가 이르지 아니하였다”</span> [1of2 199]고 말하며 재건을 미루었습니다. [1of2 196–200]</li>
+      <li>하나님은 학개에게 말씀하십니다: 성전이 황폐한데 너희가 ‘판벽한 집’에 사는 것이 옳으냐. [1of2 201]</li>
+      <li>‘판벽한 집’은 통나무·좋은 목재로 지은 집입니다. 최소한 성전 재건은 엄두를 못 내면서 자기 집은 좋은 목재로 잘 지어 살았다는 뜻입니다. 교수님은 당시 전체가 가난했기 때문에 ‘화려하다’는 표현은 <span class="say">“좀 어폐가 있을지는 모르지만”</span> [1of2 204] 나름대로 잘 지어 살고 있었다고 합니다. 좀 과장하면 <span class="say">“으리으리한 집”</span> [1of2 205]이라고도 말합니다. [1of2 202–205]</li>
+      <li>두 가지 대조: 하나님의 성전은 황폐한데 너희는 좋은 집에 산다. 백성들은 자신의 생활을 회복하는 데 관심을 기울이며 공동체와 하나님 나라, 예배에 대한 책임을 미뤘습니다. [1of2 206–208] 교수님의 요약: 경제 활동·개인의 회복이 중요한 것이 아니라 <span class="say">“하나님과의 언약적인 관계 그리고 신앙, 하나님을 경외하는 것, 이것이 근본적인 것”</span> [1of2 209]이며 먼저 회복해야 하는 것이 하나님의 뜻입니다. [1of2 209–210]</li>
+    </ul>
+<p class="bq"><b>2</b> 만군의 여호와가 이같이 말하여 이르노라 이 백성이 말하기를 여호와의 전을 건축할 시기가 이르지 아니하였다 하느니라 <b>4</b> 이 성전이 황폐하였거늘 너희가 이 때에 판벽한 집에 거주하는 것이 옳으냐 <span style="color:var(--muted);font-size:12px">(학 1:2, 4, 개역개정)</span></p>
+    <h3>② 1:5–11 — 경제적 궁핍의 이유 [1of2 210–249]</h3>
+    <ul>
+      <li>교수님은 6절을 이렇게 풀어줍니다: 많이 뿌려도 수확이 적고, 먹고 마셔도 배부르지 않고, 옷을 입어도 따뜻하지 않고, 품삯을 받아도 구멍 뚫어진 전대에 넣은 것처럼 늘 궁핍합니다. [1of2 211–214] 오늘의 모습 같다고 하며 벌어도 쓸 데가 많고 돈이 새어버리는 것 같다고 말합니다. [1of2 215–216]</li>
+      <li>학개는 이것을 <span class="say">“신명기 28장에 나타난 언약적인 저주”</span> [1of2 219]로 이야기합니다. 신명기 28장은 이스라엘이 언약을 어기고 하나님을 떠났을 때 곡식을 재배해도 원수들이 빼앗고 메뚜기·황충이 먹는 등 열심히 일해도 빼앗기는 결과가 나타날 것이라고 했다는 것입니다. [1of2 219–221] 1장 5절과 7절에서 반복해서 ‘너희의 행위를 살필지니라’고 말하고, 이런 경제적 결핍은 너희가 하나님을 경외하고 사랑하는 믿음을 잃어버렸기 때문이라고 합니다. [1of2 222–224]</li>
+      <li>다른 선지자들도 마찬가지: 아모스 4장 6–9절, 요엘서 <span class="asr">[?]</span>에도 메뚜기가 먹어버린 황폐함이 언약을 어겼기 때문이라고 말합니다. [1of2 224–226] (자막 ‘엘소에’는 ‘요엘서에’로 추정)</li>
+    </ul><p class="bq"><b>5</b> 그러므로 이제 만군의 여호와가 이같이 말하노니 너희는 너희의 행위를 살필지니라 <b>6</b> 너희가 많이 뿌릴지라도 수확이 적으며 먹을지라도 배부르지 못하며 마실지라도 흡족하지 못하며 입어도 따뜻하지 못하며 일꾼이 삯을 받아도 그것을 구멍 뚫어진 전대에 넣음이 되느니라 <span style="color:var(--muted);font-size:12px">(학 1:5–6, 개역개정)</span></p>
+
+    <p style="font-size:13.5px;margin:10px 0"><b>교수님의 적용 경고</b> [1of2 227–235]: 자연재해나 경제적 어려움을 <span class="say">“개인적인 하나님 앞에서의 불순종”</span> [1of2 228]에 대한 하나님의 직접적인 형벌로 <span class="say">“일반화시켜서는 조금 좀 어렵지 않을까”</span> [1of2 229] 생각한다고 합니다. 이것은 <span class="say">“자기 자신을 돌아보는 도구로 사용을 할 수가 있어요”</span> [1of2 230] — 내가 하나님 앞에서 얼마나 잘 살지 못했는가 돌아보는 계기로는 쓸 수 있지만, <span class="say">“다른 사람을 재단하고 평가하고 심판하는 도구로 삼아서는 안 된다”</span> [1of2 232]는 것입니다. 전쟁 중인 나라나 큰 재난을 당한 나라를 보며 ‘하나님을 믿지 않았기 때문’이라고 해석하는 것은 <span class="say">“지나친”</span> [1of2 234] 해석이고, <span class="say">“그렇게 일반화시켜서는 안 된다”</span> [1of2 235]고 합니다.</p>
+    <ul>
+      <li>1장 8절: 하나님은 <span class="say">“산에 올라가서 나무를 가져다가 성전을 건축하라”</span> [1of2 237]고 하십니다. 교수님은 근처 예루살렘 산의 나무를 말한다고 합니다. 솔로몬 성전은 백향목으로 지었고, 두로(자막 ‘둘·두루’ <span class="asr">[?]</span>)의 히람과 솔로몬이 조약을 맺고 좋은 백향목을 가져와 지었습니다. 그러나 이번엔 돈이 없다고 좋은 목재를 수입하려 하지 말고 <span class="say">“너가 가지고 있는 그 한계, 너가 가지고 있는 그 역량 속에서 작은 것을 가지고 그냥 순종을 하라”</span> [1of2 244]는 뜻이라고 합니다. [1of2 236–246]</li>
+      <li>하나님이 이런 명령을 하시는 이유는 하나님의 주거 공간이 부족해서가 아니라 <span class="say">“우리를 위한 것입니다”</span> [1of2 248]. 우리를 축복해 주시기 위한 것입니다. [1of2 247–249]</li>
+    </ul><p class="bq"><b>8</b> 너희는 산에 올라가서 나무를 가져다가 성전을 건축하라 그리하면 내가 그것으로 말미암아 기뻐하고 또 영광을 얻으리라 여호와가 말하였느니라 <span style="color:var(--muted);font-size:12px">(학 1:8, 개역개정)</span></p>
+    <h3>③ 1:12–15 — 순종과 성령의 감동 [1of2 250–267]</h3>
+    <ul>
+      <li>공동체가 하나님 앞에 순종합니다. 스룹바벨, 대제사장 여호수아, 남은 백성이 선지자 학개의 말을 듣고, 하나님이 그를 보내셨음을 믿고 경외함으로 순종했습니다. [1of2 250–255] <span class="asr">[?]</span> (자막 ‘스알들의 아들 수르벨’은 스알디엘의 아들 스룹바벨)</li>
+      <li>교수님은 <span class="say">“하나님의 말씀에 순종했다는 그 사실, 이게 복입니다”</span> [1of2 256]라고 말하고, 강단에서 말씀이 선포되는데도 ‘좋은 말씀이다, 감동스럽네, 은혜롭네’라고만 하며 <span class="say">“이것이 나에게 주시는 하나님의 말씀이라는 것을 이렇게 믿지를 못하고”</span> [1of2 258] 순종하지 못하고 흘려보내는 사람이 얼마나 많은지 모른다고 합니다. [1of2 256–259]</li>
+      <li>그랬더니 하나님이 학개를 통해 ‘내가 너희와 함께 하노라’ 하시고 남은 백성의 마음을 감동시키셔서 성전 공사를 재개하게 하셨습니다. [1of2 260–261] 교수님은 <span class="say">“여기서 성령의 역사가 나타나고 있어요”</span> [1of2 262]라고 하며, 하나님의 영이 남은 백성들의 마음을 감동하셨기 때문에 재건을 재개할 수 있었다고 합니다. [1of2 262–265]</li>
+      <li>결론: 회복의 원동력은 말씀에 대한 순종만이 아니라 <span class="say">“하나님의 임재와 성령의 역사 성령의 감동하심”</span> [1of2 266]이며, <span class="say">“인간적인 어떤 노력만 있어서 되는 것이 아니고 하나님의 영의 감동이 있어야 한다”</span> [1of2 267]는 것을 유다 백성을 통해 말씀해 주고 있다고 합니다. [1of2 266–267]</li>
+    </ul><p class="bq"><b>12</b> 스알디엘의 아들 스룹바벨과 여호사닥의 아들 대제사장 여호수아와 남은 모든 백성이 그들의 하나님 여호와의 목소리와 선지자 학개의 말을 들었으니 이는 그들의 하나님 여호와께서 그를 보내셨음이라 백성이 다 여호와를 경외하매 <b>13</b> 그 때에 여호와의 사자 학개가 여호와의 위임을 받아 백성에게 말하여 이르되 여호와가 말하노니 내가 너희와 함께 하노라 하니라 <b>14</b> 여호와께서 스알디엘의 아들 유다 총독 스룹바벨의 마음과 여호사닥의 아들 대제사장 여호수아의 마음과 남은 모든 백성의 마음을 감동시키시매 그들이 와서 만군의 여호와 그들의 하나님의 전 공사를 하였으니 <span style="color:var(--muted);font-size:12px">(학 1:12–14, 개역개정)</span></p>
+<div class="sup"><span class="tag">[보충]</span> 교수님은 2of2 33에서 1장 14절을 ‘여호수아의 마음과 남은 모든 백성들의 마음’을 감동시키셨다고 말하지만, 개역개정 학 1:14는 <b>스룹바벨의 마음</b>과 여호수아의 마음과 남은 모든 백성의 마음을 감동시키셨다고 적습니다. 1of2 254에서는 교수님이 12절에 스룹바벨을 포함해 읽었습니다.</div>
+  </div>
+</div>
+<!-- PART 2 -->
+<div class="part-div" id="part2"><span>2of2 · 둘째~넷째 신탁, 신학적 논쟁, 신학적 메시지</span></div>
+
+<div class="sec" id="o2">
+  <div class="sh"><span class="sb">학 III-2</span><span class="st">두 번째 신탁(2:1–9): 이 성전의 나중 영광이 더 크리라</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li><b>때:</b> 일곱째 달 21일은 <span class="say">“초막절 기간의 맨 마지막 날”</span> [2of2 2]에 해당하며, 예배를 드리는 가운데 마지막 날 말씀이 임했습니다. <span class="asr">[?]</span> (자막 ‘일곱째 딸’은 일곱째 달) [2of2 1–3]</li>
+      <li><b>백성의 실망:</b> 성전 재건을 시작했지만 실망감이 있었습니다. 3절: 이 성전의 이전 영광을 본 자가 누구냐, 이것이 보잘것없지 않으냐. [2of2 4–6] 솔로몬 성전 파괴 후 70년은 안 됐지만 <span class="say">“한 66년정도 지났기 때문에”</span> [2of2 7] 과거 성전을 기억하는 사람이 살아 있을 가능성이 있고, 에스라 3장 12–13절에서 성전 기초가 놓일 때 과거 성전을 기억하는 노인들이 울었다고 합니다. [2of2 7–8]</li>
+      <li>문제는 단순히 성전 규모가 작다는 것만은 아닐 것이라고 합니다. 과거 영광이 회복되지 않았다는 실망, 제한된 경제·정치 능력, 회복의 약속이 언제 이루어질지에 대한 의문 속에서 성전 지대가 너무 초라해 보였습니다. 그러면 하나님의 약속이 실패한 것인가라는 질문입니다. [2of2 9–16]</li>
+    </ul><p class="bq"><b>3</b> 너희 가운데에 남아 있는 자 중에서 이 성전의 이전 영광을 본 자가 누구냐 이제 이것이 너희에게 어떻게 보이느냐 이것이 너희 눈에 보잘것없지 아니하냐 <span style="color:var(--muted);font-size:12px">(학 2:3, 개역개정)</span></p><p class="bq"><b>12</b> 제사장들과 레위 사람들과 나이 많은 족장들은 첫 성전을 보았으므로 이제 이 성전의 기초가 놓임을 보고 대성통곡하였으나 여러 사람은 기쁨으로 크게 함성을 지르니 <span style="color:var(--muted);font-size:12px">(스 3:12, 개역개정)</span></p>
+    <h3>하나님의 격려 [2of2 17–36]</h3>    <ul>
+      <li>2:4–5: 하나님은 스룹바벨, 대제사장 여호수아, 이 땅 모든 백성을 각각 불러 <span class="say">“스스로 굳세게 할지어다”</span> [2of2 19] 하시고 반복해서 믿음을 가지고 나아가라고 격려합니다. [2of2 17–22]</li>
+      <li>굳세게 하라는 명령의 <b>근거 세 가지</b>: ① <span class="say">“내가 너희와 함께 하노라”</span> [2of2 23] — 임재의 약속이며 출애굽과 가나안 정복에서 나타난 임재 약속과 연결됨. [2of2 23–24] ② 출애굽 때 세운 <b>언약</b>이 지금도 효력을 가짐(<span class="say">“내가 너희와 언약한 말”</span> [2of2 25]) — 출애굽 때 바로와 애굽의 신들을 벌하시고 군대를 홍해에 수장시키며 이끌어내신 하나님이 지금 포로에서 돌아오게 하시는 역사 속에도 계신다. [2of2 25–31] ③ <span class="say">“나의 영이 계속하여 너희 가운데 머물러 있다”</span> [2of2 25] — 성령의 지속적인 임재. [2of2 32–33]</li>
+      <li>교수님은 1장 14절(성령의 감동 활동)과 2장 5절(영의 지속적 임재)의 강조점은 다르지만 <span class="say">“둘 다 성령의 역사를 이야기하고 있습니다”</span> [2of2 36]라고 정리합니다. [2of2 33–36]</li>
+    </ul><p class="bq"><b>4</b> 그러나 여호와가 이르노라 스룹바벨아 스스로 굳세게 할지어다 여호사닥의 아들 대제사장 여호수아야 스스로 굳세게 할지어다 여호와의 말이니라 이 땅 모든 백성아 스스로 굳세게 하여 일할지어다 내가 너희와 함께 하노라 만군의 여호와의 말이니라 <b>5</b> 너희가 애굽에서 나올 때에 내가 너희와 언약한 말과 나의 영이 계속하여 너희 가운데에 머물러 있나니 너희는 두려워하지 말지어다 <span style="color:var(--muted);font-size:12px">(학 2:4–5, 개역개정)</span></p>
+    <h3>장래 성전의 영광 [2of2 37–51]</h3>    <ul>
+      <li>6절: 하늘과 땅과 바다와 육지를 진동시키겠다. 교수님은 두 차원으로 봅니다: ① 역사적 차원 — 페르시아를 비롯한 열방 강국의 정치·경제 상황을 주관하여 통치하시겠다는 의미일 수 있다. ② 종말론적 차원 — 하나님이 궁극적으로 모든 나라를 흔드시고 자신의 영광과 통치를 온전히 드러내신다. [2of2 37–41]</li>
+      <li>7절의 ‘모든 나라의 보배가 이르리니’는 <span class="say">“좀 깊은 해석이 필요한 부분”</span> [2of2 43]이므로 나중에 신학적 논쟁 부분에서 다시 다룬다고 합니다. [2of2 42–43]</li>
+      <li>9절: <span class="say">“이 성전의 나중 영광이 이전 영광보다 크리라”</span> [2of2 44]. 지금의 모습이 초라해서 눈물 짓던 백성에게, 사실 지금 영광보다 이전 영광이 더 컸는데 그 이전 영광보다 더 큰 나중 영광을 약속하신 것입니다. 후반절 ‘내가 이곳에 평강을 주리라’는 평강(평화)의 약속입니다. [2of2 44–50]</li>
+      <li>교수님의 해석: 나중에 더 큰 영광은 건물의 크기나 외형적 조건만이 아니라 <span class="say">“하나님의 임재로 말미암아 나타나는 평강, 그리고 은혜”</span> [2of2 51]를 말한다고 볼 수 있습니다. [2of2 51]</li>
+    </ul><p class="bq"><b>6</b> 만군의 여호와가 이같이 말하노라 조금 있으면 내가 하늘과 땅과 바다와 육지를 진동시킬 것이요 <b>7</b> 또한 모든 나라를 진동시킬 것이며 모든 나라의 보배가 이르리니 내가 이 성전에 영광이 충만하게 하리라 만군의 여호와의 말이니라 <b>8</b> 은도 내 것이요 금도 내 것이니라 만군의 여호와의 말이니라 <b>9</b> 이 성전의 나중 영광이 이전 영광보다 크리라 만군의 여호와의 말이니라 내가 이 곳에 평강을 주리라 만군의 여호와의 말이니라 <span style="color:var(--muted);font-size:12px">(학 2:6–9, 개역개정)</span></p>
+    <div class="emph"><h3>⭐ 두 번째 신탁의 핵심적인 교훈 [2of2 52–54]</h3><p>교수님이 <span class="say">“핵심적인 교훈이 뭐냐”</span> [2of2 52]라고 물은 뒤 정리한 것: 하나님의 회복은 <span class="say">“현재의 눈에 보이는 어떤 가시적인 성과나 결과 이런 것들에 의해서만 평가될 수 있는 것이 아니고”</span> [2of2 54] 초라한 현실 속에서도 하나님이 함께 하시고 장차 이루실 더 큰 영광을 약속하시는 그 약속에 달려 있다는 것입니다.</p></div>
+  </div>
+</div>
+
+<div class="sec" id="o3">
+  <div class="sh"><span class="sb">학 III-3</span><span class="st">세 번째 신탁(2:10–19): 거룩은 전달되지 않고 부정은 전달된다</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>제사장에게 묻는 두 가지 질문 [2of2 55–67]</h3>    <ul>
+      <li>학개 2:10–14는 하나님이 제사장들에게 두 가지 질문을 하시는 말씀입니다. ① 거룩한 고기를 싼 옷자락이 다른 음식에 닿으면 그 음식이 거룩해지는가? — 제사장들의 대답은 ‘아니라’(12절). ② 시체로 인해 부정하게 된 사람이 다른 음식에 닿으면 그 음식도 부정해지는가? — ‘부정하리라’(13절). [2of2 56–60] 레위기·민수기의 정결 규례에서 나오는 질문입니다. [2of2 61]</li>
+      <li>교수님의 정리: <span class="say">“이 거룩함은 자동적으로 이렇게 접촉에 의해서 전달이 되지 않는다”</span> [2of2 64], 그러나 <span class="say">“부정함은 접촉에 의해서 전달이 될 수 있다”</span> [2of2 65]. 성전건축이나 제사 자체가 공동체의 거룩함을 보장하지 않는다는 뜻입니다. [2of2 62–67]</li>
+    </ul><p class="bq"><b>12</b> 사람이 옷자락에 거룩한 고기를 쌌는데 그 옷자락이 만일 떡에나 국에나 포도주에나 기름에나 다른 음식물에 닿았으면 그것이 성물이 되겠느냐 하라 학개가 물으매 제사장들이 대답하여 이르되 아니니라 하는지라 <b>13</b> 학개가 이르되 시체를 만져서 부정하여진 자가 만일 그것들 가운데 하나를 만지면 그것이 부정하겠느냐 하니 제사장들이 대답하여 이르되 부정하리라 하더라 <span style="color:var(--muted);font-size:12px">(학 2:12–13, 개역개정)</span></p>
+    <h3>14절의 적용 [2of2 68–83]</h3>    <ul>
+      <li>14절에서 학개는 이 원리를 백성에게 적용합니다: 이 백성, 이 나라, 그들의 손의 모든 일, 거기에서 드리는 것도 부정하다. [2of2 68–69] <span class="asr">[?]</span> (자막 69행 ‘그러부정하니라’는 ‘부정하니라’)</li>
+      <li><span class="say">“여기에서 핵심 메시지는”</span> [2of2 70] 성전을 건축하거나 제사를 드리는 외적인 종교 행위 때문에 공동체가 자동적으로 거룩해지는 것이 아니라는 것입니다. 하나님과의 관계가 올바르지 않다면 성전을 건축하든 종교 행위를 하든 하나님의 뜻에 합당하지 않을 수 있습니다. [2of2 70–71]</li>
+      <li>성전 재건을 명령하신 하나님이 왜 ‘너희 제사와 활동이 부정하다’고 하시는가? 교수님은 학개가 <span class="say">“성전 재건과 공동체 정결의 문제가 서로 분리될 수 없다는 사실을 강조하고 있어요”</span> [2of2 73]라고 설명합니다. 성전 재건은 건축 자체가 거룩함을 생산하기 때문이 아니라, <b>하나님께 대한 언약적 순종과 올바른 예배가 회복되어야 하기 때문</b>입니다. 건축한다고 자동적으로 순종과 예배가 회복되는 것이 아니고, 하나님과의 언약적 관계 속에서 바른 순종과 예배를 드릴 때 관계가 회복됩니다. [2of2 72–78]</li>
+      <li>교수님은 이스라엘 백성이 <span class="say">“지금 성전을 다 지었거든요”</span> [2of2 80] 하며 외적으로는 종교 행위를 했지만 내면적으로 <b>정결과 순종을 회복할 필요</b>가 있어서, 거룩·부정의 전달 예를 통해 ‘너희가 성전을 건축했지만 여전히 부정한 상태에 있다’고 말씀하신다고 설명합니다. [2of2 79–83]</li>
+    </ul><div class="sup"><span class="tag">[보충]</span> 2of2 80의 “성전을 다 지었거든요”는 구두상의 착오로 보입니다. 이 신탁(2:10–19)이 주어진 때는 공사를 재개한 뒤(1of2 95–98: 주전 520년 재개, 약 5년 뒤 완공)이고, 2:18은 ‘여호와의 성전 지대를 쌓던 날’을 말하므로 이때 성전은 아직 완공 전입니다.</div>
+    <p class="bq"><b>14</b> 이에 학개가 대답하여 이르되 여호와의 말씀에 내 앞에서 이 백성이 그러하고 이 나라가 그러하고 그들의 손의 모든 일도 그러하고 그들이 거기에서 드리는 것도 부정하니라 <span style="color:var(--muted);font-size:12px">(학 2:14, 개역개정)</span></p>
+    <h3>15–19절 — 과거의 징계를 돌아보고, 오늘부터 복을 받으라 [2of2 84–116]</h3>    <ul>
+      <li>15–17절: 돌이 돌 위에 놓이지 않았던 때, 곧 성전 재건 순종 이전을 기억하라는 것입니다. 그때는 <span class="say">“언약적인 그 저주”</span> [2of2 87], 징계가 있어 곡물 생산이 제대로 안 되고 농작물이 재앙으로 손상됐으며, 신명기의 언약적 저주가 유다 공동체에 있었습니다. 17절 ‘너희가 내게로 돌이키지 아니하였느니라’처럼 재앙에도 백성이 하나님께 돌아오지 않았습니다. [2of2 84–92]</li>
+      <li>아모스에서도 ‘너희가 돌아오지 않았다’는 말씀이 반복됩니다. 교수님은 <span class="say">“하나님의 징계는 그냥 형벌을 주기 위한, 그 형벌을 위한 형벌이 아니고”</span> [2of2 96] 백성이 자신의 상태를 깨닫고 하나님께 돌아오게 하기 위한 것이라고 말합니다. [2of2 93–97]</li>
+      <li>19절: <span class="say">“그러나 오늘부터는 내가 너희에게 복을 주리라”</span> [2of2 99] — 교수님은 <span class="say">“이게 지금 전환점”</span> [2of2 100]이라고 합니다. [2of2 98–101]</li>
+      <li>왜 지금 복을 주시는가? 교수님의 세 가지 설명(모두 ‘~생각이 됩니다’ 식으로 조심스럽게 말함): ① <b>불순종에서 순종으로 돌아섰기 때문</b>일 것이다(1:12–14의 성령 감동과 순종, 공사 재개). [2of2 103–105] ② 그러나 본문에는 이유가 나타나 있지 않아 <span class="say">“이건 전적인 하나님의 주권이고 그 이유를 모르는 거죠”</span> [2of2 107], 하나님의 은혜만이 공동체를 회복할 수 있는 근거이다. [2of2 105–109] ③ 좋아질 징조가 보이지 않는 가운데도 믿음으로 미래를 바라보며 살게 하시려고 복을 주신 것이 아닐까. [2of2 110]</li>
+      <li>19절 상반절은 아직 곡식 종자가 창고에 있고 포도·무화과·석류·감람나무에 열매가 맺지 못했다는 것입니다. 아직 풍성한 수확은 없지만 하나님은 장래의 축복을 약속하십니다. 이는 하나님이 새롭게 시작하시는 회복의 약속이고, 교수님은 <span class="say">“약속 회복을 약속하시는 그 자체가 축복이다 라는 것을 우리는 기억할 필요가 있다”</span> [2of2 116]고 말합니다. [2of2 111–116]</li>
+    </ul><p class="bq"><b>15</b> 이제 원하건대 너희는 오늘부터 이전 곧 여호와의 전에 돌이 돌 위에 놓이지 아니하였던 때를 기억하라 <b>17</b> 만군의 여호와가 말하노라 내가 너희 손으로 지은 모든 일에 곡식을 마르게 하는 재앙과 깜부기 재앙과 우박으로 쳤으나 너희가 내게로 돌이키지 아니하였느니라 <b>18</b> 너희는 오늘 이전을 기억하라 아홉째 달 이십사일 곧 여호와의 성전 지대를 쌓던 날부터 기억하여 보라 <b>19</b> 곡식 종자가 아직도 창고에 있느냐 포도나무, 무화과나무, 석류나무, 감람나무에 열매가 맺지 못하였느니라 그러나 오늘부터는 내가 너희에게 복을 주리라 <span style="color:var(--muted);font-size:12px">(학 2:15, 17–19, 개역개정)</span></p>
+  </div>
+</div>
+
+<div class="sec" id="o4">
+  <div class="sh"><span class="sb">학 III-4</span><span class="st">네 번째 신탁(2:20–23): 스룹바벨을 인장으로 삼으시리라</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>2:21–22: 스룹바벨에게 ‘내가 하늘과 땅을 진동시킬 것이요, 여러 왕국의 보좌를 엎고 여러 나라의 세력을 멸하며, 병거들과 그 탄 자를 엎드러뜨리리니 말과 그 탄 자가 각각 동료의 칼에 엎드러지리라’고 하십니다. 교수님은 이것이 출애굽 때 애굽 군대가 홍해에서 무너진 모습을 연상시킨다고 하며, <span class="say">“열방의 그 권능보다 높으시다”</span> [2of2 125]는 말씀이라고 합니다. [2of2 117–125]</li>
+      <li>2:23: <b>인장</b>. 고대 근동에서 인장·인장 반지는 왕의 권위와 공식적인 승인을 나타내는 상징입니다. 하나님이 스룹바벨을 인장으로 삼으시겠다는 것은 그를 <b>선택하고 권위를 부여</b>하셨다는 뜻입니다. [2of2 126–130]</li>
+      <li>예레미야 22장 24–30절과의 관련: 하나님은 한 왕(교수님은 여호야긴)에게 ‘네가 비록 내 손의 인장반지라 할지라도 빼어 내버리겠다’고 하셨는데, 이제 그의 후손 스룹바벨에게 ‘너를 인장으로 삼겠다’고 하십니다. [2of2 130–133] 하나님의 심판으로 다윗 왕조의 미래가 불투명해져 인장반지처럼 내버림을 받았는데 이제 새로운 구원의 길이 열릴 수 있다는 소망이며, <span class="say">“다윗 언약의 회복 소망으로 이 심판의 기억이 전환이 되고 있다”</span> [2of2 138]고 합니다. [2of2 134–138] <span class="asr">[?]</span> (자막 131행 ‘여호야긴 권위야’의 ‘권위야’는 렘 22:24 본문의 ‘고니야’로, 133행 ‘여호와 악인’은 ‘여호야긴’으로 읽힘)</li>
+    </ul><p class="bq"><b>21</b> 너는 유다 총독 스룹바벨에게 말하여 이르라 내가 하늘과 땅을 진동시킬 것이요 <b>22</b> 여러 왕국들의 보좌를 엎을 것이요 여러 나라의 세력을 멸할 것이요 그 병거들과 그 탄 자를 엎드러뜨리리니 말과 그 탄 자가 각각 그의 동료의 칼에 엎드러지리라 <b>23</b> 만군의 여호와가 말하노라 스알디엘의 아들 내 종 스룹바벨아 여호와가 말하노라 그 날에 내가 너를 세우고 너를 인장으로 삼으리니 이는 내가 너를 택하였음이니라 만군의 여호와의 말이니라 하시니라 <span style="color:var(--muted);font-size:12px">(학 2:21–23, 개역개정)</span></p><p class="bq"><b>24</b> 여호와의 말씀이니라 나의 삶으로 맹세하노니 유다 왕 여호야김의 아들 고니야가 나의 오른손의 인장반지라 할지라도 내가 빼어 <span style="color:var(--muted);font-size:12px">(렘 22:24, 개역개정)</span></p><div class="sup"><span class="tag">[보충]</span> 교수님은 예레미야 22:24–30의 인장반지 말씀을 ‘여호야긴’에게 한 것으로 말합니다(자막 131행 ‘여호야긴 권위야라는 왕’ — ‘권위야’는 ‘고니야’의 오인식으로 읽힘). 개역개정 렘 22:24는 이 말씀을 ‘유다 왕 여호야김의 아들 고니야’에게 한 것으로 적고 있어, 교수님의 ‘여호야긴’과 본문의 ‘고니야’가 같은 인물을 가리키는 것으로 보입니다(교수님이 이 대응을 직접 설명하지는 않음).</div>
+    <h3>스룹바벨은 메시야인가? [2of2 139–156]</h3>    <ul>
+      <li>학자들은 스룹바벨이 장차 올 메시아를 말하는지, 메시아적 왕권을 예표하는 인물인지 질문합니다. [2of2 139–140]</li>
+      <li>그러나 본문은 스룹바벨이 왕이라는 표현도, 하나님이 그를 왕으로 세우셨다는 말도 없이 단지 <span class="say">“인장으로 삼으시겠다”</span> [2of2 142]고 합니다. 교수님은 이것을 <span class="say">“거리감이 아주 조심스러운 표현”</span> [2of2 144]이라고 말합니다. 스룹바벨은 페르시아 통치하에서 온 유다 총독이고, 나중에 독립적인 다윗 왕국의 왕이 되었다는 기사가 전혀 나타나지 않습니다. [2of2 141–147]</li>
+      <li>그래서 <span class="say">“역사적인 의미와 미래적인 기대를 구별할 필요”</span> [2of2 148]가 있습니다: 스룹바벨 자체가 역사적으로 다윗 왕이라는 것은 아니지만, 그에 대한 약속은 다윗 왕조의 미래에 대한 기대를 담고 있고, 그것이 스룹바벨 당대에 성취되는 약속이 아니라 <span class="say">“먼 미래에 종말론적인 기대”</span> [2of2 151]를 표시하는 것이라고 볼 수 있습니다. [2of2 148–151]</li>
+      <li><b>네 번째 신탁의 핵심:</b> 학개서는 처음에 성전 재건이라는 구체적 과제로 시작했지만 마지막에는 <b>하나님의 우주적인 통치</b>를 다윗 왕조 회복을 통해 이루실 종말을 기대합니다. 성전 회복은 당시의 역사적 영광이 아니라 장차 이루어질 하나님 나라의 회복, 메시아 다윗을 통한 새로운 왕국의 수립과 관련됩니다. 이것이 학개서의 전체적인 말씀입니다. [2of2 152–157]</li>
+    </ul>
+  </div>
+</div>
+<div class="sec" id="debate">
+  <div class="sh"><span class="sb">학 IV</span><span class="st">신학적 논쟁점과 해석 문제</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>① 2:7 ‘모든 나라의 보배’란 무엇인가 — 세 가지 견해 [2of2 158–203]</h3>
+    <div class="tw"><table><thead><tr><th>견해</th><th>내용</th><th>교수님의 평가</th></tr></thead><tbody>
+    <tr><th>① 메시아적 해석</th><td>‘만국이 사모하는 것’이 올 것이다 → 결국 메시아. 전통적 기독교 해석에서 많이 채택. [2of2 160–162]</td><td><span class="say">“직접적으로 문법 자체가 그렇게 말하고 있지는 않아요”</span> [2of2 163]. 12선지서 전체와 학개서의 종말론으로 보면 ‘메시아가 아니겠느냐’고 해석하는 것이며 <span class="say">“완벽한 그런 증거가 있는 것은 아니다”</span> [2of2 166]. 그러나 정경적 신학으로는 그리스도를 말한다고 볼 수도 있지만 문법적으로 어려워 <b>2차적</b>으로 봐야 한다. [2of2 163–166, 201–203]</td></tr>
+    <tr><th>② 문자 그대로 재물·보화</th><td>모든 나라의 귀중한 재물이 성전으로 들어와 성전의 영광이 충만하게 된다. 바로 다음 절 8절 ‘은도 내 것이요 금도 내 것이니라’와 연결(자막 ‘돈 내 것이요’는 ‘은도 내 것이요’ <span class="asr">[?]</span>). [2of2 167–171]</td><td>8절을 고려하면 <span class="say">“아주 자연스러운 그러한 해석”</span> [2of2 171]. 이사야 60장에서 열방이 보물을 가지고 시온 예루살렘으로 오는 것과 일맥상통하며 <span class="say">“이 해석이 나쁘지는 않습니다”</span> [2of2 196]. [2of2 194–197]</td></tr>
+    <tr><th>③ 최근의 번역: 열국이 보배(사모하는 곳)로 나온다</th><td>히브리어 동사가 복수형(‘그들이 올 것이다’)이어서 단수 인물이 올 것이라는 해석에는 문법상 어려움이 있고, 주어를 ‘보배’가 아닌 ‘모든 나라’로 보면 복수 동사와 일치함. ‘모든 나라가 사모하는 곳으로 나오리니’, 곧 열국이 새로 지어진 성전으로 찾아온다. [2of2 172–188]</td><td><span class="say">“새로운 해석인데 아주 매력적인 그러한 해석”</span> [2of2 189]. 사모하는 것은 메시아가 아니라 성전이며, 성전은 궁극적으로 그리스도이므로 <span class="say">“결국에 그리스도에게로 나온다”</span> [2of2 200]고 해석할 수 있다. [2of2 189–191, 199–200]</td></tr>
+    </tbody></table></div>
+    <p style="font-size:13.5px;margin:10px 0"><b>이 논쟁에 대한 교수님의 입장</b> [2of2 192–193, 201–203]: <span class="say">“저는 두 번째와 세 번째가 적당한 해석이라고 봅니다”</span> [2of2 192]. <span class="say">“두 번째와 세 번째가 다 가능한 그런 해석”</span> [2of2 193]이고, 첫 번째(메시아적 인물)는 <span class="say">“완전히 그런 것은 아니라고”</span> [2of2 201] 봅니다.</p>
+<p class="bq"><b>7</b> 또한 모든 나라를 진동시킬 것이며 모든 나라의 보배가 이르리니 내가 이 성전에 영광이 충만하게 하리라 만군의 여호와의 말이니라 <b>8</b> 은도 내 것이요 금도 내 것이니라 만군의 여호와의 말이니라 <span style="color:var(--muted);font-size:12px">(학 2:7–8, 개역개정)</span></p>
+    <p style="font-size:12.5px;color:var(--muted)"><span class="asr">[?]</span> 2of2 173–183의 히브리어 표기(‘콜하고 임’, ‘부보다’, ‘우바우’ 등)는 자막이 뭉개져 정확한 철자를 확정할 수 없어 옮기지 않았습니다. ‘삼호가’(162)는 ‘사모하는 것’으로, ‘한국이 사모하는’(198)은 162행의 ‘만국이 사모하는’(만국이 사모하는 것)에 맞춰 ‘만국이 사모하는’으로 읽힙니다.</p>
+    <h3 style="margin-top:12px">② ‘나중 영광이 이전 영광보다 크리라’는 언제 성취되는가 [2of2 204–219]</h3>    <ul>
+      <li>질문: 역사적으로 스룹바벨 성전이 영광스럽게 회복된다는 말인가, 메시아적으로 그리스도에게서 성취되는가, 종말론적으로 흔들리지 않는 나라가 세워짐으로 성취되는가. 교수님은 두 번째·세 번째는 거의 같은 해석이라고 봅니다. [2of2 204–208]</li>
+      <li>히브리서(자막 ‘11장 26–28절’ <span class="asr">[?]</span>)는 학개 2:6의 ‘내가 하늘과 땅과 바다와 육지를 진동시킬 것이다’를 인용하면서 <b>흔들리지 않는 나라</b>가 도래할 것이라 말합니다. 이 땅의 왕국들은 다 흔들리고 멸망하겠지만 견고하고 영원한 하나님의 나라가 심겨질 것이라는 해석입니다. [2of2 209–214]</li>
+      <li>교수님의 입장: 이 말씀이 <b>역사적 성전 재건을 출발점</b>으로 삼고 있음은 인정하지만, 약속의 성취는 가까운 미래라기보다 <span class="say">“그리스도 안에서 성취가 되고, 그리고 궁극적으로 종말론적으로 하나님 나라의 완성을 통해서 성취가 되는 어떤 다층적인 구조”</span> [2of2 216]를 가진다고 봅니다. [2of2 215–217]</li>
+      <li>‘나중 영광이 이전 영광보다 크리라’는 ‘내가 이곳에 평강을 주리라’와 평행법으로 나타나므로 <span class="say">“성전의 영광의 궁극적인 목적은 샬롬이다, 평안이다”</span> [2of2 219]라고 볼 수 있습니다. [2of2 217–219]</li>
+    </ul><p class="bq"><b>26</b> 그 때에는 그 소리가 땅을 진동하였거니와 이제는 약속하여 이르시되 내가 또 한 번 땅만 아니라 하늘도 진동하리라 하셨느니라 <b>27</b> 이 또 한 번이라 하심은 진동하지 아니하는 것을 영존하게 하기 위하여 진동할 것들 곧 만드신 것들이 변동될 것을 나타내심이라 <b>28</b> 그러므로 우리가 흔들리지 않는 나라를 받았은즉 은혜를 받자 이로 말미암아 경건함과 두려움으로 하나님을 기쁘시게 섬길지니 <span style="color:var(--muted);font-size:12px">(히 12:26–28, 개역개정)</span></p><div class="sup"><span class="tag">[보충]</span> 교수님은 2of2 209에서 이 인용 본문을 ‘히브리서 11장 26절부터 28절’이라고 말하는데(자막), 학개 2:6을 인용하며 ‘흔들리지 않는 나라’를 말하는 본문은 개역개정 <b>히브리서 12:26–28</b>입니다. 자막 표기 오류 또는 착오로 보이며 본문은 12장으로 적었습니다.</div>
+    <h3>③ 성전 재건과 경제적 축복의 관계 [2of2 220–238]</h3>    <ul>
+      <li>질문: 첫 신탁에서 경제적 곤란과 자연재해가 우선순위를 잘못 둔 데 대한 징계·경고였다면, 반대로 성전을 재건하고 순종하면 경제적 축복이 바로 따라오는가? [2of2 221–226]</li>
+      <li>언약적 관점에서는 신명기 28장의 축복과 저주가 이루어진다고 보지만 <span class="say">“일반적인 번영원리로 확대를 한다면 안 된다”</span> [2of2 230]고 합니다. 순종·거룩·언약 관계 회복이 하나님의 축복의 기초가 되기는 하지만 자동적으로 경제적 축복을 가져오는 것은 아니며, <span class="say">“우리가 기대하는 그 시간에, 우리가 기대하는 방식으로 그런 그 축복이 임하지는 않는다”</span> [2of2 234]고 합니다. 그렇게 자동적으로 이루어진다고 하면 <span class="say">“위험하다”</span> [2of2 237]는 것입니다. [2of2 227–237]</li>
+      <li>결론: <span class="say">“성전재건'의 목적은 하나님과 언약공동체의 관계 회복에 있다”</span> [2of2 238]</li>
+    </ul>
+    <h3>④ 성전 재건에 순종한 공동체가 왜 여전히 부정한가? [2of2 239–245]</h3>    <ul>
+      <li>성전 재건에 순종했다고 해서 그것 자체가 백성 안에 진실한 회개와 정결·거룩을 만들어내지는 않습니다. 성전을 재건한 순종 이후에도 공동체를 정결하게 하기 위한 헌신과 순종이 추가로 필요하다는 것을 말씀하기 위해 하나님이 세 번째 신탁을 주셨다고 합니다. [2of2 241–245]</li>
+    </ul>
+    <h3>⑤ 스룹바벨은 다윗 왕인가, 다윗 왕에 대한 상징인가? [2of2 246–257]</h3>
+    <div class="tw"><table><thead><tr><th>관점</th><th>내용</th></tr></thead><tbody>
+    <tr><th>정치적</th><td>스룹바벨을 통해 실제 다윗 왕국이 회복된다는 기대. 당시 누군가는 그렇게 기대했을 것이고, 최소한 <b>예수님 당시의 유대인들까지</b> 그렇게 생각한 사람들이 있었음. 페르시아나 그 뒤의 로마에 대해 독립하여 새 다윗 왕국을 세울 가능성을 꿈꾼 사람들이 있었다. [2of2 247–251]</td></tr>
+    <tr><th>종말론적</th><td>장차 이루어질 다윗 왕조의 회복을 상징. [2of2 252–253]</td></tr>
+    <tr><th>정경적·메시아적</th><td>스룹바벨에 관한 해석은 궁극적으로 메시아 왕권을 통해 이루어진다. [2of2 253–254]</td></tr>
+    </tbody></table></div>
+    <p style="font-size:13.5px;margin-top:8px">교수님: 두 번째와 세 번째는 <span class="say">“거의 유사하고 같은 관점으로도 볼 수 있습니다”</span> [2of2 255]. 본문의 핵심은 스룹바벨이 군사력이나 물리적 혁명으로 나라를 전복하고 다윗 왕국을 세우려는 것이 아니라, <span class="say">“하나님께서 스룹바벨을 택하시고 그를 통해서 하나님의 일을 이루시기를 원하시는 그 하나님의 주권”</span> [2of2 257]을 표현한다는 것입니다. [2of2 255–257]</p>
+  </div>
+</div>
+
+<div class="sec" id="theo">
+  <div class="sh"><span class="sb">학 V</span><span class="st">학개서의 신학적 메시지와 정경적 연결</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>신학적 메시지 다섯 가지 [2of2 258–283]</h3>    <ul>
+      <li><b>① 성전의 재건과 언약의 회복</b> — 성전은 하나님의 임재의 표시이고 함께 하신다는 약속. 출애굽 언약·시내산 언약의 연속선상에서 성취되며, 올바른 예배와 공동체의 회복이 긴밀히 관련되고, 장차 이루어질 하나님 나라의 영광을 나타냅니다. [2of2 259–262]</li>
+      <li><b>② 성령</b> — 회복의 주체는 하나님의 영. 성령은 임재의 통로이며 임재하시는 하나님이시고 회복하고 은혜 주시는 하나님입니다. 1장 14절(남은 백성의 마음을 감동시키심)과 2장 5절(나의 영이 계속하여 머물러 있다)로 하나님의 영이 백성 가운데 임재하고 역사하심을 말합니다. [2of2 263–267]</li>
+      <li><b>③ 거룩함</b> — 학개서는 성전건축 자체가 사람을 거룩하게 한다고 말하지 않습니다. 하나님이 주시는 축복과 은혜는 외적 종교 행위로 자동 획득할 수 없고, 교수님은 <span class="say">“우리가 순종하는 자체가 하나님 앞에 드리는 그 예배지 제사지”</span> [2of2 270]라고 말하면서, 그것 자체가 하나님께서 뭔가를 우리에게 해 주셔야 하는 <span class="say">“강요할 수 있는 그런 도구는 아니다”</span> [2of2 270]라고 합니다. [2of2 268–270] <span class="asr">[?]</span> 자막 270행은 문장이 얽혀 있어 뜻이 불분명합니다.</li>
+      <li><b>④ 다윗 언약과 하나님 나라의 소망</b> — 마지막 신탁이 다윗의 후손 스룹바벨을 향하므로 다윗 언약의 회복 약속과 관련되고, 다윗 왕조가 미래에 회복되기를 고대하는 것과 연결됩니다. [2of2 271–273]</li>
+      <li><b>⑤ 포로 후 선지서들과의 연결</b> — 학개·스가랴·말라기는 서로 긴밀하게 연결됩니다. 학개가 성전 건축을 통한 재건을 말하면 스가랴(자막 ‘이 시간’)에서도 성전 건축에 대한 같은 관심이 나타나고, 더 나아가 성전 건축 이후 일어날 회복의 전망이 있습니다. 말라기는 회복을 위해 현재적 삶 속의 <b>신실성</b>을 요구합니다. [2of2 274–279] 메시지 대비: 학개 — <span class="say">“성전을 건축하라”</span> [2of2 280], 스가랴 — <span class="say">“내게로 돌아오라”</span> [2of2 281], 말라기 — 돌아오라 <span class="asr">[?]</span>(자막 ‘4개로 돌아오라’). 스가랴는 메시야에 대한 소망을 말하며 메시야 왕국이 회복되고 메시야가 큰 속죄를 이루게 될 것이라고 말합니다. [2of2 280–283]</li>
+    </ul>
+    <h3>이미와 아직 [2of2 284–287]</h3>    <ul>
+      <li>학개를 통해 알 수 있는 것: 포로 이후에 회복을 시작하기는 했지만 <span class="say">“그것 자체가 완성은 아니다”</span> [2of2 285]. <span class="say">“이미 시작은 했지만 완성되기까지는 시간이 걸리고 아직 이루어지지 않은”</span> [2of2 286] 것이어서 <span class="say">“이미 와 아직 사이에 긴장을 이루고 있다”</span> [2of2 287]고 합니다.</li>
+    </ul>
+    <div class="emph"><h3>⭐ 학개서가 가르치는 세 가지 핵심적인 교훈 [2of2 288–296]</h3>
+      <ol>
+        <li><b>우선순위를 회복하라</b> — 1장. 하나님을 향한, 하나님의 나라를 향한, 하나님의 이름과 영광을 위한 <span class="say">“공적인 그러한 어떤 우선순위”</span> [2of2 290]. <span class="say">“혼자서만 잘살려고 하지 말고”</span> [2of2 291] 회복하라. [2of2 289–291]</li>
+        <li><b>하나님의 임재와 정결을 회복하라</b> — 참된 회복은 성전을 짓거나 외적인 제도를 만드는 것이 아니라 <span class="say">“하나님께서 함께 하신다는 그 임마누엘 임재, 그리고 그 임재를 통한 거룩함을 회복하는 것”</span> [2of2 293]입니다. [2of2 292–293]</li>
+        <li><b>하나님 나라에 관한 종말론적 소망</b> — <span class="say">“역사적인 회복이 최종적인 완성은 아니다”</span> [2of2 294]. 하나님의 약속은 다윗 왕조를 회복하고 하나님의 보편적인 통치를 향해 궁극적으로 나아갑니다. [2of2 294–296]</li>
+      </ol></div>
+    <div class="emph"><h3>⭐ 교수님이 내준 묵상 질문 세 가지 [2of2 296–301]</h3>
+      <p>교수님은 <span class="say">“한번 묵상을 해 보시기 바랍니다”</span> [2of2 296]라며 다음 질문을 냈고, <span class="say">“한번 묵상을 하시고 정리를 하시면 도움이 될 것 같습니다”</span> [2of2 301]라고 말합니다.</p>
+      <ol>
+        <li><span class="say">“성전 재건이 왜 언약 회복의 중심 과제였는가”</span> [2of2 297]?</li>
+        <li>2장 9절에서 ‘나중 영광이 이전 영광보다 크리라’고 했을 때 <span class="say">“이 약속은 어떤 방식으로 성취가 되는가”</span> [2of2 299]?</li>
+        <li>2장 23절에서 스룹바벨을 인장이라 했는데 <span class="say">“이것은 다윗 언약과 어떻게 연결이 되는가”</span> [2of2 300]?</li>
+      </ol>
+      <p>참고문헌은 <span class="say">“여러 가지 있으니까 여러분들이 참조 하시기를 바랍니다”</span> [2of2 302]라고 하며 서지는 말하지 않았습니다.</p></div>
+  </div>
+</div>
+<div class="verify" id="check">
+  <h3>자막 오인식 교정 [?] 및 교수 발언 [보충]</h3>
+  <p><b>[?] 자막 오인식 교정</b> (문맥 근거. 확정이 아니면 표기 그대로 둠): 전체 ‘학계/학예서/학교/학회’→학개(서) · 1of2 20 ‘호 열라면 미’, ‘열 아홉 윤리나 학습, 학습, 학습, 말’, 24 ‘호 열 아홉 연민’→12선지서 이름 나열이 뭉개져 확정 불가 · 1of2 22·34 ‘합계’→학개 · 1of2 27 ‘이사야 1장부터 39장까지 포로 뭡니까?’→불명 · 1of2 29 ‘허세 하에서’→호세아에서, ‘언약 기술’→언약 기소 · 1of2 34 ‘나음, 스바냐, 하박국, 스바냐’→나훔·하박국·스바냐로 읽힘 · 1of2 59 ‘하가이/하갈이 하가하가’→하가이(히브리 발음) · 1of2 76 ‘케슬러’→학자 이름 철자 미확인 · 1of2 76·155 ‘달이 오왕/요왕 2년’→다리오 왕 2년 · 1of2 91 ‘5306년경’→숫자 불명 · 1of2 95 ‘5020년’→520(79·96행) · 1of2 98 ‘5406년 혹은 15년’, 99 ‘530 586년’·‘5105년’→숫자 불명 · 1of2 99 ‘다 리오왕 6년’→다리오 왕 6년 · 1of2 102–106 ‘예후드/예후도/예후’→표기 그대로 · 1of2 127 ‘귀한 공동체가’→귀환 공동체가 · 1of2 137 ‘수료 바벨’, 143 ‘스루바벨’, 2of2 140 ‘수료 바벨’, 147·256 ‘스루바벨’, 249 ‘스루 바벨’→스룹바벨 · 1of2 254 ‘스알들의 아들 수르벨’→스알디엘의 아들 스룹바벨 · 2of2 19 ‘여우 사닥’→여호사닥 · 1of2 225 ‘엘소에’→요엘서에(추정) · 1of2 240–241 ‘둘의 백향목’·‘두루’·‘둘의 히람’→두로의 백향목·두로·두로의 히람(추정) · 2of2 2 ‘일곱째 딸’→일곱째 달 · 2of2 69 ‘그러부정하니라’→부정하니라 · 2of2 91 ‘우방으로 첫 우박으로’→우박으로 · 2of2 116 ‘이미 누리고 있는 손가락이 보다도’→불명 · 2of2 118 ‘유다총 족’→유다 총독 · 2of2 131 ‘권위야’→고니야(렘 22:24), 133 ‘여호와 악인’→여호야긴 · 2of2 162 ‘삼호가’→사모하는 것으로 읽힘, 173–183 히브리어 표기→확정 불가 · 2of2 198 ‘한국이 사모하는’→162행 ‘만국이 사모하는’에 맞춰 만국이 사모하는 · 2of2 209–211 ‘히브리서. 11장 26절부터 28절’, ‘히브리서 가하께서 2장 6절’, ‘돌의 나라’→히브리서 12:26–28, 학개 2:6, 흔들리지 않는 나라로 읽힘(아래 보충 참조) · 2of2 270 문장이 얽혀 뜻 불분명 · 2of2 275·277 ‘이 시간 에서는’→스가랴서, ‘말라기 에서는’ · 2of2 282 ‘4개로 돌아오라’→내게로 돌아오라</p>
+  <p><b>[보충] 교수 발언과 성경 본문·앞뒤 발언의 차이</b></p>
+  <ul>
+    <li><b>‘굳세게 할지어다’의 신탁 위치:</b> 교수님은 1of2 169에서 세 번째 신탁에 나타난다고 하지만 학 2:4는 2:1–9(둘째 신탁)에 속하고 교수님도 2of2 17–19에서 같은 본문을 둘째 신탁으로 다룹니다. 이 정리에서는 둘째 신탁으로 적었습니다.</li>
+    <li><b>학 1:14의 대상:</b> 교수님은 2of2 33에서 ‘여호수아의 마음과 남은 모든 백성들의 마음’이라고 하지만 개역개정 학 1:14는 스룹바벨의 마음도 포함합니다.</li>
+    <li><b>히브리서 본문 위치:</b> 교수님(자막)은 ‘히브리서 11장 26–28절’이라고 하나, 학개 2:6을 인용하며 ‘흔들리지 않는 나라’를 말하는 구절은 히브리서 12:26–28입니다.</li>
+    <li><b>예레미야 22:24의 인물 표기:</b> 교수님은 ‘여호야긴’이라 부르고 개역개정 렘 22:24는 ‘여호야김의 아들 고니야’로 적습니다(자막 ‘권위야’는 ‘고니야’의 오인식으로 읽힘).</li>
+    <li><b>‘성전을 다 지었거든요’(2of2 80):</b> 셋째 신탁(2:10–19) 때 성전은 아직 완공 전인데(1of2 95–98 재개·약 5년 뒤 완공, 학 2:18 ‘성전 지대를 쌓던 날’) 교수님이 ‘지금 성전을 다 지었거든요’라고 말한 구두상의 착오로 보입니다.</li>
+    <li><b>날짜:</b> 교수님이 말한 ‘6월 1일부터 24일, 7월 21일, 9월 24일’(1of2 155–156)은 개역개정의 학 1:1(여섯째 달 초하루), 1:15(여섯째 달 이십사일), 2:1(일곱째 달 이십일일), 2:10·2:20(아홉째 달 이십사일)과 맞습니다.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 신학대학원 2026학년도 2학기 예언문학연구입문 · 담당 오성호 교수<br>
+  강의 녹취(1of2·2of2) 바탕 정리
+</div>
+
+</div>
+
+</body>
+</html>
