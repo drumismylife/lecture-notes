@@ -688,7 +688,9 @@ const SITE_DATA = {
             { type: "notes", label: "강의노트 (8강)", href: "output/2026-2/evan/week11_lec8.html" },
             { type: "notes", label: "강의노트 (13강)", href: "output/2026-2/evan/week11_lec13.html" }
           ] },
-            { week: 12, title: "", date: "", files: [] },
+            { week: 12, title: "전도의 3단계 (3) — 타이밍을 보아 권면 / 복음전도의 모델 ① 콜먼의 8원리", date: "2026.11.19", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week12.html" }
+          ] },
             { week: 13, title: "", date: "", files: [] },
             { week: 14, title: "", date: "", files: [] },
             { week: 15, title: "", date: "", files: [] }
