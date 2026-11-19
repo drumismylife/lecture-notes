@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전도학개론 12주차 — 전도의 3단계 (3): 타이밍을 보아 권면 · 복음전도의 모델 ① 콜먼의 8원리</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1109; --card:#241811; --subcard:#2e2016; --accent:#e08a4a; --accent2:#f0b888;
+  --bible:#f0b888; --exam:#c96b5a; --exam-bg:#2d1a16; --green:#7ab87a; --gold:#c49a3c;
+  --teal:#c49a3c; --text:#f0ebe4; --text2:#aa9a8a; --border:#3a2a1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#140d06,#1e140c 60%,#2c1c10)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--text2);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--text2)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--accent);background:var(--subcard)}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#1a1109;background:var(--accent);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--text2);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--text2);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--text2);padding:7px 10px;background:var(--subcard)}
+th,td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--accent2);font-size:12.5px}
+tbody th{background:#231508;color:var(--text2);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(224,138,74,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(196,154,60,.15);color:var(--teal);border:1px solid rgba(196,154,60,.4)}
+.b-add{background:rgba(224,138,74,.15);color:var(--accent2);border:1px solid rgba(224,138,74,.4)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.1),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--text2)}
+.emph b{color:var(--text)}
+
+.sup{overflow-wrap:anywhere;background:rgba(196,154,60,.07);border:1px dashed rgba(196,154,60,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--text2)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq{color:var(--bible);font-style:italic}
+.loc{font-size:11px;color:var(--text2);margin-left:2px}
+.tq{color:var(--accent2)}
+.asr{color:var(--text2);border-bottom:1px dotted var(--text2);font-size:12.5px}
+
+.story{background:var(--subcard);border:1px solid var(--border);border-radius:10px;padding:13px 16px;margin:9px 0}
+.story h3{color:var(--accent2);font-size:13px;margin-bottom:6px}
+.story p{font-size:13px;color:var(--text2);margin:4px 0}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--text2)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--text2);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+<div class="wrap">
+<div class="hdr">
+  <div class="eye">전도학개론 · 12주차(2026.11.19) · 2026학년도 2학기</div>
+  <h1>전도의 3단계 (3) — Ⅲ. 타이밍을 보아 권면 / 복음전도의 모델 ① 로버트 콜먼의 8원리</h1>
+  <div class="prof">담당 김완 교수 · 7강 슬라이드 7·9·10·15·16(복습), 32~33, 35~40 · 9강 슬라이드 5~24</div>
+</div>
+
+<div class="intro">
+  수업은 <b>전도의 3단계 복습(기말 예고 포함) → Ⅱ 사랑의 섬김 → Ⅲ 타이밍을 보아 권면(7강 마무리) → 9강 콜먼의 8원리 → 블랙가비 소개(다음 주에 이어짐)</b> 순이었습니다. 앞부분은 10주차 노트와 겹쳐 짧게 줄였습니다. 교수 발언·슬라이드와 본문의 차이는 <span class="b-sup bdg">보충</span>, 음성인식 교정은 <span class="asr">[ASR 교정]</span>, 확신 없는 부분은 [?]로 표시했습니다. 괄호 속 숫자(녹취 N)는 녹취 파일의 글자 위치입니다(전체 29,904자).
+</div>
+
+<div class="toc">
+  <a href="#exam-box">📝 시험·기말·강조</a>
+  <a href="#recap">1. 3단계 복습</a>
+  <a href="#love">2. Ⅱ 사랑의 섬김</a>
+  <a href="#timing">3. Ⅲ 타이밍을 보아 권면</a>
+  <a href="#coleman">4. 콜먼의 8원리</a>
+  <a href="#disciple">5. 제자 삼기</a>
+  <a href="#blackaby">6. 블랙가비</a>
+  <a href="#sup">7. 보충</a>
+</div>
+
+<div class="sec" id="exam-box">
+  <div class="emph">
+    <h3>📝 시험에 나온다고 직접 말한 것 (3)</h3>
+    <ul>
+      <li><b>① 전도의 3단계 — 시험에 나옵니다.</b> 세 이름을 그대로 쓰면 되고, 빈칸으로 비워 낼 것처럼 말했습니다 [?]. 세 이름: <b>전략적 중보기도 / 사랑의 섬김 / 타이밍을 보아 권면</b>. 이어서 전략적 중보기도의 세 갈래(구체적 기도 · 합심기도(삼겹줄) · 영적 전쟁)도 같이 외웠습니다(시험 언급은 3단계에만 붙음).<br><span class="tq">“제가 요것도 시험은 전도의 3단계입니다”</span> <span class="loc">(녹취 800)</span> · <span class="tq">“쓰세요 하고 그냥 다 비울 겁니다 그대로 쓰시면 돼요”</span> <span class="loc">(녹취 872)</span> · <span class="tq">“첫 번째가 구체적 기도죠”</span> <span class="loc">(녹취 968)</span></li>
+      <li><b>② 전도서 4:11-12 — 기말고사 시험 문제.</b> 함께 소리 내어 읽었습니다(본문은 §3 끝).<br><span class="tq">“4장 11절 12절 기말고사 시험 문제인데요”</span> <span class="loc">(녹취 14868)</span> · <span class="tq">“아무도 못 외우는데”</span> <span class="loc">(녹취 14936)</span></li>
+      <li><b>③ 기말 1번 = 복음 전하기 3명</b>(10주차에 안내한 내용의 재확인). 전도 대상자를 정해 정해진 시간에 조별로 기도했는지 묻고, 안 했다면 회개하고 다시 시작하라고 했습니다. ‘이름 적는 것’은 녹취가 깨져 확신 없음 [?].<br><span class="tq">“기말고사 1번 시험 문제가 뭔지 아십니까 혹시 3명을 했는가 이름 적는 것이가”</span> <span class="loc">(녹취 580)</span> · <span class="tq">“회개하고 다시 시작하면 되는 것이죠”</span> <span class="loc">(녹취 722)</span></li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>📅 기말고사·마지막 수업 안내</h3>
+    <ul>
+      <li><b>기말고사는 12월 10일입니다.</b> (수강생 확인) 녹취 앞부분은 깨져 있지만, 아래 인용이 그 근거입니다.</li>
+      <li>수업 순서: 오늘 → 다음 주 수업 → 다다음 주 기말고사라고 말한 뒤, 마지막 수업이 다음 주인지 되묻고 ‘다다다음 주’라고 고쳐 말했습니다. 이어 ‘3일’을 두 번 확인했습니다(‘3일 날 끝납니다’는 수업이 끝나는 날을 말한 것으로 보이나 [?], 기말고사 날짜는 위 12월 10일을 따릅니다).<br><span class="tq">“오늘하고 다음 주 수업하고 다다음 주가 기말고사죠”</span> <span class="loc">(녹취 119)</span> · <span class="tq">“다다다음 주군요”</span> <span class="loc">(녹취 190)</span> · <span class="tq">“3일 날 끝나지 않습니까”</span> <span class="loc">(녹취 233)</span> · <span class="tq">“그래서 3일 날 끝납니다”</span> <span class="loc">(녹취 318)</span></li>
+      <li>12월 둘째 주는 LMS 대체 수업이라고 했습니다. 교수는 시험 보는 날을 되묻다가 헷갈려 하며 날짜를 다시 확인했고, 그 끝에 ‘12월 10일’이 나옵니다(문장은 깨져 있음).<br><span class="tq">“둘째 주는 그냥 LMS 대체입니다”</span> <span class="loc">(녹취 298)</span> · <span class="tq">“12월 둘째 주 수업을 대부분 LM에서 대체라서”</span> <span class="loc">(녹취 366)</span> · <span class="tq">“시험을 저희가 보는 거예요”</span> <span class="loc">(녹취 397)</span> · <span class="tq">“다시 한번 제가 틀렸을 수도 있어요”</span> <span class="loc">(녹취 461)</span> · <span class="tq">“10일날 조 시험을 10일 날 보고 12월 10일 날”</span> <span class="loc">(녹취 496)</span></li>
+      <li>시험 범위·형식에 대한 별도 말씀은 오늘 녹취에 없습니다(위 ①~③과 3명 전도가 전부).</li>
+    </ul>
+  </div>
+  <div class="emph">
+    <h3>⭐ 교수가 시험이라고는 안 했지만 ‘꼭 기억·중요·추천’이라고 강조한 것</h3>
+    <ul>
+      <li>전도 = 제자가 되기까지 이끄는 것. <span class="tq">“제자가 되기까지 이끄는 것이 전도다”</span> <span class="loc">(녹취 2581)</span></li>
+      <li>사랑의 섬김(관계의 다리)은 시간 낭비가 아니며 그것도 중요한 전도. <span class="tq">“그것이 절대로 낭비가 아니라는 걸 기억하십시오”</span> <span class="loc">(녹취 9544)</span> · <span class="tq">“그것도 중요한 전도라는 것을 기억하십시오”</span> <span class="loc">(녹취 9571)</span></li>
+      <li>기도와 섬김은 둘 다 필요(한쪽만 하면 균형이 깨짐). <span class="tq">“여러분 둘 다가 중요한데”</span> <span class="loc">(녹취 9595)</span></li>
+      <li>전도성경공부를 반드시 만들 것. <span class="tq">“제가 진짜 목이 터져라 하고 주장하는 것이에요”</span> <span class="loc">(녹취 10735)</span></li>
+      <li>삶으로만 하는 전도는 없다. <span class="tq">“삶으로 전도한다는 건 새빨간 거짓말”</span> <span class="loc">(녹취 11456)</span></li>
+      <li>가장 중요한 전제는 성령의 인도하심(3단계보다 우선). <span class="tq">“가장 중요한 전제는 성령 하나님의 인도하심을 쫓아가는 것입니다”</span> <span class="loc">(녹취 14155)</span></li>
+      <li>콜먼은 감리교인(에즈버리)이면서 침례교 흔적이 있다는 것, 개정판의 로이 피시 공부 지침을 기억할 것. <span class="tq">“로보트 만이 친리교인이었다는 것을 꼭 기억해 주십시오”</span> <span class="loc">(녹취 15767)</span> <span class="asr">[ASR 교정: 로보트 만이 친리교인→로버트 콜먼은 감리교인]</span> · <span class="tq">“레슨은 꼭 기억을 해주십시오”</span> <span class="loc">(녹취 16803)</span> · <span class="tq">“침례교의 흔적이 들어 있다는 것을 꼭 얘기해 주시길 바래요”</span> <span class="loc">(녹취 16865)</span></li>
+      <li>예수님의 명령은 ‘영접’이 아니라 ‘제자 삼기’. <span class="tq">“예수님은 우리 보고 가서 제자를 삼아라 그러셨어요”</span> <span class="loc">(녹취 2811)</span></li>
+      <li>죽기 전에 12명을 남기라(제자를 낳는 제자). <span class="tq">“죽기 전에 12명은 남겨라”</span> <span class="loc">(녹취 23811)</span></li>
+      <li>기도는 공짜가 없다(26년 만의 열매). <span class="tq">“기도는 절대로 공짜가 없어요”</span> <span class="loc">(녹취 9209)</span></li>
+      <li>블랙가비의 두 책(『하나님을 경험하는 삶』·『영적 리더십』)을 꼭 읽으라고 강하게 추천: <span class="tq">“꼭 해보세요”</span> <span class="loc">(녹취 28930)</span> · <span class="tq">“정말 강력하게 추천합니다”</span> <span class="loc">(녹취 29043)</span> <span class="asr">[ASR 교정: 하나님을 경험하는 사람→하나님을 경험하는 삶]</span> · <span class="tq">“성경책 옆에 반드시 놓고 읽어야 될 책이에요”</span> <span class="loc">(녹취 29284)</span> · <span class="tq">“제가 빌고 싶을 정도로 이 책만 읽어달라고 얘기하고 싶은 책이에요”</span> <span class="loc">(녹취 29318)</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="recap">
+  <div class="sh"><span class="sb">1</span><span class="st">전도의 3단계 복습 (7강 슬라이드 7·9·10·15·16) — 10주차와 겹쳐 짧게</span><div class="sl"></div></div>
+  <div class="card">
+    <p>순서와 이름은 ①번 시험 박스와 같습니다. Ⅰ 전략적 중보기도 <span class="asr">[ASR 교정: 중복기도→중보기도]</span>는 ① 구체적 기도 ② 합심기도(삼겹줄) ③ 영적 전쟁입니다. <span class="tq">“송구처럼 예리하게”</span> <span class="loc">(녹취 1006)</span> <span class="asr">[ASR 교정: 송구→송곳]</span> · <span class="tq">“합심기도로 뚫어내라”</span> <span class="loc">(녹취 1059)</span></p>
+    <p>영적 전쟁은 이번에도 손을 내밀고 선포문을 따라 하는 연습으로 짧게 다시 했습니다(선포 문장은 녹취가 깨져 옮기지 않음 [?]).</p>
+    <p>기도만 하고 섬김이 없는 경우와, 섬김만 하고 기도가 없는 경우를 둘 다 ‘균형이 깨진 전도’로 보았습니다. <span class="tq">“기도만 하고 사랑의 섬김이 없으면 그건 균형이 무너진 것이요”</span> <span class="loc">(녹취 1285)</span></p>
+  </div>
+
+</div>
+
+<div class="sec" id="love">
+  <div class="sh"><span class="sb">2</span><span class="st">Ⅱ. 사랑의 섬김 (슬라이드 32~33)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>정의와 근거</h3>
+    <ul>
+      <li><b>사랑 = 상대방의 필요를 채우는 것</b>(슬라이드 33). 오스카 탐슨(W. Oscar Thomson Jr.)의 정의로 소개했습니다. <span class="tq">“사랑은 상대방의 필요를 치워주는 것이”</span> <span class="loc">(녹취 1603)</span> <span class="asr">[ASR 교정: 치워주는→채워주는]</span></li>
+      <li>예수를 주인으로 모신 순간 사랑할 대상을 고를 권리를 내려놓는다(슬라이드 32). <span class="tq">“선택할 권리를 영원히 포기한다”</span> <span class="loc">(녹취 1685)</span></li>
+      <li>그래서 관계의 다리를 놓고, 일곱 번 밥을 사 주라고 했습니다(슬라이드 33). <span class="tq">“일곱 번 밥 사주고 그래도 교회 오지 않으면 그 다음에 저한테 항의를 하십시오”</span> <span class="loc">(녹취 3188)</span></li>
+      <li>전도의 범위: 교회에 오게 하거나 믿게 하는 데서 끝나지 않고 제자가 되기까지 돕는 전 과정. 갓 태어난 신자를 혼자 두면 안 되므로 양육이 필요하고, 이것이 사랑의 섬김입니다. 예수님의 대명령도 ‘영접’이 아니라 ‘제자 삼기’였다고 했습니다(§5).</li>
+    </ul>
+    <p>교수의 두 가지 반면 사례: 아버지께 “예수 믿으세요”만 외치고 연락·용돈·방문이 없는 자녀, 영적 전쟁에는 뜨겁지만 찾아가거나 밥 한 끼 사 주지 않는 집사님 — 둘 다 전도의 균형이 깨졌다고 했습니다.</p>
+  </div>
+  <div class="card">
+    <h3>교수의 경험 (한 줄)</h3>
+    <p>고등학생 때 친구의 집에 7개월간 찾아가 기도했고, 그 후 연락이 끊겼다가, 26년 만에 그 친구가 다시 교회 예배에 왔다고 합니다. <span class="tq">“저는 이 열매를 걸을 때까지 26년 걸렸습니다”</span> <span class="loc">(녹취 9289)</span> <span class="asr">[ASR 교정: 걸을→거둘]</span> [?] 사랑의 섬김과 기도의 결합 사례로 들었습니다.</p>
+  </div>
+
+</div>
+
+<div class="sec" id="timing">
+  <div class="sh"><span class="sb">3</span><span class="st">Ⅲ. 타이밍을 보아 권면 (슬라이드 35~40) — 오늘 새 내용</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>왜 말로 전해야 하는 때가 오는가 (슬라이드 35)</h3>
+    <ul>
+      <li>기도와 섬김을 하다 보면 복음 자체를 말해야 하는 시점이 옵니다. <span class="tq">“결국에는 직면해야 되는 그 어떤 시점이 와요”</span> <span class="loc">(녹취 9985)</span> 기도와 섬김만 10년 해서는 돌아오지 않습니다. <span class="tq">“기도만 10년 하고 사랑의 섬기만 10년 해갖고 어떻게 이 사람이 주님 앞에 돌아오겠어요”</span> <span class="loc">(녹취 10056)</span></li>
+      <li>찬양만으로 전도하기 어려운 이유: 창조주 하나님, 예수님의 완전한 삶, 죄와 저주, 대속적 죽음 같은 개념은 말로 설명해야 하기 때문. <span class="tq">“찬양과 경배에 우리 음악으로만 전도를 못하는 이유가 있어요”</span> <span class="loc">(녹취 10160)</span></li>
+      <li>이때 하나님이 기도를 사용해 병을 낫게 하시는 일이 생기며 <b>능력전도</b>라 불렀습니다. <span class="tq">“우리가 그것을 능력전도라고 했다”</span> <span class="loc">(녹취 10524)</span> 죄를 깨닫게 하는 분은 성령이시고, 영접에서 끝내지 않고 제자의 삶으로 이끌 <b>전도성경공부</b>가 필요합니다.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Q1. 삶으로 전도할 수 있는가? (슬라이드 36)</h3>
+    <p>슬라이드는 벧전 2:12(선한 행실)와 롬 10:14-15(전파해야 들음)를 마주 세웠습니다. 교수의 결론은 말 없는 전도는 불가능하다는 것입니다. 다만 전도가 방해받지 않도록 거룩하게 살아야 한다고 했습니다. <span class="tq">“삶으로 전도한다는 건 새빨간 거짓말”</span> <span class="loc">(녹취 11456)</span> · <span class="tq">“우리가 전도가 방해받지 않기 위해서 거룩한 삶을 살아야 된다”</span> <span class="loc">(녹취 11532)</span></p>
+<p class="vq">벧전 2:12 너희가 이방인 중에서 행실을 선하게 가져 너희를 악행한다고 비방하는 자들로 하여금 너희 선한 일을 보고 오시는 날에 하나님께 영광을 돌리게 하려 함이라</p><p class="vq">롬 10:14 그런즉 그들이 믿지 아니하는 이를 어찌 부르리요 듣지도 못한 이를 어찌 믿으리요 전파하는 자가 없이 어찌 들으리요 10:15 보내심을 받지 아니하였으면 어찌 전파하리요 기록된 바 아름답도다 좋은 소식을 전하는 자들의 발이여 함과 같으니라</p>
+  </div>
+  <div class="card">
+    <h3>Q2. 아무 때나 전해도 되는가? (슬라이드 37)</h3>
+    <p>슬라이드는 딤후 4:2(때를 얻든 못 얻든)와 잠 15:23·마 10:16(때에 맞는 말, 뱀 같이 지혜롭게)을 대비했습니다. 교수는 화가 난 남편에게 하필 그때 교회 가자고 하지 말고 기분이 누그러질 때 말하라는 식으로 풀었고, ‘타이밍을 보아 권면’이라는 표현은 자신이 붙인 것이라고 했습니다. <span class="tq">“이거는 제가 만든 것이고요”</span> <span class="loc">(녹취 12381)</span> 녹취에서 교수는 마 10:16을 ‘비둘기같이 순종하라’고 읽었습니다(보충 ⑤).</p>
+<p class="vq">딤후 4:2 너는 말씀을 전파하라 때를 얻든지 못 얻든지 항상 힘쓰라 범사에 오래 참음과 가르침으로 경책하며 경계하며 권하라</p><p class="vq">잠 15:23 사람은 그 입의 대답으로 말미암아 기쁨을 얻나니 때에 맞는 말이 얼마나 아름다운고</p><p class="vq">마 10:16 보라 내가 너희를 보냄이 양을 이리 가운데로 보냄과 같도다 그러므로 너희는 뱀 같이 지혜롭고 비둘기 같이 순결하라</p>
+  </div>
+  <div class="card">
+    <h3>가장 중요한 전제: 성령의 인도하심</h3>
+    <ul>
+      <li>3단계는 ‘일반적인 경우’의 원칙이고, 성령이 특별히 이끄시면 그것이 우선입니다(관계가 없어도 순종 — 빌립과 에디오피아 내시, 행 8:26-27). <span class="tq">“저는 전도의 3단계를 믿습니다”</span> <span class="loc">(녹취 14243)</span></li>
+      <li>우간다에서 성령의 이적을 겪은 뒤 정한 인생의 모토: <span class="tq">“내가 기도보다 성령보다 앞서지 않겠다”</span> <span class="loc">(녹취 13220)</span> 일화 한 줄: 호텔 식사 중 멘토 목사님의 권유로 낯선 사람에게 말을 걸었더니 자살까지 생각하던 호텔 주인이었고, 복음을 듣고 영접한 뒤 다음 날 딸을 데려왔다고 합니다(세부는 녹취가 깨져 확신 없음 [?]).</li>
+    </ul><p class="vq">행 8:26 주의 사자가 빌립에게 말하여 이르되 일어나서 남쪽으로 향하여 예루살렘에서 가사로 내려가는 길까지 가라 하니 그 길은 광야라 8:27 일어나 가서 보니 에디오피아 사람 곧 에디오피아 여왕 간다게의 모든 국고를 맡은 관리인 내시가 예배하러 예루살렘에 왔다가</p>
+  </div>
+  <div class="card">
+    <h3>마무리 (슬라이드 38~40)</h3>
+    <p>전도는 성령이 주권적으로 하시는 일이라 진정한 시작은 기도입니다(슬라이드 38 낭독). <span class="tq">“진정한 전도의 시작은 잃어버린 영혼의 들이 주님께 돌아오도록 부르짖는 것에서 시작한다”</span> <span class="loc">(녹취 14519)</span> <span class="asr">[ASR 교정: 들→영혼들]</span> 슬라이드 39번 <span class="tq">“적어도 기도는 할 수 있지 않니?”</span>는 바쁘다는 학생들에게 하나님이 물으시는 말씀이라고 했습니다(녹취 문장은 깨짐 [?]). 이어 합심기도를 몇 분 하겠다고 한 뒤 전도서 4:11-12를 함께 읽었고, 휴대폰을 꺼내 각 조의 전도 대상자(사진으로 보이나 녹취가 깨짐 [?])를 보며 눈을 뜨고 기도하게 했습니다.</p>
+<p class="vq">전 4:11 또 두 사람이 함께 누우면 따뜻하거니와 한 사람이면 어찌 따뜻하랴 4:12 한 사람이면 패하겠거니와 두 사람이면 맞설 수 있나니 세 겹 줄은 쉽게 끊어지지 아니하느니라</p>
+  </div>
+
+</div>
+
+<div class="sec" id="coleman">
+  <div class="sh"><span class="sb">4</span><span class="st">9강 복음전도의 모델 ① 로버트 콜먼과 『주님의 전도계획』 (슬라이드 5~16)</span><div class="sl"></div></div>
+  <div class="card">
+    <h3>콜먼과 책 (슬라이드 5~8)</h3>
+    <ul>
+      <li>로버트 콜먼(1928~): 슬라이드는 사우스웨스턴대(침례교) · 에즈버리(웨슬리) · 프린스턴(장로교)을 거친 전도·제자양육 학자로 소개하고, 빌리 그레이엄 센터 학장과 로잔 창립 멤버를 적었습니다(슬라이드 5). 교수는 에즈버리가 감리교 신학교이고 몇 해 전 부흥운동의 배후에 콜먼이 있었다고 했습니다. <span class="tq">“에즈베리의 배후에 이 로버트 콜만이 있었어요”</span> <span class="loc">(녹취 15453)</span> <span class="asr">[ASR 교정: 에즈베리·콜만→에즈버리·콜먼]</span></li>
+      <li>『주님의 전도계획』(The Master Plan of Evangelism, 1963 초판, 슬라이드 6): 복음서만 살펴 예수님의 일관된 전략을 찾은 책이며, 개정판에는 로이 피시의 13과 공부 지침이 있습니다(슬라이드 7). 교수는 대부분 신학교 전도학 개론의 주교재라고 했습니다. <span class="tq">“이 책이 대부분의 모든 신학교의 전도학 개론 주교재가 되겠습니다”</span> <span class="loc">(녹취 15162)</span></li>
+      <li>문제의식(슬라이드 8): 현대 전도는 행사·결신 중심인데 예수님은 제자를 통한 <b>복제(Multiplication)</b>를 쓰셨고, 전도의 본질은 <span class="tq">“제자를 만드는 제자(Disciple-making disciples)”</span>. 이를 8가지 원리로 정리했습니다.</li>
+      <li>책의 위상: 노트 작성자의 기억으로는 교수가 이 책을 <b>영어 원서</b> 기준으로, 한국·종교 분야가 아니라 <b>전 세계 모든 책</b> 가운데 타임지(TIME)가 꼽은 목록의 <b>40위권</b>이라고 소개했습니다(‘40위권’은 노트 작성자의 기억에 따른 것 [?]). 녹취에는 <span class="tq">“타임즈가 선정해가지고 20세기에 가장 위대한 책 50권 선정을 했었는데”</span> <span class="loc">(녹취 16091)</span> · <span class="tq">“이게 40 몇인가 있더라고요”</span> <span class="loc">(녹취 16159)</span>라고 되어 있고, 이어 ‘기독교 전체를 움직였던 가장 중요한 책 50위 안’이라고도 말합니다. ‘영어 원서’·‘전 세계 모든 책’이라는 낱말은 녹취에 없고, 영어 원제(발음이 깨짐)를 말한 뒤 ‘한국말로는 주님의 전도 계획’이라고 한 대목이 원서 기준이라는 기억과 맞닿습니다(아래 보충 ①).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>8가지 원리 (슬라이드 9~16)</h3>
+    <div class="tw"><table>
+      <thead><tr><th>원리</th><th>슬라이드의 근거와 요점</th><th>교수의 설명</th></tr></thead>
+      <tbody>
+        <tr><th>1. 선택<br>Selection</th><td>막 3:13. 군중이 아니라 소수(12명)를 기도 후 선택. 신실하고 가르칠 수 있는 사람(Faithful, Teachable).</td><td><span class="tq">“예수님은 군중 전체를 대상으로 하시기보다 오히려 소수 집중 전략을 사용하셨다”</span> <span class="loc">(녹취 18059)</span> <span class="tq">“예수님은 밤새도록 기도하신 후에 전도 대상자들을 선별하셨다”</span> <span class="loc">(녹취 18497)</span></td></tr>
+        <tr><th>2. 친밀함<br>Association</th><td>막 3:14. 함께 있음이 전도보다 먼저. 프로그램보다 삶의 관계.</td><td>교회 프로그램이 아니라 도제식 교육. <span class="tq">“3년 동안 같이 먹고 자고 뒹굴면서”</span> <span class="loc">(녹취 18775)</span></td></tr>
+        <tr><th>3. 헌신<br>Consecration</th><td>마 4:19. 처음부터 전적 헌신(주권에 대한 순종)을 요구.</td><td>콜먼은 제자도의 대가를 빼고 달콤한 면만 전하는 것을 현대교회의 타협이라 했다고 소개. 장사 지내게 해 달라는 사람(눅 9:59-62)과 밭·진주 비유(마 13:44-46)를 예로 들었습니다.</td></tr>
+        <tr><th>4. 전수<br>Impartation</th><td>요 20:22(슬라이드 12). 정보가 아니라 말씀·능력·삶의 영향력을 전함.</td><td>권세와 성령의 능력을 주고 보내셨다고 설명(보내시는 본문 낭독은 녹취가 깨져, 아래 요 20:21-22로 보는 것은 깨진 녹취에서 추정한 것입니다 [?]). 전도자를 그냥 보내지 않으신다는 취지.</td></tr>
+        <tr><th>5. 훈련<br>Demonstration</th><td>요 13:15. 복음전도·기도·섬김·치유·영적 싸움을 직접 보이심.</td><td><span class="tq">“사람은 귀로 듣고 배우지 않고 눈으로 보고 배운다”</span> <span class="loc">(녹취 20373)</span> (녹취의 ‘요한호 10장 15절’은 슬라이드 13의 요 13:15로 봄 <span class="asr">[ASR 교정: 10장 15절→13장 15절]</span> [?])</td></tr>
+        <tr><th>6. 파송<br>Delegation</th><td>마 10장·눅 10장. 둘씩 보내 실제 사역을 맡김, 구경꾼이 아닌 사역자.</td><td>공생애 중간에 이미 보내셨다는 점 강조. <span class="tq">“설교를 잘하는 비법은 설교를 많이 해보는 거예요”</span> <span class="loc">(녹취 21409)</span> 맡겨 보는 교회가 좋은 교회라는 취지.</td></tr>
+        <tr><th>7. 평가<br>Supervision</th><td>눅 10:17. 돌아온 제자의 보고를 듣고 성공·실패를 함께 점검(멘토링).</td><td>전도 나갔다 와서 피드백하는 교회를 별로 못 봤다고 했습니다. <span class="tq">“전도 나갔다가 돌아와서 피디백 하는 교회를 본 적이 별로 없어요”</span> <span class="loc">(녹취 22405)</span> <span class="asr">[ASR 교정: 피디백→피드백]</span></td></tr>
+        <tr><th>8. 재생산<br>Reproduction</th><td>마 28:19-20, 딤후 2:2. 추종자가 아니라 제자를 만드는 제자를 세움.</td><td><span class="tq">“전도의 최종 목적은 이 사람이 예수를 영접하게 만드는 것이 아니라”</span> <span class="loc">(녹취 22560)</span> 제자를 만드는 사람(‘메이커’, ASR ‘메이’)이 되게 하는 것.</td></tr>
+      </tbody>
+    </table></div>
+<p class="vq">막 3:13 또 산에 오르사 자기가 원하는 자들을 부르시니 나아온지라 3:14 이에 열둘을 세우셨으니 이는 자기와 함께 있게 하시고 또 보내사 전도도 하며</p><p class="vq">마 4:19 말씀하시되 나를 따라오라 내가 너희를 사람을 낚는 어부가 되게 하리라 하시니</p><p class="vq">눅 9:59 또 다른 사람에게 나를 따르라 하시니 그가 이르되 나로 먼저 가서 내 아버지를 장사하게 허락하옵소서 9:60 이르시되 죽은 자들로 자기의 죽은 자들을 장사하게 하고 너는 가서 하나님의 나라를 전파하라 하시고 9:61 또 다른 사람이 이르되 주여 내가 주를 따르겠나이다마는 나로 먼저 내 가족을 작별하게 허락하소서 9:62 예수께서 이르시되 손에 쟁기를 잡고 뒤를 돌아보는 자는 하나님의 나라에 합당하지 아니하니라 하시니라</p><p class="vq">마 13:44 천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후 숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을 사느니라 13:45 또 천국은 마치 좋은 진주를 구하는 장사와 같으니 13:46 극히 값진 진주 하나를 발견하매 가서 자기의 소유를 다 팔아 그 진주를 사느니라</p><p class="vq">요 20:21 예수께서 또 이르시되 너희에게 평강이 있을지어다 아버지께서 나를 보내신 것 같이 나도 너희를 보내노라 20:22 이 말씀을 하시고 그들을 향하사 숨을 내쉬며 이르시되 성령을 받으라</p><p class="vq">요 13:15 내가 너희에게 행한 것 같이 너희도 행하게 하려 하여 본을 보였노라</p><p class="vq">눅 10:1 그 후에 주께서 따로 칠십 인을 세우사 친히 가시려는 각 동네와 각 지역으로 둘씩 앞서 보내시며</p><p class="vq">눅 10:17 칠십 인이 기뻐하며 돌아와 이르되 주여 주의 이름이면 귀신들도 우리에게 항복하더이다</p>
+  </div>
+
+</div>
+
+<div class="sec" id="disciple">
+  <div class="sh"><span class="sb">5</span><span class="st">제자 삼는 것이 전도 (슬라이드 17~20)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>대위임령(마 28:18-20, 슬라이드 17~18): 슬라이드 18은 가라 · 제자 삼으라 · 침례를 주라 · 가르쳐 지키게 하라 네 가지를 번호로 늘어놓았고, 교수는 그중 중심을 ‘제자 삼으라’라고 했습니다. <span class="tq">“주동사는 뭘까요? 제자를 삼는 거지”</span> <span class="loc">(녹취 23105)</span> <span class="tq">“제자로 삼는 것은 단순히 영혼을 구원하는 것보다 훨씬 큰 개념이 아니냐”</span> <span class="loc">(녹취 22724)</span> 교수는 ‘동사가 네 가지’라고 했으나 헬라어 본문에서 명령형은 ‘제자 삼으라’ 하나뿐입니다(아래 보충 ⑥).</li>
+      <li>슬라이드 19: <span class="tq">“사과 속의 씨는 셀 수 있어도, 씨 속의 사과는 셀 수 없다.”</span> 한 명의 제자가 아니라 또 다른 제자를 낳는 ‘메이커’가 핵심이며, 4영리만 전하고 떠나서는 안 되고 재생산 가능한 양육이 필요합니다. 딤후 2:2의 네 세대(바울 → 디모데 → 충성된 사람들 → 또 다른 사람들)를 근거로 듭니다.</li>
+      <li>교수는 이를 ‘12명 비전’으로 적용했습니다: 죽기 전 12명, 자기 교회의 부서마다 제자반 12명. 비전의 출처로 언급한 이름은 ASR로 깨져 확인 못함 [?].</li>
+      <li>슬라이드 20 정리: <span class="tq">“예수님 전도 모델이 제자훈련 중심이다”</span> <span class="loc">(녹취 23978)</span> 소수 집중 → 훈련 → 파송 → 재생산, 관계 중심에 재생산 구조가 핵심.</li>
+    </ul><p class="vq">마 28:18 예수께서 나아와 말씀하여 이르시되 하늘과 땅의 모든 권세를 내게 주셨으니 28:19 그러므로 너희는 가서 모든 민족을 제자로 삼아 아버지와 아들과 성령의 이름으로 세례를 베풀고 28:20 내가 너희에게 분부한 모든 것을 가르쳐 지키게 하라 볼지어다 내가 세상 끝날까지 너희와 항상 함께 있으리라 하시니라</p><p class="vq">딤후 2:2 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라</p>
+  </div>
+
+</div>
+
+<div class="sec" id="blackaby">
+  <div class="sh"><span class="sb">6</span><span class="st">헨리 블랙가비 소개 (슬라이드 21~24 — 시작만, 다음 주에 이어짐)</span><div class="sl"></div></div>
+  <div class="card">
+    <ul>
+      <li>슬라이드 22: 『하나님을 경험하는 삶』(1990, 800만 부 이상·80개 언어). 슬라이드 23은 리더십 책(제목 미표기)이며 교수는 『영적 리더십』이라 불렀습니다. 교수는 두 책을 강하게 추천했습니다. <span class="tq">“하나님을 경험하는 삶의 저자에요”</span> <span class="loc">(녹취 28903)</span></li>
+      <li>핵심 대비(슬라이드 24): 콜먼의 8원리는 깊은 통찰이지만 반드시 따라야 할 필수 명령은 아니다. 어떤 전략보다 먼저 본받을 원리는 <span class="tq">“아버지 하나님의 일하심을 보고 그것에 순종하는 것”</span>. 광야 40년 동안 하나님은 한 번도 같은 패턴으로 인도하지 않으셨다는 점이 근거입니다. <span class="tq">“광야에서 40년 동안 하나님은 단 한 번도 같은 패턴으로 이스라엘을 이끄시지 않으셨어요”</span> <span class="loc">(녹취 29688)</span></li>
+      <li>교수의 개인적 전환점: 콜먼의 8원리를 인생과 목회를 움직이는 원칙으로 삼아 17년을 살았고, 교회가 깨지는 일(경위는 말하지 않음)이 새로운 전환점이 되었다고 했습니다. <span class="tq">“인생을 다 걸었었는데”</span> <span class="loc">(녹취 28850)</span>, <span class="tq">“저는 이 하나하나가 불꽃같이 내 인생과 삶과 목회를 움직이는 원칙이 됐어요”</span> <span class="loc">(녹취 28660)</span> <span class="tq">“17년을 불꽃처럼 살았습니다”</span> <span class="loc">(녹취 28707)</span> <span class="tq">“그러다가 교회가 깨졌어요”</span> <span class="loc">(녹취 28724)</span> <span class="tq">“제 인생에 완전히 새로운 전환점이 되었습니다”</span> <span class="loc">(녹취 28753)</span> 그 전환점과 이어서 블랙가비를 소개했습니다(녹취 ‘이 분이야 헬리 블랙 나는’ <span class="asr">[ASR 교정: 헬리 블랙 나는→헨리 블랙가비]</span> [?]). 깨달음의 내용: <span class="tq">“그게 아니라는 걸 깨닫는데 17년 걸렸어요”</span> <span class="loc">(녹취 29504)</span></li>
+      <li><span class="tq">“이 중요한 강의는 다음 주에 하도록 하겠습니다”</span> <span class="loc">(녹취 29856)</span> — 9강 슬라이드 25번 이후(요 5:19 등 본문, 블랙가비의 경고, 적용 교훈)는 아직 다루지 않았습니다.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="sec" id="sup">
+  <div class="sh"><span class="sb">7</span><span class="st">교수 말·슬라이드와 본문의 차이 (보충)</span><div class="sl"></div></div>
+  <div class="card">
+<p class="sup"><span class="tag">보충</span> ① 교수는 『주님의 전도계획』이 ‘타임즈’의 20세기 책 50권 중 ‘40 몇’ 번째라고 했습니다. 확인한 것: (1) 크리스채너티 투데이(Christianity Today) 2006년 10월 ‘복음주의에 영향을 끼친 책 50권’(제2차 세계대전 이후 출간작 대상)에서 이 책은 <b>21위</b>입니다(https://www.christianitytoday.com/ct/2006/october/23.51.html 본문 확인). 이 목록이 교수가 말한 목록과 같지 않을 수 있습니다 [?]. (2) TIME 목록: 웹 검색 2회(‘TIME magazine list The Master Plan of Evangelism Robert Coleman’, ‘TIME magazine 100 best nonfiction / most important books … Master Plan of Evangelism’)로 찾았으나 이 책이 TIME 목록(영어 원서, 전 세계 대상)에 올랐다는 근거는 <b>찾지 못했습니다</b>. 찾지 못했다는 뜻이지 없다고 확인했다는 뜻은 아닙니다. ‘40위권’은 노트 작성자의 기억에 따른 표기입니다 [?].</p>
+<p class="sup"><span class="tag">보충</span> ② 슬라이드 11의 마 4:19 문장(“나를 따라오라 내가 너희로 사람을 낚는 어부가 되게 하리라”)은 개역개정(“…내가 너희를 사람을 낚는 어부가 되게 하리라”)과 조사가 다릅니다. 슬라이드 15의 눅 10:17 “칠십 인이 기쁨으로 돌아와”도 개역개정은 “기뻐하며 돌아와”입니다. 위 본문 블록은 개역개정입니다.</p>
+<p class="sup"><span class="tag">보충</span> ③ 선택(§4 원리 1)에서 교수는 비유의 뜻을 제자에게만 풀어 주셨다는 취지로 말하며 ‘이는 그들이 듣고 깨달아야 할까 함’이라고 했는데(녹취 17911), 막 4:12는 “듣기는 들어도 깨닫지 못하게 하여”이고 막 4:34는 “혼자 계실 때에 그 제자들에게 모든 것을 해석하시더라”입니다. 녹취 문장은 ASR로 깨졌을 수 있어 교수 말을 고치지는 않았습니다.</p>
+<p class="sup"><span class="tag">보충</span> ④ 헌신 원리의 예에서 교수는 ‘밭에서 진주를 발견한 자’라고 했으나, 마 13:44는 밭에 감추인 <b>보화</b>, 13:45-46은 <b>진주</b>로 두 비유입니다.</p><p class="sup"><span class="tag">보충</span> ⑤ 녹취에서 교수는 마 10:16을 <span class="tq">“너희는 뱀같이 지혜롭고 비둘기같이 순종하라”</span> <span class="loc">(녹취 12189)</span> 로 말했지만, 개역개정은 “비둘기 같이 <b>순결</b>하라”이고 슬라이드 37도 ‘순결’입니다. 읽다가 바꿔 말했거나 ASR 오류일 수 있어 교수 말은 고치지 않았습니다.</p><p class="sup"><span class="tag">보충</span> ⑥ 마 28:19의 헬라어에서 명령형 동사는 ‘제자 삼으라’(마테튜사테) 하나이고 ‘가서·세례를 베풀고·가르쳐’는 분사입니다. 슬라이드 18과 교수의 “동사가 네 가지”는 네 행동을 번호로 나열한 설명으로 읽어야 하며, 중심이 ‘제자 삼으라’라는 교수의 말은 이와 일치합니다.</p><p class="vq">막 4:10 예수께서 홀로 계실 때에 함께 한 사람들이 열두 제자와 더불어 그 비유들에 대하여 물으니 4:11 이르시되 하나님 나라의 비밀을 너희에게는 주었으나 외인에게는 모든 것을 비유로 하나니 4:12 이는 그들로 보기는 보아도 알지 못하며 듣기는 들어도 깨닫지 못하게 하여 돌이켜 죄 사함을 얻지 못하게 하려 함이라 하시고</p><p class="vq">막 4:34 비유가 아니면 말씀하지 아니하시고 다만 혼자 계실 때에 그 제자들에게 모든 것을 해석하시더라</p>
+  </div>
+</div>
+
+<div class="foot">전도학개론 12주차 · 김완 교수 · M.Div 강의 아카이브</div>
+
+</div>
+</body>
+</html>
