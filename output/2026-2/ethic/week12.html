@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 12주차 강의노트 | 환대의 윤리(제18강)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 44px 38px; margin-bottom: 32px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: #d6e8de; margin-bottom: 20px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 14.5px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 22px 26px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 16.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.toc-col h4 { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 7px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 5px; font-size: 13.5px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 42px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 16px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 11.5px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 3px 9px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; gap: 14px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 19.5px; font-weight: 700; color: var(--primary); margin-bottom: 5px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 13.5px; color: var(--text-muted); }
+p { margin-bottom: 14px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 10px 0 16px 20px; }
+li { margin-bottom: 6px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+.custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 32px 36px; margin-top: 44px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 13.5px; color: var(--primary-light); background: var(--primary-pale); padding: 7px 11px; border-radius: 4px; margin-top: 5px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-medium); font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 10px 16px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); font-size: 15px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 8px; letter-spacing: .04em; }
+.key { margin: 4px 0 6px 0; }
+.key ul { margin: 4px 0 6px 18px; }
+.key li { margin-bottom: 5px; font-size: 14.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+.sum-card h4 { font-size: 12.5px; color: var(--accent-terracotta); margin: 14px 0 5px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 4px 0 5px 18px; }
+.sum-card li { margin-bottom: 5px; font-size: 14px; }
+.sum-card p { margin-bottom: 5px; font-size: 14px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 22px 0; padding: 9px 13px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 12px 0 4px 0; }
+details > summary { cursor: pointer; padding: 9px 15px; font-size: 13.5px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 12px 16px 6px 16px; }
+details.apx { margin-top: 30px; }
+.tq, .say { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.emph-box { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-md); }
+.emph-title { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.emph-list { margin: 8px 0 0 20px; }
+.emph-list li { margin-bottom: 9px; font-size: 14.5px; line-height: 1.7; }
+.exam-note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+.exam-h { font-size: 17px; font-weight: 700; color: var(--primary); margin: 20px 0 10px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 14.5px; line-height: 1.6; }
+.quiz-ans ul { margin: 4px 0 2px 18px; }
+.quiz-ans li { margin-bottom: 3px; font-size: 13.5px; }
+.dbody h4 { font-size: 13.5px; color: var(--accent-terracotta); margin: 12px 0 5px 0; }
+.dbody li { font-size: 13.5px; }
+.cmp td { vertical-align: top; font-size: 13.5px; }
+@media (max-width: 720px) { .unit-card { padding: 18px 16px; } .exam-section { padding: 20px 16px; } .custom-table { font-size: 12.5px; } .header-card { padding: 26px 18px; } .header-title { font-size: 24px; } }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 12주차</span><span>환대의 윤리(제18강)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+    <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>12주차 강의노트</span>
+    </div>
+    <h1 class="header-title">환대의 윤리</h1>
+    <div class="header-subtitle">제18강 · 18장 환대: 나그네였던 백성이 낯선 이에게 자리를 내어 주는 삶</div>
+    <div class="header-theses">
+      <strong>[핵심 명제]</strong> 기독교적 환대는 그리스도께 먼저 맞아들여진 사람들이 나그네였던 하나님 백성의 이야기를 자기 이야기로 기억하며, 낯선 이를 지배하거나 동화시키지 않고 함께 살아갈 자리를 내어 주는 실천이다. 그 실천은 몸을 쉬게 하고, 공동체 안에 소속을 열며, 다가올 하나님 나라를 지금 앞당겨 사는 세 가닥으로 이루어진다. 이 환대에서 주인과 손님은 서로를 받으며 공동체도 그 만남으로 변한다. 낯선 이의 존엄은 조건 없이 인정되지만, 함께 사는 방식은 진실과 정의, 구성원 모두의 안전과 책임을 고려해 정해진다. (18장 p.1 도입; 교수 [L33–45])
+    </div>
+  </header>
+
+  <div class="emph-box" id="emph">
+    <div class="emph-title">⭐ 교수가 직접 짚은 대목 (원문 · [L줄])</div>
+    <p class="exam-note">교수가 ‘가장 중요한·중심 명제·중요한 것은 이겁니다·제가 끊임없이 얘기합니다·정리하겠습니다·기억하시면 좋겠습니다’ 등으로 직접 짚은 말과, 그 대목에서 이어 낸 결론 문장을 원문 그대로 옮겼습니다(제목에 표지 말을 적었고, 결론 문장은 ‘이어서·결론’으로 표시). 줄 번호는 자막 파일의 줄이고 줄 순서대로 배열했습니다. 자동 인식 자막이라 말이 끊기거나 틀린 곳이 있습니다(부록 [?]). 이번 강의에서 교수가 시험·평가·과제를 직접 안내한 발언은 없었습니다.</p>
+    <ol class="emph-list">
+      <li><b>중심 명제 — 가장 중심 명제는 이겁니다</b> — <span class="say">“그래서 이번 강의에서의 가장 중심 명제는 이겁니다.”</span> [L36] <span class="say">“먼저 우리가 맞아들어졌다, 받아들여졌다. 라는 그 은혜를 기억하자 라는 것입니다.”</span> [L37] → §2</li>
+      <li><b>환대의 자리 — 가장 중요한</b> — <span class="say">“우리가 기독교 윤리의 가장 중요한 몇 가지 중에 하나가 환대 입니다.”</span> [L20] → §1</li>
+      <li><b>존엄 — 중요한 것은 이겁니다</b> — <span class="say">“하자는 타자의 존재 자체로 존중해줘야 합니다.”</span> [L41] (‘하자’=타자 [?]) → §2</li>
+      <li><b>한계 — 같은 대목에서 이어서</b> — <span class="say">“무조건적으로 받아들이라 라는 것은 아닙니다.”</span> [L45] → §2</li>
+      <li><b>은혜에서 명령으로 — 구원의 핵심을 말한 뒤 이어서</b> — <span class="say">“복음이 은혜가 바로 명령으로 넘어가는 겁니다.”</span> [L50] → §3</li>
+      <li><b>가장 중요한 윤리</b> — <span class="say">“이것이 그리스도인의 가장 중요한 윤리 중에 하나죠.”</span> [L123] → §5</li>
+      <li><b>존엄과 수용 — 같은 대목의 결론</b> — <span class="say">“타인을 조건없이 인정하지만 무조건적으로 받아들여야 되는 것은 아닙니다.”</span> [L196] → §9</li>
+      <li><b>문 있는 집 — 인내를 말한 뒤 결론</b> — <span class="say">“그래서 문이 있는 집이 돼야 된다는 거죠.”</span> [L215] → §10</li>
+      <li><b>끝없이는 아니다 — 칼뱅을 인용한 뒤</b> — <span class="say">“그러니까 무조건적으로 끝없이 하라는 것은 아니라는 겁니다.”</span> [L254] → §14</li>
+      <li><b>책임 있는 환대 — 세 층위를 말한 뒤 결론</b> — <span class="say">“무조건적 환대가 아니라 신실한 환대, 책임질 수 있는 환대, 책임 있는 환대가 될 수 있습니다.”</span> [L272] → §16</li>
+      <li><b>제가 끊임없이 얘기합니다</b> — <span class="say">“제가 끊임없이 얘기합니다.”</span> [L277] <span class="say">“그것이 약자에게 강요되어서는 안 된다는 겁니다.”</span> [L278] → §16</li>
+      <li><b>기억하시면 좋겠습니다</b> — <span class="say">“석양과 바리새인 보다 더 나은 게 뭐가 있냐? 라는 얘기를 여러분 기억하시면 좋겠습니다.”</span> [L292] (‘석양’=세리 추정 [?]) → §17</li>
+      <li><b>신앙으로 구분 — 같은 대목의 결론</b> — <span class="say">“그러나 신앙으로 구분해야 되지, 국적과 언어나 장애나 이걸로 하면 안 된다는 거예요.”</span> [L306] → §18</li>
+      <li><b>정리하겠습니다</b> — <span class="say">“정리하겠습니다.”</span> [L318] <span class="say">“이런 마지막 날의 교회를 지금 살아내고 성경의 이야기를 지금 여기서 살아내는 그런 교회가 되어야 한다.”</span> [L320] → §20</li>
+    </ol>
+  </div>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 제18강 환대의 윤리</h2>
+    <h4>18장 환대: 나그네였던 백성이 낯선 이에게 자리를 내어 주는 삶</h4>
+    <ol>
+      <li><b>도입:</b> 정의는 가장 약한 이에게 행해져야 하고, 그 구체적 실천 중 하나가 환대이다. 울산 동구의 장면(환영과 걱정이 함께 움직임)과 국내 장기 체류 외국인 약 216만 명이 이 물음을 현실로 보여 준다. 환대는 기독교윤리의 가장 중요한 몇 가지 중 하나이다.</li>
+      <li><b>타자를 대하는 방식:</b> 관용(선 긋기)·시혜(위에서 베풂)·동화(우리처럼 되라)는 들어온 쪽에게만 변화를 요구한다. 기독교의 환대는 지배도 동화도 아닌 함께 살아감이며, 주인도 확장되고 손님도 변화된다. 중심 명제: 먼저 맞아들여졌다는 은혜를 기억하자.</li>
+      <li><b>은혜와 기억:</b> 받았기에 받으라(롬 15:7) — 은혜의 직설법이 명령법에 앞선다. 이스라엘은 애굽의 나그네였고(신 10:19), 교회도 이 땅의 나그네이자 거류민이다(벧전 2:11). 침례교적 비전 ‘이것이 저것이다’는 성경의 이야기를 지금 여기서 살아내는 것이다.</li>
+      <li><b>누구도 처음부터 주인이 아니다:</b> 먼저 들어온 이도 나중에 문을 두드리는 이도 같은 은혜로 선다(엡 2장). 나그네임을 잊고 사회의 중심에 선 교회는 낯선 이를 위협으로, 주변에서 사는 교회는 선물로 본다. 칼뱅도 난민이었다.</li>
+      <li><b>손님이자 주인이신 그리스도:</b> 아브라함의 장막(창 18장·히 13:2), 머리 둘 곳 없는 나그네이면서 식탁의 주인이신 예수, 엠마오와 삭개오. 교회는 삭개오·수군거리는 무리·예수의 삼각형 어디에 서 있는가. 환대는 갚을 수 없는 이들의 식탁이다(눅 14:13–14, 마 25:40).</li>
+      <li><b>경쟁하는 이해와 판단:</b> 호스티스(원수)를 호스페스(손님)로(나우웬). 강제·시장·관용·무조건(데리다) 가운데 기독교 환대는 먼저 맞아들여진 공동체의 신실한 응답이다. 낯선 이의 존엄은 조건 없이 인정하되, 함께 사는 형태는 조건 속에서 정한다. 국가의 강제를 하나님의 환대라 부르면 행위자의 혼동이다. 벽만 있어도, 문만 있어도 안 되며 문 있는 집이 되어야 한다.</li>
+      <li><b>세 가닥의 실천:</b> 몸(식탁·잠자리·경사로, 이주 노동자의 몸), 사회(인정→소속→제도적 참여, 침례와 신앙고백), 부활(갚을 수 없는 이들의 식탁, 도로시 데이). 환대는 더 연약한 이에게 더 너그럽고 능력이 닿는 데까지 한다.</li>
+      <li><b>판단:</b> 걱정은 정당하지만 혐오와 구별한다. 국가(보존 질서)·교회(대조 공동체)·개인(제자)이 각자 책임지고, 책임 있는 환대의 다섯 기준(존엄과 안전·돌려보내지 않음·정당한 제한·공정한 분담·검토와 열린 길)을 따른다. 그리스도인의 사랑은 경계를 갖되 경계에 갇히지 않는다.</li>
+      <li><b>공동체와 결론:</b> 언약의 식탁(만찬)과 열린 식탁(애찬), 세 겹의 원, 네 실천(공간과 식탁·동행·식구로 세움·공적 증언), 그들을 위하여→함께→그들에 의해서. 지금의 교회는 마지막 날의 교회를 미리 산다. 다음 장은 낯선 이가 실제로 삶을 위협할 때의 평화와 용서이다.</li>
+    </ol>
+  </div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차</div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 도입 · 은혜와 기억</h4>
+        <ul class="toc-list">
+          <li><a href="#a1">§1. 도입 · 울산 동구</a></li>
+          <li><a href="#a2">§2. 관용·시혜·동화와 환대 · 중심 명제</a></li>
+          <li><a href="#a3">§3. 은혜와 기억 · 침례교적 비전</a></li>
+          <li><a href="#a4">§4. 누구도 주인이 아니다</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 손님이자 주인이신 그리스도</h4>
+        <ul class="toc-list">
+          <li><a href="#b1">§5. 아브라함 · 예수 · 삭개오</a></li>
+          <li><a href="#b2">§6. 갚을 것 없는 식탁</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 경쟁하는 환대 이해</h4>
+        <ul class="toc-list">
+          <li><a href="#c1">§7. 호스티스와 호스페스</a></li>
+          <li><a href="#c2">§8. 강제·시장·관용·무조건 · 세 교회</a></li>
+          <li><a href="#c3">§9. 조건 없는 존엄, 조건 속의 공존</a></li>
+          <li><a href="#c4">§10. 문 있는 집</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제4부: 세 가닥의 실천</h4>
+        <ul class="toc-list">
+          <li><a href="#d1">§11. 몸·사회·부활</a></li>
+          <li><a href="#d2">§12. 몸의 가닥</a></li>
+          <li><a href="#d3">§13. 사회의 가닥</a></li>
+          <li><a href="#d4">§14. 부활의 가닥 · 분별</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제5부: 판단</h4>
+        <ul class="toc-list">
+          <li><a href="#e1">§15. 걱정과 혐오</a></li>
+          <li><a href="#e2">§16. 세 층위 · 다섯 기준</a></li>
+          <li><a href="#e3">§17. 경계를 갖되 갇히지 않는 사랑</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제6부: 공동체 · 결론</h4>
+        <ul class="toc-list">
+          <li><a href="#f1">§18. 두 식탁과 세 겹의 원</a></li>
+          <li><a href="#f2">§19. 네 실천 · 세 단계</a></li>
+          <li><a href="#f3">§20. 정리와 결론</a></li>
+          <li><a href="#cmp">비교표</a> · <a href="#exam">예상 문항</a> · <a href="#apx">부록</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 도입 · 은혜와 기억</h2>
+      <span class="part-badge">18장 도입~1절 · 슬라이드 p.1–9</span>
+    </div>
+
+    <article class="unit-card" id="a1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — 환대는 정의의 구체적 실천, 울산 동구의 장면</h3>
+          <div class="unit-desc">4부의 흐름 · 울산 동구 · 장기 체류 외국인 · 타자의 문제</div>
+        </div>
+      </div>
+      <div class="oneline">정의를 가장 약한 이에게 행하는 일이 사회에서 배제된 이와 새로 들어온 이를 맞는 환대로 이어지며, 울산 동구의 장면이 그 물음을 현실로 보여 준다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>앞 장들과의 연결:</b> 교수는 16장부터가 기독교윤리의 실천이라고 짚고 [L2–3], 사랑을 다루었고 정의를 다루었으며 이번에는 환대(자막 ‘군대’는 환대로 추정 [?])를 다룬다고 말한다 [L4]. 16장에서는 사랑은 이웃을 지배하지 않는다는 이야기와 아가페적 사랑을 했고 [L5–6], 그 사랑과 대립되는 듯이 이해되는 것으로 정의를 다루었다 [L6]. 정의는 사랑의 공적 형식이어야 하고(자막 ‘정의해야지’), <span class="say">“정의가 없는 사랑은 안 된다라는 얘기를 했고.”</span> [L8] 그 정의를 특별히 사회에서 가장 약한 자, 소외된 자, 어려운 자에게 행해야 한다고 했다 [L9]. 그 정의가 구체적으로 실천되어야 할 것 중 하나가 환대이다 [L11]. <span class="say">“우리 공동체로부터, 우리 사회로부터 배제된, 그리고 또한 유입되어 들어온 이들에게 우리가 어떻게 정의를 행할 것이냐라는 얘기입니다.”</span> [L12] (L10은 문장이 끊겨 의미가 불명확 [?])</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>울산 동구의 장면:</b> 2021년 8월 아프가니스탄에서 한국 정부와 협력해 일하던 분들이 들어왔고 [L13], 정부가 그분들을 울산 동구로 배정했는데(교수는 ‘2월달’이라고만 말함 [L13]) 찬반 논쟁과 대립이 있었다 [L14]. 환영하는 분들도 있었지만 걱정하는 분들도 적지 않았다 [L15]. 걱정은 낯선 사람이 우리 마을에 들어온다는 막연한 두려움과, 그들이 살아야 할 주거 지역·학교·그 밖의 복지 문제와 연동된 것이며 <span class="say">“정말 지극히 현실적인 고민을 반영한 거라고 우리가 볼 수가 있겠습니다.”</span> [L17] [L16] <span class="bdg b-sup">📖 슬라이드 p.2·18장 p.1</span> 슬라이드와 교재는 수치를 보탠다 — 2021년 8월 입국한 아프가니스탄의 한국 정부 협력자와 가족은 ‘특별기여자’로 받아들여졌고, 이듬해(2022년) 2월 그 가운데 29가구 157명이 울산 동구에 정착했다. 반발은 주민 의견을 묻지 않은 결정, 학교의 준비 부족, 낯선 문화를 향한 두려움이었고, 한편에는 환영 인사를 건네고 한국어와 학업을 돕겠다고 나선 이웃도 있었다. 슬라이드의 결론: “같은 동네 안에서 환대와 두려움이 함께 움직였다.” (교수는 이 수치를 말하지 않았다.)</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>우리 사회의 이웃들:</b> 2025년 말 기준 국내 장기 체류자가 ‘한 216만’이고 [L18], 결혼해서 온 이주민과 자녀들, 이주노동자들, 난민신청자, 유학생까지 합하면 ‘한 200’ 정도라고 한다 [L19]. <span class="say">“우리가 기독교 윤리의 가장 중요한 몇 가지 중에 하나가 환대 입니다.”</span> [L20] <span class="bdg b-sup">📖 18장 p.1·후주 [1] p.12</span> 교재는 국내 장기 체류 외국인이 2025년 말 기준 216만 명이며 결혼이주민과 자녀, 이주 노동자, 유학생, 난민 신청자가 이미 우리의 이웃이라고 쓴다. 후주는 2025년 12월 말 체류 외국인 2,783,247명 가운데 91일 이상 머무는 장기 체류자가 2,159,052명이라고 밝힌다. 또 교회는 이주민을 위한 예배와 쉼터를 일찍부터 열었지만 그들을 끝까지 손님으로 대하곤 한다고 쓴다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>타자의 문제:</b> 현대 기독교윤리와 일반 윤리학에서 타자(자막 ‘하자’ [?])의 문제가 핵심 이슈가 된 지 오래다 [L21–22]. 나와 다른 타자를 어떻게 대할 것이냐가 윤리학의 가장 중요한 이슈이고 [L23], 장애인·노숙자·난민 같은 이들과 어떻게 관계를 만들어 갈 것이냐가 기독교 안에서도 여전히 중요한 윤리적 이슈이다 [L24].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="a2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 타자를 대하는 입장 — 관용·시혜·동화, 그리고 환대 · 중심 명제</h3>
+          <div class="unit-desc">관용 · 시혜 · 동화 · 환대 · 이번 강의의 중심 명제 · 존엄과 한계</div>
+        </div>
+      </div>
+      <div class="oneline">관용·시혜·동화는 들어온 사람에게만 변화를 요구하지만, 기독교의 환대는 함께 살며 주인도 확장되고 손님도 변화되는 관계이고, 그 근거는 먼저 맞아들여진 은혜이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>세 가지 입장:</b> 타자와의 관계에서 생각할 수 있는 입장이 몇 가지 있다 [L25]. 첫째는 관용(자막 ‘얼레랑스’ [L26])으로 상대를 인정해 주되 <span class="say">“내가 너를 간섭하지 안듯이 너도 나를 간섭하지 마라.”</span> [L27] 하는 선 긋기이다 [L27–28]. 둘째는 시혜로 ‘우리가 너에게 은혜를 베푼다’는 뜻이고, 셋째는 동화로 ‘너희들이 우리처럼 되라’는 것이다 [L28]. 관용은 ‘너희와 우리는 달라’ 하며 구별하는 선을 긋고, 동화는 ‘우리 문화의 일부로 들어와야 한다’고 말한다 [L29–30]. 세 입장은 그들이 우리 안에 왔지만 그들에게 변화를 요구할 뿐 [L31], 우리의 변화, 그들과 만나는 우리는 어떤가에 대해서는 말하지 않는다 [L32]. <span class="bdg b-sup">📖 슬라이드 p.3·18장 p.1</span> 관용=해치지 않고 내버려 둔다, 시혜=위에서 아래로 베푼다, 동화=우리처럼 되라고 요구한다. 슬라이드: “셋 모두 맞아들이는 쪽 자신의 변화는 요구하지 않는다.”</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>기독교의 환대:</b> 기독교의 환대는 사랑이 지배하는 것이 아니라고 앞서 말한 것과 이어지며 [L33], 그렇다고 동화되는 것도 아니고 [L34], 함께 살아가는 것이다 [L34–35]. <span class="say">“그래서 주인과 손님이 서로 주고받는 그 속에서 주인도 확장되고 손님도 변화되는 그런 일련의 관계가”</span> [L35] 기독교적 환대(자막 ‘기독교적 상대’ [?])라고 할 수 있다 [L35]. <span class="bdg b-sup">📖 슬라이드 p.3</span> 환대=함께 살아갈 자리를 내어 주고 공동체도 변하도록 허용한다(주인 ⇄ 손님).</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>이번 강의의 중심 명제:</b> <span class="say">“그래서 이번 강의에서의 가장 중심 명제는 이겁니다.”</span> [L36] <span class="say">“먼저 우리가 맞아들어졌다, 받아들여졌다. 라는 그 은혜를 기억하자 라는 것입니다.”</span> [L37] 이 강의가 일관되게 은혜의 윤리이므로 하나님이 은혜로 우리를 맞아 주셨고 우리는 나그네였다는 것, 그 나그네로서 어떻게 실천할 것이냐를 묻는다 [L38–39]. 그 실천은 맥클렌던(자막 ‘맥클렌든의 침례교 신학자’)의 몸·사회·부활 틀로 정리하고, 서로를 받는 주인과 손님이 되는 것을 주장하려 한다 [L40]. <span class="bdg b-sup">📖 슬라이드 p.4</span> 중심 명제의 네 칸: 먼저 맞아들여진 은혜 · 나그네였던 백성의 기억 · 몸·사회·부활 세 가닥의 실천 · 서로를 받는 주인과 손님. 아래 두 칸은 존엄(조건 없이 인정한다)과 함께 사는 방식(진실과 정의, 안전과 책임을 고려해 정한다)이며, 강의 순서는 1 은혜와 기억 · 2 손님이자 주인 · 3 경쟁하는 이해 · 4 세 가닥의 실천 · 5 판단 · 6 공동체이다.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>존엄은 조건 없이, 그러나 무조건 수용은 아니다:</b> <span class="say">“하자는 타자의 존재 자체로 존중해줘야 합니다.”</span> [L41] (‘하자’=타자 [?]) 그의 존엄은 하나님의 형상이기 때문에 무조건 인정해야 한다 [L42]. 그렇지만 난민·이주민·유학생 등을 받아들일 때는 우리 안의 안전과 책임의 문제도 고려해야 하고 [L43], 우리가 어느 정도 수용 가능한가도 고려해야 한다 [L44]. <span class="say">“무조건적으로 받아들이라 라는 것은 아닙니다.”</span> [L45] 이것은 뒤에서 설명하겠다고 한다 [L45]. <span class="bdg b-sup">📖 18장 p.6</span> 교재는 기독교 신학이 모든 사람이 하나님의 형상을 지녔다고 고백한다고 하며(창 1:27) 환대는 존엄을 새로 부여하지 않고 이미 지닌 존엄이 관계와 제도 안에서 인정되게 한다고 쓴다. 창 1:27 <span class="tq">“하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고”</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="a3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 은혜와 기억 — 받았기에 받으라 · 나그네였던 이스라엘 · 침례교적 비전</h3>
+          <div class="unit-desc">롬 15:7 · 신 10장 · 레 19장 · 베드로전서 · 이것이 저것이다 · 접붙임</div>
+        </div>
+      </div>
+      <div class="oneline">환대의 근거는 자격 없이 먼저 맞아들여졌다는 사실이고, 나그네였던 이스라엘의 기억은 지금의 교회가 자기 삶을 비추는 현재형 이야기가 된다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>받았기에 받으라:</b> 교수는 먼저 은혜와 기억을 말한다. 우리 자신이 나그네였고 거류민(자막 ‘흥민’ [?])이었다는 것을 성경이 이야기한다 [L46]. 사도 바울은 예수님이 우리를 받으셨듯이 너희도 서로 받으라고 하고 [L47], 이는 자격 없는 우리를 하나님이 받아들였다는 뜻이다 [L48]. 구원의 핵심은 아무 자격 없는 우리가 아무 조건 없이 무조건적 은혜를 거저 받았다는 것이며, 이것이 구원론 신앙고백의 핵심 중 하나이다 [L49]. 그래서 <span class="say">“복음이 은혜가 바로 명령으로 넘어가는 겁니다.”</span> [L50] (거저 받은 우리가 서로를 거저 주고받아야 한다는 말 [L50]) <span class="bdg b-sup">📖 슬라이드 p.5·18장 p.1</span> 롬 15:7 <span class="tq">“그러므로 그리스도께서 우리를 받아 하나님께 영광을 돌리심과 같이 너희도 서로 받으라”</span> 슬라이드는 직설법(그리스도께서 우리를 받으심, 자격 없이 맞아들여진 우리)에서 명령법(너희도 서로 받으라)으로 이어지는 도식을 보여 주고, 교재는 은혜의 직설법이 명령법에 앞선다는 이 책의 원칙이 환대에서도 작동하며 “자격 없이 맞아들여졌기에 다른 이를 맞도록 부름받았다”고 쓴다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>구약의 나그네:</b> 구약에서 아브라함도 나그네였고 애굽 땅의 이스라엘 백성도 나그네였다 [L51–52]. 그들은 땅이 없는 나그네였기에 <span class="say">“신명기 10장에서 너희가 애굽에서 나그네였듯이 너희 이 땅에 있는 나그네를 사랑하라”</span> [L53] 라고 한다 [L53–54]. 이웃이 있고 그다음에 ‘게르’(나그네·거류민)가 있다 [L54]. 구약에서 우리가 해야 할 약자는 고아와 과부와 나그네와 가난한 사람이고, 이들을 어떻게 대하느냐가 정의론의 핵심이라고 앞서 말했다고 한다 [L57–60]. (L51은 ‘일곱’=애굽, ‘효능’=혈연 등 자막이 흐트러짐 [?]) <span class="bdg b-sup">📖 슬라이드 p.6·18장 p.1</span> 신 10:19 <span class="tq">“너희는 나그네를 사랑하라 전에 너희도 애굽 땅에서 나그네 되었음이니라”</span> 교재와 슬라이드는 레위기 19장에서 이웃 사랑(19:18)이 거류민(게르, 19:33~34)을 향한 사랑으로 넓어진다고 설명한다. 레 19:34 <span class="tq">“너희와 함께 있는 거류민을 너희 중에서 낳은 자 같이 여기며 자기 같이 사랑하라”</span> 거류민은 땅도 혈연도 없어 쉽게 착취당하던 이들이었고 율법은 이들을 과부·고아와 함께 공동체가 지켜야 할 이로 묶었다. (교수는 레위기 19장을 말하지 않았다.)</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>신약의 나그네와 거류민:</b> 신약에서는 베드로전서가 우리를 나그네이자 거류민(자막 ‘걸음’·‘거르민’ [?])으로 설명하며 그리스도인의 아이덴티티를 말한다 [L61–62]. 우리는 이 땅에 나그네이자 거류민으로 살아가는 하나님의 백성이다 [L63]. 하나님의 백성으로서 나는 누구냐고 물을 때 하나님이 은혜로 나를 맞아 주셨고 [L65], 바울과 모세오경과 베드로전서를 읽으면 나그네가 우리의 정체성이다 [L66](L64·66은 자막이 끊김 [?]). <span class="bdg b-sup">📖 슬라이드 p.6·18장 p.1</span> 벧전 2:11 <span class="tq">“거류민과 나그네 같은 너희”</span> 슬라이드는 이를 ‘5장 나그네 교회론’과 이어 “교회도 이 땅의 나그네이자 거류민이다”라고 쓴다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>침례교적 비전 — 이것이 바로 그것이다:</b> 교수는 맥클렌던(자막 ‘맥클린드’)의 침례교 비전을 ‘디스 이즈 댓’, 곧 ‘이것이 바로 그것이다’로 풀이한다. 지금 우리가 하고 있는 이것이 성경에 나와 있는 바로 그 이야기라는 뜻이다 [L67–69](L70은 자막이 끊김 [?]). 신명기에서 우리는 누구냐고 물으면 애굽에서 종이었고 나그네였다 [L71]. 그것이 또한 우리의 이야기이고, 로마서 11장의 접붙임 받은 이야기에서 우리는 은혜로 그 공동체에 맞아들여졌다 [L72–73]. <span class="say">“구약 성경과 신약 성경의 이야기를 지금 우리의 이야기로 만들어라.”</span> [L74] 이것이 종말에 의해 완성되어 간다 [L75]. 그래서 우리도 성경의 이야기를 지금 여기서 살아가야 하고 나그네였고 또 나그네를 맞이하는 교회가 되어야 한다 [L76]. <span class="bdg b-sup">📖 슬라이드 p.7·18장 p.2</span> 정식은 ‘이것이 저것이다’이며 슬라이드는 사도들의 교회 · 지금의 교회 · 마지막 날의 교회의 세 칸으로 보여 준다. 신 6:21 <span class="tq">“우리가 옛적에 애굽에서 바로의 종이 되었더니”</span> 은 부모가 율례의 뜻을 묻는 자녀에게 한 일인칭 대답이고 후대의 유월절 식탁이 되풀이했다. 롬 11:17 <span class="tq">“참감람나무 뿌리의 진액을 함께 받는 자가 되었은즉”</span> — 접붙인 가지는 뿌리의 진액을 함께 받되 그 역사를 대신 차지하지 않는다(롬 11:17~18). 슬라이드: “나그네의 기억은 오늘의 그리스도인이 자기 삶을 비추어 보는 현재형이 된다.” 교재는 맥클렌던이 소문자 b로 쓴 ‘baptist vision’이 한 교단을 넘어 아나뱁티스트와 침례교를 비롯해 신자의 교회를 지향해 온 공동체의 성서 읽기를 가리키며, 1장의 ‘이것이 저것이다’ 방법론과 이어진다고 쓴다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="a4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 누구도 처음부터 주인이 아니었다 — 중심과 주변 · 콜로니 · 칼뱅도 난민</h3>
+          <div class="unit-desc">엡 2장 · 김현경의 물음 · 하우어워스의 이야기와 colony · 칼뱅 · 통제 밖에서 오는 이들</div>
+        </div>
+      </div>
+      <div class="oneline">먼저 들어온 이도 나중에 오는 이도 같은 은혜로 서 있으므로 누구도 주인이 아니며, 나그네임을 잊고 중심에 선 교회는 낯선 이를 위협으로, 주변에서 사는 교회는 선물로 받는다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>누가 주인인가:</b> 교수는 김현경(자막 ‘김현경 선생’·‘김연경’ [?])이 ‘누가 주인인가’를 묻는다고 소개한다 [L78–79]. 기독교 입장에서 우리는 누구도 주인이 아니고 [L80], <span class="say">“처음부터 이 땅의 주인인 사람은 없었습니다.”</span> [L81] 기독교의 대답은 우리 모두가 처음부터 외인(자막 ‘스트레인저’), 곧 나그네이자 공동체 밖의 사람이었다는 것이다 [L82–84]. 십자가가 막힌 담을 넘어(자막, 엡 2장의 ‘막힌 담을 허심’으로 추정 [?]) 우리를 하나님 나라의 백성이 되게 했고 [L85], 외인(스트레인저)에서 시민(시티즌)이, 나그네에서 권속(가족)이 되었다 [L86–87]. 그래서 먼저 들어온 이도 은혜로 들어왔고 나중에 문을 두드리는 이도 같은 은혜를 바라고 문 앞에 서 있다 [L88]. 처음부터 주인이 아닌데 주인 행세를 하지 말라는 것이다 [L89]. <span class="say">“성경의 주인은 하나님이십니다.”</span> [L90] <span class="bdg b-sup">📖 슬라이드 p.8·18장 p.2</span> 엡 2:12 <span class="tq">“약속의 언약들에 대하여는 외인이요”</span> · 엡 2:19 <span class="tq">“외인도 아니요 나그네도 아니요 오직 성도들과 동일한 시민이요 하나님의 권속이라”</span> 슬라이드는 두 구절 사이에 ‘막힌 담을 허심’을 두고 김현경의 물음 “우리가 ‘주인’임을 어떻게 아는가?”를 적으며(교재: 『사람, 장소, 환대』 229), 같은 문장을 쓴다: “먼저 들어온 이도 은혜로 들어왔고, 나중에 문을 두드리는 이도 같은 은혜를 바라고 선다.”</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>이야기와 정체성, 그리고 colony:</b> 교회는 사회의 중심에 선 교회로서 낯선 이를 위협으로 받아들일 수도, 선물로 받아들일 수도 있다 [L90]. 하우어워스(자막 ‘스탠리 하우스’)는 <span class="say">“한 공동체가 어떤 이야기를 기억하고 다시 말하느냐가 그 구성원이 어떤 존재가 되는지를 결정한다.”</span> [L92] 라고 말하며, 우리는 하나님 나라의 콜로니, 곧 식민지라고 한다 [L93](자막 ‘이다, 식민지다’는 끊김 [?]). 교수는 한국에서는 일제강점기를 겪었기 때문에 식민지라는 단어를 아주 ‘영조로’(자막 그대로, 뜻 불명 [?]) 느낀다고 하고 [L95], 반면 빌립보에서 쓰인 콜로니는 로마의 콜로니로서 영광스러운 말이었다고 대비한다 [L96–97]. 미국인에게는 영국의 식민지였던 경험이 있어 우리와 다르다고도 한다 [L98]. 그래서 미국의 한인촌, 일제강점기 때 간도(자막 ‘강도’ [?])에 있던 명동촌 정도로 이해하라고 한다 [L99]. 하나님 나라가 제국주의냐는 오해를 사기 쉬워 한국어 번역을 계속 고민하며 ‘거주민들의 마을’은 어떠냐고 하지만 번역이 항상 적절하지는 않다 [L100–103]. 요지는 이 세상이 하나님 나라가 아닌 곳에서도 하나님을 알지 못하는 곳에서 하나님 나라의 백성으로 살아가는 나그네임을 인지해야 한다는 것이다 [L104–106](L104–105는 자막이 흐트러짐 [?]). <span class="bdg b-sup">📖 18장 p.2</span> 교재: 하우어워스는 한 공동체가 어떤 이야기를 기억하고 다시 말하느냐가 구성원의 존재를 결정한다고 논증했고(『교회됨』 27~80), 그와 윌리몬은 교회를 낯선 땅의 식민지(colony)에 비유했다. 이 은유는 식민 통치를 긍정하지 않고 다른 땅에서도 본향의 삶의 방식을 지키는 공동체를 가리킨다(『하나님의 나그네 된 백성』 27~28). 크리스틴 폴(Christine D. Pohl)은 교회사에서 환대가 가장 활기차게 실천된 때가 주인들 스스로 사회의 주변인이었던 때라고 말한다(『손대접』 132~133).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>칼뱅도 난민이었다:</b> 교수는 국민일보 칼럼에 썼다며 <span class="say">“칼뱅도 난민이었거든요.”</span> [L107] 라고 한다 [L106–107]. 이것을 연구해 논문을 쓴 후배도 있다고 한다 [L107]. <span class="say">“우리가 칼뱅도 난민이었고, 난민으로 맞아졌던 그 기억을 갖고 있는 우리 한국교회가 또 다른 난민들, 나그네들을 환대해야 되지 않겠느냐 라는 것입니다.”</span> [L109] <span class="bdg b-sup">📖 18장 p.2</span> 교재는 칼뱅이 제네바에서 투표권도 공직도 얻지 못하는 난민으로 살다가 그곳에 머문 지 스무 해가 넘어 죽기 다섯 해 전에야 시민권을 얻었고, 난민을 돕는 기금을 마련하는 데 앞장섰다고 쓴다(김기현, 「난민이 난민에게」, 『국민일보』 2018년 7월 10일, 28면). 오늘의 난민법과는 다른 시대의 일이다. 교재는 칼뱅의 후예가 다수인 한국 교회라면 그 길을 따르는 것이 마땅하지만 우리는 나그네였다는 기억을 자주 잊는다고 쓴다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>우리의 통제 밖에서 오는 이들:</b> 하우어워스는 재미난 이야기를 한다고 하며, 때로는 우리도 이 땅에 난민으로 왔다는 것을 말한다 [L110–111]. 요점은 낯선 이들이 우리 통제 밖에 있다는 것이다 [L112]. 장애를 가진 이웃, 국경을 넘은 이, 앞으로 태어날 이들도 우리 사회의 통제 밖(자막 ‘통계 밖’ [?])에서 들어오는 경우이므로 그들 모두를 환대하는 공동체가 되어야 한다 [L113–114]. <span class="say">“그렇기 때문에 우리가 나그네였다는 것을 잊어버리고 중심에 서게 되면 전 이들을 위협으로 느낍니다.”</span> [L115] (‘전 이들’=낯선 이들 [?]) 반대로 우리가 중심과 주변의 가치 있는 가장자리에서 낯선 땅의 하나님 나라 콜로니로 살아간다면 우리 역시 낯선 이고 외인이므로 그들을 선물로 받아들일 수 있다 [L116](자막 ‘교류 및 교류 촌’은 불명 [?]). <span class="bdg b-sup">📖 슬라이드 p.9·18장 p.2</span> 슬라이드는 ‘중심에 선 교회=낯선 이는 위협 / 주변인으로 사는 교회=낯선 이는 선물’ 도식에 국경을 넘어온 이 · 태어날 아이 · 장애를 가진 이웃을 놓고 “나그네임을 잊고 사회의 중심에 선 교회는 환대를 베풀 수는 있어도 환대의 공동체가 되기는 어렵다”고 쓴다. 교재: 하우어워스는 신실한 이야기 위에 세워진 공동체가 예기치 않은 낯선 이를 위협이 아니라 선물로 받는다고 말했고(『교회됨』 31), 출생으로 오는 자녀도 포함시켰다(같은 책 19). 12장이 임신한 여성과 태어날 아이를 맞는 환대를 다룬 것도 같은 원리이며, 환대는 국경을 넘어온 이들만을 위한 특별한 윤리가 아니라 “우리의 통제 밖에서 다가오는 모든 낯선 생명을 선물로 받을 수 있는지를 묻는 그리스도인의 기본자세”이다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 손님이자 주인이신 그리스도</h2>
+      <span class="part-badge">18장 2절 · 슬라이드 p.10–13</span>
+    </div>
+
+    <article class="unit-card" id="b1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 손님이자 주인이신 그리스도 — 아브라함의 장막 · 예수 · 삭개오</h3>
+          <div class="unit-desc">창 18장 · 히 13:2 · 필록세니아 · 예수의 이중 모습 · 엠마오 · 삭개오와 삼각 구도</div>
+        </div>
+      </div>
+      <div class="oneline">나그네를 맞은 이가 오히려 약속을 받고, 예수는 손님으로 와서 주인이 되셨으므로 교회는 맞아들이는 법과 맞아들여지는 법을 함께 배운다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>아브라함의 손님 대접:</b> 교수는 아브라함이 나그네를 맞이하는 창세기 18장 이야기는 잘 아실 것이라며 가볍게 넘어간다 [L117–118]. 히브리서 13장은 손님 대접을 강조하며 천사를 대접한 이가 바로 아브라함이라고 한다 [L119]. 우리 공동체 밖에서 온 이들을 대접하는 것이 천사를 대접하는 것과 같다 [L120]. 손님 대접은 ‘사랑한다’는 필로스(philos)와 ‘나그네’를 합친 말이다(자막 ‘나그네를 빼서’ [?]) [L121–122]. <span class="say">“이것이 그리스도인의 가장 중요한 윤리 중에 하나죠.”</span> [L123] <span class="bdg b-sup">📖 슬라이드 p.10·18장 p.3</span> 창 18:1~15 — 한낮에 지나가던 나그네 셋에게 발 씻을 물과 떡과 송아지를 대접했고 그 식탁에서 아들의 약속을 들었다. 히 13:2 <span class="tq">“손님 대접하기를 잊지 말라 이로써 부지중에 천사들을 대접한 이들이 있었느니라”</span> 필록세니아(philoxenia)는 philos(사랑하는)와 xenos(나그네)를 합친 말이며 “손님 대접은 곧 낯선 이를 사랑하는 일이다.” 슬라이드: “나그네를 맞은 이가 오히려 약속을 받는다.”</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>예수님도 나그네이자 난민:</b> 교수는 칼뱅 이야기에 이어 예수님도 나그네였고 난민이었다고 주장한다. 국민일보 칼럼에서는 인용하지 않았다고 한다 [L124–125]. 마태복음 2장에서 헤롯이 베들레헴(자막 ‘베드렌’) 근처의 남자아이들을 학살했을 때 예수님은 이집트로 피신하셨고, 헤롯이 죽었다는 소식을 듣고도 베들레헴에 못 가고 다른 곳으로 갔다고 한다 [L126–127](지명은 자막이 흐트러짐 [?]). 그래서 예수님도 이집트에서 난민 생활을 하셨다는 것이다 [L128]. 이 이야기는 슬라이드와 교재에 없는 교수의 설명이다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>손님이자 주인이신 예수:</b> 교수는 순서상 예수님이 당신의 땅에 오셨기에 손님은 아니고 주인이시지만 이 땅에 나그네로 오셨다고 하며 조심스럽다고 덧붙인다 [L129–131]. 마태복음 8장 20절의 ‘머리 둘 곳 없다’ [L131], 마르다와 마리아의 집(자막 ‘마르다와 마리아 세계의 집’)을 방문해 손님으로 들어가신 모습 [L132]이 있다. 한편 주인으로서 빈 들의 오천 명을 상대하시고 [L132], 세리와 죄인과 식사하시며 발을 씻겨 주시고 엠마오로 가는 두 제자와 만나 식탁에 초대하는 장면에서 마치 손님이신데 주인처럼 행동하신다 [L133](교수는 ‘그들을 식탁에 초대해서’라고 말하나 눅 24:29에서는 제자들이 낯선 이를 청한다 [보충]). 그래서 <span class="say">“이런 것들을 보면 예수님은 손님이자 주인으로 오셨고,”</span> [L134] 낯선 이를 집에 손님으로 초대했는데 그 손님과 대화하는 중 눈이 열려 변화되어 손님으로 청한 이가 주인이 되었다는 것이 예수님 이야기이다 [L135–137]. <span class="bdg b-sup">📖 슬라이드 p.11·18장 p.3</span> 마 8:20 <span class="tq">“인자는 머리 둘 곳이 없다”</span> (손님이신 예수: 마르다와 마리아의 집·삭개오의 집 / 주인이신 예수: 빈 들의 오천 명·세리와 죄인의 식탁·마지막 밤의 발 씻김). 엠마오 눅 24:30–31 <span class="tq">“떡을 가지사 축사하시고 떼어 그들에게 주시니 그들의 눈이 밝아져 그인 줄 알아 보더니”</span> 슬라이드: “손님으로 청한 이가 주인이 되었다.” 교재는 존 퀘니그(John Koenig)가 신약의 환대를 주인과 손님의 역할이 뒤바뀌는 상호 영접, 곧 ‘나그네들과의 교제’(partnership with strangers)라 불렀다고 쓰고(『환대의 신학』 28~29), 브렌던 번(Brendan Byrne)은 누가가 예수의 생애와 사역 전체를 하나님이 이스라엘과 세상을 찾아오신 ‘방문’으로 읽는다고 쓴다(눅 1:68, 눅 19:44). 조슈아 지프(Joshua W. Jipp)는 누가복음에서 외인들이 그 식탁에서 내부자와 친구가 된다고 읽는다(『환대와 구원』 37~38). 교재는 엠마오 본문이 무엇보다 부활의 현현을 말하지만 주인이 손님에게서 배운다는 환대의 진실도 보여 준다고 덧붙인다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>삭개오의 집과 삼각 구도:</b> 교수는 삭개오 이야기를 간단히 짚는다. 예수님이 따돌림당하던 세리(자막 ‘채리’ [?])의 집에 들어가시는데 손님으로 가는 것 같지만 주인이시며 [L138–139], 삭개오는 가난한 자에게 나누겠다고 하고(자막 ‘내 기업으로 갖겠다’ [?]) 무리는 수군거린다 [L139]. 복음서에는 이런 삼각 비교가 많다며 요한복음 8장에서 돌로 치려는 장면의 예수님·여인·돌로 치려는 사람(군중)을 예로 든다 [L140–142]. <span class="say">“여러분께서 복음서나 성경을 읽을 때 이 삼각구도를 읽으시면 좀 복음서에 많이 도움이 될 겁니다.”</span> [L143] 그렇다면 우리는 어떤 교회이냐, 예수님의 자리냐 수군거리는 무리냐 삭개오의 자리냐(자막 ‘새끼의 자리’ [?])를 돌아보라고 한다 [L144–146]. <span class="bdg b-sup">📖 슬라이드 p.12·18장 p.3</span> 눅 19:9 <span class="tq">“오늘 구원이 이 집에 이르렀으니 이 사람도 아브라함의 자손임이로다”</span> 삭개오는 소유의 절반을 가난한 이들에게 주고 속여 빼앗은 것은 네 갑절로 갚겠다고 나섰고(눅 19:8), 무리는 수군거렸다(눅 19:7 <span class="tq">“뭇 사람이 보고 수군거려”</span>). 번은 누가의 장면마다 예수와 그분이 맞는 인물 곁에 이를 못마땅해하는 셋째 무리가 있다는 데 주목한다. 슬라이드의 물음: “교회는 이 삼각형의 어느 꼭짓점에 서 있는가?”</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="b2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 갚을 것 없는 이들의 식탁 — 고대의 환대와 예수의 식탁</h3>
+          <div class="unit-desc">교환의 환대 · 눅 14:13–14 · 마 25장 · 은혜의 비상응성</div>
+        </div>
+      </div>
+      <div class="oneline">고대의 환대는 주고받는 교환이었지만, 예수는 갚을 수 없는 이들을 청하라고 하셨고 지극히 작은 자 안에서 자신을 보게 하셨다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>고대의 환대는 교환:</b> 교수는 성경의 환대가 당시 고대 사회와 비교하면 아주 독특하다고 한다 [L148]. 고대에는 무엇인가 주면 상대가 다시 돌려주었다 [L149]. 예컨대 이사하면 떡을 돌리고 그 접시에 다시 무언가를 담아 돌려주는 풍습이 있었다(요즘은 거의 없어진 것 같다고 함) [L150–153]. 기브 앤 테이크라는 말이 적절할지 모르겠다고 한다 [L154]. 그런 것이었다면 누가복음 14장은 돌려줄 수 없는 사람을 대접하라는 이야기이다 [L155]. (자막 ‘황제라 대접을 해라’·‘이 상응성이 있어요’는 불명 — 슬라이드 p.13의 ‘비상응성’과 이어지는 말로 추정 [?]) 또 마태복음 25장의 나그네, 지극히 작은 자 — ‘나에게 한 것이 내게 한 것이다’ [L156] — 에서 예수님은 자신을 나그네로, 가난한 자로, 몸 불편한 자로, 시각장애인으로 자신과 동일시(자막 ‘아이덴티파이’)하시며 [L157], 그들을 예수님에게 하듯 대하라고 가르치신다 [L158]. <span class="bdg b-sup">📖 슬라이드 p.13·18장 p.3–4</span> 눅 14:13–14 <span class="tq">“잔치를 베풀거든 차라리 가난한 자들과 몸 불편한 자들과 저는 자들과 맹인들을 청하라 그리하면 그들이 갚을 것이 없으므로 네게 복이 되리니”</span> 교재: 폴에 따르면 고대의 환대는 보답할 수 있는 이들 사이의 교환이었지만 기독교는 보답할 가능성이 가장 적은 이들을 환대의 대상으로 삼았다(『손대접』 33). 이 식탁은 수신자의 자격과 가치를 묻지 않는 은혜의 비상응성을 본받는다(바클레이, 『바울과 은혜의 능력』 61). 16장이 비판한 계산하는 사랑은 이 식탁에서 깨어진다. 마 25:35 <span class="tq">“나그네 되었을 때에 영접하였고”</span> · 마 25:40 <span class="tq">“너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이 곧 내게 한 것이니라”</span> 교재는 폴이 이 본문을 기독교 환대 전통 전체에서 가장 중요한 본문이라 부른다고 쓰되(『손대접』 39), ‘지극히 작은 자’를 예수의 제자나 복음을 전하는 이로 읽는 해석과 모든 궁핍한 이로 읽는 해석이 갈리므로 이 본문 하나에 논증을 걸지 않는다고 밝힌다(후주 [2]). 경고: 낯선 이를 그리스도를 만나는 통로로만 삼으면 그 사람 자체가 지워진다. 이웃을 하나님께 이르는 수단으로 쓰는 일은 16장이 비판한 취하는 에로스의 종교적 판본이며 “환대는 전도의 열매를 맺을 수 있지만 전도의 수단으로 환원되지 않는다.”</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 경쟁하는 환대 이해</h2>
+      <span class="part-badge">18장 3절 · 슬라이드 p.14–18</span>
+    </div>
+
+    <article class="unit-card" id="c1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 호스티스와 호스페스 — 환대라는 말의 긴장 · 나우웬</h3>
+          <div class="unit-desc">적대와 환대 · 낯선 이를 처음 맞는 긴장 · 호스티스를 호스페스로</div>
+        </div>
+      </div>
+      <div class="oneline">문 앞의 낯선 이는 손님이 될 수도 원수가 될 수도 있으며, 그리스도인의 소명은 이 긴장 속에서 적대를 환대로 바꾸는 것이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>적대와 환대의 말놀이:</b> 교수는 환대라는 낱말(자막 ‘상대’ [?])이 상당히 독특하다고 하며 [L159], 호스티스(hostis)가 손님이자 원수, 곧 적대적 관계에서 맞이하는 손님이라고 한다(교수는 ‘헬라어로’라고 말함 [L160] [보충]). 호스페스(자막 ‘호스 패스’)는 손님이 되고 [L161–162], 호스틸리티(자막 ‘스틸러티’)는 적대, 호스피탈리티(자막 ‘하스피탈리티’)는 환대가 된다 [?] [L162–163]. 그래서 <span class="say">“적대와 환대로 나눌 수 있습니다.”</span> [L165] 처음 맞이하는 사람에게는 거리감과 긴장이 있다 [L165–166]. 극단적으로는 ‘저 사람이 나를 해치지 않을까’, ‘누구야’ 하는 긴장이고, 얼굴도 사정도 모르는 타인이 오면 긴장하게 된다 [L166–167]. 그 긴장이 부정적으로 나타나면 갈등과 대립, 오해가 생기고 [L168–169], 지내며 서로를 알아 갈수록 좋은 친구나 벗, 같이 살아가는 동행인이 되기도 한다 [L169]. <span class="bdg b-sup">📖 슬라이드 p.14·18장 p.4</span> 슬라이드: 호스티스=손님이자 원수, 호스페스=손님. 교재는 라틴어 호스티스(hostis)가 손님을 뜻하면서 원수를 뜻하기도 했다고 쓰고(뒤푸르망텔, 『환대에 대하여』 10), 후주 [3]에서 호스페스와 호스티스의 어원 관계는 더 다루지 않는다고 밝힌다. “문 앞의 낯선 이는 손님이 될 수도 있고 원수가 될 수도 있다.”</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>나우웬 — 원수를 손님으로:</b> 교수는 헨리 나우웬이 환대란 호스티스에서 호스페스가 되는 것(자막 ‘호스트에서 호스트패스’), 곧 호스틸리티(적대)에서 호스피탈리티(환대)가 되는 것(자막 ‘해피탈리티’ [?])이라 말한다고 소개한다 [L170–171]. <span class="bdg b-sup">📖 슬라이드 p.14·18장 p.4</span> 교재: 헨리 나우웬(Henri J. M. Nouwen, 1932~1996)은 이 긴장에서 그리스도인의 소명을 읽었다. 그 소명은 <span class="tq">“호스티스(hostis)를 호스페스(hospes)로 바꾸는 것, 다시 말해 원수를 손님으로 바꾸는 것”</span> 이다(『영적 발돋움』 76). 영적인 삶은 적개심에서 환대로 옮겨 가는 움직임이다. 환대의 정의(『영적 발돋움』 83): <span class="tq">“낯선 사람이 들어와서 적이 아닌 친구가 될 수 있는 자유로운 공간을 만들어 주는 것”</span> 이 환대는 <span class="tq">“주인의 생활 방식을 받아들이라는 미묘한 권유”</span> 와 달리(슬라이드의 ‘대비’) 손님이 자신의 생활 방식을 발견할 기회를 준다. 교재는 필자도 앞의 칼럼에서 나우웬을 따라 타인을 내 통제권 아래 두지 않고 자유롭고 친밀한 공간을 마련해 주는 것이 환대의 실천이라고 썼다고 덧붙인다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 경쟁하는 환대 이해 — 강제·시장·관용·무조건, 그리고 세 교회</h3>
+          <div class="unit-desc">네 가지 경쟁하는 환대 · 데리다 · 행동주의·회심주의·고백하는 교회</div>
+        </div>
+      </div>
+      <div class="oneline">낯선 이를 대하는 방식은 조건이 강한 강제에서 조건 없는 무조건까지 갈리며, 기독교의 환대는 먼저 맞아들여진 공동체가 받은 은혜에 신실하게 응답하는 환대이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>환대를 이해하는 입장들:</b> 교수는 환대 이해에 몇 가지 입장이 있다고 하며 [L172], 한편에서는 강제, 곧 동화시키거나 경계를 긋는 입장 [L173–174], 강제폭력으로 동화시키거나 배제하는 것 [L175], 환대를 주고받는 거래관계로 보는 시장(자막 ‘근대 시장’ [?]) [L175], 앞서 말한 관용 [L176], 그리고 <span class="say">“이름도 대가도 묻지 않고 무조건적 환대를 주장하는 자크 데리다같은 철학자도 있습니다.”</span> [L176] 를 든다(L172·175는 자막이 끊김 [?]). <span class="bdg b-sup">📖 슬라이드 p.15·18장 p.4–5</span> 슬라이드는 이를 조건이 강한 쪽에서 조건 없는 쪽으로 세운다 — 강제(경계와 강제를 환대의 조건으로) · 시장(값을 치를 수 있는 손님만) · 관용(간섭하지 않는 공존, 이웃은 되지 않는다) · 무조건(이름도 대가도 묻지 않는다, 데리다). 교재: 관용은 서로 다른 신념을 가진 사람들이 강제 없이 공존하도록 양심과 종교의 자유를 보장하는 공적 성취이며 신앙의 자유를 위해 투옥을 감수한 침례교 선조들의 유산과 맞닿아 있다. 그러나 이 제도적 조건만으로 낯선 이와 함께 사는 법이 생기지는 않는다. 서로 간섭하지 않는 공존은 이웃을 해치지 않지만 이웃이 되어 주지도 않는다. 루크 브레더튼(Luke Bretherton)이 관용을 넘어서는 그리스도인의 응답으로 환대를 꼽은 까닭이 여기 있다(Hospitality as Holiness). 시장의 환대는 정중하지만 값을 치를 수 있는 손님만 맞는다. 자크 데리다(Jacques Derrida, 1930~2004)는 이름도 묻지 않고 대가도 요구하지 않는 무조건적 환대의 법과 각 사회가 권리와 의무로 정한 조건적 환대의 법들 사이에 이율배반이 있으며, 두 법이 서로를 필요로 하고 조건 없는 환대의 요청이 조건적 법들을 끊임없이 고치게 한다고 보았다(『환대에 대하여』 104~106). 후주 [4]: 김현경은 데리다가 환대를 주인이 자기 공간의 지배력을 포기하느냐의 문제로 좁힌다고 비판하고, 절대적 환대를 어떤 경우에도 그 사람의 사람 자격을 부정하지 않는 것으로 다시 정의했다. 죄를 지은 이에게 책임을 묻는 일과 그를 사회에서 지우는 일은 다르다는 것이다(『사람, 장소, 환대』 229~230).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>세 가지 교회 — 행동주의·회심주의·고백하는 교회:</b> 교수는 이 세 가지 교회가 하우어워스와 윌리몬(자막 ‘하워드 스와 율리몬’)의 『하나님의 나그네 된 백성』에 나오는 것이며, 존 요더(자막 ‘존 요드’)가 이것을 패러디해 수정한 것이라고 소개한다 [L178–179](요더 언급은 교재에 없음 [보충]). <span class="say">“행동주의 교회 있고 회심주의 교회에 있고 고백하는 교회가 있다라는 거예요.”</span> [L180] 행동하는 교회는 이주민에 대해 정책을 내고 성명을 내는, 통상 진보적인 교회라고 할 수 있고 [L181], 회심주의(자막 ‘핵심 주의’ [?]) 교회는 보수적이고 복음적인 교회로 그들을 복음전도의 대상으로 본다 [L182–183]. 고백하는 교회는 행동주의적인 면도 있고 복음 전도도 당연히 한다 — <span class="say">“그걸 하지 않으면 우리가 어떻게 교회에 갈 수 있겠습니까?”</span> [L184] — 그럼에도 그들을 우리 지역에서, 또 복음을 전해 우리 교회 안에 들어오면 함께 사는 것이 당연하다 [L184–185]. 우리 사회 전체에서 그들과 함께 맞이하고 살아가며, 우리도 나그네였듯이 나그네였던 그들을 받아들여 주는 것이 필요하다 [L186]. <span class="bdg b-sup">📖 슬라이드 p.15·18장 p.4–5</span> 슬라이드: 행동주의 교회=이주 정책에 관한 성명을 낸다 / 회심주의 교회=이주민을 선교 대상으로 본다 / 고백하는 교회=그리스도의 몸 안으로 맞아들인다. 슬라이드의 정의: “기독교 환대 — 먼저 맞아들여진 공동체가 받은 은혜에 신실하게 응답하는 환대.” 교재는 하우어워스·윌리몬의 이 유형을 환대에 옮긴 것이라고 쓰고(『하나님의 나그네 된 백성』 69~70), 하우어워스가 로먼드 콜스(Romand Coles)와의 대화에서 경계에서 낯선 이를 맞고 그에게서 배우는 콜스의 ‘수용적 관대함’(receptive generosity)을 교회의 증언으로 받아들였다고 쓴다(Christianity, Democracy, and the Radical Ordinary).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§9. 조건 없는 존엄, 조건 속의 공존 — 데리다·볼프·부르스마</h3>
+          <div class="unit-desc">무조건과 조건 · 포용하려는 의지 · 폭력적 율법주의 · 강제는 환대인가 · 세 가지 물음</div>
+        </div>
+      </div>
+      <div class="oneline">낯선 이의 존엄은 조건 없이 인정하되 함께 사는 형태는 구체적인 조건 속에서 정하며, 국가의 강제를 하나님의 환대라 부르면 행위자의 혼동이 일어난다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>존엄은 무조건, 수용은 범위 안에서:</b> 교수는 데리다가 무조건적으로 환대하자고 한다고 하며 [L187], 처음에 말한 대로 무조건적으로 하면 우리가 수용할 수 있는 범위를 벗어나 더 큰 폭력과 배제의 갈등이 생긴다고 한다 [L188]. 인격과 존엄과 하나님의 형상됨은 공유하므로 [L189], 종교·민족·성과 상관없이 하나님의 형상이라는 것을 인정하기 때문에 조건 없이 인정해야 하지만, <span class="say">“함께 살아가는 것에 있어서는 약간의 경계와 조건은 있을 수 있다라고 보는 거예요.”</span> [L190] 볼프(자막 ‘골프’ [?])는 포용하려는 의지는 상대가 하나님의 형상이기 때문에 포용해야 하지만, 실제로 포용할 때는 진실과 정의, 우리 한국 사회가 수용할 수 있는 어떤 범위 안에서 수용해야 한다고 한다 [L191–192]. 김진혁 교수(교수가 아끼는 후배 신학자)는 데리다가 말한 ‘무조건’을 당위(자막 ‘강의로’ [?])로 ‘무조건 해야 한다’고 하면 이 역시 폭력적 율법주의가 될 수 있다고 말한다 [L193–195]. <span class="say">“타인을 조건없이 인정하지만 무조건적으로 받아들여야 되는 것은 아닙니다.”</span> [L196] <span class="say">“약간의 경계가 있어야만 함께 오히려 더 살아갈 수가 있습니다.”</span> [L197] <span class="bdg b-sup">📖 슬라이드 p.16·18장 p.5</span> 슬라이드: 데리다·두 법의 이율배반(무조건적 환대의 법 ↔ 조건적 환대의 법들) / 볼프·포용(포용하려는 의지=조건 없이 열려 있다, 실제의 포용=진실과 정의를 거친다). 슬라이드의 이 장의 판단: “낯선 이의 존엄은 조건 없이 인정하되, 함께 사는 형태는 구체적인 조건 속에서 정한다.” 경고: 무조건을 당위로 바꾸면 ‘폭력적 율법주의’(김진혁, 『환대의 신학』 216 — 자막의 ‘현대의 신학’은 환대의 신학으로 추정 [?]). 볼프(Miroslav Volf, 1956~): <span class="tq">“포용하려는 의지는 다른 사람들에 관한 그 어떤 ‘진리’보다, 그들의 ‘정의’에 대한 그 어떤 판단보다 우선한다”</span> (『배제와 포용』 44). 이주민을 받아들이려는 마음과 그들이 실제로 일하고 배우고 정착할 조건을 마련하는 일 사이에는 거리가 있다. 볼프는 경계 없는 정체성은 없지만 경계가 타자를 제거하거나 지배할 때 배제가 된다고 말한다(같은 책 101~102). 질서 없는 환대는 공동체를 무너뜨리므로 낯선 이를 막고 거르는 강제도 환대를 지키는 값이라는 논리가 있고, 네 번째 경쟁자는 경계와 강제를 환대의 조건으로 삼는 입장이다(교재).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>강제는 환대인가 — 부르스마와 세 가지 물음:</b> 교수는 앞에서 한 한스 부르스마(자막 ‘한스 브루스 만’) 이야기를 이어, 무조건적 환대는 종말에 가서야(자막 ‘종말이 있습니다’ [?]) 이루어지므로 어느 정도 경계와 관계가 있다고 하며 [L198–199], <span class="say">“현대는 경계가 필요하다는 것은 저는 충분히 동의할 수 있습니다.”</span> [L199] (자막 ‘현대는’은 문맥상 ‘환대는’의 오인식으로 추정 — 인용은 자막 그대로 [?]) 그러나 그것이 곧 환대라는 데는 유의할 필요가 있다고 한다 [L200](자막 ‘앙재가 저를 안다는 것은’ 불명 [?]). 국가와 교회는 다르고 [L201], 과연 그것이 그들을 보호하기 위한 것인가 제거하기 위한 것인가라는 목적을 보고 [L201–202], 수단에서도 정말 적절한 수단인가를 따져 보고, 과연 그들에 대해 책임 있는 태도인가를 보는 <span class="say">“이런 세 가지 질문을 우리가 통과한 상태에서 우리가 받아들여야 된다는 거예요.”</span> [L202] <span class="bdg b-sup">📖 슬라이드 p.17·18장 p.5</span> 교재(14장): 한스 부르스마(Hans Boersma)는 무조건적 환대는 종말에 이루어질 실재이고 역사 안의 환대는 경계와 강제를 피할 수 없으며, 상처를 입히는 강제도 하나님의 환대를 섬길 때에는 환대와 양립한다고 본다(『십자가, 폭력인가 환대인가』 73~74, 89~92). 그의 본래 관심은 속죄와 심판의 신학에 있었고 국경 정책을 주장하지는 않았다. 다만 그의 논증을 정치윤리로 넓히면 공동체를 보호한다는 이유로 행사되는 강제가 환대의 이름을 얻을 위험이 생긴다. 교재의 판단: 역사 안의 환대에 경계가 필요하다는 판단은 받아들일 수 있다 — 해치려는 이를 막지 않는 집은 그 안의 식구를 버린다. 폴도 공동체가 정체성을 지키며 나그네를 맞을 때 경계의 긴장이 자원 문제보다 더 복잡하다고 말했다(『손대접』 165). 그러나 강제가 곧 환대라는 결론은 받아들이기 어렵다. 국가의 강제는 보존 질서 안에서 악을 제지하는 수단이며, 그것에 하나님의 환대라는 이름을 붙이면 행위자의 혼동이 일어난다(14장 요더의 논지, 후주 [5]). 강제가 정당한지 가리는 세 물음(슬라이드): 목적=보호인가 제거인가 / 수단=필요한 만큼에 그치는가 / 책임=법과 공동체 앞에 책임지는가. (교수는 셋째를 ‘그들에 대해서 책임 있는 태도인가’라고 말했다 [보충].)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§10. 경계에 문을 내다 — 하우어워스의 인내와 문 있는 집</h3>
+          <div class="unit-desc">인내 · 문 없는 벽 · 벽 없는 문 · 문 있는 경계 · 적극적 인내</div>
+        </div>
+      </div>
+      <div class="oneline">벽만 있으면 배제이고 문만 있으면 받아들이는 공동체가 지치므로, 비폭력의 환대는 경계를 부정하지 않고 그 경계에 문을 낸다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>인내와 문 있는 집:</b> 교수는 하우어워스가 이 물음을 더 깊이 끌고 간다고 하며 [L203], 그가 인내를 아주 많이 강조해서 좀 과장하면 많은 논문에 인내가 나온다고 한다 [L204–205]. 의료윤리에서도 환자·장애인을 대할 때 인내해야 하고, 난민이나 나그네에게도 인내해야 한다 [L206–207]. 문 없는 벽은 못 들어오게 막는 것이고 [L208–209], 그러면 그들을 배제하고 거부하는 것이다 [L210]. 반대로 벽 없이 문만 있으면 아예 경계가 없어 마구 들어오고 [L210–212], 그러면 그들을 받아들이는 기존 공동체가 지쳐 버린다 [L212]. 교회 공동체가 에너지를 다 쓰다 지쳐서, 처음에는 받아주다가 거부해 버리면 갈등이 생기므로 조심해야 한다 [L213–214]. <span class="say">“그래서 문이 있는 집이 돼야 된다는 거죠.”</span> [L215] 들어올 수는 있되 마구 들어오지는 못하게, 벽도 있고 문도 있는 집이 필요하다 [L215]. <span class="bdg b-sup">📖 슬라이드 p.18·18장 p.6</span> 슬라이드의 세 칸: 문 없는 벽(출교와 외면) · 벽 없는 문(경계를 정하지 못해 지친 공동체) · 문 있는 경계(비폭력의 환대). “비폭력의 환대는 경계를 부정하지 않고 그 경계에 문을 낸다.” 하우어워스·적극적 인내(슬라이드): <span class="tq">“역사가 올바르게 펼쳐지게 하는 일은 그리스도인에게 맡겨진 과제가 아니며, 십자가와 부활 안에서 하나님이 이미 하고 계신 일이다.”</span> 교재(『평화의 나라』 225~226): 그에게 비폭력은 역사의 결과를 자기 힘으로 보장해야 한다는 강박에서 벗어나 하나님의 다스림을 신뢰하는 삶이며, 그 신뢰는 결과를 폭력으로 확보하려 하지 않으면서 진실을 말하고 고통받는 이웃 곁에 머무는 적극적 인내이다. 낯선 이를 지배하거나 서둘러 우리처럼 만들려는 욕망을 내려놓는 환대도 그 인내에서 나온다. 교재의 자기비판: 아나뱁티스트 전통에도 환대의 실패가 있었다 — 순결을 지킨다는 명분의 출교와 외면은 공동체 안에서 행사된 배제였다. 경계를 정하지 못해 지친 공동체도 있다 — 폴은 수백 명의 난민을 받아들이던 자기 교회가 공간과 에너지의 한계를 훨씬 넘어서 기진맥진했던 기억을 털어놓는다. “환대를 삶의 방식으로 사는 이들은 모든 것을 할 수는 없지만 기꺼이 무언가를 하려 한다”(『손대접』 164).</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제4부: 실천 — 몸 · 사회 · 부활의 가닥</h2>
+      <span class="part-badge">18장 4절 · 슬라이드 p.19–22</span>
+    </div>
+
+    <article class="unit-card" id="d1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§11. 환대의 세 가닥 — 몸 · 사회 · 부활</h3>
+          <div class="unit-desc">사랑·정의·평화·용서와 환대 · 맥클렌던의 세 줄기 · 세 가닥이 함께</div>
+        </div>
+      </div>
+      <div class="oneline">환대는 그가 우리와 함께 사는가, 어디에 속하는가를 묻고, 그 실천은 몸을 쉬게 하고 소속을 열며 다가올 나라를 앞당겨 사는 세 가닥이 함께 이루어질 때 온전해진다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>4부의 흐름과 환대의 물음:</b> 교수는 이 흐름이 사랑·정의·환대·평화·용서로 이어진다고 짚는다. 사랑은 아가페적이지만 그 아가페가 정의와 연결되어야 하고 [L218], 그럴 때 이웃에게 정당한 몫도 줘야 한다 [L219]. 환대를 말했고, 다음에 다룰 평화에서는 ‘적대’를 다루며, 갈등이 생길 때의 최종적인 것은 용서이다 [L220–221](L217·220–222는 자막이 많이 끊김 [?]). <span class="bdg b-sup">📖 슬라이드 p.19·18장 p.6</span> 슬라이드: 사랑=이웃을 향한 동기 · 정의=이웃의 정당한 몫 · 평화=적대의 해소 · 용서=깨어진 관계의 회복 · 환대=함께 사는가, 어디에 속하는가. 교재: “환대는 그가 우리와 함께 사는지, 어디에 속하는지를 묻는다.”</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>맥클렌던의 세 줄기:</b> 교수는 제임스 윌리엄 맥클렌던(자막 ‘맥클랜더’·‘맥클랜드’)이 말한 대로 기독교 윤리에는 몸과 사회와 부활이라는 세 줄기(가닥)가 있다고 한다 [L223–224]. 타인의 몸을 쉬게 하고, 사회에서는 받아들이고, 부활은 다가올 나라를 앞당겨 산다 [L225]. <span class="say">“이 세 가지가 동시에 이루어 지는 것이 우리 기독교윤리이지 윤리다 라는 것입니다.”</span> [L225] (L225는 문장이 어색함 [?]) 이것은 뒤에서 다시 말하겠다고 한다 [L226]. <span class="bdg b-sup">📖 슬라이드 p.19·18장 p.6</span> 슬라이드: 몸=몸을 쉬게 한다 · 사회=소속을 연다 · 부활=다가올 나라를 앞당겨 산다. “세 가닥이 함께 이루어질 때 환대는 온전해진다.” 슬라이드 주: 맥클렌던의 세 가닥을 환대에 적용한 것은 이 장의 해석이다. 교재: 맥클렌던이 환대를 이렇게 나눈 것은 아니지만 12장에서 다룬 그의 세 가닥을 환대에 적용하면 이 물음에 답하는 실천을 정리할 수 있다(Ethics, 1~3부). 세 가닥은 한 줄로 꼬여 있다. 교수는 이를 맥클렌던의 기독교 윤리의 세 줄기로 설명했고, 환대에 적용한 것이 이 장의 해석이라는 점은 슬라이드와 교재에만 있다 [보충].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§12. 몸의 가닥 — 몸을 쉬게 하다</h3>
+          <div class="unit-desc">식탁 · 잠자리 · 경사로와 화장실 · 계단만 있는 교회 · 이주 노동자의 몸</div>
+        </div>
+      </div>
+      <div class="oneline">낯선 이를 맞는 일은 먼저 그의 몸을 맞는 일이며, 몸에 대한 무관심은 말뿐인 환대이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>몸을 쉬게 하는 환대:</b> 교수는 첫째로 몸(자막 ‘몸에 가다’ [?])을 쉬게 하는 것을 말한다 [L226]. 식탁과 만찬, 배고픈 이에게 밥을 주고 잠자리가 없는 이에게 잠자리를 주는 것 [L227], 마태복음 25장(자막 ‘마침 25장’ [?])에 나온 이야기이고, 장애인에게 경사로와 화장실을 배려해 주는 것 [L228], 이주 노동자들이 쉴 곳을 마련하고 그들이 사회적으로 위험한 일을 하는 경우가 많으니 관심을 가져야 한다 [L229–230]. <span class="say">“그래서 우리 장애인 관련해서 계단만 있는 교회, 이것이 우리가 좀 고민해 봐야 되겠죠.”</span> [L231] 재정 문제가 있으므로 교회에서 신중하게 논의해야 하지만, 종말론적 비전(자막 ‘비단’ [?])에서 이상적으로 말한다면 이런 것들을 많이 개선해야 한다 [L232]. <span class="bdg b-sup">📖 슬라이드 p.20·18장 p.6</span> 교재: 맥클렌던은 기독교 윤리의 첫 가닥을 몸에서 시작했다. 인간은 영혼이 잠시 몸에 머무는 존재가 아니라 몸으로 존재하며, 먹고 자고 일하고 사랑하고 늙어 가는 그 몸이 윤리의 첫 무대이다. 성품도 머리로 익힌 원칙보다 반복된 몸의 습관으로 빚어진다(Ethics, 1부). 12장에서 다룬 대로 몸은 우리가 만든 것이 아니라 받은 선물이다. 슬라이드: 식탁(배고픈 이에게) · 잠자리(머물 곳 없는 이에게) · 경사로와 화장실(휠체어를 탄 이에게) / 계단만 있는 교회=말로는 환영, 몸으로는 막는다 / 이주 노동자의 몸=위험한 공정 · 긴 노동시간 · 열악한 숙소 · 좁은 치료의 길. 교재: 이주 노동자는 대개 몸으로 일하는 이웃이고 다쳐도 치료받을 길이 좁다. “그들이 지은 집에 살면서 그들의 몸에 무관심하다면 환대는 말뿐이다.”</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§13. 사회의 가닥 — 손님에서 식구로</h3>
+          <div class="unit-desc">인정 · 소속 · 제도적 참여 · 욤비 토나 · 침례와 신앙고백 · 멈춘 자리</div>
+        </div>
+      </div>
+      <div class="oneline">사회의 가닥은 이름을 불러 주는 인정, 식구가 되는 소속, 결정에 참여하는 제도적 참여로 이어지며, 교회에서는 신앙고백과 침례가 소속의 문이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>인정과 소속:</b> 교수는 사회적으로는 타인을 인정하고 존중해야 하며 [L233], <span class="say">“그들의 이름이 있고 얼굴이 있고 이야기가 있는 사람으로 해줘야 되고요.”</span> [L234] 그들을 계속 손님으로, 외국인으로, 우리가 아닌 다른 사람으로 두는지, 우리 교회의 일부가 되게 하는지를 풀어 봐야 한다는 취지로 말한다 [L235](문장이 불완전함 [?]). 욤비 토나(자막 ‘용비토나’)는 아프리카의 어느 부족의 왕자였는데 한국에 들어와 정착하는 과정에서 상당한 어려움이 있었고, 그가 쓴 책에서 필요한 것은 딱 하나, 친구였다고 말한다 [L236–237](‘부족의 왕자’는 교재에 없음 [보충]). 그러므로 그들을 인정하고 소속으로 받아 주어야 한다 [L238]. 소속은 침례이고 그러면 우리 교인이 된다 [L239]. 아까 문이 있다고 했으니, 교인이 되려면 당연히 신앙고백과 침례를 받아야 하고 [L240], <span class="say">“그렇지 않고 받아들인다는 것은 도저히 말이 안 되는 얘기죠.”</span> [L241] 그들이 교회 멤버십이 되면 교회의 정책과 행사와 활동에 참여할 수 있다 [L242–243](L242 앞부분은 자막이 끊김 [?]). <span class="bdg b-sup">📖 슬라이드 p.21·18장 p.7</span> 슬라이드의 사회의 가닥: 인정(이름과 이야기를 가진 사람으로) → 소속(함께 예배하고 먹고 침례로 들어와 일을 맡음) → 제도적 참여(권리 보장과 결정 참여). 멈춘 자리: 아예 고려되지 않는 손님 · ‘우리 교회에 오시는 외국인’ · 한국어를 못해 돌려보내지는 창구. 교재: 김현경은 환대를 “타자에게 자리를 주는 행위, 혹은 사회 안에 있는 그의 자리를 인정하는 행위”로 정의하고 “우리는 환대에 의해 사회 안에 들어가며 사람이 된다”고 말한다(『사람, 장소, 환대』 26, 207). 폴은 어떤 손님은 대접받을 만하게 여겨지고 어떤 손님은 아예 고려되지도 않는 것을 가장 위험한 형태의 불인정이라 불렀다(『손대접』 102). 욤비 토나는 콩고에서 정치적 박해를 피해 온 이로 난민으로 인정받기까지 여섯 해를 기다렸고 자기에게 필요한 것은 딱 한 가지, 친구라고 말했다(김기현, 「난민이 난민에게」). 인정받은 손님이 곧 식구가 되지는 않는다 — 이주민 교인이 몇 해를 다녀도 ‘우리 교회에 오시는 외국인’으로 불린다면 그 교회의 환대는 아직 끝나지 않았다. 소속은 함께 예배하고 먹는 데서 시작해 침례와 신앙고백으로 언약 공동체에 들어오고 공동체의 일을 함께 맡는 데까지 자란다(6절). 주보와 광고가 한국어로만 나오고 식사 당번표에 그들의 이름이 없다면 소속은 아직 말에 머문다. 장애를 가진 교인과 다문화 가정의 자녀가 행사의 손님으로만 불린다면 그들도 아직 소속되지 않았다.</li>
+        <li><span class="bdg b-sup">📖 18장 p.7·슬라이드 p.21</span> <b>제도적 참여 — 교수 미언급:</b> 교재: 김현경은 사람으로 인정한다는 것이 그에게 딸린 권리들을 인정한다는 뜻이라고 말한다(『사람, 장소, 환대』 207). 레티 러셀(Letty M. Russell, 1929~2007)도 환대가 다른 이를 돌보는 데 머물지 않고 그가 스스로를 돌볼 수 있게 하는 연대로 나아가야 하며, 정의를 위한 투쟁이 낯선 이를 환영하는 일의 본질이라고 보았다(『공정한 환대』 162~163). 한국어를 못해 상담 창구에서 돌려보내지는 일처럼 악의 없는 언어와 제도가 낯선 이를 밀어내는 권세로 작동할 때, 환대는 그 구조를 바꾸는 일을 포함한다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§14. 부활의 가닥 — 다가올 나라의 식탁 · 도로시 데이 · 분별</h3>
+          <div class="unit-desc">눅 14:14 · 도로시 데이 · 만찬 식탁 · 외로움의 답은 공동체 · 능력이 닿는 데까지</div>
+        </div>
+      </div>
+      <div class="oneline">부활을 현재에서 경험하는 곳은 만찬의 식탁이며, 교회는 갚을 수 없는 이들의 식탁을 차려 다가올 나라를 미리 맛보되 분별과 한계를 안다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>세 번째 가닥, 부활:</b> <span class="say">“자, 그래서 이제 세 번째 부활입니다.”</span> [L244] 다가올 하나님 나라의 식탁 이야기이다 [L244]. 누가복음 이야기를 했고 [L245], 환대(자막 ‘홍대’ [?])와 관련해 정말 중요한 사람으로 도로시 데이를 든다 [L245]. 도로시 데이가 쓴 『고백』은 교수가 좋아하는 책이고 [L246], 맥클렌던의 책에서 도로시 데이를 다룬다(L247은 자막이 끊김 [?]). 맥클렌던은 <span class="say">“부활을 현재에서 경험할 수 있는 것은 바로 만찬 식탁이다”</span> [L248] 라고 하면서 나그네의 식탁을 열어 주었던 도로시 데이의 이야기를 한다 [L248]. 흑인이든 백인이든 먼저 육체적인 문제를 해결해 주면서 말씀과 함께 가되, 외로움에 대한 답은 공동체라고 말한다 [L251]. 하나님 나라의 잔치를 미리 맛보는 공동체로서 그들을 환대할 때 분별이 필요하다 [L252](‘시집공동체’는 불명 [?]). <span class="bdg b-sup">📖 슬라이드 p.22·18장 p.7</span> 눅 14:14 <span class="tq">“그리하면 그들이 갚을 것이 없으므로 네게 복이 되리니 이는 의인들의 부활시에 네가 갚음을 받겠음이라”</span> 슬라이드: “셈의 끝을 부활에 맡긴다.” 교재: 부활의 가닥은 미래를 향한 희망을 현재의 선행에 덧붙이는 장식이 아니다. 하나님께서 죽음과 배제의 질서를 마지막 말로 인정하지 않으셨다는 믿음이 지금의 공동생활을 바꾼다. 보답 없는 식탁은 셈의 끝을 부활에 맡기는 이들이 차린다. 쓸모없다고 여겨지던 이가 식탁의 손님이 되고 도움을 받던 이가 다른 이를 맞이하는 주체가 될 때 교회는 부활이 약속하는 새 관계를 미리 산다. 도로시 데이(Dorothy Day, 1897~1980)는 1933년 피터 모린(Peter Maurin)과 함께 가톨릭 노동자 운동을 시작했고 가난한 이들에게 음식과 잠자리를 내주며 그들의 친구가 되는 ‘환대의 집’을 열었다. 『고백』에서 그는 볼티모어 환대의 집 응접실을 이렇게 회상한다. <span class="tq">“흑인과 백인이, 술 취한 자와 멀쩡한 자가 한자리에 모였다.”</span> <span class="tq">“사람들에게 설교를 듣게 하기보다는 밥을 먹이는 것이 우선이었다”</span> (『고백』 436 — 슬라이드: ‘설교보다 밥이 먼저’). 외로움에 대해서는 <span class="tq">“우리는 모두 숙명적으로 외로움을 느낀다. 이 외로움 앞에 내놓는 이번 삶의 유일한 답은 공동체다”</span> (『고백』 425). 그가 마음에 새긴 십자가의 성 요한의 경구는 <span class="tq">“사랑이 없는 곳에 사랑을 넣어라, 사랑이 보일 것이다”</span> 이다(같은 책 397). 교재는 그의 식탁이 굶주린 이를 먹이는 자비이면서 그들을 굶주리게 한 질서를 고발하는 증언이었다고 쓰며, 맥클렌던이 『윤리학』에서 데이를 부활의 가닥을 보여 주는 인물로 다룬다고 밝힌다(Ethics, 10장 3절, 후주 [6]).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>분별과 한계 — 능력이 닿는 데까지:</b> 교수는 칼뱅이 『기독교 강요』에서도 ‘능력이 닿는 데까지’ 하라고 했다고 한다 [L253]. <span class="say">“그러니까 무조건적으로 끝없이 하라는 것은 아니라는 겁니다.”</span> [L254] <span class="bdg b-sup">📖 슬라이드 p.22·18장 p.8</span> 교재: 세 가닥의 환대 안에서 주인과 손님은 서로를 받는다. 환대의 바탕은 모든 인간이 함께 지닌 취약성이며(16장), 김현경도 우리가 벌거벗은 생명으로 와서 우리를 맞아 준 이들에게서 모든 것을 받았다고 말한다(『사람, 장소, 환대』 216). 그렇다고 엠마오의 역전이 모든 비대칭을 지우지는 않는다 — 자원과 법적 지위와 언어의 차이는 남는다. 그래서 환대는 더 연약한 이에게 더 너그럽고, 즉각적인 보답이 없어도 베풀며, 은혜를 되갚기보다 앞으로 흘려보낸다. 고향을 떠난 이의 믿음을 이주민 교인에게서 배우는 교회가 그들을 식구로 맞는다. 칼뱅은 받는 이의 가치를 따지지 말고 기쁜 얼굴로 베풀되 능력이 닿는 데까지 베풀라고 권했다(『기독교 강요』 3.7.6~7). 폴이 인용하는 한 환대 공동체의 말대로 한정과 제한은 죄가 아니며 개인의 환대가 모든 필요를 채울 수는 없어도 약간의 필요는 채울 수 있다(『손대접』 161). 3절의 인내와 함께 이 덕들은 해마다 여는 행사보다 반복되는 식탁과 방문과 동행을 거쳐 몸에 밴다. 슬라이드: “환대는 더 연약한 이에게 더 너그럽고, 은혜를 되갚기보다 앞으로 흘려보낸다.”</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제5부: 판단 — 수용의 한계와 책임 있는 환대</h2>
+      <span class="part-badge">18장 5절 · 슬라이드 p.23–26</span>
+    </div>
+
+    <article class="unit-card" id="e1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§15. 걱정과 혐오의 갈림길 — 울산과 영국 사우스포트</h3>
+          <div class="unit-desc">걱정 · 혐오 · 허위정보 · 준비 없는 수용 · 성품과 제도</div>
+        </div>
+      </div>
+      <div class="oneline">걱정은 무엇이 필요한지를 묻지만 혐오는 낙인을 찍으며, 두려움이 혐오로 굳지 않게 하는 일은 제도와 개인의 성품이 함께 맡는다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>걱정이 혐오가 되는 지점:</b> 교수는 우리가 걱정도 하고 혐오도 한다고 하며 [L255], 폭력 이야기가 나온 곳(13장으로 추정 [?])에서 이미 그 이야기를 했다고 한다 [L256]. 울산에 있는 분들의 걱정은 당연하지만, 그것이 발전하면 거짓 정보에 의해 영국 사우스포트에서 일어난 일들처럼 된다며 한번 찾아보라고 한다 [L257]. 그곳에서는 잘못된 정보에 의해 난민들에 대한 공격이 있었고, 걱정해서 일어난 것이 혐오가 되는 경우이다 [L258](자막 ‘축소 공격’은 슬라이드 p.23의 ‘숙소 공격’, 18장 p.8의 ‘난민 신청자 숙소가 공격을 받았다’로 보아 ‘숙소 공격’으로 추정 [?]). 주택·행정·복지·교육 문제를 잘 준비하지 않은 채 무분별하게 많이 받으면 오히려 더 큰 문제가 생긴다 [L259]. 그래서 개인과 사회로 나누어, 제도적인 면에서도 잘 대응하고 개인의 성품에서도 타인을 잘 환대하는 것이 내면화·성품화되어야 [L260] <span class="say">“걱정이 혐오가 되고, 혐오가 폭력이 되고 갈등이 일어나는 그런 것이 되지 않는다 라는 겁니다.”</span> [L261] <span class="bdg b-sup">📖 슬라이드 p.23·18장 p.8, 후주 [7] p.12</span> 슬라이드: 걱정=무엇이 필요한지를 묻는다 / 혐오=낙인을 찍는다 → 희생양의 폭력(13장). 울산·학부모의 걱정=말이 통하지 않는 아이 · 묻지 않은 결정 · 한정된 자원. 교재: 이런 걱정은 정당하다. 낯선 이를 경계하는 반응은 자연스럽지만 차별을 정당화하지 못한다. 2024년 7월 영국 사우스포트에서 세 아이가 흉기 공격으로 목숨을 잃은 뒤, 범인이 작은 배를 타고 건너온 난민 신청자라는 거짓 정보가 퍼졌고 몇몇 도시에서 난민 신청자 숙소가 공격을 받았다. 실제 범인은 영국에서 태어난 청소년이었다. 갈등을 키운 것은 유입의 숫자만이 아니었다 — 오래된 주택 부족, 준비 없는 행정, 허위정보와 선동이 함께 작용했다. 수용에는 실제 부담이 따르지만 정당한 불만이 혐오와 폭력으로 바뀌는 지점은 따로 있다. 후주 [7]: 이주민 유입과 범죄의 관계에 관한 연구는 국가와 범죄 유형에 따라 결과가 엇갈리므로 이 장은 일반화를 피한다. 슬라이드: “두려움이 혐오로 굳지 않게 하는 일은 성품과 제도가 함께 맡는다.”</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="e2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§16. 판단의 세 층위와 책임 있는 환대의 다섯 기준</h3>
+          <div class="unit-desc">국가·교회·개인 · 보존 질서 · 대조 공동체 · 다섯 기준 · 울산에 적용 · 수용 능력</div>
+        </div>
+      </div>
+      <div class="oneline">국가·교회·개인이 각자의 자리에서 판단하되, 환대하는 이는 낯선 이뿐 아니라 이미 함께 사는 이들에게 미칠 결과에도 책임지는 ‘책임 있는 환대’의 다섯 기준을 따른다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>국가·교회·개인의 몫:</b> 교수는 국가와 교회와 개인이 각각 할 일이 있다고 하며 [L262], <span class="say">“국가는 보존 질서거든요.”</span> [L263] 국가라는 바운더리 안의 시민의 안녕과 질서와 복지를 위해 존재하므로 약간의 강제를 쓸 수 있다고 한다 [L263–264]. 이는 침례교적이고 아나뱁티스트적(자막 ‘아랍적’ [?]) 입장이라고 하며 [L265], <span class="say">“교회가 국가에게 폭력을 쓰지 말라고 말하는 것은 상당히 조심해야 될 문제가 있습니다.”</span> [L266] 국가는 들어오는 데 법적 제도와 절차를 잘 마련해야 하고 [L267], 교회는 국가의 논리를 넘어서야 한다(L268은 자막이 끊김 [?]). 앞서 약간의 강제가 필요하다고 한 것은 무분별하게 받아들일 수는 없기 때문이고 [L269], 교회가 너무 많은 에너지를 쓰다가 탈진하는 문제도 기억해야 한다(자막 ‘크리스천 폴 선배들’ — 크리스틴 폴로 추정 [?]) [L270]. 세상과 대조되는 구별된 공동체로서 환대하고(자막 ‘황대’), 개인의 내면화·성품화와 이것들이 잘 연결되어야 한다 [L271]. <span class="say">“무조건적 환대가 아니라 신실한 환대, 책임질 수 있는 환대, 책임 있는 환대가 될 수 있습니다.”</span> [L272] (국가·교회·개인이 ‘삼위일체적으로’ 이루어질 때 [L272]) <span class="bdg b-sup">📖 슬라이드 p.24·18장 p.8</span> 슬라이드의 세 층위: 국가=보존 질서(국경과 절차를 정한다) · 교회=대조 공동체(낯선 이를 식구로 맞는다) · 개인=제자(이웃이 되어 준다). “국가의 강제 ≠ 교회의 환대”, “교회의 증언 ≠ 국가의 법적 책임.” 세 층위를 가로지르는 기준: “환대하는 이는 낯선 이뿐 아니라 이미 함께 사는 이들에게 미칠 결과에도 책임진다 = 책임 있는 환대.”</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>책임 있는 환대의 다섯 기준:</b> <span class="say">“다섯 가지 기준을 좀 제가 만들어봤습니다.”</span> [L273] 교수가 말한 순서는 존엄과 안전 [L274], 돌려보내지 않는 것 — 여기에는 절차가 있고 불법인지 합법인지를 잘 가려야 한다 [L275–276], ‘정당한 기간’(자막. 정당한 제한으로 추정 [?]) [L277], 공정한 분담 — 약자에게 강요되거나 떠넘겨져서는 안 된다 [L277–279], 그리고 들어오는 이를 검토하고 어느 정도 기간을 만들어 줄지 고민하는 것 [L279]이다. <span class="bdg b-sup">📖 슬라이드 p.25·18장 p.8–9</span>
+            <table class="custom-table cmp">
+              <tr><th>기준</th><th>슬라이드 p.25의 표현</th><th>교재 풀이(18장 p.8–9)</th><th>교수 발언</th></tr>
+              <tr><td>1 존엄과 안전</td><td>기본권 존중 · 모두의 안전과 권리</td><td>경계는 낯선 이의 존엄과 기본권을 존중하면서 구성원 모두의 안전과 정당한 권리를 지켜야 한다</td><td>‘앞서 말한 것처럼 존엄과 안전’ [L274]</td></tr>
+              <tr><td>2 돌려보내지 않음</td><td>박해와 위해의 위험이 있는 곳으로</td><td>박해와 심각한 위해를 피해 온 이를 위험한 곳으로 돌려보내서는 안 된다</td><td>돌려보내지 않는 것, 절차와 합법·불법 구별 [L275–276]</td></tr>
+              <tr><td>3 정당한 제한</td><td>사실·절차·비례 · 차별하지 않음</td><td>제한은 사실과 정당한 절차에 근거하고 필요한 만큼에 그치며 국적이나 종교로 차별하지 않아야 한다</td><td>‘정당한 기간’ [L277] [?]</td></tr>
+              <tr><td>4 공정한 분담</td><td>가장 약한 이에게 떠넘기지 않음</td><td>수용의 비용을 가장 약한 이들에게 떠넘기지 말아야 한다</td><td>약자에게 강요·떠넘겨서는 안 된다 [L277–279]</td></tr>
+              <tr><td>5 검토와 열린 길</td><td>범위와 기간을 검토 · 참여의 길을 연다</td><td>제한하더라도 그 범위와 기간을 검토하고 관계와 참여의 길을 열어 두어야 한다</td><td>검토하고 어느 정도 기간을 만들지 고민 [L279]</td></tr>
+            </table>
+            <p class="exam-note">교재는 이 다섯 기준이 3절에서 강제를 가린 세 물음(목적·수단·책임)을 수용의 문제에 맞게 넓힌 것이라고 쓴다.</p></li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>울산에 적용하면:</b> 교수는 울산에 적용하면 그들(주민)의 고민을 잘 들어줘야 한다고 한다 [L280]. 주민에게 ‘너희는 왜 못하냐’고 하는 것은 당위를 내미는 것이고 또 폭력과 강제가 된다고 짚는다 [L281](자막 ‘니들 왜 한다 못하냐’ — 문장이 어색함 [?]). 이런 것들을 잘 대비하면서 상대해야 한다 [L282]. <span class="bdg b-sup">📖 슬라이드 p.25·18장 p.9</span> 슬라이드: 학부모의 걱정은 혐오와 구별해 듣는다 / 국적으로 아이를 밀어내면 기준 3 위반 / 통역·교사·상담 인력 · 설명의 책임. 교재: 국적이나 문화를 이유로 아이들을 학교에서 밀어내는 일은 셋째 기준에 비추어 정당화될 수 없다. 정부와 교육 당국은 통역과 교사와 상담 인력을 보태고 학교와 지역사회에 결정을 설명하며 기존 학생들의 학습권도 함께 지킬 책임이 있다. “환대의 비용을 새로 온 가족이나 한 학교의 주민에게만 떠넘기지 않을 때, 환대는 개인의 성품을 넘어 공적 정의가 된다.”</li>
+        <li><span class="bdg b-sup">📖 18장 p.9·후주 [8] p.12</span> <b>국가의 층위 — 교수 미언급:</b> 교재는 국경 관리를 부정하지 않는다. 국가는 보존 질서 안에서 이주의 규모와 절차를 정하고 공동체의 안전을 지킬 책임이 있다. 주택과 학교와 의료와 심사 인력에는 한계가 있고, 한 지역에 갑자기 많은 사람이 들어오면 그 부담은 이미 어려운 주민에게 먼저 떨어진다. 그러나 수용 능력은 고정된 숫자가 아니어서 국가는 조세와 행정과 국제 협력으로 그 능력을 넓힐 책임도 진다. ‘지금 준비가 부족하다’는 말이 ‘앞으로도 받을 수 없다’는 영구적 배제로 바뀌어서는 안 된다. 일반 이민의 규모와 요건은 국가가 사회적 조건을 고려해 정할 수 있지만, 박해를 피해 온 이의 보호는 다르다. 수용 능력을 이유로 박해나 심각한 위해의 위험이 있는 곳에 사람을 돌려보내서는 안 되며, 심사를 기다리는 동안 일하고 치료받을 길을 막는 절차는 신중함보다 방치에 가깝다. 통제와 강제를 ‘질서 있는 환대의 비용’이라 부르면 기한 없는 구금과 가족을 갈라놓는 강제 퇴거도 정당한 관리가 된다. 후주 [8]: 2023년 헌법재판소는 보호 기간의 상한 없이 외국인을 보호소에 구금할 수 있게 한 출입국관리법 조항에 헌법불합치 결정을 내렸다. “한국은 받아들이는 이가 너무 많은 사회라기보다 보호를 인정받는 이가 극히 드문 사회이다.”</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="e3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§17. 경계를 갖되 경계에 갇히지 않는 사랑 — 에드워즈와 두 반론</h3>
+          <div class="unit-desc">경계 지어진 사랑과 경계 없는 사랑 · 해적과 건달 · 마 5장 · 우리 국민이 먼저 · 다른 신앙</div>
+        </div>
+      </div>
+      <div class="oneline">경계 안의 사람만 사랑하는 사랑은 덕의 그림자에 그치며, 그리스도인의 사랑은 경계를 갖되 경계에 갇히지 않는다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>경계만 있다면 해적·건달과 무엇이 다른가:</b> 교수는 환대할 때 경계를 갖되 경계에 갇히지 않는 사랑을 조나단 에드워즈(자막 ‘변화된 에드워드’ [?])의 이야기로 소개한다 [L283]. <span class="say">“우리가 여러분 어디나 경계는 있습니다.”</span> [L284] 그런데 경계만 있다면 해적·도둑과 무슨 상관이냐는 것이다 [L285]. 건달·양아치·조폭도 ‘우리가 남이가’ 하며 <span class="say">“자기 사람 정말 목숨 걸고 지켜주잖아요.”</span> [L287] 우리 경계 안에 있는 사람만 사랑한다면 해적이나 도적, 건달과 무엇이 다르냐는 말이다 [L288–289](L288 앞부분은 자막이 끊김 [?]). 교수는 강의안에는 없지만(자막 ‘강연에 없습니다만’ [?]) 마태복음 5장의 <span class="say">“하나님께서 의인과 악인 가리지 않고 해와”</span> [L290] 비를 내려 주신다는 말씀과 [L290–291], 우리가 사랑할 수 있는 사람만 사랑하면 세리(자막 ‘석양’ [?])와 바리새인보다 더 나은 게 무엇이냐는 이야기를 기억하라고 한다 [L291–292]. 또 경계가 없으면 안 되니 <span class="say">“우리 국가시민이 먼저이지만 타자도 받아들일 수 있는”</span> [L294] 경계를 가질 때 경계에 갇히지 않는 것, 그것이 기독교적 격언이고 맥클렌던과 조나단 에드워즈의 입장이라고 한다 [L294–295]. <span class="say">“이거 제 생각이기도 합니다.”</span> [L296] <span class="bdg b-sup">📖 슬라이드 p.26·18장 p.9</span> 마 5:45 <span class="tq">“하나님이 그 해를 악인과 선인에게 비추시며 비를 의로운 자와 불의한 자에게 내려주심이라”</span> (교수가 든 마 5장은 슬라이드·교재에 없음 [보충]). 교재: 맥클렌던은 조나단 에드워즈(Jonathan Edwards, 1703~1758)를 따라 경계 지어진 사랑(가족·민족·집단처럼 정해진 범위 안에서만 작동)과 경계 없는 사랑(하나님과 그분이 지으신 모든 존재를 향해 열려 있음)을 구별했다. 에드워즈는 둘째 사랑에서만 참된 덕을 찾았으나 가까운 이를 향한 사랑을 악으로 보지는 않았다. 가족과 동족을 아끼는 마음도 선하지만 더 넓은 사랑에 이어질 때 비로소 덕이 된다. 해적이나 반란 무리도 서로에게는 충성하지만 무리 바깥의 모든 이에게는 적대적이며, 그 충성은 참된 덕이 못 되고 덕의 그림자에 그친다(McClendon, Ethics, 5장 3절). 자기 민족과 교회와 계층에게만 충실한 사랑은 안에서는 따뜻하지만 바깥을 향해서는 차갑다. 슬라이드: “그리스도인의 사랑은 경계를 갖되 경계에 갇히지 않는다.”</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.26·18장 p.9–10</span> <b>두 반론 — 교수 미언급:</b> <b>반론 1 우리 국민이 먼저:</b> 교재는 이 반론에 진실이 있다고 본다. 아우구스티누스는 모두를 도울 수는 없으므로 장소와 시간과 형편에 따라 더 가까이 묶인 이를 먼저 돌보라고 했다(『그리스도교 교양』 1.28.29). 그러나 사랑의 질서는 순서를 정할 뿐 먼 이를 배제하는 면허가 되지 못한다(슬라이드). 국민의 주거 복지에 국가가 특별한 책임을 지는 일과 이미 함께 사는 이주 노동자의 응급 의료를 국적만으로 막는 일은 다르다. 같은 공공 자원을 두고 저소득층 주민과 새로 온 이주민이 맞설 때 그 배분은 가장 약한 이에게서 시작하라는 17장의 기준을 따른다. <b>반론 2 다른 신앙은 위협:</b> 대구 대현동의 이슬람 사원 건축 갈등에서 보듯 무슬림 이웃은 쉽게 위협으로 불린다. 그러나 환대는 정체성에서 나오는 일이며 개종을 조건으로 삼는 순간 거래가 된다. 하나님은 거류민을 학대하지 말고 자기같이 사랑하라고 명하시면서 그 보호를 개종의 조건에 묶지 않으셨다(레 19:33~34). 레 19:33 <span class="tq">“거류민이 너희의 땅에 거류하여 함께 있거든 너희는 그를 학대하지 말고”</span> 신앙의 자유를 위해 싸워 온 침례교인이라면 내 신앙의 자유만큼 이웃의 신앙의 자유도 같은 무게로 지켜야 한다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제6부: 공동체 · 결론</h2>
+      <span class="part-badge">18장 6절~결론 · 슬라이드 p.27–31</span>
+    </div>
+
+    <article class="unit-card" id="f1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§18. 두 식탁과 세 겹의 원 — 만찬·애찬, 침례와 신앙고백</h3>
+          <div class="unit-desc">언약의 식탁 · 열린 식탁 · 만찬과 애찬 · 직분과 신앙고백 · 국적·언어·장애로 구별하지 않음</div>
+        </div>
+      </div>
+      <div class="oneline">교회는 침례받은 이들이 나누는 언약의 식탁과 누구나 와서 먹는 열린 식탁을 함께 가지며, 신앙으로 구분하되 국적·언어·장애로 구별해서는 안 된다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>언약의 식탁과 열린 식탁:</b> 교수는 언약의 식탁도 있고 열린 식탁도 있다고 한다 [L297]. 초대교회에는 예배 때 예수님을 기억하는 만찬이 있었고 [L297–298], 아가페라고 하는 애찬(자막 ‘찬찬’·‘찬’ [?])이 있었다 [L298–300]. <span class="say">“침례교는 성찬이라 하지 않고 만찬이라 그럽니다.”</span> [L299] <span class="say">“애찬은 뭐냐면 우리로 말하면 예배를 마치고 식사를 나누는 거예요.”</span> [L301] 교회사적으로 두 가지가 합해져 애찬이 없어지고 만찬만 남았다고 한다 [L302](자막이 끊김 [?]). 한국은 식사가 중요해서 예배 끝나고 식사하는 것이 있고, 이것이 초대 교회의 중요한 모습이다 [L303]. <span class="bdg b-sup">📖 슬라이드 p.27·18장 p.10, 후주 [9] p.12</span> 슬라이드: 언약의 식탁=만찬(침례받은 이들이 나눈다) / 열린 식탁=애찬과 교회의 식사(누구나 와서 함께 먹는다) / “받은 은혜를 기억하는 이들이 열린 식탁을 차린다.” 교재: 그 식탁에서 누가 먼저 먹고 누가 늦게 오는지가 교회의 사회윤리를 드러낸다(고전 11:17~22). 후주 [9]: 침례교 안에는 만찬 참여를 침례받은 신자로 한정하는 전통과 신앙을 고백하는 모든 이에게 여는 전통이 함께 있는데 이 장은 그 논쟁을 판정하지 않고 언약의 식탁과 열린 식탁을 구별하는 데 그친다.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>신앙으로 구분하되 국적·언어·장애로 구별하지 않는다:</b> 교수는 교회 안에 직분자가 있고, 신앙을 고백한 사람이 있고, 고백하지 않은 이들도 있다고 한다 [L304–305](L305는 자막이 끊김 [?]). <span class="say">“그러나 신앙으로 구분해야 되지, 국적과 언어나 장애나 이걸로 하면 안 된다는 거예요.”</span> [L306] 침례교회는 예수를 주로 고백하고 침례받으면 교회 멤버십이 되는 것이고 [L308–309], <span class="say">“그게 국적과 언어와 장애, 성적 구별이 작동하면 안 된다라는 겁니다.”</span> [L310] (‘성적’은 성별로 추정 [?]) <span class="bdg b-sup">📖 슬라이드 p.27·18장 p.10–11</span> 슬라이드의 세 겹의 원: 바깥=모든 낯선 이에게 연 식탁과 돌봄 · 가운데=침례와 신앙고백의 언약 공동체 · 안쪽=공동체가 분별해 세우는 직분. “각 원 안에서 국적·언어·장애에 따른 구별은 차별이다.” 교재: 언약 공동체의 경계는 혈통과 국적과 사회적 지위보다 그리스도를 고백하는 신앙과 침례로 그어진다. 바클레이: <span class="tq">“‘그리스도 안으로의’ 침례는 전통적이고 계층적인 구별의 체계로부터 해방된 공동체들을 세우기 위한 새로운 기초를 제공했다”</span> (『바울과 은혜의 능력』 147). 환대를 받는다고 누구나 교인이 되어야 하는 것은 아니며 환대가 직분의 자격을 대신하지도 않는다. 그러나 각 원 안에서 국적과 언어와 장애를 이유로 한 구별은 차별이다. 같은 자격을 갖춘 이주민 교인과 장애를 가진 교인이 직분과 결정에서 빠져 있다면 교회는 그들을 아직 식구로 맞지 않았다. 러셀의 말대로 환대를 실천하는 교회는 모든 사람의 온전한 참여를 향해 열려 있어야 한다(『공정한 환대』 162).</li>
+        <li><span class="bdg b-sup">📖 18장 p.10</span> <b>교회가 곧 사회윤리 — 교수 미언급:</b> 교재: 초대 교회는 처음부터 환대의 공동체였다. 이춘성은 1세기부터 5세기까지 교회의 환대가 내부 구성원의 돌봄을 넘어 가난한 이와 나그네와 병자와 비그리스도인에게까지 상호성을 넓혔다고 분석했다(「1~5세기 교회의 환대 실천과 상호성 확장에 대한 윤리-사회학적 분석」). 옛 로마 종교를 되살리려던 율리아누스 황제조차 그리스도인들이 자기네 가난한 이뿐 아니라 이교도의 가난한 이까지 돕는다며 로마의 제사장들에게 본받으라고 했다(폴, 『손대접』 61~62). 하우어워스: <span class="tq">“교회에는 사회윤리가 없다. 교회가 바로 사회윤리이다”</span> (『평화의 나라』 216). 교회가 낯선 이를 어떻게 맞는가가 어떤 사회를 선하다고 여기는지를 세상 앞에 진술하며, 그 진술의 가장 오랜 형식이 식탁이다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="f2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§19. 손님을 식구로 맞는 교회의 네 실천 · 그들을 위하여에서 그들에 의해서로</h3>
+          <div class="unit-desc">공간과 식탁 · 동행 · 식구로 세움 · 공적 증언 · 세 단계</div>
+        </div>
+      </div>
+      <div class="oneline">교회는 공간·동행·세움·증언의 네 실천으로 손님을 식구로 맞고, 그 진전은 ‘그들을 위하여’에서 ‘그들과 함께’, ‘그들에 의해서’로 자란다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>네 가지 실천:</b> 교수는 공간과 식탁을 내어 주고(자막 ‘현재 공간과 식당 내 주고요’ [?]), 동행해 주고, 식구로 세워 주고(자막 ‘끌어 세워주고’ [?]), 공적으로도 말해 주어야 한다고 짚는다 [L311–312]. <span class="say">“이런 일련의 이야기들은 강의안을 참조하시면 될 것 같습니다.”</span> [L313] <span class="bdg b-sup">📖 슬라이드 p.28·18장 p.10–11</span> 슬라이드의 네 실천: ① 공간과 식탁 — 한국어 교실 · 공부방 · 고향 음식 모임 ② 동행 — 체불 · 산재 · 체류와 난민 심사 곁에서 ③ 식구로 세움 — 세 겹의 원 안에서 차별하지 않음 ④ 공적 증언 — 혐오의 말 앞에서 침묵하지 않음. 초청 행사 → 손님, 매주의 식탁 → 식구. “교회 자신이 낯선 이를 식구로 맞을 때 그 말은 증언이 된다.” 교재: ① 주중에 비어 있는 교회 건물을 이주민을 위한 한국어 교실, 다문화 가정 아이들의 공부방, 고향 음식을 나누는 식사 모임에 연다. 명절에 한 번 하는 초청 행사는 손님을 만들고 매주 함께 먹는 식탁은 식구를 만든다. 이주민 교인이 고향 음식을 차려 한국인 교인을 대접하는 날에는 손님과 주인이 바뀐다. 작은 교회의 주방과 교제실도 낯선 이에게는 충분히 넓다. ② 체불된 임금이나 산업재해, 체류 자격과 난민 심사 앞에 혼자 선 이웃 곁에서 법률과 노무와 의료의 도움을 연결하고 낯선 행정 절차에 함께 간다. 교회는 국가의 법을 무시할 수 없지만 법의 절차 앞에서 떠는 이웃이 혼자 남지 않게 할 수는 있다. 하우어워스가 고통받는 이 곁에 머무는 것을 교회의 첫째 응답으로 보았듯(Naming the Silences, 1~2장), 동행은 문제를 대신 해결해 주기보다 그 곁을 지키는 일이다. ④ 교회의 몫은 이주 정책을 대신 결정하는 데 있지 않다. 그러나 혐오의 말이 교회 안팎에서 오갈 때 침묵하지 않고 낯선 이도 하나님의 형상을 지닌 이웃이라고 말할 수 있다. 교회는 환대의 비용을 먼저 지되 국가의 공적 책임을 대신하지는 않으며, 그 비용이 가난한 지역과 계층에 몰리지 않도록 공정한 분담을 요구할 수 있다. 김현경의 말대로 환대는 공공성을 창출한다(『사람, 장소, 환대』 204).</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>그들을 위하여 · 그들과 함께 · 그들에 의해서:</b> 교수는 그들을 위하여(자막 ‘꿈을 함께 열 수’ — 문장이 끊김 [?]) [L314], <span class="say">“그렇다면 지금 우리는 어느 정도의 그들을 위하여 이냐 그들과 함께 단계냐?”</span> [L315] 그들에 의해서, 곧 장애인이든 이주민이든 우리의 한 지체가 되어 <span class="say">“우리와 함께 직분을 맡고 예산과 운영 교회에 대한 논의를 할 수 있느냐 없느냐?”</span> [L316] 를 따져 봐야 한다고 한다 [L316–317]. <span class="bdg b-sup">📖 슬라이드 p.29·18장 p.10</span> 슬라이드의 세 단계: 그들을 위하여(쉼터 · 구제 · 무료 진료, ‘많은 교회가 여기 머문다’) → 그들과 함께(함께 드리는 예배와 식탁) → 그들에 의해서(직분 · 예산 · 운영의 결정). 물음: “우리 교회의 이주민 교인과 장애를 가진 교인은 지금 어느 단계에 있는가?” 슬라이드: “문을 지키는 책임과 문을 여는 책임은 서로를 부정하지 않는다.” 교재: 폴은 환대가 기관의 일이 되면서 돌보는 이와 돌봄 받는 이의 역할이 굳어져 인격적 차원이 사라졌다고 진단한다(『손대접』 140~141).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="f3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§20. 정리와 결론 — 원수의 목전에 차리신 상</h3>
+          <div class="unit-desc">정리 · 마지막 날의 교회를 지금 살아내기 · 다음 장 예고 · 시편 23:5</div>
+        </div>
+      </div>
+      <div class="oneline">먼저 맞아들여진 은혜 위에서 나그네였던 백성이 몸·사회·부활의 세 가닥으로 낯선 이를 식구로 맞는 교회가 되며, 지금의 교회는 마지막 날의 교회를 미리 산다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>교수의 정리:</b> <span class="say">“정리하겠습니다.”</span> [L318] 먼저 맞아들이신 은혜로 나그네였던 우리가 타자의 몸에 먹을 것을 주고 우리 공동체의 멤버십이 되는 일련의 과정이 있고, 부활의 만찬과 식탁을 나누어야 하며, 시편 23편(자막 ‘시편 13편’ — 슬라이드 p.30과 18장 p.12의 시 23:5로 보아 23편으로 추정 [?])을 기억해 보라고 한다 [L318]. 그것이 맥클렌던이 말한 침례교적 비전이다 [L319]. <span class="say">“이런 마지막 날의 교회를 지금 살아내고 성경의 이야기를 지금 여기서 살아내는 그런 교회가 되어야 한다.”</span> [L320] 다음 장에서는 <span class="say">“우리 낯선 이가 실제로 우리의 삶을 위협한다면 어떻게 되느냐 하는 그 평화와 용서의 대한 얘기를 여러분들과 함께 나누려고 합니다.”</span> [L322]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>맺는 당부:</b> 교수는 토론 질문도 만들어 보았다고 하며(자막 ‘자식 가정도 만들어 보았습니다’ [?]) [L323], 이 강의를 무비판적으로 받아들이거나 거부하는 것이 아니라 성찰하고 반성하는 시간이 되면 좋겠다고 한다 [L324]. <span class="say">“우리가 어떻게 이런 기독교적 윤리를 우리 공동체가 살아낼 수 있겠느냐 라는 것을 고민해 보자라는 것입니다.”</span> [L325] 하나님 안에서 나그네였고 외인이었던 우리가 하나님의 자녀가 되었다 [L326]. <span class="say">“예수 그리스도의 십자가로 환대받은 우리가 예수 그리스도의 십자가로 타인을 환대하는 신자요, 제자도와 공동체가 되면 좋겠습니다.”</span> [L327] (L327 앞부분은 자막이 끊김 [?])</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.30–31·18장 p.11–13</span> <b>결론 — 교수 미언급 부분:</b> 시 23:5 <span class="tq">“주께서 내 원수의 목전에서 내게 상을 차려 주시고”</span> 슬라이드: 16장은 시 23:1 ‘부족함이 없으리로다’에서, 18장은 23:5에서 멈춘다. 교재: 원수의 위협 한가운데서도 하나님이 시인을 보호하고 먹이신다는 고백이다. 본문이 직접 말하지는 않지만 하나님께 보호받는 사람은 낯선 이를 원수로 여기지 않으며 실제의 위험에도 눈을 감지 않는다. 원수를 손님으로 바꾸는 나우웬의 소명도 그 보호에서 힘을 얻는다. 하우어워스가 말한 평화의 나라에서는 낯선 이가 식탁에 앉는다. 그러나 낯선 이가 실제로 다른 사람의 삶을 위협할 때 우리는 어떻게 해야 하는가 — 다음 장이 이 물음을 다룬다. 결론 문단(p.11): 환대의 근거는 먼저 맞아들여졌다는 은혜이고, 그 은혜는 나그네였던 하나님 백성의 이야기를 지금 우리 이야기로 고백하는 기억 속에서 살아난다. 그 기억이 인내와 너그러움의 성품으로 자라고, 공동체는 몸을 쉬게 하고 소속을 열며 다가올 나라를 앞당기는 세 가닥으로 낯선 이를 맞는다. 수용의 한계는 정직하게 말해야 하지만 영구적 배제의 근거가 될 수 없다. 국가의 정당한 강제력은 인정할 수 있지만 그 강제력을 하나님의 환대와 동일시할 수는 없다. 누구나 삶의 어느 때에는 낯선 땅의 낯선 이가 되므로 낯선 이를 사람으로 대우하는 사회가 모두에게 더 안전하다는 말은 신앙을 공유하지 않는 이웃에게도 설득력을 지닌다. 한국 교회는 사회의 중심으로 옮겨 가면서 스스로 나그네였다는 기억을 잃어 갔고 이주민을 함께 살 식구보다 선교의 대상으로 먼저 보기도 했다. 낯선 이와 함께 앉는 오늘의 식탁은 동서남북에서 온 이들이 하나님 나라 잔치에 앉는 마지막 날(눅 13:29 <span class="tq">“사람들이 동서남북으로부터 와서 하나님의 나라 잔치에 참여하리니”</span>)을 지금 앞당겨 산다. “침례교적 비전의 말로 하면, 지금의 교회는 마지막 날의 교회를 미리 산다.” 슬라이드의 결론 네 칸: 먼저 맞아들여진 은혜 · 나그네였던 백성의 기억 · 몸·사회·부활 세 가닥의 실천 · 손님을 식구로 맞는 교회.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <article class="unit-card" id="cmp">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>비교표 — 타자를 대하는 입장</h3>
+          <div class="unit-desc">관용 · 시혜 · 동화 · 강제 · 시장 · 무조건 · 기독교 환대 (슬라이드 p.3·15·16, 18장 p.1·4–5)</div>
+        </div>
+      </div>
+      <div class="oneline">타자를 대하는 입장은 맞아들이는 쪽이 변하는가, 조건을 얼마나 거는가로 갈리며, 기독교 환대는 먼저 맞아들여진 은혜에 신실하게 응답하는 환대이다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-sup">📖 슬라이드 p.3·15·16, 18장 p.1·4–5</span> <b>입장 비교</b>
+            <table class="custom-table cmp">
+              <tr><th>입장</th><th>핵심</th><th>한계·평가</th><th>교수의 말</th></tr>
+              <tr><td>관용</td><td>해치지 않고 내버려 둔다 (간섭하지 않는 공존)</td><td>이웃을 해치지는 않지만 이웃이 되어 주지도 않는다. 양심과 종교의 자유를 지키는 공적 성취이기도 하다(교재)</td><td>‘너도 나를 간섭하지 마라’ 하는 선 긋기 [L27–29]</td></tr>
+              <tr><td>시혜</td><td>위에서 아래로 베푼다</td><td>맞아들이는 쪽의 변화는 요구하지 않는다</td><td>‘우리가 너에게 은혜를 베푼다’ [L28]</td></tr>
+              <tr><td>동화</td><td>우리처럼 되라고 요구한다</td><td>들어온 쪽에게만 변화를 요구한다</td><td>‘우리 문화의 일부로 들어와야 한다’ [L29–30]</td></tr>
+              <tr><td>강제</td><td>경계와 강제를 환대의 조건으로 삼는다</td><td>강제가 곧 환대라는 결론은 받아들이기 어렵다. 행위자의 혼동(교재·슬라이드)</td><td>동화·배제·선 긋기 [L173–175]; 경계는 필요하나 유의 [L199–200]</td></tr>
+              <tr><td>시장</td><td>값을 치를 수 있는 손님만 맞는다</td><td>정중하지만 거래이다(교재)</td><td>주고받는 거래관계 [L175]</td></tr>
+              <tr><td>무조건 (데리다)</td><td>이름도 대가도 묻지 않는다</td><td>당위로 바꾸면 ‘폭력적 율법주의’(김진혁). 두 법의 이율배반(교재)</td><td>수용 범위를 벗어나면 더 큰 폭력과 배제 [L188]; 무조건 받아들이는 것은 아님 [L196]</td></tr>
+              <tr><td class="hl">기독교 환대</td><td>먼저 맞아들여진 공동체가 받은 은혜에 신실하게 응답한다. 함께 살아갈 자리를 내어 주고 공동체도 변하도록 허용한다</td><td>존엄은 조건 없이, 함께 사는 형태는 조건 속에서. 문 있는 경계(비폭력의 환대)</td><td>주인도 확장되고 손님도 변화됨 [L35]; 문이 있는 집 [L215]; 책임 있는 환대 [L272]</td></tr>
+            </table>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 예상 문항</div>
+    <p class="exam-note">(노트 정리용 예상 문항 — 교수 언급 아님) 본문 내용만으로 작성했고 끝에 근거 위치를 적었습니다.</p>
+    <h3 class="exam-h">O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 관용·시혜·동화는 맞아들이는 쪽 자신의 변화를 요구한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 세 입장은 들어온 쪽에게 변화를 요구할 뿐 맞아들이는 쪽의 변화는 말하지 않는다. [§2, L31–32; 슬라이드 p.3]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 환대의 근거는 상대가 맞아들일 만한 자격을 갖추었는가이다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 근거는 우리가 자격 없이 먼저 맞아들여졌다는 은혜이며, 은혜가 명령(서로 받으라)으로 넘어간다. [§3, L48–50; 슬라이드 p.5, 롬 15:7]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 교수는 기독교 입장에서 우리 중 누구도 처음부터 이 땅의 주인이 아니었고, 성경의 주인은 하나님이라고 말한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — [§4, L80–90; 슬라이드 p.8, 엡 2:12·19]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 교수는 호스티스(hostis)를 헬라어라고 했지만 교재는 라틴어 낱말로 설명한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 호스티스는 손님이자 원수를 뜻하며, 나우웬의 소명은 호스티스를 호스페스로 바꾸는 것이다. [§7, L160; 18장 p.4]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q5. 교수와 교재는 무조건적 환대를 언제 어디서나 지켜야 할 당위로 주장한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 존엄은 조건 없이 인정하지만 무조건 받아들여야 하는 것은 아니며, 당위로 바꾸면 ‘폭력적 율법주의’가 된다. [§9, L196; 슬라이드 p.16]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q6. 교수는 벽 없이 문만 있는 공동체가 바람직하다고 말한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 문 없는 벽은 배제, 벽 없는 문은 받아들이는 공동체를 지치게 하므로 문이 있는 집이 되어야 한다. [§10, L208–215; 슬라이드 p.18]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q7. 환대의 세 가닥은 몸·사회·부활이며, 이를 환대에 적용한 것은 교재(이 장)의 해석이다.</div>
+      <div class="quiz-ans"><strong>O</strong> — [§11, L223–225; 슬라이드 p.19]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q8. 책임 있는 환대의 다섯 기준에는 ‘박해와 위해의 위험이 있는 곳으로 돌려보내지 않음’이 포함된다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 기준 2. [§16, L275; 슬라이드 p.25, 18장 p.8]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q9. 교재는 한국을 받아들이는 이가 너무 많은 사회로 진단한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 보호를 인정받는 이가 극히 드문 사회라고 쓴다. [§16, 18장 p.9]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q10. 교수는 신앙이 아니라 국적과 언어로 교회 안의 구별을 하라고 말한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 신앙으로 구분해야 하고 국적·언어·장애로 구별하면 안 된다. [§18, L306, L310; 슬라이드 p.27]</div>
+    </div>
+
+    <h3 class="exam-h">서술 예상 과제</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">논술 1. 관용·시혜·동화와 구별되는 기독교 환대를 ‘먼저 맞아들여진 은혜’와 ‘나그네였던 기억’에 근거해 설명하라.</div>
+      <div class="quiz-ans"><strong>골자:</strong> ① 세 입장은 들어온 쪽에게만 변화를 요구 [§2] ② 롬 15:7 — 직설법에서 명령법으로 [§3] ③ 신 10:19, 벧전 2:11, 침례교적 비전 ‘이것이 저것이다’ [§3] ④ 누구도 처음부터 주인이 아님(엡 2장), 중심/주변 [§4] ⑤ 손님이자 주인이신 그리스도, 주인도 확장되고 손님도 변화 [§5, §2]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">논술 2. 낯선 이의 존엄과 수용의 한계를 책임 있는 환대의 틀로 논하고 울산 동구 사례에 적용하라.</div>
+      <div class="quiz-ans"><strong>골자:</strong> ① 존엄은 조건 없이, 함께 사는 형태는 조건 속에서 [§9] ② 강제는 환대가 아님 — 목적·수단·책임의 세 물음 [§9] ③ 문 있는 경계와 인내 [§10] ④ 국가·교회·개인의 세 층위 [§16] ⑤ 다섯 기준과 울산 적용 — 걱정과 혐오의 구별, 비용을 약자에게 떠넘기지 않음 [§15–16]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">논술 3. 몸·사회·부활의 세 가닥으로 우리 교회의 환대 실천을 점검하라.</div>
+      <div class="quiz-ans"><strong>골자:</strong> ① 몸 — 식탁·잠자리·경사로, 계단만 있는 교회 [§12] ② 사회 — 인정·소속·제도적 참여, 침례와 신앙고백 [§13, §18] ③ 부활 — 갚을 수 없는 이들의 식탁, 도로시 데이 [§14] ④ 그들을 위하여→함께→그들에 의해서 [§19]</div>
+    </div>
+
+  </section>
+
+  <details class="apx" id="apx">
+    <summary>부록 — 토론 질문 · 자막 교정[?] · 보충[보충] 목록</summary>
+    <div class="dbody">
+      <h4>교재 토론 질문(원문 — 18장 p.13 · 슬라이드 p.31)</h4>
+      <ol>
+        <li>맥클렌던의 침례교적 비전은 지금의 교회를 사도들의 교회이자 마지막 날의 교회로 본다. 이 눈으로 신명기의 “너희도 나그네 되었음이니라”를 읽으면, 나그네였던 기억은 오늘 나와 우리 교회에게 어떤 현재형인가?</li>
+        <li>삭개오의 집에 들어가신 예수의 행동은 삭개오의 삶과 공동체의 관계를 어떻게 바꾸었는가? 낯선 이를 맞는 일 앞에서 나와 우리 교회는 예수, 삭개오, 수군거리는 무리 가운데 주로 어느 쪽에 서 왔는가?</li>
+        <li>국가의 제한된 강제를 인정하는 일과 그 강제를 하나님의 환대라고 부르는 일은 어떻게 다른가? 하우어워스가 말한 인내는 낯선 이에 대한 두려움을 어떻게 바꾸는가?</li>
+        <li>어느 지역에 난민 가족들이 정착하면서 학교와 주거를 둘러싼 주민 갈등이 생겼다. ‘우리 국민이 먼저’라는 주장과 아우구스티누스의 사랑의 질서는 어디에서 같고 어디에서 다른가? 이 장의 다섯 기준을 적용하면 주민의 정당한 걱정과 난민 가족의 권리를 어떻게 조정할 수 있는가?</li>
+        <li>우리 교회의 이주민 교인과 장애를 가진 교인은 ‘그들을 위하여’, ‘그들과 함께’, ‘그들에 의해서’ 가운데 어느 단계에 있는가? 다음 단계로 가기 위해 이번 해에 바꿀 수 있는 구조는 무엇인가?</li>
+      </ol>
+      <p class="exam-note">교수는 토론 질문도 만들어 보았다고 말했으나(자막 ‘자식 가정도 만들어 보았습니다’ [L323] [?]) 질문 내용을 읽어 주지는 않았다. 위 질문은 교재와 슬라이드의 원문이다.</p>
+
+      <h4>자막 오인식 교정 [?]</h4>
+      <p class="exam-note">본문에서 같은 내용을 이미 풀어 쓴 항목은 여기에 다시 적지 않았습니다.</p>
+      <ul>
+        <li>‘기독교인류학 개론’→기독교윤리학 개론(추정) [L1]</li>
+        <li>‘지금 군대를 다룹니다’→지금 환대를 다룹니다(추정) [L4]</li>
+        <li>‘와 관계 속에서 나타난다’→불명 [L10]</li>
+        <li>‘하자 / 나와 다른남들 / 통계 밖’→타자 / 나와 다른 타자 / 통제 밖(문맥) [L21, 23, 41, 43, 112–113]</li>
+        <li>‘상대 / 상대라는 단어 / 기독교적 상대 / 적대와 한데’→환대(추정) [L35, 159, 164]</li>
+        <li>‘얼레랑스 / 시혜입니다시에는’→톨러런스(관용) / 시혜입니다. 시혜는 [L26, 28]</li>
+        <li>‘환대는 하인을 앞서 말해주고’→불명 [L33]</li>
+        <li>‘맞아주려던 나그네’→맞아 주셨던 나그네(추정) [L39]</li>
+        <li>‘맥클렌든 / 맥클린드 / 맥클랜더 / 맥클랜드 / 맥클레인 / 맥클렌딩 / 맥클레든’→맥클렌던(18장 p.2) [L40, 67, 216, 223, 295, 319]</li>
+        <li>‘흥민 / 고려민 / 거르민 / 걸음’→거류민(추정) [L46, 56, 59, 61, 63]</li>
+        <li>‘일곱으로 넘어가죠 / 효능 / 3개월치면’→애굽으로 / 혈연(슬라이드 p.6, 추정) / 불명 [L51, 53]</li>
+        <li>‘하버마스의 콜로니’→하우어워스의 콜로니(추정, L93과 연결) [L55]</li>
+        <li>‘우리 처자를 어떻게 할 거냐 / 우리 그룹과 모세오경’→불명 [L64, 66]</li>
+        <li>‘디스 이즈 이에요’→‘디스 이즈 댓’(슬라이드 p.7의 ‘이것이 저것이다’에 해당; 추정) [L68]</li>
+        <li>‘이것이 이것이 될 수도 있고 … (L69–70 일부)’→불명 [L69–70]</li>
+        <li>‘김현경 선생 / 김연경 학자’→김현경(18장 p.2) [L78, 82]</li>
+        <li>‘얘들아 라고도 하고’→불명 [L83]</li>
+        <li>‘웨인 스트레인저 에서 시티즌 / 10시즌’→불명(외인에서 시민으로) / 시티즌(시민) [L86–87]</li>
+        <li>‘하나님 안에 막힌 담을 넘어 오시는 십자가’→막힌 담을 허시는 십자가(엡 2장, 슬라이드 p.8; 추정) [L85]</li>
+        <li>‘스탠리 하우스 / 하우스’→스탠리 하우어워스 [L91, 112]</li>
+        <li>‘하나님 나라의 이다, 식민지다’→하나님 나라의 colony(식민지)다(추정) [L93]</li>
+        <li>‘영조로 느끼거든요’→불명 [L95]</li>
+        <li>‘강도에 있던 명동촌 급증’→간도의 명동촌(추정) / 급증은 불명 [L99]</li>
+        <li>‘교류 및 교류 촌 콜로니’→불명 [L116]</li>
+        <li>‘이 표지 중에 천사 대접하니’→불명(히 13:2의 천사 대접) [L119]</li>
+        <li>‘현대 대접’→환대(추정) [L120]</li>
+        <li>‘필로스고 나그네를 빼서’→philos와 xenos(나그네)를 합쳐서(18장 p.3; 추정) [L122]</li>
+        <li>‘베드렌과 베드론 / 낚시를 왔다’→베들레헴(추정) / 불명 [L126–127]</li>
+        <li>‘대 손님 대접하는 거죠’→불명 [L133]</li>
+        <li>‘채리집 / 학교 얘기는 / 1 주님이 / 내 기업으로 갖겠다’→세리의 집 / 삭개오 얘기는 / 불명 / 불명(눅 19:8의 ‘소유의 절반’?) [L138–139]</li>
+        <li>‘색칠 / 묶으면’→불명 [L140, 142]</li>
+        <li>‘새끼의 자리 / 수군거리는 물이냐’→삭개오의 자리 / 수군거리는 무리(추정; 눅 19:7) [L145–146]</li>
+        <li>‘덮개 적대 / 스틸러티 / 호스 패스 / 하스피탈리티 / 해피탈리티’→불명 / 호스틸리티(적대) / 호스페스 / 호스피탈리티(환대) / 호스피탈리티(환대)(추정) [L161–163, 171]</li>
+        <li>‘호스트에서 호스트패스가 되는’→호스티스에서 호스페스가 되는(추정) [L170]</li>
+        <li>‘근대 시장 / 당신의 방을 얻지 않은’→시장(슬라이드 p.15; 추정) / 불명 [L175]</li>
+        <li>‘핵심 주의 교회’→회심주의 교회(추정) [L182]</li>
+        <li>‘골프는’→볼프는(18장 p.5) [L191]</li>
+        <li>‘현대의 신학 / 강의로 무조건’→환대의 신학(18장 p.5) / 당위로(슬라이드 p.16) — 추정 [L193]</li>
+        <li>‘무조건 욕하는데는 종말이 있습니다 / 앙재가 저를 안다는 것은’→무조건적 환대는 종말에 있다(추정) / 불명 [L198, 200]</li>
+        <li>‘폴도 얘기를 하고’→불명 [L212]</li>
+        <li>‘일단 1년에 좀 연기를 / 사제관계 / 일제가 시체종을’→불명 [L217, 220, 222]</li>
+        <li>‘몸에 가다 몸을 쉬게 되겠죠’→몸을 쉬게 하는 것(추정) [L226]</li>
+        <li>‘종말론적 비단’→종말론적 비전(추정) [L232]</li>
+        <li>‘청년이 뭐, 이건 말할 필요도 없지’→불명 [L242]</li>
+        <li>‘홍대와 관련해서’→환대와 관련해서(추정) [L245]</li>
+        <li>‘한터로 / 압을 문제 / 시집공동체 미리 맛봄 공동체’→불명 [L247, 251–252]</li>
+        <li>‘깔뱅’→칼뱅 [L253]</li>
+        <li>‘폭력얘기 나오는 곳에서’→13장 희생양의 폭력을 가리키는 것으로 추정(슬라이드 p.23) [L256]</li>
+        <li>‘축소 공격’→숙소 공격(슬라이드 p.23·18장 p.8; 추정) [L258]</li>
+        <li>‘우리 침례교적이고 또 아랍적인 입장’→아나뱁티스트적(추정) [L265]</li>
+        <li>‘황대해야 되고 / 내면화와 상품화’→환대해야 되고 / 내면화와 성품화(추정) [L271, 260]</li>
+        <li>‘군대를 갈 때 경계가 있지 않는 사람, 변화된 에드워드’→환대할 때 경계를 갖되 갇히지 않는 사랑, 조나단 에드워즈(추정) [L283]</li>
+        <li>‘그럼 전환해 들어오지’→불명 [L288]</li>
+        <li>‘강연에 없습니다만’→강의안에 없습니다만(추정) [L290]</li>
+        <li>‘찬찬과 만찬 / 창 / 찬’→애찬과 만찬 / 애찬(추정) [L298, 302–303]</li>
+        <li>‘보기에 따르게 두는 것은 구별은 아니에요’→불명 [L305]</li>
+        <li>‘성으로 이해 되시나요 / 성적 구별’→불명 / 성별(추정) [L307, 310]</li>
+        <li>‘자식 가정도 만들어 보았습니다 / 제재다라고’→불명 / 불명 [L323, 325]</li>
+        <li>‘그들이 우리가 우리에게 또 다른 이들을 환대할 수 있는’→불명(문장이 끊김) [L327]</li>
+        <li>‘현대는 경계가 필요하다는 것은’→환대는 경계가 필요하다는 것은(추정; 인용문은 자막 그대로) [L199]</li>
+      </ul>
+
+      <h4>[보충] 교수 발언과 교재·슬라이드의 차이</h4>
+      <ul>
+        <li><b>시기와 수치 [L13, L18–19]:</b> 교수는 8월에 들어왔고 ‘2월달’에 울산 동구로 배정했다고만 말하고, 216만과 ‘한 200’을 말한다. 슬라이드 p.2·18장 p.1은 2021년 8월 입국, 이듬해(2022년) 2월 29가구 157명 정착이며, 후주 [1](p.12)은 2025년 12월 말 체류 외국인 2,783,247명 가운데 장기 체류자 2,159,052명이라고 쓴다.</li>
+        <li><b>침례교 비전의 범위 [L40, L67]:</b> 교수는 ‘침례교 비전’이라 말하지만 18장 p.2는 소문자 b의 baptist vision이 한 교단을 넘어 아나뱁티스트와 침례교를 비롯해 신자의 교회를 지향해 온 공동체의 성서 읽기를 가리킨다고 쓴다.</li>
+        <li><b>빌립보의 로마 colony·명동촌 [L94–99]:</b> 로마의 colony(빌립보)와 한인촌·명동촌 비유는 슬라이드·교재에 없는 교수의 설명이다. 교재 p.2는 이 은유가 식민 통치를 긍정하지 않고 다른 땅에서도 본향의 삶의 방식을 지키는 공동체를 가리킨다고 쓴다.</li>
+        <li><b>예수의 이집트 피신 [L124–128]:</b> 마태복음 2장을 들어 예수도 이집트에서 난민 생활을 하셨다는 설명은 슬라이드·교재에 없다. 교재 p.3은 마 8:20의 머리 둘 곳 없는 나그네만 든다.</li>
+        <li><b>요한복음 8장의 삼각 구도 [L141–143]:</b> 교수가 든 요 8장 예는 교재에 없다. 교재 p.3은 번(Byrne)을 인용해 누가복음의 장면마다 셋째 무리(눅 19:7)가 있다고 쓴다.</li>
+        <li><b>호스티스의 언어 [L160]:</b> 교수는 ‘헬라어로 호스티스’라 하나 교재 p.4는 라틴어 호스티스(hostis)라고 쓴다. 슬라이드 p.14는 언어를 표기하지 않는다.</li>
+        <li><b>나우웬의 환대 정의 [L170–171]:</b> 교수는 환대를 호스티스에서 호스페스가 되는 것으로 말한다. 교재 p.4는 소명을 『영적 발돋움』 76으로, 환대의 정의(‘낯선 사람이 들어와서 적이 아닌 친구가 될 수 있는 자유로운 공간…’)를 83으로 따로 인용한다.</li>
+        <li><b>세 교회 유형과 요더 [L179]:</b> 교수는 요더가 이를 패러디해 수정했다고 하나 교재 p.4–5는 하우어워스와 윌리몬(『하나님의 나그네 된 백성』 69~70)만 인용하고 요더를 언급하지 않는다.</li>
+        <li><b>평화와 용서의 예고 [L322]:</b> 교수는 다음 장이 평화와 용서라고 말한다. 슬라이드 p.30과 18장 p.12는 ‘낯선 이가 실제로 다른 사람의 삶을 위협할 때’의 물음이 다음 장이라고만 쓰고 주제어는 적지 않는다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 교재: 『은혜의 윤리』 18장(환대) 원고, 제18강 슬라이드, 수업 자막 · 쪽수는 PDF 쪽(슬라이드 p.1–31, 18장 p.1–13)</p>
+  </footer>
+
+</div>
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>

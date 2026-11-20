@@ -734,7 +734,9 @@ const SITE_DATA = {
             { week: 11, title: "사랑의 윤리와 정의의 윤리", date: "2026.11.13", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week11.html" }
           ] },
-            { week: 12, title: "", date: "", files: [] },
+            { week: 12, title: "환대의 윤리", date: "2026.11.20", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week12.html" }
+          ] },
             { week: 13, title: "", date: "", files: [] },
             { week: 14, title: "", date: "", files: [] },
             { week: 15, title: "", date: "", files: [] }
