@@ -189,7 +189,9 @@ footer{border-top:.5px solid var(--border);padding:28px 24px}
 
 /* RESPONSIVE */
 @media(max-width:600px){
-  .nav-tabs{display:none}
+  .nav-tabs{flex:1;min-width:0;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .nav-school{display:none}
+  .nav-tab{padding:6px 10px}
   .hero-h1{font-size:2rem}
 }
 </style>
