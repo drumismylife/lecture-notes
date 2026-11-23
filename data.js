@@ -790,7 +790,9 @@ const SITE_DATA = {
             { week: 12, title: "제12강 학개서의 구조, 신학, 메시지", date: "2026.11.19", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week12.html" }
           ] },
-            { week: 13, title: "", date: "", files: [] },
+            { week: 13, title: "제12과 스가랴서 — 성전 재건에서 하나님 나라의 완성으로", date: "2026.11.23", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/prophet/week13.html" }
+          ] },
             { week: 14, title: "", date: "", files: [] },
             { week: 15, title: "", date: "", files: [] }
           ]

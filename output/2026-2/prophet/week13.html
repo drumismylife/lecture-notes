@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제12과 스가랴서 — 성전 재건에서 하나님 나라의 완성으로</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180a10; --card:#241018; --subcard:#2e1620; --crimson:#c05070; --crimson2:#d4788f;
+  --violet:#9b5a8a; --exam:#c96b5a; --exam-bg:#2d1a16; --gold:#c9a84c; --teal:#6ab8c8;
+  --text:#f0e5ea; --muted:#a0808f; --border:#3a1d28; --judgment:#8a3a3a; --restoration:#5a8a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.78;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+
+.hdr{text-align:center;padding:32px 18px 26px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(150deg,#12060a,#1c0c14 60%,#2a1220)}
+.eye{font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:10px}
+.hdr h1{font-family:'Noto Serif KR',serif;font-size:1.5rem;font-weight:700;line-height:1.3}
+.hdr .prof{color:var(--muted);font-size:13px;margin-top:8px}
+
+.intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:10px;padding:15px 17px;margin:16px 0 6px;font-size:13.5px;color:var(--muted)}
+.intro b{color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 24px}
+.toc a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:5px 12px;text-decoration:none;transition:.15s}
+.toc a:hover{color:var(--text);border-color:var(--gold);background:var(--subcard)}
+
+.part-div{margin:40px 0 8px;text-align:center}
+.part-div span{display:inline-block;font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:700;color:var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 20px;letter-spacing:.03em}
+
+.sec{margin:24px 0}
+.sh{display:flex;align-items:center;gap:11px;margin:0 0 13px}
+.sb{font-size:11px;font-weight:700;letter-spacing:.06em;color:#180a10;background:var(--gold);padding:3px 9px;border-radius:4px;white-space:nowrap}
+.st{font-size:1.06rem;font-weight:700;color:var(--text)}
+.sl{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:15px 17px;margin:11px 0}
+.card h3{font-size:14px;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);margin:5px 0}
+.card ul{margin:6px 0 4px 18px}
+.card ol{margin:6px 0 4px 18px}
+.card li{font-size:13.5px;color:var(--muted);margin:4px 0}
+.card b{color:var(--text)}
+
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:9px;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;font-size:13.5px}
+caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding:7px 10px;background:var(--subcard)}
+th,td{padding:7px 11px;border:1px solid var(--border);text-align:left;vertical-align:top}
+thead th{background:var(--subcard);color:var(--gold);font-size:12.5px}
+tbody th{background:#1c0e14;color:var(--muted);font-weight:500;font-size:12.5px;white-space:nowrap}
+tr:hover td{background:rgba(192,80,112,.06)}
+
+.bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:4px}
+.b-exam{background:rgba(201,107,90,.16);color:var(--exam);border:1px solid rgba(201,107,90,.45)}
+.b-sup{background:rgba(106,184,200,.15);color:var(--teal);border:1px solid rgba(106,184,200,.4)}
+.b-add{background:rgba(155,90,138,.18);color:var(--crimson2);border:1px solid rgba(155,90,138,.45)}
+
+.emph{background:linear-gradient(180deg,rgba(201,107,90,.08),transparent);border:1px solid rgba(201,107,90,.3);border-left:3px solid var(--exam);border-radius:10px;padding:13px 16px;margin:11px 0}
+.emph h3{color:var(--exam);font-size:13.5px;font-weight:700;margin-bottom:6px}
+.emph p,.emph li{font-size:13px;color:var(--muted)}
+.emph b{color:var(--text)}
+
+.sup{background:rgba(106,184,200,.06);border:1px dashed rgba(106,184,200,.4);border-radius:9px;padding:11px 15px;margin:10px 0;font-size:12.5px;color:var(--muted)}
+.sup .tag{color:var(--teal);font-weight:700}
+
+.vq,.say{color:var(--crimson2);font-style:italic}
+.bq{color:var(--crimson2);font-size:13px;margin:6px 0 6px 6px;padding-left:10px;border-left:2px solid var(--border)}
+.emph ol{margin:6px 0 4px 20px}
+.asr{color:var(--muted);border-bottom:1px dotted var(--muted);font-size:12.5px}
+
+.sum{background:linear-gradient(180deg,rgba(201,168,76,.08),transparent);border:1px solid rgba(201,168,76,.35);border-left:3px solid var(--gold);border-radius:10px;padding:14px 17px;margin:16px 0 8px;font-size:13.5px}
+.sum h3{color:var(--gold);font-size:14px;margin-bottom:6px}
+.sum p{color:var(--text);margin:5px 0}
+.sum .mini{color:var(--muted);font-size:12.5px}
+
+.verify{background:var(--subcard);border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-top:30px;font-size:13px;color:var(--muted)}
+.verify h3{color:var(--text);font-size:14px;margin-bottom:8px}
+.verify .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.verify .stat{font-size:11.5px;padding:3px 10px;border-radius:14px;border:1px solid var(--border)}
+.verify ul{margin:8px 0 0 18px;font-size:12.5px}
+.verify p{margin:6px 0}
+
+.foot{text-align:center;color:var(--muted);font-size:11.5px;margin-top:32px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:560px){.wrap{padding:16px 12px 60px}.hdr h1{font-size:1.28rem}}
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+<div class="wrap">
+
+<div class="hdr">
+  <div class="eye">예언문학연구입문 · 13주차 · 2026학년도 2학기</div>
+  <h1>제12과 스가랴서 — 성전 재건에서 하나님 나라의 완성으로</h1>
+  <div class="prof">담당 오성호 교수 · 100% 영상강의(Panopto) · 스가랴서 1of2 · 2of2</div>
+</div>
+
+<div class="intro">
+  13주차 두 영상(<b>1of2·2of2</b>)의 자막과 강의안(1주차 ‘전체’ 파일 중 학개–스가랴–말라기 부분)으로 정리했습니다. 이번 주차용 새 강의안은 없습니다. 1of2는 스가랴서의 주제·배경·구조와 첫 단락(서론과 8개 환상)까지, 2of2는 둘째 단락(6:9)부터 이어집니다. 성경 구절 블록은 개역개정 본문이며, 큰따옴표(“ ”)는 교수님 말씀(자막)을 그대로 옮긴 것입니다. 교수님이 <b>핵심·중요·기억·묵상 등의 말로 직접 짚은 곳</b>을 <span class="b-exam bdg">⭐ 교수 강조</span> 상자에 넣었으며 ‘시험’이라는 말은 이번 강의에 나오지 않았습니다. 자막 오인식 의심은 <span class="asr">[?]</span>, 교수 발언과 성경 본문이 다른 곳은 <span class="b-sup bdg">보충</span>, 강의안에서 가져온 내용은 <span class="b-add bdg">강의안</span>으로 표시했고 목록은 맨 아래에 있습니다. 자막의 ‘학계’·‘학교’·‘합계’는 ‘학개’의 오인식으로 읽었습니다.
+</div>
+<div class="emph">
+  <h3>⭐ 교수 강조 — 교수님이 직접 짚은 말 (강조어가 자막에 있는 곳만)</h3>
+  <ol>
+    <li><span class="say">“핵심적인 관심은 성전 재건과 공동체의 순종”</span> [1of2 26] — 학개서(자막 ‘학교’ <span class="asr">[?]</span>)의 초점 [1of2 26–27]</li>
+    <li><span class="say">“핵심적인 관심은 전반부는 성전 재건 이죠”</span> [1of2 90] — 스가랴 1–8장 [1of2 90–91]</li>
+    <li><span class="say">“가장 핵심적인 명제”</span> [1of2 160] — 서론 1:3의 내게로 돌아오라 / 내가 너희에게로 돌아가리라 [1of2 160]</li>
+    <li><span class="say">“가장 핵심적인 키워드”</span> [1of2 171] — ‘돌아오라’ [1of2 171–172]</li>
+    <li>두루마리의 치수가 성전 현관의 치수와 일치하는 것은 <span class="say">“굉장히 재미있는 그런”</span> [1of2 242] <span class="say">“포인트”</span> [1of2 243] [1of2 241–243]</li>
+    <li><span class="say">“마음의 어떤 그 진실한 예배가 중요한 것이지 외형적인 것이 더 중요한 것이 아니다”</span> [2of2 9] — 금식 질문(7:1–6)에 대한 답 [2of2 8–9]</li>
+    <li><span class="say">“그 자체가 더 중요한 것이 아니라”</span> [2of2 46] 사회적 불의를 제거하고 하나님과의 관계를 회복하는 것이 <span class="say">“근본적인”</span> [2of2 46] 요소 [2of2 46]</li>
+    <li><span class="say">“핵심 논쟁이 두 직분의 협력인가 한 메시안의 통합인가”</span> [2of2 31] — 그리스도 안에서 두 직분의 통합 [2of2 31–32]</li>
+    <li><span class="say">“우리가 기억할 필요가 있는 것이죠”</span> [2of2 102] — 심판을 통한 궁극적인 평화 [2of2 100–102]</li>
+    <li><span class="say">“아주 중요한 해석 모델 중의 하나”</span> [2of2 186] — 반개메렌의 구조 [2of2 185–186]</li>
+    <li><span class="say">“이 회복의 핵심인 정결 여호수아의 이 정결과”</span> [2of2 195] 스룹바벨을 통한 성령의 활동이 8개 환상의 가장 중앙(3–4장)에 있다 [2of2 195–196]</li>
+    <li><span class="say">“가장 중요한 네 가지 신학적인 기둥”</span> [2of2 228] — 성전, 지도력, 공동체, 열방 [2of2 228]</li>
+    <li>공동체의 기둥: <span class="say">“이런 것들이 중요하다라는 것을”</span> [2of2 250] · <span class="say">“금식보다 정의가 중요하다”</span> [2of2 252] · <span class="say">“언약적인 예배의 핵심 요소다”</span> [2of2 253] [2of2 250–253]</li>
+    <li><span class="say">“스가랴서의 세 가지 핵심 교훈”</span> [2of2 275] — 언약적 회개 / 하나님의 영으로 되는 정결과 신실한 삶 / 열방이 참여하는 보편적 왕권과 거룩함 [2of2 275–281]</li>
+    <li><span class="say">“핵심적인 메시지”</span> [2of2 282] — 성전을 다시 지어라 하는 것에 멈추지 않는다 [2of2 282]</li>
+    <li>연구·묵상 질문 네 가지 [2of2 269–274] — <span class="say">“구체적으로 묵상을 하시고”</span> [2of2 274]</li>
+  </ol>
+  <p style="margin-top:8px">‘시험’이라고 말한 곳은 1of2·2of2 모두 없습니다.</p>
+</div>
+<div class="sum">
+  <h3>1쪽 요약 — 스가랴서 <span style="font-size:11px;color:var(--muted)">(노트 정리용 압축 — 교수님이 ‘시험’을 언급한 것이 아님)</span></h3>
+  <p><b>1. 주제:</b> 포로 귀환 공동체의 회복이 성전 재건을 넘어 메시아적 왕권, 열방의 구원, 여호와의 날, 하나님의 보편적 통치라는 종말론적 소망으로 나아간다. 역사적 회복과 종말론적 완성 사이의 긴장을 환상으로 잇는 책. [1of2 1–8]</p>
+  <p><b>2. 위치·시대:</b> 12선지서의 11번째, 학개–스가랴–말라기 포로 후 선지서. 520년 다리오 2년에 학개와 같은 해 첫 신탁, 519년 8개 환상, 515년 성전 완공. [1of2 16, 42–47]</p>
+  <p><b>3. 인물:</b> 선지자 스가랴, 총독 스룹바벨(다윗 후손, 왕과 같은 상징), 대제사장 여호수아(백성의 더러움과 정결의 상징). 병행 → 제사장직·왕직이 메시아 안에 통합. [1of2 58–73]</p>
+  <p><b>4. 구조(반개메렌):</b> 서론 1:1–6 / 8개 환상 1:7–6:8 / 책임과 약속의 신탁 6:9–8장 / 이스라엘과 열국 9–11장 / 하나님 나라의 확립 12–14장, 모두 동심원적. 완벽한 대칭은 아니고 해석 모델. [1of2 100–157]</p>
+  <p><b>5. 핵심 메시지 흐름:</b> 돌아오라(1:1–6) → 환상: 열방의 평온·심판, 새 예루살렘, 여호수아의 정결, 영으로 되는 회복, 악의 제거 → 금식보다 진실과 공의 → 평화의 왕, 목자 → 죄를 씻는 샘, 보편적 성결.</p>
+  <p><b>6. 논쟁점 6:</b> 저작·통일성 / 8환상의 대칭 / 여호수아와 순 / 인간 왕과 여호와 왕 / 찔린 자와 맞는 목자 / 14장의 성취. [2of2 173–227]</p>
+  <p><b>7. 네 기둥·세 교훈:</b> 성전·지도력·공동체·열방 / 언약적 회개 → 영으로 되는 정결과 신실 → 열방이 참여하는 보편적 왕권. [2of2 228–281]</p>
+</div>
+<div class="toc"><a href="#intro">I-1 주제</a>
+  <a href="#canon">I-2 정경적 위치</a>
+  <a href="#history">I-3 역사·상황</a>
+  <a href="#twoparts">I-4 두 부분</a>
+  <a href="#people">I-5 인물</a>
+  <a href="#structure">II 구조</a>
+  <a href="#intro16">III 서론 1:1–6</a>
+  <a href="#visions">III 여덟 환상</a>
+  <a href="#p2">IV-1 6:9–8장</a>
+  <a href="#p3">IV-2 9–11장</a>
+  <a href="#p4">IV-3 12–14장</a>
+  <a href="#debate">V-1 논쟁점</a>
+  <a href="#theo">V-2 신학 기둥</a>
+  <a href="#wrap">V-3 교훈</a>
+  <a href="#check">자막 교정·보충</a></div>
+<div class="part-div" id="part1"><span>1of2 · 주제, 정경적 위치, 배경, 두 부분, 구조, 서론, 8개 환상</span></div>
+
+<div class="sec" id="intro">
+  <div class="sh"><span class="sb">스 I-1</span><span class="st">스가랴서의 주제와 강의 순서</span><div class="sl"></div></div>
+  <div class="card">
+<h3>교수님이 제시한 주제 [1of2 1–8]</h3>
+<ul>
+<li>스가랴서는 포로에서 돌아온 언약공동체의 회복을 선언하면서, 성전 재건과 공동체의 ‘정교’ <span class="asr">[?]</span>(자막 그대로)를 넘어 <b>메시아적인 왕권의 도래, 열방의 구원, 여호와의 날, 하나님의 보편적인 통치</b>라는 종말론적 소망을 제시합니다. [1of2 1] 성전 재건의 비전에서 하나님 나라의 완성으로, 포로 귀환민이 가졌던 성전 재건의 비전을 넘어 궁극적으로 하나님 나라가 완성되고 보편적 통치가 나타날 종말론적 소망을 바라보는 것이 스가랴서의 전체 내용이라고 합니다. [1of2 2]</li>
+<li>학개서는 성전 재건이라는 구체적인 역사적 과제에 집중했고, 스가랴서도 그 과제에 동일하게 관심을 갖습니다(자막 ‘학계’는 학개 <span class="asr">[?]</span>). 그러나 성전 재건을 통한 회복이 결국 <b>하나님의 구속사적 목적을 성취하고 하나님 나라의 미래적 완성으로 나아가는 비전</b>을 더 폭넓게, 발전적으로 제시한다는 것입니다. [1of2 3–4]</li>
+<li>배울 것은 한마디로 <span class="say">“성전은 회복되었지만 하나님 나라의 완성이 어디에 있는가 하는 질문”</span> [1of2 6]을 살피는 것이라고 합니다. 회복은 역사적으로 시작되었고, 종말론적 완성이라는 궁극적 비전과의 사이에 긴장이 있으며, 스가랴서는 그 사이에 계시의 환상으로 다리를 놓고 있다는 설명입니다. [1of2 7–8]</li>
+</ul></div>
+<div class="card">
+<h3>강의 순서 [1of2 9–14]</h3>
+<ul>
+<li>① 서론 격: 저자와 역사적 배경, 정경적 위치와 특징 [1of2 10]</li>
+<li>② 구조와 단락별 주요 내용: 8개의 환상과 9장 이후의 두 번의 신탁이 어떤 의미인지 해석. 여기서는 <b>반계메린</b>(자막 표기 <span class="asr">[?]</span>, 강의안 표기 VanGemeren)이 스가랴서를 네 단락으로 나누고 각 단락이 동심원적 구조를 보인다고 관찰한 구분을 따릅니다. [1of2 11–13]</li>
+<li>③ 주요 신학적 논쟁·해석 문제, 신학적 메시지, 정경적 의의 [1of2 14]</li>
+</ul></div>
+</div>
+<div class="sec" id="canon">
+  <div class="sh"><span class="sb">스 I-2</span><span class="st">정경적 위치: 학개–스가랴–말라기</span><div class="sl"></div></div>
+  <div class="card">
+<h3>12선지서 안에서 [1of2 15–34]</h3>
+<ul>
+<li>스가랴서는 <span class="say">“열두 소선지서 중에서 11번째”</span> [1of2 16] 책입니다. 이어 12선지서의 구조를 다시 짚는데, 앞쪽 여섯 선지서에 대해 자막은 <span class="say">“첫번째 6개의 선지서가 언약서를 하는”</span> [1of2 16] <span class="asr">[?]</span>(‘언약서’ 뜻 불분명) 다음 줄 ‘선지 서들이었고요’ [1of2 17]로 이어져 설명이 끊겨 있습니다. [1of2 16–17]</li>
+<li>일곱·여덟·아홉째(나훔·하박국·스바냐)는 여호와의 날에 심판을 통한 멸망을 예고하는 책들이었고, 학개·스가랴·말라기는 맨 마지막에 나오는 <b>포로 후기 선지서</b>들입니다. 학개와 말라기 사이에 스가랴가 있습니다. [1of2 18–23]</li>
+<li>세 책 모두 포로 이후의 회복을 다루지만 각각 다른 문제에 집중하고, 세 선지서는 연속성을 가집니다. [1of2 24–25]</li>
+</ul>
+<div class="tw"><table><caption>포로 후기 세 선지서의 초점 [1of2 26–33]</caption><thead><tr><th>책</th><th>핵심 관심</th></tr></thead><tbody>
+<tr><th>학개</th><td>성전 재건과 공동체의 순종, 하나님의 임재를 위한 순종. 하나님의 집을 재건하고 그의 임재와 축복을 회복하라 [1of2 26–27]</td></tr>
+<tr><th>스가랴</th><td>공동체를 정결하게 하는 문제, 미래의 회복, 시온과 메시아, 열방. 하나님이 시온에 돌아오시고 메시아적 통치를 이루실 것 [1of2 28–29]</td></tr>
+<tr><th>말라기</th><td>현재 공동체의 언약 불성실과 예배 타락을 지적하며 언약에 신실하라, 여호와의 날이 다가온다. 회복 이후의 윤리적 책임 강조 [1of2 30–31]</td></tr>
+</tbody></table></div>
+<ul>
+<li>정리하면 학개·스가랴·말라기는 각각 회복이 착수되었음, 앞으로 나타날 회복의 전망, 회복 이후에도 언약적 책임이 지속되므로 언약적인 참된 신실성을 회복하라는 도전입니다(말라기). [1of2 32–33]</li>
+<li><span class="say">“이미 시작된 회복을 장차 이루어질 완성과 연결하는 책”</span> [1of2 34]이 스가랴서라고 요약합니다. [1of2 34]</li>
+</ul></div>
+</div>
+<div class="sec" id="history">
+  <div class="sh"><span class="sb">스 I-3</span><span class="st">역사 시간표와 당시 상황</span><div class="sl"></div></div>
+  <div class="card">
+<h3>포로 이후의 시간표 [1of2 35–47]</h3>
+<div class="tw"><table><caption>교수님이 말한 연대 (자막 숫자는 오인식이 많아 문맥으로 읽은 것은 [?]로 표시)</caption><thead><tr><th>연도(주전)</th><th>사건</th><th>자막 줄</th></tr></thead><tbody>
+<tr><th>586</th><td>예루살렘과 솔로몬 성전 파괴 (자막 ‘580 주전 586년’ <span class="asr">[?]</span>)</td><td>1of2 36</td></tr>
+<tr><th>539</th><td>페르시아가 바벨론을 정복, 이듬해 고레스 왕이 유대인 귀환 허용 조서 (자막 ‘500 주전 539 년’ <span class="asr">[?]</span>)</td><td>1of2 37–38</td></tr>
+<tr><th>538</th><td>귀환(자막 ‘500, 309년, 538년’ <span class="asr">[?]</span>). 한 1–2년 사이에 제단을 회복하고 성전 기초공사를 시작하지만 완성하지 못함</td><td>1of2 39–41</td></tr>
+<tr><th>520 (다리오 2년)</th><td>학개가 성전 재건을 촉구하자 백성이 순종하며 재건 시작. 같은 해 <b>스가랴의 첫 신탁</b></td><td>1of2 42–44</td></tr>
+<tr><th>519</th><td>스가랴의 8개 환상</td><td>1of2 45</td></tr>
+<tr><th>그 다음해: 518로 읽힘(자막 ‘58년’ <span class="asr">[?]</span>)</th><td>금식에 관한 질문, 회복의 약속(7–8장)</td><td>1of2 46</td></tr>
+<tr><th>515</th><td>스룹바벨 성전(제2성전) 완공, 에스라 6:15</td><td>1of2 47</td></tr>
+</tbody></table></div></div>
+<div class="card">
+<h3>정치·경제·사회 상황 [1of2 48–54]</h3>
+<ul>
+<li>유다는 ‘예후’라는(자막 그대로 <span class="asr">[?]</span>) 페르시아의 속주였고 페르시아 제국의 통치를 받았습니다. 스룹바벨이 총독으로 행정 지도력을, 여호수아가 대제사장으로 종교 지도력을 담당했고, 다윗 왕권은 아직 회복되지 않은 상태였습니다. [1of2 49–51]</li>
+<li>사회·경제적으로 매우 어려운 상황이었습니다. 귀환 공동체에게 성전 재건의 사명이 있었지만 가난하고 기근이 들었고, 사람들 사이의 관계가 바르게 정립되지 못했으며, 지역의 이방 족속들과도 어려운 문제가 산재했습니다. 공동체 내부의 경제적 불평등과 사회적 분리(자막 ‘부리’ <span class="asr">[?]</span>)가 있었다고 합니다. [1of2 52–54]</li>
+</ul>
+<p class="sup"><span class="b-add bdg">강의안</span> 강의안 ‘서론: 시대적 배경’은 귀환민들이 당한 어려움으로 ① 땅은 경작되지 않고 조상들의 집은 수리되지 않아 할 일이 많음, ② 그 땅에 남아 있던 하층민 유대인들이 포로민들의 소유를 탈취해 양 그룹 사이에 법적 문제가 있음, ③ 이웃 민족과 페르시아 관료들의 반대, ④ 성전 재건 이후에도 백성들의 실망과 낙담을 적고 있습니다. 포로 후 선지자들의 신학적 의의는 ‘실현’과 ‘종말론적 소망’ 사이의 긴장, 하나님이 새 시대에 약속을 성취시키고 계신다는 강조, 이미와 아직 사이의 긴장으로 정리되어 있습니다. (이 부분은 강의안 내용이며, 교수님 자막에서 같은 항목을 말했는지는 위 설명 외에 확인되지 않습니다.)</p>
+</div>
+</div>
+<div class="sec" id="twoparts">
+  <div class="sh"><span class="sb">스 I-4</span><span class="st">스가랴서의 두 부분(1–8장 / 9–14장)과 통일성</span><div class="sl"></div></div>
+  <div class="card">
+<h3>차이 [1of2 55–57, 74–92]</h3>
+<div class="tw"><table><caption>1–8장과 9–14장의 비교 (교수님 설명)</caption><thead><tr><th>항목</th><th>1–8장</th><th>9–14장</th></tr></thead><tbody>
+<tr><th>날짜</th><td>환상을 보는 날짜가 명시된 곳이 많음. 주전 520년에서 518년까지로 읽힘(자막 ‘5020년에서 5028년’ <span class="asr">[?]</span>, 같은 줄 ‘해저성절’ <span class="asr">[?]</span>) [1of2 55, 80–83]</td><td>날짜가 명시되지 않음 [1of2 55, 84]</td></tr>
+<tr><th>인물</th><td>스룹바벨·여호수아가 중심인물로 성전 재건 사업을 열심히 함 [1of2 86]</td><td>구체적인 당대 인물 언급이 없고, 미래에 나타날 메시아적 모습을 묘사하는 것이 우선 관심 [1of2 86–87]</td></tr>
+<tr><th>문학 양식</th><td>환상 보고, 신탁, 권면 [1of2 88]</td><td>묵시적 단계로 가는 표현: 시적 신탁, 상징행위, 종말론적 묘사 [1of2 88–89]</td></tr>
+<tr><th>핵심 관심</th><td>성전 재건과 공동체의 회복 [1of2 90–91]</td><td>먼 미래의 일, 메시아적 통치와 여호와의 날 [1of2 91]</td></tr>
+<tr><th>역사적 배경</th><td>페르시아 시대 초기, 비교적 명확 [1of2 92]</td><td>구체적 연대가 없어 배경이 뒤로 물러나 있음 [1of2 92]</td></tr>
+</tbody></table></div>
+<ul>
+<li>다리오 2년은 학개가 4번의 신탁을 받았던 해이며, 학개와 스가랴가 함께 예언하자 백성이 하나님의 감동을 받아 성전 재건 사업을 시작했습니다. [1of2 81–83]</li>
+<li>이런 차이가 서로 다른 저자에서 비롯된 것이 아닌가 하고 비평학자들은 생각하기도 합니다. [1of2 56] 그러나 전반부와 후반부가 통일성을 가진다는 데는 많은 사람이 공감합니다. [1of2 57]</li>
+<li>이사야서를 제1·제2·제3 이사야로 나누듯 비평학자들은 스가랴서도 제1·제2 스가랴로 나눕니다. 제1 스가랴는 학개서와 관심사·역사적 배경이 중첩되고, 제2 스가랴(9–14장)는 내용과 관심이 말라기와 중첩됩니다. 그래서 주석을 학개·스가랴·말라기로 각각 쓰지 않고 학개와 스가랴 1–8장, 스가랴 9–14장과 말라기로 나누어 쓰는 학자도 있습니다. [1of2 76–79]</li>
+<li>더 나아가 9장 1절과 12장 1절에 ‘마사’(신탁)라는 단어가 나타나므로 9장 이하를 제2 스가랴, 12장 이하를 제3 스가랴로 구별하는 학자도 있습니다. [1of2 93–95]</li>
+<li>그러나 교수님은 <span class="say">“이 지금의 형태가 전부 스가랴가 기록한 것이라고 일단 전제를 하고요”</span> [1of2 96] 최종 형태 안에서 시온, 정결, 거룩, 왕권, 열방, 종말론적 비전을 함께 연결해 보겠다고 합니다. [1of2 96–97] 1–14장의 통일성은 많은 학자들이 발견하고 동의하며, 저자의 통일성이 전제가 되어야 하지만 그렇지 않다 할지라도 신학적 통일성은 분명히 나타난다고 합니다. [1of2 98–99]</li>
+</ul>
+<p class="sup"><span class="b-add bdg">강의안</span> 강의안: 슥 1–8은 회복 공동체와 밀접히 관련, 슥 9–14는 현금의 문제들에는 무관심하며 비평가들은 제1스가랴·제2스가랴로 구분하지만 이런 차이들은 장르/주제상의 차이라고 적혀 있습니다. 양 부분의 공통 주제(Longman): ① 예루살렘의 중요성 ② 공동체의 정화 ③ 하나님 나라에서의 이방인들의 위치 ④ 기존 선지서들에의 의존성 ⑤ 낙원적 비옥성의 회복 ⑥ 언약의 갱신 ⑦ 사로잡힌 자들의 재결집 ⑧ 성령의 부으심 ⑨ 메시야. 또 슥 1–8은 학개와, 슥 9–14는 말라기와 짝지어 적고 cf. 마 23:35를 달아 두었습니다(강의안에 설명은 없음).</p>
+</div>
+</div>
+<div class="sec" id="people">
+  <div class="sh"><span class="sb">스 I-5</span><span class="st">선지자 스가랴와 두 지도자</span><div class="sl"></div></div>
+  <div class="card">
+<h3>스가랴·스룹바벨·여호수아 [1of2 58–73]</h3>
+<ul>
+<li><b>스가랴</b>: 이름은 ‘여호와께서 기억하신다’는 뜻입니다. [1of2 60] 베레갸의 아들(자막 ‘베레베리아’ <span class="asr">[?]</span>) 잇도의 손자로 소개되고, 에스라·느헤미야도 스가랴를 언급합니다. 족보로 볼 때 ‘제4장 가문’ <span class="asr">[?]</span>(자막 그대로, 제사장 가문으로 읽힐 가능성)이라고 합니다. [1of2 61–62] 당시 선지자는 스가랴뿐 아니라 학개도 있었습니다. [1of2 59]</li>
+<li><b>스룹바벨</b>: 페르시아의 총독으로 왔고, 왕은 아니었지만 왕과 같은 상징적 정치 지도자이며 다윗 왕가의 후손으로 유다 총독으로 온 사람입니다. [1of2 63–64] 1차 귀환 때 유대로 돌아와 성전 재건 지도력을 발휘했고, 왕정이 복원되지는 않았지만 스룹바벨에게 인장 반지를 허용하시는 것을 보면 하나님이 다윗 왕가를 회복하실 상징적 인물로 묘사된다고 봅니다. [1of2 65–66]</li>
+<li><b>여호수아</b>: 종교·제의적 지도자인 대제사장. 정결하지 못한 여호수아가 더러운 옷을 입고 나오는 모습은 귀환 백성 전체의 윤리적·도덕적 상황을 상징합니다. [1of2 67–68] 스룹바벨과 함께 공동체 재건을 주도했고, 하나님의 은혜로 회복되어 공동체를 바르게 섬기게 됩니다. [1of2 69–70]</li>
+<li>스가랴 3장·4장의 환상과 6장 본문에서 여호수아와 스룹바벨이 <b>병행</b>해 나타나는데 이것이 무엇을 뜻하는지가 중심 논쟁의 하나입니다. 교수님은 두 사람이 메시아적 인물을 상징하며, 그리스도 안에서 제사장직과 왕직이 통합됨을 상징한다고 봅니다. [1of2 71–73]</li>
+</ul></div>
+</div>
+<div class="sec" id="structure">
+  <div class="sh"><span class="sb">스 II</span><span class="st">스가랴서의 구조: 반계메린의 네 단락</span><div class="sl"></div></div>
+  <div class="card">
+<h3>구분 방식 [1of2 100–121]</h3>
+<ul>
+<li>많은 학자들이 1–8장/9–14장의 두 부분으로 나누고, 어떤 사람들은 세 부분으로 나눕니다(자막 ‘9장. 11장 12장. 14장’ <span class="asr">[?]</span> — 구간 불분명). 반계메린은 서론을 제외하고 <b>네 부분</b>으로 나눕니다. 서론까지 하면 다섯 부분입니다. [1of2 100–105]</li>
+<li>교수님은 두 부분으로 나누는 방식이 저작 논쟁에서는 특징이 드러나 유용하지만, 이 강의에서는 1–8장을 다시 둘로 나눠 ‘8개의 환상’과 ‘책임과 약속에 대한 신탁’으로 보고 크게 네 단락으로 보겠다고 합니다. 서론은 ‘조상들의 실패를 반복하지 말고 여호와께로 돌아오라’는 부분입니다. [1of2 119–121]</li>
+</ul>
+<div class="tw"><table><caption>반계메린의 구조 (교수님 설명)</caption><thead><tr><th>단락</th><th>범위</th><th>내용</th><th>자막 줄</th></tr></thead><tbody>
+<tr><th>서론</th><td>1:1–6</td><td>‘내게로 돌아오라’ [1of2 105]</td><td>105, 121</td></tr>
+<tr><th>1</th><td>1:7–6:8</td><td>8개의 밤 환상, 동심원적 구조 [1of2 106–108]</td><td>106–108</td></tr>
+<tr><th>2</th><td>6:9–8장</td><td>책임과 약속에 관한 신탁. 동심원 구조로도, 교대적 평행구조로도 볼 수 있음 [1of2 109–112]</td><td>109–112</td></tr>
+<tr><th>3</th><td>9:1–11장</td><td>이스라엘과 열국. 다섯 소단락, 동심원적 [1of2 113–115, 148–149]</td><td>113–115</td></tr>
+<tr><th>4</th><td>12–14장</td><td>하나님 나라의 확립·완성. 다섯 소단락, 동심원적 [1of2 116–118, 150–153]</td><td>116–118</td></tr>
+</tbody></table></div>
+<p style="font-size:13.5px;margin:10px 0">자막은 A–B–C 같은 기호 배열을 ‘다시 다시’, ‘Panopto 다시피’ 등으로 적어 기호 구별이 불가능합니다. <span class="asr">[?]</span> 각 소단락의 짝은 아래 각 부분에서 교수님이 말한 범위대로 적습니다.</p>
+<ul>
+<li>교수님은 이 대칭이 완벽하다고 단언하지 않습니다: <span class="say">“이렇게 반드시 이야기할 수 있지는 않습니다”</span> [1of2 155] 어떤 신학적 해석 모델이며, 전체 흐름과 윤곽을 파악해 더 세부적으로 이해하는 도구로 쓴다고 합니다. [1of2 154–157]</li>
+</ul>
+<p class="sup"><span class="b-add bdg">강의안</span> 강의안 VanGemeren 구조(‘Is’=이스라엘, ‘G’=하나님으로 읽음 — 강의안 약어의 풀이):<br>
+서론 1:1–6 · I. 밤에 본 여덟 가지 환상(1:7–6:8): A 정온한 열국(1:7–17), B 열국의 심판(1:18–21), C 새 예루살렘(2:1–13), D 새 시대: 용서와 평화(3:1–10), D′ 새 시대: 메시야의 사역(4:1–14), C′ 악의 제거(5:1–4), B′ 바벨론 심판(5:5–11), A′ ‘정온한 성령에 대한 환상(5:5-11)’<br>
+II. 책임과 약속의 신탁(6:9–8:23): A 새 시대 약속(6:9–15), B 금식 질문(7:1–6), C 과거의 교훈(7:7–14), A′ 새 시대 약속(8:1–8), B′ 신실성 권면(8:9–17), C′ 미래 소망(8:18–23)<br>
+III. 이스라엘과 열국(9:1–11:17): A 압제하는 열국 심판(9:1–8), B 다가올 우주적 통치(9:9–13), C 심판과 구원(9:14–17), B′ 다가올 하나님의 우주적 통치(10:1–11:3), A′ 압제하는 목자 심판(11:4–7)<br>
+IV. 이 땅에 하나님 왕국의 확립(12:1–14:21): A 예루살렘과 열국(12:1–9), B 찔린 자를 위한 애곡(12:10–14), C 죄 씻음과 용서의 약속(13:1–5), B′ 목자를 침(13:6–9), A′ 예루살렘과 열국(14:1–21)</p>
+</div>
+</div>
+<div class="sec" id="intro16">
+  <div class="sh"><span class="sb">스 III-0</span><span class="st">서론(1:1–6): 내게로 돌아오라</span><div class="sl"></div></div>
+  <div class="card">
+<h3>[1of2 158–172]</h3>
+<ul>
+<li>가장 핵심적인 명제는 <span class="say">“너희는 내게로 돌아오라 그리하면 내가 너희에게 로 돌아가리라”</span> [1of2 160]입니다. [1of2 159–160] 여기서 쓰인 용어가 ‘슈브’(돌아오다)이며, 하나님께로 돌아가는 것이 <b>회복의 출발점</b>이라고 합니다. [1of2 160–162]</li>
+<li>스가랴 앞에 놓인 역사적 사명은 성전을 재건하는 것이지만, 스가랴는 성전건축이라는 물리적인 순종보다 먼저 <b>하나님과의 관계의 회복</b>, 하나님께로 돌아가는 것을 이야기합니다. [1of2 163–164]</li>
+<li>서론은 과거, 과거의 심판, 현재의 세 축으로 말합니다. 이전 조상들은 이전 선지자들의 경고를 듣지 않아 심판에 이르렀고, 하나님의 심판의 말씀은 포로와 황폐 가운데 성취되었습니다. 그러므로 과거 조상들이 율법과 선지자적 윤리를 버렸던 것처럼 행하지 말고, 새 시대의 회복을 위해 하나님의 말씀에 순종함으로써 길을 열어야 합니다. [1of2 165–170]</li>
+<li>가장 핵심적인 키워드는 ‘돌아오라’이며, 회개는 외적인 성전건축 이전에 하나님께 돌아와 언약관계를 회복해야 하는 근본적인 부분이라고 합니다. [1of2 171–172] (<span class="say">“가장 핵심적인 키워드”</span> [1of2 171])</li>
+</ul>
+<p class="bq"><b>3</b> 그러므로 너는 그들에게 말하기를 만군의 여호와께서 이처럼 이르시되 너희는 내게로 돌아오라 만군의 여호와의 말이니라 그리하면 내가 너희에게로 돌아가리라 만군의 여호와의 말이니라 <b>4</b> 너희 조상들을 본받지 말라 옛적 선지자들이 그들에게 외쳐 이르되 만군의 여호와께서 이같이 말씀하시기를 너희가 악한 길, 악한 행위를 떠나서 돌아오라 하셨다 하나 그들이 듣지 아니하고 내게 귀를 기울이지 아니하였느니라 여호와의 말이니라 <span style="color:var(--muted);font-size:12px">(슥 1:3–4, 개역개정)</span></p>
+</div>
+</div>
+<div class="sec" id="visions">
+  <div class="sh"><span class="sb">스 III-1</span><span class="st">여덟 환상 개관과 짝 구조</span><div class="sl"></div></div>
+  <div class="card">
+<h3>8개의 환상 한눈에 [1of2 173–189]</h3>
+<div class="tw"><table><caption>교수님이 순서대로 소개한 환상 (범위 숫자는 교수님이 말한 것 [1of2 123–144, 257])</caption><thead><tr><th>#</th><th>환상</th><th>핵심 (교수님 설명)</th><th>자막 줄</th></tr></thead><tbody>
+<tr><th>1</th><td>말 탄 자들 (1:7–17)</td><td>열국이 평온함, 시온을 위로하겠다는 말씀</td><td>175–176</td></tr>
+<tr><th>2</th><td>뿔과 대장장이 (1:18–21)</td><td>하나님의 백성을 압제한 세상 권세를 대장장이가 쳐서 심판</td><td>176–177</td></tr>
+<tr><th>3</th><td>측량줄 (2:1–13)</td><td>새 예루살렘이 지어지고 하나님이 성벽이 되심</td><td>178</td></tr>
+<tr><th>4</th><td>여호수아 (3:1–10)</td><td>더러운 옷의 대제사장이 깨끗한 옷을 입어 용서와 정결</td><td>179</td></tr>
+<tr><th>5</th><td>등잔대와 감람나무 (4:1–14)</td><td>스룹바벨과 성령의 사역</td><td>180</td></tr>
+<tr><th>6</th><td>날아가는 두루마리 (5:1–4)</td><td>언약의 저주</td><td>181–182</td></tr>
+<tr><th>7</th><td>에바 속의 여인 (5:5–11)</td><td>악을 시날(바벨론)로 옮김, 하나님의 백성이 정결하게 됨</td><td>183</td></tr>
+<tr><th>8</th><td>네 병거(자막 ‘내 병과’ <span class="asr">[?]</span>) (6:1–8)</td><td>열국에 대한 신적 순찰</td><td>184, 257</td></tr>
+</tbody></table></div>
+<ul>
+<li><b>짝 대응</b>: 여덟째(열방 순찰)와 첫째(말 탄 자들이 열방 가운데 평온을 보고) / 둘째(유다를 압제한 세상 권력에 대한 심판)와 일곱째(악을 시날로 옮겨 바벨론에 대한 심판) / 셋째(새 예루살렘)와 여섯째(하나님의 백성에게 임한 언약 저주) / 넷째·다섯째(여호수아와 스룹바벨)가 가운데에서 성전과 공동체 회복을 상징하는 두 인물로 나타납니다. [1of2 185–190] (자막은 짝 표시가 ‘비다 시’ 등 글자 기호로 깨져 있어 순서는 문맥으로 읽었습니다. <span class="asr">[?]</span>)</li>
+<li>가운데 부분인 3–4장은 여호수아의 정결과 스룹바벨과 성령에 관한 메시지로, 메시아 시대를 상징한다고 합니다. [1of2 139–140]</li>
+</ul></div>
+</div>
+<div class="sec" id="v12">
+  <div class="sh"><span class="sb">스 III-2</span><span class="st">첫째·둘째 환상(1:7–21): 열국은 평안하나 시온은 황폐</span><div class="sl"></div></div>
+  <div class="card">
+<h3>첫째 환상: 말 탄 자들 [1of2 190–198]</h3>
+<ul>
+<li>첫째·둘째 환상은 열국은 평안하지만 시온은 황폐하다는 것을 말합니다. [1of2 190] 화석류 나무(자막 ‘화석류 나무’ <span class="asr">[?]</span>) 사이에 말 탄 순찰자들이 나타나 온 땅이 평온하다고 보고하지만, 열국이 평온한 가운데 예루살렘은 황폐합니다. [1of2 191–193]</li>
+<li>여호와의 천사가 어느 때까지 자비를 베풀지 않으시겠느냐고 묻고, 하나님은 시온을 향한 뜨거운 열심과 예루살렘 성전의 재건을 선포하십니다. [1of2 194–195]</li>
+<li>의미: 열국의 안락은 하나님의 공의가 이루어졌다는 뜻이 아닙니다. 하나님은 자기 백성을 버리지 않으셨으므로 결국 교만한 열국을 심판하십니다. [1of2 196–198]</li>
+</ul>
+<h3>둘째 환상: 뿔과 대장장이 [1of2 199–208]</h3>
+<ul>
+<li>뿔은 유다와 예루살렘을 압제하고 열방 가운데 흩어 버린 힘과 권세, 세상 권력을 말하고, 대장장이는 그 권세를 무너뜨릴 하나님의 심판 도구입니다. [1of2 200–201]</li>
+<li>‘넷’은 특정한 제국의 숫자를 말하기보다 열방을 상징하는 숫자로 보는 것이 좋다고 합니다. [1of2 202–205] 열방의 권세는 절대적이지 않고 하나님의 심판 아래 있다는 것이 둘째 환상입니다. [1of2 206]</li>
+<li>열국의 겉보기 평온이 곧 하나님의 공의의 성취나 하나님 백성의 평안은 아닙니다. 열국이 평안한 가운데 예루살렘은 황폐하고 곤고했습니다. [1of2 207–208]</li>
+</ul></div>
+</div>
+<div class="sec" id="v3">
+  <div class="sh"><span class="sb">스 III-3</span><span class="st">셋째 환상(2장): 측량줄과 성벽 없는 예루살렘</span><div class="sl"></div></div>
+  <div class="card">
+<h3>[1of2 209–217]</h3>
+<ul>
+<li>한 사람이 예루살렘을 측량하려 하자(자막 ‘측량질’ <span class="asr">[?]</span>) 하나님은 측량하지 말라고 하시고, 사람과 가축이 넘치는 성벽 없는 예루살렘의 미래를 선포하십니다. [1of2 209–210]</li>
+<li>하나님 자신이 예루살렘의 불의 성벽이 되시고, 예루살렘 안의 영광이 되십니다. [1of2 211–212]</li>
+<li>에스겔 40–48장의 성전 환상과 비교할 수 있고, 스가랴가 에스겔의 예언을 접했을 가능성이 많아 그 영향을 받았다고 말할 수 있다고 합니다. [1of2 213–215]</li>
+<li>2장 11절에 많은 민족이 여호와께 속하여 여호와의 백성이 될 것이라고 합니다. 시온이 회복되면서 민족적으로 폐쇄적인 성읍이 아니라 열방 시민이 하나님의 백성으로 편입되는 새 예루살렘이 건축될 것을 환상으로 본 것입니다. [1of2 216–217]</li>
+</ul>
+<p class="bq"><b>11</b> 그 날에 많은 나라가 여호와께 속하여 내 백성이 될 것이요 나는 네 가운데에 머물리라 네가 만군의 여호와께서 나를 네게 보내신 줄 알리라 <span style="color:var(--muted);font-size:12px">(슥 2:11, 개역개정)</span></p></div>
+</div>
+<div class="sec" id="v4">
+  <div class="sh"><span class="sb">스 III-4</span><span class="st">넷째 환상(3장): 여호수아의 정결과 새 시대의 약속</span><div class="sl"></div></div>
+  <div class="card">
+<h3>[1of2 218–226]</h3>
+<ul>
+<li>하나님의 보좌 앞에 대제사장 여호수아가 더러운 옷을 입고 서 있고, 고발자 사탄이 그를 참소합니다. [1of2 219]</li>
+<li>하나님은 그를 ‘불에서 꺼낸 그을린 나무’라 하시며 보호하시고, 더러운 옷을 벗기시고 깨끗한 예복을 입히십니다. [1of2 220] 옷을 벗는 것은 죄를 제거하고 정결하게 하는 것이며, 특히 여호수아의 경우 제사장직의 회복을 말합니다. 이 모습은 예루살렘·유다 백성을 상징합니다. [1of2 221–223]</li>
+<li>3장 8절의 ‘내 종’(자막 ‘내 종수는’ <span class="asr">[?]</span>)은 예레미야 23:5, 33:15에서 말하는 다윗적인 왕, 다윗적 메시아로 볼 수 있고, 하나님은 다윗적 메시아를 약속하시며 ‘하루에’(자막) 이 땅의 죄를 제거하겠다고 약속하십니다. [1of2 223–225]</li>
+<li>결론: 성전 회복은 건물이 지어지는 것보다 먼저 공동체의 죄가 제거되고 제사장직이 순결하고 거룩하게 회복될 필요가 있다는 것을 이 환상이 말한다고 합니다. [1of2 226]</li>
+</ul>
+<p class="bq"><b>8</b> 대제사장 여호수아야 너와 네 앞에 앉은 네 동료들은 내 말을 들을 것이니라 이들은 예표의 사람들이라 내가 내 종 싹을 나게 하리라 <span style="color:var(--muted);font-size:12px">(슥 3:8, 개역개정)</span></p>
+<p class="sup"><span class="b-add bdg">강의안</span> 강의안: ‘※ 스가랴 복음(네번째 환상, 3:1-10)’이라고 적혀 있습니다(설명 없음).</p></div>
+</div>
+<div class="sec" id="v5">
+  <div class="sh"><span class="sb">스 III-5</span><span class="st">다섯째 환상(4장): 등잔대와 두 감람나무</span><div class="sl"></div></div>
+  <div class="card">
+<h3>[1of2 227–237]</h3>
+<ul>
+<li>일곱 등잔이 달린 등잔대와 두 감람나무는 하나님의 지속적인 공급과 임재를 상징합니다. [1of2 227–228]</li>
+<li>4장 6절은 스룹바벨에게 힘이나 능력이 아니라 오직 하나님의 영으로 된다고 선언합니다(아래 본문). 하나님 왕국의 회복은 제국의 군사력이나 지방행정의 자원보다 하나님의 영을 통해 이루어질 때 성전 재건이 바르게 된다는 말씀입니다. [1of2 229–230]</li>
+<li>4장 7–10절은 스룹바벨이 성전 기초를 놓고 성전을 마칠 것을 약속합니다. [1of2 231] 4장 14절의 두 기름부음 받은 자는 여호수아와 스룹바벨로 볼 수 있습니다. [1of2 232]</li>
+<li>등잔대와 감람나무가 구체적으로 무엇을 상징하는지는 해석의 차이가 있지만, 두 기름부음 받은 사람은 스룹바벨과 여호수아를 가리킨다고 보는 것이 좋다고 합니다. [1of2 233–235] 이것은 결국 <b>메시야의 이중직</b>, 곧 왕적 직분과 제사장적 직분을 말합니다. [1of2 236–237]</li>
+</ul>
+<p class="bq"><b>6</b> 그가 내게 대답하여 이르되 여호와께서 스룹바벨에게 하신 말씀이 이러하니라 만군의 여호와께서 말씀하시되 이는 힘으로 되지 아니하며 능력으로 되지 아니하고 오직 나의 영으로 되느니라 <span style="color:var(--muted);font-size:12px">(슥 4:6, 개역개정)</span></p></div>
+</div>
+<div class="sec" id="v67">
+  <div class="sh"><span class="sb">스 III-6</span><span class="st">여섯째·일곱째 환상(5장): 악의 제거</span><div class="sl"></div></div>
+  <div class="card">
+<h3>여섯째: 날아가는 두루마리 [1of2 238–245]</h3>
+<ul>
+<li>여섯째·일곱째 환상은 거의 유사하게 성전 재건을 위해서는 악의 제거가 필요하다는 것을 말합니다. [1of2 238]</li>
+<li>큰 두루마리는 도둑질과 거짓 맹세를 심판하는 언약의 저주를 상징합니다. [1of2 240] 그 크기 20규빗×10규빗은 열왕기상 6장 3절의 솔로몬 성전 현관 치수와 일치하는데, 교수님은 이것을 <span class="say">“굉장히 재미있는 그런”</span> [1of2 242] <span class="say">“포인트”</span> [1of2 243]라고 합니다. 문학적 연결로 의도되었다고 확정·단언할 수는 없지만 가능성을 추측할 수는 있다고 합니다. [1of2 241–244]</li>
+<li>성전이 재건되어도 공동체 내부의 불의가 제거되지 않으면 온전한 거룩함은 이루어질 수 없다는 것을 말한다고 합니다. [1of2 245]</li>
+</ul>
+<h3>일곱째: 에바 속의 여인 [1of2 246–255]</h3>
+<ul>
+<li>에바 속의 여인은 실제 인물이 아니라 <b>악을 의인화한 존재</b>입니다. 납 뚜껑으로 덮인 에바가 두 여인에 의해 시날로 옮겨지고 그곳에 집이 마련됩니다. [1of2 246–249] 공동체 가운데서 악을 제거한다는 표현이며, 시날은 바벨론입니다. 악이 영원히 격리된다고 하지만 구체적인 시간이 나타나 있지는 않습니다. [1of2 250–251]</li>
+<li>궁극적으로 악이 제거될 것이며, 하나님의 백성이 거룩함을 회복하기 위해 악이 제거될 것이라는 뜻입니다. 새 예루살렘의 회복에는 언약 위반과 공동체 내부의 악을 제거하는 일이 수반됩니다. [1of2 252–255]</li>
+</ul>
+<p class="sup"><span class="b-sup bdg">보충</span> 교수님이 말한 두루마리의 치수를 개역개정과 대조하면 슥 5:2는 ‘길이가 이십 규빗이요 너비가 십 규빗’이고, 왕상 6:3은 성소 앞 주랑의 길이가 이십 규빗, 너비가 십 규빗이라 일치합니다.</p>
+</div>
+</div>
+<div class="sec" id="v8">
+  <div class="sh"><span class="sb">스 III-7</span><span class="st">여덟째 환상(6:1–8): 네 병거와 열국의 순찰</span><div class="sl"></div></div>
+  <div class="card">
+<h3>[1of2 256–266]</h3>
+<ul>
+<li>네 병거(자막 ‘내 병과’ <span class="asr">[?]</span>)가 두 산(자막 ‘두 개의 노상’ <span class="asr">[?]</span>) 사이에서 나와 사방으로 파송됩니다. [1of2 257–258]</li>
+<li>첫째 환상이 열국에 대한 보고와 시온의 탄원으로 시작했다면, 여덟째 환상은 열방에 대한 하나님의 <b>능동적인 개입</b>을 보여줍니다. [1of2 259]</li>
+<li>6장 8절의 ‘북쪽 땅에서 내 영을 쉬게 하였느니라’는 성령이 평온하다는 독립적인 성령론적 선언이라기보다, 북쪽 지역에 대한 심판이 하나님의 의도를 이루어 하나님의 영 혹은 진노가 쉼을 얻었다는 뜻으로 해석할 수 있다고 합니다. 북쪽은 바벨론 혹은 바벨론 같은 원수들을 상징합니다. [1of2 260–263]</li>
+<li>첫째 환상에서 열방을 살피는 순찰자들이 세상이 평온하다고 보고한 것과 대응하며, 하나님의 보편적 통치는 단순한 관찰이 아니라 적극적인 개입임을 알 수 있다고 합니다. [1of2 264–265]</li>
+</ul>
+<p class="bq"><b>8</b> 그가 내게 외쳐 말하여 이르되 북쪽으로 나간 자들이 북쪽에서 내 영을 쉬게 하였느니라 하더라 <span style="color:var(--muted);font-size:12px">(슥 6:8, 개역개정)</span></p></div>
+</div>
+
+<div class="part-div" id="part2"><span>2of2 · 6:9–8장, 9–11장, 12–14장, 논쟁점, 신학 메시지</span></div>
+
+<div class="sec" id="p2">
+  <div class="sh"><span class="sb">스 IV-1</span><span class="st">둘째 단락(6:9–8:23): 새 시대의 약속과 백성의 책임</span><div class="sl"></div></div>
+  <div class="card">
+<h3>개관 [2of2 1–16]</h3>
+<ul>
+<li>6장 9절부터 8장까지는 새 시대에 대한 약속과 백성들의 책임을 말합니다. 6개의 소단락으로 나뉘며 A–B–C–A′–B′–C′ 형태(자막은 ‘다시 다시’ 등으로 기호가 깨짐 <span class="asr">[?]</span>)로 구성된다고 합니다. [2of2 1–4]</li>
+</ul>
+<div class="tw"><table><caption>6개 소단락 [2of2 5–14]</caption><thead><tr><th>범위</th><th>내용</th><th>자막 줄</th></tr></thead><tbody>
+<tr><th>6:9–15</th><td>순(싹)과 성전에 관한 신탁: 새 시대의 약속</td><td>5–6, 18–32</td></tr>
+<tr><th>7:1–6</th><td>금식에 대한 질문</td><td>7–9, 33–37</td></tr>
+<tr><th>7:7–14</th><td>과거의 실패: 불순종으로 포로가 된 교훈</td><td>10, 38–44</td></tr>
+<tr><th>8:1–8</th><td>시온으로 돌아오시는 새 시대의 약속</td><td>10, 47–54</td></tr>
+<tr><th>8:9–17</th><td>신실한 삶: 진리와 정의의 명령</td><td>13, 55–60</td></tr>
+<tr><th>8:18–23</th><td>미래에 대한 소망 (교수님 발언은 ‘8장 18절부터 28절까지’ <span class="asr">[?]</span> — 8:18–23, 2of2 60 기준으로 읽음)</td><td>14, 60–64</td></tr>
+</tbody></table></div>
+<ul><li>요약: <span class="say">“새 시대의 약속은 금 식의 진정성, 공의, 이웃사랑 이런 것들을 요구한다”</span> [2of2 16] [2of2 15–16]</li></ul>
+</div>
+<div class="card">
+<h3>6:9–15 — 여호수아의 관과 ‘순’ [2of2 17–32]</h3>
+<ul>
+<li>하나님이 바벨론에서 돌아온 사람들의 은과 금으로 관을 만들어 대제사장 여호수아에게 씌우라고 명령하시고, 이어 ‘순’이라는 사람이 일어나 여호와의 성전을 건축하고 영광을 얻고 통치하게 될 것이라 선포하십니다. [2of2 18–20]</li>
+<li>우리말 성경의 ‘면류관’은 풀이나 나무로 된 관이라기보다 왕관처럼 왕적 권위와 왕의 표징을 나타내는 관입니다. [2of2 20–22] 제사장 여호수아가 왕관을 쓴다는 것은 <span class="say">“이게 좀 이상하죠”</span> [2of2 23]라고 교수님도 말하며, 실제 인물 여호수아가 왕이 될 것이 아니라 제사장직과 왕직이 메시야 안에서 통합될 것이라는 <b>예언적 상징행위</b>라고 설명합니다. [2of2 23–24]</li>
+<li>‘둘 사이에 평화의 의논이 있으니라’의 ‘둘 사이’는 왕직과 제사장직 사이를 뜻하고, 한 메시아적 인물 안에서 두 직분이 통합됨을 상징합니다. [2of2 25–27]</li>
+<li>이어 순이 성전을 세우고 통치하는 것은 다윗적 왕권과 약속되는 표현이며, 순(싹, 자막 ‘테마’ <span class="asr">[?]</span>)이라는 말씀 때문에 메시야에 대한 예언임을 알 수 있다고 합니다. [2of2 28–30]</li>
+<li><span class="say">“핵심 논쟁이 두 직분의 협력인가 한 메시안의 통합인가”</span> [2of2 31] 정경적 관점에서 신약의 그리스도 안에서 두 직분의 통합을 말한다고 이해하면 된다고 합니다. [2of2 31–32]</li>
+</ul>
+<p class="bq"><b>11</b> 은과 금을 받아 면류관을 만들어 여호사닥의 아들 대제사장 여호수아의 머리에 씌우고 <b>12</b> 말하여 이르기를 만군의 여호와께서 이같이 말씀하시되 보라 싹이라 이름하는 사람이 자기 곳에서 돋아나서 여호와의 전을 건축하리라 <b>13</b> 그가 여호와의 전을 건축하고 영광도 얻고 그 자리에 앉아서 다스릴 것이요 또 제사장이 자기 자리에 있으리니 이 둘 사이에 평화의 의논이 있으리라 하셨다 하고 <span style="color:var(--muted);font-size:12px">(슥 6:11–13, 개역개정)</span></p>
+</div>
+<div class="card">
+<h3>7:1–14 — 금식 질문과 과거의 교훈 [2of2 33–46]</h3>
+<ul>
+<li>둘째·셋째 신탁은 금식이라는 행위보다 먼저 진실과 공의를 갖추어야 한다는 것입니다. [2of2 33–34]</li>
+<li>둘째 신탁: 성전의 멸망을 기억하는 다섯째 달(자막 ‘다섯 번째 딸’ <span class="asr">[?]</span>)의 금식 관습이 계속되어야 하는지 묻자 하나님이 <span class="say">“그 금식이 정말 나를 위한 것이냐”</span> [2of2 36]라고 대답하십니다. 외적 의식인 금식이 참된 예배를 보장하지 않으며 진정으로 하나님을 위한 것이 아닐 수 있다는 말씀입니다. [2of2 35–37] (마음의 진실한 예배가 중요하고 외형적인 것이 더 중요한 것이 아니라고 합니다. [2of2 8–9])</li>
+<li>셋째 신탁(7:7–14)은 역사적 교훈입니다. 과거 백성이 불순종하여 포로로 잡혀갔습니다. 하나님은 진실한 재판과 긍휼(자막 ‘이내 긍효’ <span class="asr">[?]</span>)을 명하시고 과부·고아·나그네·가난한 자를 압제하지 말라고 하셨으나 조상들이 듣지 않아 포로와 황폐가 되었습니다. 회복된 공동체는 동일한 죄를 반복해서는 안 됩니다. [2of2 38–44]</li>
+<li>두 신탁의 결론: 성전 재건이 이루어진다 해도 그 자체가 더 중요한 것이 아니라 <span class="say">“불의를 제거하고 정말 진정한 하나님과의 관계를 회복하는 것”</span> [2of2 46]이 새 공동체 건설의 근본적인 요소라는 것입니다. [2of2 45–46]</li>
+</ul></div>
+<div class="card">
+<h3>8:1–23 — 시온으로 돌아오심과 열방 [2of2 47–65]</h3>
+<ul>
+<li>8:1–8은 앞서 불순종으로 포로가 된 7:7–14에 대응하여 시온으로 돌아오는 새 시대의 약속을 줍니다(A–A′). [2of2 10–12] 하나님이 ‘내가 시온에 돌아왔다’고 선언하시고 예루살렘을 진리의 성읍으로 회복하십니다. 노인들이 평화롭게 앉고 아이들이 길거리에서 노는 모습은 전쟁과 포로가 끝나 안전한 공동체가 회복되었음, 샬롬이 이루어졌음을 보여줍니다. [2of2 49–52] 8절의 ‘그들은 내 백성이 되고 나는 그들의 하나님이 되리라’는 <b>언약 공식</b>이 회복되었다는 선언입니다. [2of2 52–54]</li>
+<li>8:9–17: 성전 공사에 힘쓰면서도 공동체 내부적으로 참된 판단과 진실, 평화를 추구해야 합니다. 16–17절에서 이웃에게 진실을 말하고 성문에서 공의롭게 재판하며 거짓 맹세와 악한 계획을 경계하라고 합니다. [2of2 55–57] 성전건축과 사회적 정의는 서로 분리될 수 없고 대체할 수 없는, 참된 경건과 참된 공동체의 두 단면입니다. [2of2 58–60]</li>
+<li>8:18–23: 과거의 멸망을 애통하던 넷째·다섯째·일곱째·열째 달의 금식 절기가 즐거움의 절기로 전환됩니다. [2of2 60–62] 많은 성읍과 강대한 민족들이 예루살렘에 와서 여호와를 찾고, 열 사람이 유다 사람 한 사람의 옷을 붙들어 하나님이 함께하심을 고백합니다. 언약의 회복이 열방으로 확대되어 열방이 예루살렘에 참여하게 됩니다. [2of2 63–64]</li>
+<li>8장에서 반복되는 여호와의 선언들(자막 ‘선원들’ <span class="asr">[?]</span>)은 회복의 확실성과 백성들의 의무를 강조합니다. [2of2 65]</li>
+</ul>
+<p class="bq"><b>8</b> 인도하여다가 예루살렘 가운데에 거주하게 하리니 그들은 내 백성이 되고 나는 진리와 공의로 그들의 하나님이 되리라 <span style="color:var(--muted);font-size:12px">(슥 8:8, 개역개정)</span></p>
+<p class="sup"><span class="b-sup bdg">보충</span> 교수님이 말한 넷째·다섯째·일곱째·열째 달의 금식(2of2 62)은 개역개정 슥 8:19와 같습니다(‘넷째 달의 금식과 다섯째 달의 금식과 일곱째 달의 금식과 열째 달의 금식’).</p>
+</div>
+</div>
+<div class="sec" id="p3">
+  <div class="sh"><span class="sb">스 IV-2</span><span class="st">셋째 단락(9–11장): 평화의 왕과 목자</span><div class="sl"></div></div>
+  <div class="card">
+<h3>구조 [2of2 66–77]</h3>
+<ul>
+<li>9–11장은 이스라엘과 열국에 대한 말씀으로, 평화의 왕과 목자가 당하는 위기를 다룹니다. 동심원적 구조를 이룹니다. [2of2 66–69] 첫 단락은 열방에 대한 심판, 둘째는 왕의 평화와 통치(9:9의 겸손한 왕, 나귀를 타고 오시는 왕), 9:14–17은 하나님의 현현, 이어 10장~11:3은 양떼의 회복, 11장의 나머지는 거절당한 목자(두 막대기와 배척당한 목자)입니다. [2of2 70–75]</li>
+</ul>
+</div>
+<div class="card">
+<h3>9:1–17 [2of2 77–103]</h3>
+<ul>
+<li>9:1–8(교수님은 ‘9장 1절부터 8장 8절까지’라고 말함 — 보충 참조): 열방이 압제하던 것에 대한 심판. 다메섹과 블레셋의 성읍들이 자신들의 부와 군사적 가능성을 신뢰하지만 하나님의 심판을 피하지 못합니다. 9:8에서 하나님이 자기 집을 지키시고 압제자가 다시 지나가지 못하게 하겠다고 약속하십니다. 열방에 대한 심판은 하나님의 통치가 특정 민족 영역 안에 제한되지 않음, 곧 열방에 대한 주권을 보여줍니다. [2of2 77–83]</li>
+<li>9:9–13: 시온의 왕은 공의롭고 구원과 승리를 경험한 왕인데 겸손하게 나귀를 타고 오십니다. 평화의 왕으로서 병거와 전쟁의 화를 제거하고 열방의 평화를 선포하시며, 군마와 병거가 상징하는 제국적 권력과 아주 다르게 공의와 샬롬으로 통치하십니다. [2of2 83–88]</li>
+<li>9:11의 ‘언약의 피’는 출애굽기 24장 8절의 언약 체결 의식 전통을 환기시키고, 포로 귀환과 구원을 언약과 연결합니다. [2of2 89–91]</li>
+<li>9:13의 ‘야완’을 헬라로 해석하여 헬라 시대의 현실을 반영한 표현이므로 이 부분이 후대에 쓰였다고 주장하는 학자들이 있습니다. 그러나 그리스인·이오니아인은 이미 헬라 시대 이전에 고대 근동에 알려져 있었으므로 야완이라는 지명 하나만으로 저작연대를 확정하기 어렵다고 합니다. [2of2 92–95]</li>
+<li>9:14–17: 하나님이 천사처럼 나타나 백성을 구원하시고 양떼를 자기 백성으로 보존하십니다. 전쟁의 이미지는 왕의 평화 선언과 긴장 관계에 있으나, 심판을 통한 궁극적 평화가 이루어짐을 <span class="say">“우리가 기억할 필요가 있는 것이죠”</span> [2of2 102] 9장은 인간 제국의 군사력과 달리 시온의 왕이 공의와 샬롬으로 열방을 다스린다는 것입니다. [2of2 96–103]</li>
+</ul>
+<p class="bq"><b>9</b> 시온의 딸아 크게 기뻐할지어다 예루살렘의 딸아 즐거이 부를지어다 보라 네 왕이 네게 임하시나니 그는 공의로우시며 구원을 베푸시며 겸손하여서 나귀를 타시나니 나귀의 작은 것 곧 나귀 새끼니라 <span style="color:var(--muted);font-size:12px">(슥 9:9, 개역개정)</span></p>
+</div>
+<div class="card">
+<h3>10–11장 [2of2 104–116]</h3>
+<ul>
+<li>10장: 거짓 목자와 참된 목자. 에스겔 34장과 매우 유사하며, 에스겔 34장의 예언이 여기서 성취되는 것으로 이해할 수도 있다고 합니다. [2of2 104–105] 하나님은 드라빔과 복술자들의 헛된 약속과 백성을 억압하는 악한 목자들에게 분노하시고, 친히 목자가 되어 유다를 강하게 하시고 요셉 족속을 구원하시며 먼 이방 땅에서 양떼처럼 불러 모으십니다. [2of2 106–107]</li>
+<li>11장: 선지자가 하나님의 명령으로 상인들에게 팔려 도살당할 위기의 양떼를 먹입니다. 두 막대기를 취해 하나는 은총, 하나는 연합이라 칭하며, 하나님이 베푸시는 보호와 공동체의 결속을 상징합니다. 한 달 만에 악한 목자를 끊었으나(자막 ‘악한 새 목자’ <span class="asr">[?]</span>) 백성과 목자 사이의 영적 불일치로 목양이 파탄에 이릅니다. [2of2 108–112]</li>
+<li>선지자가 은총의 막대기를 꺾어 언약을 폐하고, 품삯으로 노예의 몸값에 불과한 은 30(자막 ‘품삭스로’, ‘은30’ <span class="asr">[?]</span>)을 받아 성전 토기장이에게 던집니다. 연합의 막대기도 꺾어 유다와 이스라엘의 형제됨을 깹니다. [2of2 113–114]</li>
+<li>그 결과 백성을 돌보지 않고 양의 살을 뜯어먹는 못된 목자가 일어나지만, 그 목자는 엄중한 심판을 받아 팔이 마르고 오른쪽 눈이 멀게 됩니다. 목자를 거절한 공동체는 자신을 돌보지 않는 무책임한 목자를 경험하게 된다는 뜻입니다. [2of2 115–116]</li>
+</ul>
+<p class="sup"><span class="b-sup bdg">보충</span> 개역개정 슥 11:12–13에는 ‘은 삼십 개’를 달아 품삯을 삼았고 ‘여호와의 전에서 토기장이에게 던지고’라고 하여 교수님의 설명과 일치합니다.</p>
+</div>
+</div>
+<div class="sec" id="p4">
+  <div class="sh"><span class="sb">스 IV-3</span><span class="st">넷째 단락(12–14장): 하나님 나라의 확립</span><div class="sl"></div></div>
+  <div class="card">
+<h3>동심원 구조 [2of2 117–124]</h3>
+<ul>
+<li>12–14장은 동심원적으로 배치되어 있습니다. 12장의 예루살렘과 열방이 14장에서도 예루살렘과 열방, 여호와의 통치로 나타나고, 안쪽에는 찔린 자를 위한 애곡과 목자를 치고 남은 자를 정련하는 이야기(메시야에 대한 예언), 가장 중앙에는 죄를 씻는 샘이 터져 나와 정결하게 되는 이야기가 있습니다. 그리스도의 십자가를 통한 속죄의 예언이라고 합니다. [2of2 119–122]</li>
+<li><span class="say">“정결이 왕권과 열방의 구원가운데 한 가운데 놓여 있다”</span> [2of2 123] 이것이 이 단락의 중심 메시지라고 합니다. [2of2 123–124]</li>
+</ul></div>
+<div class="card">
+<h3>12장 [2of2 126–137]</h3>
+<ul>
+<li>12:1–9: 열방이 예루살렘을 공격하지만 하나님이 직접 개입하여 시온을 보호하십니다. 예루살렘을 무거운 돌에 비유하며, 열방이 공격해도 자신들에게 심판이 임합니다. ‘그날’의 반복은 하나님의 구속사적 개입과 종말론적 전망을 나타냅니다. [2of2 127–130]</li>
+<li>12:10–14: 하나님이 다윗의 집과 예루살렘에 은총과 간구의 영을 부어 주시고, 그들이 그 찌른 자를 바라보고 애곡합니다. 공동체 깊은 회개입니다. 교수님은 공동체가 메시아를 십자가에 못 박았지만 잘못을 깨닫고 회개하며 못박히신 그리스도를 바라볼 것을 예고하는 말씀으로 풀이합니다. [2of2 131–136]</li>
+<li>두 단락을 통해 구원은 열방에 대한 승리일 뿐 아니라 열방이 죄를 인정하는 애곡과 회개를 하게 된다는 것입니다. [2of2 137]</li>
+</ul>
+<p class="bq"><b>10</b> 내가 다윗의 집과 예루살렘 주민에게 은총과 간구하는 심령을 부어 주리니 그들이 그 찌른 바 그를 바라보고 그를 위하여 애통하기를 독자를 위하여 애통하듯 하며 그를 위하여 통곡하기를 장자를 위하여 통곡하듯 하리로다 <span style="color:var(--muted);font-size:12px">(슥 12:10, 개역개정)</span></p></div>
+<div class="card">
+<h3>13장 [2of2 138–157]</h3>
+<ul>
+<li>13:1–6 (12–14장의 중앙부): 다윗의 집과 예루살렘 주민을 위해 죄와 더러움을 씻는 샘이 열립니다. [2of2 138–140] 이는 3장에서 여호수아가 더러운 옷을 벗고 깨끗한 예복을 입은 장면과 연결되는데, 3장이 제사장과 공동체의 정결이었다면 13장은 죄의 제거가 열방까지, 공동체 전체로 확장됨을 보여줍니다. [2of2 142–146] 우상과 거짓 선지자도 제거되어 우상의 이름이 땅에서 영구히 끊어지고 부패한 선지자들은 부끄러움을 당하고 거짓 털옷을 벗습니다. [2of2 146–148]</li>
+<li>13:7–9: 7절의 ‘내 목자 내 짝 된 자를 치라’(자막 ‘카라 깨어서’ <span class="asr">[?]</span>)는 예수님이 십자가를 지시기 바로 전에 자신을 향한 말씀이라고 하셨고, 그리스도에게서 예언이 성취되었다고 합니다. [2of2 150–152]</li>
+<li>온 땅의 3분의 2가 멸절하고 남은 3분의 1이 불 가운데 던져져 은과 금처럼 연단을 받으며(자막 ‘정년’ <span class="asr">[?]</span>), 연단을 통과한 남은 자가 여호와의 이름을 부르고 ‘이는 내 백성이라’, ‘여호와는 내 하나님이시라’고 말하게 됩니다. 궁극적으로 언약이 회복됩니다. [2of2 153–155]</li>
+<li>정결과 연단은 <span class="say">“언약관계를 파괴하기 위한 것이 아니라 새롭게 하기 위한 과정”</span> [2of2 156]이라고 합니다. [2of2 156–157]</li>
+</ul>
+<p class="bq"><b>7</b> 만군의 여호와가 말하노라 칼아 깨어서 내 목자, 내 짝 된 자를 치라 목자를 치면 양이 흩어지려니와 작은 자들 위에는 내가 내 손을 드리우리라 <span style="color:var(--muted);font-size:12px">(슥 13:7, 개역개정)</span></p>
+<p class="sup"><span class="b-sup bdg">보충</span> 교수님이 말한 3분의 2 멸절, 3분의 1 연단은 개역개정 슥 13:8–9와 일치합니다(삼분의 이는 멸망하고 삼분의 일은 불 가운데에 던져 은 같이 연단).</p></div>
+<div class="card">
+<h3>14장 [2of2 158–172]</h3>
+<ul>
+<li>세 부분으로 나뉩니다. 1–8절은 신현과 새 창조입니다. 열방이 모여 예루살렘을 함락시키는 극심한 종말론적 환난이 있고, 그때 여호와께서 신적 전사로 강림하셔서 감람산이 동서로 갈라집니다. <span class="say">“한낱 도 아니고 어둠도 아닌”</span> [2of2 164] <span class="asr">[?]</span>[=낮도 밤도 아닌?] 독특한 날에 예루살렘에서 생수가 솟아 동해와 서해로 흐릅니다. [2of2 161–164]</li>
+<li>9절: 여호와께서 천하의 왕이 되시고 그날에 홀로 한 분이십니다. 이 구절은 온 땅의 왕이 되시는 하나님의 유일하고 보편적인 왕권을 말하는 중앙 부분이라고 합니다(교수님은 중앙 부분의 구간 숫자를 말하지 않음). [2of2 165–167]</li>
+<li>16–21절은 보편적 성결입니다. 대적하던 열방 중 살아남은 자들이 해마다 초막절을 지키러 예루살렘에 올라오고, 말 방울에까지 ‘여호와께 성결’이라 새겨지며 예루살렘의 모든 솥(자막 ‘소치’ <span class="asr">[?]</span>)이 성전 제단의 대야처럼 거룩해지고 성전에 가나안 사람이 다시 없게 됩니다. [2of2 168–170]</li>
+<li>결론: 하나님이 개입하시고 변화된 창조질서를 만드시며 온 땅에 보편적 왕권을 드러내시고, 열방이 하나님 앞에 나아와 구원받고 거룩하게 됩니다. [2of2 171–172]</li>
+</ul>
+<p class="bq"><b>9</b> 여호와께서 천하의 왕이 되시리니 그 날에는 여호와께서 홀로 한 분이실 것이요 그의 이름이 홀로 하나이실 것이라 <span style="color:var(--muted);font-size:12px">(슥 14:9, 개역개정)</span></p></div>
+</div>
+<div class="sec" id="debate">
+  <div class="sh"><span class="sb">스 V-1</span><span class="st">신학적·해석학적 논쟁점 여섯 가지</span><div class="sl"></div></div>
+  <div class="card">
+<h3>① 저작과 통일성 [2of2 173–186]</h3>
+<ul>
+<li>하나의 저작인가, 여러 층위로 형성되었는가? 1–8장에는 역사적 표제와 환상문학이 있고, 9–14장은 연대 미상의 시적 신탁이 있어 문체에서 차이가 있는 것은 분명합니다. [2of2 174–178] 어떤 학자들은 복잡한 편집사적 과정을 거쳤다고 보지만 결정적 증거로 볼 수는 없습니다. [2of2 179–180]</li>
+<li>최종적인 정경 형태 안에서 문학적 통일성을 발견하고 설명할 필요가 있고, 시온·정결·왕권·열방 같은 구조가 전체 본문을 어떻게 통일하는지 더 깊이 살필 필요가 있습니다. [2of2 181–184] 반개메렌(자막 표기 <span class="asr">[?]</span>)의 구조는 통일성을 읽기 위한 <span class="say">“아주 중요한 해석 모델 중의 하나”</span> [2of2 186]라고 합니다. [2of2 185–186]</li>
+</ul>
+<h3>② 8개 환상은 엄밀한 동심원 구조인가 [2of2 187–196]</h3>
+<ul>
+<li>온 땅이라는 면에서 연결되는 짝, 압제와 악을 처리하는 부분, 도시가 회복되고 악을 제거하는 부분(자막 ‘불을 제거하는 것’ <span class="asr">[?]</span>), 제사장과 왕적 지도력의 짝 등에서 대칭을 발견하면 신학적으로 설명력이 있습니다. [2of2 188–189] 그러나 모든 짝이 정확한 문학적 대응을 보이는 것은 아니며 우선 주제적 연관이 나타납니다. [2of2 190–191]</li>
+<li>그래서 완벽한 대칭이라기보다 <span class="say">“작업 가설로 제시를 하고”</span> [2of2 192] 각 부분이 어떻게 대응되는지 연구하는 것이 필요하다고 합니다. [2of2 192–193] 가장 중앙의 3·4장에 회복의 핵심인 여호수아의 정결과 스룹바벨을 통한 성령의 활동이 있다는 사실이 8개 환상이 가장 본질적으로 무엇을 말하는지 짐작하게 합니다. [2of2 194–196]</li>
+</ul>
+<h3>③ 6:9–15 — 왕관을 쓴 여호수아와 ‘순’은 동일인물인가 [2of2 197–206]</h3>
+<ul>
+<li>성경적 관점에서는 같은 인물로 가정할 수 있으나 그것을 받아들이지 못해 문제가 됩니다. [2of2 198–200] 대제사장 여호수아가 면류관을 썼다는 것은 한 메시아적 인물 안에 두 기능이 결합된다는 해석이 적절합니다. 두 인물이 분리된 채 협력한다기보다 제사장이 면류관을 썼으므로 이 제사장이 왕이 된다는 말입니다. [2of2 201–203] 순이 성전을 건축하는 부분에서도 왕과 제사장 직분이 동일함을 볼 수 있습니다. [2of2 204–205] 다른 학자들이 여러 이유를 찾으나 충분히 입증된 것은 아닙니다. [2of2 206]</li>
+</ul>
+<h3>④ 9:9의 인간 왕과 14:9의 여호와 왕 [2of2 207–214]</h3>
+<ul>
+<li>두 관계는 스가랴 본문 안에서 살펴볼 필요가 있으나, 성경적 관점에서는 그리스도가 참 하나님이시라는 것을 말하는 방식으로 볼 수 있습니다. [2of2 207–209] 이사야서에서도 여호와가 오셔서 심판하고 남은 백성을 구원하겠다고 하다가 어느 순간 하나님이 메시야를 보내실 것이라고 하며, 하나님이 하시는 심판과 구원을 메시아의 사역으로 돌립니다. 이는 이사야서 안의 삼위일체적 사역을 말하는 것이라고 합니다. [2of2 210–213] 스가랴서도 겸손한 인간 왕을 보내시겠다고 하면서 여호와가 왕이시라고 하니, 두 주체가 삼위일체적으로 연합되는 것을 말하는 것으로 볼 수 있습니다. [2of2 214]</li>
+</ul>
+<h3>⑤ 12:10의 찔린 자와 13:7의 맞는 목자 [2of2 215–218]</h3>
+<ul>
+<li>찔린 자와 내 짝 된 목자를 치라고 한 맞는 목자는 모두 그리스도가 자신에게 적용하셨습니다. 스가랴서 본문 안에서 각각 다른 주제와 결부되어 어떤 의미가 있는지 구체적으로 분석하고 두 본문이 어떻게 연결되는지 살펴보는 것이 좋은 연구 주제라고 합니다. [2of2 215–218]</li>
+</ul>
+<h3>⑥ 14장의 성취 — 여호와의 날 [2of2 219–227]</h3>
+<ul>
+<li>미래의 역사적 사건으로 성취되는가, 상징적인 종말을 말하는가? 구체적인 예루살렘 사건을 강조하는 전천년설과 세대주의적 독법, 상징적으로 우주적 심판과 새 창조의 완성을 강조하는 해석, 역사적 의미와 정경적 발전을 결합하는 독법이 있습니다. [2of2 219–223]</li>
+<li>교수님은 전부 새 언약의 시대를 말하며 궁극적으로 종말의 때, 곧 새 언약의 시대·재림의 시대·그리스도께서 통치하시는 시대를 말한다고 볼 수 있다고 합니다. [2of2 225–226]</li>
+<li>해석 순서: 본문에서 출발해 역사적 문맥에서 살피고, 예언 전통을 살피고, 정경적·신학적으로 어떻게 수용되었는지를 따라 의미를 생각해야 합니다. [2of2 227]</li>
+</ul></div>
+</div>
+<div class="sec" id="theo">
+  <div class="sh"><span class="sb">스 V-2</span><span class="st">스가랴서의 네 신학적 기둥</span><div class="sl"></div></div>
+  <div class="card">
+<h3><span class="say">“가장 중요한 네 가지 신학적인 기둥”</span> [2of2 228]: 성전·지도력·공동체·열방 [2of2 228–229]</h3>
+<ul>
+<li><b>① 성전</b> [2of2 229–236]: 하나님의 거룩한 임재이며 하나님이 백성과 함께하신다는 약속의 중심입니다. 그러나 스가랴서는 임재를 건물 안에 가두지 않습니다. 성벽 없는 예루살렘을 말하고 하나님이 성벽이 되어 보호하시며, 마지막에는 일상의 물건까지 성결하게 됩니다. 일상의 물건이 성결하게 된다는 것은 온 우주와 우리의 일상이 하나님의 성전이 된다는 것이고, 성전이 회복됨으로써 모든 피조세계가 하나님의 성전이 되고 거룩함으로 변화될 것이라는 말입니다.</li>
+<li><b>② 지도력</b> [2of2 237–249]: 8개 환상 가운데 3–4장의 두 지도자, 3장에서 여호수아의 정결, 4장에서 스룹바벨에게 성령의 약속. 두 직분은 제사장직과 왕적 지도력이며 모두 그리스도에게서 성취됩니다. 3:8·6:12의 순, 9:9의 겸손한 왕(나귀 탄 왕), 11장의 버림받은 목자, 12:10의 찔린 자, 13:7의 맞는 목자 등 이 모든 표현이 그리스도에게서 성취되었다고 신약은 말합니다. [2of2 243–245] 다만 각 칭호의 역할과 신학적 의미를 인접 문맥 안에서 따지기 전에 곧바로 신약의 그리스도라고 말하는 것은 성급한 결론이라고 합니다. <span class="say">“결론은 맞는데”</span> [2of2 249] 그 이전에 스가랴 본문 안에서 각각이 어떤 의미인지 더 살필 필요가 있습니다. [2of2 247–249]</li>
+<li><b>③ 공동체</b> [2of2 250–254]: 참된 경건은 외적인 의식보다 사회적 공의와 내면적 정결, 하나님과의 관계 회복이 중요하다고 선지서들이 반복해 말해 왔고 스가랴서도 다르지 않습니다. 7–8장에서 금식보다 정의가 중요하다고 했고, 모든 예배는 형식적인 예배·제의보다 진실과 자비, 정의의 삶이 선행되어야 합니다. 과부·고아·나그네·가난한 자 같은 약한 자들에 대한 공동체적 책임이 언약적 예배의 핵심 요소이며, 공동체를 섬기는 행위 자체가 참된 경건이고 예배의 행위라고 합니다.</li>
+<li><b>④ 열방</b> [2of2 255–268]: 하나님은 우주적 왕권을 가지고 통치하시며 열방이 하나님의 통치권 안으로 들어와 하나님의 백성이 됩니다. 2장 11절(많은 민족이 여호와의 백성이 됨), 8장 20–23절(열방이 시온으로 모여 옴), 14장 16절(살아남은 열방이 초막절에 참여)이 그것입니다. [2of2 259–262] 열방은 하나님 백성을 압제하고 하나님의 원수가 되었기에 심판의 대상이지만 동시에 하나님을 예배하도록 초청되는 대상이고 남은 자들이 구원받는 대상입니다. [2of2 263–264] 이 주제는 창세기 12장 3절(아브라함을 통한 열방의 복의 근원), 이사야 2장과 미가 4장(열방이 예루살렘으로 순례), 계시록 21–22장(새 창조)과 정경적으로 연결됩니다. [2of2 265–268]</li>
+</ul>
+<p class="bq"><b>16</b> 예루살렘을 치러 왔던 이방 나라들 중에 남은 자가 해마다 올라와서 그 왕 만군의 여호와께 경배하며 초막절을 지킬 것이라 <span style="color:var(--muted);font-size:12px">(슥 14:16, 개역개정)</span></p>
+<p class="sup"><span class="b-add bdg">강의안</span> 강의안 ‘스가랴서의 신학적 메시지’: 1. 이전 선지자들의 예언의 재해석(어떻게 성취되었나, 궁극적으로 어떻게 성취될 것인가) 2. 성전 재건(학개와 마찬가지로 성전 재건에 관심, 포로 후기 공동체의 이상) 3. 메시야 사상(1–8장: 메시야의 두 가지 모습 스룹바벨과 여호수아, 다섯째 환상 4:1–14에서 두 감람나무 / 9–14장: 가난한 왕 9:9, 배척당하는 선한 목자 11:4–11, 찔린 바 된 자 12:8–13:1 / ※ 스가랴 복음 3:1–10) 4. 언약의 회복(13:9 시내산 언약, 메시야 사상과 성전의 회복: 다윗 언약).</p>
+</div>
+</div>
+<div class="sec" id="wrap">
+  <div class="sh"><span class="sb">스 V-3</span><span class="st">연구 질문과 세 가지 핵심 교훈</span><div class="sl"></div></div>
+  <div class="card">
+<h3>세미나·연구를 위한 질문 [2of2 269–274]</h3>
+<ol>
+<li>스가랴서는 성전과 지도력 회복을 어떻게 설명하는가? [2of2 270]</li>
+<li>‘순’(3:8, 6:12), 9장의 평화의 왕, 11–13장의 목자 이미지는 어떤 공통점과 다른 점이 있는가? [2of2 271]</li>
+<li>7–8장의 참된 금식과 14장의 보편적 성별은 오늘 우리의 예배와 정의와 어떻게 관계되는가? [2of2 272]</li>
+<li>8:20–23, 14:16 이하의 열방 순례는 창세기·이사야 본문과 어떤 관계가 있는가? [2of2 273]</li>
+</ol>
+<p style="font-size:13.5px;color:var(--muted)">교수님은 이런 부분을 <span class="say">“구체적으로 묵상을 하시고”</span> [2of2 274] 연구하고 공부하면 좋겠다고 합니다. [2of2 274]</p>
+</div>
+<div class="emph"><h3>⭐ 정리하는 세 가지 핵심 교훈 [2of2 275–281]</h3>
+<ol>
+<li><b>회복의 시작</b>은 하나님의 부르심에 대한 언약적 회개입니다 (1:3, 6). [2of2 276–277]</li>
+<li><b>회복의 방식</b>은 하나님의 영으로 이루어지는 정결과 신실한 삶입니다 (3–8장). [2of2 278–279]</li>
+<li><b>회복의 궁극적 목적</b>은 열방이 참여하는 하나님의 보편적 왕권과 거룩함입니다 (9–14장). [2of2 280–281]</li>
+</ol></div>
+<div class="card">
+<h3>마무리 [2of2 282–285]</h3>
+<ul>
+<li>교수님은 스가랴서의 핵심적인 메시지가 <span class="say">“성전을 다시 지어라 하는 것에 멈추지 않습니다”</span> [2of2 282] 하나님은 자기 백성과 함께 거하시고 그들을 정결하게 하시며, 실패하는 인간 지도력과 제국 권세 너머에서 정의와 평화를 이루시는 온 땅의 왕이십니다. [2of2 282–283]</li>
+<li>마지막에 ‘강의를 위해서 이런 자료들을 참조했습니다’라고 하지만 참고 자료 목록은 자막에 나오지 않습니다. [2of2 284–285]</li>
+</ul></div>
+</div>
+
+<div class="verify" id="check">
+  <h3>자막 오인식 의심 [?] 및 교수 발언 [보충]</h3>
+  <p><b>[?] 자막 오인식 의심</b> (문맥 근거. 확정이 아니면 표기 그대로 둠): 전체 ‘학계’·‘학교’·‘합계’→학개 · 1of2 1 ‘공동체의 정교’ 뜻 불분명 · 1of2 13·2of2 185–186 ‘반계메린’·‘반개메렌’→강의안 VanGemeren의 한글 표기로 읽힘(철자 미확인) · 1of2 16–17 앞 여섯 선지서 설명 불분명 · 1of2 36–41 연도(‘580’, ‘500’, ‘309’) 숫자 불확실 · 1of2 46 ‘58년’·1of2 80 ‘5028’→둘 다 518로 읽힘(스가랴 1–8장 날짜 범위 520–518) · 1of2 83 ‘해저성절’ 불분명 · 2of2 14 ‘8장 18절부터 28절까지’→8:18–23(2of2 60 기준) · 2of2 164 ‘한낱 도 아니고 어둠도 아닌’→낮도 밤도 아닌?(추정) · 1of2 49 ‘예후’ · 1of2 53–54 ‘부리’ · 1of2 61 ‘베레베리아’→베레갸 · 1of2 62 ‘제4장 가문’ · 2of2 24 ‘제4장 직분’→제사장 직분으로 읽힘 · 1of2 80–81 ‘5020년에서 5028년’·‘다리어 5020년’→520–518·다리오 2년으로 읽힘 · 스룹바벨 표기 변이(‘스루바벨’, ‘술 바벨’, ‘스바벨’, ‘쓰루베리’) · 1of2 104 ‘9장. 11장 12장. 14장’ 구간 불분명 · 1of2 111·122·139 및 2of2 3–4 ‘Panopto 다시피’, ‘다시 다시’, ‘비다 시’ 등 A–B–C 기호 깨짐 · 1of2 141–144, 184, 257 ‘내 병과’·‘내병과’→네 병거(6:1–8 문맥) · 1of2 183, 246 ‘신하로’·‘신화로’→시날로 · 1of2 176 ‘비로소 뿔과 대장장이’, ‘새삼 권세’ 불분명 · 1of2 191 ‘화석류 나무’ · 1of2 204 ‘내 그 온 세상의 내 귀퉁이’ 불분명 · 1of2 209 ‘측량질’→측량줄 · 1of2 223 ‘내 종수는’→내 종 싹(3:8)으로 읽힘 · 1of2 229 ‘영어로’→영으로 · 1of2 258 ‘노상’→산으로 읽힘 · 2of2 35 ‘다섯 번째 딸’→다섯째 달 · 2of2 41 ‘이내 긍효’→긍휼 · 2of2 79 ‘다메섹의 주로’ · 2of2 106 ‘굳이 시고’ 불분명 · 2of2 112 ‘악한 새 목자’ · 2of2 113 ‘품삭스로’→품삯으로 · 2of2 150 ‘카라’→칼아 · 2of2 153 ‘정년’→연단으로 읽힘 · 2of2 170 ‘소치’→솥으로 읽힘 · 2of2 188 ‘불을 제거하는 것’ · 2of2 215 ‘아, 이 맞는 목자’ · 2of2 65 ‘선원들’→선언들 · 2of2 283·284 ‘스카에서는’·‘스칼렛’→스가랴</p>
+  <p><b>[보충] 교수 발언과 성경 본문·강의안의 차이</b></p>
+  <ul>
+    <li><b>12선지서의 순서(1of2 16):</b> 교수님은 ‘11번째 2번째’(자막)라고 말하며, 강의안은 학개·스가랴·말라기를 포로 후기 문헌으로 묶고 있습니다. 이 정리에서는 ‘11번째’(스가랴)로 적었습니다.</li>
+    <li><b>‘한 68년’(1of2 38):</b> 586년과 539년의 간격으로 말한 숫자인데 두 연도 차이(47년)와 맞지 않습니다. 교수님이 말한 연도 자체도 자막이 불확실하여 숫자는 그대로 두었습니다.</li>
+    <li><b>서론 범위(1of2 121):</b> ‘1장 1절, 6장 6절까지’(자막)라고 하나 같은 문장에서 서론을 ‘내게로 돌아오라’는 부분으로 말하고 앞(1of2 105, 159)에서 1장 1–6절이라고 하므로 1:1–6으로 적었습니다.</li>
+    <li><b>셋째 단락 범위(2of2 78):</b> ‘9장 1절부터 8장 8절까지’(자막)는 강의안의 9:1–8로 읽었습니다.</li>
+    <li><b>환상의 짝 구간(강의안):</b> 강의안 VanGemeren 구조의 A′는 ‘정온한 성령에 대한 환상(5:5-11)’로 적혀 있어 B′(5:5–11)와 같은 구간이 겹칩니다. 교수님은 여덟째 환상을 6:1–8로 말합니다(1of2 257).</li>
+    <li><b>13장 구간(2of2 139–149, 강의안):</b> 교수님은 죄를 씻는 샘 13:1–6, 목자를 치는 부분 13:7–9라고 하고, 강의안은 13:1–5와 13:6–9로 적었습니다.</li>
+    <li><b>치수(1of2 241):</b> 두루마리 20×10규빗은 개역개정 슥 5:2와, 성전 현관 치수는 왕상 6:3(주랑 길이 이십 규빗, 너비 십 규빗)과 일치합니다.</li>
+    <li><b>금식하는 달(2of2 62), 삼분의 이/삼분의 일(2of2 153), 은 삼십(2of2 113):</b> 개역개정 슥 8:19, 13:8–9, 11:12–13과 일치합니다.</li>
+    <li><b>스가랴의 선조(1of2 61):</b> 베레갸의 아들 잇도의 손자라는 설명은 개역개정 슥 1:1(‘잇도의 손자 베레갸의 아들 선지자 스가랴’)과 같습니다.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  한국침례신학대학교 신학대학원 2026학년도 2학기 예언문학연구입문 · 담당 오성호 교수<br>
+  강의 녹취(1of2·2of2)와 강의안 바탕 정리
+</div>
+
+</div>
+
+</body>
+</html>
