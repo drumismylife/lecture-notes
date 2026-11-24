@@ -623,7 +623,9 @@ const SITE_DATA = {
             { week: 12, title: "초월주의·성결운동·유토피아 공동체·몰몬교", date: "2026.11.17", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week12.html" }
           ] },
-            { week: 13, title: "", date: "", files: [] },
+            { week: 13, title: "밀러파·박애주의·사회개혁·노예제와 교단 분열 — 개신교에 대한 위협(1865-1918)과 근본주의의 출발", date: "2026.11.24", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/hist2/week13.html" }
+          ] },
             { week: 14, title: "", date: "", files: [] },
             { week: 15, title: "", date: "", files: [] }
           ]
