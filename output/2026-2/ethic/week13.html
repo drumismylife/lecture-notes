@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교윤리학개론 13주차 강의노트 | 평화의 윤리(제19강)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #19382b;
+  --primary-light: #2d5a47;
+  --primary-pale: #eef5f1;
+  --primary-border: #a9cfbd;
+  --accent-gold: #c29236;
+  --accent-gold-dim: #f7eedc;
+  --accent-terracotta: #9e3d2b;
+  --accent-terra-bg: #faedea;
+  --accent-blue: #234b73;
+  --accent-blue-bg: #eaf1f8;
+  --paper-bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --card-alt: #fdfcf9;
+  --text-main: #1f2321;
+  --text-body: #2f3633;
+  --text-muted: #626d67;
+  --border-subtle: #e2ded4;
+  --border-medium: #cfc8ba;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(25,56,43,0.09);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+[data-theme="dark"] {
+  --primary: #52a882; --primary-light: #70c49e; --primary-pale: #16261f; --primary-border: #294738;
+  --accent-gold: #e2b35c; --accent-gold-dim: #2a2214; --accent-terracotta: #df6d59; --accent-terra-bg: #2d1815;
+  --accent-blue: #6aa8e0; --accent-blue-bg: #152230; --paper-bg: #141716; --card-bg: #1b201e; --card-alt: #212724;
+  --text-main: #f0f3f1; --text-body: #d2d9d5; --text-muted: #8d9a93; --border-subtle: #2d3632; --border-medium: #3e4b45;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3); --shadow-md: 0 6px 18px rgba(0,0,0,0.4); --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: var(--paper-bg); color: var(--text-body); line-height: 1.85; font-size: 16px; -webkit-font-smoothing: antialiased; }
+.bdg { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; line-height: 1.4; letter-spacing: 0.02em; }
+.b-exam { background: rgba(158, 61, 43, 0.12); color: var(--accent-terracotta); border: 1px solid rgba(158, 61, 43, 0.35); }
+.b-add { background: rgba(194, 146, 54, 0.15); color: #724f11; border: 1px solid rgba(194, 146, 54, 0.4); }
+.b-sup { background: rgba(35, 75, 115, 0.12); color: var(--accent-blue); border: 1px solid rgba(35, 75, 115, 0.35); }
+[data-theme="dark"] .b-exam { background: rgba(223, 109, 89, 0.18); color: var(--accent-terracotta); border-color: rgba(223, 109, 89, 0.4); }
+[data-theme="dark"] .b-add { background: rgba(226, 179, 92, 0.18); color: var(--accent-gold); border-color: rgba(226, 179, 92, 0.4); }
+[data-theme="dark"] .b-sup { background: rgba(106, 168, 224, 0.18); color: var(--accent-blue); border-color: rgba(106, 168, 224, 0.4); }
+.control-bar { position: sticky; top: 0; z-index: 1000; background: rgba(25, 56, 43, 0.96); backdrop-filter: blur(10px); color: #f7eedc; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.18); font-size: 14px; flex-wrap: wrap; gap: 8px; }
+.control-bar .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.02em; }
+.control-bar .badge-course { background: var(--accent-gold); color: #19382b; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+.control-bar .actions { display: flex; align-items: center; gap: 12px; }
+.btn-ui { background: rgba(255,255,255,0.15); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.btn-ui:hover { background: rgba(255,255,255,0.28); border-color: #ffffff; }
+.container { max-width: 1040px; margin: 32px auto 80px auto; padding: 0 24px; }
+.header-card { background: linear-gradient(135deg, var(--primary) 0%, #0e241a 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 44px 38px; margin-bottom: 32px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; border: 1px solid rgba(194, 146, 54, 0.3); }
+.header-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(194,146,54,0.18) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; pointer-events: none; }
+.header-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+.header-meta span { font-size: 12.5px; font-weight: 600; padding: 4px 12px; border-radius: 30px; background: rgba(255,255,255,0.12); color: #e5efe9; letter-spacing: 0.03em; }
+.header-meta .tag-gold { background: var(--accent-gold); color: #1a2c22; font-weight: 700; }
+.header-title { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 900; line-height: 1.35; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.header-subtitle { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 400; color: #d6e8de; margin-bottom: 20px; line-height: 1.5; }
+.header-theses { background: rgba(0,0,0,0.28); border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: 14.5px; color: #f7f3e8; line-height: 1.7; }
+.header-theses strong { color: var(--accent-gold); }
+.toc-card { background: var(--card-bg); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 22px 26px; margin-bottom: 32px; box-shadow: var(--shadow-sm); }
+.toc-title { font-family: 'Noto Serif KR', serif; font-size: 16.5px; font-weight: 700; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.toc-col h4 { font-size: 13px; font-weight: 700; color: var(--accent-terracotta); text-transform: uppercase; margin-bottom: 7px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 5px; font-size: 13.5px; }
+.toc-list a { color: var(--text-body); text-decoration: none; transition: color 0.15s; }
+.toc-list a:hover { color: var(--primary-light); font-weight: 600; text-decoration: underline; }
+.section-block { margin-bottom: 42px; }
+.part-banner { background: var(--primary-pale); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 16px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.part-banner h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.01em; }
+.part-banner .part-badge { font-size: 11.5px; font-weight: 700; background: var(--primary); color: #ffffff; padding: 3px 9px; border-radius: 20px; }
+.unit-card { background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+.unit-card:hover { border-color: var(--primary-border); }
+.unit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; gap: 14px; flex-wrap: wrap; }
+.unit-title-group h3 { font-family: 'Noto Serif KR', serif; font-size: 19.5px; font-weight: 700; color: var(--primary); margin-bottom: 5px; line-height: 1.4; }
+.unit-title-group .unit-desc { font-size: 13.5px; color: var(--text-muted); }
+p { margin-bottom: 14px; text-align: justify; text-justify: inter-word; }
+p strong { color: var(--primary); font-weight: 700; }
+ul, ol { margin: 10px 0 16px 20px; }
+li { margin-bottom: 6px; }
+.custom-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+.custom-table th, .custom-table td { padding: 10px 14px; border: 1px solid var(--border-medium); text-align: left; }
+.custom-table th { background: var(--primary-pale); color: var(--primary); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+.custom-table tr:nth-child(even) td { background: var(--card-alt); }
+.custom-table .hl { font-weight: 700; color: var(--accent-terracotta); }
+.exam-section { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 32px 36px; margin-top: 44px; box-shadow: var(--shadow-md); }
+.exam-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.quiz-item { background: var(--card-alt); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px 18px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.quiz-ans { font-size: 13.5px; color: var(--primary-light); background: var(--primary-pale); padding: 7px 11px; border-radius: 4px; margin-top: 5px; line-height: 1.6; }
+.quiz-ans strong { color: var(--accent-terracotta); }
+.footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-medium); font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.oneline { background: var(--primary-pale); border-left: 4px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 10px 16px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); font-size: 15px; }
+.oneline::before { content: "한 줄 결론"; font-size: 11px; font-weight: 800; color: var(--accent-gold); margin-right: 8px; letter-spacing: .04em; }
+.key { margin: 4px 0 6px 0; }
+.key ul { margin: 4px 0 6px 18px; }
+.key li { margin-bottom: 5px; font-size: 14.5px; }
+.sum-card { background: var(--card-bg); border: 1.5px solid var(--primary-border); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+.sum-card h2 { font-family: 'Noto Serif KR', serif; font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+.sum-card h4 { font-size: 12.5px; color: var(--accent-terracotta); margin: 14px 0 5px 0; letter-spacing: .03em; }
+.sum-card ol, .sum-card ul { margin: 4px 0 5px 18px; }
+.sum-card li { margin-bottom: 5px; font-size: 14px; }
+.sum-card p { margin-bottom: 5px; font-size: 14px; }
+.lite-note { font-size: 13px; color: var(--text-muted); margin: 0 0 22px 0; padding: 9px 13px; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); }
+details { border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--card-alt); margin: 12px 0 4px 0; }
+details > summary { cursor: pointer; padding: 9px 15px; font-size: 13.5px; font-weight: 600; color: var(--primary); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; color: var(--accent-gold); }
+details[open] > summary::before { content: "▾ "; }
+details[open] > summary { border-bottom: 1px solid var(--border-subtle); }
+details > .dbody { padding: 12px 16px 6px 16px; }
+details.apx { margin-top: 30px; }
+.tq, .say { font-weight: 600; color: var(--text-main); border-bottom: 1px dotted var(--accent-gold); }
+.emph-box { background: var(--card-bg); border: 2px solid var(--accent-gold); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 26px; box-shadow: var(--shadow-md); }
+.emph-title { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.emph-list { margin: 8px 0 0 20px; }
+.emph-list li { margin-bottom: 9px; font-size: 14.5px; line-height: 1.7; }
+.exam-note { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+.exam-h { font-size: 17px; font-weight: 700; color: var(--primary); margin: 20px 0 10px 0; }
+.memo { width: 100%; border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--card-alt); color: var(--text-body); font-family: inherit; font-size: 14.5px; line-height: 1.6; }
+.quiz-ans ul { margin: 4px 0 2px 18px; }
+.quiz-ans li { margin-bottom: 3px; font-size: 13.5px; }
+.dbody h4 { font-size: 13.5px; color: var(--accent-terracotta); margin: 12px 0 5px 0; }
+.dbody li { font-size: 13.5px; }
+.cmp td { vertical-align: top; font-size: 13.5px; }
+@media (max-width: 720px) { .unit-card { padding: 18px 16px; } .exam-section { padding: 20px 16px; } .custom-table { font-size: 12.5px; } .header-card { padding: 26px 18px; } .header-title { font-size: 24px; } }
+</style>
+
+<style id="lnotes-back-btn-style">
+#lnotes-back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 28, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 140, 60, 0.35);
+  border-radius: 20px;
+  color: #c9a84c;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+#lnotes-back-btn:hover {
+  background: rgba(30, 28, 20, 0.95);
+  border-color: rgba(180, 140, 60, 0.7);
+  transform: translateX(-2px);
+}
+#lnotes-back-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  #lnotes-back-btn {
+    top: 10px;
+    left: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+<body><a id="lnotes-back-btn" href="../../../index.html">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M9 2L4 7L9 12" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  강의 목록
+</a>
+
+
+<div class="control-bar">
+  <div class="brand"><span class="badge-course">기독교윤리 13주차</span><span>평화의 윤리(제19강)</span></div>
+  <div class="actions">
+    <button class="btn-ui" onclick="window.print()">A4 인쇄 / PDF 저장</button>
+    <button class="btn-ui" onclick="toggleTheme()">다크/라이트</button>
+  </div>
+</div>
+
+<div class="container">
+
+    <header class="header-card">
+    <div class="header-meta">
+      <span class="tag-gold">한국침례신학대학교 신학대학원</span>
+      <span>2026-2학기 기독교윤리학개론</span>
+      <span>담당교수: 김기현 교수</span>
+      <span>13주차 강의노트</span>
+    </div>
+    <h1 class="header-title">평화의 윤리</h1>
+    <div class="header-subtitle">제19강 · 19장 평화: 하나님 나라의 사회적 형상</div>
+    <div class="header-theses">
+      <strong>[핵심 명제]</strong> 평화는 결과를 통제하려고 원수를 해치는 대신 십자가의 방식에 신실하게 머무는 공동체의 삶의 형식이며, 이 삶의 형식이 하나님 나라의 사회적 형상이다. 이 평화는 원수 되었을 때 먼저 받은 화해에서 나오고 정의 위에 서며, 정당전쟁론과 메시아 공동체의 평화주의는 전쟁을 제한하고 평화를 만드는 길의 동반자이다. 교회는 폭력을 행사하지 않고 국가의 강제가 끝없이 가지 않도록 증언하며, 분단 앞에서는 적대의 언어를 분별하고 원수를 위해 기도하고 양심을 함께 품는다. (주장의 중심: 슬라이드 p.6, 19장 p.1, 교수 [L37] · 정당전쟁론과 평화주의의 동반자는 📖 슬라이드 p.20 · 교회와 국가는 교수 [L381–386] · 분단의 세 몫은 📖 슬라이드 p.40–42와 교수 [L392–414])
+    </div>
+  </header>
+
+  <div class="emph-box" id="emph">
+    <div class="emph-title">⭐ 교수가 직접 짚은 대목 (원문 · [L줄])</div>
+    <p class="exam-note">교수가 ‘핵심·반드시·중요한·정리’ 등으로 직접 짚은 말과 그 대목의 결론 문장입니다(자막 원문, 줄 번호는 [L]). 이번 강의에서 교수가 시험·평가·과제를 직접 안내한 발언은 없었고, 마지막에 토론 질문을 복습하고 정리해 보라는 학습 안내만 있었습니다 [L421–422].</p>
+    <ol class="emph-list">
+      <li><b>저의 주장과 핵심</b> — <span class="say">“여기에 대한 저의 주장과 핵심은 바로 일관되게 뜬 십자가입니다.”</span> [L37] (‘뜬’은 든·붙든 [?]) → §3</li>
+      <li><b>정의 — 반드시</b> — <span class="say">“앞서 여러분 정의가 없다면 평화도 없습니다.”</span> [L72] <span class="say">“그렇기 때문에 반드시 정의가 있어야만 되는 것입니다.”</span> [L79] → §5</li>
+      <li><b>정의는 평화로 가는 여정 — 이어서</b> — <span class="say">“그렇기 때문에 정의는 항상 평화로 나아가기 위한 여정이어야만 되지, 정의자체가 지나치게 목적이 되어버리면 안 된다라는 것입니다.”</span> [L83] → §5</li>
+      <li><b>정당화 조건이 중요 · 전쟁 중 중요한 것</b> — <span class="say">“이 분석 철학이나 언어철학을 보면 이 정당화 조건이 너무 중요한 논의들이 거든요.”</span> [L161] <span class="say">“그 다음에 전쟁하는 중에 중요한 게 뭐냐면 민간인과 전투는 구별해야 됩니다.”</span> [L165] (‘전투’는 전투원 [?]) → §10</li>
+      <li><b>정리합니다 — 둘 다 옳다</b> — <span class="say">“여러분! 어느 쪽이 옳을까요? 둘 다 옳습니다.”</span> [L231] <span class="say">“자, 정리합니다. 주장도 중요하지만 그대로 행하는 걸 때에.”</span> [L236] (뒷부분 자막 불명 [?]) → §13</li>
+      <li><b>정리해 봅시다 — 층위가 다르다</b> — <span class="say">“그럼에도 불구하고 정리하러 해봅시다.”</span> [L297] <span class="say">“이것은 좀 다른 거예요. 층위가 달라요.”</span> [L298] → §16</li>
+      <li><b>핵심 논리 — 월저</b> — <span class="say">“그러니까 핵심 논리를 이렇게 추려보면 죄인이 아까 말한 정당방위할 수 있지 않으냐?”</span> [L301] (자막 ‘죄인이’ 불명 [?]) → §17</li>
+      <li><b>핵심은 이거예요 — 교회와 국가</b> — <span class="say">“핵심은 이거예요. 하나님은 국가에게는 루트와 마찬가지로 권력폭력을 사용할 수 있는 힘을 줬습니다.”</span> [L381] (‘루트’는 칼 추정 [?]) <span class="say">“그래서 교회는 폭력을 행사할 수 없다는 거예요.”</span> [L383] <span class="say">“그래서 전쟁을 정당하기 위한 노력을 할 것이 아니라 전쟁을 막기 위한 노력을 해야 된다는 것이고요.”</span> [L386] → §20</li>
+      <li><b>정리하도록 하겠습니다 — 마지막</b> — <span class="say">“자, 우리 정리하도록 하겠습니다. 화평하게 하는 자, 이것들 보시고요.”</span> [L415] <span class="say">“다시 한번 마지막으로 하나님과 화평한 우리가 세상과 하나님 사이를 화평케 하는 중재자로서 그리스도의 사신으로 살아가는 우리 모두가 되기를 바랍니다.”</span> [L423] → §23</li>
+    </ol>
+  </div>
+
+  <div class="sum-card" id="summary">
+    <h2>📄 1쪽 요약 — 제19강 평화의 윤리</h2>
+    <h4>19장 평화: 하나님 나라의 사회적 형상</h4>
+    <ol>
+      <li><b>도입:</b> 환대한 낯선 이가 원수의 얼굴로 올 때 어디까지 사랑하고 어떻게 정의를 행하며 강제력·폭력을 어디까지 쓸 것인가. 한반도는 정전 상태로 전쟁이 끝난 날을 모르며, 같은 예배에 ‘무너뜨려 달라’는 기도와 마 5:44가 함께 있다. 소극적 평화(전쟁 없음)와 적극적 평화(구조적 폭력의 극복)를 구별하며, 핵심 주장은 통제하려 하지 않는 십자가이다.</li>
+      <li><b>1절 — 원수 되었을 때 받은 화해:</b> 샬롬은 하나님·이웃·자기 자신·땅 네 관계의 온전함이고 죄는 그 네 관계가 무너진 사건이다. 참된 평화는 먼저 받는 선물이며, 정의 없이는 평화가 없으나 정의만 외치면 정죄가 되므로 정의는 평화로 가는 여정이다. 십자가는 담을 허물었고(엡 2장) 예수는 열심당·타협·분리의 길을 거절하고 원수의 손에 죽는 길을 받으셨다. 평화는 동사이고 원수의 몸을 해치지 않겠다는 약속이다.</li>
+      <li><b>2절 — 경쟁하는 판단:</b> 평화주의·정당한 전쟁·십자군의 세 입장. 정당전쟁론은 본래 전쟁을 어렵게 하려 했으나 십자군까지 합리화했다(교수). 📖 슬라이드 p.18: 기준을 다 지켜도 원수의 죽음을 수단으로 삼는 판단이 십자가와 충돌하는가라는 신학의 한계가 남는다. 평화주의도 하나가 아니며 요더는 메시아 공동체의 평화주의를 취하고 정당전쟁론자에게 기준을 정직하게 지키라고 묻는다. 두 전통은 전쟁 전에 할 일을 함께하는 동반자이다. 니버와 하우어워스는 끝내 갈리지만 교수는 둘 다 옳다고 본다.</li>
+      <li><b>3절 — 가장 강한 반론(내 가족):</b> 위험 앞에서 손을 놓는 것은 비폭력이 아니라 방치이다. 요더는 질문에 숨은 다섯 전제를 드러내 ‘죽이거나 방치하거나’의 양자택일이 성립하지 않음을 보인다. 이중 효과는 의도에, 메시아 공동체의 평화주의는 의도와 수단에 선을 긋되 방어와 제한된 힘은 인정한다. 월저(개인의 방어→전쟁)와 요더(둘은 다르다)가 갈리고, 킹·르샹봉·평화 활동단은 무기 아닌 보호의 길을 보여 준다. 십자가가 기준이지 효율이 기준이 아니며, 비폭력의 대가는 공동체가 먼저 짊어진다(본회퍼).</li>
+      <li><b>4절 — 강제의 구별:</b> 힘·강제·폭력·권력을 구별한다(교수 [L351–366]; 📖 슬라이드 p.36: 정당한 전쟁도 정당화된 폭력). 교회의 권징·국가의 강제·자기방어·타인 보호로 강제를 나누고, 교회는 폭력을 행사하지 않으며 국가가 폭력을 끝없이 쓰지 않도록 증언하고 전쟁을 막는 노력을 한다. 교수는 분리하고 신고하고 사적 응징을 막으라고 하며 [L389–391], 📖 교회학교 사례의 직무 정지 등은 슬라이드 p.39와 19장 p.10에 있다.</li>
+      <li><b>5절 — 분단과 화해:</b> 정의 없는 평화는 없으므로 북한 정권의 폭력은 정확히 비판하되 상대를 악마화하지 않는다. 📖 슬라이드 p.41: ‘무너뜨려 달라’는 기도는 체제 아래 고통받는 이들의 자유를 구하는 기도로 바뀔 수 있다. 입대하는 청년과 대체복무하는 청년의 양심을 모두 품고, 정당전쟁론자와 평화주의자는 공통분모를 넓힌다.</li>
+      <li><b>6절·결론:</b> 교수는 화평하게 하는 자(마 5:9)를 정리하며 코이노니아 농장의 한 사람을 든다 [L415–417]. 📖 슬라이드 p.43–45·19장 p.12–14: 교회 안(마 18장의 단계)과 밖(코이노니아 농장)에서 평화를 배우고 증언하며, 평화의 인사와 원수를 위한 기도가 하나님 나라의 사회적 형상을 가장 작게 보여 준다. 칼을 쳐서 보습으로(사 2:4) — 칼은 몸을 부수고 보습은 몸을 먹인다. 교수는 다음 시간에 용서를 말하겠다고 한다 [L74].</li>
+    </ol>
+  </div>
+
+  <nav class="toc-card">
+    <div class="toc-title">강의 목차</div>
+    <div class="toc-grid">
+      <div class="toc-col">
+        <h4>제1부: 도입 · 평화란 무엇인가</h4>
+        <ul class="toc-list">
+          <li><a href="#a1">§1. 도입 · 사랑에서 정의로, 정의에서 환대로, 그리고 평화로</a></li>
+          <li><a href="#a2">§2. 한반도의 현실과 ‘두 개의 기도’</a></li>
+          <li><a href="#a3">§3. 평화는 무엇인가 · 소극적·적극적 평화, 이 강의의 중심 주장과 구성</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제2부: 1절 — 원수 되었을 때 받은 화해: 십자가라는 규범</h4>
+        <ul class="toc-list">
+          <li><a href="#b1">§4. 1절 · 샬롬의 네 관계와 그 무너짐</a></li>
+          <li><a href="#b2">§5. 거짓 평화와 참된 평화 · 정의와 평화</a></li>
+          <li><a href="#b3">§6. 에베소서 2장과 갈라디아서 2장 · 십자가가 허무는 담</a></li>
+          <li><a href="#b4">§7. 예수가 거절한 길, 받으신 길 · 십자가라는 규범</a></li>
+          <li><a href="#b5">§8. 평화는 동사이다 · 맥클렌던의 세 가닥과 몸</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제3부: 2절 — 경쟁하는 판단</h4>
+        <ul class="toc-list">
+          <li><a href="#c1">§9. 2절 · 전쟁을 대하는 세 입장</a></li>
+          <li><a href="#c2">§10. 정당한 전쟁론 · 조건, 눈물, 그리고 한계</a></li>
+          <li><a href="#c3">§11. 평화주의는 하나가 아니다 · 요더의 구별과 세 질문</a></li>
+          <li><a href="#c4">§12. 경쟁자에서 동반자로 · 스타센의 정의로운 평화운동</a></li>
+          <li><a href="#c5">§13. 끝내 갈리는 자리 · 니버와 하우어워스·요더, 영화 〈미션〉</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제4부: 3절 — 가장 강한 반론</h4>
+        <ul class="toc-list">
+          <li><a href="#d1">§14. 3절 · 가장 강한 반론: 누군가 내 가족을 해치려 한다면</a></li>
+          <li><a href="#d2">§15. 질문에 숨은 다섯 전제와 ‘죽이거나 방치하거나’의 거짓 양자택일</a></li>
+          <li><a href="#d3">§16. 대안이 없다면 어디에 선을 긋는가 · 이중 효과와 의도·수단</a></li>
+          <li><a href="#d4">§17. 월저와 요더 · 개인의 방어에서 전쟁으로?</a></li>
+          <li><a href="#d5">§18. 가족이 위협받는 순간을 살아 낸 사람들 · 킹, 르샹봉, 효율성의 문제, 본회퍼</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제5부: 4절 — 강제의 구별</h4>
+        <ul class="toc-list">
+          <li><a href="#e1">§19. 4절 · 힘, 강제, 폭력, 권력</a></li>
+          <li><a href="#e2">§20. 강제의 구별 · 교회의 권징, 국가의 강제, 자기방어, 타인 보호</a></li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h4>제6부: 5·6절과 결론 — 분단과 화해, 평화를 만드는 공동체</h4>
+        <ul class="toc-list">
+          <li><a href="#f1">§21. 5절 · 분단과 화해(1): 적대의 언어와 원수를 위한 기도</a></li>
+          <li><a href="#f2">§22. 5절 · 분단과 화해(2): 양심을 함께 품는 교회, 병역과 대체복무</a></li>
+          <li><a href="#f3">§23. 6절과 결론 · 화평하게 하는 자, 칼을 쳐서 보습으로</a></li>
+          <li><a href="#cmp">비교표</a> · <a href="#exam">예상 문항</a> · <a href="#apx">부록</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제1부: 도입 · 평화란 무엇인가</h2>
+      <span class="part-badge">19장 도입 · 슬라이드 p.1–7</span>
+    </div>
+
+    <article class="unit-card" id="a1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§1. 도입 — 사랑에서 정의로, 정의에서 환대로, 그리고 평화로</h3>
+          <div class="unit-desc">앞 강의 연결 · 원수로 다가오는 낯선 이 · 오늘의 질문</div>
+        </div>
+      </div>
+      <div class="oneline">환대했는데 낯선 이가 원수의 얼굴로 다가올 때 어디까지 사랑하고 어떻게 정의를 행할지, 강제력과 폭력을 어디까지 쓸지가 이번 강의의 물음이며, 그 끝은 평화의 공동체이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>강의 소개와 앞 시간 연결:</b> 『은혜의 윤리』 19번째 시간이고(자막 ‘비록 일렉트론 은혜 윤리’는 기독교윤리학 개론으로 추정 [?]) [L1] 오늘 제목은 평화, 곧 평화윤리이다 [L2]. 지난 시간에는 환대(자막 ‘현대 윤리’ [?])를 다루었다 [L3]. 처음에 사랑에서 정의로 넘어왔고, 그 정의가 행해져야 할 약자를 특정한다면 그들을 어떻게 환대하는 것이 정의로운가를 앞에서 말했다 [L4].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>환대가 늘 친구를 만나는 일은 아니다:</b> 낯선 손님을 적대적 상대(자막 ‘호스트에서 호스텔로’ [?])로 맞이하라고 했지만 <span class="say">“바로 그들은 반드시 친구만은 아닙니다.”</span> [L5] 환대이지만 적대로 다가오는 경우도 상당히 많고 [L6], 들어올 때와 달리 얼굴을 바꾸어 적대적인 얼굴로 나타날 수도 있다 [L7].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>오늘의 질문:</b> 낯선 이(자막 ‘화자’는 타자 [?])가 환대했는데도 원수(자막 ‘원수열로’ [?])로 다가올 때, <span class="say">“우리 그리스도인들은 사랑한다고 했을 때 얼마나 어떻게 까지 사랑해야만 되는지,”</span> [L8] <span class="say">“그리고 어떻게 하면 정의롭게 행할 수 있는지, 그 정의에 인간의 강제력, 강제력의 대표적인 경우는 폭력이 되겠습니다.”</span> [L9] 그런 것을 어디까지 하느냐, 그렇게 해서 어떻게 타자와 함께 하나님나라 공동체, 평화의 공동체를 이루어 갈 것이냐가 우리에게 던져진 문제이다(자막 ‘닫혀져 있습니다’ [?]) [L10]. 그래서 오늘 평화윤리를 함께 이야기한다고 한다 [L11].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.1, 19장 p.1</span> 슬라이드 표지: “은혜의 윤리 · 제19강 · 평화 · 하나님 나라의 사회적 형상”. 교재 제목은 ‘19장. 평화: 하나님 나라의 사회적 형상’이고 도입 제목은 ‘원수를 위한 기도는 어디서 멈추는가’이다. 교재: 앞 장은 낯선 이를 손님으로 머물게 하지 않고 지체로 맞아들이는 환대를 다루었으나, 낯선 이가 늘 반가운 얼굴로 오지는 않는다. 어떤 이는 우리를 해칠 사람으로 다가오고, 어떤 집단은 수십 년 동안 총을 겨누어 온 상대로 마주 선다. 낯선 이가 원수의 얼굴로 올 때에도 그리스도인은 사랑할 수 있는가, 정의를 지키기 위한 강제는 어디까지 허용되는가를 묻는다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="a2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§2. 한반도의 현실과 ‘두 개의 기도’</h3>
+          <div class="unit-desc">정전 상태 · 전쟁 위험 지역 · 주일 대표 기도와 마 5:44</div>
+        </div>
+      </div>
+      <div class="oneline">우리는 전쟁이 시작된 날은 알아도 끝난 날은 모르는 나라에 살며, 같은 예배에서 ‘무너뜨려 달라’는 기도와 ‘원수를 위해 기도하라’는 말씀이 함께 놓인다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>전쟁이 끝난 날을 모르는 나라:</b> <span class="say">“우리아들 전쟁이 일어난 날은 알아도 전쟁이 끝난 날, 다시 말하면 정전협정 한날은 잘 알지를 못합니다.”</span> [L12] (‘우리아들’은 우리들은 추정 [?]) 지금은 종전이 아니라 정전, 곧 휴전 상태이다(자막은 ‘정전이 아니라 정전 상태’ [?]) [L13] 그래서 우리나라는 언제든 전쟁이 일어날 수 있는 위험이 있는 나라이다 [L14].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>전쟁 위험이 큰 곳:</b> 전 세계에서 먼저 팔레스타인·이스라엘 쪽, 또 중국과 대만 쪽, 그리고 우리나라이고 [L15–16], 최근에는 러시아와 ‘코로나’(자막; 러시아·우크라이나 관련으로 추정 [?])가 더해졌다 [L17]. 이 지역들은 언제 전쟁이 나도 이상하지 않을 만큼 위험하며, 그만큼 평화가 소중한 곳이다 [L18–19].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.2, 19장 p.1</span> 슬라이드: 1950. 6. 25 전쟁 발발 → 1953. 7. 27 정전 협정 → 2026년 현재 공식 종전 없이 대치(70년 넘게). “1953년 7월에 맺은 것은 평화 조약이 아니라 정전 협정이었다. 전쟁이 시작된 날은 잘 알아도 끝난 날은 알지 못한다.”(김동춘, 『전쟁과 사회』 19~20). 교재는 ‘6·25’라는 이름이 모든 것을 설명하는 동안 사람들이 1953년 7월 27일을 거의 기억하지 않았다고 쓰고, 안보라는 한마디에 다른 논의가 멈추기도 한다고 덧붙인다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>상상해 본 주일 예배:</b> 교수가 상상한 장면은 이렇다. 교회에서 장로님(자막 ‘장로님이나 우리 일은 누구라도’ [?])이 ‘북한 공산당 무너지게 해 주십시오’ 하고 기도한다 [L21–22]. 한편 그날 마태복음 5장 44절을 설교했다고 가정해 보자 [L22]. <span class="tq">“나는 너희에게 이르노니 너희 원수를 사랑하며 너희를 박해하는 자를 위하여 기도하라”</span> (마 5:44) 교수는 이 구절을 읽는다 [L23–24]. 어떤 이들에게는 일관되게 느껴질지 몰라도 <span class="say">“여기서 말하는 원수는 정말 원수거든요.”</span> [L25] 북한도 우리의 원수이고, 서로 전쟁을 했던 적대국이면서 또 같은 한 형제라는 모순·아이러니·역설이 있다 [L26]. 그런 긴장 속에서 하나님나라 백성으로서, 예수의 제자로서 어떻게 해야 하는가 [L27].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.3–5, 19장 p.1</span> 슬라이드 ‘같은 예배, 두 개의 기도’: 주일 대표 기도 “북한 공산 집단을 무너뜨려 주옵소서” / 같은 예배에서 읽는 말씀 마태복음 5:44. 슬라이드: “우리의 기도는 어디서 멈추는가 — 원수로 여기는 이들이 무너지기를 구하는 데서 그치는가, 아니면 그들을 위한 간구로까지 나아가는가.” 교재는 그 기도에 전쟁의 상처와 가족을 지키려는 정당한 염려가 담겨 있다고 인정하면서, 이 물음이 그 장로에게 머물지 않고 나의 기도로 돌아온다고 쓴다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="a3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§3. 평화는 무엇인가 — 소극적·적극적 평화, 이 강의의 중심 주장과 구성</h3>
+          <div class="unit-desc">갈퉁의 구별 · 평화는 지상명령 · 십자가 · 1~6절 구성</div>
+        </div>
+      </div>
+      <div class="oneline">평화는 전쟁이 없는 상태(소극적)를 넘어 폭력이 생기는 구조까지 극복된 상태(적극적)이며, 이 강의의 핵심 주장은 통제하려 하지 않는 십자가이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>갈퉁의 두 평화:</b> <span class="say">“일단은 이 평화 샬롬에 대한 이해를 좀 할 필요가 있는데요.”</span> [L28] 평화학의 아버지인 요한 갈퉁(자막 ‘요한갈등 … 요한 갈증’ [?])은 소극적 평화와 적극적 평화를 구분했다 [L29]. 소극적 평화는 말 그대로 전쟁이 없는 상태이고 [L30], 한국은 휴전 이후 70년 동안 소극적 평화를 누리고 있다 [L31]. 갈퉁에 의하면 소극적 평화보다(자막 ‘친절한 평화’ [?]) 적극적이고 능동적인 평화는 폭력이 발생하는 시스템 구조 자체도 해체되거나 극복된 상태이다 [L32]. 전쟁이 없는 지금은 작은 의미의 평화를 누리지만, 중국과 일본이라는 나라를 양쪽에 맞대고 있어 구조적으로 전쟁의 위험이 늘 있다 [L33–34]. <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“그런 의미에서 우리나라에는 평화는 지상명령이라 할 수 있겠습니다.”</span> [L35]</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.6, 19장 p.1</span> 슬라이드: 소극적 평화=직접적 폭력이 없는 상태, 적극적 평화=구조적 폭력까지 극복된 상태(갈퉁, 『평화적 수단에 의한 평화』 18~19). 이 장의 명제 — <span class="tq">“평화는 결과를 통제하려고 원수를 해치는 대신 십자가의 방식에 신실하게 머무는 공동체의 삶의 형식이다.”</span> (슬라이드 p.6) <span class="tq">“이 삶의 형식이 하나님 나라의 사회적 형상이다.”</span> (슬라이드 p.6) 교재는 하나님 나라가 개인의 내면에 머물지 않고 원수였던 이들이 함께 사는 방식으로 눈에 보이게 드러난다고 쓴다.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>핵심은 십자가:</b> 타자와의 관계에서 갈등이 생길 때 그것을 폭력으로 가지 않고 평화로 만들어 갈 방법을 말하겠다 [L36]. <span class="say">“여기에 대한 저의 주장과 핵심은 바로 일관되게 뜬 십자가입니다.”</span> [L37] (‘뜬’은 든·붙든 [?]) 십자가는 우리가 통제하려고 하지 않는 것이다 [L38]. 앞에서 창조는 하나님이 거저 주신(자막 ‘거주 주신’ [?]) 것을 받고 풍요로운 것을 취한다고 했고 [L39], 구속과 완성은 내어놓고 내려놓고 맡기는 것이라고 했다 [L40]. <span class="say">“우리가 주인이 되지 않는다는 거예요.”</span> [L41] 원수와 함께, 사자와 어린이가 함께 뛰노는 샬롬의 공동체를 만들어 가는 것이 궁극적으로 하나님나라 백성의 모습이다 [L41].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>강의 구성:</b> 늘 그렇듯 이 부분을 바라보는 기준은 십자가이다 [L42]. 2절에서는 십자가를 바라보고 해석하는 관점들을 비교하고 [L43–44], 이 평화의 윤리가 내 가족을 해친다면 어떻게 하느냐는 문제를 다루며, 5절에서는 분단(자막 ‘군단’ [?])을, 그 사이에 강제력 이야기를 하고, 최종적으로 평화를 누리고 일구어 가는 공동체가 되는 것을 목적으로 강의를 구성했다 [L44–45]. 두 가지 반론을 어떻게 진지하게 고민하고 대답할 것인가가 과제이다 [L46].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.7, 19장 p.1</span> 교재: 먼저 십자가에서 평화의 규범을 찾고(1절), 이 규범에 비추어 교회사의 두 판단을 살피며(2절), 첫째 반론에 답하고(3절), 강제를 구별한 뒤(4절), 둘째 반론에 답하고(5절), 평화를 만드는 공동체의 실천을 그린다(6절). 슬라이드 ‘하나의 규범과 두 반론’: 반론 ① 누군가 내 가족을 해치려 한다면 어떻게 하겠는가 / 반론 ② 원수 사랑을 말하는 교회가 분단의 현실에서 국가의 안전을 어떻게 책임질 수 있는가. 교재는 둘째 반론을 ‘무력 충돌과 핵 위협이 이어지는 분단의 현실’로 표현한다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제2부: 1절 — 원수 되었을 때 받은 화해: 십자가라는 규범</h2>
+      <span class="part-badge">19장 p.1–3 · 슬라이드 p.8–14</span>
+    </div>
+
+    <article class="unit-card" id="b1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§4. 1절 — 샬롬의 네 관계와 그 무너짐</h3>
+          <div class="unit-desc">죄의 사중 구조 · 구원의 사중 구조 · 고후 5:17~18 · 피스메이커</div>
+        </div>
+      </div>
+      <div class="oneline">죄는 하나님·이웃·자기 자신·땅의 네 관계가 함께 무너진 사건이고, 샬롬은 그 네 관계가 그리스도 안에서 회복되는 것이며 그리스도인은 화해의 사신으로 부름받았다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>1절 제목과 샬롬:</b> 1절은 우리가 원수 되었을 때의 화해이다 [L47]. <span class="say">“여러분, 우리 성경에서 참된 평화는 샬롬이라고 그러죠.”</span> [L48] <span class="say">“샬롬! 그 샬롬은 죄의 사중적 구조, 그리고 구원의 사중구조, 또 죄와 구원 또는 샬롬의 사중구조 라고 할 수 있습니다.”</span> [L49]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>죄의 사중 구조:</b> 하나님과의 관계가 깨어진다(하나님을 보고 피한다) [L50–52]. 이웃과의 관계가 깨어진다(서로 책임을 전가하니 가족과의 관계도 깨어진다) [L51, 53]. 자기 자신과의 관계가 깨어진다(벌거벗은 자기 모습을 수치스러워한다, 그전에는 아무렇지도 않았다) [L51, 54]. 땅, 곧 지구 생태계가 파괴된다(땅이 황폐해져 인간과 자연 사이의 화해가 깨어진다) [L51, 55]. 이 사중적 타락이 선악과 사건 이후에 나타나고 [L55], 이어서 가인의 살인, 라멕, 노아 홍수, 바벨탑으로 이어지는 일련의 이야기가 나온다 [L57].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.8–10, 19장 p.1–2</span> 슬라이드·교재: 샬롬은 하나님과 이웃과 자기 자신과 땅의 관계가 바로 서서 모든 생명이 온전히 사는 상태이다(페리 요더·윌라드 스와틀리 편, 『평화의 의미』 15~16). 교재: 샬롬은 우리말 ‘평화’보다 뜻이 넓어 개인의 평안을 넘어 공동체의 번영과 안녕을 가리키며 언약 안에서 주어지는 하나님의 선물이다. 네 관계의 무너짐은 하나님을 피해 숨음(창 3:8), 아내에게 허물을 돌림(창 3:12), 벌거벗은 자기를 두려워함(창 3:10), 땅이 저주를 받음(창 3:17)으로 나타나고, 그 균열은 가인의 살인으로 터져 땅이 입을 벌려 아벨의 피를 받는다(창 4:10~11). 슬라이드: “샬롬은 이 네 관계가 그리스도 안에서 회복되는 것이고, 폭력은 그 관계를 다시 찢는 힘이다.”(고후 5:17~18, 롬 8:21)</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>회복 — 새로운 피조물:</b> 하나님을 피해 숨었다가 잃었던 우리 모습이 그리스도 안에서 회복되는 것이다 [L58–59]. 교수가 정말 좋아하는 구절은 고린도후서 5장 17~18절(자막 ‘고린도 5장 17 18절’)이다 [L60]. <span class="tq">“그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새 것이 되었도다”</span> (고후 5:17) 교수가 이 구절을 읽는다 [L61]. 이 구절은 교수가 쓴 『유배지에서 만난 하나님』에서 다룬 것으로 들린다(자막 ‘제가 쓴 유배지에서 만난 하나님의 도 제가 이걸 했구요’ [?]) [L62]. 하나님과 화해한 그리스도인은 세상과 하나님을 화해케 하는 피스메이커, 그리스도의 사신·사절·대사로 부름을 받았다 [L63]. 이 평화는 인간의 노력으로 오는 것이 아니라 하나님의 선물로 주어진다 [L64]. (고후 5:18은 “모든 것이 하나님께로서 났으며 그가 그리스도로 말미암아 우리를 자기와 화목하게 하시고 또 우리에게 화목하게 하는 직분을 주셨으니”(개역개정) 이며, 교수는 18절을 따로 읽지 않았다.)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="b2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§5. 거짓 평화와 참된 평화 — 정의와 평화</h3>
+          <div class="unit-desc">렘 6:14 · 시 85:10 · 정의 없는 평화는 없다 · 은혜의 우선</div>
+        </div>
+      </div>
+      <div class="oneline">불의를 덮는 고요는 거짓 평화이고, 정의 없이는 평화도 없지만 정의만 외치면 정죄가 되니, 정의는 평화로 가는 여정이며 그 바닥에는 원수 되었을 때 먼저 받은 은혜가 있다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>거짓 평화와 참된 평화:</b> 구약에는 거짓 평화와 참된 평화가 있다 [L65]. 예레미야 6장 14절에 ‘평강하다, 평강하다, 평강이 없다’ 했는데 [L66], 강자·가진 자·힘 있는 사람들은 ‘참 살기 좋다’ 하며 평화롭다고 말한다 [L67]. 그러나 예레미야가 보기에는 하나님도 정의도 이웃도 없고 오히려 다른 사람을 억압하는 현실이어서 그것은 참된 샬롬이 아니다 [L68]. 시편 85편에서는 의와 화평이 서로 입 맞추었다, 곧 정의와 평화가 서로 포옹했다 [L69–70]. 앞에서 정의와 사랑의 관계를 말했는데 이제는 정의와 평화가 서로 연결되어야 한다 [L71].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.11, 19장 p.2</span> 슬라이드: 거짓 평화 — <span class="tq">“평강하다 평강하다 하나 평강이 없도다”</span> (렘 6:14) “불의를 덮는 고요” / 참된 평화 — <span class="tq">“의와 화평이 서로 입맞추었으며”</span> (시 85:10) 교재: 스탠리 하우어워스의 말처럼 거짓 평화는 진리보다 힘 위에 설 때가 많다(Christian Existence Today, 95). 참된 평화는 힘으로 세우는 것이 아니라 먼저 받는 선물이다.</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>정의 없이는 평화 없다:</b> <span class="say">“앞서 여러분 정의가 없다면 평화도 없습니다.”</span> [L72] 정의를 지키지 않으면 안 되고 [L73], 다음 시간에 용서를 말할 때도 정의가 기초(자막 ‘파운데이션’)이며 [L74], <span class="say">“그것이 없는 상태에서 평화를 얘기하고 또 용서를 얘기한다는 것은 강자의 논리입니다.”</span> [L75] (앞 문장 ‘전쟁입니다’는 전제입니다 추정 [?] [L75]) 그러나 정의만으로 참된 평화가 오느냐 하면 그렇지 않다 [L76].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>정의는 평화로 가는 여정:</b> 아가페적 사랑이 있고 [L77], <span class="say">“사랑의 공적형식이 정의이고, 정의는 반드시 정의 없는 사랑은 뭐 편애나 그저 자의적인 그런 기준이 된다고 그랬습니다.”</span> [L78] <span class="say">“정의를 실현하지 않은 채 평화를 얘기하는 건 안 된다는 거예요.”</span> [L80] 역설적으로 평화 없이 정의만 외치면 율법주의가 되고 타인을 정죄하고 배제하는 논리로 작동하기 쉽다 [L81–82]. <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“그렇기 때문에 정의는 항상 평화로 나아가기 위한 여정이어야만 되지, 정의자체가 지나치게 목적이 되어버리면 안 된다라는 것입니다.”</span> [L83] 오늘 모두가 정의를 말하지만 그것이 사회에 분열과 갈등을 낳고 평화에 이르지 못하는 것은 그 정의에 사랑이 없고 평화가 없기 때문이다 [L84].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>평화의 기본 — 먼저 받은 화해:</b> <span class="say">“그렇기 때문에 우리 기독교에서 평화의 기본이 뭐예요?”</span> [L85] 원수 되었던 나를 하나님이 먼저 용서하시고 구원하셨고, 원수 된 나를 사랑하셨고, 하나님과 화해케 하셨다 [L86–87]. 그래서 윤리에 앞서 은혜가 전제되어야 하고 은혜의 우선이 있어야 한다 [L88–89].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.11, 19장 p.2</span> 슬라이드: 원수 되었을 때 받은 화해(롬 5:10) — 은혜의 직설법이 원수 사랑이라는 명령법을 낳는다. 교재: <span class="tq">“곧 우리가 원수 되었을 때에 그의 아들의 죽으심으로 말미암아 하나님과 화목하게 되었은즉”</span> (롬 5:10) 원수 사랑은 은혜에 응답하는 일이다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="b3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§6. 에베소서 2장과 갈라디아서 2장 — 십자가가 허무는 담</h3>
+          <div class="unit-desc">엡 2:14·16 · 유대인과 이방인 · 베드로의 외식 · 식탁</div>
+        </div>
+      </div>
+      <div class="oneline">십자가는 하나님과 우리 사이의 원수 됨과 사람 사이의 담을 함께 허물었기에, 교회의 평화는 십자가로 이루어지며 그 식탁을 깨는 일은 십자가를 부정하는 일이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>그는 우리의 화평:</b> 에베소서에 ‘그는 우리의 화평이신지라’(자막 ‘합병이 시인지라’ [?])가 나오고 주님이 우리의 평화라는 것이다(자막 ‘균형, 평화, 참된 평안’ 어수선 [?]) [L90–91]. 그 평화는 하나님과 나 사이에 원수 되었던 것을 십자가로 없애 버린 것이고 [L92–93], 에베소서·갈라디아서에는 유대인과 이방인 사이의 막힌 담을 허무는 것, 그리고 남자와 여자, 노예와 주인이라는 이분법을 하나 되게 하는 것이 나온다 [L93–94](교수는 절 번호를 말하지 않는다).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>교회는 구분을 해체한다:</b> 교회는 사람과 사람, 민족과 민족, 성(性)의 구분에 근거한 질서를 해체하고, 그 안에서 남자는 남자대로 여자는 여자대로 각자의 계층대로 있지만 그것이 문제 되지 않는다 [L95–96]. <span class="say">“내가 어떤 민족이냐 인종이냐 상관없이 예수 그리스도를 신앙고백 하고 나의 주여 나의 구세주로 영접하고 하나님의 자녀가 되고 침례를 받으면 하나님 나라 자녀가 된다는 얘기를 제가 앞에서 했습니다.”</span> [L97] 환대를 이야기하며 앞에서 한 말이다 [L98].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.12, 19장 p.2</span> <span class="tq">“그는 우리의 화평이신지라 둘로 하나를 만드사 원수 된 것 곧 중간에 막힌 담을 자기 육체로 허시고”</span> (엡 2:14) <span class="tq">“원수 된 것을 십자가로 소멸하시고”</span> (엡 2:16) 슬라이드: 십자가 앞에 유대인과 이방인이 한 새사람이 된다. “교회는 허물어진 담 위에 세워진 공동체이다. 교회가 평화를 말하는 근거는 체제나 민족이 아니라 그리스도의 화해에 있다. 이 식탁이 하나님 나라가 세상에 드러나는 첫 사회적 형상이다.” 교재: 요더는 이 본문을 그리스도가 오셔서 먼 데 있던 이들과 가까운 데 있던 이들에게 전쟁이 끝났다고 전하신 복음으로 읽었다(He Came Preaching Peace, 54~55). 모든 무력 충돌이 사라졌다는 뜻이 아니라 적대를 넘어선 새 공동체가 시작되었다는 뜻이며, 의롭다 함을 받는 일은 원수였던 두 집단이 한 식탁에 앉는 사회적 실재를 낳는다(『예수의 정치학』 371~375).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>갈라디아서 2장 — 베드로의 외식:</b> 교회의 평화는 이렇게 십자가로 이루어진다 [L98]. 갈라디아서 2장에 베드로가 외식하는 장면이 있는데, 베드로가 그 식탁을 깨는 것은 하나님 나라가 나타나는 공동체(자막 ‘세계적인 공동체’ [?])를 깨는 것이다 [L98–99]. 그래서 바울이 연장자이자 수제자인 베드로를 공개적으로 질타했다 [L100]. <span class="say">“그것은 하나의 십자가를 부정하는 일이기 때문입니다.”</span> [L101] (갈라디아서 2장 본문은 교재·슬라이드에 없는 교수의 설명이다.)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="b4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§7. 예수가 거절한 길, 받으신 길 — 십자가라는 규범</h3>
+          <div class="unit-desc">본받음 · 네 가지 유혹 · 십자가는 모든 것을 시험한다 · 롬 12:21</div>
+        </div>
+      </div>
+      <div class="oneline">예수는 칼을 드는 길·타협하는 길·세상을 떠나는 길·정결로 분리되는 길을 모두 거절하고 원수의 손에 죽는 길을 받으셨으며, 그 십자가가 구원의 진리인 동시에 우리 삶의 규범이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>본받음:</b> 평화의 모습은 예수에게서 찾을 수 있다 [L102]. 바울이 ‘나를 본받으라’ 했을 때 그 ‘나’는 바울이 아니라 예수를 본받는 나이다 [L103–104]. 앞에서 십자가와 부활의 윤리, 구속의 윤리와 완성 윤리를 말했고, 교수는 자신의 신학적 입장이 ‘십자가를 통과한 부활’이라고 밝혔다 [L105–106]. 그래서 십자가의 윤리가 평화 윤리로 넘어가야 한다 [L107].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>예수가 받은 유혹과 거절한 길:</b> 십자가 앞(겟세마네)에서 받은 유혹은 열심당의 유혹(자막 ‘열심, 땅의 유혹’ [?])이었다 [L108]. 칼을 들어 권력을 차지하고 십자가를 지지 않고도 왕이 되는 길이다 [L109]. 사두개인들처럼 권력자와 타협하는 길, 광야 공동체(슬라이드 p.13; 자막 ‘금남공동체’ [?])처럼 세상을 떠나는 길, 바리새인들처럼 정결주의에 빠져 세상과 분리된 채 자기만의 도덕적 순결을 주장하는 길(교수는 ‘바리새라는 게 분리주의라는 뜻’이라 설명 [L110–111])도 아니었다 [L110–111]. <span class="say">“원수의 손에 죽는 길, 그러나 그럼으로써 원수를 용서하는 그런 길을 예수님이 부르셨다는 것입니다.”</span> [L112] (‘부르셨다’는 선택하셨다·받으셨다 추정 [?])</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.13, 19장 p.2</span> 슬라이드: 열심당(칼을 든다) · 권력자(타협한다) · 광야 공동체(세상을 떠난다) · 예수(원수의 손에 죽는 길). <span class="tq">“종된 섬김이 주인 행세하는 삶을 대신하고, 용서가 적대감을 흡수한다”</span> (요더, 『예수의 정치학』 233) 교재: 신약이 본받으라고 요구하는 것은 예수의 독신이나 목수 일이 아니라 “적대감과 권력과 관련하여 십자가가 드러내는 구체적인 사회적 의미의 영역”이다. 제자가 지는 십자가는 질병이나 불운을 견디는 일만이 아니라 열심당처럼 칼을 들지도 않고 권력자처럼 타협하지도 않으며 광야 공동체처럼 세상을 떠나지도 않는 길에 따르는 대가이다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>십자가는 복음이자 삶의 규범:</b> <span class="say">“그렇기 때문에 십자가는 우리를 구원하는 진리이고, 십자가는 복음입니다.”</span> [L113] 동시에 우리가 지금 여기서 살아가야 할 삶의 윤리이다(자막 ‘그때 일하는 것입니다’ [?]) [L114]. <span class="say">“앞서 루터가 한 말이 있죠. 십자가는 모든 것을 시험한다.”</span> [L115] <span class="say">“그래서 이 십자가가 과연 우리가 평화를 이루어 지는데 리트머스 시험지 역할을 하는 것입니다.”</span> [L116] 사도 바울이 로마서 12장에서 ‘악에게 지지 말고 선으로 악을 이기라’(자막 ‘아기에게 지지 말고 선으로 악을 이라’ [?]) 했으니 [L117], 폭력을 폭력으로 대항하지 말고 평화로 폭력을 이기라는 말에 다름 아니다 [L118]. <span class="tq">“악에게 지지 말고 선으로 악을 이기라”</span> (롬 12:21)</li>
+        <li><span class="bdg b-sup">📖 19장 p.2–3</span> 교재: 십자가는 구원의 교리인 동시에 사회윤리의 규범이다. 14장은 십자가가 폭력에 폭력으로 응답하지 않으신 하나님의 방식임을 다루었고, 다른 뺨을 돌려 대라는 말씀(마 5:39)도 3장에서 다룬 대로 굴복과 보복 사이의 제3의 길을 가리킨다. 바울은 원수가 주리면 먹이라고 권하고(롬 12:21), 이어지는 로마서 13장은 국가의 칼을 보존의 직무로 인정하지만 신격화하지 않는다. 교회는 그 칼을 대신 들도록 부름받지 않았다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="b5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§8. 평화는 동사이다 — 맥클렌던의 세 가닥과 몸</h3>
+          <div class="unit-desc">막 9:50 · 몸·사회·부활 · 원수의 몸을 해치지 않는다는 약속 · 몸의 반란</div>
+        </div>
+      </div>
+      <div class="oneline">신약에서 평화는 동사처럼 쓰이며 소유하는 상태가 아니라 만들어 가는 실천이고, 평화의 반대인 폭력은 일차로 타인의 몸을 침해하는 것이므로 평화는 원수의 몸도 해치지 않겠다는 약속에서 시작한다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>평화를 말하는 사람들의 모순:</b> 제임스 윌리엄 맥클렌던(자막 ‘맥클린든’)은 누구나 평화를 원하고 어떤 집단이든 겉으로는(자막 ‘레터링’은 레토릭 추정 [?]) 평화를 말하지만 평화를 말하면서 칼을 휘두르는 이들이 있다고 한다 [L119–122]. 평상시에는 평화를 말하다가 조금만 상황이 되면 전쟁과 폭력을 외치는 사람들이 있다 [L123].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>평화는 동사:</b> <span class="say">“그런데 맥 클랜든에 의하면 신약성경에서 평화는 동사로 쓰인다는 거예요.”</span> [L124] 마가복음 9장 50절(자막 ‘마감 9장 50절’)의 ‘너희 속에 소금을 두고 서로 화목하라’ [L125]. <span class="say">“그래서 평화는 그냥 정적으로 머물러 있는 것이 아니고 소유할 수 있는 것이 아니고 우리가 끊임없이 만들어가고 실천해야만 된다라는 것입니다.”</span> [L126] <span class="tq">“너희 속에 소금을 두고 서로 화목하라”</span> (막 9:50)</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>세 가닥과 몸:</b> 앞에서 기독교윤리의 세 가닥, 곧 몸·사회(자막 ‘사이’)·부활을 말했다 [L127–128]. 평화의 반대는 폭력이고 [L129], 폭력은 일차적으로 타인의 몸을 침해하는 것이다 [L130]. 폭력의 개념 정의는 뒤에서 말한다 [L131]. <span class="say">“평화는 그가 원수일지라도 그의 몸을 존중해 주고 해치지 않겠다, 죽이지 않겠다, 실행하지 않겠다라는 것을 주장하는 것이 바로 평화입니다.”</span> [L131] (‘실행하지 않겠다’는 살해하지 않겠다 추정 [?])</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.14, 19장 p.3</span> 슬라이드·교재: 평화 만들기는 몸을 다스리는 훈련(몸), 서로를 빚는 공동체의 실천(사회), 하나님 나라의 미래를 오늘 사는 일(부활)이다(맥클렌던, Ethics 2장·11장). 슬라이드: <span class="tq">“원수를 사랑한다는 말은 구체적으로 원수의 몸을 해치지 않겠다는 약속이다.”</span> (슬라이드 p.14) 교재: 전쟁은 전략과 안보와 국익의 언어로 논의되지만 그 끝에는 언제나 다치고 죽는 사람의 몸이 있다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>몸이 하는 증언:</b> 교수는 스탠리 하우어워스(자막 ‘스탠리 하버마스’ [?])의 책(자막 ‘Panopto 아메리칸 디플로’ [?])을 지금 번역해 출판을 얼마 남기지 않고 있다고 한다 [L132]. 그 책에서 우리가 사람을 죽이거나 전쟁을 하면 우리 몸은 반란을 일으킨다, 곧 힘들어하고 역겨워하며 구역질을 낸다 [L133–134]. <span class="say">“바로 그것은 우리 몸이, 우리 몸이 바로 희망의 표지다.”</span> [L135] 우리는 하나님의 형상으로 창조되었기에 하나님의 형상인 타자의 생명을 거두는 것에 대한 본질적인 거부감이 우리 안에 내장되어 있다 [L136].</li>
+        <li><span class="bdg b-sup">📖 19장 p.3·후주 [1] p.14</span> 교재: 하우어워스는 군대가 병사에게 사람을 죽이는 훈련을 따로 해야 했다는 사실을 중요한 증언으로 보았다. <span class="tq">“우리가 살인할 때, 심지어 정당 전쟁에서 살인할 때조차 우리의 몸은 반란을 일으킨다. 그러나 그 반란은 희망의 표지다”</span> (하우어워스, War and the American Difference, 69) 몸의 반란은 우리가 서로 사귀도록 지어졌다는 창조의 기억이다. (후주 [1]의 병사 사격률 조사는 연구 방법에 대한 비판이 있다.)</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제3부: 2절 — 경쟁하는 판단</h2>
+      <span class="part-badge">19장 p.3–5 · 슬라이드 p.15–21</span>
+    </div>
+
+    <article class="unit-card" id="c1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§9. 2절 — 전쟁을 대하는 세 입장</h3>
+          <div class="unit-desc">평화주의 · 정당한 전쟁 · 거룩한 전쟁(십자군) · 역사 흐름</div>
+        </div>
+      </div>
+      <div class="oneline">기독교는 전쟁에 대해 평화주의, 정당한 전쟁론, 거룩한 전쟁(십자군)의 세 입장을 가져 왔고, 기독교윤리학에서 거룩한 전쟁론은 배제되며 주류는 정당한 전쟁론이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>세 입장:</b> 십자가의 윤리에 근거해 폭력을 폭력으로 갚지 않고 평화를 낸다는 말을 했는데 [L137–138], 기독교 역사에서 전쟁과 폭력에 대해 크게 세 가지 입장이 있다 [L139]. 대부분 역사적으로 보면 콘스탄티누스 이전에 평화주의(자막 ‘십자군평화주의’ [?])가 있었고 [L140], 그 뒤 어거스틴과 아퀴나스를 통해 정당한 전쟁론이 생겼으며, 중세 이후에 십자군 전쟁이 있었다 [L141]. 십자군은 홀리 워, 곧 거룩한 전쟁론으로, <span class="say">“하나님의 이름으로 하나님의 뜻을 이루는 수단이 전쟁이 될 수 있다는 거예요.”</span> [L143]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>‘저스트 워’의 뜻:</b> 정당한 전쟁은 저스트 워이다 [L144–145]. ‘저스트’에는 정의롭다는 뜻도 있고 정당하다는 뜻도 있는데, <span class="say">“저스티피케이션 그러잖아요. 그게 뭐냐면 칭의가 뭐예요? 의롭다고 인정해 준다는 거잖아요. 그래서 의롭지 않은데 의롭다고 해줌이죠. 의로울 수 있는 조건이 있는 거예요.”</span> [L147–149] <span class="say">“전쟁 자체는 부당하고 불의한 것이지만. 어떤 상황에서는 저스트 저스트 디파이 정당화해줄 수 있다.”</span> [L150] 이것이 정당한 전쟁이다. 평화주의는 전쟁과 폭력을 행하는 것이 예수의 십자가에 반한다고 주장한다 [L151–152].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>어느 쪽이 주류인가:</b> <span class="say">“전체적으로 본다면 홀리 워, 거룩한 전쟁론은 기독교윤리학, 자들에게는 배제되어 있는 논리입니다. 전쟁은 하나님의 뜻을 이루는 수단이나 도구가 되지는 않는다.”</span> [L153–154] 결국 평화주의냐 정당한 전쟁론이냐인데 기독교의 주류 입장은 정당한 전쟁론이다 [L155]. 20세기 후반부터 21세기에 평화주의가 아주 강력한 이론과 현실을 가지고 등장해 대등해졌다고 볼 수도 있으나(교수: ‘좀 과장인가요?’), 풀뿌리 현장에는 여전히 정당한 전쟁, 때로는 거룩한 전쟁·십자군 식 사고가 많이 남아 있는 것 같다고 한다 [L156–157]. 어쨌든 평화주의와 정당한 전쟁론으로 이야기를 진행한다 [L158].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.15, 19장 p.3</span> 슬라이드: 평화주의(콘스탄티누스 이전의 교회) · 정당한 전쟁(제국의 교회가 다듬은 판단) · 십자군(거룩한 이름으로 합리화된 전쟁). 교재: 베인턴은 셋이 역사에서 차례로 나타났다고 보았으나 2세기 후반부터 군대 안 그리스도인의 증거도 늘어 절대적 평화주의로만 그릴 수는 없다. 제국의 교회가 된 뒤 전쟁 개시의 정당성(jus ad bellum)과 수행의 정당성(jus in bello)을 나누어 묻게 되었고, 정당전쟁론은 본래 전쟁을 어렵게 하려 했으며 적을 악마화하는 성전론과도 다르다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§10. 정당한 전쟁론 — 조건, 눈물, 그리고 한계</h3>
+          <div class="unit-desc">개시·수행 조건 · 오도너번 · 십자군 · 모든 전쟁이 정당하다면</div>
+        </div>
+      </div>
+      <div class="oneline">정당한 전쟁론은 전쟁이 부당하다는 전제 위에서 조건을 지킬 때만 정당화하려는 이론이며 본래 전쟁을 막으려는 취지였으나, 십자군까지 정당하다고 한 역사에서는 이론 자체가 무용지물이 되었다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>정당화 조건:</b> 정당한 전쟁론은 전쟁 자체는 부당하지만 어떤 조건 속에서는 정당화될 수 있다고 한다 [L159–160]. 분석철학·언어철학에서도 정당화 조건은 아주 중요한 논의이다 [L161]. 크게 전쟁 전에 할 것과 전쟁 중에 할 것이 있다 [L162–163]. 전쟁을 시작하는 쪽의 조건(자막은 ‘전쟁 중에는’이라 하나 전쟁 전의 조건으로 읽힘 [?])으로 최후의 수단이어야 하고, 전쟁을 하는 것이 하지 않는 것보다 더 좋은 결과를 낳아야 하고, 국가가 해야 한다는 전쟁 개시 정당성 조건을 든다 [L164]. 전쟁 중에는 <span class="say">“민간인과 전투는 구별해야 됩니다.”</span> [L165](‘전투’는 전투원 [?]) 과도한 피해를 주면 안 된다 [L166].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.16–18, 19장 p.3–4</span> 슬라이드: 전쟁 개시의 정당성(전쟁을 시작해도 되는가) · 전쟁 수행의 정당성(민간인과 전투원의 구별, 과도한 피해의 제한). <span class="tq">“정당전쟁론은 본래 전쟁을 어렵게 하려 했다.”</span> (슬라이드 p.16) <span class="tq">“민간인을 보호하는 규범을 세워 온 공헌은 정직하게 인정해야 한다.”</span> (슬라이드 p.16) 교재: 근대에 이르러 민간인과 전투원을 구별하고 과도한 피해를 제한하라는 원칙은 국제인도법과 맞물려 발전했다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>오도너번과 어거스틴의 눈물:</b> 올리버 도노반(자막; 교재 표기는 오도너번)에 따르면 정당한 전쟁론은 원래 전쟁을 되도록 막으려는 이론(자막 ‘이름’ [?])이다 [L167–168]. 어거스틴의 정당한 전쟁에는 교수가 문학적으로 말하면 ‘삼킨 눈물’이 있다 [L169–170]. 예수의 제자로서 전쟁을 정당하다고 하는 것은 옳지 않은데 교회가 국가교회가 되면서 국가를 지탱해 주어야 하는 체제가 되었고, 이것이 콘스탄티누스주의이다 [L170–171]. 그래서 어쩔 수 없이 전쟁 수행을 승인해 주어야 하는 상황이 되었고 <span class="say">“여기에 어거스틴의 내적 갈등이 있다는 겁니다.”</span> [L172]</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.17, 19장 p.3–4</span> 슬라이드·교재: 오도너번에게 정당전쟁론은 국가가 무력 사용 앞에서 내리는 공적 판단의 실천이며, <span class="tq">“불의를 바로잡는 데 필요한 만큼만 무력을 쓰도록 스스로를 묶는 일”</span>이다. 복수나 국익의 논리와 구별된다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>정당한 전쟁론의 역사적 문제:</b> 역사적으로는 정당한 전쟁론이 오히려 전쟁을 정당화해 온 경우가 많다 [L173–174]. 2천 년 교회사에서 부끄러운 일로 꼽히는 사건으로 서양의 마녀사냥, 종교재판, 십자군 전쟁을 들 수 있고 [L175–176], 정당한 전쟁을 주장했던 이들이 십자군 전쟁도 정당하다고 했다 [L177]. 전제가 ‘전쟁 자체는 정당하지 않지만 개시 전과 수행 중의 조건을 지키면 정당화된다’인데 십자군까지 정당하다면 [L178–179], <span class="say">“그러면 모든 전쟁이 정당하다 라는 말은 정당한 전쟁론 자체가 무용지물이라는 거예요.”</span> [L180] <span class="say">“그러니까 모든 것이 정당화 되면 정당한 정당화는 할 필요가 없는 거예요.”</span> [L182]</li>
+        <li><span class="bdg b-sup">📖 19장 p.4</span> 교재: 역사의 한계 — 도널드 슈라이버는 아우구스티누스가 도나투스파 문제를 해결하려고 로마 군대의 힘을 빌린 일이 정당전쟁론의 범주를 상당 부분 채워 주었다고 지적한다(『적을 위한 윤리』 112). 정당전쟁론과 십자군 이념은 같은 논리는 아니지만 중세에 서로 교차하며 영향을 주었고(베인턴, 86, 350), 십자군 전쟁마저 거룩한 이름으로 합리화되었다. 마지막 수단이었는가, 민간인은 보호되었는가, 수단은 목적에 비례했는가를 정직하게 물었다면 거부했을 전쟁이 역사에는 많았고, 원격 조종 무인기와 자율무기는 죽이는 이가 죽는 이의 얼굴을 보지 않을 때 구별과 비례와 책임의 기준을 다시 따져야 한다. 슬라이드 p.18: 신학의 한계 — 기준을 다 지켜도 원수의 죽음을 의도된 수단으로 삼는 판단이 십자가의 길과 충돌하지 않는가.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>그래도 정당한 전쟁론을 높이 보는 이유:</b> 19~20세기 말·21세기에 와서(자막 ‘핵은 19세기, 20세기 말’ 불명 [?]) 정당한 전쟁론자들도 전쟁을 적극 비판하고 전쟁 수행의 원칙을 까다롭게 하며 원칙을 그대로 적용하려 한다 [L184–185]. 서로 싸울 것이 아니라 함께 평화를 지키자는 것이므로 서로 협력해야 한다 [L185–187]. <span class="say">“되도록이면 이게 깐깐하게 해가지고 이기면 그렇게 못하도록 하는 것이 정당한 전쟁론의 본질이고 원래 의도였습니다.”</span> [L188] <span class="say">“그것만 해도 저는 참 좋다 라는 뜻입니다.”</span> [L189] 그럼에도 <span class="say">“원수를 결국은 살상하는 것이 십자가의 윤리에 적합한가, 십자가의 길인가?”</span> [L190] 하나님을 믿는 사람이 하나님의 이름으로 누군가를 죽이는 것이 예수의 십자가의 길에 맞느냐는 질문을 할 수밖에 없다 [L191–192].</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§11. 평화주의는 하나가 아니다 — 요더의 구별과 세 질문</h3>
+          <div class="unit-desc">29가지 논리 · 세 유형 · 메시아 공동체의 평화주의 · 정당전쟁론자에게 던지는 질문</div>
+        </div>
+      </div>
+      <div class="oneline">평화주의에도 효과를 믿는 것, 양심의 순결을 지키는 것, 메시아 공동체의 고백에 근거한 것이 있으며, 교수는 마지막 입장에 서며 [L200–201], 📖 슬라이드·교재는 정당전쟁론자에게 기준을 정직하게 지키라고 묻는다(슬라이드 p.19, 19장 p.4).</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>요더의 책과 유형:</b> 존 요더(자막 ‘존 요도’)의 『그럼에도 불구하고』라는 책이 있고 개정판(자막 ‘리바이바 에디션’ [?])이 있으며 [L193–194], 거기서 29가지로 나누었는데(자막 ‘29가지로 세가지를 나눴어요’ 어순 불명 [?]) 각각의 주장의 약점도 적어 놓았다 [L195–196]. 전술적으로 효과가 있는 평화주의로는 대표적으로 간디나 마틴 루터 킹(자막 ‘맛집 도킹’ [?])을 넣기도 하나, 자세히 읽으면 킹은 좀 아닌 면도 있다 [L197–199]. 또 전술과 전략으로서 효율적이라고 믿어서 하는 평화주의, 개인의 양심에 따른 평화주의가 있다 [L199]. <span class="say">“우리 기독교는 메시아 공동체, 하나님나라, 백성 공동체로서의 평화 주의. 그건 뭐냐 하면, 예수님이 주님이시다. 그래서 십자가에 철저하게 따른다.”</span> [L200–201]</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.19, 19장 p.4</span> 슬라이드: 효과를 믿는 평화주의(비폭력의 효과에 근거) · 양심의 순결을 지키는 평화주의(개인 양심의 순결에 근거) · 메시아 공동체의 평화주의(예수가 그리스도요 주님이시라는 고백에 근거). 교재: 요더는 전쟁에 반대하는 기독교의 논리를 스물아홉 가지로 정리했고(『그럼에도 불구하고, 평화』 17), 메시아 공동체의 평화주의는 예수의 권위가 <span class="tq">“팔레스타인에서 자신의 죽음이란 값을 치르시며 새로운 도덕적 선택을 보여주신 방식에 의해서 드러난다”</span> (같은 책 179~180)고 보며 윤리의 초점도 영웅적 개인에게서 하나님 나라를 미리 맛보며 함께 사는 공동체로 옮겨 간다. 이 장은 이 입장에서 논의를 이어 간다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>평화주의가 정당전쟁론에 던지는 질문:</b> 실제로 ‘고방전쟁’(자막 불명 [?]; 슬라이드의 첫째 질문은 ‘정당전쟁의 기준으로 실제로 거부한 전쟁이 있는가’)이 있는가? 깐깐하게 절차를 가지고 따졌을 때 ‘아, 이건 아니야’ 하고 말할 준비가 되어 있는가 [L203–204]. 이 질문을 평화주의자 쪽에서 정당한 전쟁론에 되묻는다 [L204]. 그렇다고 평화주의자들이 특정한 상황에서 폭력을 정당하다고 하는 정당한 전쟁론을 완전히 부정하지는 않으며 <span class="say">“함께 가야 될 대하는 동반자라고봐요.”</span> [L206](자막 그대로이며 ‘대하는’ 불명 [?])</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.19, 19장 p.4</span> 슬라이드 ‘요더가 정당전쟁론자에게 묻는 세 질문’: ① 정당전쟁의 기준으로 실제로 거부한 전쟁이 있는가 ② 기준을 적용할 정보와 절차를 갖추고 있는가 ③ 기준에 어긋난 전쟁을 거부하는 지체를 지지할 준비가 되어 있는가(요더, When War Is Unjust, 71~80). 교재: 요더는 정당전쟁론을 단순히 부정하지 않고 그 기준을 정직하게 지키라고 요구했다. 교수는 이 질문들을 슬라이드처럼 세 가지로 나누어 읽지 않고 위 [L203–204]처럼 한 덩어리로 말했다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§12. 경쟁자에서 동반자로 — 스타센의 정의로운 평화운동</h3>
+          <div class="unit-desc">두 전통의 접점 · 전쟁 전에 할 일 · 침례교 윤리학자</div>
+        </div>
+      </div>
+      <div class="oneline">정당전쟁론과 평화주의는 경쟁자이기보다 전쟁을 제한하고 평화를 만드는 동반자이며, 전쟁 전에 할 수 있는 일을 최선을 다해 하자는 데서 만난다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>글렌 스타센:</b> 침례교 윤리학자(자막 ‘글렌 스탠스’; 슬라이드 표기는 스타센)로, 소련에 있다가(자막 ‘소련’ 불명 [?]) 풀러에서 오래 있다가 은퇴하고 소천한, 인격적이고 실력 있는 학자라고 교수가 소개한다 [L207–208]. 그는 평화주의자와 정당한 전쟁론자가 서로 싸우지 말고 양자를 통합하려 하는데 [L209–211](자막 ‘저스트 것이 비전’ 등 불명 [?] [L210–211]), 어쨌든 우리끼리 싸우지 말고 실제로 행동하자는 것이다 [L212]. 교수는 이것이 상당히 매력적이라고 본다 [L213]. 최선을 다해 평화를 만들고 전쟁을 막자는 것이며 [L213], 우리가 주도권을 쥐고 인권을 존중하고 압력을 가해 전쟁을 못 하게 하고, 서로를 미워하는 프로파간다를 막는 일 등을 할 수 있는 한 최선을 다하자고 한다 [L214]. <span class="say">“상당히 동의할 만한 말입니다.”</span> [L215]</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.20, 19장 p.4–5</span> 슬라이드 ‘정의로운 평화운동’ 네 가지: ① 공동의 안보를 확언한다 ② 위협을 줄이는 독자적 주도권을 취한다 ③ 인권을 존중하도록 압력을 가한다 ④ 상대를 정죄하는 선전을 멈춘다(스타센, 『평화의 일꾼』 4장). “두 전통은 경쟁자이기보다 전쟁을 제한하고 평화를 만드는 길의 동반자이다. 마지막 수단이라는 조건을 지키려면 그에 앞선 수단을 모두 써야 한다.” 교재: 스타센은 두 전통의 논쟁이 전쟁을 할 것인가에만 매달린 나머지 전쟁 전에 무엇을 할 것인가를 놓쳤다고 보았다. 20세기 후반부터 정당전쟁론은 평화주의와 상당히 가까워졌고, 요더도 정직하게 적용된 정당전쟁론과 일관된 평화주의는 대다수 논쟁에서 같은 편에 선다고 보았다(When War Is Unjust, 69).</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="c5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§13. 끝내 갈리는 자리 — 니버와 하우어워스·요더, 영화 〈미션〉</h3>
+          <div class="unit-desc">기독교 현실주의 · 십자가의 제자도 · 둘 다 옳다 · 진정성</div>
+        </div>
+      </div>
+      <div class="oneline">두 전통이 가까워져도 현실에 윤리를 맞출 것인가 십자가의 제자도로 현실에 맞설 것인가에서 갈리며, 교수는 둘 다 옳다고 보고 진정성 있게 끝까지 가는 이들은 서로를 존중할 수 있다고 한다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>니버 쪽:</b> 이론적으로 단순하지 않아 결정적인 지점에서 갈라진다 [L216–217]. 니버(자막 ‘니버’)는 전쟁이 일어난다는 현실을 붙잡는다, 곧 기독교 현실주의(리얼리즘)이다 [L218–219]. 실제 일어나는 현실에 맞게 윤리를 조정해야지 윤리에 맞춰 현실을 보면 되겠느냐는 것이다 [L220–221]. (그 뒤 ‘저는 리차드 미버의 주장이 상당히 두렵지 않아요. 유익합니다. 끝까지 붙잡아야 될 평화주의자 거든요’는 인물과 뜻이 불명 [?] [L221–222].) 결과적으로 시민을 강조하고 정치가를 바라보며 권력을 바꿔야 한다고 한다 [L223].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>요더·하우어워스 쪽:</b> <span class="say">“그런데 요더나 하우어스는 뭐냐면 우린 십자가의 제자도 라는 말입니다.”</span> [L224] 십자가와 부활의 복음을 지금 여기서 살아야 한다 [L225]. 예수님은 열심당·사두개파·바리새파의 길이 있었음에도 현실과 무관하게 혹은 반대의 길을 걸었기에 십자가에서 죽임당하고 부활하셨다 [L226]. 제자도란 결국 십자가를 들고 가는 것이다 [L227]. 신앙고백이 ‘예수님이 주님이시다’라면 [L228], 폭력이 만연하고 전쟁이 일어나는 상황에 맞추어 십자가를 끼워 넣는 것이 아니라 십자가를 들고(자막 ‘국자를 들고’ [?]) 현실과 싸우고 현실에서 살아가는 것이 우리 기독교윤리, 십자가의 제자도가 아니냐고 한다 [L229–230].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.21, 19장 p.5</span> 슬라이드 표: 니버 — 먼저 보는 현실은 힘없는 피해자의 몸, 전쟁 판단의 몫은 결과를 홀로 책임지는 시민과 정치가. 하우어워스 — 먼저 보는 현실은 십자가와 부활이 드러낸 세계의 결, 전쟁 판단의 몫은 함께 분별하고 비용을 함께 지는 교회. <span class="tq">“비폭력의 대가를 결국 누가 치르는가”</span> (슬라이드 p.21) <span class="tq">“그 갈림은 가장 사적인 물음에서 가장 날카롭게 드러난다.”</span> (슬라이드 p.21) 교재: 하우어워스에게는 폭력이 그것을 쓰는 사람과 공동체를 바꾸어 놓는다는 사실이 중요하다(10장, 11장).</li>
+        <li><span class="bdg b-exam">⭐ 교수강조</span> <b>둘 다 옳다:</b> <span class="say">“여러분! 어느 쪽이 옳을까요? 둘 다 옳습니다.”</span> [L231] 오래된 영화 〈미션〉의 마지막에 나오는 가브리엘과 멘도사 두 사람처럼 우리는 갈등할 수밖에 없다 [L232]. 그러나 서로 존중하며, 문제는 실제로 사는 것이다 [L233]. 교수는 이어 ‘총을 들지 않는 그 사람 멘도사’, ‘성체를 들고 나가지 않는 평화주의자’가 더 문제라고 말하는데 자막이 어수선해 정확한 뜻을 확정하기 어렵다 [L234–236] [?]. 두 사람이 영화의 맨 마지막에 서로를 바라보는 시선에는 서로에 대한 존중과 인정의 눈빛이 있다 [L237–238]. <span class="say">“진정으로 이브의 길을 끝까지 가는 사람, 하와를 끝까지 가는 사람은 어떻게 보면 결과적으로 모습으로는 좀 다르지만 결과적으로 서로를 존중해줄 수 있는 거예요. 진정성이 있기 때문입니다.”</span> [L239–240] (‘이브의 길’·‘하와’ 등은 자막 오인식 [?])</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제4부: 3절 — 가장 강한 반론</h2>
+      <span class="part-badge">19장 p.5–8 · 슬라이드 p.22–35</span>
+    </div>
+
+    <article class="unit-card" id="d1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§14. 3절 — 가장 강한 반론: 누군가 내 가족을 해치려 한다면</h3>
+          <div class="unit-desc">평화주의가 가장 자주 듣는 질문 · 경험적 질문과 규범적 질문</div>
+        </div>
+      </div>
+      <div class="oneline">평화를 말하면 늘 ‘누가 내 가족을 해치려 하면 어쩔 것이냐’는 질문을 받으며, 이 질문은 무책임하게 넘길 수 없고 경험적 질문과 규범적 질문 둘로 나뉜다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>반론의 제시:</b> 평화주의를 말하면 ‘누가 내 가족을 해치러 가면 어떻게 하겠느냐’는 반론이 나온다 [L241–242]. 우리말로 『당신이라면?』이라고 번역된 책(요더)이 있는데 [L243], 요더가 평화주의를 말하면 계속 받는 질문이 이것이라고 한다 [L244]. 교수도 평화를 이야기하면 이 질문을 받는다 [L245]. 『예수 그리스도, 나는 왜 반전론자가 아닌가? 평화주의자가 아닌가?』라는 글(자막 ‘본론을 했고요’ 앞뒤가 불명 [?])에서도 같은 이야기를 한다 [L246–247]. <span class="bdg b-add">📌 강의추가</span> <span class="say">“그렇기 때문에 이 질문에서 이 질문을 진지하게 받아들여야만 합니다.”</span> [L248] <span class="say">“평화주를 주장한다고 해서 이런 상황에서 손 놓고 그저 당해라 라고 말한다는 것은 정말 무책임한 일이겠지요.”</span> [L249] (‘평화주를’은 평화주의를 [?])</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>질문의 무게:</b> 이런 수단이라도 그리스도인이 택할 수 있느냐, <span class="say">“그 상황에서라도 예수님, 우리 예수의 제자가 사람을 죽이면서 까지 나를 지켜야 되느냐?”</span> [L251] <span class="say">“아주 어려운 문제입니다.”</span> [L252]</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.22–23, 19장 p.5</span> 슬라이드: “누군가 총을 들고 당신의 배우자나 아이를 죽이려 한다면 어떻게 하겠는가” — 경험적 질문(죽이는 일이 실제로 유일한 수단인가) / 규범적 질문(유일한 수단이라 해도 그리스도인이 택할 수 있는가). <span class="tq">“위험에 처한 이웃 앞에서 손을 놓는 것은 비폭력이 아니라 방치이다.”</span> (슬라이드 p.22) <span class="tq">“사망으로 끌려가는 자를 건져 주며”</span> (잠 24:11) 교재: 사랑하는 이를 지키려는 마음은 선하며 평화주의도 보호의 의무를 진다. 물어야 할 것은 지킬지 말지가 아니다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§15. 질문에 숨은 다섯 전제와 ‘죽이거나 방치하거나’의 거짓 양자택일</h3>
+          <div class="unit-desc">결정론 · 통제 · 확실한 지식 · 피해자의 지워짐 · 나의 의로움 · 그 밖의 길</div>
+        </div>
+      </div>
+      <div class="oneline">요더는 이 질문이 깔고 있는 다섯 전제를 드러내고, 죽이거나 방치하는 두 길밖에 없다는 가정이 틀렸다고 보이며, 총을 먼저 떠올리는 사람과 다른 길을 연습한 사람은 보는 길이 다르다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>숨은 전제:</b> 요더는 ‘당신이라면 어떻게 할 거냐’는 말에 깔린 암묵적 전제를 끄집어내 하나하나 논파한다 [L253]. ① <span class="say">“결정론이에요. 나 혼자 결정하고 상대는 정해진 대로 움직인다.”</span> [L254] <span class="say">“이런 상대는 반드시 일거다. 라는 어떤 나만의 전제가 있잖아요.”</span> (자막 어수선 [?]) [L255] ② 내가 상황을 통제하고 해결할 수 있다는 통제권 [L256]. ③ 상대가 어떻게 할지, 그를 폭력으로 쓰지 않고 죽이지 않으면 어떤 일이 벌어질지에 대한 확실한 지식이 있다는 전제 [L256–257]. ④ 공격받는 사람을 결정에서 지워 버린다 [L258–259]. ⑤ 내가 집행자도 재판관도 되며 그래서 내가 의롭다는 것이 암묵적으로 깔려 있다 [L260].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>양자택일의 강요:</b> 이것들을 걷어 내면 ‘죽이거나 방치하거나, 선택지는 둘뿐이냐’ 하는 양자택일을 강요당하는 것이다 [L262–264]. <span class="say">“그렇지 않다라는 겁니다.”</span> [L265] 방어자가 스스로 위험을 감수하며 지킬 수도 있고 [L265], 몸을 막아서 달아날 틈을 만들어 줄 수도 있고, 대화하면서 무장해제할 수도 있고(자막 ‘군중 하면서’ 불명 [?]) [L266], 예상하지 못한 다양한 길이 있다 [L267].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>비유 — 답부터 물어보는 공부:</b> 교수는 다른 비유를 든다. 스스로 생각해 답을 찾아가는 공부의 과정이 있는데, 답부터 물어보면 그 과정, 곧 인내하며 답을 찾아가는 구도의 과정이 생략되어 버린다 [L268–275](자막이 어수선해 세부는 확정하기 어렵다 [?]). 마찬가지로 <span class="say">“내가 이미 총을 딱 갖다 놓은 사람에게”</span> [L276–277] 처음부터 총을 쓴다는 것이다(교수는 ‘미국적 상황이긴 한데요’라고 덧붙인다 [L276]). <span class="say">“그렇지만 틈을 주지 않고 예수의 제자로 우리가 연습이 되는 사람은 다른 방법부터 모색한다.”</span> [L278] (자막 ‘틈을 주지 않고’ 뜻 불명 [?]) 폭력을 전제로 하고 칼이나 총을 이미 갖다 둔 사람은 그 옵션밖에 없다 [L279–281]. 감정의 무게에 대한 것도 그 강연(자막 [?])을 참조해 보라고 한다 [L282].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.24–29, 19장 p.5–6</span> 슬라이드 다섯 전제: 결정론(나 혼자 결정하고 상대는 정해진 대로 움직인다) · 통제(내가 상황을 통제할 수 있다) · 확실한 지식(죽이지 않으면 무슨 일이 벌어질지 안다) · 피해자의 지워짐(공격받는 사람을 결정에서 지운다) · 나의 의로움(재판관과 집행자를 겸할 만큼 의롭다)(요더, 『당신이라면?』 32~37). 슬라이드: 상대를 죽이거나 최악의 사태를 방치하는 양자택일은 논리적으로도 성립하지 않는다. 그 밖의 길 — 방어자가 스스로 위험을 감수하며 지킨다 / 몸으로 막아서서 달아날 틈을 만든다 / 존중의 몸짓, 비살상의 제지로 무장 해제한다 / 예상하지 못한 방식으로 위험을 벗어난다. <span class="tq">“평화주의는 폭력 앞에서 아무것도 하지 않는 태도가 아니다.”</span> (슬라이드 p.28) 물론 공격자가 뜻을 이루는 비극이 일어날 수도 있고 살상 시도가 실패해 피해가 더 커지기도 한다. <span class="tq">“손 닿는 곳에 총을 둔 사람은 총을 먼저 떠올리고, 다른 길을 연습한 사람은 다른 길을 먼저 본다.”</span> (요더, 『당신이라면?』 33, 47~54)</li>
+        <li><span class="bdg b-sup">📖 19장 p.6</span> 교재: 요더는 단호한 비폭력적 제지는 정당화할 수 있어도 죽이는 일은 정당화할 수 없다고 했고, 폭력이라는 손쉬운 답을 미리 내려놓고 비폭력을 연습한 사람일수록 다른 출구를 창의적으로 찾는다고 보았다. 이 물음은 남성다움에 호소하거나 내 가족만 지키면 된다는 배타적 태도로 흐를 위험이 있다. 그렇다고 피해자와 가해자를 같은 선상에 놓을 수는 없고 공격받는 가족을 지키는 일은 당장 감당할 첫 책임이지만, 그 순간에도 공격자의 인간성을 지울 수 없다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§16. 대안이 없다면 어디에 선을 긋는가 — 이중 효과와 의도·수단</h3>
+          <div class="unit-desc">전통적 정당방위론 · 메시아 공동체의 평화주의 · 방어는 인정</div>
+        </div>
+      </div>
+      <div class="oneline">정당방위의 이중 효과 논리는 의도에 선을 긋지만 메시아 공동체의 평화주의는 의도와 수단에 선을 긋고, 둘 다 방어라는 목적과 제한된 힘의 사용은 인정한다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>두 개의 선:</b> 대안이 없다면 어디에 선을 긋는가 [L283]. 전통적인 정당방위론에는 이중 효과(더블 이펙트)가 있다. 의도는 그렇지 않았는데 의도와 달리 치명적 결과가 나서, 정당방위를 한 것인데도 의도치 않게 더 큰 나쁜 결과가 생겨도 괜찮다는 것이고 [L284–287], 교수는 이것이 아퀴나스의 주장이라고 한다 [L288](교재·슬라이드에는 아퀴나스라는 이름이 없고 ‘전통적인 정당방위론’이라고만 쓴다 [보충]). 메시아 공동체의 평화주의, 십자가의 윤리는 의도와 수단에 선을 긋는다 [L289]. 사람의 생명을 빼앗는(자막 ‘낳는’ [?]) 것은 십계명의 ‘살인하지 말라’를 어기는 것이고 그러한 수단은 거부해야 하지 않느냐는 것이다 [L290].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>방어는 인정한다:</b> 이 평화주의도 <span class="say">“방어하는 목적과 제한된 힘을 사용하는 것은 인정합니다.”</span> [L292] <span class="say">“그걸 부정할 순 없어요.”</span> [L293] 나를 지키고 가족을 지키기 위해 약간의 힘을 써서 방어할 수 있다 [L294]. 그러나 그렇다고 해서 사람을 죽이는 것이 정당하고 정의로운지는 층위가 다른 문제이다 [L295–298](교수는 말하기 가슴이 아프다고 한다 [L296]).</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.30, 19장 p.6</span> 슬라이드 비교: 전통적 정당방위론·이중 효과 — 의도에 선을 긋는다, 의도하지 않은 치명적 결과는 허용. 메시아 공동체의 평화주의 — 의도와 수단에 선을 긋는다, 죽음을 초래할 것이 분명한 수단은 거부. 공통: 방어라는 목적과 제한된 힘의 사용은 인정한다. 규범적 질문: 그 순간 무고한 이를 지킬 유일한 수단이 치명적인 힘이라면? 교재: 아우구스티누스 이래 정당전쟁 전통은 무고한 이웃을 향한 사랑이 그를 해치는 자에게 힘을 쓰도록 요구할 수 있다고 말해 왔으며 이 논증은 상황을 통제할 수 있다고 전제하지 않는다. 슬라이드: 가족을 지키는 논리 → 나라를 지키는 논리? (교재: 둘째 반론이 여기서 이미 고개를 든다.)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d4">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§17. 월저와 요더 — 개인의 방어에서 전쟁으로?</h3>
+          <div class="unit-desc">월저의 국내 유비 · 요더가 든 차이 · 권리와 십자가</div>
+        </div>
+      </div>
+      <div class="oneline">월저는 개인의 정당방위를 국가 사이의 전쟁으로 확장하고 요더는 개인의 방어와 현대 전쟁의 차이를 들어 그 등치에 반대하며, 두 사람은 판단의 출발점이 다르다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>월저:</b> 마이클 월저(자막 ‘월지’, ‘마이클 월드’)는 아주 유명한 정당한 전쟁론 철학자이자 윤리학자이다 [L299–300]. 핵심 논리는 개인이 정당방위할 수 있듯 국가에서도 정당방위가 가능하다는 것이다 [L301–303]. 침략은 정치공동체, 곧 국가의 영토 문제나 정치적 독립, 경제적 피해와 큰 고통을 주기에 정당한 방위로 싸울 수 있다 [L304–305]. 교수는 앞의 정의 강의에서 정의를 ‘각자의 몫을 각자에게 주는 것’이라 했으므로 권리가 중요하다고 하며, 월저도 그런 정의의 입장에서 침해된 권리를 되찾는 것은 정당하다고 본다고 설명한다 [L314–317](자막 ‘월드 스토퍼’ 불명 [?]).</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>요더의 반론:</b> 요더의 주장에 의하면 개인의 방어와 현대 전쟁은 같지 않다(자막 ‘거다라는’ [?]) [L306]. 개인 방어에서는 잘못을 저지른 공격자를 겨누지만, 지금 우크라이나·팔레스타인·이스라엘·이라크를 보면 현대 전쟁에서는 책임 없는 민간인까지 대규모 학살이 벌어진다 [L307–308]. 개인은 법정에서 몇 년, 10년, 20년, 무기징역, 사형 등을 정하지만 전쟁에는 그런 법정이 거의 없다 [L309–310]. 현대 전쟁은 수년의 준비와 군비 경쟁을 하고 통제를 벗어나 확장된다 [L311–312]. 그래서 요더는 십자가가 보여 준 예수의 길에서 경계를 찾아야 한다는 것이다(자막 ‘그 가운데의 한 개를 찾아야 된다’ 불명 [?]) [L313].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.31–33, 19장 p.6–7</span> 슬라이드: 월저의 국내 유비(domestic analogy) — 개인의 정당방위와 법 집행을 국가 사이의 관계에 빗댄다. <span class="tq">“침략은 정치공동체의 영토적 통합성과 정치적 독립을 침해하는 범죄이다.”</span> (월저, 『마르스의 두 얼굴』 159~164) 요더가 든 차이 표 — 겨누는 대상: 잘못을 저지른 공격자 / 책임 없는 민간인까지 대규모로. 사후 검토: 법정의 검토 / 그런 법정이 거의 없다. 준비와 확대: 수년의 준비와 군비 경쟁, 통제를 벗어난 확대. 슬라이드 p.33: 월저 — 침해된 권리와 정당한 방어에서 출발 / 공통 — 이웃을 보호할 책임 / 요더 — 십자가가 보여 준 예수의 길에서 경계를 찾음. 교재: 요더가 든 차이들이 국내 유비를 무효로 만들지는 않으나 개인의 정당방위가 전쟁의 정당성을 자동으로 보장하지는 않는다.</li>
+        <li><span class="bdg b-sup">📖 19장 p.7</span> 교재: 두 입장의 차이는 현실을 얼마나 정확히 계산하는지에 있지 않다. 월저도 요더도 이웃을 보호할 책임을 인정하지만 판단의 출발점과 허용할 행위의 범위가 다르다. 이 장은 요더의 메시아 공동체의 평화주의를 규범으로 받아들이며, <span class="tq">“결과의 계산이 무의미해서가 아니라, 그리스도의 십자가가 그리스도인의 행위를 판단하는 궁극적인 기준이기 때문이다.”</span> (19장 p.7) 하나님은 원수를 제거하는 방식으로 세상을 구원하지 않으셨다는 고백이다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="d5">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§18. 가족이 위협받는 순간을 살아 낸 사람들 — 킹, 르샹봉, 효율성의 문제, 본회퍼</h3>
+          <div class="unit-desc">몽고메리 · 무장하지 않은 평화 활동 · 효율이 기준이 아니다 · 니버의 물음 · 본회퍼</div>
+        </div>
+      </div>
+      <div class="oneline">킹과 르샹봉과 기독교 평화 활동단은 무기 아닌 보호의 길을 보여 주고, 평화주의의 답은 비폭력의 대가를 피해자에게 떠넘기지 않고 공동체가 먼저 짊어지는 것이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>마틴 루터 킹과 몽고메리:</b> 킹은 침례교 목사이고 몽고메리 사건에서 그의 전기를 보면 감동적인 대목이 있다 [L318–320]. 회의 전 저녁 식탁에서 혼자만의 시간에 기도하는데 두려움이 엄습했고 하나님의 어루만지심이 있었다 [L322–325](이 대목의 자막은 어수선하다 [?]). <span class="say">“그런데 그리고 키스하고 갔습니다.”</span> (자막 [?]) [L326] 그러다 집 앞에 폭탄이 터졌고 아내와 딸이 어떻게 되었는지 모른다는 연락을 받는다 [L327]. 소식을 들은 많은 흑인들이 몰려와 항의하며 폭력이 발생하기 직전의 상황이 되었을 때 킹은 그 자리에서 평화를 외친다 [L328–329]. 자서전에 ‘흑암이’(자막 [?]) 자기 변화의 아주 중요한 터닝 포인트였다고 나온다 [L330–331]. <span class="say">“아내와 딸을 잃었을지도 모르는 상황에서도 폭력이 아닌 평화를 외치는 것이 가능하다.”</span> [L332]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>르샹봉과 평화 활동단:</b> 교수는 앞에서 말한 마을(자막 ‘루시아 행복 마을’은 르샹봉 추정 [?])을 언급하고 [L333], 기독교의 평화 활동은 분쟁 지역 주민 곁에 무장하지 않은 채 머무는 것이라고 한다 [L333]. 이것을 만든 사람으로 로널드 사이더(자막 ‘로널드 사이드’; 이어지는 ‘아랍의 케이스’ 이하 불명 [?])를 말하고 [L334–337], 말로만 평화를 말하는 것이 아니라 전쟁과 분쟁이 일어나는 곳에 기독교인들이 가서 그들 안에 살며 도와주는 일을 하는 것이라고 한다 [L338]. 이것은 앉아서 하는 행복론(자막; 이론 [?])에 그치는 평화주의가 아니다 [L339].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.34, 19장 p.7</span> 슬라이드: 1956 몽고메리 — 킹은 집에 폭탄이 터진 밤, 무기를 집으로 가져가라고 말했다 / 르샹봉 마을 — 나치 점령과 비시 정권 아래에서 유대인을 숨겼다 / 기독교 평화 활동단 — 분쟁 지역 주민 곁에 무장하지 않은 채 머문다. <span class="tq">“비폭력은 저절로 생기지 않는다.”</span> (슬라이드 p.34) 함께 기도하고 함께 위험을 지는 공동체 안에서 조금씩 몸에 밴다. 교재: 킹은 폭탄이 터진 뒤 무기를 가진 사람들에게 보복의 폭력으로는 문제를 풀 수 없다고 말했다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>효율성은 기준이 아니다:</b> 최근에 독재자를 무너뜨리는 법 같은 책들에 폭력이(자막; 문맥상 비폭력이 [?]) 사회를 더 바꾼다는 실증 자료가 있다 [L340]. 그러나 <span class="say">“십자가의 윤리가 가르치는 건 뭐냐면 효율적이냐 아니냐, 이것으로 우리가 폭력을 선택하냐, 비폭력을 선택하느냐 기준이 없다는 거예요.”</span> [L341] <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“우리는 오로지 예수의 십자가가 기준인 겁니다.”</span> [L342] 그래서 효율성 이야기는 되도록 언급하지 않지만 한 번은 해야겠다 싶어 말한다고 한다 [L342].</li>
+        <li><span class="bdg b-sup">📖 19장 p.7–8</span> 교재: 대규모 저항 운동에서 비폭력이 더 자주 성공했다는 연구도 있지만 그리스도인의 비폭력은 이러한 효과에 근거하지 않는다. 십자가부터가 효과가 보이지 않던 사건이었다. 평화주의의 가장 어려운 질문은 비폭력이 실패할 가능성 앞에서도 그리스도의 길을 신실하게 따를 수 있는가이며, 자신의 생명을 걸고 비폭력을 실천하는 일과 타인의 생명이 위협받는 상황에서 비폭력을 택하는 일은 같지 않다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>니버의 물음과 평화주의의 답:</b> 결국 비폭력을 하면 누가 고통받느냐, 니버(자막 ‘네이버’)는 그것을 묻고 그래서 폭력을 써야 하지 않느냐고 한다 [L343–344]. 평화주의의 답은 <span class="say">“오히려 그 대가를 치르는 그들과 함께 아파하고 울고 웃는 그런 샬롬공동체를 비폭력을 실천하는 공동체가 되는 것이 우리의 대답이라는 것입니다.”</span> [L345] 본회퍼의 실패에 대해서는 앞에서 잠깐 말했고 [L346], 그에게 공동체가 없었다는 것, 그의 아픔이 있었다는 것을 강의(자막 ‘강연’ [?])에서도 본다. 우리에게는 공동체가 필요하다 [L347–348].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.35, 19장 p.8·후주 [2] p.14</span> 슬라이드: 니버의 물음 ‘비폭력의 대가는 결국 누가 치르는가’ — 평화주의의 답: 피해자에게 떠넘기지 않고, 비폭력을 실천하는 공동체가 먼저 짊어진다. <span class="tq">“교회가 애통할 것은 그를 홀로 그 선택 앞에 세운 자신의 실패이다.”</span> (슬라이드 p.35) 교재: 본회퍼는 산상수훈의 비폭력을 누구보다 진지하게 해석했지만 히틀러 제거 계획에 연루되었다. 이 장은 그의 선택을 비폭력 원칙의 손쉬운 예외로 삼지 않고 그 책임의 무게를 가볍게 판단하지도 않는다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제5부: 4절 — 강제의 구별</h2>
+      <span class="part-badge">19장 p.8–10 · 슬라이드 p.36–39</span>
+    </div>
+
+    <article class="unit-card" id="e1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§19. 4절 — 힘, 강제, 폭력, 권력</h3>
+          <div class="unit-desc">force · coercion · violence · power · 폭력의 기본은 물리적인 것</div>
+        </div>
+      </div>
+      <div class="oneline">힘은 변화를 일으키는 작용이고 강제는 타인의 의사와 상관없이 하는 힘이며, 폭력은 타인의 몸·마음·존엄을 침해하는 힘으로 기본은 물리적인 것이다(📖 슬라이드 p.36: 정당한 전쟁도 정당화된 폭력).</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>힘·강제·폭력:</b> 힘이 있고 강제가 있고 폭력이 있다 [L349]. 교수는 펜을 움직이며 이것이 힘(자막 ‘볼트’ [?])이고 대상의 의지와 상관없이 내가 움직이는 것이 강제력이라고 설명한다 [L350–352]. 강제(자막 ‘콜저’)는 타인의 의지와 의사와 상관없이 무엇을 하는 것이다 [L353]. <span class="say">“그러니까 폭력도 강제력인 거죠. 타인의 의지와 의사와 상관없이, 감정과 상관없이 타인의 신체에 타인의 마음에 타인의 영혼의 물리적, 신체적, 언어적, 심리적 어떤 무엇이 힘을 가하는 것, 이게 바로 폭력입니다.”</span> [L354] 바이올런스(자막 ‘바이올라’)는 침해하다·위반하다·넘어간다는 뜻으로, 타인의 인격과 언어와 신체를 침해하는 것이다 [L355–356]. <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“그러나 기본은 물리적인 것이다 라는 겁니다.”</span> [L361] 요즘은 언어폭력 등 많은 말이 붙어 확장되었으니 그것도 유념해야 하지만 [L358–360], 폭력은 1차적으로 타인의 신체, 곧 물리적인 것으로 보아야 한다 [L357–359].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>권력과 비폭력:</b> 한나 아렌트 이야기도 있고(교수는 ‘그 강연’을 보라고 한다 [L362]) 힘·강제·폭력과 함께 권력(파워)도 있다 [L363–364]. <span class="say">“그러나 파워는 정당한 권력 입니다. 국가의 권력은 파워입니다.”</span> [L365] 그러나 그것이 폭력이 될 수도 있다 [L366]. 그렇다면 비폭력은 어떤 신체적 힘도 쓰지 않는 것인가? <span class="say">“그건 아닙니다. 그건 가능합니다.”</span> [L367–368] 나중에 다시 말하겠다고 하며 [L368], 경찰력을 인정한다 [L369].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.36, 19장 p.8–9</span> 슬라이드: 두 물음을 나누어 묻는다 — ① 폭력인가(몸·마음·존엄을 침해하는가) ② 정당화될 수 있는가. 힘(force)은 변화를 일으키는 작용, 강제(coercion)는 의사에 반해 막거나 강요하는 힘, 폭력은 타인을 침해하는(violate) 힘이다. <span class="tq">“정당한 전쟁도 폭력이며, 다만 정당화된 폭력이다.”</span> (슬라이드 p.36) 비폭력은 어떤 신체적 힘도 쓰지 않는다는 뜻이 아니다. 교재: 폭력은 일차적으로 신체적 힘으로 타인의 몸을 침해하지만 마음을 침해하거나 언어로 존엄을 짓밟기도 한다. 흔히 정당성을 얻은 힘을 권력(power), 정당화되지 않은 힘을 폭력이라 부른다.</li>
+        <li><span class="bdg b-sup">📖 19장 p.9</span> 교재: 국가의 권력은 이 구별처럼 깨끗하지 않다. 국가가 인정하는 폭력은 ‘권력’이라는 이름을 얻을 뿐이다. 이 장은 어떤 힘이 폭력인지는 몸과 마음과 존엄을 침해하는지로 판단하고 정당화 여부는 따로 묻는다. 그래서 국가의 정당한 강제나 정당전쟁론이 허용하는 무력도 폭력이라는 사실을 감추지 못한다. 비폭력은 상대의 인간성을 부정하거나 파괴하는 수단은 거부하되 불의와 위협에는 적극적으로 맞서는 실천이며, 공격자의 팔을 붙잡거나 몸으로 막아서는 일은 필요한 정도를 넘지 않는 한 폭력과 구별된다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="e2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§20. 강제의 구별 — 교회의 권징, 국가의 강제, 자기방어, 타인 보호</h3>
+          <div class="unit-desc">주체와 목적에 따른 네 구별 · 교회와 국가 · 치안과 전쟁 · 교회학교 사례</div>
+        </div>
+      </div>
+      <div class="oneline">교회와 국가는 하나님이 둘 다 쓰시되 일하는 방식이 다르며, 교회는 폭력을 행사하지 않고 국가의 폭력이 끝없이 가지 않도록 증언하고 전쟁을 막는 데 힘쓴다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>교회와 국가의 강제:</b> 교회 안에서의 강제는 교회 권징이다. 권징이 없어진 것을 교회의 타락으로 찾는 분도 있는데, 권징은 어쨌든 강제이다 [L369–371]. 국가의 강제는 예를 들어 세금을 내는 것으로, 자발적·기쁨으로 내기도 하지만 국가의 강제력이다 [L372–374]. 목적에 따라서는 자기방어, 타인 보호에 강제력을 쓸 수 있다 [L374]. 주체에 따라, 목적에 따라 나누었는데 강제력이 구별될 수 있다는 것만 알면 된다 [L375–376].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>하나님은 양쪽을 쓰신다:</b> 교회와 국가를 하나님은 양쪽 다 사용하신다 [L378]. 교수가 번역한 얇은 책(자막 ‘종교도 제자도 그리스도인의 정치적 책임’은 『제자도, 그리스도인의 정치적 책임』으로 추정 [?])의 핵심은 <span class="say">“하나님은 국가에게는 루트와 마찬가지로 권력폭력을 사용할 수 있는 힘을 줬습니다.”</span> [L381](‘루트’는 칼 추정 [?]) <span class="say">“교회는 샬롬복음을 통해서 말씀으로 살아가도록 되어 있습니다.”</span> [L382] <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“그래서 교회는 폭력을 행사할 수 없다는 거예요.”</span> [L383] 국가가 폭력을 쓸 수 있는 권력이 있음을 부인하는 것이 아니다 [L383–384]. 문제는 이 폭력이 끊어지지(자막; 끝없이 가지 않도록 [?]) 않도록 교회가 국가에 대해 증언해야 한다는 것이다 [L384]. 전쟁의 피해와 아픔, 슬픔, 상실을 알기에 전쟁을 최대한 하지 않도록 교회는 말해야 한다 [L385]. <span class="say">“그래서 전쟁을 정당하기 위한 노력을 할 것이 아니라 전쟁을 막기 위한 노력을 해야 된다는 것이고요.”</span> [L386]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>치안과 전쟁의 구별:</b> 치안과 전쟁은 구별해야 한다 [L387]. ‘아나베스트’(자막 [?])와 평화주의자들은 경찰력으로 집회·연구(자막 불명 [?]) 때 약간의 물리력을 쓰는 것을 동의하고 인정한다 [L387]. 이를 모순이라 하는 분도 있지만 그렇게 비현실적이지는 않으며 구분은 한다 [L388].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.37–39, 19장 p.9–10</span> 슬라이드·교재 ‘강제의 네 구별’(앞의 둘은 주체, 뒤의 둘은 목적 기준이라 서로 겹칠 수 있다): ① 교회의 권징 — 몸과 재산과 시민적 자유를 빼앗지 않는다. 마 18:15~17 ‘말씀과 권면으로 시작해 필요하면 마지막에 공동체의 교제에서 배제’이며 공정한 절차와 권력 남용을 막는 장치가 필요하다. 국가의 강제나 다수의 압력을 동원해 양심을 억압하면 정당한 권징이 아니고, 범죄 혐의가 있는 가해를 권징만으로 덮지도 않는다. ② 국가의 강제 — 공동선을 위한 제한된 강제를 인정하되 증언한다. 교회가 국가에 같은 비폭력을 요구하는 것은 국가에 교회가 되라는 말로, 국가의 칼을 축복한 콘스탄티누스적 혼동을 반대 방향에서 되풀이하는 일이다. 교회는 오는 나라를 미리 사는 공동체이고 국가는 아직 지나가는 이 세대의 질서를 보존한다(요더, 『제자도, 그리스도인의 정치적 책임』 107). ③ 자기방어 — 피하고 알리고 떠나는 일도 비폭력이다. 산상수훈이 금하는 것은 자신을 위한 보복이지 위협 앞에서 몸을 피하거나 도움을 청하는 일이 아니다. 극한의 순간에 가족을 지키려다 상대를 해친 이가 있다면 교회는 그 행위를 의롭다 하지 않되 정죄하지 않고 함께 애통하며, 비폭력의 요구는 약자보다 강자에게 먼저 향한다. ④ 타인 보호 — 비살상의 제지와 국가의 정당한 치안.</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.38, 19장 p.10</span> 슬라이드 ‘국가를 향한 말’: 치안 — 목표 공동체의 안전, 상대 재판받을 권리가 있는 시민 / 전쟁 — 목표 적의 섬멸, 상대 적. 중간 공리(middle axioms): <span class="tq">“신학적 고백을 대신하지 않고, 그 고백을 공적 판단의 언어로 옮긴다.”</span> (슬라이드 p.38) 교재: 산상수훈은 교회가 국가의 정책에서 무엇에 주목하고 무엇을 문제 삼을지 정하는 눈이 된다. 교회는 국가가 스스로 내세우는 정의와 질서의 언어를 빌려 이 정책에서 폭력을 줄이고 제한해야 한다고 구체적으로 말하며(요더, 『국가에 대한 기독교의 증언』 65), 국가가 정당방위를 내세워 과도하게 보복할 때는 원수 사랑과 인간 존엄의 이름으로 더 근본적인 비판도 할 수 있다. 교회가 자기 손을 더럽히지 않으려고 폭력을 국가에 떠넘기는 것 아니냐는 물음에 대한 답은 국가의 강제를 축복하거나 위탁하는 데 있지 않고 그 강제가 치안의 경계를 넘지 않도록 감시하고 증언하는 책임을 함께 지는 데 있다. 교회는 그 질서를 위해 기도하고 공동선을 위해 일하되(<span class="tq">“모든 사람을 위하여 간구와 기도와 도고와 감사를 하되”</span> (딤전 2:1)), 국가의 폭력을 축복하지는 않는다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>교회 안의 구체적 사례:</b> 앞의 강의들과 비슷한 이야기인데, 이런 경우에는 분리하고 신고하고 [L389–390], 사적 응징(자막 ‘사측 응전’ [?])을 막아 주는 일도 해야 한다 [L391].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.39, 19장 p.10</span> 슬라이드 ‘타인 보호: 교회학교의 경우’ ① 아동을 교사에게서 분리해 부모와 함께 보호 ② 수사 기관에 신고 ③ 교사의 직무 정지 ④ 교인들의 사적 응징을 막는다. <span class="tq">“분노는 정당할 수 있지만 보복은 교회의 방식이 아니다.”</span> (슬라이드 p.39) 이런 대응은 위기의 순간에 즉흥으로 나오지 않는다. 교재: 교역자와 교사가 피해의 징후를 알아보고 신고하는 법을 배우고, 지역의 상담소·쉼터·법률 지원 기관을 미리 파악해 두는 일이 실질적인 비폭력의 구체적 실천이다.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <div class="part-banner">
+      <h2>제6부: 5·6절과 결론 — 분단과 화해, 평화를 만드는 공동체</h2>
+      <span class="part-badge">19장 p.10–14 · 슬라이드 p.40–46</span>
+    </div>
+
+    <article class="unit-card" id="f1">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§21. 5절 — 분단과 화해(1): 적대의 언어와 원수를 위한 기도</h3>
+          <div class="unit-desc">둘째 반론 · 정의 없는 평화는 없다 · 악마화하지 않기 · 기도</div>
+        </div>
+      </div>
+      <div class="oneline">북한 정권의 폭력은 정확히 비판해야 하지만 상대를 악마화하지 않고 그들을 위해 기도하는 것이 교회가 분단 앞에서 지는 몫이다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>적대의 언어와 비판:</b> 분단 앞에서 적대적인 언어를 쓰면 안 된다 [L392]. 우리 사회는 전쟁이 언제든 일어날 수 있는 상황이고 [L393], 북한을 바라보는 보수와 진보의 시선이 대립한다 [L394]. 교수는 진보가 북한 권력과 북한의 인권을 비판하는 것을 자꾸 주저한다고 말한다 [L395–396]. <span class="say">“하지만 앞서 말한 대로 정의가 없는 평화는 없단 말이에요.”</span> [L397] 북한 권력과 정권이 얼마나 폭력적이고 북한 시민들을 고통에 빠뜨리고 있는지 정확히 인지하고 비판하는 시선을 분명히 가져야 한다 [L398]. <span class="say">“그렇지 않고 뭐. 적대 언어를 쓰면 안 된다. 이거는 헛소리가 되는 거예요. 그런 정확한 비판과 또 규정은 해야 됩니다.”</span> [L399–400] <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“그렇지만 상대를 악마하지는 말아야 된다라는 거고요.”</span> [L401] (‘악마하지는’은 악마화하지는 [?])</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>기도와 양심:</b> 그들을 위해 기도하고, 각자의 양심에 따른 병역 거부도 존중하며 대체복무제도 존중해 줄 필요가 있다 [L402].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.40–41, 19장 p.10–12</span> 교재: 둘째 반론 — 북한은 2010년 연평도 포격처럼 실제로 공격했고 핵과 미사일을 개발해 왔다. 그렇다면 원수 사랑을 말하는 교회는 국가 안보를 약화시키지 않는가. 그리스도인은 시민으로서 우발적 충돌을 막을 장치를 마련하고 긴장을 완화하며 인도적 협력을 지속하도록 요구할 수 있고, 그 증언은 국가의 정당한 책무를 부정하지 않으면서도 안보가 신앙을 대신하지 못하도록 경계한다. 교회의 몫은 정책보다 먼저 언어와 기도와 양심에서 시작한다. 슬라이드 ‘분단 앞에서 교회가 질 세 몫’: 언어(적대의 언어를 분별한다) · 기도(원수를 위해 기도한다) · 양심(양심을 함께 품는다). <span class="tq">“상대를 악마화하지 않는 일과 악을 판단하지 않는 일은 다르다.”</span> (슬라이드 p.40) 교재: 원수를 사랑한다는 것은 상대의 악을 정확히 판단하되 그의 파멸을 신앙의 목적으로 삼지 않는다는 뜻이며, 교회는 정권의 폭력을 고발하는 일과 그 땅의 사람들을 위해 기도하는 일을 함께 한다.</li>
+        <li><span class="bdg b-sup">📖 19장 p.11</span> 교재: 분단은 적대를 일상의 언어로 만들었고, 북쪽 주민을 얼굴 없는 ‘적’으로만 부르던 언어는 남쪽 안에서 의견이 다른 이들에게도 향한다. 보수와 진보 어느 쪽이든 상대를 낙인의 이름으로 부르는 순간 그 사람은 얼굴을 잃고(13장), 얼굴을 잃은 사람에게는 폭력을 가하기도 쉬워진다. 안보의 언어가 모든 비판을 침묵시키고 궁극적 충성을 요구하면 안보는 절대화된 권세가 된다. 한국 개신교는 분단과 냉전 속에서 국가 안보의 논리를 신학으로 추인해 왔지만 다른 목소리도 끊이지 않았다(한국기독교교회협의회, 「민족의 통일과 평화에 대한 한국기독교회 선언」, 1988). 적대의 언어는 희생의 언어와도 손을 잡는다. 하우어워스는 전쟁을 희생 제의 체계로 읽었고, 전쟁이 요구하는 가장 큰 희생은 죽이지 않으려는 마음을 내려놓는 것이며, 그리스도가 희생의 끝이시라고 믿는 그리스도인은 전쟁에서 치른 희생을 신앙의 이름으로 거룩하게 만들 수 없다고 했다(War and the American Difference, 56, 69). 그래서 평화주의자야말로 현실주의자라고 말했다(34). 나라를 지키다 숨진 이들을 애도하는 일은 마땅하지만 그 죽음을 다음 세대에게 또 다른 적대를 요구하는 근거로 삼을 때 기억은 애도에서 동원으로 바뀐다. 교회의 기억은 숨진 이들을 하나님께 맡기고 다시는 그런 죽음이 없기를 구하는 기도가 된다.</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.41, 19장 p.11–12</span> 슬라이드 ‘무너뜨려 달라는 기도에서’: 도입의 대표 기도 “무너뜨려 주옵소서” → 바뀔 수 있는 기도 “정권의 폭력이 끝나고 그 체제 아래서 굶주리고 갇힌 이들이 자유로워지기를”. 교재: 스타센은 원수를 위한 기도를 평화운동의 결정적 단계로 보았다. 기도하는 동안 원수를 향한 사랑이 자라기 때문이다. 북한이탈주민은 분단이 몸과 가족의 일임을 보여 주는 증인이며 그들을 지체로 맞는 일은 18장의 환대의 물음이다. <span class="tq">“예배에서 북녘을 향한 저주가 나온다면, 그들은 고향의 가족도 저주의 대상에 들어 있음을 듣는다.”</span> (슬라이드 p.41)</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="f2">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§22. 5절 — 분단과 화해(2): 양심을 함께 품는 교회, 병역과 대체복무</h3>
+          <div class="unit-desc">병력 규모 논의 · 대체복무 · 구동존이 화이부동 · 헬위스</div>
+        </div>
+      </div>
+      <div class="oneline">군 복무를 택한 청년과 대체복무를 택한 청년을 교회가 서로 존중하며 함께 품고, 정당전쟁론자와 평화주의자는 차이를 두고도 공통분모를 넓혀 평화를 만든다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>병력 규모와 대체복무 논의:</b> 교수는 ‘셋째로 이제 인원 문제도 있고요’라고 말하는데(앞의 첫째·둘째는 자막에 없다) 인원 문제도 있고 남북한 문제와 한중일 관계도 있기에 통일이 되었을 때 현역을 얼마나 가질 수 있느냐는 논의가 국방부 쪽에서도 계속 나오고 있다 [L403–405]. 첨단 전자전쟁이 되었기에 ‘협력’(자막; 병력으로 추정 [?])을 얼마나 줄 것이냐는 논의도 많다 [L406]. 그것을 잘 인지하며 논의해야 하지만 어쨌든 대체복무제는 이미 인정되고 있으므로 신앙에 따라 사는 분들도 인정해 주는 일이 필요하다 [L407].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>서로 다른 신앙의 실천:</b> 정당한 전쟁론자는 정당한 전쟁론으로 진정성을 갖고 실천하고, 평화주의자는 평화주의자로서 정당성을 얻어 실천할 때 [L408], 둘이 차이점도 있지만 구동존이·화이부동(자막 ‘구동존이 화이부동 원리’)의 원리에 따라 화합하며 오히려 평화를 만들어 갈 수 있다 [L409]. <span class="say">“서로를 비난하기보다는 서로 함께 갈 수 있는 공통분모를 최대한 접촉면을 넓혀야 된다라는 겁니다.”</span> [L410]</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>비판하되 정죄하지 않는다:</b> 다시 말하지만 비판하는 것은 정당하지만(자막 ‘저주하고 비난하고 비판하는 건 정당하지만’ 어수선 [?]) <span class="say">“우리가 상대를 정죄하거나 또 미워해서는 안 된다는 거예요.”</span> [L411] 정권과 시민을 구분해야 하고 [L412], 입대하는 청년과 대체복무하는 청년을 서로 존중하며 함께 가야 한다 [L413]. 교수는 침례 신앙 안에서 토머스 헬리스(자막; 슬라이드 표기는 헬위스)의 ‘1972년’(자막 [?]; 슬라이드·교재는 1612) 신앙의 자유 문제를 살펴보면 좋겠다고 한다 [L414].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.42, 19장 p.12·후주 [3] p.14</span> 슬라이드 ‘양심을 함께 품는 교회’: 입대하는 청년 — 무력이 정당전쟁의 기준을 넘지 않는지 끝까지 묻는다 / 대체복무하는 청년 — 끝까지 집총을 거부하고 다른 방식으로 섬김을 감당한다 / 교회는 두 사람 모두에게 양심의 분별과 책임을 요구하며 함께 품는다. <span class="tq">“자유를 자기 편에게만 요구하는 교회는 자유를 이해하지 못한 교회이다.”</span> (슬라이드 p.42) 슬라이드: 토머스 헬위스(1612) 신앙의 자유는 이단에게도, 투르크인에게도, 유대인에게도. 교재: 교회의 남성 청년 대다수는 이웃과 공동체를 지킨다는 책임감으로 성실하게 복무하며 군부대 예배와 장병 돌봄은 소중한 섬김이었다. 군 선교는 장병을 원수의 인간성을 기억하고 양심에 반하는 명령을 분별하는 그리스도인으로 세울 때 평화의 증언이 된다. 교회는 그리스도의 비폭력적 평화를 고백하고 가르치지만 병역과 자기방어를 두고 다르게 판단한 지체를 정죄하지 않는다. 2018년 헌법재판소와 대법원의 판단에 따라 2020년부터 대체복무가 시행되고 있다.</li>
+        <li><span class="bdg b-sup">📖 19장 p.12</span> 교재: 양심에 따라 입대를 거부하는 것과 양심에 따라 입대하는 것은 서로 모순되지 않는다(김두식). 1612년 런던에 영국 최초의 침례교회를 세운 토머스 헬위스는 제임스 1세에게 보낸 글에서 왕은 죽을 인간이지 하나님이 아니므로 백성의 영혼을 다스릴 권세가 없다고 썼고 신앙의 자유가 이단에게도 투르크인에게도 유대인에게도 주어져야 한다고 말했으며 이 때문에 투옥되어 옥사했다. 양심의 자유는 평화주의와 같은 입장은 아니지만 나와 같은 결론에 이른 사람들만 누릴 권리도 아니다.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="unit-card" id="f3">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>§23. 6절과 결론 — 화평하게 하는 자, 칼을 쳐서 보습으로</h3>
+          <div class="unit-desc">교회 안의 평화 · 코이노니아 농장 · 평화의 인사 · 결론 · 토론 질문</div>
+        </div>
+      </div>
+      <div class="oneline">평화는 교회 안에서 배우고 교회 밖에서 몸으로 증언하는 공동체의 실천이며, 하나님과 화평한 그리스도인은 세상과 하나님 사이를 화평케 하는 그리스도의 사신으로 부름받았다.</div>
+      <div class="key">
+        <ul>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>정리와 맥클렌던의 인물:</b> <span class="say">“자, 우리 정리하도록 하겠습니다. 화평하게 하는 자, 이것들 보시고요.”</span> [L415] 맥클렌던의 책 『바이오그라피』(Biography as Theology)에 코이노니아 ‘도돈’(자막; 교재는 클래런스 조던의 코이노니아 농장으로 소개 [?])이라는 분 이야기가 나오는데 [L416], 그 내용을 보면 피스메이커가 실제로 어떻게 할 수 있는지 살펴볼 수 있다 [L417].</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>칼과 보습:</b> ‘살인자를 쳐서 보습을 일하고’(자막; 칼을 쳐서 보습을 만들고 [?]) 하는데 <span class="say">“몸을 부수고 보습을 몸을 먹인다”</span> [L418]고 했다(자막 [?]) [L418]. 하나님의 형상으로 창조된 우리와 같은 타자가 적대적인 원수로 우리에게 다가올 때 살(자막 ‘살이 아니라 모습으로’ 불명 [?]) 대신 그렇게 대하면 참된 평화를 이룰 수 있다는 것이 평화주의자들의 주장이고, 그러면서도 양쪽이 서로를 존중하는 것이 우리에게 필요하다 [L419–420].</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.44–45, 19장 p.13–14</span> 슬라이드 ‘칼을 쳐서 보습으로’(사 2:4): 칼은 몸을 부순다 / 보습은 몸을 먹인다. <span class="tq">“무리가 그들의 칼을 쳐서 보습을 만들고”</span> (사 2:4) 슬라이드·교재: 그것이 하나님 나라의 사회적 형상이다. <span class="tq">“평화주의의 진정성은 극단적 상황에서 정답을 내놓는 데보다, 그때에도 폭력 아닌 길을 찾는 사람과 공동체를 평소에 길러 내는 데서 드러난다.”</span> (슬라이드 p.45) 교재: 칼을 보습으로 바꾸는 일은 원수를 위해 기도하고 잘못을 진실하게 다루는 공동체의 실천에서 시작되며 그것은 부활이 연 미래를 지금 미리 사는 일이다.</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.43, 19장 p.12–13</span> 교회 안에서 배우는 평화(마 18:15~20): ① 당사자끼리 만난다 ② 신뢰하는 한두 사람이 함께 앉는다 ③ 잘못을 인정하고 관계를 다시 세운다. 슬라이드: 학대나 성폭력처럼 권력관계가 기운 가해에서는 피해자를 가해자와 마주 앉히지 않으며, 공동체가 먼저 할 일은 피해자를 보호하는 것이다. 교재: 예수가 복이 있다 하신 이는 <span class="tq">“화평하게 하는 자는 복이 있나니”</span> (마 5:9)이다. 평화는 갈등이 없는 상태가 아니라 용서받은 백성으로 살아가는 공동체가 일구는 삶의 질과 실천이며, 목표는 승패가 아니라 잘못을 진실하게 인정하고 관계를 다시 세우는 데 있다.</li>
+        <li><span class="bdg b-sup">📖 슬라이드 p.43, 19장 p.13</span> 교회 밖에서 증언하는 평화 — 코이노니아 농장: 남침례교 목사이자 신약학자인 클래런스 조던이 세웠고, 흑인과 백인이 함께 일하고 한 식탁에서 먹었다. 이 공동체는 폭탄 공격과 총격, 불매 운동을 겪으면서도 무기를 들지 않았고 그 땅을 떠나지도 않았다. 평화의 실천은 예배에 뿌리를 둔다. <span class="tq">“예물을 제단 앞에 두고 먼저 가서 형제와 화목하고 그 후에 와서 예물을 드리라”</span> (마 5:24) 초대 교회는 만찬 전에 평화의 입맞춤을 나누었다. <span class="tq">“평화의 인사와 원수를 위한 기도는 하나님 나라의 사회적 형상이 가장 작게, 그러나 가장 분명하게 드러나는 장면이다.”</span> (슬라이드 p.43)</li>
+        <li><span class="bdg b-sup">📖 19장 p.13–14</span> 결론(교재): 이 장은 원수를 사랑할 수 있는가, 정의를 지키기 위한 강제는 어디까지 허용되는가에 답하려 했으나 답을 선 하나로 그을 수는 없었다. 교회는 권징에서 몸과 재산과 시민적 자유를 빼앗는 강제를 쓰지 않는다. 국가의 강제는 인정하되 제한하도록 증언하며, 위협받는 이웃은 무기 아닌 방식으로 지킨다. 이 구별을 지탱하는 것은 원수 되었을 때 먼저 받은 화해의 기억과 십자가에 대한 신실함이다. 예수는 <span class="tq">“내가 너희에게 주는 것은 세상이 주는 것과 같지 아니하니라”</span> (요 14:27)고 하셨고, 세상의 평화는 더 큰 힘으로 억누르는 데 기댈 때가 많아 약자의 상처가 가려진다. 그리스도의 평화는 원수의 얼굴을 기억하고 위협받는 이웃 곁에 서는 공동체 안에서 자란다. 평화를 만드는 공동체도 폭력이 일어난 뒤의 현실을 마주하며, 상처를 덮은 채 서둘러 화해를 말하는 것은 예레미야가 고발한 거짓 평화이고 그렇다고 상처를 그대로 내버려 두는 것도 평화가 아니다. 폭력 뒤에 진실과 책임과 회복은 어떻게 가능한가 하는 물음은 20장이 용서라는 이름으로 다룬다.</li>
+        <li><span class="bdg b-add">📌 강의추가</span> <b>마무리:</b> 오늘 토론 질문 5가지(자막 ‘5가지’ [?]; 슬라이드·교재의 토론 질문은 4개)를 보고 복습하며 학자들을 고민해 보고, 기존 생각과 달랐던 것 가운데 동의할 것도 있고 거부감이 들거나 반대하는 것도 있을 텐데 그것을 차분하게 정리해 보면 좋겠다고 한다 [L421–422]. <span class="bdg b-exam">⭐ 교수강조</span> <span class="say">“다시 한번 마지막으로 하나님과 화평한 우리가 세상과 하나님 사이를 화평케 하는 중재자로서 그리스도의 사신으로 살아가는 우리 모두가 되기를 바랍니다.”</span> [L423]</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section-block">
+    <article class="unit-card" id="cmp">
+      <div class="unit-header">
+        <div class="unit-title-group">
+          <h3>비교표 — 세 입장 · 두 판단 · 네 강제</h3>
+          <div class="unit-desc">전쟁을 대하는 세 입장 · 정당전쟁론과 메시아 공동체의 평화주의 · 월저와 요더 · 니버와 하우어워스 · 강제의 네 구별 (슬라이드 p.15–21·30–33·37, 19장 p.3–10)</div>
+        </div>
+      </div>
+      <div class="oneline">전쟁을 대하는 입장은 전쟁 자체를 어떻게 보는가, 판단의 출발점을 어디에 두는가로 갈리며, 이 장은 요더의 메시아 공동체의 평화주의를 규범으로 받으면서 정당전쟁론을 동반자로 대한다.</div>
+      <div class="key">
+        <ul>
+          <li><span class="bdg b-sup">📖 슬라이드 p.15·19, 19장 p.3–4</span> <b>전쟁을 대하는 입장</b>
+            <table class="custom-table cmp">
+              <tr><th>입장</th><th>핵심</th><th>한계·평가</th><th>교수의 말</th></tr>
+              <tr><td>평화주의</td><td>전쟁과 폭력은 예수의 십자가에 반한다. 콘스탄티누스 이전 교회가 대체로 이 입장(교재는 2세기 후반부터 군대 안 그리스도인의 증거도 늘어 절대적 평화주의로만 그릴 수 없다고 덧붙임)</td><td>하나가 아니다 — 효과를 믿는 평화주의 / 양심의 순결을 지키는 평화주의 / 메시아 공동체의 평화주의</td><td>전쟁과 폭력이 십자가에 반한다 [L151–152]; 우리는 메시아 공동체의 평화주의 [L200–201]</td></tr>
+              <tr><td>정당한 전쟁</td><td>전쟁 자체는 부당하지만 개시·수행의 조건을 지키면 정당화될 수 있다. 제국의 교회가 다듬은 판단(아우구스티누스·아퀴나스)</td><td>본래 전쟁을 어렵게 하려 했고 민간인 보호 규범에 공헌. 한계 — 기준이 지켜지지 않았고(역사), 기준을 다 지켜도 원수의 죽음을 의도된 수단으로 삼는 판단이 십자가와 충돌하지 않는가(신학)</td><td>기독교의 주류 [L155]; 십자군까지 정당하다면 이론이 무용지물 [L180]; 본래 취지는 전쟁을 막는 것 [L188]</td></tr>
+              <tr><td>십자군(거룩한 전쟁)</td><td>거룩한 이름으로 합리화된 전쟁</td><td>하나님의 뜻을 이루는 수단이 전쟁이 될 수 있다는 논리</td><td>기독교윤리학자들에게 배제된 논리 [L153–154]</td></tr>
+            </table>
+          </li>
+          <li><span class="bdg b-sup">📖 슬라이드 p.30–33, 19장 p.6–7</span> <b>정당방위·전쟁을 보는 두 출발점</b>
+            <table class="custom-table cmp">
+              <tr><th>구분</th><th>전통적 정당방위(이중 효과)</th><th>메시아 공동체의 평화주의(요더)</th><th>월저</th></tr>
+              <tr><td>선을 긋는 곳</td><td>의도에 선을 긋는다. 의도하지 않은 치명적 결과는 허용</td><td>의도와 수단에 선을 긋는다. 죽음을 초래할 것이 분명한 수단은 거부</td><td>침해된 권리와 정당한 방어에서 출발</td></tr>
+              <tr><td>공통</td><td colspan="3">방어라는 목적과 제한된 힘의 사용은 인정한다. 무고한 이웃을 보호할 책임을 인정한다</td></tr>
+              <tr><td>개인→전쟁</td><td>—</td><td>개인의 방어와 현대 전쟁은 같지 않다(겨누는 대상·사후 검토·준비와 확대) [L306–312]</td><td>국내 유비로 개인의 정당방위를 국가 사이로 확장 [L301–305]</td></tr>
+            </table>
+          </li>
+          <li><span class="bdg b-sup">📖 슬라이드 p.21, 19장 p.5</span> <b>끝내 갈리는 자리</b>
+            <table class="custom-table cmp">
+              <tr><th>구분</th><th>니버</th><th>하우어워스(교수는 ‘요더나 하우어워스’로 묶음)</th></tr>
+              <tr><td>먼저 보는 현실</td><td>힘없는 피해자의 몸</td><td>십자가와 부활이 드러낸 세계의 결</td></tr>
+              <tr><td>전쟁 판단의 몫</td><td>결과를 홀로 책임지는 시민과 정치가</td><td>함께 분별하고 비용을 함께 지는 교회</td></tr>
+              <tr><td>교수의 말</td><td>현실에 맞게 윤리를 조정 — 기독교 현실주의 [L218–221]</td><td>십자가의 제자도 — 십자가를 들고 현실에서 살아간다 [L224–229]; 둘 다 옳다 [L231]</td></tr>
+            </table>
+          </li>
+          <li><span class="bdg b-sup">📖 슬라이드 p.37, 19장 p.9–10</span> <b>강제의 네 구별</b>은 본문 §20에 정리했다(교회의 권징 · 국가의 강제 · 자기방어 · 타인 보호).</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="exam-section" id="exam">
+    <div class="exam-title">🎯 예상 문항</div>
+    <p class="exam-note">(노트 정리용 예상 문항 — 교수 언급 아님) </p>
+    <h3 class="exam-h">O/X</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 갈퉁의 소극적 평화는 구조적 폭력까지 극복된 상태를 뜻한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 소극적 평화는 전쟁·직접적 폭력이 없는 상태이고, 구조적 폭력까지 극복된 상태가 적극적 평화이다. [§3, L29–32; 슬라이드 p.6]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 교수는 정의가 없으면 평화도 없고, 정의 없이 평화나 용서를 말하는 것은 강자의 논리라고 말한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 정의가 기초이되, 정의만 외치면 율법주의가 되어 정죄·배제로 흐르므로 정의는 평화로 가는 여정이어야 한다. [§5, L72–83]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 슬라이드는 거짓 평화의 본문으로 렘 6:14를, 참된 평화의 본문으로 시 85:10을 든다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 거짓 평화는 불의를 덮는 고요, 참된 평화는 의와 화평이 서로 입맞추는 것이다. [§5; 슬라이드 p.11]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 교수는 십자가를 구원의 진리이자 우리가 지금 살아갈 삶의 윤리라고 말한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 루터의 말(십자가는 모든 것을 시험한다)을 들어 십자가가 평화를 이루는 데 리트머스 시험지 역할을 한다고 한다. [§7, L113–116]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q5. 교수는 거룩한 전쟁론이 기독교윤리학자들에게 배제된 논리이고 기독교의 주류는 평화주의라고 말한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 거룩한 전쟁론이 배제된 논리인 것은 맞지만, 기독교의 주류 입장은 정당한 전쟁론이라고 한다. [§9, L153–155]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q6. 정당한 전쟁론은 전쟁 자체가 선하다는 전제 위에서 조건을 세운다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 전쟁 자체는 부당하고 불의하지만 조건을 지킬 때 정당화될 수 있다는 것이다. 본래 취지는 전쟁을 막으려는 것이었다. [§10, L150·159–160·188; 슬라이드 p.16]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q7. 요더가 정당전쟁론자에게 던지는 질문에는 ‘정당전쟁의 기준으로 실제로 거부한 전쟁이 있는가’가 있다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 기준을 적용할 정보와 절차를 갖추었는가, 기준에 어긋난 전쟁을 거부하는 지체를 지지할 준비가 되어 있는가가 함께 나온다. [§11; 슬라이드 p.19, 19장 p.4]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q8. 메시아 공동체의 평화주의는 방어라는 목적과 제한된 힘의 사용까지 부정한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 방어와 제한된 힘의 사용은 인정하되, 죽음을 초래할 것이 분명한 수단은 의도와 수단에 선을 그어 거부한다. [§16, L292–294; 슬라이드 p.30]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q9. 요더는 ‘죽이거나 방치하거나’의 양자택일이 논리적으로도 성립하지 않는다고 본다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 방어자가 스스로 위험을 감수하거나 몸으로 막아서서 달아날 틈을 만들거나 비살상의 제지로 무장 해제하는 길이 있다. [§15, L262–267; 슬라이드 p.27–28]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q10. 교수에 따르면 교회는 폭력을 행사할 수 없고, 국가가 폭력을 쓰는 권력이 있음을 인정하되 전쟁을 막는 노력을 해야 한다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 교회는 샬롬 복음을 통해 말씀으로 살며, 국가에는 그 폭력이 끝없이 가지 않도록 증언한다. [§20, L381–386]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q11. 교수는 북한 정권의 폭력을 비판하지 않는 것이 적대 언어를 쓰지 않는 길이라고 말한다.</div>
+      <div class="quiz-ans"><strong>X</strong> — 정의 없는 평화는 없으므로 정확한 비판과 규정은 해야 하고, 다만 상대를 악마화하지는 말아야 한다고 한다. [§21, L397–401]</div>
+    </div>
+
+    <div class="quiz-item">
+      <div class="quiz-q">Q12. 슬라이드 p.42와 19장 p.12는 토머스 헬위스가 영국 최초의 침례교회를 세운 해를 1612년으로 쓴다.</div>
+      <div class="quiz-ans"><strong>O</strong> — 런던에서 1612년에 세웠고 제임스 1세에게 신앙의 자유를 요구하는 글을 보냈다(자막 L414의 ‘1972년’은 불명 [?]). [§22; 슬라이드 p.42, 19장 p.12]</div>
+    </div>
+
+    <h3 class="exam-h">서술 예상 과제</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">S1. 갈퉁의 소극적·적극적 평화를 설명하고, 이 장이 말하는 평화(십자가의 방식에 신실하게 머무는 공동체의 삶의 형식)와 하나님 나라의 사회적 형상의 관계를 서술하시오.</div>
+      <div class="quiz-ans"><strong>요지</strong> — 소극적 평화(직접적 폭력의 부재)와 적극적 평화(구조적 폭력의 극복)를 구별하고, 샬롬을 하나님·이웃·자기 자신·땅의 네 관계가 바로 선 상태로 본다. 평화는 먼저 받은 화해(롬 5:10)에서 나오고 정의 위에서 힘이 아니라 십자가의 방식으로 만들어 가는 실천(동사)이다. [§3·§4·§5·§8, L29–41·124–126; 슬라이드 p.6·8–11, 19장 p.1–3]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">S2. 정당전쟁론의 조건과 한계, 그리고 평화주의와의 관계(경쟁자인가 동반자인가)를 서술하시오.</div>
+      <div class="quiz-ans"><strong>요지</strong> — 개시의 정당성(최후의 수단 등)과 수행의 정당성(민간인·전투원 구별, 과도한 피해 제한)을 요구하며 본래 전쟁을 어렵게 하려 했으나, 역사적으로 기준이 지켜지지 않았고(십자군까지 합리화), 기준을 다 지켜도 원수의 죽음을 수단으로 삼는 판단이 십자가와 충돌하는가라는 신학적 한계가 남는다. 두 전통은 전쟁 전에 할 일(스타센의 네 가지)을 함께하는 동반자이다. [§9–§12, L159–215; 슬라이드 p.16–20, 19장 p.3–5]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">S3. ‘누군가 내 가족을 해치려 한다면’이라는 반론에서 요더가 드러낸 숨은 전제와 두 가지 질문(경험적·규범적)을 설명하고, 월저와 요더의 판단 차이를 서술하시오.</div>
+      <div class="quiz-ans"><strong>요지</strong> — 결정론·통제·확실한 지식·피해자의 지워짐·나의 의로움의 다섯 전제를 걷어 내면 죽이거나 방치하는 양자택일은 성립하지 않는다. 그래도 남는 규범적 질문(유일한 수단이 치명적 힘이라면)에서 정당방위론은 의도에, 메시아 공동체의 평화주의는 의도와 수단에 선을 긋는다. 월저는 침해된 권리와 정당한 방어에서, 요더는 십자가가 보여 준 예수의 길에서 판단을 시작한다. [§14–§17, L241–317; 슬라이드 p.22–33, 19장 p.5–7]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">S4. 힘·강제·폭력·권력의 구별과 강제의 네 구별(권징·국가·자기방어·타인 보호)을 설명하고, 교회가 국가에 대해 지는 몫을 서술하시오.</div>
+      <div class="quiz-ans"><strong>요지</strong> — 힘은 변화를 일으키는 작용, 강제는 의사에 반하는 힘, 폭력은 몸·마음·존엄을 침해하는 힘(기본은 물리적)이고, 정당한 전쟁도 폭력이되 정당화된 폭력이다. 교회는 폭력을 행사하지 않고 국가가 폭력을 끝없이 쓰지 않도록 증언하며 전쟁을 막는 노력을 한다. [§19·§20, L348–391; 슬라이드 p.36–38, 19장 p.8–10]</div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">S5. 분단 앞에서 교회가 지는 세 몫(언어·기도·양심)을 설명하시오.</div>
+      <div class="quiz-ans"><strong>요지</strong> — 정권의 악은 정확히 비판하되 상대를 악마화하지 않고(언어), ‘무너뜨려 달라’는 기도를 그 체제 아래 고통받는 이들의 자유를 구하는 기도로 바꾸며(기도), 입대하는 청년과 대체복무하는 청년을 모두 품는다(양심). [§21·§22, L392–414; 슬라이드 p.40–42, 19장 p.10–12]</div>
+    </div>
+  </section>
+
+  <details class="apx" id="apx">
+    <summary>부록 — 토론 질문 · 자막 교정[?] · 보충[보충] 목록</summary>
+    <div class="dbody">
+      <h4>교재 토론 질문(원문 — 19장 p.14–15 · 슬라이드 p.46)</h4>
+      <ol>
+        <li>분단의 현실에서 국가 안보와 원수 사랑은 어떻게 양립할 수 있는가? 우리 교회의 기도와 설교에서 북녘의 사람들을 어떻게 부르며, 그 언어를 바꾸려면 무엇부터 시작해야 하는가?</li>
+        <li>가족이 위협받을 때 그리스도인이 쓸 수 있는 힘의 한계는 어디인가? 요더가 드러낸 숨은 전제들 가운데 내 판단에 가장 큰 영향을 미치는 것은 무엇이며, 그 전제를 내려놓으면 어떤 다른 길이 보이는가?</li>
+        <li>월저와 요더 가운데 누구의 판단이 더 설득력 있으며, 왜 그런가? 침해된 권리를 출발점으로 삼는 판단과 십자가의 길을 출발점으로 삼는 판단은 무고한 이웃을 보호하는 방식에서 어떤 차이를 낳는가?</li>
+        <li>교회는 병역 앞에서 고민하는 청년의 양심을 어떻게 도울 수 있는가? 군 복무를 택한 지체와 대체복무를 택한 지체가 한 공동체 안에서 서로를 존중하려면 교회는 무엇을 준비해야 하는가?</li>
+      </ol>
+      <p class="exam-note">교수는 ‘토론 질문 5가지’(자막 [L421], 숫자 [?])를 보라고 했고 슬라이드와 교재에는 4개가 있다.</p>
+
+      <h4>자막 오인식 교정 [?]</h4>
+      <ul>
+        <li>‘약자의 특정을’→약자를 특정한다면(추정) [L4]</li>
+        <li>‘호스트에서 호스텔로’→불명(적대적 상대로 맞이하라는 대목) [L5]</li>
+        <li>‘원수를 사랑하면’→원수를 사랑하며(마 5:44) [L23]</li>
+        <li>‘황폐짐으로써’→황폐해짐으로써 [L55]</li>
+        <li>‘몸에 가닥이 있고 사이가 있고’→몸의 가닥, 사회의 가닥(추정) [L128]</li>
+        <li>‘본질원칙, 거부감’→본질적인 거부감(추정) [L136]</li>
+        <li>‘금남공동체’→불명(슬라이드 p.13은 광야 공동체) [L110]</li>
+        <li>‘협력을 얼마나 줄 것이냐’→병력을 얼마나 둘 것이냐(추정) [L406]</li>
+        <li>‘아나베스트’→불명 [L387]</li>
+        <li>‘흑암이’→불명 [L330]</li>
+        <li>‘균형, 평화, 참된 평안’→불명 [L91]</li>
+        <li>‘네이버’→니버(추정; 슬라이드 p.35) [L344]</li>
+        <li>‘토머스 헬리스의 1972년’→토머스 헬위스의 1612년(추정; 슬라이드 p.42) [L414]</li>
+        <li>‘토론 질문 5가지’→숫자 불명(슬라이드·교재는 4개) [L421]</li>
+      </ul>
+
+      <h4>[보충] 교수 발언과 교재·슬라이드의 차이</h4>
+      <ul>
+        <li><b>이중 효과 [L288]:</b> 교수는 아퀴나스의 주장이라고 하나 슬라이드 p.30과 19장 p.6은 ‘전통적인 정당방위론’이라고만 쓰고 아퀴나스를 언급하지 않는다.</li>
+        <li><b>정당전쟁론과 십자군 [L177]:</b> 교수는 정당한 전쟁을 주장했던 이들이 십자군도 정당하다고 했다고 한다. 19장 p.4는 정당전쟁론과 십자군 이념이 같은 논리는 아니지만 중세에 서로 교차하며 영향을 주었다고 쓴다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer class="footer">
+    <p><strong>한국침례신학대학교 신학대학원 2026-2학기 기독교윤리학개론</strong></p>
+    <p>강의: 김기현 교수 | 교재: 『은혜의 윤리』 19장(평화) 원고, 제19강 슬라이드, 수업 자막 · 쪽수는 PDF 쪽(슬라이드 p.1–46, 19장 p.1–15)</p>
+  </footer>
+
+</div>
+
+<script>
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+});
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme');
+  if (cur === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+</script>
+</body>
+</html>
