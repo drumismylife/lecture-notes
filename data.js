@@ -695,7 +695,9 @@ const SITE_DATA = {
             { week: 12, title: "전도의 3단계 (3) — 타이밍을 보아 권면 / 복음전도의 모델 ① 콜먼의 8원리", date: "2026.11.19", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/evan/week12.html" }
           ] },
-            { week: 13, title: "", date: "", files: [] },
+            { week: 13, title: "복음전도의 모델 ② 헨리 블랙가비 — 패턴보다 하나님의 음성 / 10강 Follow up(양육)과 기초성경공부 교재", date: "2026.11.26", files: [
+            { type: "notes", label: "강의노트", href: "output/2026-2/evan/week13.html" }
+          ] },
             { week: 14, title: "", date: "", files: [] },
             { week: 15, title: "", date: "", files: [] }
           ]
