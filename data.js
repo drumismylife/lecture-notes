@@ -743,7 +743,7 @@ const SITE_DATA = {
             { week: 12, title: "환대의 윤리", date: "2026.11.20", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week12.html" }
           ] },
-            { week: 13, title: "평화의 윤리", date: "2026.11.23", files: [
+            { week: 13, title: "평화의 윤리와 용서의 윤리", date: "2026.11.23", files: [
             { type: "notes", label: "강의노트", href: "output/2026-2/ethic/week13.html" }
           ] },
             { week: 14, title: "", date: "", files: [] },
